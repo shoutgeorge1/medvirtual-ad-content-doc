@@ -19,6 +19,12 @@
   font-size: 0.9rem;
 }
 
+.content-doc-view__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 @media print {
   .no-print {
     display: none !important;

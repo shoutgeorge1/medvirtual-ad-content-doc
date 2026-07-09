@@ -1,26 +1,9 @@
-import { useMemo } from 'react';
 import { ContentDoc } from '../components/ContentDoc';
-import { FilterBar, type Filters } from '../components/FilterBar';
 import { useConcepts } from '../context/ConceptsContext';
-import { filterConcepts } from '../utils/concepts';
-import { useState } from 'react';
 import './ContentDocView.css';
 
-const DEFAULT_FILTERS: Filters = {
-  role: 'all',
-  angle: 'all',
-  status: 'all',
-  search: '',
-};
-
 export function ContentDocView() {
-  const { concepts } = useConcepts();
-  const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS);
-
-  const filtered = useMemo(
-    () => filterConcepts(concepts, filters),
-    [concepts, filters]
-  );
+  const { concepts, resetAll } = useConcepts();
 
   const handlePrint = () => {
     window.print();
@@ -30,24 +13,22 @@ export function ContentDocView() {
     <div className="content-doc-view">
       <div className="content-doc-view__toolbar no-print">
         <div>
-          <h2>Content Document</h2>
-          <p>Manager review layout · print or share as PDF</p>
+          <h2>Submission doc</h2>
+          <p>
+            {concepts.length} static concepts · review copy, export PNGs, submit to Meta
+          </p>
         </div>
-        <button type="button" className="btn btn-primary" onClick={handlePrint}>
-          Print / Save PDF
-        </button>
+        <div className="content-doc-view__actions">
+          <button type="button" className="btn btn-ghost" onClick={resetAll}>
+            Reset copy
+          </button>
+          <button type="button" className="btn btn-primary" onClick={handlePrint}>
+            Print / PDF
+          </button>
+        </div>
       </div>
 
-      <div className="no-print">
-        <FilterBar
-          filters={filters}
-          onChange={setFilters}
-          total={concepts.length}
-          filtered={filtered.length}
-        />
-      </div>
-
-      <ContentDoc concepts={filtered} />
+      <ContentDoc concepts={concepts} />
     </div>
   );
 }

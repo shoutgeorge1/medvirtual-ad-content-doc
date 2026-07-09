@@ -74,6 +74,21 @@
   color: #64748b;
 }
 
+.content-doc__edit {
+  margin: -0.5rem 0 1rem;
+  font-size: 0.85rem;
+}
+
+.content-doc__edit a {
+  color: #0891b2;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.content-doc__edit a:hover {
+  text-decoration: underline;
+}
+
 .content-doc__grid {
   display: grid;
   grid-template-columns: 280px 1fr;

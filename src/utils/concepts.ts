@@ -2,7 +2,7 @@ import type { Concept, ConceptStatus } from '../types/concept';
 import seedData from '../data/concepts.json';
 import { generateSeedConcepts } from './seedConcepts';
 
-const STORAGE_KEY = 'medvirtual-meta-concepts';
+const STORAGE_KEY = 'medvirtual-meta-concepts-v2';
 
 export function loadConcepts(): Concept[] {
   try {

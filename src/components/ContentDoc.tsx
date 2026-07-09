@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import type { Concept } from '../types/concept';
 import { AdPreviewScaler } from './AdPreview';
 import { StatusBadge } from './StatusBadge';
@@ -11,9 +12,9 @@ export function ContentDoc({ concepts }: ContentDocProps) {
   return (
     <div className="content-doc">
       <header className="content-doc__header">
-        <h1>MedVirtual Meta Ads — Content Document</h1>
+        <h1>MedVirtual — Facebook Ad Content Doc</h1>
         <p className="content-doc__subtitle">
-          Internal review document · {concepts.length} static ad concepts · Roles × Message angles
+          National Meta static ads · {concepts.length} starter concepts · one per message angle
         </p>
         <p className="content-doc__date">
           Generated {new Date().toLocaleDateString('en-US', { dateStyle: 'long' })}
@@ -34,6 +35,10 @@ export function ContentDoc({ concepts }: ContentDocProps) {
             </div>
             <StatusBadge status={concept.status} />
           </div>
+
+          <p className="content-doc__edit no-print">
+            <Link to={`/editor/${concept.concept_id}`}>Edit concept →</Link>
+          </p>
 
           <div className="content-doc__grid">
             <div className="content-doc__preview-col">

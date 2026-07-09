@@ -91,6 +91,15 @@ export const ROLE_FILE_PREFIX: Record<string, string> = {
   'Medical Case Coordinator': 'CASECOORD',
 };
 
+/** Background images pulled from medvirtual.ai landing pages (one per role). */
+export const ROLE_BACKGROUND_IMAGES: Record<string, string> = {
+  'General MedVirtual': '/assets/backgrounds/general.avif',
+  'Medical Assistant': '/assets/backgrounds/assistant.avif',
+  'Medical Nurse': '/assets/backgrounds/nurse.avif',
+  'Medical Biller': '/assets/backgrounds/biller.avif',
+  'Medical Case Coordinator': '/assets/backgrounds/casecoord.avif',
+};
+
 export const ANGLE_FILE_SUFFIX: Record<string, string> = {
   'Cost comparison': 'COST',
   'Staffing shortage': 'STAFFING',

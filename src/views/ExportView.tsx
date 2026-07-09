@@ -2,24 +2,14 @@ import { useCallback, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { AdPreview, AdPreviewScaler } from '../components/AdPreview';
 import { ExportSizeToggle } from '../components/ExportButton';
-import { FilterBar, type Filters } from '../components/FilterBar';
 import { useConcepts } from '../context/ConceptsContext';
 import type { Concept, ExportSize } from '../types/concept';
-import { filterConcepts } from '../utils/concepts';
 import { exportAdToPng, exportAllAds } from '../utils/export';
 import './ExportView.css';
-
-const DEFAULT_FILTERS: Filters = {
-  role: 'all',
-  angle: 'all',
-  status: 'all',
-  search: '',
-};
 
 export function ExportView() {
   const { concepts, saveConcept } = useConcepts();
   const [searchParams] = useSearchParams();
-  const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS);
   const [size, setSize] = useState<ExportSize>('1080x1350');
   const [selectedId, setSelectedId] = useState(
     searchParams.get('concept') ?? concepts[0]?.concept_id ?? ''
@@ -28,14 +18,9 @@ export function ExportView() {
   const [progress, setProgress] = useState('');
   const exportRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
-  const filtered = useMemo(
-    () => filterConcepts(concepts, filters),
-    [concepts, filters]
-  );
-
   const selected = useMemo(
-    () => concepts.find((c) => c.concept_id === selectedId) ?? filtered[0],
-    [concepts, selectedId, filtered]
+    () => concepts.find((c) => c.concept_id === selectedId) ?? concepts[0],
+    [concepts, selectedId]
   );
 
   const setRef = useCallback((id: string, el: HTMLDivElement | null) => {
@@ -65,7 +50,7 @@ export function ExportView() {
   };
 
   const handleExportAll = async () => {
-    const targets = filtered
+    const targets = concepts
       .map((c) => ({
         concept: c,
         element: exportRefs.current.get(c.concept_id),
@@ -94,30 +79,23 @@ export function ExportView() {
     <div className="export-view">
       <div className="export-view__header">
         <div>
-          <h2>Export Creatives</h2>
-          <p>Download PNG files at Meta ad sizes · text rendered as overlays</p>
+          <h2>Export for Meta</h2>
+          <p>Download PNGs at 1080×1350 (4:5 feed) or 1080×1080 (square)</p>
         </div>
         <ExportSizeToggle size={size} onChange={setSize} />
       </div>
 
-      <FilterBar
-        filters={filters}
-        onChange={setFilters}
-        total={concepts.length}
-        filtered={filtered.length}
-      />
-
       <div className="export-view__layout">
         <div className="export-view__sidebar">
-          <label className="export-view__label">Select concept</label>
+          <label className="export-view__label">Concept</label>
           <select
             className="export-view__select"
             value={selected?.concept_id ?? ''}
             onChange={(e) => setSelectedId(e.target.value)}
           >
-            {filtered.map((c) => (
+            {concepts.map((c) => (
               <option key={c.concept_id} value={c.concept_id}>
-                {c.file_name} — {c.on_image_hook}
+                {c.file_name} — {c.angle}
               </option>
             ))}
           </select>
@@ -129,15 +107,15 @@ export function ExportView() {
               onClick={handleSingleExport}
               disabled={exporting || !selected}
             >
-              {exporting ? 'Exporting…' : 'Export Selected'}
+              {exporting ? 'Exporting…' : 'Export selected'}
             </button>
             <button
               type="button"
               className="btn btn-secondary"
               onClick={handleExportAll}
-              disabled={exporting || filtered.length === 0}
+              disabled={exporting || concepts.length === 0}
             >
-              Export All ({filtered.length})
+              Export all ({concepts.length})
             </button>
           </div>
 
@@ -154,9 +132,8 @@ export function ExportView() {
         </div>
       </div>
 
-      {/* Hidden full-size renders for export */}
       <div className="export-view__staging" aria-hidden="true">
-        {filtered.map((concept) => (
+        {concepts.map((concept) => (
           <AdPreview
             key={concept.concept_id}
             ref={(el) => setRef(concept.concept_id, el)}

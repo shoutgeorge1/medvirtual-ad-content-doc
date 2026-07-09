@@ -1,69 +1,38 @@
-# MedVirtual Meta Content Doc
+# MedVirtual Facebook Ad Content Doc
 
-Internal content document and static image export tool for MedVirtual Meta ads. Create, preview, edit, and export 25 static Facebook/Instagram ad concepts (5 roles × 5 message angles).
+Starter content doc for **national Meta static ads** — review copy, export PNGs, submit.
 
-All ad copy is rendered as editable HTML/CSS overlays on clean background images — no text baked into AI-generated images.
+**Live:** [https://medvirtual-ad-content-doc.vercel.app](https://medvirtual-ad-content-doc.vercel.app)
 
-## Features
+## What's in v1
 
-- **Dashboard** — Browse 25 concept cards with filters by role, angle, status, and search
-- **Content Doc** — Manager-facing review layout with print/PDF support
-- **Creative Editor** — Edit copy, swap images, live preview, duplicate concepts
-- **Export** — Download PNGs at 1080×1350 (4:5) or 1080×1080 (square), single or batch
+**5 starter concepts** — one per message angle:
 
-## Quick Start
+| Angle | File name |
+|-------|-----------|
+| Cost / value of hiring | `MV_META_COST_01` |
+| Staffing shortage | `MV_META_STAFFING_01` |
+| Patient experience | `MV_META_PATIENT_01` |
+| Founder / operator authority | `MV_META_OPERATOR_01` |
+| Workflow transformation | `MV_META_WORKFLOW_01` |
+
+Background images are pulled from [medvirtual.ai](https://www.medvirtual.ai) landing pages. Ad copy is HTML/CSS overlays (Meta best practice: short hook, bullets, CTA on image; primary text + headline for the ad set).
+
+## Use it
+
+1. **Content Doc** — review all copy and previews; print or save as PDF for approval
+2. **Export PNGs** — download 1080×1350 (4:5 feed) or 1080×1080 (square)
+3. **Edit** — click "Edit concept" on any block to tweak copy or swap images
+
+## Local
 
 ```bash
-cd medvirtual-meta-content-doc
 npm install
 npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173).
 
-## Build
+## Expand later
 
-```bash
-npm run build
-npm run preview
-```
-
-## Project Structure
-
-```
-src/
-  components/     # UI components (ConceptCard, AdPreview, etc.)
-  context/        # React context for concept state
-  data/           # concepts.json seed data (25 concepts)
-  templates/      # Ad template CSS
-  utils/          # Constants, export, persistence helpers
-  views/          # Route views (Dashboard, ContentDoc, Editor, Export)
-public/
-  assets/         # Placeholder background images
-  exports/        # Local export destination (optional)
-```
-
-## Data Persistence
-
-Edits are saved to `localStorage`. Use **Reset to seed data** on the Dashboard to restore the original 25 concepts from `src/data/concepts.json`.
-
-## Export Sizes
-
-| Size | Dimensions | Use |
-|------|------------|-----|
-| 4:5 Vertical | 1080 × 1350 | Feed creative |
-| Square | 1080 × 1080 | Feed creative |
-
-## File Naming
-
-Concepts use the pattern `MV_META_[ROLE]_[ANGLE]_[NN]`, e.g. `MV_META_GENERAL_COST_01`.
-
-## Roles & Landing Pages
-
-| Role | Landing Page |
-|------|-------------|
-| General MedVirtual | medvirtual.ai/explore-medical-virtual-assistants |
-| Medical Assistant | medvirtual.ai/hire-virtual-medical-assistants |
-| Medical Nurse | medvirtual.ai/hire-virtual-medical-nurse-now |
-| Medical Biller | medvirtual.ai/hire-virtual-medical-biller-now |
-| Medical Case Coordinator | medvirtual.ai/hire-virtual-medical-case-coordinator-now |
+Add more concepts in `src/utils/seedConcepts.ts` when you're ready to test more roles or angles. This repo is intentionally small first — dial in what works, then scale.

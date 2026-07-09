@@ -1,164 +1,122 @@
 import type { Concept } from '../types/concept';
-import {
-  ROLES,
-  ANGLES,
-  ROLE_URLS,
-  ANGLE_HOOKS,
-  ROLE_FILE_PREFIX,
-  ANGLE_FILE_SUFFIX,
-} from './constants';
+import { ROLE_URLS, ROLE_BACKGROUND_IMAGES } from './constants';
 
-const ROLE_BULLETS: Record<string, string[]> = {
-  'General MedVirtual': [
-    'HIPAA-trained virtual support',
-    'Start in days, not months',
-    'Month-to-month flexibility',
-  ],
-  'Medical Assistant': [
-    'Scheduling & patient follow-up',
-    'HIPAA-trained support',
-    'Free replacement if needed',
-  ],
-  'Medical Nurse': [
-    'Clinical admin support',
-    'Trained medical support',
-    'Start in days',
-  ],
-  'Medical Biller': [
-    'Billing & claims workflow help',
-    'Reduce admin overhead',
-    'Month-to-month flexibility',
-  ],
-  'Medical Case Coordinator': [
-    'Patient coordination support',
-    'Smoother care workflows',
-    'HIPAA-trained team members',
-  ],
-};
-
-const ROLE_HEADLINES: Record<string, Record<string, string>> = {
-  'General MedVirtual': {
-    'Cost comparison': 'Virtual Medical Support From $10/hr',
-    'Staffing shortage': 'Add Trained Support Without Long Hires',
-    'Patient experience': 'Better Follow-Up For Your Patients',
-    'Founder / operator authority': 'Scale Your Practice Back Office',
-    'Workflow transformation': 'Turn Admin Chaos Into Process',
+/** Starter set: one concept per core message angle (expand later). */
+const STARTER_CONCEPTS: Omit<Concept, 'source_url' | 'source_page_name'>[] = [
+  {
+    concept_id: 'cost-01',
+    role: 'General MedVirtual',
+    angle: 'Cost comparison',
+    image_prompt:
+      'Professional healthcare office, modern clinic, soft daylight, teal palette, photorealistic, no text, no logos',
+    image_file: ROLE_BACKGROUND_IMAGES['General MedVirtual'],
+    image_direction: 'Credible healthcare professional portrait, clean background, no text in image',
+    on_image_hook: 'Cut Staffing Costs',
+    bullet_1: 'HIPAA-trained virtual support',
+    bullet_2: 'Starting at $10/hr',
+    bullet_3: 'Month-to-month flexibility',
+    cta: 'Get Started',
+    primary_text:
+      'Compare in-house staffing with flexible virtual medical support. HIPAA-trained team members starting at $10/hr—month-to-month, no long-term contract.',
+    headline: 'Virtual Support From $10/hr',
+    description: 'Flexible staffing costs for U.S. practices.',
+    file_name: 'MV_META_COST_01',
+    status: 'Ready For Review',
+    notes: 'Angle: cost / value of hiring vs in-house.',
   },
-  'Medical Assistant': {
-    'Cost comparison': 'Affordable Virtual Medical Assistant Support',
-    'Staffing shortage': 'Fill Assistant Gaps In Days',
-    'Patient experience': 'Keep Patients Moving With Better Support',
-    'Founder / operator authority': 'Run Leaner With Virtual Assistants',
-    'Workflow transformation': 'Clean Up Daily Assistant Workflow',
+  {
+    concept_id: 'staffing-01',
+    role: 'Medical Assistant',
+    angle: 'Staffing shortage',
+    image_prompt:
+      'Medical assistant in modern clinic, warm professional lighting, healthcare staffing aesthetic, no text, no logos',
+    image_file: ROLE_BACKGROUND_IMAGES['Medical Assistant'],
+    image_direction: 'Medical assistant portrait, professional scrubs, no text in image',
+    on_image_hook: 'Short-Staffed?',
+    bullet_1: 'Trained in days, not months',
+    bullet_2: 'Scheduling & patient follow-up',
+    bullet_3: 'Free replacement if needed',
+    cta: 'Get Started',
+    primary_text:
+      'Skip job postings and long hiring cycles. Add a trained virtual medical assistant in days—with a free replacement if the fit is not right.',
+    headline: 'Fill Gaps In Days',
+    description: 'Coverage without a long hire.',
+    file_name: 'MV_META_STAFFING_01',
+    status: 'Ready For Review',
+    notes: 'Angle: staffing shortage / hiring pain.',
   },
-  'Medical Nurse': {
-    'Cost comparison': 'Flexible Nurse Support At Lower Overhead',
-    'Staffing shortage': 'Nurse Support Without Hiring Delays',
-    'Patient experience': 'Stronger Patient Coordination Support',
-    'Founder / operator authority': 'More Clinical Admin, Less Stress',
-    'Workflow transformation': 'Get Nursing Admin Work Moving',
+  {
+    concept_id: 'patient-01',
+    role: 'Medical Nurse',
+    angle: 'Patient experience',
+    image_prompt:
+      'Registered nurse, clinical admin setting, compassionate professional portrait, no text, no logos',
+    image_file: ROLE_BACKGROUND_IMAGES['Medical Nurse'],
+    image_direction: 'Nurse portrait, caring professional mood, no text in image',
+    on_image_hook: 'Better Patient Follow-Up',
+    bullet_1: 'Fewer missed calls & gaps',
+    bullet_2: 'Smoother scheduling support',
+    bullet_3: 'HIPAA-trained coordination',
+    cta: 'Get Started',
+    primary_text:
+      'Patients notice follow-up, scheduling, and coordination. Strengthen virtual nursing support to keep care moving—without adding in-house headcount.',
+    headline: 'Keep Patients Moving',
+    description: 'Stronger follow-up and patient flow.',
+    file_name: 'MV_META_PATIENT_01',
+    status: 'Ready For Review',
+    notes: 'Angle: patient experience / follow-up.',
   },
-  'Medical Biller': {
-    'Cost comparison': 'Lower Billing Admin Costs',
-    'Staffing shortage': 'Billing Support When You Need It',
-    'Patient experience': 'Fewer Billing Delays For Patients',
-    'Founder / operator authority': 'Take Control Of Billing Workflow',
-    'Workflow transformation': 'Clear The Billing Backlog',
+  {
+    concept_id: 'operator-01',
+    role: 'General MedVirtual',
+    angle: 'Founder / operator authority',
+    image_prompt:
+      'Healthcare practice leader environment, modern office, credible operator tone, no text, no logos',
+    image_file: ROLE_BACKGROUND_IMAGES['General MedVirtual'],
+    image_direction: 'Professional healthcare portrait, operator credibility, no text in image',
+    on_image_hook: 'Scale Without Admin Chaos',
+    bullet_1: 'Built for healthcare workflows',
+    bullet_2: 'More support, less overhead',
+    bullet_3: 'Start in days',
+    cta: 'Get Started',
+    primary_text:
+      'Practice owners need back-office leverage—not more admin stress. Scale with trained virtual support so your team can focus on patients and growth.',
+    headline: 'Run A Leaner Back Office',
+    description: 'Operator-friendly virtual staffing.',
+    file_name: 'MV_META_OPERATOR_01',
+    status: 'Ready For Review',
+    notes: 'Angle: founder / operator authority.',
   },
-  'Medical Case Coordinator': {
-    'Cost comparison': 'Case Coordination Support From $10/hr',
-    'Staffing shortage': 'Add Coordination Capacity Fast',
-    'Patient experience': 'Smoother Patient Flow Across Care',
-    'Founder / operator authority': 'Build A Stronger Care Coordination Team',
-    'Workflow transformation': 'Organize Case Management Workflow',
+  {
+    concept_id: 'workflow-01',
+    role: 'Medical Biller',
+    angle: 'Workflow transformation',
+    image_prompt:
+      'Medical billing professional at organized workstation, teal accents, corporate healthcare style, no text, no logos',
+    image_file: ROLE_BACKGROUND_IMAGES['Medical Biller'],
+    image_direction: 'Billing professional portrait, organized workflow mood, no text in image',
+    on_image_hook: 'Clear The Backlog',
+    bullet_1: 'Billing & claims workflow help',
+    bullet_2: 'Reduce admin overhead',
+    bullet_3: 'Works in your EMR',
+    cta: 'Get Started',
+    primary_text:
+      'Daily billing and admin backlog slows the whole practice. Organize workflow with HIPAA-trained virtual billing support on your systems.',
+    headline: 'Get Admin Work Moving',
+    description: 'Turn backlog into process.',
+    file_name: 'MV_META_WORKFLOW_01',
+    status: 'Ready For Review',
+    notes: 'Angle: workflow transformation.',
   },
-};
-
-const IMAGE_DIRECTIONS: Record<string, string> = {
-  'General MedVirtual':
-    'Modern clinic reception or team collaboration, soft natural light, no visible text or logos in scene',
-  'Medical Assistant':
-    'Medical assistant workspace with scheduling screens blurred, warm professional tone, no text in image',
-  'Medical Nurse':
-    'Nurse in clinical admin setting, caring professional mood, clean background, no text in image',
-  'Medical Biller':
-    'Medical billing office environment, organized desk, blue-teal tones, no text in image',
-  'Medical Case Coordinator':
-    'Care coordinator reviewing patient files, collaborative healthcare setting, no text in image',
-};
-
-const IMAGE_PROMPTS: Record<string, string> = {
-  'General MedVirtual':
-    'Professional healthcare office team collaboration, modern clinic interior, soft daylight, teal and white color palette, clean composition, photorealistic, no text, no logos, no watermarks',
-  'Medical Assistant':
-    'Medical assistant at organized front desk in modern clinic, warm professional lighting, shallow depth of field, healthcare staffing aesthetic, no text, no logos',
-  'Medical Nurse':
-    'Registered nurse in clinical administrative setting, compassionate professional portrait style, soft blue tones, healthcare environment, no text, no logos',
-  'Medical Biller':
-    'Medical billing professional at clean workstation, organized paperwork and monitor blurred, corporate healthcare style, teal accents, no text, no logos',
-  'Medical Case Coordinator':
-    'Healthcare case coordinator in bright medical office, patient care planning mood, modern and credible, no text, no logos',
-};
-
-function buildPrimaryText(role: string, angle: string): string {
-  const roleLabel = role === 'General MedVirtual' ? 'virtual medical support' : role.toLowerCase();
-  const angleCopy: Record<string, string> = {
-    'Cost comparison': `Many practices compare in-house staffing costs with flexible ${roleLabel}. MedVirtual offers HIPAA-trained support starting at $10/hr with month-to-month flexibility.`,
-    'Staffing shortage': `Short-staffed teams need coverage without long hiring cycles. Add trained ${roleLabel} and start in days with a free replacement if the fit is not right.`,
-    'Patient experience': `Patients notice follow-up, scheduling, and coordination. Strengthen ${roleLabel} support to reduce missed calls and keep care moving smoothly.`,
-    'Founder / operator authority': `Operators need back-office leverage without admin chaos. Scale with trained ${roleLabel} support built for healthcare workflows.`,
-    'Workflow transformation': `Daily admin backlog slows the whole practice. Organize ${roleLabel} workflow with scheduling, billing, and follow-up support.`,
-  };
-  return angleCopy[angle] ?? '';
-}
-
-function buildDescription(role: string, angle: string): string {
-  const snippets: Record<string, string> = {
-    'Cost comparison': 'Compare flexible staffing costs. Starting at $10/hr.',
-    'Staffing shortage': 'Fill gaps in days with trained support.',
-    'Patient experience': 'Improve follow-up and patient flow.',
-    'Founder / operator authority': 'More support. Less operational stress.',
-    'Workflow transformation': 'Turn daily admin chaos into process.',
-  };
-  return `${role.split(' ').slice(-2).join(' ')} — ${snippets[angle] ?? 'Explore MedVirtual support.'}`;
-}
+];
 
 export function generateSeedConcepts(): Concept[] {
-  const concepts: Concept[] = [];
-
-  ROLES.forEach((role, roleIndex) => {
-    const { url, pageName } = ROLE_URLS[role];
-    ANGLES.forEach((angle, angleIndex) => {
-      const hooks = ANGLE_HOOKS[angle];
-      const hook = hooks[roleIndex % hooks.length];
-      const bullets = ROLE_BULLETS[role];
-      const filePrefix = ROLE_FILE_PREFIX[role];
-      const angleSuffix = ANGLE_FILE_SUFFIX[angle];
-      const num = String(angleIndex + 1).padStart(2, '0');
-
-      concepts.push({
-        concept_id: `${filePrefix.toLowerCase()}-${angleSuffix.toLowerCase()}-${num}`,
-        role,
-        angle,
-        source_url: url,
-        source_page_name: pageName,
-        image_prompt: IMAGE_PROMPTS[role],
-        image_file: `/assets/placeholders/${filePrefix.toLowerCase()}.svg`,
-        image_direction: IMAGE_DIRECTIONS[role],
-        on_image_hook: hook,
-        bullet_1: bullets[0],
-        bullet_2: bullets[1],
-        bullet_3: bullets[2],
-        cta: 'Explore MedVirtual',
-        primary_text: buildPrimaryText(role, angle),
-        headline: ROLE_HEADLINES[role][angle],
-        description: buildDescription(role, angle),
-        file_name: `MV_META_${filePrefix}_${angleSuffix}_${num}`,
-        status: roleIndex === 0 && angleIndex === 0 ? 'In Progress' : 'Draft',
-        notes: '',
-      });
-    });
+  return STARTER_CONCEPTS.map((concept) => {
+    const { url, pageName } = ROLE_URLS[concept.role];
+    return {
+      ...concept,
+      source_url: url,
+      source_page_name: pageName,
+    };
   });
-
-  return concepts;
 }

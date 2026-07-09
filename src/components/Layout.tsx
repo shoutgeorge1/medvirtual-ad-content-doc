@@ -8,19 +8,16 @@ export function Layout() {
         <div className="app-header__brand">
           <span className="app-header__logo">MV</span>
           <div>
-            <h1 className="app-header__title">MedVirtual Meta Content Doc</h1>
-            <p className="app-header__tagline">Static ad creative production tool</p>
+            <h1 className="app-header__title">Facebook Ad Content Doc</h1>
+            <p className="app-header__tagline">MedVirtual · National Meta static ads</p>
           </div>
         </div>
         <nav className="app-nav">
           <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
-            Dashboard
-          </NavLink>
-          <NavLink to="/content-doc" className={({ isActive }) => (isActive ? 'active' : '')}>
             Content Doc
           </NavLink>
           <NavLink to="/export" className={({ isActive }) => (isActive ? 'active' : '')}>
-            Export
+            Export PNGs
           </NavLink>
         </nav>
       </header>
