@@ -14,6 +14,7 @@ const PRIMARY_NAV = [
   { href: '/template-test-board.html', label: 'Template Tests' },
   { href: '/image-variation-review.html', label: 'Image Review' },
   { href: '/asset-hub.html', label: 'Raw Assets' },
+  { href: '/meta-launch-build-pack.html', label: 'Meta Launch' },
 ];
 
 export function Layout() {

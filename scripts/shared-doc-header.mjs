@@ -1,32 +1,91 @@
 /**
- * Shared MedVirtual Content Doc header — keep identical across all surfaces.
- * Brand block never changes. Primary nav is the same everywhere.
- * Lead with Ad Copy (Facebook primary text).
+ * Shared MedVirtual Content Doc header — identical across all surfaces.
+ * Home = Graphic Brief (designer/VA start). Nav follows production workflow left → right.
  */
 
 export const DOC_BRAND = {
   mark: 'MV',
-  title: 'Facebook Ad Content Doc',
-  tagline: 'MedVirtual · Primary text · templates · crops',
-  homeHref: '/facebook-ad-copy.html',
+  title: 'MedVirtual Creative Handoff',
+  tagline: 'Meta ads · production brief · copy · templates · assets',
+  homeHref: '/graphic-request-brief.html',
 };
 
-/** Primary nav — Graphic brief first (production handoff), then copy & templates */
+/** Primary nav — workflow order: brief → copy → templates → images → assets */
 export const PRIMARY_NAV = [
-  { href: '/graphic-request-brief.html', label: 'Graphic Brief', id: 'brief' },
-  { href: '/facebook-ad-copy.html', label: 'Ad Copy', id: 'copy' },
-  { href: '/template-test-board.html', label: 'Template Tests', id: 'templates' },
-  { href: '/image-variation-review.html', label: 'Image Review', id: 'images' },
-  { href: '/asset-hub.html', label: 'Raw Assets', id: 'hub' },
+  {
+    href: '/graphic-request-brief.html',
+    label: 'Graphic Brief',
+    id: 'brief',
+    description: 'Start here. What to produce: 4 static 1080×1350 ads, on-image copy, visuals, QA, Monday request.',
+  },
+  {
+    href: '/facebook-ad-copy.html',
+    label: 'Ad Copy',
+    id: 'copy',
+    description: 'Facebook primary text (caption above the ad) for the same 4 concepts. Copy-paste for Meta.',
+  },
+  {
+    href: '/template-test-board.html',
+    label: 'Templates',
+    id: 'templates',
+    description: 'Layout and on-image text zone reference. Visual guide only — not a production checklist.',
+  },
+  {
+    href: '/image-variation-review.html',
+    label: 'Image Review',
+    id: 'images',
+    description: 'Approved image crops by ratio and face placement. Pick backgrounds for templates.',
+  },
+  {
+    href: '/asset-hub.html',
+    label: 'Assets',
+    id: 'hub',
+    description: 'Download raw AI images and source files for editors.',
+  },
+  {
+    href: '/meta-launch-build-pack.html',
+    label: 'Meta Launch',
+    id: 'launch',
+    description: 'Same-day Meta build pack: campaign shell, 4 ads, form draft, QA checklist.',
+  },
 ];
 
-/** Secondary links for crop/contact sheets only */
+/** Image/crop sub-pages — linked from Image Review header */
 export const IMAGE_SUBNAV = [
   { href: '/image-variation-review.html', label: 'Review Board' },
   { href: '/contact-sheet-best-candidates.html', label: 'Approved Only' },
   { href: '/contact-sheet-all-4x5.html', label: '4:5 Feed' },
   { href: '/contact-sheet-all-9x16.html', label: '9:16 Stories' },
   { href: '/contact-sheet-landing-page-images.html', label: 'Headshots' },
+];
+
+/** Secondary reference pages — not in main nav */
+export const SECONDARY_PAGES = [
+  {
+    href: '/contact-sheet-best-candidates.html',
+    label: 'Approved Crops',
+    description: 'Shortlist of best image crops for production.',
+  },
+  {
+    href: '/contact-sheet-all-4x5.html',
+    label: '4:5 Feed Crops',
+    description: 'All 1080×1350 feed crops in one contact sheet.',
+  },
+  {
+    href: '/contact-sheet-all-9x16.html',
+    label: '9:16 Story Crops',
+    description: 'All story/reels crops — for later resize phase only.',
+  },
+  {
+    href: '/contact-sheet-landing-page-images.html',
+    label: 'Headshot Crops',
+    description: 'Landing-page headshot crops (phase 2 / trust ads).',
+  },
+  {
+    href: '/contact-sheet-ai-images.html',
+    label: 'AI Image Catalog',
+    description: 'Full catalog of AI-generated source images.',
+  },
 ];
 
 export const HEADER_CSS = `

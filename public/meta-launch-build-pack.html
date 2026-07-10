@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meta Launch Build Pack — MedVirtual</title>
+  <style>
+  
+  .doc-header {
+    background: #0f172a;
+    color: #ffffff;
+    border-bottom: 3px solid #0d9488;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0d9488, #0891b2);
+    font-weight: 800;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid #1e293b;
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    max-width: 820px;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .doc-nav a {
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+  }
+  .doc-nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: #0d9488;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: #5eead4;
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid #334155;
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: #0d9488; color: #99f6e4; }
+  .doc-subnav a.active {
+    background: rgba(13, 148, 136, 0.2);
+    border-color: #0d9488;
+    color: #ccfbf1;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; }
+  .banner {
+    background: #0d9488; color: #fff; border-radius: 10px; padding: 0.7rem 1rem;
+    font-size: 0.86rem; font-weight: 700; text-align: center; margin-bottom: 0.75rem;
+  }
+  .status {
+    background: #fff7ed; border: 1px solid #fdba74; border-left: 4px solid #ea580c;
+    border-radius: 8px; padding: 0.7rem 0.9rem; margin-bottom: 0.85rem; font-size: 0.82rem;
+  }
+  .hero {
+    background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 1.15rem 1.25rem; margin-bottom: 0.85rem;
+  }
+  .hero h2 { font-size: 1.15rem; margin-bottom: 0.35rem; }
+  .hero p { font-size: 0.84rem; color: #94a3b8; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.85rem; }
+  @media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } }
+  .panel {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.85rem 0.95rem;
+  }
+  .panel h3 { font-size: 0.92rem; margin-bottom: 0.55rem; color: #0f172a; }
+  .kv { display: grid; gap: 0.4rem; font-size: 0.8rem; }
+  .kv div { display: grid; grid-template-columns: 140px 1fr; gap: 0.35rem; }
+  .kv dt { color: #64748b; font-weight: 600; }
+  .kv dd { color: #0f172a; word-break: break-word; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; }
+  .section-title { font-size: 1rem; margin: 1.1rem 0 0.55rem; }
+  .ad-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 0.85rem; overflow: hidden;
+  }
+  .ad-card__head { padding: 0.75rem 0.95rem; border-bottom: 1px solid #e2e8f0; background: #f8fafc; }
+  .ad-card__head h3 { font-size: 0.98rem; margin-top: 0.25rem; }
+  .pill { display: inline-block; font-size: 0.68rem; font-weight: 700; background: #0d9488; color: #fff; padding: 0.18rem 0.45rem; border-radius: 4px; }
+  .ad-card__body { display: grid; grid-template-columns: 180px 1fr; gap: 0.85rem; padding: 0.85rem; }
+  @media (max-width: 700px) { .ad-card__body { grid-template-columns: 1fr; } }
+  .thumb { background: #e2e8f0; border-radius: 8px; overflow: hidden; aspect-ratio: 4/5; }
+  .thumb img { width: 100%; height: 100%; object-fit: contain; background: #f8fafc; display: block; }
+  .fields { display: grid; gap: 0.4rem; font-size: 0.8rem; }
+  .fields dt { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.04em; color: #64748b; font-weight: 700; }
+  .fields dd { margin-top: 0.1rem; }
+  .fields .warn dd { color: #9a3412; }
+  .badge { display: inline-block; background: #ccfbf1; color: #0f766e; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 4px; font-size: 0.75rem; }
+  .checklist, .steps, .waiting { list-style: none; display: grid; gap: 0.35rem; font-size: 0.82rem; }
+  .checklist li, .waiting li { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.5rem 0.7rem; }
+  .steps li { background: #fff; border: 1px solid #e2e8f0; border-left: 3px solid #0d9488; border-radius: 8px; padding: 0.55rem 0.75rem; }
+  .steps strong { display: block; font-size: 0.78rem; color: #0d9488; margin-bottom: 0.15rem; }
+  .exports { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.5rem 0 1rem; }
+  .exports a {
+    display: inline-block; background: #0f172a; color: #fff; text-decoration: none; font-size: 0.75rem;
+    font-weight: 600; padding: 0.4rem 0.65rem; border-radius: 6px;
+  }
+  .exports a.secondary { background: #0d9488; }
+  .note { font-size: 0.78rem; color: #64748b; margin-top: 0.35rem; }
+  </style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/graphic-request-brief.html">
+      <span class="doc-header__mark">MV</span>
+      <div>
+        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
+        <p class="doc-header__tagline">Meta ads · production brief · copy · templates · assets</p>
+      </div>
+    </a>
+    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Graphic Brief</a><a href="/facebook-ad-copy.html" class="">Ad Copy</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="active">Meta Launch</a></nav>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Meta Launch Build Pack</h2>
+          <p class="doc-header__page-sub">Same-day draft campaign shell · 4 ads · form · QA</p>
+          
+        </div>
+</header>
+  <div class="wrap">
+    <div class="banner">URGENT LAUNCH MODE — keep everything DRAFT until CMO / Haylie approval</div>
+    <div class="status"><strong>Build status:</strong> DRAFT - WAITING ON FORM REVIEW / BOOKING LINK / CREATIVE APPROVAL</div>
+
+    <section class="hero">
+      <h2>MedVirtual Meta Leads — First Batch</h2>
+      <p>Use this page as the single control surface for Ads Manager build. Copy names exactly. Form is shared across all 4 ads.</p>
+    </section>
+
+    <div class="exports">
+      <a href="/exports/meta-launch-build-sheet.csv">Build sheet CSV</a>
+      <a href="/exports/meta-ad-copy-map.csv">Ad copy map CSV</a>
+      <a href="/exports/meta-form-draft-copy.md">Form draft MD</a>
+      <a href="/exports/meta-launch-checklist.md">Launch checklist</a>
+      <a class="secondary" href="/exports/selected-creative-contact-sheet.html">Creative contact sheet</a>
+      <a href="/exports/selected-creative-map.json">Creative map JSON</a>
+    </div>
+
+    <div class="grid-2">
+      <section class="panel">
+        <h3>Campaign settings</h3>
+        <dl class="kv">
+          <div><dt>Campaign name</dt><dd class="mono">IMB_MV_Meta_Leads_FirstBatch_202607</dd></div>
+          <div><dt>Objective</dt><dd>Leads</dd></div>
+          <div><dt>Conversion</dt><dd>Instant Form</dd></div>
+          <div><dt>Optimization</dt><dd>Leads / Instant Form submissions</dd></div>
+          <div><dt>Daily budget</dt><dd>$500/day</dd></div>
+          <div><dt>Monthly note</dt><dd>$10,000 monthly budget. At $500/day, this pace reaches $10,000 in about 20 days — monitor pacing.</dd></div>
+          <div><dt>Placements</dt><dd>Advantage+ Placements</dd></div>
+          <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+          <div><dt>CTA</dt><dd>Book a Demo</dd></div>
+        </dl>
+      </section>
+      <section class="panel">
+        <h3>Audience + ad set</h3>
+        <dl class="kv">
+          <div><dt>Ad set name</dt><dd class="mono">IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day</dd></div>
+          <div><dt>Lookalike</dt><dd class="mono">Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed</dd></div>
+          <div><dt>Audience type</dt><dd>Lookalike (US, 1%)</dd></div>
+          <div><dt>Lookalike status</dt><dd>Populating, but available for use</dd></div>
+          <div><dt>Seed audience</dt><dd class="mono">MV HubSpot Clinic Prospects — Lookalike Seed</dd></div>
+          <div><dt>Seed status</dt><dd>Ready</dd></div>
+          <div><dt>Seed desc</dt><dd>HubSpot CRM clinic/practice prospects; cleaned seed list for lookalike creation.</dd></div>
+        </dl>
+      </section>
+    </div>
+
+    <div class="grid-2">
+      <section class="panel">
+        <h3>Shared Instant Form</h3>
+        <dl class="kv">
+          <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
+          <div><dt>Form type</dt><dd>Higher intent (recommended for lead quality; use More volume only if speed matters)</dd></div>
+          <div><dt>Intro headline</dt><dd>Hire Full-Time Virtual Medical Staff Through MedVirtual</dd></div>
+          <div><dt>Privacy URL</dt><dd class="mono">WAITING_ON_MEDVIRTUAL_PRIVACY_POLICY_URL_DO_NOT_PUBLISH</dd></div>
+          <div><dt>Booking URL</dt><dd class="mono">WAITING_ON_HAYLIE_BOOKING_LINK_DO_NOT_PUBLISH</dd></div>
+        </dl>
+        <p class="note">Create form manually in Meta. Do not claim CSV bulk upload for Instant Forms.</p>
+      </section>
+      <section class="panel">
+        <h3>Still waiting on Haylie</h3>
+        <ul class="waiting">
+          <li>Booking link for thank-you button</li>
+          <li>Privacy policy URL</li>
+          <li>Form review / approval</li>
+          <li>Creative approval (correct on-image copy + final 1080×1350)</li>
+          <li>Confirm $10/hour before concept 4 spend</li>
+          <li>Final CMO publish approval</li>
+        </ul>
+      </section>
+    </div>
+
+    <h2 class="section-title">4 draft ads</h2>
+    <article class="ad-card">
+  <header class="ad-card__head">
+    <span class="pill">Ad 01</span>
+    <h3>Medical Practice Owners</h3>
+    <p class="mono">IMB_MV_Static_01_MedicalOwners</p>
+  </header>
+  <div class="ad-card__body">
+    <div class="thumb">
+      <img src="/exports/selected-creatives/IMB_MV_Static_01_MedicalOwners.png" alt="IMB_MV_Static_01_MedicalOwners" />
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>Medical Practice Owners</dd></div>
+      <div><dt>Supporting line</dt><dd>Add full-time virtual support without adding office space.</dd></div>
+      <div><dt>Primary text</dt><dd>Medical practice owners: hire full-time virtual staff to support calls, scheduling, intake, and admin work.</dd></div>
+      <div><dt>Backup primary</dt><dd>Add trained virtual support to your practice team without adding more office space.</dd></div>
+      <div><dt>Meta headline</dt><dd>Hire Full-Time Virtual Staff</dd></div>
+      <div><dt>Description</dt><dd>Support your practice team with trained virtual staff.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
+      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
+      <div><dt>Creative file</dt><dd class="mono">IMB_MV_Static_01_MedicalOwners.png</dd></div>
+      <div><dt>Source image</dt><dd class="mono">Med Virtual Ads 01.png</dd></div>
+      <div class="warn"><dt>Notes</dt><dd>Selected: clean medical scrub visual, no $10 price on image. Baked-in on-image copy does not match approved headline — designer must re-export 1080×1350 with approved copy + Book a Demo CTA. Source is 2965×2965 square.</dd></div>
+    </dl>
+  </div>
+</article>
+<article class="ad-card">
+  <header class="ad-card__head">
+    <span class="pill">Ad 02</span>
+    <h3>Dental Practice Owners</h3>
+    <p class="mono">IMB_MV_Static_02_DentalOwners</p>
+  </header>
+  <div class="ad-card__body">
+    <div class="thumb">
+      <img src="/exports/selected-creatives/IMB_MV_Static_02_DentalOwners.png" alt="IMB_MV_Static_02_DentalOwners" />
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>Dental Practice Owners</dd></div>
+      <div><dt>Supporting line</dt><dd>Get help with scheduling, insurance, and patient follow-up.</dd></div>
+      <div><dt>Primary text</dt><dd>Dental practice owners: get virtual staff support for scheduling, insurance, reminders, and patient follow-up.</dd></div>
+      <div><dt>Backup primary</dt><dd>Hire full-time virtual dental staff through MedVirtual to support your daily workflow.</dd></div>
+      <div><dt>Meta headline</dt><dd>Virtual Staff for Dental Practices</dd></div>
+      <div><dt>Description</dt><dd>Scheduling, insurance, and patient follow-up support.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
+      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
+      <div><dt>Creative file</dt><dd class="mono">IMB_MV_Static_02_DentalOwners.png</dd></div>
+      <div><dt>Source image</dt><dd class="mono">Med Virtual Ads 02.png</dd></div>
+      <div class="warn"><dt>Notes</dt><dd>RED FLAG: No dental-specific image in the new 12-image batch. Using best available medical professional (clipboard). Designer should swap to a dental office visual before spend. Baked-in copy/CTA must be replaced with approved dental headline + Book a Demo.</dd></div>
+    </dl>
+  </div>
+</article>
+<article class="ad-card">
+  <header class="ad-card__head">
+    <span class="pill">Ad 03</span>
+    <h3>Virtual Medical Admin</h3>
+    <p class="mono">IMB_MV_Static_03_VirtualMedAdmin</p>
+  </header>
+  <div class="ad-card__body">
+    <div class="thumb">
+      <img src="/exports/selected-creatives/IMB_MV_Static_03_VirtualMedAdmin.png" alt="IMB_MV_Static_03_VirtualMedAdmin" />
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>Hire a Full-Time Virtual Medical Admin</dd></div>
+      <div><dt>Supporting line</dt><dd>Calls, scheduling, intake, and admin support.</dd></div>
+      <div><dt>Primary text</dt><dd>Hire a full-time virtual medical admin for calls, scheduling, intake, and admin support.</dd></div>
+      <div><dt>Backup primary</dt><dd>MedVirtual helps practices hire trained virtual staff who work as part of the team.</dd></div>
+      <div><dt>Meta headline</dt><dd>Hire a Virtual Medical Admin</dd></div>
+      <div><dt>Description</dt><dd>Calls, scheduling, intake, and admin help.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
+      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
+      <div><dt>Creative file</dt><dd class="mono">IMB_MV_Static_03_VirtualMedAdmin.png</dd></div>
+      <div><dt>Source image</dt><dd class="mono">Med Virtual Ads 09.png</dd></div>
+      <div class="warn"><dt>Notes</dt><dd>Selected: full-time VA / medical admin visual without $10 price (price reserved for concept 4). Re-export with approved headline/support + Book a Demo. Source is square.</dd></div>
+    </dl>
+  </div>
+</article>
+<article class="ad-card">
+  <header class="ad-card__head">
+    <span class="pill">Ad 04</span>
+    <h3>Pain-first version</h3>
+    <p class="mono">IMB_MV_Static_04_TooManyCalls</p>
+  </header>
+  <div class="ad-card__body">
+    <div class="thumb">
+      <img src="/exports/selected-creatives/IMB_MV_Static_04_TooManyCalls.png" alt="IMB_MV_Static_04_TooManyCalls" />
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>Too Many Calls. Not Enough Staff.</dd></div>
+      <div><dt>Supporting line</dt><dd>Full-time virtual staff starting at $10/hour.</dd></div>
+      <div><dt>Primary text</dt><dd>Too many calls and not enough staff? Hire full-time virtual staff through MedVirtual.</dd></div>
+      <div><dt>Backup primary</dt><dd>Support your practice team with trained full-time virtual staff starting at $10/hour.</dd></div>
+      <div><dt>Meta headline</dt><dd>Too Many Calls? Get Support.</dd></div>
+      <div><dt>Description</dt><dd>Full-time virtual staff through MedVirtual.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
+      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
+      <div><dt>Creative file</dt><dd class="mono">IMB_MV_Static_04_TooManyCalls.png</dd></div>
+      <div><dt>Source image</dt><dd class="mono">Med Virtual Ads 10.png</dd></div>
+      <div class="warn"><dt>Notes</dt><dd>INTERNAL WARNING: Price “starting at $10/hour” must be confirmed by CMO before spend goes live. Selected before/after stress→calm visual. Baked-in headline differs from approved copy — re-export required. Keep $10/hour off concepts 1–3.</dd></div>
+    </dl>
+  </div>
+</article>
+
+    <h2 class="section-title">2-hour action order</h2>
+    <ol class="steps">
+      <li><strong>Step 1</strong> Confirm launch pack and selected images.</li>
+      <li><strong>Step 2</strong> Create campaign shell: <span class="mono">IMB_MV_Meta_Leads_FirstBatch_202607</span></li>
+      <li><strong>Step 3</strong> Create ad set: <span class="mono">IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day</span></li>
+      <li><strong>Step 4</strong> Select audience: <span class="mono">Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed</span></li>
+      <li><strong>Step 5</strong> Create draft form: <span class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</span></li>
+      <li><strong>Step 6</strong> Build 4 draft ads using mapped copy and images.</li>
+      <li><strong>Step 7</strong> Pause / keep draft until Haylie reviews.</li>
+      <li><strong>Step 8</strong> Add booking link / privacy URL once received.</li>
+      <li><strong>Step 9</strong> Final QA.</li>
+      <li><strong>Step 10</strong> Publish only after approval.</li>
+    </ol>
+
+    <h2 class="section-title">Launch QA checklist</h2>
+    <ul class="checklist">
+      <li>☐ Campaign name uses IMB_MV</li>
+      <li>☐ Ad set name uses IMB_MV</li>
+      <li>☐ Form name starts with IMB_MV</li>
+      <li>☐ Audience is exact 1% lookalike</li>
+      <li>☐ Form saved as draft</li>
+      <li>☐ Haylie reviewed form</li>
+      <li>☐ Booking link added</li>
+      <li>☐ Privacy policy URL added</li>
+      <li>☐ MedVirtual only, no MedVirtual.ai</li>
+      <li>☐ No managed-service language</li>
+      <li>☐ No front-desk replacement language</li>
+      <li>☐ No recruiting/job-seeker language</li>
+      <li>☐ $10/hour approved before using concept 4</li>
+      <li>☐ Creative files are 1080×1350</li>
+      <li>☐ CTA says Book a Demo</li>
+      <li>☐ Ads previewed on mobile</li>
+      <li>☐ HubSpot lead view confirmed</li>
+      <li>☐ Budget set to $500/day</li>
+      <li>☐ Monthly pacing monitored for $10k budget</li>
+      <li>☐ Nothing published before CMO approval</li>
+    </ul>
+
+    <p class="note" style="margin-top:1rem">Red flags: all source creatives are square with baked-in copy/CTAs that do not match approved headlines; no dental-specific image in batch; concept 4 price needs CMO confirmation; booking link + privacy URL still missing.</p>
+  </div>
+</body>
+</html>

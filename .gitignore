@@ -26,6 +26,7 @@ dist-ssr
 # Private audience / lead data (never commit)
 _private/
 *.csv
+!public/exports/meta-*.csv
 *.xlsx
 *.xls
 audience_audit_report.md
