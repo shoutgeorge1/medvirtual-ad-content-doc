@@ -1,16 +1,18 @@
-import type { ConceptStatus } from '../types/concept';
+import type { ProductionStatus } from '../types/concept';
 import './StatusBadge.css';
 
-const STATUS_CLASS: Record<ConceptStatus, string> = {
-  Draft: 'status-draft',
-  'In Progress': 'status-in-progress',
-  'Ready For Review': 'status-ready-for-review',
+const STATUS_CLASS: Record<ProductionStatus, string> = {
+  'Needs logo': 'status-needs-logo',
+  'Needs image approval': 'status-needs-approval',
+  'Needs layout review': 'status-needs-review',
+  'Ready for Chris': 'status-ready-chris',
+  'Ready for export': 'status-ready-export',
   Approved: 'status-approved',
   Exported: 'status-exported',
 };
 
 interface StatusBadgeProps {
-  status: ConceptStatus;
+  status: ProductionStatus;
 }
 
 export function StatusBadge({ status }: StatusBadgeProps) {

@@ -1,9 +1,8 @@
 import { useRef, useState } from 'react';
-import type { Concept, ConceptStatus } from '../types/concept';
-import { STATUSES } from '../utils/constants';
+import type { Concept, ExportSize, ProductionStatus } from '../types/concept';
+import { PRODUCTION_STATUSES } from '../utils/constants';
 import { AdPreview } from './AdPreview';
 import { ExportSizeToggle } from './ExportButton';
-import type { ExportSize } from '../types/concept';
 import './CreativeEditor.css';
 
 interface CreativeEditorProps {
@@ -46,15 +45,17 @@ export function CreativeEditor({
     setExporting(true);
     try {
       await onExport(previewSize, el);
-      onSave({ ...draft, status: 'Exported' as ConceptStatus });
-      setDraft((prev) => ({ ...prev, status: 'Exported' }));
+      onSave({ ...draft, production_status: 'Exported' });
+      setDraft((prev) => ({ ...prev, production_status: 'Exported' }));
     } finally {
       setExporting(false);
     }
   };
 
-  const scale = previewSize === '1080x1080' ? 0.35 : 0.32;
-  const previewHeight = (previewSize === '1080x1080' ? 1080 : 1350) * scale;
+  const fullHeight =
+    previewSize === '1080x1080' ? 1080 : previewSize === '1080x1920' ? 1920 : 1350;
+  const scale = 380 / 1080;
+  const previewHeight = fullHeight * scale;
 
   return (
     <div className="creative-editor">
@@ -146,12 +147,14 @@ export function CreativeEditor({
         </div>
 
         <div className="form-group">
-          <label>Status</label>
+          <label>Production status</label>
           <select
-            value={draft.status}
-            onChange={(e) => update('status', e.target.value as ConceptStatus)}
+            value={draft.production_status}
+            onChange={(e) =>
+              update('production_status', e.target.value as ProductionStatus)
+            }
           >
-            {STATUSES.map((s) => (
+            {PRODUCTION_STATUSES.map((s) => (
               <option key={s} value={s}>
                 {s}
               </option>

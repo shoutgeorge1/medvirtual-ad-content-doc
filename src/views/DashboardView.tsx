@@ -26,7 +26,7 @@ export function DashboardView() {
   const statusCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     concepts.forEach((c) => {
-      counts[c.status] = (counts[c.status] ?? 0) + 1;
+      counts[c.production_status] = (counts[c.production_status] ?? 0) + 1;
     });
     return counts;
   }, [concepts]);

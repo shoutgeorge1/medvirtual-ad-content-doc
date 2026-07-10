@@ -7,7 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:images": "node scripts/generate-image-variations.mjs",
+    "generate:handoff": "node scripts/generate-handoff-docs.mjs",
+    "generate:templates": "node scripts/generate-template-board.mjs",
+    "generate:hub": "node scripts/generate-asset-hub.mjs",
+    "generate:copy": "node scripts/generate-ad-copy.mjs"
   },
   "dependencies": {
     "html-to-image": "^1.11.13",
@@ -21,6 +26,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
+    "sharp": "^0.35.3",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
   }

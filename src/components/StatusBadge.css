@@ -34,3 +34,28 @@
   background: #e0e7ff;
   color: #4338ca;
 }
+
+.status-needs-logo {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-needs-approval {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.status-needs-review {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-ready-chris {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.status-ready-export {
+  background: #ccfbf1;
+  color: #0f766e;
+}

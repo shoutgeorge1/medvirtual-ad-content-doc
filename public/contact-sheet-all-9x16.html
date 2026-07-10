@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>9:16 Stories / Reels Crops — MedVirtual Content Doc</title>
+  <style>
+  
+  .doc-header {
+    background: #0f172a;
+    color: #ffffff;
+    border-bottom: 3px solid #0d9488;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0d9488, #0891b2);
+    font-weight: 800;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid #1e293b;
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    max-width: 820px;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .doc-nav a {
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+  }
+  .doc-nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: #0d9488;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: #5eead4;
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid #334155;
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: #0d9488; color: #99f6e4; }
+  .doc-subnav a.active {
+    background: rgba(13, 148, 136, 0.2);
+    border-color: #0d9488;
+    color: #ccfbf1;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.5; }
+  .stats { display: flex; flex-wrap: wrap; gap: 1rem; padding: 1rem 2rem; background: #1e293b; border-bottom: 1px solid #334155; }
+  .stat { font-size: 0.8rem; color: #94a3b8; }
+  .stat strong { color: #f1f5f9; font-size: 1.1rem; display: block; }
+  .section-head { padding: 1.75rem 2rem 0.75rem; border-top: 1px solid #334155; }
+  .section-head h2 { font-size: 1.05rem; color: #f8fafc; }
+  .section-head p { font-size: 0.8rem; color: #94a3b8; margin-top: 0.2rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; padding: 0.5rem 2rem 2rem; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; overflow: hidden; }
+  .card-img { background: #0f172a; display: flex; align-items: center; justify-content: center; min-height: 280px; }
+  .card-img img { max-width: 100%; max-height: 520px; height: auto; display: block; }
+  .card-body { padding: 0.85rem; }
+  .card-id { font-size: 0.68rem; font-family: monospace; color: #64748b; word-break: break-all; }
+  .card-meta { font-size: 0.78rem; color: #cbd5e1; margin-top: 0.4rem; }
+  .card-meta span { display: block; }
+  .badge { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 0.15rem 0.45rem; border-radius: 3px; margin-top: 0.35rem; margin-right: 0.25rem; }
+  .rating-a { background: #166534; color: #bbf7d0; }
+  .rating-b { background: #1e40af; color: #bfdbfe; }
+  .label-tag { background: #0e7490; color: #cffafe; font-size: 0.65rem; padding: 0.1rem 0.4rem; border-radius: 3px; }
+  .owned { background: #065f46; color: #a7f3d0; }
+  .warn { color: #fbbf24; font-size: 0.72rem; margin-top: 0.35rem; }
+  .side-left { background: #0e7490; color: #cffafe; }
+  .side-right { background: #7c2d12; color: #fed7aa; }
+  .side-center { background: #365314; color: #d9f99d; }
+  .text-zone { color: #a5b4fc; font-size: 0.72rem; margin-top: 0.25rem; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/facebook-ad-copy.html">
+      <span class="doc-header__mark">MV</span>
+      <div>
+        <h1 class="doc-header__title">Facebook Ad Content Doc</h1>
+        <p class="doc-header__tagline">MedVirtual · Primary text · templates · crops</p>
+      </div>
+    </a>
+    <nav class="doc-nav" aria-label="Primary"><a href="/facebook-ad-copy.html" class="">Ad Copy</a><a href="/template-test-board.html" class="">Template Tests</a><a href="/image-variation-review.html" class="active">Image Review</a><a href="/asset-hub.html" class="">Raw Assets</a></nav>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">9:16 Stories / Reels Crops</h2>
+          <p class="doc-header__page-sub">Approved 9:16 crops for Stories and Reels</p>
+          <nav class="doc-subnav" aria-label="Section">
+      <a href="/image-variation-review.html" class="">Review Board</a><a href="/contact-sheet-best-candidates.html" class="">Approved Only</a><a href="/contact-sheet-all-4x5.html" class="">4:5 Feed</a><a href="/contact-sheet-all-9x16.html" class="active">9:16 Stories</a><a href="/contact-sheet-landing-page-images.html" class="">Headshots</a>
+    </nav>
+        </div>
+</header>
+  <div class="stats">
+    <div class="stat"><strong>5</strong> crops</div>
+    <div class="stat"><strong>5</strong> person left</div>
+    <div class="stat"><strong>0</strong> person right</div>
+    <div class="stat"><strong>0</strong> person center</div>
+    <div class="stat"><strong>0</strong> headshots</div>
+  </div>
+  
+      <div class="section-head"><h2>9:16</h2><p> (5)</p></div>
+      <div class="grid">
+    <div class="card">
+      <div class="card-img"><img src="/exports/image-tests/story-9x16/IMG_AI_009_9X16_SUBJECT_LEFT.png" alt="IMG_AI_009_9X16_SUBJECT_LEFT" loading="lazy" /></div>
+      <div class="card-body">
+        <div class="card-id">IMG_AI_009_9X16_SUBJECT_LEFT</div>
+        <div class="card-meta">
+          <span><strong>ai-generated-09.png</strong> · 9x16/subject/left</span>
+          <span class="label-tag">Scheduling</span>
+          
+          <span class="badge side-left">Person LEFT → text right/top</span>
+          <div class="text-zone">Text zone: Top line + right side</div>
+          <span style="font-size:0.72rem;color:#64748b;margin-top:0.25rem;display:block">Text: Top line + right side</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="/exports/image-tests/story-9x16/IMG_AI_015_9X16_SUBJECT_LEFT.png" alt="IMG_AI_015_9X16_SUBJECT_LEFT" loading="lazy" /></div>
+      <div class="card-body">
+        <div class="card-id">IMG_AI_015_9X16_SUBJECT_LEFT</div>
+        <div class="card-meta">
+          <span><strong>ai-generated-15.png</strong> · 9x16/subject/left</span>
+          <span class="label-tag">Front Desk Backup</span>
+          
+          <span class="badge side-left">Person LEFT → text right/top</span>
+          <div class="text-zone">Text zone: Top line + right side</div>
+          <span style="font-size:0.72rem;color:#64748b;margin-top:0.25rem;display:block">Text: Top line + right side</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="/exports/image-tests/story-9x16/IMG_AI_004_9X16_SUBJECT_RIGHT.png" alt="IMG_AI_004_9X16_SUBJECT_RIGHT" loading="lazy" /></div>
+      <div class="card-body">
+        <div class="card-id">IMG_AI_004_9X16_SUBJECT_RIGHT</div>
+        <div class="card-meta">
+          <span><strong>ai-generated-04.png</strong> · 9x16/subject/right</span>
+          <span class="label-tag">Workflow</span>
+          
+          <span class="badge side-right">Person RIGHT → text left/top</span>
+          <div class="text-zone">Text zone: Top line + left side</div>
+          <span style="font-size:0.72rem;color:#64748b;margin-top:0.25rem;display:block">Text: Top line + left side</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="/exports/image-tests/story-9x16/IMG_AI_013_9X16_SUBJECT_RIGHT.png" alt="IMG_AI_013_9X16_SUBJECT_RIGHT" loading="lazy" /></div>
+      <div class="card-body">
+        <div class="card-id">IMG_AI_013_9X16_SUBJECT_RIGHT</div>
+        <div class="card-meta">
+          <span><strong>ai-generated-13.png</strong> · 9x16/subject/right</span>
+          <span class="label-tag">Remote Medical Assistant</span>
+          
+          <span class="badge side-right">Person RIGHT → text left/top</span>
+          <div class="text-zone">Text zone: Top line + left side (center-right)</div>
+          <span style="font-size:0.72rem;color:#64748b;margin-top:0.25rem;display:block">Text: Top line + left side (center-right)</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="/exports/image-tests/story-9x16/IMG_AI_014_9X16_SUBJECT_RIGHT.png" alt="IMG_AI_014_9X16_SUBJECT_RIGHT" loading="lazy" /></div>
+      <div class="card-body">
+        <div class="card-id">IMG_AI_014_9X16_SUBJECT_RIGHT</div>
+        <div class="card-meta">
+          <span><strong>ai-generated-14.png</strong> · 9x16/subject/right</span>
+          <span class="label-tag">Workflow</span>
+          
+          <span class="badge side-right">Person RIGHT → text left/top</span>
+          <div class="text-zone">Text zone: Top line + left side (center-right)</div>
+          <span style="font-size:0.72rem;color:#64748b;margin-top:0.25rem;display:block">Text: Top line + left side (center-right)</span>
+        </div>
+      </div>
+    </div></div>
+</body>
+</html>

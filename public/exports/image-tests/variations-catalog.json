@@ -1,0 +1,962 @@
+{
+  "generatedAt": "2026-07-09T23:56:27.561Z",
+  "mode": "george-approved-by-subject-side",
+  "kept": [
+    {
+      "variationId": "IMG_AI_003_4X5_FACE_LEFT",
+      "sourceId": "AI_003",
+      "sourceFile": "ai-generated-03.png",
+      "sourceType": "AI-generated",
+      "family": "teal_blouse_admin",
+      "boardSection": "person_left",
+      "subjectSide": "left",
+      "textZone": "Top line + right side",
+      "aspectRatio": "4x5",
+      "cropType": "FACE_LEFT",
+      "cropLabel": "4x5/face/left",
+      "candidateRating": "A",
+      "placeholderLabel": "Follow-Up",
+      "recommendedUse": "Text: Top line + right side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_003_4X5_FACE_LEFT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "talking-head",
+        "recommended_angle": "Missed Calls",
+        "recommended_script_style": "practice operations POV / remote medical assistant explainer",
+        "video_editor_notes": "Quality standard for video. IMG_AI_003_4X5_FACE_LEFT and 9X16_SUBJECT_LEFT are benchmark frames. VO only — not on-camera testimonial.",
+        "veo_prompt_notes": "Draft: Medical office admin with headset handling calls and follow-up at laptop. Professional, calm, no patient data visible.",
+        "compliance_risks": [
+          "Workflow icons may clash with motion text — simplify in edit"
+        ],
+        "do_not_use_for": [
+          "fake doctor endorsement",
+          "patient stories",
+          "fake testimonial"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_009_4X5_FACE_LEFT",
+      "sourceId": "AI_009",
+      "sourceFile": "ai-generated-09.png",
+      "sourceType": "AI-generated",
+      "family": "teal_blouse_admin",
+      "boardSection": "person_left",
+      "subjectSide": "left",
+      "textZone": "Top line + right side",
+      "aspectRatio": "4x5",
+      "cropType": "FACE_LEFT",
+      "cropLabel": "4x5/face/left",
+      "candidateRating": "A",
+      "placeholderLabel": "Scheduling",
+      "recommendedUse": "Text: Top line + right side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_009_4X5_FACE_LEFT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "voiceover",
+        "recommended_angle": "Scheduling Bottleneck",
+        "recommended_script_style": "scheduling support scenario / calendar workflow",
+        "video_editor_notes": "Primary image for scheduling video concept. Calendar icon can animate in post — simplify source icons.",
+        "veo_prompt_notes": "Draft: Admin with headset managing scheduling at laptop. Calm professional office.",
+        "compliance_risks": [
+          "No zero no-shows or guaranteed fill claims"
+        ],
+        "do_not_use_for": [
+          "scheduling outcome guarantees",
+          "fake testimonial"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_010_4X5_FACE_LEFT",
+      "sourceId": "AI_010",
+      "sourceFile": "ai-generated-10.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_left",
+      "subjectSide": "left",
+      "textZone": "Top line + right side",
+      "aspectRatio": "4x5",
+      "cropType": "FACE_LEFT",
+      "cropLabel": "4x5/face/left",
+      "candidateRating": "A",
+      "placeholderLabel": "Front Desk Backup",
+      "recommendedUse": "Text: Top line + right side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "talking-head",
+        "recommended_angle": "Front Desk Backup",
+        "recommended_script_style": "remote assistant concept / front desk backup scenario",
+        "video_editor_notes": "Pair with AI_007 for video batch. TALKING_HEAD_FRAME template. VO narration — not lip-sync testimonial.",
+        "veo_prompt_notes": "Draft: Blue scrubs admin with headset handling front desk support remotely at laptop.",
+        "compliance_risks": [
+          "No fake customer on camera"
+        ],
+        "do_not_use_for": [
+          "fake testimonial",
+          "I'm a real clinic owner framing"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_003_1X1_FACE_CENTER",
+      "sourceId": "AI_003",
+      "sourceFile": "ai-generated-03.png",
+      "sourceType": "AI-generated",
+      "family": "teal_blouse_admin",
+      "boardSection": "person_left",
+      "subjectSide": "left",
+      "textZone": "Top line + right side",
+      "aspectRatio": "1x1",
+      "cropType": "FACE_CENTER",
+      "cropLabel": "1x1/face/center",
+      "candidateRating": "A",
+      "placeholderLabel": "Follow-Up",
+      "recommendedUse": "Text: Top line + right side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/square-1x1/IMG_AI_003_1X1_FACE_CENTER.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "talking-head",
+        "recommended_angle": "Missed Calls",
+        "recommended_script_style": "practice operations POV / remote medical assistant explainer",
+        "video_editor_notes": "Quality standard for video. IMG_AI_003_4X5_FACE_LEFT and 9X16_SUBJECT_LEFT are benchmark frames. VO only — not on-camera testimonial.",
+        "veo_prompt_notes": "Draft: Medical office admin with headset handling calls and follow-up at laptop. Professional, calm, no patient data visible.",
+        "compliance_risks": [
+          "Workflow icons may clash with motion text — simplify in edit"
+        ],
+        "do_not_use_for": [
+          "fake doctor endorsement",
+          "patient stories",
+          "fake testimonial"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_009_9X16_SUBJECT_LEFT",
+      "sourceId": "AI_009",
+      "sourceFile": "ai-generated-09.png",
+      "sourceType": "AI-generated",
+      "family": "teal_blouse_admin",
+      "boardSection": "person_left",
+      "subjectSide": "left",
+      "textZone": "Top line + right side",
+      "aspectRatio": "9x16",
+      "cropType": "SUBJECT_LEFT",
+      "cropLabel": "9x16/subject/left",
+      "candidateRating": "A",
+      "placeholderLabel": "Scheduling",
+      "recommendedUse": "Text: Top line + right side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/story-9x16/IMG_AI_009_9X16_SUBJECT_LEFT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "voiceover",
+        "recommended_angle": "Scheduling Bottleneck",
+        "recommended_script_style": "scheduling support scenario / calendar workflow",
+        "video_editor_notes": "Primary image for scheduling video concept. Calendar icon can animate in post — simplify source icons.",
+        "veo_prompt_notes": "Draft: Admin with headset managing scheduling at laptop. Calm professional office.",
+        "compliance_risks": [
+          "No zero no-shows or guaranteed fill claims"
+        ],
+        "do_not_use_for": [
+          "scheduling outcome guarantees",
+          "fake testimonial"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_009_1X1_FACE_CENTER",
+      "sourceId": "AI_009",
+      "sourceFile": "ai-generated-09.png",
+      "sourceType": "AI-generated",
+      "family": "teal_blouse_admin",
+      "boardSection": "person_left",
+      "subjectSide": "left",
+      "textZone": "Top line + right side",
+      "aspectRatio": "1x1",
+      "cropType": "FACE_CENTER",
+      "cropLabel": "1x1/face/center",
+      "candidateRating": "A",
+      "placeholderLabel": "Scheduling",
+      "recommendedUse": "Text: Top line + right side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/square-1x1/IMG_AI_009_1X1_FACE_CENTER.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "voiceover",
+        "recommended_angle": "Scheduling Bottleneck",
+        "recommended_script_style": "scheduling support scenario / calendar workflow",
+        "video_editor_notes": "Primary image for scheduling video concept. Calendar icon can animate in post — simplify source icons.",
+        "veo_prompt_notes": "Draft: Admin with headset managing scheduling at laptop. Calm professional office.",
+        "compliance_risks": [
+          "No zero no-shows or guaranteed fill claims"
+        ],
+        "do_not_use_for": [
+          "scheduling outcome guarantees",
+          "fake testimonial"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_010_4X5_SUBJECT_LEFT",
+      "sourceId": "AI_010",
+      "sourceFile": "ai-generated-10.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_left",
+      "subjectSide": "left",
+      "textZone": "Top line + right side",
+      "aspectRatio": "4x5",
+      "cropType": "SUBJECT_LEFT",
+      "cropLabel": "4x5/subject/left",
+      "candidateRating": "A",
+      "placeholderLabel": "Front Desk Backup",
+      "recommendedUse": "Text: Top line + right side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_010_4X5_SUBJECT_LEFT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "talking-head",
+        "recommended_angle": "Front Desk Backup",
+        "recommended_script_style": "remote assistant concept / front desk backup scenario",
+        "video_editor_notes": "Pair with AI_007 for video batch. TALKING_HEAD_FRAME template. VO narration — not lip-sync testimonial.",
+        "veo_prompt_notes": "Draft: Blue scrubs admin with headset handling front desk support remotely at laptop.",
+        "compliance_risks": [
+          "No fake customer on camera"
+        ],
+        "do_not_use_for": [
+          "fake testimonial",
+          "I'm a real clinic owner framing"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_006_1X1_SUBJECT_CENTER",
+      "sourceId": "AI_006",
+      "sourceFile": "ai-generated-06.png",
+      "sourceType": "AI-generated",
+      "family": "navy_scrubs_admin",
+      "boardSection": "person_left",
+      "subjectSide": "left",
+      "textZone": "Top line + right side",
+      "aspectRatio": "1x1",
+      "cropType": "SUBJECT_CENTER",
+      "cropLabel": "1x1/subject/center",
+      "candidateRating": "A",
+      "placeholderLabel": "Scheduling",
+      "recommendedUse": "Text: Top line + right side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/square-1x1/IMG_AI_006_1X1_SUBJECT_CENTER.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "medium",
+        "veo_video_use": "medium",
+        "editor_use": "medium",
+        "best_video_format": "voiceover",
+        "recommended_angle": "Insurance Verification",
+        "recommended_script_style": "insurance verification workflow support",
+        "video_editor_notes": "Subject-center crops for video. Text rail on left. Phase 2 video batch.",
+        "veo_prompt_notes": "Draft: Admin reviewing documents at desk, healthcare office setting.",
+        "compliance_risks": [
+          "Do not show real insurance documents or PHI"
+        ],
+        "do_not_use_for": [
+          "coverage guarantees",
+          "fake testimonial"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_015_4X5_FACE_LEFT",
+      "sourceId": "AI_015",
+      "sourceFile": "ai-generated-15.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_left",
+      "subjectSide": "left",
+      "textZone": "Top line + right side",
+      "aspectRatio": "4x5",
+      "cropType": "FACE_LEFT",
+      "cropLabel": "4x5/face/left",
+      "candidateRating": "A",
+      "placeholderLabel": "Front Desk Backup",
+      "recommendedUse": "Text: Top line + right side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_015_4X5_FACE_LEFT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "talking-head",
+        "recommended_angle": "Front Desk Backup",
+        "recommended_script_style": "front desk backup scenario / practice operations POV",
+        "video_editor_notes": "Person left in frame — use text-right template. Strong face-forward cold ad.",
+        "veo_prompt_notes": "Draft: Medical admin in blue scrubs at desk with clipboard. Friendly, professional. No PHI.",
+        "compliance_risks": [
+          "Stethoscope — ops angle only",
+          "No fake doctor endorsement"
+        ],
+        "do_not_use_for": [
+          "fake doctor testimonial",
+          "patient stories",
+          "clinical care promises"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_015_9X16_SUBJECT_LEFT",
+      "sourceId": "AI_015",
+      "sourceFile": "ai-generated-15.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_left",
+      "subjectSide": "left",
+      "textZone": "Top line + right side",
+      "aspectRatio": "9x16",
+      "cropType": "SUBJECT_LEFT",
+      "cropLabel": "9x16/subject/left",
+      "candidateRating": "A",
+      "placeholderLabel": "Front Desk Backup",
+      "recommendedUse": "Text: Top line + right side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/story-9x16/IMG_AI_015_9X16_SUBJECT_LEFT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "talking-head",
+        "recommended_angle": "Front Desk Backup",
+        "recommended_script_style": "front desk backup scenario / practice operations POV",
+        "video_editor_notes": "Person left in frame — use text-right template. Strong face-forward cold ad.",
+        "veo_prompt_notes": "Draft: Medical admin in blue scrubs at desk with clipboard. Friendly, professional. No PHI.",
+        "compliance_risks": [
+          "Stethoscope — ops angle only",
+          "No fake doctor endorsement"
+        ],
+        "do_not_use_for": [
+          "fake doctor testimonial",
+          "patient stories",
+          "clinical care promises"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_004_4X5_FACE_RIGHT",
+      "sourceId": "AI_004",
+      "sourceFile": "ai-generated-04.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_right",
+      "subjectSide": "right",
+      "textZone": "Top line + left side",
+      "aspectRatio": "4x5",
+      "cropType": "FACE_RIGHT",
+      "cropLabel": "4x5/face/right",
+      "candidateRating": "A",
+      "placeholderLabel": "Workflow",
+      "recommendedUse": "Text: Top line + left side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_004_4X5_FACE_RIGHT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "office scenario",
+        "recommended_angle": "Admin Backlog",
+        "recommended_script_style": "back-office workflow explainer",
+        "video_editor_notes": "Best vertical crop family after AI_003. Use for hiring gap / admin capacity angles.",
+        "veo_prompt_notes": "Draft: Healthcare admin in scrubs with headset working at laptop. Organized office workflow.",
+        "compliance_risks": [
+          "Stethoscope visible — ops angle only, not clinical care"
+        ],
+        "do_not_use_for": [
+          "clinical treatment claims",
+          "fake testimonial"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_004_9X16_SUBJECT_RIGHT",
+      "sourceId": "AI_004",
+      "sourceFile": "ai-generated-04.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_right",
+      "subjectSide": "right",
+      "textZone": "Top line + left side",
+      "aspectRatio": "9x16",
+      "cropType": "SUBJECT_RIGHT",
+      "cropLabel": "9x16/subject/right",
+      "candidateRating": "A",
+      "placeholderLabel": "Workflow",
+      "recommendedUse": "Text: Top line + left side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/story-9x16/IMG_AI_004_9X16_SUBJECT_RIGHT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "office scenario",
+        "recommended_angle": "Admin Backlog",
+        "recommended_script_style": "back-office workflow explainer",
+        "video_editor_notes": "Best vertical crop family after AI_003. Use for hiring gap / admin capacity angles.",
+        "veo_prompt_notes": "Draft: Healthcare admin in scrubs with headset working at laptop. Organized office workflow.",
+        "compliance_risks": [
+          "Stethoscope visible — ops angle only, not clinical care"
+        ],
+        "do_not_use_for": [
+          "clinical treatment claims",
+          "fake testimonial"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_004_1X1_FACE_CENTER",
+      "sourceId": "AI_004",
+      "sourceFile": "ai-generated-04.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_right",
+      "subjectSide": "right",
+      "textZone": "Top line + left side",
+      "aspectRatio": "1x1",
+      "cropType": "FACE_CENTER",
+      "cropLabel": "1x1/face/center",
+      "candidateRating": "A",
+      "placeholderLabel": "Workflow",
+      "recommendedUse": "Text: Top line + left side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/square-1x1/IMG_AI_004_1X1_FACE_CENTER.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "office scenario",
+        "recommended_angle": "Admin Backlog",
+        "recommended_script_style": "back-office workflow explainer",
+        "video_editor_notes": "Best vertical crop family after AI_003. Use for hiring gap / admin capacity angles.",
+        "veo_prompt_notes": "Draft: Healthcare admin in scrubs with headset working at laptop. Organized office workflow.",
+        "compliance_risks": [
+          "Stethoscope visible — ops angle only, not clinical care"
+        ],
+        "do_not_use_for": [
+          "clinical treatment claims",
+          "fake testimonial"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_007_1X1_FACE_CENTER",
+      "sourceId": "AI_007",
+      "sourceFile": "ai-generated-07.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_right",
+      "subjectSide": "right",
+      "textZone": "Top line + left side",
+      "aspectRatio": "1x1",
+      "cropType": "FACE_CENTER",
+      "cropLabel": "1x1/face/center",
+      "candidateRating": "A",
+      "placeholderLabel": "Workflow",
+      "recommendedUse": "Text: Top line + left side",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/square-1x1/IMG_AI_007_1X1_FACE_CENTER.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "talking-head",
+        "recommended_angle": "Hiring Gap",
+        "recommended_script_style": "remote medical assistant explainer / practice operations POV",
+        "video_editor_notes": "Top video family with AI_010. Use for talking-head FRAME with VO only. 9:16 subject-left is primary vertical seed.",
+        "veo_prompt_notes": "Draft: Medical admin in blue scrubs with headset at laptop. Call handling and scheduling context. No patients in frame.",
+        "compliance_risks": [
+          "Stethoscope — ops staffing angle only",
+          "No fake doctor voice"
+        ],
+        "do_not_use_for": [
+          "fake doctor testimonial",
+          "clinical care promises",
+          "patient outcomes"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_013_4X5_FACE_RIGHT",
+      "sourceId": "AI_013",
+      "sourceFile": "ai-generated-13.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_right",
+      "subjectSide": "right",
+      "textZone": "Top line + left side (center-right)",
+      "aspectRatio": "4x5",
+      "cropType": "FACE_RIGHT",
+      "cropLabel": "4x5/face/right",
+      "candidateRating": "A",
+      "placeholderLabel": "Remote Medical Assistant",
+      "recommendedUse": "Text: Top line + left side (center-right)",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_013_4X5_FACE_RIGHT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "talking-head",
+        "recommended_angle": "Remote Medical Assistant",
+        "recommended_script_style": "practice operations POV / remote medical assistant explainer",
+        "video_editor_notes": "Center-right hero. Text left. Strong first-batch + video seed. VO only.",
+        "veo_prompt_notes": "Draft: Young medical admin in blue scrubs with headset at desk. No patient data.",
+        "compliance_risks": [
+          "Stethoscope — ops staffing angle only",
+          "No fake doctor voice"
+        ],
+        "do_not_use_for": [
+          "fake doctor testimonial",
+          "clinical care promises",
+          "patient outcomes"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_013_9X16_SUBJECT_RIGHT",
+      "sourceId": "AI_013",
+      "sourceFile": "ai-generated-13.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_right",
+      "subjectSide": "right",
+      "textZone": "Top line + left side (center-right)",
+      "aspectRatio": "9x16",
+      "cropType": "SUBJECT_RIGHT",
+      "cropLabel": "9x16/subject/right",
+      "candidateRating": "A",
+      "placeholderLabel": "Remote Medical Assistant",
+      "recommendedUse": "Text: Top line + left side (center-right)",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/story-9x16/IMG_AI_013_9X16_SUBJECT_RIGHT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "talking-head",
+        "recommended_angle": "Remote Medical Assistant",
+        "recommended_script_style": "practice operations POV / remote medical assistant explainer",
+        "video_editor_notes": "Center-right hero. Text left. Strong first-batch + video seed. VO only.",
+        "veo_prompt_notes": "Draft: Young medical admin in blue scrubs with headset at desk. No patient data.",
+        "compliance_risks": [
+          "Stethoscope — ops staffing angle only",
+          "No fake doctor voice"
+        ],
+        "do_not_use_for": [
+          "fake doctor testimonial",
+          "clinical care promises",
+          "patient outcomes"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_014_4X5_FACE_RIGHT",
+      "sourceId": "AI_014",
+      "sourceFile": "ai-generated-14.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_right",
+      "subjectSide": "right",
+      "textZone": "Top line + left side (center-right)",
+      "aspectRatio": "4x5",
+      "cropType": "FACE_RIGHT",
+      "cropLabel": "4x5/face/right",
+      "candidateRating": "A",
+      "placeholderLabel": "Workflow",
+      "recommendedUse": "Text: Top line + left side (center-right)",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_014_4X5_FACE_RIGHT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "office scenario",
+        "recommended_angle": "Admin Backlog",
+        "recommended_script_style": "back-office workflow explainer",
+        "video_editor_notes": "Center-right with laptop context. Text left. Good workflow / admin backlog.",
+        "veo_prompt_notes": "Draft: Medical admin in blue scrubs at laptop. Clean office. No PHI on screens.",
+        "compliance_risks": [
+          "Monitor UI must stay generic",
+          "No fake dashboard claims"
+        ],
+        "do_not_use_for": [
+          "fake testimonial",
+          "clinical treatment claims"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_014_9X16_SUBJECT_RIGHT",
+      "sourceId": "AI_014",
+      "sourceFile": "ai-generated-14.png",
+      "sourceType": "AI-generated",
+      "family": "blue_scrubs_headset",
+      "boardSection": "person_right",
+      "subjectSide": "right",
+      "textZone": "Top line + left side (center-right)",
+      "aspectRatio": "9x16",
+      "cropType": "SUBJECT_RIGHT",
+      "cropLabel": "9x16/subject/right",
+      "candidateRating": "A",
+      "placeholderLabel": "Workflow",
+      "recommendedUse": "Text: Top line + left side (center-right)",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/story-9x16/IMG_AI_014_9X16_SUBJECT_RIGHT.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "high",
+        "veo_video_use": "high",
+        "editor_use": "high",
+        "best_video_format": "office scenario",
+        "recommended_angle": "Admin Backlog",
+        "recommended_script_style": "back-office workflow explainer",
+        "video_editor_notes": "Center-right with laptop context. Text left. Good workflow / admin backlog.",
+        "veo_prompt_notes": "Draft: Medical admin in blue scrubs at laptop. Clean office. No PHI on screens.",
+        "compliance_risks": [
+          "Monitor UI must stay generic",
+          "No fake dashboard claims"
+        ],
+        "do_not_use_for": [
+          "fake testimonial",
+          "clinical treatment claims"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_AI_008_4X5_SUBJECT_CENTER",
+      "sourceId": "AI_008",
+      "sourceFile": "ai-generated-08.png",
+      "sourceType": "AI-generated",
+      "family": "wide_office",
+      "boardSection": "person_center",
+      "subjectSide": "center",
+      "textZone": "Top band — blank space above subject",
+      "aspectRatio": "4x5",
+      "cropType": "SUBJECT_CENTER",
+      "cropLabel": "4x5/subject/center",
+      "candidateRating": "A",
+      "placeholderLabel": "Payroll Pressure",
+      "recommendedUse": "Text: Top band — blank space above subject",
+      "owned": false,
+      "warnings": [],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_008_4X5_SUBJECT_CENTER.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "medium",
+        "veo_video_use": "low",
+        "editor_use": "medium",
+        "best_video_format": "background only",
+        "recommended_angle": "Payroll Pressure",
+        "recommended_script_style": "checklist reveal / voiceover over desk scene",
+        "video_editor_notes": "B-roll and checklist reveal template. Pan across desk. Not hero talking-head.",
+        "veo_prompt_notes": "Draft: Medical office desk with charts and laptop — generic, no readable data.",
+        "compliance_risks": [
+          "Charts may imply unverified cost claims",
+          "No exact pricing on screen"
+        ],
+        "do_not_use_for": [
+          "hero talking-head",
+          "exact savings percentages",
+          "fake dashboard data"
+        ]
+      },
+      "sourceFolder": "ai-images"
+    },
+    {
+      "variationId": "IMG_LP_001_4X5_WHITE_TEXT_TOP",
+      "sourceId": "LP_001",
+      "sourceFile": "assistant.avif",
+      "sourceType": "Landing page image",
+      "family": "landing_headshot",
+      "boardSection": "usable_later",
+      "subjectSide": "center",
+      "textZone": "White band above head — do not cover face",
+      "aspectRatio": "4x5",
+      "cropType": "WHITE_TEXT_TOP",
+      "cropLabel": "4x5/white/text-above",
+      "candidateRating": "B",
+      "placeholderLabel": "Front Desk Backup",
+      "recommendedUse": "Flush bottom on white — put hook in top white band",
+      "owned": true,
+      "warnings": [
+        "Usable later — text above head only"
+      ],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_LP_001_4X5_WHITE_TEXT_TOP.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "low",
+        "veo_video_use": "no",
+        "editor_use": "low",
+        "best_video_format": "text-animation",
+        "recommended_angle": "Front Desk Backup",
+        "recommended_script_style": "meet your remote support team — trust creative",
+        "video_editor_notes": "Simple quote card or team tile. Low resolution — test upscale. Not Veo talking-head without approval.",
+        "veo_prompt_notes": "Reference still only. Do not lip-sync without legal approval.",
+        "compliance_risks": [
+          "481px upscale quality",
+          "Fake testimonial if given voice"
+        ],
+        "do_not_use_for": [
+          "Veo talking-head",
+          "fake customer voice",
+          "first cold video batch"
+        ]
+      },
+      "sourceFolder": "landing-page-images"
+    },
+    {
+      "variationId": "IMG_LP_002_4X5_WHITE_TEXT_TOP",
+      "sourceId": "LP_002",
+      "sourceFile": "biller.avif",
+      "sourceType": "Landing page image",
+      "family": "landing_headshot",
+      "boardSection": "usable_later",
+      "subjectSide": "center",
+      "textZone": "White band above head — do not cover face",
+      "aspectRatio": "4x5",
+      "cropType": "WHITE_TEXT_TOP",
+      "cropLabel": "4x5/white/text-above",
+      "candidateRating": "B",
+      "placeholderLabel": "Payroll Pressure",
+      "recommendedUse": "Flush bottom on white — put hook in top white band",
+      "owned": true,
+      "warnings": [
+        "Usable later — text above head only"
+      ],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_LP_002_4X5_WHITE_TEXT_TOP.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "low",
+        "veo_video_use": "low",
+        "editor_use": "medium",
+        "best_video_format": "text-animation",
+        "recommended_angle": "Payroll Pressure",
+        "recommended_script_style": "team-style / role intro card",
+        "video_editor_notes": "Best LP headshot for simple animated quote card. Retargeting wave.",
+        "veo_prompt_notes": "Reference only for role intro. No fake biller testimonial.",
+        "compliance_risks": [
+          "No payroll savings claims on card"
+        ],
+        "do_not_use_for": [
+          "fake testimonial",
+          "exact pricing",
+          "Veo lip-sync"
+        ]
+      },
+      "sourceFolder": "landing-page-images"
+    },
+    {
+      "variationId": "IMG_LP_003_4X5_WHITE_TEXT_TOP",
+      "sourceId": "LP_003",
+      "sourceFile": "casecoord.avif",
+      "sourceType": "Landing page image",
+      "family": "landing_headshot",
+      "boardSection": "usable_later",
+      "subjectSide": "center",
+      "textZone": "White band above head — do not cover face",
+      "aspectRatio": "4x5",
+      "cropType": "WHITE_TEXT_TOP",
+      "cropLabel": "4x5/white/text-above",
+      "candidateRating": "B",
+      "placeholderLabel": "Follow-Up",
+      "recommendedUse": "Flush bottom on white — put hook in top white band",
+      "owned": true,
+      "warnings": [
+        "Usable later — text above head only"
+      ],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_LP_003_4X5_WHITE_TEXT_TOP.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "low",
+        "veo_video_use": "no",
+        "editor_use": "low",
+        "best_video_format": "text-animation",
+        "recommended_angle": "Follow-Up",
+        "recommended_script_style": "trust / team creative",
+        "video_editor_notes": "Follow-up angle trust tile. Low res.",
+        "veo_prompt_notes": "Reference still only.",
+        "compliance_risks": [
+          "Low resolution",
+          "Patient follow-up implies no PHI stories"
+        ],
+        "do_not_use_for": [
+          "patient stories",
+          "Veo talking-head",
+          "first batch video"
+        ]
+      },
+      "sourceFolder": "landing-page-images"
+    },
+    {
+      "variationId": "IMG_LP_004_4X5_WHITE_TEXT_TOP",
+      "sourceId": "LP_004",
+      "sourceFile": "general.avif",
+      "sourceType": "Landing page image",
+      "family": "landing_headshot",
+      "boardSection": "usable_later",
+      "subjectSide": "center",
+      "textZone": "White band above head — do not cover face",
+      "aspectRatio": "4x5",
+      "cropType": "WHITE_TEXT_TOP",
+      "cropLabel": "4x5/white/text-above",
+      "candidateRating": "B",
+      "placeholderLabel": "Staffing Gap",
+      "recommendedUse": "Flush bottom on white — put hook in top white band",
+      "owned": true,
+      "warnings": [
+        "Usable later — text above head only"
+      ],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_LP_004_4X5_WHITE_TEXT_TOP.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "low",
+        "veo_video_use": "no",
+        "editor_use": "low",
+        "best_video_format": "text-animation",
+        "recommended_angle": "Staffing Gap",
+        "recommended_script_style": "team-style creative",
+        "video_editor_notes": "Staffing/team intro card for retargeting.",
+        "veo_prompt_notes": "Reference still only.",
+        "compliance_risks": [
+          "Low resolution"
+        ],
+        "do_not_use_for": [
+          "fake testimonial",
+          "Veo lip-sync",
+          "first batch"
+        ]
+      },
+      "sourceFolder": "landing-page-images"
+    },
+    {
+      "variationId": "IMG_LP_005_4X5_WHITE_TEXT_TOP",
+      "sourceId": "LP_005",
+      "sourceFile": "nurse.avif",
+      "sourceType": "Landing page image",
+      "family": "landing_headshot",
+      "boardSection": "usable_later",
+      "subjectSide": "center",
+      "textZone": "White band above head — do not cover face",
+      "aspectRatio": "4x5",
+      "cropType": "WHITE_TEXT_TOP",
+      "cropLabel": "4x5/white/text-above",
+      "candidateRating": "B",
+      "placeholderLabel": "Follow-Up",
+      "recommendedUse": "Flush bottom on white — put hook in top white band",
+      "owned": true,
+      "warnings": [
+        "Usable later — text above head only"
+      ],
+      "previewPath": "/exports/image-tests/feed-4x5/IMG_LP_005_4X5_WHITE_TEXT_TOP.png",
+      "video": {
+        "static_use": "yes",
+        "remotion_use": "low",
+        "veo_video_use": "low",
+        "editor_use": "medium",
+        "best_video_format": "text-animation",
+        "recommended_angle": "Follow-Up",
+        "recommended_script_style": "meet your remote support team",
+        "video_editor_notes": "Best LP headshot quality. Simple quote card. Not clinical care video.",
+        "veo_prompt_notes": "Reference for team intro. Not nurse testimonial.",
+        "compliance_risks": [
+          "Do not imply clinical treatment",
+          "No nurse endorsement claims"
+        ],
+        "do_not_use_for": [
+          "fake nurse testimonial",
+          "clinical care promises",
+          "Veo lip-sync"
+        ]
+      },
+      "sourceFolder": "landing-page-images"
+    }
+  ],
+  "rejected": [],
+  "summary": {
+    "personLeft": 10,
+    "personRight": 8,
+    "personCenter": 1,
+    "headshots": 5,
+    "total": 24,
+    "textRule": "Most images: put hook on top line. Person-left → text right. Person-right → text left. Center → text in top blank band."
+  },
+  "videoProductionReady": true
+}

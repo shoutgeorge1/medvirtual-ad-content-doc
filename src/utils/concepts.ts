@@ -1,8 +1,8 @@
-import type { Concept, ConceptStatus } from '../types/concept';
+import type { Concept } from '../types/concept';
 import seedData from '../data/concepts.json';
 import { generateSeedConcepts } from './seedConcepts';
 
-const STORAGE_KEY = 'medvirtual-meta-concepts-v2';
+const STORAGE_KEY = 'medvirtual-meta-concepts-v3';
 
 export function loadConcepts(): Concept[] {
   try {
@@ -46,7 +46,7 @@ export function duplicateConcept(
     ...source,
     concept_id: `${id}-copy-${copyNum}`,
     file_name: `${source.file_name}_COPY${copyNum}`,
-    status: 'Draft' as ConceptStatus,
+    production_status: 'Needs layout review',
     notes: source.notes ? `${source.notes} (duplicated)` : 'Duplicated from original concept.',
   };
 
@@ -64,7 +64,8 @@ export function filterConcepts(
   return concepts.filter((c) => {
     if (filters.role && filters.role !== 'all' && c.role !== filters.role) return false;
     if (filters.angle && filters.angle !== 'all' && c.angle !== filters.angle) return false;
-    if (filters.status && filters.status !== 'all' && c.status !== filters.status) return false;
+    if (filters.status && filters.status !== 'all' && c.production_status !== filters.status)
+      return false;
     if (filters.search) {
       const q = filters.search.toLowerCase();
       const haystack = [

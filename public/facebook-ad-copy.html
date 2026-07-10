@@ -1,0 +1,3512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Facebook Ad Copy — MedVirtual</title>
+  <style>
+  
+  .doc-header {
+    background: #0f172a;
+    color: #ffffff;
+    border-bottom: 3px solid #0d9488;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0d9488, #0891b2);
+    font-weight: 800;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid #1e293b;
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    max-width: 820px;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .doc-nav a {
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+  }
+  .doc-nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: #0d9488;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: #5eead4;
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid #334155;
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: #0d9488; color: #99f6e4; }
+  .doc-subnav a.active {
+    background: rgba(13, 148, 136, 0.2);
+    border-color: #0d9488;
+    color: #ccfbf1;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.5; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
+  .intro {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+    padding: 1.1rem 1.25rem; margin-bottom: 1rem; font-size: 0.9rem; color: #475569;
+  }
+  .intro strong { color: #0f172a; }
+  .intro a { color: #0d9488; font-weight: 650; }
+  .rules {
+    background: #0f172a; color: #e2e8f0; border-radius: 12px;
+    padding: 1rem 1.2rem; margin-bottom: 1.25rem; font-size: 0.84rem;
+  }
+  .rules h3 { margin: 0 0 0.5rem; font-size: 0.8rem; color: #5eead4; text-transform: uppercase; letter-spacing: 0.04em; }
+  .rules ul { margin: 0; padding-left: 1.1rem; color: #cbd5e1; }
+  .rules li { margin: 0.25rem 0; }
+  .rules code { font-size: 0.78rem; background: #1e293b; padding: 0.05rem 0.35rem; border-radius: 4px; color: #99f6e4; }
+  .toc { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0 0 1.5rem; }
+  .toc a {
+    font-size: 0.78rem; padding: 0.4rem 0.7rem; border-radius: 8px;
+    background: #0f172a; color: #fff; text-decoration: none; font-weight: 600;
+  }
+  .angle { margin: 2rem 0 0.5rem; scroll-margin-top: 110px; }
+  .angle h2 {
+    font-size: 1.05rem; color: #0f172a; padding-bottom: 0.4rem;
+    border-bottom: 2px solid #0d9488;
+  }
+  .angle .meta { font-size: 0.8rem; color: #64748b; margin: 0.4rem 0 0.85rem; }
+  .card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 0.85rem 1rem; margin-bottom: 0.65rem;
+  }
+  .card-top {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap;
+  }
+  .card-top-left { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+  .num {
+    font-family: ui-monospace, monospace; font-size: 0.72rem; font-weight: 700;
+    color: #0d9488; background: #ecfdf5; padding: 0.15rem 0.45rem; border-radius: 4px;
+  }
+  .badge {
+    font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .badge.safe { background: #ecfdf5; color: #047857; }
+  .badge.expand { background: #fff7ed; color: #c2410c; }
+  .copy-btn {
+    font-size: 0.72rem; font-weight: 650; color: #0f766e; background: #f0fdfa;
+    border: 1px solid #99f6e4; border-radius: 6px; padding: 0.25rem 0.55rem; cursor: pointer;
+  }
+  .copy-btn:hover { background: #ccfbf1; }
+  .copy-btn.done { background: #0d9488; color: #fff; border-color: #0d9488; }
+  .feed-preview {
+    background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px;
+    padding: 0.55rem 0.7rem; margin-bottom: 0.55rem; font-size: 0.82rem; color: #334155;
+  }
+  .feed-preview__label {
+    font-size: 0.65rem; font-weight: 700; color: #64748b; text-transform: uppercase;
+    letter-spacing: 0.04em; margin-bottom: 0.25rem;
+  }
+  .feed-preview__text { white-space: pre-wrap; line-height: 1.4; }
+  .feed-preview__more { color: #64748b; font-weight: 600; }
+  .text {
+    white-space: pre-wrap; font-size: 0.88rem; color: #1e293b; line-height: 1.45;
+  }
+  .chars { font-size: 0.7rem; color: #94a3b8; margin-top: 0.45rem; }
+  .chars.warn { color: #c2410c; }
+  .hook-len { font-size: 0.7rem; color: #64748b; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/facebook-ad-copy.html">
+      <span class="doc-header__mark">MV</span>
+      <div>
+        <h1 class="doc-header__title">Facebook Ad Content Doc</h1>
+        <p class="doc-header__tagline">MedVirtual · Primary text · templates · crops</p>
+      </div>
+    </a>
+    <nav class="doc-nav" aria-label="Primary"><a href="/facebook-ad-copy.html" class="active">Ad Copy</a><a href="/template-test-board.html" class="">Template Tests</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Raw Assets</a></nav>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Facebook Primary Text</h2>
+          <p class="doc-header__page-sub">125 variations · 5 angles × 25 · FB feed best practices · 117 fully feed-safe</p>
+          
+        </div>
+</header>
+  <div class="wrap">
+    <div class="intro">
+      <strong>What this is:</strong> Facebook/Instagram <em>primary text</em> (caption above the creative) — not on-image H1s.
+      Aligned with <a href="https://www.medvirtual.ai/" target="_blank" rel="noopener">medvirtual.ai</a>:
+      starting at $10/hour · HIPAA-trained · pre-vetted · ready in days · 250+ practices · full-time dedicated support.
+    </div>
+    <div class="rules">
+      <h3>Facebook best practices (built into every line)</h3>
+      <ul>
+        <li><strong>First ~125 characters win</strong> — mobile truncates; ~1% tap See more. Each card shows a feed preview.</li>
+        <li><strong>Hook in line 1</strong> — outcome, pain, or offer. Must work alone if nothing expands.</li>
+        <li><strong>One CTA</strong> — Book a demo / Talk to our team (form-fill). No multi-CTA clutter.</li>
+        <li><strong>Specific &amp; true</strong> — site claims only. Practice-ops POV. No fake testimonials.</li>
+        <li><strong>Light emoji</strong> — sparingly for scanability, never decoration spam.</li>
+        <li><strong>Test 3–5 per ad set</strong> — Meta can optimize across primary-text variants; pick from one angle first.</li>
+      </ul>
+    </div>
+    <nav class="toc"><a href="#full_time">Full-time coverage (25)</a><a href="#missed_calls">Missed calls (25)</a><a href="#front_desk">Front desk overload (25)</a><a href="#hiring_gap">Hiring gap (25)</a><a href="#cost_admin">Admin backlog (25)</a></nav>
+    <section class="angle" id="full_time">
+      <h2>Full-time coverage · Team of four, price of one</h2>
+      <p class="meta">Pairs with: T1-MC / T2-RMA · strongest cold hooks · Site: Full-time dedicated medical staff · Starting at $10/hr</p>
+      <div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-01</span>
+          <span class="badge expand">See more</span>
+          <span class="hook-len">Line 1: 66 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Team of four, price of one — full-time medical virtual assistants.
+
+HIPAA-trained · Pre-vetted · Ready in days
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Team of four, price of one — full-time medical virtual assistants.
+
+HIPAA-trained · Pre-vetted · Ready in days
+Starting at $1<span class="feed-preview__more">… See more</span></div>
+      </div>
+      <div class="text">Team of four, price of one — full-time medical virtual assistants.
+
+HIPAA-trained · Pre-vetted · Ready in days
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars warn">146 characters · expands past 125 (hook must stand alone)</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-02</span>
+          <span class="badge expand">See more</span>
+          <span class="hook-len">Line 1: 70 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Full-time medical virtual assistants — without another in-office hire.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Full-time medical virtual assistants — without another in-office hire.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a de<span class="feed-preview__more">… See more</span></div>
+      </div>
+      <div class="text">Full-time medical virtual assistants — without another in-office hire.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars warn">129 characters · expands past 125 (hook must stand alone)</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-03</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 57 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Get full-time medical admin support starting at $10/hour.
+
+HIPAA-trained. Pre-vetted. Ready in days.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Get full-time medical admin support starting at $10/hour.
+
+HIPAA-trained. Pre-vetted. Ready in days.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Get full-time medical admin support starting at $10/hour.
+
+HIPAA-trained. Pre-vetted. Ready in days.
+
+Book a demo →</div>
+      <div class="chars">115 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-04</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 69 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Your practice deserves full-time backup — not another stretched hire.
+
+Remote medical virtual assistants.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Your practice deserves full-time backup — not another stretched hire.
+
+Remote medical virtual assistants.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Your practice deserves full-time backup — not another stretched hire.
+
+Remote medical virtual assistants.
+
+Book a demo →</div>
+      <div class="chars">120 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-05</span>
+          <span class="badge expand">See more</span>
+          <span class="hook-len">Line 1: 61 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Full-time dedicated medical staff for your practice — remote.
+
+$1,760/mo full-time
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Full-time dedicated medical staff for your practice — remote.
+
+$1,760/mo full-time
+HIPAA-trained · Pre-vetted · Ready in days<span class="feed-preview__more">… See more</span></div>
+      </div>
+      <div class="text">Full-time dedicated medical staff for your practice — remote.
+
+$1,760/mo full-time
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars warn">140 characters · expands past 125 (hook must stand alone)</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-06</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 66 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Stop stretching your front desk thinner. Add full-time VA support.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Stop stretching your front desk thinner. Add full-time VA support.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Stop stretching your front desk thinner. Add full-time VA support.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">103 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-07</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 27 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Team of four. Price of one.
+
+Full-time medical virtual assistants for calls, scheduling, and admin.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Team of four. Price of one.
+
+Full-time medical virtual assistants for calls, scheduling, and admin.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Team of four. Price of one.
+
+Full-time medical virtual assistants for calls, scheduling, and admin.
+
+Book a demo →</div>
+      <div class="chars">114 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-08</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 51 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Need full-time coverage without full-time overhead?
+
+MedVirtual — starting at $10/hour.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Need full-time coverage without full-time overhead?
+
+MedVirtual — starting at $10/hour.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">Need full-time coverage without full-time overhead?
+
+MedVirtual — starting at $10/hour.
+
+Talk to our team →</div>
+      <div class="chars">107 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-09</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 35 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Build capacity — not payroll bloat.
+
+Full-time remote medical admin for US healthcare practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Build capacity — not payroll bloat.
+
+Full-time remote medical admin for US healthcare practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Build capacity — not payroll bloat.
+
+Full-time remote medical admin for US healthcare practices.
+
+Book a demo →</div>
+      <div class="chars">111 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-10</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 55 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="✅ Full-time medical VAs · HIPAA-trained · Ready in days
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">✅ Full-time medical VAs · HIPAA-trained · Ready in days
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">✅ Full-time medical VAs · HIPAA-trained · Ready in days
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">92 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-11</span>
+          <span class="badge expand">See more</span>
+          <span class="hook-len">Line 1: 67 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Keep the practice running at full capacity with remote medical VAs.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Keep the practice running at full capacity with remote medical VAs.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo <span class="feed-preview__more">… See more</span></div>
+      </div>
+      <div class="text">Keep the practice running at full capacity with remote medical VAs.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars warn">126 characters · expands past 125 (hook must stand alone)</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-12</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 58 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="What if full-time help didn’t mean another in-office hire?
+
+MedVirtual medical virtual assistants.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">What if full-time help didn’t mean another in-office hire?
+
+MedVirtual medical virtual assistants.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">What if full-time help didn’t mean another in-office hire?
+
+MedVirtual medical virtual assistants.
+
+Talk to our team →</div>
+      <div class="chars">118 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-13</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 51 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Dedicated. Full-time. Remote. Starting at $10/hour.
+
+Medical virtual assistants for healthcare practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Dedicated. Full-time. Remote. Starting at $10/hour.
+
+Medical virtual assistants for healthcare practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Dedicated. Full-time. Remote. Starting at $10/hour.
+
+Medical virtual assistants for healthcare practices.
+
+Book a demo →</div>
+      <div class="chars">120 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-14</span>
+          <span class="badge expand">See more</span>
+          <span class="hook-len">Line 1: 67 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="More coverage. Less overhead. Full-time medical virtual assistants.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">More coverage. Less overhead. Full-time medical virtual assistants.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo <span class="feed-preview__more">… See more</span></div>
+      </div>
+      <div class="text">More coverage. Less overhead. Full-time medical virtual assistants.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars warn">126 characters · expands past 125 (hook must stand alone)</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-15</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 57 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Full-time medical admin help — without the hire headache.
+
+Ready in days.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Full-time medical admin help — without the hire headache.
+
+Ready in days.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Full-time medical admin help — without the hire headache.
+
+Ready in days.
+
+Book a demo →</div>
+      <div class="chars">88 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-16</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 54 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Scale your team without scaling your office footprint.
+
+Full-time medical virtual assistants.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Scale your team without scaling your office footprint.
+
+Full-time medical virtual assistants.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Scale your team without scaling your office footprint.
+
+Full-time medical virtual assistants.
+
+Book a demo →</div>
+      <div class="chars">108 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-17</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 56 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="📞 Calls · 📅 Scheduling · 📋 Admin — covered full-time.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">📞 Calls · 📅 Scheduling · 📋 Admin — covered full-time.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">📞 Calls · 📅 Scheduling · 📋 Admin — covered full-time.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">93 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-18</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 47 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="The backup your front desk has been asking for.
+
+Full-time medical VAs — starting at $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">The backup your front desk has been asking for.
+
+Full-time medical VAs — starting at $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">The backup your front desk has been asking for.
+
+Full-time medical VAs — starting at $10/hour.
+
+Book a demo →</div>
+      <div class="chars">109 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-19</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 37 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Trusted by 250+ healthcare practices.
+
+Full-time medical virtual assistants — starting at $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Trusted by 250+ healthcare practices.
+
+Full-time medical virtual assistants — starting at $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Trusted by 250+ healthcare practices.
+
+Full-time medical virtual assistants — starting at $10/hour.
+
+Book a demo →</div>
+      <div class="chars">114 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-20</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 27 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Team of four, price of one.
+
+See how MedVirtual supports practices with full-time medical VAs.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Team of four, price of one.
+
+See how MedVirtual supports practices with full-time medical VAs.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Team of four, price of one.
+
+See how MedVirtual supports practices with full-time medical VAs.
+
+Book a demo →</div>
+      <div class="chars">109 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-21</span>
+          <span class="badge expand">See more</span>
+          <span class="hook-len">Line 1: 56 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Full-time medical virtual assistants for busy practices.
+
+HIPAA-trained · Pre-vetted · Ready in days
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Full-time medical virtual assistants for busy practices.
+
+HIPAA-trained · Pre-vetted · Ready in days
+Starting at $10/hour
+
+Bo<span class="feed-preview__more">… See more</span></div>
+      </div>
+      <div class="text">Full-time medical virtual assistants for busy practices.
+
+HIPAA-trained · Pre-vetted · Ready in days
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars warn">136 characters · expands past 125 (hook must stand alone)</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-22</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 62 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="One full-time dedicated medical staff member — remote &amp; ready.
+
+$1,760/mo full-time
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">One full-time dedicated medical staff member — remote &amp; ready.
+
+$1,760/mo full-time
+
+Book a demo →</div>
+      </div>
+      <div class="text">One full-time dedicated medical staff member — remote &amp; ready.
+
+$1,760/mo full-time
+
+Book a demo →</div>
+      <div class="chars">98 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-23</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 58 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Patients expect answers. Your team needs full-time backup.
+
+Starting at $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Patients expect answers. Your team needs full-time backup.
+
+Starting at $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Patients expect answers. Your team needs full-time backup.
+
+Starting at $10/hour.
+
+Book a demo →</div>
+      <div class="chars">96 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-24</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 58 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Full-time support for calls, intake, follow-up, and admin.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Full-time support for calls, intake, follow-up, and admin.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Full-time support for calls, intake, follow-up, and admin.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">95 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">full_time-25</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 61 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Practices choose MedVirtual for full-time medical VA support.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Practices choose MedVirtual for full-time medical VA support.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Practices choose MedVirtual for full-time medical VA support.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      <div class="chars">115 characters · fully visible before See more</div>
+    </div>
+    </section><section class="angle" id="missed_calls">
+      <h2>Missed calls · Answer more patient calls</h2>
+      <p class="meta">Pairs with: T1-MC · AI_003 · Site: Front-office / admin support · patient communication</p>
+      <div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-01</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 64 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Missing calls = missing patients. Get phone &amp; scheduling backup.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Missing calls = missing patients. Get phone &amp; scheduling backup.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Missing calls = missing patients. Get phone &amp; scheduling backup.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">101 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-02</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 41 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Patient calls shouldn’t die in voicemail.
+
+Remote medical admin support for busy practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Patient calls shouldn’t die in voicemail.
+
+Remote medical admin support for busy practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Patient calls shouldn’t die in voicemail.
+
+Remote medical admin support for busy practices.
+
+Book a demo →</div>
+      <div class="chars">106 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-03</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 53 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Every missed call is a patient who may not call back.
+
+Get front-desk backup with MedVirtual.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Every missed call is a patient who may not call back.
+
+Get front-desk backup with MedVirtual.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">Every missed call is a patient who may not call back.
+
+Get front-desk backup with MedVirtual.
+
+Talk to our team →</div>
+      <div class="chars">113 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-04</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 59 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Answer more patient calls — without another in-office hire.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Answer more patient calls — without another in-office hire.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      </div>
+      <div class="text">Answer more patient calls — without another in-office hire.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars">118 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-05</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 35 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Voicemail is not a growth strategy.
+
+Full-time medical VA support — starting at $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Voicemail is not a growth strategy.
+
+Full-time medical VA support — starting at $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Voicemail is not a growth strategy.
+
+Full-time medical VA support — starting at $10/hour.
+
+Book a demo →</div>
+      <div class="chars">104 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-06</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 51 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="When the phones won’t stop, your team needs backup.
+
+HIPAA-trained medical virtual assistants.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">When the phones won’t stop, your team needs backup.
+
+HIPAA-trained medical virtual assistants.
+
+Book a demo →</div>
+      </div>
+      <div class="text">When the phones won’t stop, your team needs backup.
+
+HIPAA-trained medical virtual assistants.
+
+Book a demo →</div>
+      <div class="chars">109 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-07</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 44 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Your front desk can’t be everywhere at once.
+
+Remote VAs for calls and scheduling.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Your front desk can’t be everywhere at once.
+
+Remote VAs for calls and scheduling.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Your front desk can’t be everywhere at once.
+
+Remote VAs for calls and scheduling.
+
+Book a demo →</div>
+      <div class="chars">97 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-08</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 60 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="📞 Patient calls deserve a real answer — not a full mailbox.
+
+Ready in days.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">📞 Patient calls deserve a real answer — not a full mailbox.
+
+Ready in days.
+
+Book a demo →</div>
+      </div>
+      <div class="text">📞 Patient calls deserve a real answer — not a full mailbox.
+
+Ready in days.
+
+Book a demo →</div>
+      <div class="chars">91 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-09</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 45 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Stop losing new patients to unanswered rings.
+
+Remote medical admin for US practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Stop losing new patients to unanswered rings.
+
+Remote medical admin for US practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Stop losing new patients to unanswered rings.
+
+Remote medical admin for US practices.
+
+Book a demo →</div>
+      <div class="chars">100 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-10</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 45 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="More rings answered. Less front-desk burnout.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">More rings answered. Less front-desk burnout.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">More rings answered. Less front-desk burnout.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">82 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-11</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 57 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="If phones are busier than your schedule, you need backup.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">If phones are busier than your schedule, you need backup.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      </div>
+      <div class="text">If phones are busier than your schedule, you need backup.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars">116 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-12</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 56 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Help your team answer more patient calls — consistently.
+
+HIPAA-trained medical VAs.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Help your team answer more patient calls — consistently.
+
+HIPAA-trained medical VAs.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Help your team answer more patient calls — consistently.
+
+HIPAA-trained medical VAs.
+
+Book a demo →</div>
+      <div class="chars">99 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-13</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 43 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Don’t let voicemail become your front desk.
+
+Remote medical VAs — starting at $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Don’t let voicemail become your front desk.
+
+Remote medical VAs — starting at $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Don’t let voicemail become your front desk.
+
+Remote medical VAs — starting at $10/hour.
+
+Book a demo →</div>
+      <div class="chars">102 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-14</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 38 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Missed calls cost more than you think.
+
+Add remote medical admin support.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Missed calls cost more than you think.
+
+Add remote medical admin support.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Missed calls cost more than you think.
+
+Add remote medical admin support.
+
+Book a demo →</div>
+      <div class="chars">88 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-15</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 38 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="When hold times climb, patients leave.
+
+Full-time medical VA coverage can help.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">When hold times climb, patients leave.
+
+Full-time medical VA coverage can help.
+
+Book a demo →</div>
+      </div>
+      <div class="text">When hold times climb, patients leave.
+
+Full-time medical VA coverage can help.
+
+Book a demo →</div>
+      <div class="chars">94 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-16</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 55 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Support for the busiest line in the office — the phone.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Support for the busiest line in the office — the phone.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      </div>
+      <div class="text">Support for the busiest line in the office — the phone.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars">114 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-17</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 46 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Patient access starts with someone picking up.
+
+MedVirtual for calls &amp; scheduling.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Patient access starts with someone picking up.
+
+MedVirtual for calls &amp; scheduling.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Patient access starts with someone picking up.
+
+MedVirtual for calls &amp; scheduling.
+
+Book a demo →</div>
+      <div class="chars">97 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-18</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 45 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Fewer missed calls. More booked appointments.
+
+Talk to our team about full-time medical VA support →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Fewer missed calls. More booked appointments.
+
+Talk to our team about full-time medical VA support →</div>
+      </div>
+      <div class="text">Fewer missed calls. More booked appointments.
+
+Talk to our team about full-time medical VA support →</div>
+      <div class="chars">100 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-19</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 57 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Keep patients from hanging up — add remote phone support.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Keep patients from hanging up — add remote phone support.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Keep patients from hanging up — add remote phone support.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">94 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-20</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 48 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Busy phones. Short staff. Same story every week?
+
+Add full-time remote medical admin.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Busy phones. Short staff. Same story every week?
+
+Add full-time remote medical admin.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Busy phones. Short staff. Same story every week?
+
+Add full-time remote medical admin.
+
+Book a demo →</div>
+      <div class="chars">100 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-21</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 53 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Answer the call. Book the visit. Keep the day moving.
+
+Medical VAs for busy practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Answer the call. Book the visit. Keep the day moving.
+
+Medical VAs for busy practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Answer the call. Book the visit. Keep the day moving.
+
+Medical VAs for busy practices.
+
+Book a demo →</div>
+      <div class="chars">101 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-22</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 59 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Give every patient call a better chance of getting through.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Give every patient call a better chance of getting through.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Give every patient call a better chance of getting through.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      <div class="chars">113 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-23</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 59 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Calls. Scheduling. Follow-up — so fewer patients slip away.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Calls. Scheduling. Follow-up — so fewer patients slip away.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Calls. Scheduling. Follow-up — so fewer patients slip away.
+
+Book a demo →</div>
+      <div class="chars">74 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-24</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 44 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Your patients are calling. Is someone there?
+
+Full-time medical VAs for practice ops.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Your patients are calling. Is someone there?
+
+Full-time medical VAs for practice ops.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">Your patients are calling. Is someone there?
+
+Full-time medical VAs for practice ops.
+
+Talk to our team →</div>
+      <div class="chars">105 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">missed_calls-25</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 61 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Front-desk phones shouldn’t run the practice into the ground.
+
+Backup from $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Front-desk phones shouldn’t run the practice into the ground.
+
+Backup from $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Front-desk phones shouldn’t run the practice into the ground.
+
+Backup from $10/hour.
+
+Book a demo →</div>
+      <div class="chars">99 characters · fully visible before See more</div>
+    </div>
+    </section><section class="angle" id="front_desk">
+      <h2>Front desk overload · Give your team backup</h2>
+      <p class="meta">Pairs with: T1-FD / T1-FD2 · AI_010 / AI_015 · Site: Medical admin · intake · scheduling · EMR support</p>
+      <div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-01</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 55 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Front desk overloaded? Add full-time medical VA backup.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Front desk overloaded? Add full-time medical VA backup.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      </div>
+      <div class="text">Front desk overloaded? Add full-time medical VA backup.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars">114 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-02</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 60 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Give your front desk backup — calls, intake, everyday admin.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Give your front desk backup — calls, intake, everyday admin.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Give your front desk backup — calls, intake, everyday admin.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">97 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-03</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 57 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Your front desk shouldn’t carry the whole practice alone.
+
+Remote medical admin support.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Your front desk shouldn’t carry the whole practice alone.
+
+Remote medical admin support.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">Your front desk shouldn’t carry the whole practice alone.
+
+Remote medical admin support.
+
+Talk to our team →</div>
+      <div class="chars">108 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-04</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 39 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Stop asking one person to do five jobs.
+
+MedVirtual medical virtual assistants.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Stop asking one person to do five jobs.
+
+MedVirtual medical virtual assistants.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Stop asking one person to do five jobs.
+
+MedVirtual medical virtual assistants.
+
+Book a demo →</div>
+      <div class="chars">94 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-05</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 59 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Intake. Phones. Scheduling. Follow-up — get expert VA help.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Intake. Phones. Scheduling. Follow-up — get expert VA help.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Intake. Phones. Scheduling. Follow-up — get expert VA help.
+
+Book a demo →</div>
+      <div class="chars">74 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-06</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 49 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Relieve front-desk pressure starting at $10/hour.
+
+HIPAA-trained medical virtual assistants.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Relieve front-desk pressure starting at $10/hour.
+
+HIPAA-trained medical virtual assistants.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Relieve front-desk pressure starting at $10/hour.
+
+HIPAA-trained medical virtual assistants.
+
+Book a demo →</div>
+      <div class="chars">107 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-07</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 63 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="When the waiting room and the phone both need you — get backup.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">When the waiting room and the phone both need you — get backup.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      </div>
+      <div class="text">When the waiting room and the phone both need you — get backup.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars">122 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-08</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 46 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Your team is great — they’re just outnumbered.
+
+Add full-time medical VA coverage.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Your team is great — they’re just outnumbered.
+
+Add full-time medical VA coverage.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Your team is great — they’re just outnumbered.
+
+Add full-time medical VA coverage.
+
+Book a demo →</div>
+      <div class="chars">97 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-09</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 41 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="✅ Calls · ✅ Intake · ✅ Scheduling support
+
+Remote medical VAs for busy offices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">✅ Calls · ✅ Intake · ✅ Scheduling support
+
+Remote medical VAs for busy offices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">✅ Calls · ✅ Intake · ✅ Scheduling support
+
+Remote medical VAs for busy offices.
+
+Book a demo →</div>
+      <div class="chars">94 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-10</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 47 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Don’t wait until someone burns out to add help.
+
+Remote medical admin — ready in days.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Don’t wait until someone burns out to add help.
+
+Remote medical admin — ready in days.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Don’t wait until someone burns out to add help.
+
+Remote medical admin — ready in days.
+
+Book a demo →</div>
+      <div class="chars">101 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-11</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 57 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Give your front desk a teammate — remote, trained, ready.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Give your front desk a teammate — remote, trained, ready.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Give your front desk a teammate — remote, trained, ready.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">94 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-12</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 54 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Less chaos at the desk. More consistency for patients.
+
+Medical VAs for practice operations.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Less chaos at the desk. More consistency for patients.
+
+Medical VAs for practice operations.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Less chaos at the desk. More consistency for patients.
+
+Medical VAs for practice operations.
+
+Book a demo →</div>
+      <div class="chars">107 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-13</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 58 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Overloaded mornings. Overflowing inboxes. Same every week?
+
+Full-time medical VAs can help.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Overloaded mornings. Overflowing inboxes. Same every week?
+
+Full-time medical VAs can help.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Overloaded mornings. Overflowing inboxes. Same every week?
+
+Full-time medical VAs can help.
+
+Book a demo →</div>
+      <div class="chars">106 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-14</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 51 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Backup for the people who keep your schedule alive.
+
+HIPAA-trained medical VAs.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Backup for the people who keep your schedule alive.
+
+HIPAA-trained medical VAs.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Backup for the people who keep your schedule alive.
+
+HIPAA-trained medical VAs.
+
+Book a demo →</div>
+      <div class="chars">94 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-15</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 51 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Front desk running on fumes? Support from $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Front desk running on fumes? Support from $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Front desk running on fumes? Support from $10/hour.
+
+Book a demo →</div>
+      <div class="chars">66 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-16</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 60 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Help your team protect the patient experience — at the desk.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Help your team protect the patient experience — at the desk.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      </div>
+      <div class="text">Help your team protect the patient experience — at the desk.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars">119 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-17</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 46 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="More hands for the work patients notice first.
+
+Full-time medical virtual assistants.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">More hands for the work patients notice first.
+
+Full-time medical virtual assistants.
+
+Book a demo →</div>
+      </div>
+      <div class="text">More hands for the work patients notice first.
+
+Full-time medical virtual assistants.
+
+Book a demo →</div>
+      <div class="chars">100 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-18</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 45 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Your front desk deserves a full-time partner.
+
+MedVirtual medical virtual assistants.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Your front desk deserves a full-time partner.
+
+MedVirtual medical virtual assistants.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Your front desk deserves a full-time partner.
+
+MedVirtual medical virtual assistants.
+
+Book a demo →</div>
+      <div class="chars">100 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-19</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 58 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Give your front desk backup — before the next busy Monday.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Give your front desk backup — before the next busy Monday.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Give your front desk backup — before the next busy Monday.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">95 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-20</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 52 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Busy practices need more than “we’ll figure it out.”
+
+Full-time remote medical admin.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Busy practices need more than “we’ll figure it out.”
+
+Full-time remote medical admin.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Busy practices need more than “we’ll figure it out.”
+
+Full-time remote medical admin.
+
+Book a demo →</div>
+      <div class="chars">100 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-21</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 56 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Front-desk backup that understands healthcare workflows.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Front-desk backup that understands healthcare workflows.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      </div>
+      <div class="text">Front-desk backup that understands healthcare workflows.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars">115 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-22</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 59 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Admin work expands to fill every spare minute — and person.
+
+Get help.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Admin work expands to fill every spare minute — and person.
+
+Get help.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Admin work expands to fill every spare minute — and person.
+
+Get help.
+
+Book a demo →</div>
+      <div class="chars">85 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-23</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 67 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="The front desk is the heartbeat of the practice. Keep it supported.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">The front desk is the heartbeat of the practice. Keep it supported.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">The front desk is the heartbeat of the practice. Keep it supported.
+
+Talk to our team →</div>
+      <div class="chars">87 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-24</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 67 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Expert virtual medical assistant support for intake, calls &amp; admin.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Expert virtual medical assistant support for intake, calls &amp; admin.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Expert virtual medical assistant support for intake, calls &amp; admin.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      <div class="chars">121 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">front_desk-25</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 59 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Scheduling, calls, and admin — covered with remote support.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Scheduling, calls, and admin — covered with remote support.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">Scheduling, calls, and admin — covered with remote support.
+
+Talk to our team →</div>
+      <div class="chars">79 characters · fully visible before See more</div>
+    </div>
+    </section><section class="angle" id="hiring_gap">
+      <h2>Hiring gap · Remote MA without another in-office hire</h2>
+      <p class="meta">Pairs with: T2-RMA / T2-RMA2 · AI_007 / AI_013 · Site: Fast hiring · pre-vetted · ready in days · $10/hr</p>
+      <div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-01</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 63 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Hiring taking too long? Pre-vetted medical VAs — ready in days.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Hiring taking too long? Pre-vetted medical VAs — ready in days.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Hiring taking too long? Pre-vetted medical VAs — ready in days.
+
+Book a demo →</div>
+      <div class="chars">78 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-02</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 43 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Add support without another in-office hire.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Add support without another in-office hire.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Add support without another in-office hire.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">80 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-03</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 54 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Need help now — not after another round of interviews?
+
+MedVirtual medical VAs.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Need help now — not after another round of interviews?
+
+MedVirtual medical VAs.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">Need help now — not after another round of interviews?
+
+MedVirtual medical VAs.
+
+Talk to our team →</div>
+      <div class="chars">99 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-04</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 72 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Skip the “post and hope” hiring cycle. Full-time remote VAs from $10/hr.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Skip the “post and hope” hiring cycle. Full-time remote VAs from $10/hr.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Skip the “post and hope” hiring cycle. Full-time remote VAs from $10/hr.
+
+Book a demo →</div>
+      <div class="chars">87 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-05</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 50 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Your open role costs you every week it stays open.
+
+Fill the gap with a pre-vetted medical VA.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Your open role costs you every week it stays open.
+
+Fill the gap with a pre-vetted medical VA.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Your open role costs you every week it stays open.
+
+Fill the gap with a pre-vetted medical VA.
+
+Book a demo →</div>
+      <div class="chars">109 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-06</span>
+          <span class="badge expand">See more</span>
+          <span class="hook-len">Line 1: 67 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Get an expert virtual medical assistant — without the 3-month slog.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Get an expert virtual medical assistant — without the 3-month slog.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo <span class="feed-preview__more">… See more</span></div>
+      </div>
+      <div class="text">Get an expert virtual medical assistant — without the 3-month slog.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars warn">126 characters · expands past 125 (hook must stand alone)</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-07</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 45 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Another in-office hire isn’t the only option.
+
+Remote medical VAs for US healthcare practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Another in-office hire isn’t the only option.
+
+Remote medical VAs for US healthcare practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Another in-office hire isn’t the only option.
+
+Remote medical VAs for US healthcare practices.
+
+Book a demo →</div>
+      <div class="chars">109 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-08</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 54 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Staffing gap? Start with remote medical admin support.
+
+$1,760/mo full-time
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Staffing gap? Start with remote medical admin support.
+
+$1,760/mo full-time
+
+Book a demo →</div>
+      </div>
+      <div class="text">Staffing gap? Start with remote medical admin support.
+
+$1,760/mo full-time
+
+Book a demo →</div>
+      <div class="chars">90 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-09</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 48 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="✅ Pre-vetted · ✅ HIPAA-trained · ✅ Ready in days
+
+Medical VAs for busy practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">✅ Pre-vetted · ✅ HIPAA-trained · ✅ Ready in days
+
+Medical VAs for busy practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">✅ Pre-vetted · ✅ HIPAA-trained · ✅ Ready in days
+
+Medical VAs for busy practices.
+
+Book a demo →</div>
+      <div class="chars">96 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-10</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 61 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Don’t pause growth while you hunt for the perfect local hire.
+
+Add remote coverage now.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Don’t pause growth while you hunt for the perfect local hire.
+
+Add remote coverage now.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Don’t pause growth while you hunt for the perfect local hire.
+
+Add remote coverage now.
+
+Book a demo →</div>
+      <div class="chars">102 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-11</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 41 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="When hiring stalls, operations shouldn’t.
+
+Full-time medical virtual assistants.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">When hiring stalls, operations shouldn’t.
+
+Full-time medical virtual assistants.
+
+Book a demo →</div>
+      </div>
+      <div class="text">When hiring stalls, operations shouldn’t.
+
+Full-time medical virtual assistants.
+
+Book a demo →</div>
+      <div class="chars">95 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-12</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 56 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Hire slower. Cover faster — with MedVirtual medical VAs.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Hire slower. Cover faster — with MedVirtual medical VAs.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Hire slower. Cover faster — with MedVirtual medical VAs.
+
+Book a demo →</div>
+      <div class="chars">71 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-13</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 53 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Expert admin help without expanding office headcount.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Expert admin help without expanding office headcount.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Expert admin help without expanding office headcount.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">90 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-14</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 58 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="The alternative to “we’ll just work harder until we hire.”
+
+Remote medical admin.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">The alternative to “we’ll just work harder until we hire.”
+
+Remote medical admin.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">The alternative to “we’ll just work harder until we hire.”
+
+Remote medical admin.
+
+Talk to our team →</div>
+      <div class="chars">101 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-15</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 60 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Need a medical VA who’s ready to work — not train from zero?
+
+Pre-vetted. Ready in days.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Need a medical VA who’s ready to work — not train from zero?
+
+Pre-vetted. Ready in days.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Need a medical VA who’s ready to work — not train from zero?
+
+Pre-vetted. Ready in days.
+
+Book a demo →</div>
+      <div class="chars">103 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-16</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 59 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Fill the gap between “we need help” and “we finally hired.”
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Fill the gap between “we need help” and “we finally hired.”
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      </div>
+      <div class="text">Fill the gap between “we need help” and “we finally hired.”
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars">118 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-17</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 59 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Remote medical VAs — so your next hire isn’t a crisis hire.
+
+Starting at $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Remote medical VAs — so your next hire isn’t a crisis hire.
+
+Starting at $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Remote medical VAs — so your next hire isn’t a crisis hire.
+
+Starting at $10/hour.
+
+Book a demo →</div>
+      <div class="chars">97 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-18</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 49 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Support without the office chair and 90-day ramp.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Support without the office chair and 90-day ramp.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">Support without the office chair and 90-day ramp.
+
+Talk to our team →</div>
+      <div class="chars">69 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-19</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 52 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="A full-time dedicated medical staff member — remote.
+
+$1,760/mo full-time
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">A full-time dedicated medical staff member — remote.
+
+$1,760/mo full-time
+
+Book a demo →</div>
+      </div>
+      <div class="text">A full-time dedicated medical staff member — remote.
+
+$1,760/mo full-time
+
+Book a demo →</div>
+      <div class="chars">88 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-20</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 73 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Stop choosing between overwork and a rushed hire. There’s a third option.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Stop choosing between overwork and a rushed hire. There’s a third option.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Stop choosing between overwork and a rushed hire. There’s a third option.
+
+Book a demo →</div>
+      <div class="chars">88 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-21</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 53 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Hiring gap? Cover it with MedVirtual — ready in days.
+
+HIPAA-trained medical VAs.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Hiring gap? Cover it with MedVirtual — ready in days.
+
+HIPAA-trained medical VAs.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Hiring gap? Cover it with MedVirtual — ready in days.
+
+HIPAA-trained medical VAs.
+
+Book a demo →</div>
+      <div class="chars">96 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-22</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 53 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Fast support for practices that can’t wait on hiring.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Fast support for practices that can’t wait on hiring.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      </div>
+      <div class="text">Fast support for practices that can’t wait on hiring.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars">112 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-23</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 68 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Get matched with medical VAs experienced in US healthcare workflows.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Get matched with medical VAs experienced in US healthcare workflows.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Get matched with medical VAs experienced in US healthcare workflows.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      <div class="chars">122 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-24</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 62 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Get an expert VA for admin, scheduling support, and follow-up.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Get an expert VA for admin, scheduling support, and follow-up.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Get an expert VA for admin, scheduling support, and follow-up.
+
+Book a demo →</div>
+      <div class="chars">77 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">hiring_gap-25</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 65 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Practices use MedVirtual to add capacity while hiring stays open.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Practices use MedVirtual to add capacity while hiring stays open.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Practices use MedVirtual to add capacity while hiring stays open.
+
+Book a demo →</div>
+      <div class="chars">80 characters · fully visible before See more</div>
+    </div>
+    </section><section class="angle" id="cost_admin">
+      <h2>Admin backlog · Clear work · Cut overhead</h2>
+      <p class="meta">Pairs with: T2-ADM / T3 / T4 · AI_014 / AI_008 · Site: Cut overhead · insurance verification · EMR · billing support · $10/hr</p>
+      <div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-01</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 65 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Clear the admin backlog — intake, verification, follow-up &amp; more.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Clear the admin backlog — intake, verification, follow-up &amp; more.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Clear the admin backlog — intake, verification, follow-up &amp; more.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">102 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-02</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 63 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Cut overhead without cutting care. HIPAA-compliant medical VAs.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Cut overhead without cutting care. HIPAA-compliant medical VAs.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">Cut overhead without cutting care. HIPAA-compliant medical VAs.
+
+Talk to our team →</div>
+      <div class="chars">83 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-03</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 48 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Admin backlog growing faster than your schedule?
+
+Full-time medical VAs can help.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Admin backlog growing faster than your schedule?
+
+Full-time medical VAs can help.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Admin backlog growing faster than your schedule?
+
+Full-time medical VAs can help.
+
+Book a demo →</div>
+      <div class="chars">96 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-04</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 54 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Your providers didn’t go to school to chase paperwork.
+
+Medical VAs for practice ops.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Your providers didn’t go to school to chase paperwork.
+
+Medical VAs for practice ops.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Your providers didn’t go to school to chase paperwork.
+
+Medical VAs for practice ops.
+
+Book a demo →</div>
+      <div class="chars">100 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-05</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 63 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Transparent pricing. Predictable support. Starting at $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Transparent pricing. Predictable support. Starting at $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Transparent pricing. Predictable support. Starting at $10/hour.
+
+Book a demo →</div>
+      <div class="chars">78 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-06</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 62 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Insurance verification. EMR updates. Follow-ups — remote help.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Insurance verification. EMR updates. Follow-ups — remote help.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Insurance verification. EMR updates. Follow-ups — remote help.
+
+Book a demo →</div>
+      <div class="chars">77 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-07</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 46 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Less admin drag. More patient-facing capacity.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Less admin drag. More patient-facing capacity.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      </div>
+      <div class="text">Less admin drag. More patient-facing capacity.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars">105 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-08</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 59 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="The backlog doesn’t clear itself. Add remote medical admin.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">The backlog doesn’t clear itself. Add remote medical admin.
+
+Book a demo →</div>
+      </div>
+      <div class="text">The backlog doesn’t clear itself. Add remote medical admin.
+
+Book a demo →</div>
+      <div class="chars">74 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-09</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 54 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="✅ Insurance verification · ✅ EMR support · ✅ Follow-up
+
+Remote medical VAs.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">✅ Insurance verification · ✅ EMR support · ✅ Follow-up
+
+Remote medical VAs.
+
+Book a demo →</div>
+      </div>
+      <div class="text">✅ Insurance verification · ✅ EMR support · ✅ Follow-up
+
+Remote medical VAs.
+
+Book a demo →</div>
+      <div class="chars">90 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-10</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 58 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Repetitive admin is expensive when your best people do it.
+
+Delegate with MedVirtual.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Repetitive admin is expensive when your best people do it.
+
+Delegate with MedVirtual.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Repetitive admin is expensive when your best people do it.
+
+Delegate with MedVirtual.
+
+Book a demo →</div>
+      <div class="chars">100 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-11</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 68 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Full-time medical staff support — without full-time office overhead.
+
+$1,760/mo full-time
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Full-time medical staff support — without full-time office overhead.
+
+$1,760/mo full-time
+
+Book a demo →</div>
+      </div>
+      <div class="text">Full-time medical staff support — without full-time office overhead.
+
+$1,760/mo full-time
+
+Book a demo →</div>
+      <div class="chars">104 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-12</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 50 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Keep care quality high — and admin costs in check.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Keep care quality high — and admin costs in check.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Keep care quality high — and admin costs in check.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      <div class="chars">104 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-13</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 66 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Billing data, claims support, patient billing inquiries — covered.
+
+From $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Billing data, claims support, patient billing inquiries — covered.
+
+From $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Billing data, claims support, patient billing inquiries — covered.
+
+From $10/hour.
+
+Book a demo →</div>
+      <div class="chars">97 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-14</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 72 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="If admin is always “later,” it’s already late. Get help — ready in days.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">If admin is always “later,” it’s already late. Get help — ready in days.
+
+Book a demo →</div>
+      </div>
+      <div class="text">If admin is always “later,” it’s already late. Get help — ready in days.
+
+Book a demo →</div>
+      <div class="chars">87 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-15</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 67 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Cut the cost of routine admin — without cutting compliance corners.
+
+HIPAA-trained talent.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Cut the cost of routine admin — without cutting compliance corners.
+
+HIPAA-trained talent.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Cut the cost of routine admin — without cutting compliance corners.
+
+HIPAA-trained talent.
+
+Book a demo →</div>
+      <div class="chars">105 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-16</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 55 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Your backlog is a staffing problem in an admin costume.
+
+MedVirtual can help.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Your backlog is a staffing problem in an admin costume.
+
+MedVirtual can help.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Your backlog is a staffing problem in an admin costume.
+
+MedVirtual can help.
+
+Book a demo →</div>
+      <div class="chars">92 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-17</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 58 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Clear repetitive back-office work with remote medical VAs.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Clear repetitive back-office work with remote medical VAs.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Clear repetitive back-office work with remote medical VAs.
+
+Book a demo →</div>
+      <div class="chars">73 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-18</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 72 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Less overhead. Same standard of care. Full-time medical VAs from $10/hr.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Less overhead. Same standard of care. Full-time medical VAs from $10/hr.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Less overhead. Same standard of care. Full-time medical VAs from $10/hr.
+
+Book a demo →</div>
+      <div class="chars">87 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-19</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 65 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Healthcare VAs for billing support, insurance verification &amp; EMR.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Healthcare VAs for billing support, insurance verification &amp; EMR.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Healthcare VAs for billing support, insurance verification &amp; EMR.
+
+Book a demo →</div>
+      <div class="chars">80 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-20</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 52 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="More ops output — without more chaos in your office.
+
+Full-time medical VAs.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">More ops output — without more chaos in your office.
+
+Full-time medical VAs.
+
+Book a demo →</div>
+      </div>
+      <div class="text">More ops output — without more chaos in your office.
+
+Full-time medical VAs.
+
+Book a demo →</div>
+      <div class="chars">91 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-21</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 56 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Admin work is real work — it deserves dedicated support.
+
+Starting at $10/hour.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Admin work is real work — it deserves dedicated support.
+
+Starting at $10/hour.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Admin work is real work — it deserves dedicated support.
+
+Starting at $10/hour.
+
+Book a demo →</div>
+      <div class="chars">94 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-22</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 60 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Stop letting back-office tasks set the pace of the practice.
+
+Talk to our team →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Stop letting back-office tasks set the pace of the practice.
+
+Talk to our team →</div>
+      </div>
+      <div class="text">Stop letting back-office tasks set the pace of the practice.
+
+Talk to our team →</div>
+      <div class="chars">80 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-23</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 58 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Support tailored to practice operations — not generic VAs.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Support tailored to practice operations — not generic VAs.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      </div>
+      <div class="text">Support tailored to practice operations — not generic VAs.
+
+Trusted by 250+ healthcare practices.
+
+Book a demo →</div>
+      <div class="chars">112 characters · fully visible before See more</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-24</span>
+          <span class="badge expand">See more</span>
+          <span class="hook-len">Line 1: 68 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Clear the pile: intake, verification, scheduling support, follow-up.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Clear the pile: intake, verification, scheduling support, follow-up.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo<span class="feed-preview__more">… See more</span></div>
+      </div>
+      <div class="text">Clear the pile: intake, verification, scheduling support, follow-up.
+
+HIPAA-trained · Pre-vetted · Ready in days
+
+Book a demo →</div>
+      <div class="chars warn">127 characters · expands past 125 (hook must stand alone)</div>
+    </div><div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">cost_admin-25</span>
+          <span class="badge safe">Feed-safe</span>
+          <span class="hook-len">Line 1: 59 chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="Predictable pricing for medical virtual assistant services.
+
+Starting at $10/hour
+
+Book a demo →">Copy</button>
+      </div>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~125 chars)</div>
+        <div class="feed-preview__text">Predictable pricing for medical virtual assistant services.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      </div>
+      <div class="text">Predictable pricing for medical virtual assistant services.
+
+Starting at $10/hour
+
+Book a demo →</div>
+      <div class="chars">96 characters · fully visible before See more</div>
+    </div>
+    </section>
+  </div>
+  <script>
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const t = btn.getAttribute('data-copy') || '';
+        try {
+          await navigator.clipboard.writeText(t);
+          btn.textContent = 'Copied';
+          btn.classList.add('done');
+          setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1200);
+        } catch (e) {
+          btn.textContent = 'Select text';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

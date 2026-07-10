@@ -18,7 +18,7 @@ export function ConceptCard({ concept, onExport }: ConceptCardProps) {
       <div className="concept-card__body">
         <div className="concept-card__meta">
           <span className="concept-card__id">{concept.concept_id}</span>
-          <StatusBadge status={concept.status} />
+          <StatusBadge status={concept.production_status} />
         </div>
         <p className="concept-card__role">{concept.role}</p>
         <p className="concept-card__angle">{concept.angle}</p>

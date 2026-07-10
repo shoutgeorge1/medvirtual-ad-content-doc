@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Template Test Board — MedVirtual Content Doc</title>
+  <style>
+  
+  .doc-header {
+    background: #0f172a;
+    color: #ffffff;
+    border-bottom: 3px solid #0d9488;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0d9488, #0891b2);
+    font-weight: 800;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid #1e293b;
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    max-width: 820px;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .doc-nav a {
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+  }
+  .doc-nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: #0d9488;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: #5eead4;
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid #334155;
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: #0d9488; color: #99f6e4; }
+  .doc-subnav a.active {
+    background: rgba(13, 148, 136, 0.2);
+    border-color: #0d9488;
+    color: #ccfbf1;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #0b1220; color: #e2e8f0; }
+  .stats { display: flex; flex-wrap: wrap; gap: 1.25rem; padding: 1rem 2rem; background: #111827; border-bottom: 1px solid #1f2937; }
+  .stat strong { display: block; font-size: 1.2rem; color: #f1f5f9; }
+  .stat { font-size: 0.78rem; color: #94a3b8; }
+  .section-head { padding: 1.75rem 2rem 0.4rem; border-top: 1px solid #1f2937; }
+  .section-head h2 { font-size: 1.1rem; color: #f8fafc; }
+  .section-head p { font-size: 0.8rem; color: #94a3b8; margin-top: 0.2rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.5rem; padding: 1rem 2rem 3rem; }
+  .card { background: #111827; border: 1px solid #1f2937; border-radius: 12px; overflow: hidden; }
+  .mock { position: relative; width: 100%; background: #020617; overflow: hidden; }
+  .mock.r-4x5 { aspect-ratio: 4/5; }
+  .mock.r-9x16 { aspect-ratio: 9/16; max-height: 580px; margin: 0 auto; }
+  .mock.r-1x1 { aspect-ratio: 1/1; }
+  .mock img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+  /* Soft top readability wash — opaque white like T2-ADM-11 */
+  .mock .wash { position: absolute; left: 0; right: 0; top: 0; height: 40%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 42%, rgba(255,255,255,0.18) 72%, rgba(255,255,255,0) 100%);
+    z-index: 2; pointer-events: none; }
+  .mock.tpl-right .wash {
+    height: 48%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.62) 40%, rgba(255,255,255,0.22) 70%, transparent 100%);
+  }
+  .mock.tpl-center .wash, .mock.tpl-explainer .wash {
+    height: 38%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+  }
+  .mock.tpl-trust .wash { display: none; }
+
+  /* PERSON_LEFT: drop image ~1" (4:5) / ~2" (9:16) + white fade at top so H1 clears face */
+  .tpl-left img.bg {
+    top: auto; bottom: 0; left: 0; right: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 28%;
+    transform: translateY(7%);
+  }
+  .tpl-left.r-9x16 img.bg {
+    object-position: center 22%;
+    transform: translateY(11%);
+  }
+  .tpl-left.r-1x1 img.bg {
+    transform: translateY(5%);
+    object-position: center 30%;
+  }
+  .tpl-left .top-fade {
+    position: absolute; left: 0; right: 0; top: 0; height: 18%;
+    background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0) 100%);
+    z-index: 2; pointer-events: none;
+  }
+  .tpl-left.r-9x16 .top-fade { height: 22%; }
+
+  /* Modifiers — opaque white panels sized like T2-ADM-11 */
+  .mock.text-panel .wash, .mock.text-panel-wide .wash {
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 38%, rgba(255,255,255,0.28) 70%, transparent 100%);
+  }
+  .mock.tpl-left.text-panel .wash {
+    left: 30%; right: 0; width: auto; height: 56%;
+    background: linear-gradient(225deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.82) 30%, rgba(255,255,255,0.45) 58%, rgba(255,255,255,0.12) 82%, transparent 100%);
+  }
+  /* Extra wash depth when image is dropped (FD2) — support line sits lower */
+  .mock.tpl-left.text-panel.drop-more .wash {
+    height: 60%;
+    background: linear-gradient(225deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.88) 26%, rgba(255,255,255,0.55) 52%, rgba(255,255,255,0.18) 78%, transparent 100%);
+  }
+  .mock.tpl-right.text-panel-wide .wash {
+    right: 26%; left: 0; width: auto; height: 52%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.78) 36%, rgba(255,255,255,0.28) 70%, transparent 100%);
+  }
+  .mock.drop-more img.bg { transform: translateY(14%) !important; }
+  .mock.drop-more.r-9x16 img.bg { transform: translateY(18%) !important; object-position: center 18% !important; }
+  .mock.zoom-out img.bg {
+    width: 100%; height: 100%;
+    transform: translateY(10%) scale(0.9) !important;
+    transform-origin: center bottom;
+  }
+  .mock.drop-more.zoom-out img.bg {
+    transform: translateY(16%) scale(0.88) !important;
+    transform-origin: center bottom;
+  }
+  .mock.drop-more.zoom-out.r-9x16 img.bg {
+    transform: translateY(20%) scale(0.86) !important;
+    transform-origin: center bottom;
+    object-position: center 20% !important;
+  }
+  .mock.copy-far-right .copy { left: 52% !important; right: 3% !important; }
+  .mock.shift-left img.bg { object-position: 28% center !important; }
+  .mock.r-1x1.drop-more.zoom-out.shift-left img.bg {
+    transform: translateY(14%) translateX(-6%) scale(0.9) !important;
+    transform-origin: left bottom;
+    object-position: 22% 30% !important;
+  }
+  .mock.copy-down .copy { top: 14% !important; }
+  .mock.copy-down.r-9x16 .copy { top: 16% !important; }
+  .mock.tpl-center.copy-down .copy, .mock.tpl-explainer.copy-down .copy { top: 13% !important; }
+  .mock.tpl-center.copy-down.r-9x16 .copy { top: 15% !important; }
+  .mock.logo-center .logo-wrap { left: 50% !important; transform: translateX(-50%); }
+  .mock.text-bottom .copy {
+    top: auto !important; bottom: 14% !important; left: 5% !important; right: 5% !important;
+  }
+  .mock.text-bottom .wash {
+    top: auto; bottom: 0; height: 42%;
+    background: linear-gradient(0deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.12) 78%, transparent 100%);
+  }
+  .mock.text-bottom .cta { bottom: 4.5% !important; }
+
+  /* Copy bottom-left + CTA top-left (below logo) — T2-RMA2 / T2-ADM */
+  .mock.copy-bl-cta-tl .copy {
+    top: auto !important; bottom: 6% !important;
+    left: 4% !important; right: 38% !important;
+  }
+  .mock.copy-bl-cta-tl .wash {
+    top: auto; bottom: 0; height: 52%; left: 0; right: 26%; width: auto;
+    background: linear-gradient(0deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.7) 42%, rgba(255,255,255,0.18) 78%, transparent 100%);
+  }
+  .mock.copy-bl-cta-tl .cta {
+    top: 13% !important; bottom: auto !important;
+    left: 4% !important; right: auto !important;
+  }
+  .mock.copy-bl-cta-tl.r-9x16 .cta { top: 14% !important; }
+  .mock.copy-bl-cta-tl.r-1x1 .cta { top: 14% !important; }
+  .mock.copy-bl-cta-tl.r-9x16 .copy { bottom: 7% !important; right: 32% !important; }
+  .mock.copy-bl-cta-tl.r-1x1 .copy { bottom: 6% !important; right: 36% !important; }
+
+  /* Logo — plain SVG on wash, not a button/plate */
+  .mock .logo-wrap {
+    position: absolute; top: 2.4%; left: 3.2%; z-index: 5;
+    display: inline-flex; align-items: center;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+  .mock .logo {
+    position: static; display: block;
+    height: 32px; width: auto; max-width: min(220px, 44vw);
+    object-fit: contain;
+  }
+  .mock .logo.left, .mock .logo.right { left: auto; right: auto; }
+  .tpl-left.r-9x16 .logo-wrap, .tpl-right.r-9x16 .logo-wrap { top: 2.2%; }
+  .tpl-left.r-9x16 .logo, .tpl-right.r-9x16 .logo { height: 26px; }
+  .r-4x5 .logo { height: 34px; }
+  .r-1x1 .logo { height: 30px; }
+  .tpl-center .logo-wrap, .tpl-trust .logo-wrap {
+    left: 50%; transform: translateX(-50%);
+  }
+  .tpl-trust .logo-wrap { top: 2.5%; padding: 0; }
+  .tpl-trust .logo { height: 30px; max-width: min(220px, 48vw); }
+  .mock.logo-center .logo-wrap { left: 50% !important; transform: translateX(-50%); }
+  .mock .copy { position: absolute; z-index: 4; display: flex; flex-direction: column; gap: 0.4em; }
+  .mock .hook {
+    font-weight: 800; color: #0f172a; line-height: 1.08; letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .mock .hook .accent {
+    color: #0d9488;
+  }
+  .mock .support {
+    font-weight: 650; color: #0f172a; line-height: 1.3;
+    background: rgba(255,255,255,0.88);
+    padding: 0.28em 0.55em;
+    border-radius: 6px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    text-shadow: none;
+  }
+  .mock .bullets { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35em; margin-top: 0.15em; }
+  .mock .bullets li {
+    font-weight: 700; color: #0f766e; background: rgba(255,255,255,0.92);
+    padding: 0.28em 0.65em; border-radius: 999px; border: 1px solid rgba(13,148,136,0.35);
+    font-size: inherit;
+  }
+  /* CTA — brand teal/green only. Shape varies; color stays in palette. */
+  .mock .cta {
+    display: inline-block; background: #0d9488; color: #fff; font-weight: 800;
+    padding: 0.55em 1.15em; border-radius: 999px; letter-spacing: -0.01em;
+    box-shadow: 0 3px 10px rgba(13,148,136,0.28);
+    border: none; text-transform: none;
+  }
+  .cta-shape-pill .cta { border-radius: 999px; }
+  .cta-shape-rounded .cta { border-radius: 10px; }
+  .cta-shape-soft .cta { border-radius: 6px; padding: 0.5em 1.05em; }
+  .cta-shape-square .cta { border-radius: 2px; letter-spacing: 0.02em; text-transform: uppercase; font-size: 0.92em; }
+  .cta-shape-outline .cta {
+    background: rgba(255,255,255,0.92); color: #0f766e;
+    border: 2px solid #0d9488; box-shadow: none; border-radius: 999px;
+  }
+  .cta-shape-deep .cta { background: #0f766e; border-radius: 999px; }
+  .style-no-cta .cta { display: none; }
+  .phase-tag { position: absolute; top: 10%; right: 3%; z-index: 6; background: #9a3412; color: #ffedd5;
+    font-size: 10px; font-weight: 800; padding: 0.25em 0.55em; border-radius: 4px; letter-spacing: 0.04em; }
+
+  /* ── Style variations (boss review) — spacing unchanged ── */
+  .style-highlighter .support {
+    background: #a3e635; color: #14532d; font-weight: 900;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    box-shadow: 0 0 0 3px rgba(163,230,53,0.65);
+    transform: rotate(-1.5deg);
+    border-radius: 2px;
+  }
+  .style-neon-cyan .support {
+    background: #67e8f9; color: #164e63; font-weight: 900;
+    text-transform: uppercase; letter-spacing: 0.02em;
+    box-shadow: 0 0 12px rgba(103,232,249,0.55);
+    transform: rotate(-1deg);
+  }
+  .style-handwritten .support {
+    font-family: 'Segoe Print', 'Comic Sans MS', cursive;
+    font-weight: 800; color: #9a3412; background: #fef3c7;
+    text-transform: uppercase; letter-spacing: 0.03em;
+    transform: rotate(-2deg); border: 2px dashed #f59e0b;
+  }
+  .style-checks .bullets li {
+    color: #166534; background: #fff; border-color: #86efac;
+  }
+  .style-checks .bullets li::before {
+    content: '✓ '; color: #16a34a; font-weight: 900;
+  }
+
+  .mock .support,
+  .mock .support-split {
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .mock .support-split {
+    display: inline-flex; flex-wrap: wrap; gap: 0; align-items: stretch;
+    transform-origin: left center; font-weight: 900; line-height: 1.2;
+    font-size: inherit; border-radius: 4px; overflow: hidden;
+  }
+  .mock .support-split .a, .mock .support-split .b {
+    padding: 0.28em 0.55em;
+  }
+  .style-split-orange .support-split .a { color: #ea580c; background: #fff; }
+  .style-split-orange .support-split .b { color: #fff; background: #ea580c; }
+  .style-split-red .support-split .a { color: #dc2626; background: #fff; }
+  .style-split-red .support-split .b { color: #fff; background: #dc2626; }
+  .style-slant-orange .support-split {
+    transform: rotate(-3deg);
+  }
+  .style-slant-orange .support-split .a { color: #ea580c; background: #fff; }
+  .style-slant-orange .support-split .b { color: #fff; background: #c2410c; }
+
+  .mock .rate-stamp {
+    position: absolute; z-index: 6;
+    width: 7em; height: 7em; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-weight: 900; line-height: 1; text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.28);
+    border: 4px solid rgba(255,255,255,0.95);
+    gap: 0.18em;
+  }
+  .mock .rate-stamp .price {
+    font-size: 1.85em; letter-spacing: -0.04em; line-height: 1;
+    white-space: nowrap;
+  }
+  .mock .rate-stamp .hr {
+    font-size: 0.72em; font-weight: 900; letter-spacing: 0.1em;
+    text-transform: uppercase; opacity: 0.95;
+  }
+  .style-stamp-10 .rate-stamp { background: #0d9488; color: #fff; }
+  .tpl-left .rate-stamp { bottom: 11%; left: 3%; }
+  .tpl-right .rate-stamp { bottom: 11%; right: 3%; }
+  .tpl-center .rate-stamp, .tpl-explainer .rate-stamp { bottom: 11%; right: 4%; }
+  .tpl-trust .rate-stamp { bottom: 10%; right: 5%; }
+  .r-9x16 .rate-stamp { width: 6.2em; height: 6.2em; }
+  .r-1x1 .rate-stamp { width: 6em; height: 6em; bottom: 13%; }
+
+  .style-badge { display: inline-block; font-size: 0.64rem; font-weight: 800; padding: 0.18rem 0.5rem;
+    border-radius: 4px; margin: 0.3rem 0.25rem 0 0; background: #312e81; color: #c7d2fe; }
+
+  /* PERSON_LEFT_HOOK_RIGHT — H1 top-right, below white fade */
+  .tpl-left .copy { top: 11%; right: 4%; left: 40%; }
+  .tpl-left.r-9x16 .copy { top: 14%; }
+  .tpl-left .logo.right { display: none; }
+  .tpl-left .cta { position: absolute; bottom: 5.5%; right: 4%; }
+  .tpl-left.r-4x5 .hook { font-size: clamp(18px, 5vw, 34px); }
+  .tpl-left.r-4x5 .support { font-size: clamp(12px, 2.6vw, 16px); }
+  .tpl-left.r-4x5 .bullets li { font-size: clamp(11px, 2.2vw, 13px); }
+  .tpl-left.r-4x5 .cta { font-size: clamp(12px, 2.4vw, 15px); }
+  .tpl-left.r-9x16 .hook { font-size: clamp(16px, 4.2vw, 28px); }
+  .tpl-left.r-9x16 .support { font-size: clamp(12px, 2.4vw, 15px); }
+  .tpl-left.r-9x16 .bullets li { font-size: clamp(11px, 2.1vw, 13px); }
+  .tpl-left.r-9x16 .cta { font-size: clamp(12px, 2.2vw, 14px); }
+  .tpl-left.r-1x1 .hook { font-size: clamp(16px, 4.4vw, 28px); }
+  .tpl-left.r-1x1 .support { font-size: clamp(11px, 2.4vw, 14px); }
+  .tpl-left.r-1x1 .bullets li { font-size: clamp(10px, 2vw, 12px); }
+  .tpl-left.r-1x1 .cta { font-size: clamp(11px, 2.2vw, 13px); }
+  .tpl-left.r-1x1 .copy { top: 10%; }
+
+  /* PERSON_RIGHT_HOOK_LEFT — H1 top-left (default; copy-down bumps further) */
+  .tpl-right .copy { top: 10%; left: 4%; right: 40%; }
+  .tpl-right .logo.right { display: none; }
+  .tpl-right .cta { position: absolute; bottom: 5.5%; left: 4%; }
+  .tpl-right.r-4x5 .hook { font-size: clamp(18px, 5vw, 34px); }
+  .tpl-right.r-4x5 .support { font-size: clamp(12px, 2.6vw, 16px); }
+  .tpl-right.r-4x5 .bullets li { font-size: clamp(11px, 2.2vw, 13px); }
+  .tpl-right.r-4x5 .cta { font-size: clamp(12px, 2.4vw, 15px); }
+  .tpl-right.r-9x16 .hook { font-size: clamp(16px, 4.2vw, 28px); }
+  .tpl-right.r-9x16 .support { font-size: clamp(12px, 2.4vw, 15px); }
+  .tpl-right.r-9x16 .bullets li { font-size: clamp(11px, 2.1vw, 13px); }
+  .tpl-right.r-9x16 .cta { font-size: clamp(12px, 2.2vw, 14px); }
+  .tpl-right.r-1x1 .hook { font-size: clamp(16px, 4.4vw, 28px); }
+  .tpl-right.r-1x1 .support { font-size: clamp(11px, 2.4vw, 14px); }
+  .tpl-right.r-1x1 .bullets li { font-size: clamp(10px, 2vw, 12px); }
+  .tpl-right.r-1x1 .cta { font-size: clamp(11px, 2.2vw, 13px); }
+
+  /* CENTER_TOP_BAND */
+  .tpl-center .copy { top: 11%; left: 5%; right: 5%; text-align: center; align-items: center; }
+  .tpl-center .logo-wrap { left: 50%; transform: translateX(-50%); }
+  .tpl-center .cta { position: absolute; bottom: 5.5%; left: 50%; transform: translateX(-50%); }
+  .tpl-center.r-4x5 .hook { font-size: clamp(18px, 5.2vw, 36px); }
+  .tpl-center.r-4x5 .support { font-size: clamp(12px, 2.6vw, 16px); }
+  .tpl-center.r-4x5 .bullets li { font-size: clamp(11px, 2.2vw, 13px); }
+  .tpl-center.r-9x16 .hook { font-size: clamp(16px, 4.4vw, 30px); }
+  .tpl-center.r-9x16 .support { font-size: clamp(12px, 2.4vw, 15px); }
+
+  /* LAPTOP_EXPLAINER */
+  .tpl-explainer .copy { top: 12%; left: 5%; right: 5%; }
+  .tpl-explainer .logo.right { display: none; }
+  .tpl-explainer .cta { position: absolute; bottom: 5%; left: 5%; }
+  .tpl-explainer.r-4x5 .hook { font-size: clamp(18px, 5vw, 34px); }
+  .tpl-explainer.r-4x5 .support { font-size: clamp(12px, 2.6vw, 16px); }
+  .tpl-explainer.r-4x5 .bullets li { font-size: clamp(11px, 2.2vw, 13px); }
+
+  /* HEADSHOT_TRUST — logo at top; H1+support in white band below logo; CTA bottom */
+  .tpl-trust .copy { top: 14%; left: 6%; right: 6%; text-align: center; align-items: center; gap: 0.35em; }
+  .tpl-trust .logo-wrap { left: 50%; transform: translateX(-50%); top: 2%; z-index: 7; }
+  .tpl-trust .cta {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    top: auto; bottom: 4.5%;
+    z-index: 6;
+  }
+  .tpl-trust.r-9x16 .copy { top: 12%; }
+  /* 1x1: keep portrait placement; put H1+support under logo in top white band */
+  .tpl-trust.r-1x1 .wash { display: none; }
+  .tpl-trust.r-1x1 .logo-wrap { top: 2%; }
+  .tpl-trust.r-1x1 .logo { height: 24px; }
+  .tpl-trust.r-1x1 .copy {
+    top: 9.5%;
+    left: 5%; right: 5%;
+    text-align: center; align-items: center;
+    gap: 0.25em;
+  }
+  .tpl-trust.r-4x5 .hook { font-size: clamp(15px, 4vw, 26px); }
+  .tpl-trust.r-4x5 .cta { font-size: clamp(12px, 2.3vw, 14px); }
+  .tpl-trust.r-9x16 .hook { font-size: clamp(14px, 3.6vw, 22px); }
+  .tpl-trust.r-9x16 .cta { font-size: clamp(12px, 2.2vw, 14px); bottom: 4%; }
+  .tpl-trust.r-1x1 .hook { font-size: clamp(11px, 2.9vw, 16px); line-height: 1.15; }
+  .tpl-trust.r-1x1 .support { font-size: clamp(8px, 1.8vw, 11px); }
+  .tpl-trust.r-1x1 .cta { font-size: clamp(11px, 2.2vw, 13px); bottom: 4%; }
+  .tpl-trust .phase-tag { top: 3.5%; right: 4%; }
+
+  .meta { padding: 0.95rem 1.05rem 1.15rem; font-size: 0.78rem; color: #cbd5e1; }
+  .meta .id { font-family: ui-monospace, monospace; font-size: 0.66rem; color: #64748b; word-break: break-all; }
+  .badge { display: inline-block; font-size: 0.64rem; font-weight: 800; padding: 0.18rem 0.5rem; border-radius: 4px; margin: 0.3rem 0.25rem 0 0; }
+  .rating-a { background: #14532d; color: #bbf7d0; }
+  .rating-b { background: #1e3a8a; color: #bfdbfe; }
+  .phase-2 { background: #7c2d12; color: #fed7aa; }
+  .proto { background: #7c3aed; color: #ede9fe; }
+  .ok { color: #86efac; }
+  .hook-line { color: #cbd5e1; font-size: 0.72rem; margin-top: 0.2rem; line-height: 1.35; }
+  .claims { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.45rem; }
+  .claim {
+    font-size: 0.62rem; font-weight: 700; padding: 0.12rem 0.4rem; border-radius: 4px;
+    background: #1e293b; color: #94a3b8;
+  }
+  .claim.ok { background: #14532d; color: #bbf7d0; }
+  .claim.verify { background: #7c2d12; color: #fed7aa; }
+  .claim.bad { background: #7f1d1d; color: #fecaca; }
+  .notes { color: #94a3b8; margin-top: 0.45rem; font-size: 0.72rem; line-height: 1.4; }
+  .remotion { color: #c4b5fd; margin-top: 0.35rem; font-size: 0.7rem; line-height: 1.35; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/facebook-ad-copy.html">
+      <span class="doc-header__mark">MV</span>
+      <div>
+        <h1 class="doc-header__title">Facebook Ad Content Doc</h1>
+        <p class="doc-header__tagline">MedVirtual · Primary text · templates · crops</p>
+      </div>
+    </a>
+    <nav class="doc-nav" aria-label="Primary"><a href="/facebook-ad-copy.html" class="">Ad Copy</a><a href="/template-test-board.html" class="active">Template Tests</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Raw Assets</a></nav>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Template Test Board</h2>
+          <p class="doc-header__page-sub">Meta cleanup: outcome H1s · $10/hr only · HIPAA-trained · face-safe · Phase 2 headshots = retarget</p>
+          
+        </div>
+</header>
+  <div class="section-head"><h2>Template 1 — Person left</h2><p>H1 top-right · style variations for review (12)</p></div>
+        <div class="grid">
+  <div class="card">
+    <div class="mock r-4x5 tpl-left text-panel style-highlighter cta-shape-pill">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_003_4X5_FACE_LEFT.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Patient calls should not hit <span class="accent">voicemail</span>.</div>
+        <div class="support">REMOTE MEDICAL ADMIN SUPPORT FOR BUSY PRACTICES.</div>
+        <ul class="bullets"><li>Calls</li><li>Scheduling</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-MC-45 · IMG_AI_003_4X5_FACE_LEFT</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 4x5 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Missed Calls</div>
+      <div class="hook-line"><strong>H1:</strong> Patient calls should not hit voicemail.</div>
+      <div class="hook-line"><strong>Support:</strong> Remote medical admin support for busy practices.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">highlighter · pill</span>
+      <span class="badge ">First batch</span>
+      <span class="badge proto">RONALD/JIN PROTOTYPE</span>
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">TOP 5 · RONALD/JIN PROTOTYPE CANDIDATE (4:5). Outcome hook + face clear.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-left text-panel style-split-red cta-shape-rounded">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_AI_003_9X16_SUBJECT_LEFT.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Patient calls should not hit <span class="accent">voicemail</span>.</div>
+        <div class="support">REMOTE MEDICAL ADMIN SUPPORT FOR BUSY PRACTICES.</div>
+        <ul class="bullets"><li>Calls</li><li>Scheduling</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-MC-916 · IMG_AI_003_9X16_SUBJECT_LEFT</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 9x16 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Missed Calls</div>
+      <div class="hook-line"><strong>H1:</strong> Patient calls should not hit voicemail.</div>
+      <div class="hook-line"><strong>Support:</strong> Remote medical admin support for busy practices.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">split-red · rounded</span>
+      <span class="badge ">First batch</span>
+      <span class="badge proto">RONALD/JIN PROTOTYPE</span>
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">TOP 5 · Strongest 9:16. First-frame hook for Reels.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-left text-panel style-highlighter cta-shape-soft">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_AI_003_1X1_FACE_CENTER.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Patient calls should not hit <span class="accent">voicemail</span>.</div>
+        <div class="support">REMOTE MEDICAL ADMIN SUPPORT FOR BUSY PRACTICES.</div>
+        <ul class="bullets"><li>Calls</li><li>Scheduling</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-MC-11 · IMG_AI_003_1X1_FACE_CENTER</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 1x1 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Missed Calls</div>
+      <div class="hook-line"><strong>H1:</strong> Patient calls should not hit voicemail.</div>
+      <div class="hook-line"><strong>Support:</strong> Remote medical admin support for busy practices.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">highlighter · soft</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 1x1 · manual adjust</span>
+      </div>
+      <div class="notes">1x1 works but tighter. Shorten H1 if needed.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-4x5 tpl-left text-panel style-split-red cta-shape-square">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Give your front desk <span class="accent">backup</span>.</div>
+        <div class="support">HELP WITH CALLS, INTAKE, SCHEDULING, AND FOLLOW-UP.</div>
+        <ul class="bullets"><li>Calls</li><li>Intake</li></ul>
+      </div>
+      <span class="cta">See How It Works</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-FD-45 · IMG_AI_010_4X5_FACE_LEFT</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 4x5 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Front Desk Backup</div>
+      <div class="hook-line"><strong>H1:</strong> Give your front desk backup.</div>
+      <div class="hook-line"><strong>Support:</strong> Help with calls, intake, scheduling, and follow-up.</div>
+      <div class="hook-line"><strong>CTA:</strong> See How It Works</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">split-red · square</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">TOP 5 · Front desk backup. Clean right text zone.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-left text-panel style-stamp-10 cta-shape-outline">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_AI_010_9X16_SUBJECT_LEFT.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      <div class="rate-stamp" aria-hidden="true"><span class="price">$10</span><span class="hr">/HR</span></div>
+      <div class="copy">
+        <div class="hook">Give your front desk <span class="accent">backup</span>.</div>
+        <div class="support">HELP WITH CALLS, INTAKE, SCHEDULING, AND FOLLOW-UP.</div>
+        <ul class="bullets"><li>Calls</li><li>Intake</li></ul>
+      </div>
+      <span class="cta">See How It Works</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-FD-916 · IMG_AI_010_9X16_SUBJECT_LEFT</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 9x16 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Front Desk Backup</div>
+      <div class="hook-line"><strong>H1:</strong> Give your front desk backup.</div>
+      <div class="hook-line"><strong>Support:</strong> Help with calls, intake, scheduling, and follow-up.</div>
+      <div class="hook-line"><strong>CTA:</strong> See How It Works</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">stamp-10 · outline</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">Strong vertical for front desk backup. $10/hr site-backed.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-left text-panel style-handwritten cta-shape-deep">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_AI_010_1X1_FACE_CENTER.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Give your front desk <span class="accent">backup</span>.</div>
+        <div class="support">HELP WITH CALLS, INTAKE, SCHEDULING, AND FOLLOW-UP.</div>
+        <ul class="bullets"><li>Calls</li><li>Intake</li></ul>
+      </div>
+      <span class="cta">See How It Works</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-FD-11 · IMG_AI_010_1X1_FACE_CENTER</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 1x1 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Front Desk Backup</div>
+      <div class="hook-line"><strong>H1:</strong> Give your front desk backup.</div>
+      <div class="hook-line"><strong>Support:</strong> Help with calls, intake, scheduling, and follow-up.</div>
+      <div class="hook-line"><strong>CTA:</strong> See How It Works</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">handwritten · deep</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">Template 1 square test — AI_010.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-4x5 tpl-left text-panel drop-more zoom-out style-highlighter cta-shape-pill">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_015_4X5_FACE_LEFT.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Give your front desk <span class="accent">backup</span>.</div>
+        <div class="support">HELP WITH CALLS, INTAKE, SCHEDULING, AND FOLLOW-UP.</div>
+        <ul class="bullets"><li>Calls</li><li>Intake</li></ul>
+      </div>
+      <span class="cta">See How It Works</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-FD2-45 · IMG_AI_015_4X5_FACE_LEFT</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 4x5 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Front Desk Backup</div>
+      <div class="hook-line"><strong>H1:</strong> Give your front desk backup.</div>
+      <div class="hook-line"><strong>Support:</strong> Help with calls, intake, scheduling, and follow-up.</div>
+      <div class="hook-line"><strong>CTA:</strong> See How It Works</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">highlighter · pill</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">TOP 5 · Front desk alt (AI_015). Dropped + zoomed out.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-left text-panel drop-more zoom-out style-split-red cta-shape-rounded">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_AI_015_9X16_SUBJECT_LEFT.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Give your front desk <span class="accent">backup</span>.</div>
+        <div class="support">HELP WITH CALLS, INTAKE, SCHEDULING, AND FOLLOW-UP.</div>
+        <ul class="bullets"><li>Calls</li><li>Intake</li></ul>
+      </div>
+      <span class="cta">See How It Works</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-FD2-916 · IMG_AI_015_9X16_SUBJECT_LEFT</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 9x16 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Front Desk Backup</div>
+      <div class="hook-line"><strong>H1:</strong> Give your front desk backup.</div>
+      <div class="hook-line"><strong>Support:</strong> Help with calls, intake, scheduling, and follow-up.</div>
+      <div class="hook-line"><strong>CTA:</strong> See How It Works</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">split-red · rounded</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">Hispanic VA vertical — dropped + zoomed out. Support chip for readability.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-left text-panel drop-more zoom-out copy-far-right shift-left style-stamp-10 cta-shape-soft">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_AI_015_1X1_FACE_LEFT.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      <div class="rate-stamp" aria-hidden="true"><span class="price">$10</span><span class="hr">/HR</span></div>
+      <div class="copy">
+        <div class="hook">Give your front desk <span class="accent">backup</span>.</div>
+        <div class="support">HELP WITH CALLS, INTAKE, SCHEDULING, AND FOLLOW-UP.</div>
+        <ul class="bullets"><li>Calls</li><li>Intake</li></ul>
+      </div>
+      <span class="cta">See How It Works</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-FD2-11 · IMG_AI_015_1X1_FACE_LEFT</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 1x1 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Front Desk Backup</div>
+      <div class="hook-line"><strong>H1:</strong> Give your front desk backup.</div>
+      <div class="hook-line"><strong>Support:</strong> Help with calls, intake, scheduling, and follow-up.</div>
+      <div class="hook-line"><strong>CTA:</strong> See How It Works</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">stamp-10 · soft</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">Square: image dropped + shifted left; copy far right to clear face.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-4x5 tpl-left text-panel copy-far-right style-highlighter cta-shape-square">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_009_4X5_FACE_LEFT.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Keep <span class="accent">scheduling</span> moving.</div>
+        <div class="support">ADD SUPPORT FOR APPOINTMENTS AND PATIENT FOLLOW-UP.</div>
+        <ul class="bullets"><li>Scheduling</li><li>Follow-up</li></ul>
+      </div>
+      <span class="cta">Learn More</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-SCH-45 · IMG_AI_009_4X5_FACE_LEFT</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 4x5 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Scheduling</div>
+      <div class="hook-line"><strong>H1:</strong> Keep scheduling moving.</div>
+      <div class="hook-line"><strong>Support:</strong> Add support for appointments and patient follow-up.</div>
+      <div class="hook-line"><strong>CTA:</strong> Learn More</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">highlighter · square</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">TOP 5 · Scheduling. Text farther right to clear face.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-left text-panel copy-far-right style-handwritten cta-shape-outline">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_AI_009_9X16_SUBJECT_LEFT.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Keep <span class="accent">scheduling</span> moving.</div>
+        <div class="support">ADD SUPPORT FOR APPOINTMENTS AND PATIENT FOLLOW-UP.</div>
+        <ul class="bullets"><li>Scheduling</li><li>Follow-up</li></ul>
+      </div>
+      <span class="cta">Learn More</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-SCH-916 · IMG_AI_009_9X16_SUBJECT_LEFT</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 9x16 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Scheduling</div>
+      <div class="hook-line"><strong>H1:</strong> Keep scheduling moving.</div>
+      <div class="hook-line"><strong>Support:</strong> Add support for appointments and patient follow-up.</div>
+      <div class="hook-line"><strong>CTA:</strong> Learn More</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">handwritten · outline</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">Scheduling vertical. Text farther right.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-left text-panel copy-far-right style-stamp-10 cta-shape-deep">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_AI_009_1X1_FACE_CENTER.png" alt="" />
+      <div class="top-fade"></div>
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      <div class="rate-stamp" aria-hidden="true"><span class="price">$10</span><span class="hr">/HR</span></div>
+      <div class="copy">
+        <div class="hook">Keep <span class="accent">scheduling</span> moving.</div>
+        <div class="support">ADD SUPPORT FOR APPOINTMENTS AND PATIENT FOLLOW-UP.</div>
+        <ul class="bullets"><li>Scheduling</li><li>Follow-up</li></ul>
+      </div>
+      <span class="cta">Learn More</span>
+    </div>
+    <div class="meta">
+      <div class="id">T1-SCH-11 · IMG_AI_009_1X1_FACE_CENTER</div>
+      <div><strong>PERSON_LEFT_HOOK_RIGHT</strong> · 1x1 · left</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Scheduling</div>
+      <div class="hook-line"><strong>H1:</strong> Keep scheduling moving.</div>
+      <div class="hook-line"><strong>Support:</strong> Add support for appointments and patient follow-up.</div>
+      <div class="hook-line"><strong>CTA:</strong> Learn More</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">stamp-10 · deep</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">Template 1 square test — AI_009.</div>
+    </div>
+  </div></div><div class="section-head"><h2>Template 2 — Person right</h2><p>H1 top-left · style variations for review (12)</p></div>
+        <div class="grid">
+  <div class="card">
+    <div class="mock r-4x5 tpl-right text-panel-wide style-highlighter cta-shape-pill">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_007_4X5_FACE_RIGHT.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Add support without another <span class="accent">in-office hire</span>.</div>
+        <div class="support">PRE-VETTED MEDICAL VIRTUAL ASSISTANTS STARTING AT $10/HR.</div>
+        <ul class="bullets"><li>HIPAA-trained</li><li>Ready in days</li></ul>
+      </div>
+      <span class="cta">Get Started</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-RMA-45 · IMG_AI_007_4X5_FACE_RIGHT</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 4x5 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Hiring Gap</div>
+      <div class="hook-line"><strong>H1:</strong> Add support without another in-office hire.</div>
+      <div class="hook-line"><strong>Support:</strong> Pre-vetted medical virtual assistants starting at $10/hr.</div>
+      <div class="hook-line"><strong>CTA:</strong> Get Started</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">highlighter · pill</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">TOP 5 · Hiring gap. Pre-vetted + $10/hr (site-backed).</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-right text-panel-wide style-split-red cta-shape-rounded">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_AI_007_9X16_SUBJECT_RIGHT.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Add support without another <span class="accent">in-office hire</span>.</div>
+        <div class="support">PRE-VETTED MEDICAL VIRTUAL ASSISTANTS STARTING AT $10/HR.</div>
+        <ul class="bullets"><li>HIPAA-trained</li><li>Ready in days</li></ul>
+      </div>
+      <span class="cta">Get Started</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-RMA-916 · IMG_AI_007_9X16_SUBJECT_RIGHT</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 9x16 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Hiring Gap</div>
+      <div class="hook-line"><strong>H1:</strong> Add support without another in-office hire.</div>
+      <div class="hook-line"><strong>Support:</strong> Pre-vetted medical virtual assistants starting at $10/hr.</div>
+      <div class="hook-line"><strong>CTA:</strong> Get Started</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">split-red · rounded</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">Hiring gap vertical. Strong video family (secondary to Missed Calls prototype).</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-right text-panel-wide style-handwritten cta-shape-soft">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_AI_007_1X1_FACE_CENTER.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Add support without another <span class="accent">in-office hire</span>.</div>
+        <div class="support">PRE-VETTED MEDICAL VIRTUAL ASSISTANTS STARTING AT $10/HR.</div>
+        <ul class="bullets"><li>HIPAA-trained</li><li>Ready in days</li></ul>
+      </div>
+      <span class="cta">Get Started</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-RMA-11 · IMG_AI_007_1X1_FACE_CENTER</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 1x1 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Hiring Gap</div>
+      <div class="hook-line"><strong>H1:</strong> Add support without another in-office hire.</div>
+      <div class="hook-line"><strong>Support:</strong> Pre-vetted medical virtual assistants starting at $10/hr.</div>
+      <div class="hook-line"><strong>CTA:</strong> Get Started</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">handwritten · soft</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 1x1 · manual adjust</span>
+      </div>
+      <div class="notes">1x1 usable. H1 may need shortening.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-4x5 tpl-right text-panel-wide copy-bl-cta-tl style-stamp-10 cta-shape-square">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_013_4X5_FACE_RIGHT.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      <div class="rate-stamp" aria-hidden="true"><span class="price">$10</span><span class="hr">/HR</span></div>
+      <div class="copy">
+        <div class="hook">Add support without another <span class="accent">in-office hire</span>.</div>
+        <div class="support">PRE-VETTED MEDICAL VIRTUAL ASSISTANTS STARTING AT $10/HR.</div>
+        <ul class="bullets"><li>HIPAA-trained</li><li>Ready in days</li></ul>
+      </div>
+      <span class="cta">Get Started</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-RMA2-45 · IMG_AI_013_4X5_FACE_RIGHT</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 4x5 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Hiring Gap</div>
+      <div class="hook-line"><strong>H1:</strong> Add support without another in-office hire.</div>
+      <div class="hook-line"><strong>Support:</strong> Pre-vetted medical virtual assistants starting at $10/hr.</div>
+      <div class="hook-line"><strong>CTA:</strong> Get Started</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">stamp-10 · square</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">Copy bottom-left. CTA top-left under logo.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-right text-panel-wide copy-bl-cta-tl style-highlighter cta-shape-outline">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_AI_013_9X16_SUBJECT_RIGHT.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Add support without another <span class="accent">in-office hire</span>.</div>
+        <div class="support">PRE-VETTED MEDICAL VIRTUAL ASSISTANTS STARTING AT $10/HR.</div>
+        <ul class="bullets"><li>HIPAA-trained</li><li>Ready in days</li></ul>
+      </div>
+      <span class="cta">Get Started</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-RMA2-916 · IMG_AI_013_9X16_SUBJECT_RIGHT</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 9x16 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Hiring Gap</div>
+      <div class="hook-line"><strong>H1:</strong> Add support without another in-office hire.</div>
+      <div class="hook-line"><strong>Support:</strong> Pre-vetted medical virtual assistants starting at $10/hr.</div>
+      <div class="hook-line"><strong>CTA:</strong> Get Started</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">highlighter · outline</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">Copy bottom-left. CTA top-left. Logo stays top.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-right text-panel-wide copy-bl-cta-tl style-split-red cta-shape-deep">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_AI_013_1X1_FACE_RIGHT.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Add support without another <span class="accent">in-office hire</span>.</div>
+        <div class="support">PRE-VETTED MEDICAL VIRTUAL ASSISTANTS STARTING AT $10/HR.</div>
+        <ul class="bullets"><li>HIPAA-trained</li><li>Ready in days</li></ul>
+      </div>
+      <span class="cta">Get Started</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-RMA2-11 · IMG_AI_013_1X1_FACE_RIGHT</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 1x1 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Hiring Gap</div>
+      <div class="hook-line"><strong>H1:</strong> Add support without another in-office hire.</div>
+      <div class="hook-line"><strong>Support:</strong> Pre-vetted medical virtual assistants starting at $10/hr.</div>
+      <div class="hook-line"><strong>CTA:</strong> Get Started</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">split-red · deep</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">1x1 — copy bottom-left, CTA top-left.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-4x5 tpl-right text-panel-wide copy-bl-cta-tl style-slant-orange cta-shape-pill">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_014_4X5_FACE_RIGHT.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Clear repetitive <span class="accent">admin work</span>.</div>
+        <div class="support">SUPPORT FOR INTAKE, VERIFICATION, BILLING TASKS, AND MORE.</div>
+        <ul class="bullets"><li>Intake</li><li>Verification</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-ADM-45 · IMG_AI_014_4X5_FACE_RIGHT</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 4x5 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Admin Backlog</div>
+      <div class="hook-line"><strong>H1:</strong> Clear repetitive admin work.</div>
+      <div class="hook-line"><strong>Support:</strong> Support for intake, verification, billing tasks, and more.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">slant-orange · pill</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">TOP 5 · Admin backlog. Copy bottom-left. CTA top-left under logo.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-right text-panel-wide copy-bl-cta-tl style-stamp-10 cta-shape-rounded">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_AI_014_9X16_SUBJECT_RIGHT.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      <div class="rate-stamp" aria-hidden="true"><span class="price">$10</span><span class="hr">/HR</span></div>
+      <div class="copy">
+        <div class="hook">Clear repetitive <span class="accent">admin work</span>.</div>
+        <div class="support">SUPPORT FOR INTAKE, VERIFICATION, BILLING TASKS, AND MORE.</div>
+        <ul class="bullets"><li>Intake</li><li>Verification</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-ADM-916 · IMG_AI_014_9X16_SUBJECT_RIGHT</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 9x16 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Admin Backlog</div>
+      <div class="hook-line"><strong>H1:</strong> Clear repetitive admin work.</div>
+      <div class="hook-line"><strong>Support:</strong> Support for intake, verification, billing tasks, and more.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-a">Layout A</span>
+      <span class="style-badge">stamp-10 · rounded</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">Copy bottom-left. CTA top-left. Keep monitor UI generic.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-right text-panel-wide copy-bl-cta-tl style-highlighter cta-shape-soft">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_AI_014_1X1_FACE_RIGHT.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Clear repetitive <span class="accent">admin work</span>.</div>
+        <div class="support">SUPPORT FOR INTAKE, VERIFICATION, BILLING TASKS, AND MORE.</div>
+        <ul class="bullets"><li>Intake</li><li>Verification</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-ADM-11 · IMG_AI_014_1X1_FACE_RIGHT</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 1x1 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Admin Backlog</div>
+      <div class="hook-line"><strong>H1:</strong> Clear repetitive admin work.</div>
+      <div class="hook-line"><strong>Support:</strong> Support for intake, verification, billing tasks, and more.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">highlighter · soft</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">1x1 — copy bottom-left, CTA top-left.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-4x5 tpl-right text-panel-wide copy-down style-handwritten cta-shape-square">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_004_4X5_FACE_RIGHT.png?v=2" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Clear repetitive <span class="accent">admin work</span>.</div>
+        <div class="support">SUPPORT FOR INTAKE, VERIFICATION, BILLING TASKS, AND MORE.</div>
+        <ul class="bullets"><li>Intake</li><li>Verification</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-WF-45 · IMG_AI_004_4X5_FACE_RIGHT</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 4x5 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Admin Backlog</div>
+      <div class="hook-line"><strong>H1:</strong> Clear repetitive admin work.</div>
+      <div class="hook-line"><strong>Support:</strong> Support for intake, verification, billing tasks, and more.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">handwritten · square</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">AI_004 workflow 4:5 — same source as T2-WF-916.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-right text-panel-wide copy-down style-split-orange cta-shape-outline">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_AI_004_9X16_SUBJECT_RIGHT.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Clear repetitive <span class="accent">admin work</span>.</div>
+        <div class="support">SUPPORT FOR INTAKE, VERIFICATION, BILLING TASKS, AND MORE.</div>
+        <ul class="bullets"><li>Intake</li><li>Verification</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T2-WF-916 · IMG_AI_004_9X16_SUBJECT_RIGHT</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 9x16 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Admin Backlog</div>
+      <div class="hook-line"><strong>H1:</strong> Clear repetitive admin work.</div>
+      <div class="hook-line"><strong>Support:</strong> Support for intake, verification, billing tasks, and more.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">split-orange · outline</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">Stories/Reels size for AI_004 workflow.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-right text-panel-wide copy-down style-no-cta ">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_AI_004_1X1_FACE_CENTER.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Clear repetitive <span class="accent">admin work</span>.</div>
+        <div class="support">SUPPORT FOR INTAKE, VERIFICATION, BILLING TASKS, AND MORE.</div>
+        <ul class="bullets"><li>Intake</li><li>Verification</li></ul>
+      </div>
+      
+    </div>
+    <div class="meta">
+      <div class="id">T2-WF-11 · IMG_AI_004_1X1_FACE_CENTER</div>
+      <div><strong>PERSON_RIGHT_HOOK_LEFT</strong> · 1x1 · right</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Admin Backlog</div>
+      <div class="hook-line"><strong>H1:</strong> Clear repetitive admin work.</div>
+      <div class="hook-line"><strong>Support:</strong> Support for intake, verification, billing tasks, and more.</div>
+      <div class="hook-line"><strong>CTA:</strong> none</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">no-cta · no CTA</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">1x1 Meta/carousel size for AI_004.</div>
+    </div>
+  </div></div><div class="section-head"><h2>Template 3 — Center</h2><p>H1 in top band · style variations for review (3)</p></div>
+        <div class="grid">
+  <div class="card">
+    <div class="mock r-4x5 tpl-center copy-down logo-center style-highlighter cta-shape-pill">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_008_4X5_SUBJECT_CENTER.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Clear repetitive <span class="accent">admin work</span>.</div>
+        <div class="support">SUPPORT FOR INTAKE, VERIFICATION, BILLING TASKS, AND MORE.</div>
+        <ul class="bullets"><li>Intake</li><li>Verification</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T3-CTR-45 · IMG_AI_008_4X5_SUBJECT_CENTER</div>
+      <div><strong>CENTER_TOP_BAND</strong> · 4x5 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Admin Backlog</div>
+      <div class="hook-line"><strong>H1:</strong> Clear repetitive admin work.</div>
+      <div class="hook-line"><strong>Support:</strong> Support for intake, verification, billing tasks, and more.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">highlighter · pill</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">Logo centered. H1/support dropped below logo clearance.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-center copy-down logo-center style-split-red cta-shape-rounded">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_AI_008_9X16_SUBJECT_CENTER.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Clear repetitive <span class="accent">admin work</span>.</div>
+        <div class="support">SUPPORT FOR INTAKE, VERIFICATION, BILLING TASKS, AND MORE.</div>
+        <ul class="bullets"><li>Intake</li><li>Verification</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T3-CTR-916 · IMG_AI_008_9X16_SUBJECT_CENTER</div>
+      <div><strong>CENTER_TOP_BAND</strong> · 9x16 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Admin Backlog</div>
+      <div class="hook-line"><strong>H1:</strong> Clear repetitive admin work.</div>
+      <div class="hook-line"><strong>Support:</strong> Support for intake, verification, billing tasks, and more.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">split-red · rounded</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 9x16 · manual adjust</span>
+      </div>
+      <div class="notes">Logo centered. H1 dropped. Verify headroom.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-center copy-down logo-center style-handwritten cta-shape-soft">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_AI_008_1X1_SUBJECT_CENTER.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      
+      
+      <div class="copy">
+        <div class="hook">Clear repetitive <span class="accent">admin work</span>.</div>
+        <div class="support">SUPPORT FOR INTAKE, VERIFICATION, BILLING TASKS, AND MORE.</div>
+        <ul class="bullets"><li>Intake</li><li>Verification</li></ul>
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T3-CTR-11 · IMG_AI_008_1X1_SUBJECT_CENTER</div>
+      <div><strong>CENTER_TOP_BAND</strong> · 1x1 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Admin Backlog</div>
+      <div class="hook-line"><strong>H1:</strong> Clear repetitive admin work.</div>
+      <div class="hook-line"><strong>Support:</strong> Support for intake, verification, billing tasks, and more.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">handwritten · soft</span>
+      <span class="badge ">First batch</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: none</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: yes</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">1x1 Meta/carousel size for center band.</div>
+    </div>
+  </div></div><div class="section-head"><h2>Headshots (Phase 2)</h2><p>Retargeting / trust only — not first cold test · style variations for review (14)</p></div>
+        <div class="grid">
+  <div class="card">
+    <div class="mock r-4x5 tpl-trust  style-highlighter cta-shape-pill">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_LP_001_4X5_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_001-45 · IMG_LP_001_4X5_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 4x5 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Front Desk Backup (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">highlighter · pill</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">4:5 Feed — Front Desk Backup. Logo + H1 + CTA. Portrait flush bottom.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-trust  style-stamp-10 cta-shape-rounded">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_LP_001_9X16_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      <div class="rate-stamp" aria-hidden="true"><span class="price">$10</span><span class="hr">/HR</span></div>
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_001-916 · IMG_LP_001_9X16_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 9x16 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Front Desk Backup (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">stamp-10 · rounded</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">9:16 Stories/Reels — Front Desk Backup.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-4x5 tpl-trust  style-split-red cta-shape-soft">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_LP_002_4X5_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_002-45 · IMG_LP_002_4X5_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 4x5 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Payroll Pressure (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">split-red · soft</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">4:5 Feed — Payroll Pressure. Logo + H1 + CTA. Portrait flush bottom.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-trust  style-no-cta ">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_LP_002_1X1_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_002-11 · IMG_LP_002_1X1_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 1x1 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Payroll Pressure (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> none</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">no-cta · no CTA</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">1:1 carousel/Marketplace — Payroll Pressure.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-trust  style-highlighter cta-shape-outline">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_LP_002_9X16_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_002-916 · IMG_LP_002_9X16_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 9x16 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Payroll Pressure (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">highlighter · outline</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">9:16 Stories/Reels — Payroll Pressure.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-4x5 tpl-trust  style-stamp-10 cta-shape-deep">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_LP_003_4X5_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      <div class="rate-stamp" aria-hidden="true"><span class="price">$10</span><span class="hr">/HR</span></div>
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_003-45 · IMG_LP_003_4X5_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 4x5 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Follow-Up (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">stamp-10 · deep</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">4:5 Feed — Follow-Up. Logo + H1 + CTA. Portrait flush bottom.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-trust  style-split-red cta-shape-pill">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_LP_003_1X1_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_003-11 · IMG_LP_003_1X1_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 1x1 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Follow-Up (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">split-red · pill</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">1:1 carousel/Marketplace — Follow-Up.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-trust  style-no-cta ">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_LP_003_9X16_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_003-916 · IMG_LP_003_9X16_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 9x16 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Follow-Up (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> none</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">no-cta · no CTA</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">9:16 Stories/Reels — Follow-Up.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-4x5 tpl-trust  style-highlighter cta-shape-soft">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_LP_004_4X5_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_004-45 · IMG_LP_004_4X5_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 4x5 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Staffing Gap (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">highlighter · soft</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">4:5 Feed — Staffing Gap. Logo + H1 + CTA. Portrait flush bottom.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-trust  style-stamp-10 cta-shape-square">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_LP_004_1X1_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      <div class="rate-stamp" aria-hidden="true"><span class="price">$10</span><span class="hr">/HR</span></div>
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_004-11 · IMG_LP_004_1X1_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 1x1 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Staffing Gap (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">stamp-10 · square</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">1:1 carousel/Marketplace — Staffing Gap.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-trust  style-split-red cta-shape-outline">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_LP_004_9X16_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_004-916 · IMG_LP_004_9X16_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 9x16 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Staffing Gap (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">split-red · outline</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">9:16 Stories/Reels — Staffing Gap.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-4x5 tpl-trust  style-no-cta ">
+      <img class="bg" src="/exports/image-tests/feed-4x5/IMG_LP_005_4X5_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_005-45 · IMG_LP_005_4X5_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 4x5 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Follow-Up (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> none</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">no-cta · no CTA</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 4x5</span>
+      </div>
+      <div class="notes">4:5 Feed — Follow-Up. Logo + H1 + CTA. Portrait flush bottom.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-1x1 tpl-trust  style-highlighter cta-shape-pill">
+      <img class="bg" src="/exports/image-tests/square-1x1/IMG_LP_005_1X1_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_005-11 · IMG_LP_005_1X1_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 1x1 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Follow-Up (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">highlighter · pill</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: none</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 1x1</span>
+      </div>
+      <div class="notes">1:1 carousel/Marketplace — Follow-Up.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="mock r-9x16 tpl-trust  style-stamp-10 cta-shape-rounded">
+      <img class="bg" src="/exports/image-tests/story-9x16/IMG_LP_005_9X16_WHITE_TEXT_TOP.png" alt="" />
+      
+      <div class="wash"></div>
+      <div class="logo-wrap"><img class="logo left" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" /></div>
+      <span class="phase-tag">PHASE 2 · RETARGET</span>
+      <div class="rate-stamp" aria-hidden="true"><span class="price">$10</span><span class="hr">/HR</span></div>
+      <div class="copy">
+        <div class="hook"><span class="accent">Pre-vetted</span> medical virtual assistants.</div>
+        <div class="support">HIPAA-TRAINED SUPPORT · READY IN DAYS.</div>
+        
+      </div>
+      <span class="cta">Book a Demo</span>
+    </div>
+    <div class="meta">
+      <div class="id">T5-LP_005-916 · IMG_LP_005_9X16_WHITE_TEXT_TOP</div>
+      <div><strong>HEADSHOT_TRUST_CARD</strong> · 9x16 · center</div>
+      <div style="margin-top:0.2rem;color:#94a3b8">Trust / Team — Follow-Up (Phase 2)</div>
+      <div class="hook-line"><strong>H1:</strong> Pre-vetted medical virtual assistants.</div>
+      <div class="hook-line"><strong>Support:</strong> HIPAA-trained support · Ready in days.</div>
+      <div class="hook-line"><strong>CTA:</strong> Book a Demo</div>
+      <span class="badge rating-b">Layout B</span>
+      <span class="style-badge">stamp-10 · rounded</span>
+      <span class="badge phase-2">Phase 2 / retarget</span>
+      
+      <div class="claims">
+        <span class="claim ok">Price: $10</span>
+        <span class="claim ok">HIPAA: trained</span>
+        <span class="claim ok">Face-safe: yes</span>
+        <span class="claim ok">Meta-safe: yes</span>
+        <span class="claim ok">Anim: low</span>
+        <span class="claim ok">Ratio: 9x16</span>
+      </div>
+      <div class="notes">9:16 Stories/Reels — Follow-Up.</div>
+    </div>
+  </div></div>
+</body>
+</html>

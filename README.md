@@ -1,38 +1,43 @@
 # MedVirtual Facebook Ad Content Doc
 
-Starter content doc for **national Meta static ads** — review copy, export PNGs, submit.
+Lead with **Facebook primary text**, then lock templates. Scale image variations after. Then Remotion / human clips.
 
 **Live:** [https://medvirtual-ad-content-doc.vercel.app](https://medvirtual-ad-content-doc.vercel.app)
 
-## What's in v1
+## Where to work
 
-**5 starter concepts** — one per message angle:
+| Page | Use |
+|------|-----|
+| [Ad Copy](http://localhost:5173/facebook-ad-copy.html) | **Lead** — Facebook primary text · 5 angles × 25 · FB best practices |
+| [Template Tests](http://localhost:5173/template-test-board.html) | On-image layouts on Meta ratios |
+| [Image Review](http://localhost:5173/image-variation-review.html) | Approved crops · video editor right-click downloads |
+| [Raw Assets](http://localhost:5173/asset-hub.html) | Full-res AI masters for video |
 
-| Angle | File name |
-|-------|-----------|
-| Cost / value of hiring | `MV_META_COST_01` |
-| Staffing shortage | `MV_META_STAFFING_01` |
-| Patient experience | `MV_META_PATIENT_01` |
-| Founder / operator authority | `MV_META_OPERATOR_01` |
-| Workflow transformation | `MV_META_WORKFLOW_01` |
+Same header on every page. `/` redirects to Ad Copy. Old React Content Doc / Export PNG flow is parked.
 
-Background images are pulled from [medvirtual.ai](https://www.medvirtual.ai) landing pages. Ad copy is HTML/CSS overlays (Meta best practice: short hook, bullets, CTA on image; primary text + headline for the ad set).
-
-## Use it
-
-1. **Content Doc** — review all copy and previews; print or save as PDF for approval
-2. **Export PNGs** — download 1080×1350 (4:5 feed) or 1080×1080 (square)
-3. **Edit** — click "Edit concept" on any block to tweak copy or swap images
-
-## Local
+## Quick start
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
+Open [http://localhost:5173/facebook-ad-copy.html](http://localhost:5173/facebook-ad-copy.html)
 
-## Expand later
+## Scripts
 
-Add more concepts in `src/utils/seedConcepts.ts` when you're ready to test more roles or angles. This repo is intentionally small first — dial in what works, then scale.
+```bash
+npm run generate:templates   # template board (+ refreshes Raw Assets)
+npm run generate:copy        # Facebook primary-text variations
+npm run generate:images      # crops + image review boards
+npm run generate:hub         # Raw Assets page only
+npm run generate:handoff     # markdown handoffs for editors
+```
+
+## Assets
+
+```
+public/assets/ai-images/            RAW masters for video
+public/exports/image-tests/         Approved crops (4:5 · 1:1 · 9:16)
+public/assets/logo/                 Official logo
+```

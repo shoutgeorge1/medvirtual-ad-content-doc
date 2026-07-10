@@ -40,7 +40,7 @@ export function ExportView() {
     setProgress(`Exporting ${selected.file_name}…`);
     try {
       await exportAdToPng(el, selected.file_name, size);
-      saveConcept({ ...selected, status: 'Exported' });
+      saveConcept({ ...selected, production_status: 'Exported' });
       setProgress('Export complete.');
     } catch {
       setProgress('Export failed. Try again.');
@@ -66,7 +66,7 @@ export function ExportView() {
         size,
         (current, total) => setProgress(`Exporting ${current} of ${total}…`)
       );
-      targets.forEach((t) => saveConcept({ ...t.concept, status: 'Exported' }));
+      targets.forEach((t) => saveConcept({ ...t.concept, production_status: 'Exported' }));
       setProgress(`Exported ${targets.length} creatives.`);
     } catch {
       setProgress('Batch export failed. Try again.');

@@ -1,26 +1,16 @@
-export const ROLES = [
-  'General MedVirtual',
-  'Medical Assistant',
-  'Medical Nurse',
-  'Medical Biller',
-  'Medical Case Coordinator',
-] as const;
+export const EXPORT_SIZES = {
+  '1080x1350': { width: 1080, height: 1350, label: '4:5 Feed (1080×1350)' },
+  '1080x1080': { width: 1080, height: 1080, label: 'Square (1080×1080)' },
+  '1080x1920': { width: 1080, height: 1920, label: '9:16 Story (1080×1920)' },
+} as const;
 
-export const ANGLES = [
-  'Cost comparison',
-  'Staffing shortage',
-  'Patient experience',
-  'Founder / operator authority',
-  'Workflow transformation',
-] as const;
-
-export const STATUSES = [
-  'Draft',
-  'In Progress',
-  'Ready For Review',
-  'Approved',
-  'Exported',
-] as const;
+export const LAYOUT_LABELS: Record<string, string> = {
+  split: 'Template A — Split (image + copy)',
+  'bottom-band': 'Template B — Bottom band',
+  'top-hook': 'Template C — Top hook / bottom CTA',
+  'side-rail': 'Template D — Side rail',
+  comparison: 'Template E — Comparison',
+};
 
 export const ROLE_URLS: Record<string, { url: string; pageName: string }> = {
   'General MedVirtual': {
@@ -45,70 +35,16 @@ export const ROLE_URLS: Record<string, { url: string; pageName: string }> = {
   },
 };
 
-export const ANGLE_HOOKS: Record<string, string[]> = {
-  'Cost comparison': [
-    'Cut Staffing Costs',
-    'Support From $10/hr',
-    'Save Up To 70%',
-    'Lower Admin Overhead',
-    'Staff Smarter',
-  ],
-  'Staffing shortage': [
-    'Short-Staffed?',
-    'Get Help Fast',
-    'Fill Gaps In Days',
-    'Support Without Hiring Delays',
-    'Add Trained Staff',
-  ],
-  'Patient experience': [
-    'Better Patient Follow-Up',
-    'Reduce Missed Calls',
-    'Smoother Patient Flow',
-    'Faster Scheduling Support',
-    'Keep Patients Moving',
-  ],
-  'Founder / operator authority': [
-    'Build A Stronger Back Office',
-    'Scale Without Admin Chaos',
-    'More Support, Less Stress',
-    'Take Control Of Staffing',
-    'Run Leaner Operations',
-  ],
-  'Workflow transformation': [
-    'Clear The Backlog',
-    'Turn Chaos Into Process',
-    'Clean Up Daily Workflow',
-    'Get Admin Work Moving',
-    'Organize Your Practice',
-  ],
-};
+import type { ProductionStatus } from '../types/concept';
 
-export const ROLE_FILE_PREFIX: Record<string, string> = {
-  'General MedVirtual': 'GENERAL',
-  'Medical Assistant': 'ASSISTANT',
-  'Medical Nurse': 'NURSE',
-  'Medical Biller': 'BILLER',
-  'Medical Case Coordinator': 'CASECOORD',
-};
+export const LOGO_PATH = '/assets/logo/medvirtual-logo.svg';
 
-/** Background images pulled from medvirtual.ai landing pages (one per role). */
-export const ROLE_BACKGROUND_IMAGES: Record<string, string> = {
-  'General MedVirtual': '/assets/backgrounds/general.avif',
-  'Medical Assistant': '/assets/backgrounds/assistant.avif',
-  'Medical Nurse': '/assets/backgrounds/nurse.avif',
-  'Medical Biller': '/assets/backgrounds/biller.avif',
-  'Medical Case Coordinator': '/assets/backgrounds/casecoord.avif',
-};
-
-export const ANGLE_FILE_SUFFIX: Record<string, string> = {
-  'Cost comparison': 'COST',
-  'Staffing shortage': 'STAFFING',
-  'Patient experience': 'PATIENT',
-  'Founder / operator authority': 'OPERATOR',
-  'Workflow transformation': 'WORKFLOW',
-};
-
-export const EXPORT_SIZES = {
-  '1080x1350': { width: 1080, height: 1350, label: '4:5 Vertical (1080×1350)' },
-  '1080x1080': { width: 1080, height: 1080, label: 'Square (1080×1080)' },
-} as const;
+export const PRODUCTION_STATUSES: ProductionStatus[] = [
+  'Needs logo',
+  'Needs image approval',
+  'Needs layout review',
+  'Ready for Chris',
+  'Ready for export',
+  'Approved',
+  'Exported',
+];
