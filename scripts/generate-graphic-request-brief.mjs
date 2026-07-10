@@ -8,7 +8,7 @@ import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
 import {
   ARCHIVED_CONCEPTS,
   BRAND_NAME,
-  CAMPAIGN_STRATEGY_NOTE,
+  INTERNAL_NOTES,
   MESSAGING_RULES,
   PRACTICE_TYPES,
   PRODUCTION_CONCEPTS,
@@ -167,7 +167,6 @@ function main() {
   })}
   <div class="wrap">
     <p class="produce-banner">Produce only these 4 concepts — ignore archived reference below</p>
-    <p class="strategy-note">${esc(CAMPAIGN_STRATEGY_NOTE)}</p>
 
     <header class="hero" id="summary">
       <h2>MedVirtual Meta Ads — First Creative Batch</h2>
@@ -185,17 +184,17 @@ function main() {
       <div class="deliverables">
         <span class="deliverable-item">4 static concepts</span>
         <span class="deliverable-item">1080×1350 feed</span>
-        <span class="deliverable-item">1 design each</span>
-        <span class="deliverable-item">1–2 variations max</span>
+        <span class="deliverable-item">1 design per concept</span>
+        <span class="deliverable-item">No variations until reviewed</span>
         <span class="deliverable-item">9:16 after approval</span>
-        <span class="deliverable-item">Video optional later</span>
       </div>
+      <p style="margin-top:0.5rem;font-size:0.82rem;font-weight:600;color:#0f766e">Create one design per concept. Do not create variations until the first four are reviewed.</p>
     </section>
 
     <section class="section" id="audience">
       <h2>Audience</h2>
       ${li(['Medical practice owners', 'Dental practice owners', 'Practice managers', 'Healthcare office managers'])}
-      <p style="margin-top:0.35rem;font-size:0.8rem;color:#64748b">Audience targeting stays broad (booked-demo lookalike). Creative qualifies through message — do not over-segment by specialty or facility type.</p>
+      <p style="margin-top:0.35rem;font-size:0.8rem;color:#64748b">Use audience callouts on some ads only. Do not default to “Doctors.”</p>
     </section>
 
     <section class="section" id="core-message">
@@ -263,6 +262,13 @@ function main() {
         'Source + PNG/JPG',
       ].map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
     </section>
+
+    <details class="collapsed">
+      <summary>Internal Notes</summary>
+      <div class="collapsed-body">
+        ${li(INTERNAL_NOTES)}
+      </div>
+    </details>
 
     <details class="collapsed">
       <summary>Additional Concepts — Do Not Produce Yet</summary>

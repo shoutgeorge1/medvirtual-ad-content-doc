@@ -379,9 +379,15 @@ export const ARCHIVED_CONCEPTS = TEST_BUCKETS.flatMap((b) =>
 /** @deprecated use ARCHIVED_CONCEPTS — kept for scripts that imported ALL_CONCEPTS */
 export const ALL_CONCEPTS = ARCHIVED_CONCEPTS;
 
-/** Campaign context for the first booked-demo lookalike test */
+/** Campaign context — internal only, not for designer/VA */
 export const CAMPAIGN_STRATEGY_NOTE =
   'This first batch will run against a high-quality lookalike audience built from booked demos. Audience targeting stays broad while the creative tests medical, dental, role-specific, and pain-first messaging.';
+
+/** Internal media-buying context — not for designer/VA production */
+export const INTERNAL_NOTES = [
+  CAMPAIGN_STRATEGY_NOTE,
+  'Starting at $10/hour is used on medvirtual.ai — confirm with leadership before ad spend if pricing has changed.',
+];
 
 /** Exactly four concepts for the first production batch — designer produces only these */
 export const PRODUCTION_CONCEPTS = [
@@ -390,39 +396,39 @@ export const PRODUCTION_CONCEPTS = [
     name: 'General Medical Practice Callout',
     audience: 'Medical practice owners and practice managers',
     headline: 'Medical Practice Owners',
-    support: 'Hire full-time virtual staff for your practice.',
+    support: 'Add full-time virtual support without adding office space.',
     visual:
       'Professional medical office environment and a calm remote virtual staff member handling calls, scheduling, patient intake, or administrative work.',
     cta: 'Book a Demo',
     warning: 'Do not imply MedVirtual operates or replaces the clinic front desk.',
     primaryText:
-      'Medical practice owners: hire full-time virtual staff for your practice.\n\nYour virtual staff member joins your team through MedVirtual — calls, scheduling, intake, and admin support.\n\nStarting at $10/hour\n\nBook a demo →',
+      'Medical practice owners: add full-time virtual support without adding office space.\n\nHire through MedVirtual — calls, scheduling, intake, and admin support for your practice team.\n\nStarting at $10/hour\n\nBook a demo →',
   },
   {
     id: '2',
     name: 'Dental Practice Callout',
     audience: 'Dental practice owners and dental practice managers',
     headline: 'Dental Practice Owners',
-    support: 'Hire full-time virtual dental staff.',
+    support: 'Get help with scheduling, insurance, and patient follow-up.',
     visual:
       'Professional dental office setting paired with a remote virtual staff member handling scheduling, reminders, insurance verification, or pre-authorizations.',
     cta: 'Book a Demo',
     warning: 'Keep the visual clearly dental-specific without using graphic clinical imagery.',
     primaryText:
-      'Dental practice owners: hire full-time virtual dental staff through MedVirtual.\n\nScheduling, reminders, insurance verification, and pre-authorizations — part of your practice team.\n\nStarting at $10/hour\n\nBook a demo →',
+      'Dental practice owners: get help with scheduling, insurance, and patient follow-up.\n\nHire full-time virtual dental staff through MedVirtual — part of your practice team.\n\nStarting at $10/hour\n\nBook a demo →',
   },
   {
     id: '3',
     name: 'Role-Specific Offer',
     audience: 'Medical practice decision-makers',
-    headline: 'Hire a Full-Time Virtual Medical Admin',
-    support: 'Calls, scheduling, intake, and administrative support.',
+    headline: 'Need a Full-Time Medical Admin?',
+    support: 'Hire trained virtual staff through MedVirtual.',
     visual:
       'Professional virtual medical administrative staff member using a laptop and headset in a clean remote workspace. Subtle medical office context without patient information.',
     cta: 'Book a Demo',
     warning: 'Do not make the person look like a generic call-center agent.',
     primaryText:
-      'Hire a full-time virtual medical admin through MedVirtual.\n\nCalls, scheduling, intake, and administrative support — part of your practice team.\n\nBook a demo →',
+      'Need a full-time medical admin?\n\nHire trained virtual staff through MedVirtual — calls, scheduling, intake, and admin support.\n\nBook a demo →',
   },
   {
     id: '4',
@@ -492,9 +498,6 @@ export const BUCKET_COLORS = {
 export function buildMondayFormCopy(baseUrl = 'https://medvirtual-ad-content-doc.vercel.app') {
   return `PROJECT: MedVirtual Meta Ads — First Creative Batch
 
-CAMPAIGN:
-First test runs against a high-quality lookalike audience built from booked demos. Audience stays broad — creative tests which message performs best.
-
 REFERENCE LINKS:
 • Graphic brief: ${baseUrl}/graphic-request-brief.html
 • Ad copy: ${baseUrl}/facebook-ad-copy.html
@@ -504,13 +507,13 @@ PRODUCE EXACTLY THESE 4 CONCEPTS
 
 1. Medical Practice Owners
 2. Dental Practice Owners
-3. Hire a Full-Time Virtual Medical Admin
+3. Need a Full-Time Medical Admin?
 4. Too Many Calls. Not Enough Staff.
 
 DELIVERABLES:
 • 1080 × 1350 feed size
-• One design per concept
-• 1–2 light variations only if useful
+• Create one design per concept
+• Do not create variations until the first four are reviewed
 • Resize approved winners to 1080 × 1920 later
 
 REQUIREMENTS:
