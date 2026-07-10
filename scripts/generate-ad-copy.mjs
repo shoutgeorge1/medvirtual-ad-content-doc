@@ -10,7 +10,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
-import { ALL_CONCEPTS, FIRST_BATCH_COUNT, MESSAGING_RULES, TEST_BUCKETS } from './first-test-batch-data.mjs';
+import { PRODUCTION_CONCEPTS, FIRST_BATCH_COUNT, ARCHIVED_CONCEPTS, MESSAGING_RULES } from './first-test-batch-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -310,74 +310,56 @@ const CSS = `
   .library-divider p { margin: 0; font-size: 0.82rem; color: #c2410c; }
 `;
 
-function bucketClassFor(id) {
-  if (id === 'dental_practice') return 'dental';
-  if (id === 'insurance_billing') return 'insurance';
-  if (id === 'virtual_med_admin') return 'admin';
-  return '';
-}
-
 function renderLaunchBatch() {
-  const toc = TEST_BUCKETS.map(
-    (b) => `<a href="#launch-${esc(b.id)}">${esc(b.label)} (${b.concepts.length})</a>`,
-  ).join('');
+  const cards = PRODUCTION_CONCEPTS.map((c) => {
+    const text = c.primaryText;
+    const len = text.length;
+    const hook = firstLine(text);
+    const preview = visiblePreview(text);
+    const truncated = len > FEED_VISIBLE;
+    const badge = truncated
+      ? `<span class="badge expand">See more</span>`
+      : `<span class="badge safe">Feed-safe</span>`;
+    const previewHtml = truncated
+      ? `${esc(preview)}<span class="feed-preview__more">… See more</span>`
+      : esc(preview);
 
-  const sections = TEST_BUCKETS.map((bucket) => {
-    const cards = bucket.concepts
-      .flatMap((c) =>
-        c.primaryTexts.map((text, i) => {
-          const bClass = bucketClassFor(bucket.id);
-          const len = text.length;
-          const hook = firstLine(text);
-          const preview = visiblePreview(text);
-          const truncated = len > FEED_VISIBLE;
-          const badge = truncated
-            ? `<span class="badge expand">See more</span>`
-            : `<span class="badge safe">Feed-safe</span>`;
-          const previewHtml = truncated
-            ? `${esc(preview)}<span class="feed-preview__more">… See more</span>`
-            : esc(preview);
-          const fmtBadge =
-            c.format === 'video'
-              ? '<span class="bucket-label video">Video</span>'
-              : '<span class="badge safe">Static</span>';
-
-          return `<div class="card">
+    return `<div class="card">
       <div class="card-top">
         <div class="card-top-left">
-          <span class="num">${esc(c.id)}-pt${i + 1}</span>
-          <span class="bucket-label ${bClass}">${esc(bucket.label)}</span>
-          ${fmtBadge}
+          <span class="num">${esc(c.name)}</span>
           ${badge}
           <span class="hook-len">Line 1: ${hook.length} chars</span>
         </div>
         <button type="button" class="copy-btn" data-copy="${esc(text)}">Copy</button>
       </div>
-      <p class="launch-meta"><strong>${esc(c.name)}</strong> · ${esc(c.onImageText)} · Headlines: ${esc(c.headlines.join(' / '))}</p>
+      <p class="launch-meta"><strong>On-image headline:</strong> ${esc(c.headline)} · ${esc(c.support)}</p>
       <div class="feed-preview">
-        <div class="feed-preview__label">Mobile feed preview (~${FEED_VISIBLE} chars)</div>
+        <div class="feed-preview__label">Facebook primary text</div>
         <div class="feed-preview__text">${previewHtml}</div>
       </div>
       <div class="text">${esc(text)}</div>
-      <div class="chars${truncated ? ' warn' : ''}">${len} characters · ${esc(c.description)}</div>
+      <div class="chars${truncated ? ' warn' : ''}">${len} characters</div>
     </div>`;
-        }),
-      )
-      .join('');
-
-    return `<section class="angle" id="launch-${esc(bucket.id)}">
-      <h2>${esc(bucket.label)}</h2>
-      <p class="meta">${esc(bucket.correctMessage)}</p>
-      ${cards}
-    </section>`;
   }).join('');
 
+  const archivedList = ARCHIVED_CONCEPTS.map(
+    (c) => `<li><strong>${esc(c.name)}</strong> — ${esc(c.onImageText || c.headlines?.[0] || '')}</li>`,
+  ).join('');
+
   return `<div class="launch-banner" id="launch-batch">
-      <h2>Recommended First Launch Batch — ${FIRST_BATCH_COUNT} concepts</h2>
-      <p>Production-ready copy for the first Meta graphic request. Full brief: <a href="/graphic-request-brief.html">graphic-request-brief.html</a></p>
+      <h2>First Production Batch — ${FIRST_BATCH_COUNT} concepts only</h2>
+      <p>Produce only these ${FIRST_BATCH_COUNT} ads. Full brief: <a href="/graphic-request-brief.html">graphic-request-brief.html</a></p>
     </div>
-    <nav class="toc">${toc}</nav>
-    ${sections}`;
+    <section class="angle" id="launch-production">
+      <h2>Production concepts</h2>
+      <p class="meta">One Facebook primary text per concept — matches on-image headlines in the graphic brief.</p>
+      ${cards}
+    </section>
+    <details style="margin:1.5rem 0;padding:1rem;background:#fff;border:1px dashed #cbd5e1;border-radius:10px">
+      <summary style="font-weight:700;font-size:0.88rem;color:#64748b;cursor:pointer">Additional concepts — do not produce yet</summary>
+      <ul style="margin-top:0.75rem;padding-left:1.2rem;font-size:0.82rem;color:#64748b">${archivedList}</ul>
+    </details>`;
 }
 
 function main() {
@@ -452,13 +434,12 @@ function main() {
   ${renderDocHeader({
     activeId: 'copy',
     pageTitle: 'Facebook Primary Text',
-    pageSubtitle: `First launch batch: ${FIRST_BATCH_COUNT} concepts · Reference library: ${total} variations below`,
+    pageSubtitle: `First production batch: ${FIRST_BATCH_COUNT} concepts only · Reference library below`,
   })}
   <div class="wrap">
     <div class="intro">
-      <strong>Start here:</strong> Use the <a href="/graphic-request-brief.html">Graphic Request Brief</a> for designer handoff.
-      This page’s <strong>Recommended First Launch Batch</strong> (${FIRST_BATCH_COUNT} ads) is what to produce first.
-      The copy library below is backup/reference only.
+      <strong>Start here:</strong> <a href="/graphic-request-brief.html">Graphic Request Brief</a> — produce <strong>${FIRST_BATCH_COUNT} concepts only</strong>.
+      This page has one Facebook primary text per concept. The copy library below is backup only.
     </div>
     <div class="rules">
       <h3>Messaging rules (CMO — first batch)</h3>
