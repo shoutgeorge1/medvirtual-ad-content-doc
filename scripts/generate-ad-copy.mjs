@@ -10,7 +10,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
-import { PRODUCTION_CONCEPTS, FIRST_BATCH_COUNT, ARCHIVED_CONCEPTS, MESSAGING_RULES } from './first-test-batch-data.mjs';
+import { PRODUCTION_CONCEPTS, FIRST_BATCH_COUNT, ARCHIVED_CONCEPTS, MESSAGING_RULES, PRODUCTION_DELIVERABLES_NOTE } from './first-test-batch-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -348,12 +348,13 @@ function renderLaunchBatch() {
   ).join('');
 
   return `<div class="launch-banner" id="launch-batch">
-      <h2>First Production Batch — ${FIRST_BATCH_COUNT} concepts only</h2>
-      <p>Produce only these ${FIRST_BATCH_COUNT} ads. Full brief: <a href="/graphic-request-brief.html">graphic-request-brief.html</a></p>
+      <h2>First Production Batch — ${FIRST_BATCH_COUNT} static concepts only</h2>
+      <p>1080×1350 feed only · one design per concept · no variations yet. Brief: <a href="/graphic-request-brief.html">graphic-request-brief.html</a></p>
+      <p style="margin-top:0.35rem;font-size:0.82rem;color:#cbd5e1">${esc(PRODUCTION_DELIVERABLES_NOTE)}</p>
     </div>
     <section class="angle" id="launch-production">
       <h2>Production concepts</h2>
-      <p class="meta">One Facebook primary text per concept — matches on-image headlines in the graphic brief.</p>
+      <p class="meta">One Facebook primary text per concept — matches on-image headlines in the graphic brief. Price on-image only for Pain-First (concept 4).</p>
       ${cards}
     </section>
     <details style="margin:1.5rem 0;padding:1rem;background:#fff;border:1px dashed #cbd5e1;border-radius:10px">
@@ -448,7 +449,7 @@ function main() {
         <li><strong>Positioning:</strong> Practices hire full-time virtual staff through MedVirtual; staff join the practice team and work remotely.</li>
         <li><strong>Do not</strong> imply MedVirtual is the front desk or a managed service provider.</li>
         <li><strong>Use:</strong> ${esc(MESSAGING_RULES.use.slice(0, 5).join(' · '))}.</li>
-        <li><strong>CTA:</strong> Book a demo · <strong>Price:</strong> Starting at $10/hour where relevant.</li>
+        <li><strong>CTA:</strong> Book a demo · <strong>Price:</strong> “Starting at $10/hour” on Pain-First concept only — confirm before spend.</li>
       </ul>
     </div>
     ${renderLaunchBatch()}

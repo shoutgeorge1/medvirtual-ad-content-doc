@@ -12,6 +12,7 @@ import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
 import {
   BUCKET_COLORS,
   BUCKET_LABELS,
+  PRODUCTION_CONCEPTS,
   FIRST_BATCH_COUNT,
   TEMPLATE_BUCKET_MAP,
   TEST_BUCKETS,
@@ -1287,17 +1288,14 @@ async function main() {
     'before_after',
   ];
 
+  const productionHeadlines = PRODUCTION_CONCEPTS.map(
+    (c) => `<span class="batch-pill" style="background:#0d9488">${esc(c.headline)}</span>`,
+  ).join('');
+
   const batchIntro = `<div class="batch-intro">
-    <h2>First Graphic Request Batch — Visual Reference</h2>
-    <p>${FIRST_BATCH_COUNT} ad concepts across 4 test buckets. Full copy &amp; brief: <a href="/graphic-request-brief.html">graphic-request-brief.html</a> · Launch copy: <a href="/facebook-ad-copy.html#launch-batch">facebook-ad-copy.html</a></p>
-    <div class="batch-pills">
-      ${bucketOrder
-        .map(
-          (id) =>
-            `<span class="batch-pill" style="background:${BUCKET_COLORS[id]}">${esc(BUCKET_LABELS[id])}</span>`,
-        )
-        .join('')}
-    </div>
+    <h2>Visual Reference — Not a Production List</h2>
+    <p>Produce exactly <strong>${FIRST_BATCH_COUNT} static concepts</strong> at <strong>1080×1350</strong> per <a href="/graphic-request-brief.html">graphic-request-brief.html</a>. Templates below are layout reference only — no variations, resizes, or video yet.</p>
+    <div class="batch-pills">${productionHeadlines}</div>
   </div>`;
 
   const firstBatchBody = bucketOrder
@@ -1348,7 +1346,7 @@ async function main() {
   ${renderDocHeader({
     activeId: 'templates',
     pageTitle: 'Template Test Board',
-    pageSubtitle: `First batch: ${FIRST_BATCH_COUNT} concepts · bucket labels · static vs video notes · CMO positioning`,
+    pageSubtitle: `Reference only · produce ${FIRST_BATCH_COUNT} static 1080×1350 ads per graphic brief`,
   })}
   ${body}
 </body>

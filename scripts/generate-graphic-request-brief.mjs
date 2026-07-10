@@ -12,6 +12,8 @@ import {
   MESSAGING_RULES,
   PRACTICE_TYPES,
   PRODUCTION_CONCEPTS,
+  PRODUCTION_DELIVERABLES,
+  PRODUCTION_DELIVERABLES_NOTE,
   ROLES,
   USE_CASES,
   buildMondayFormCopy,
@@ -163,32 +165,28 @@ function main() {
   ${renderDocHeader({
     activeId: 'brief',
     pageTitle: 'Graphic Request Brief',
-    pageSubtitle: '4 ad concepts · first production batch · ready for designer/VA handoff',
+    pageSubtitle: '4 static ads · 1080×1350 only · designer/VA handoff',
   })}
   <div class="wrap">
-    <p class="produce-banner">Produce only these 4 concepts — ignore archived reference below</p>
+    <p class="produce-banner">Produce exactly 4 static concepts · 1080×1350 only · no variations yet</p>
 
     <header class="hero" id="summary">
       <h2>MedVirtual Meta Ads — First Creative Batch</h2>
-      <p>Create 4 clean Meta ad concepts for full-time virtual medical and dental staff through MedVirtual.</p>
-      <p style="margin-top:0.25rem"><strong>Goal:</strong> Scroll-stopping messages for practice decision-makers. <strong>CTA:</strong> Book a Demo</p>
+      <p>Four static Meta feed ads. Practices hire <strong>full-time virtual staff</strong> through MedVirtual — staff become part of the practice team.</p>
+      <p style="margin-top:0.25rem"><strong>CTA:</strong> Book a Demo</p>
       <div class="hero-meta">
-        <span class="hero-pill">4 concepts</span>
+        <span class="hero-pill">4 static</span>
         <span class="hero-pill">1080×1350</span>
-        <span class="hero-pill">Book a Demo</span>
+        <span class="hero-pill">No variations yet</span>
       </div>
     </header>
 
     <section class="section" id="deliverables">
       <h2>Deliverables</h2>
       <div class="deliverables">
-        <span class="deliverable-item">4 static concepts</span>
-        <span class="deliverable-item">1080×1350 feed</span>
-        <span class="deliverable-item">1 design per concept</span>
-        <span class="deliverable-item">No variations until reviewed</span>
-        <span class="deliverable-item">9:16 after approval</span>
+        ${PRODUCTION_DELIVERABLES.map((d) => `<span class="deliverable-item">${esc(d)}</span>`).join('')}
       </div>
-      <p style="margin-top:0.5rem;font-size:0.82rem;font-weight:600;color:#0f766e">Create one design per concept. Do not create variations until the first four are reviewed.</p>
+      <p style="margin-top:0.5rem;font-size:0.82rem;font-weight:600;color:#0f766e">${esc(PRODUCTION_DELIVERABLES_NOTE)}</p>
     </section>
 
     <section class="section" id="audience">
@@ -199,10 +197,10 @@ function main() {
 
     <section class="section" id="core-message">
       <h2>Core Message</h2>
-      <p>Practices hire <strong>full-time virtual staff</strong> through MedVirtual (calls, scheduling, intake, insurance, billing, pre-auth, documentation, EMR admin). <strong>Starting at $10/hour.</strong> CTA: Book a Demo.</p>
+      <p>Practices hire <strong>full-time virtual staff</strong> through MedVirtual. Virtual staff support calls, scheduling, intake, insurance, billing, and admin — as <strong>part of your practice team</strong>. CTA: Book a Demo.</p>
       <div class="compact-split" style="margin-top:0.5rem">
-        <div class="use-box"><strong>Use</strong>full-time virtual staff · virtual staff member · part of your practice team · hire through MedVirtual · starting at $10/hour</div>
-        <div class="avoid-box"><strong>Avoid</strong>managed service · outsourced front desk · front desk replacement · we handle your front desk</div>
+        <div class="use-box"><strong>Use</strong>full-time virtual staff · virtual staff member · part of your practice team · hire through MedVirtual</div>
+        <div class="avoid-box"><strong>Avoid</strong>managed service · outsourced front desk · front desk replacement · we handle your front desk · MedVirtual.ai</div>
       </div>
     </section>
 
@@ -214,10 +212,11 @@ function main() {
     <section class="section" id="rules">
       <h2>Design Rules</h2>
       ${li([
-        'MedVirtual only — never MedVirtual.ai',
+        'MedVirtual only — never MedVirtual.ai on the ad',
         'One clear hook per ad · large headline · minimal support text',
         'Clean healthcare visuals · show virtual staff working',
         'Visible Book a Demo CTA · mobile-readable · no clutter',
+        '1080×1350 static feed only for this batch',
       ])}
     </section>
 
@@ -258,7 +257,8 @@ function main() {
         'No patient info',
         'No clutter',
         'No managed-service language',
-        '1080×1350',
+        '1080×1350 static only',
+        'No variations in this batch',
         'Source + PNG/JPG',
       ].map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
     </section>

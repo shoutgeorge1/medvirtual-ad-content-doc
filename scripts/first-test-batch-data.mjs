@@ -386,8 +386,21 @@ export const CAMPAIGN_STRATEGY_NOTE =
 /** Internal media-buying context — not for designer/VA production */
 export const INTERNAL_NOTES = [
   CAMPAIGN_STRATEGY_NOTE,
-  'Starting at $10/hour is used on medvirtual.ai — confirm with leadership before ad spend if pricing has changed.',
+  'Confirm “Starting at $10/hour” with leadership before paid spend goes live. Use only on the Pain-First concept (concept 4).',
 ];
+
+/** Designer-facing production deliverables — first batch only */
+export const PRODUCTION_DELIVERABLES = [
+  'Exactly 4 static concepts',
+  '1080 × 1350 feed only',
+  'One design per concept',
+  'No variations yet',
+  'No 1080 × 1920 resizes yet',
+  'No video yet',
+];
+
+export const PRODUCTION_DELIVERABLES_NOTE =
+  'Variations, resizes, and videos happen only after the first four designs are reviewed.';
 
 /** Exactly four concepts for the first production batch — designer produces only these */
 export const PRODUCTION_CONCEPTS = [
@@ -402,7 +415,7 @@ export const PRODUCTION_CONCEPTS = [
     cta: 'Book a Demo',
     warning: 'Do not imply MedVirtual operates or replaces the clinic front desk.',
     primaryText:
-      'Medical practice owners: add full-time virtual support without adding office space.\n\nHire through MedVirtual — calls, scheduling, intake, and admin support for your practice team.\n\nStarting at $10/hour\n\nBook a demo →',
+      'Medical practice owners: add full-time virtual support without adding office space.\n\nHire full-time virtual staff through MedVirtual — part of your practice team.\n\nBook a demo →',
   },
   {
     id: '2',
@@ -415,20 +428,20 @@ export const PRODUCTION_CONCEPTS = [
     cta: 'Book a Demo',
     warning: 'Keep the visual clearly dental-specific without using graphic clinical imagery.',
     primaryText:
-      'Dental practice owners: get help with scheduling, insurance, and patient follow-up.\n\nHire full-time virtual dental staff through MedVirtual — part of your practice team.\n\nStarting at $10/hour\n\nBook a demo →',
+      'Dental practice owners: get help with scheduling, insurance, and patient follow-up.\n\nHire full-time virtual dental staff through MedVirtual — part of your practice team.\n\nBook a demo →',
   },
   {
     id: '3',
     name: 'Role-Specific Offer',
     audience: 'Medical practice decision-makers',
-    headline: 'Need a Full-Time Medical Admin?',
+    headline: 'Hire a Full-Time Virtual Medical Admin',
     support: 'Hire trained virtual staff through MedVirtual.',
     visual:
       'Professional virtual medical administrative staff member using a laptop and headset in a clean remote workspace. Subtle medical office context without patient information.',
     cta: 'Book a Demo',
-    warning: 'Do not make the person look like a generic call-center agent.',
+    warning: 'Do not make the person look like a generic call-center agent or a job-seeker ad.',
     primaryText:
-      'Need a full-time medical admin?\n\nHire trained virtual staff through MedVirtual — calls, scheduling, intake, and admin support.\n\nBook a demo →',
+      'Hire a full-time virtual medical admin through MedVirtual.\n\nTrained virtual staff for calls, scheduling, intake, and admin support — part of your practice team.\n\nBook a demo →',
   },
   {
     id: '4',
@@ -503,24 +516,28 @@ REFERENCE LINKS:
 • Ad copy: ${baseUrl}/facebook-ad-copy.html
 • Templates: ${baseUrl}/template-test-board.html
 
-PRODUCE EXACTLY THESE 4 CONCEPTS
+PRODUCE EXACTLY THESE 4 STATIC CONCEPTS
 
 1. Medical Practice Owners
 2. Dental Practice Owners
-3. Need a Full-Time Medical Admin?
+3. Hire a Full-Time Virtual Medical Admin
 4. Too Many Calls. Not Enough Staff.
 
 DELIVERABLES:
-• 1080 × 1350 feed size
-• Create one design per concept
-• Do not create variations until the first four are reviewed
-• Resize approved winners to 1080 × 1920 later
+• Exactly 4 static concepts
+• 1080 × 1350 feed only
+• One design per concept
+• No variations yet
+• No 1080 × 1920 resizes yet
+• No video yet
+• Variations, resizes, and videos only after the first four are reviewed
 
 REQUIREMENTS:
 • CTA: Book a Demo
-• MedVirtual branding only
-• No MedVirtual.ai
+• Brand: MedVirtual only
+• No MedVirtual.ai in ad copy or on-image text
 • No patient information
 • No overcrowded layouts
-• Do not imply MedVirtual runs the clinic front desk or is a managed service`;
+• Do not imply MedVirtual runs the clinic front desk or is a managed service
+• Practices hire full-time virtual staff through MedVirtual — staff become part of the practice team`;
 }
