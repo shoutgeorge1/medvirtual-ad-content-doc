@@ -1,0 +1,180 @@
+MedVirtual Meta - Paste-Ready Ad Copy
+Campaign: IMB_MV_Meta_Leads_FirstBatch_202607
+Ad Set: IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day
+Audience: Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed
+Form: IMB_MV_Form_BookDemo_FirstBatch_DRAFT
+Budget: $500/day
+Geo: United States
+Everything stays PAUSED/DRAFT until Haylie / CMO approval.
+
+Safest workflow if bulk import fails:
+1) Create campaign + ad set shell in Meta
+2) Create draft Instant Form manually
+3) Paste each block below into a new draft ad
+4) Attach creative from Media Library
+5) Mobile preview all 4 ads
+6) Send draft for review - do not publish
+
+========================================
+IMB_MV_Static_01_MedicalOwners
+Concept: Medical Practice Owners
+STATUS: DRAFT / PAUSED until CMO approval
+========================================
+
+AD NAME (exact):
+IMB_MV_Static_01_MedicalOwners
+
+PRIMARY TEXT:
+Medical practice owners: hire full-time virtual staff to support calls, scheduling, intake, and admin work.
+
+BACKUP PRIMARY TEXT:
+Add trained virtual support to your practice team without adding more office space.
+
+META HEADLINE:
+Hire Full-Time Virtual Staff
+
+DESCRIPTION:
+Support your practice team with trained virtual staff.
+
+CTA:
+Book a Demo
+
+DESTINATION / FORM:
+IMB_MV_Form_BookDemo_FirstBatch_DRAFT
+
+ON-IMAGE HEADLINE (creative must show):
+Medical Practice Owners
+
+SUPPORTING LINE (creative must show):
+Add full-time virtual support without adding office space.
+
+CREATIVE FILE:
+IMB_MV_Static_01_MedicalOwners.png
+SOURCE IMAGE:
+Med Virtual Ads 01.png
+
+NOTES:
+Selected: clean medical scrub visual, no $10 price on image. Baked-in on-image copy does not match approved headline - designer must re-export 1080x1350 with approved copy + Book a Demo CTA. Source is 2965x2965 square.
+
+========================================
+IMB_MV_Static_02_DentalOwners
+Concept: Dental Practice Owners
+STATUS: DRAFT / PAUSED until CMO approval
+========================================
+
+AD NAME (exact):
+IMB_MV_Static_02_DentalOwners
+
+PRIMARY TEXT:
+Dental practice owners: get virtual staff support for scheduling, insurance, reminders, and patient follow-up.
+
+BACKUP PRIMARY TEXT:
+Hire full-time virtual dental staff through MedVirtual to support your daily workflow.
+
+META HEADLINE:
+Virtual Staff for Dental Practices
+
+DESCRIPTION:
+Scheduling, insurance, and patient follow-up support.
+
+CTA:
+Book a Demo
+
+DESTINATION / FORM:
+IMB_MV_Form_BookDemo_FirstBatch_DRAFT
+
+ON-IMAGE HEADLINE (creative must show):
+Dental Practice Owners
+
+SUPPORTING LINE (creative must show):
+Get help with scheduling, insurance, and patient follow-up.
+
+CREATIVE FILE:
+IMB_MV_Static_02_DentalOwners.png
+SOURCE IMAGE:
+Med Virtual Ads 02.png
+
+NOTES:
+RED FLAG: No dental-specific image in the new 12-image batch. Using best available medical professional (clipboard). Designer should swap to a dental office visual before spend. Baked-in copy/CTA must be replaced with approved dental headline + Book a Demo.
+
+========================================
+IMB_MV_Static_03_VirtualMedAdmin
+Concept: Virtual Medical Admin
+STATUS: DRAFT / PAUSED until CMO approval
+========================================
+
+AD NAME (exact):
+IMB_MV_Static_03_VirtualMedAdmin
+
+PRIMARY TEXT:
+Hire a full-time virtual medical admin for calls, scheduling, intake, and admin support.
+
+BACKUP PRIMARY TEXT:
+MedVirtual helps practices hire trained virtual staff who work as part of the team.
+
+META HEADLINE:
+Hire a Virtual Medical Admin
+
+DESCRIPTION:
+Calls, scheduling, intake, and admin help.
+
+CTA:
+Book a Demo
+
+DESTINATION / FORM:
+IMB_MV_Form_BookDemo_FirstBatch_DRAFT
+
+ON-IMAGE HEADLINE (creative must show):
+Hire a Full-Time Virtual Medical Admin
+
+SUPPORTING LINE (creative must show):
+Calls, scheduling, intake, and admin support.
+
+CREATIVE FILE:
+IMB_MV_Static_03_VirtualMedAdmin.png
+SOURCE IMAGE:
+Med Virtual Ads 09.png
+
+NOTES:
+Selected: full-time VA / medical admin visual without $10 price (price reserved for concept 4). Re-export with approved headline/support + Book a Demo. Source is square.
+
+========================================
+IMB_MV_Static_04_TooManyCalls
+Concept: Pain-first
+STATUS: PAUSED / BLOCKED until $10/hour confirmed
+========================================
+
+AD NAME (exact):
+IMB_MV_Static_04_TooManyCalls
+
+PRIMARY TEXT:
+Too many calls and not enough staff? Hire full-time virtual staff through MedVirtual.
+
+BACKUP PRIMARY TEXT:
+Support your practice team with trained full-time virtual staff starting at $10/hour.
+
+META HEADLINE:
+Too Many Calls? Get Support.
+
+DESCRIPTION:
+Full-time virtual staff through MedVirtual.
+
+CTA:
+Book a Demo
+
+DESTINATION / FORM:
+IMB_MV_Form_BookDemo_FirstBatch_DRAFT
+
+ON-IMAGE HEADLINE (creative must show):
+Too Many Calls. Not Enough Staff.
+
+SUPPORTING LINE (creative must show):
+Full-time virtual staff starting at $10/hour.
+
+CREATIVE FILE:
+IMB_MV_Static_04_TooManyCalls.png
+SOURCE IMAGE:
+Med Virtual Ads 10.png
+
+NOTES:
+BLOCKED UNTIL $10/HOUR CONFIRMED. Keep this ad PAUSED until CMO confirms price. Baked-in headline differs from approved copy - re-export required. Keep $10/hour off concepts 1-3.

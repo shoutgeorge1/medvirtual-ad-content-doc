@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meta Launch Build Pack — MedVirtual</title>
+  <title>Meta Launch Build Pack - MedVirtual</title>
   <style>
   
   .doc-header {
@@ -132,6 +132,17 @@
   }
   .hero h2 { font-size: 1.15rem; margin-bottom: 0.35rem; }
   .hero p { font-size: 0.84rem; color: #94a3b8; }
+  .build-mode {
+    background: #fff; border: 2px solid #0d9488; border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 1rem;
+  }
+  .build-mode h2 { font-size: 1.05rem; margin-bottom: 0.35rem; color: #0f172a; }
+  .build-mode > p { font-size: 0.8rem; color: #64748b; margin-bottom: 0.75rem; }
+  .build-mode ol { list-style: none; display: grid; gap: 0.4rem; }
+  .build-mode li {
+    background: #f0fdfa; border: 1px solid #99f6e4; border-left: 4px solid #0d9488;
+    border-radius: 8px; padding: 0.55rem 0.75rem; font-size: 0.82rem;
+  }
+  .build-mode strong { color: #0f766e; }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.85rem; }
   @media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } }
   .panel {
@@ -149,7 +160,8 @@
   }
   .ad-card__head { padding: 0.75rem 0.95rem; border-bottom: 1px solid #e2e8f0; background: #f8fafc; }
   .ad-card__head h3 { font-size: 0.98rem; margin-top: 0.25rem; }
-  .pill { display: inline-block; font-size: 0.68rem; font-weight: 700; background: #0d9488; color: #fff; padding: 0.18rem 0.45rem; border-radius: 4px; }
+  .pill { display: inline-block; font-size: 0.68rem; font-weight: 700; background: #0d9488; color: #fff; padding: 0.18rem 0.45rem; border-radius: 4px; margin-right: 0.25rem; }
+  .pill-warn { background: #ea580c; }
   .ad-card__body { display: grid; grid-template-columns: 180px 1fr; gap: 0.85rem; padding: 0.85rem; }
   @media (max-width: 700px) { .ad-card__body { grid-template-columns: 1fr; } }
   .thumb { background: #e2e8f0; border-radius: 8px; overflow: hidden; aspect-ratio: 4/5; }
@@ -169,7 +181,10 @@
     font-weight: 600; padding: 0.4rem 0.65rem; border-radius: 6px;
   }
   .exports a.secondary { background: #0d9488; }
+  .exports a.warn { background: #ea580c; }
   .note { font-size: 0.78rem; color: #64748b; margin-top: 0.35rem; }
+  .tracking { background: #eff6ff; border: 1px solid #bfdbfe; border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 0.9rem; margin: 0.85rem 0; font-size: 0.8rem; }
+  .tracking ul { margin: 0.4rem 0 0 1.1rem; }
   </style>
 </head>
 <body>
@@ -186,27 +201,47 @@
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Meta Launch Build Pack</h2>
-          <p class="doc-header__page-sub">Same-day draft campaign shell · 4 ads · form · QA</p>
+          <p class="doc-header__page-sub">2-hour Meta build mode · draft only · 1 campaign · 1 ad set · 4 ads</p>
           
         </div>
 </header>
   <div class="wrap">
-    <div class="banner">URGENT LAUNCH MODE — keep everything DRAFT until CMO / Haylie approval</div>
+    <div class="banner">URGENT LAUNCH MODE - keep everything DRAFT / PAUSED until CMO / Haylie approval</div>
     <div class="status"><strong>Build status:</strong> DRAFT - WAITING ON FORM REVIEW / BOOKING LINK / CREATIVE APPROVAL</div>
 
+    <section class="build-mode">
+      <h2>2-Hour Meta Build Mode</h2>
+      <p>Exact order inside Ads Manager. Do not publish. Structure stays simple: 1 campaign, 1 ad set, 4 ads, 1 shared form.</p>
+      <ol>
+        <li><strong>Step 1: Confirm assets</strong> - selected images, Ad 2 dental interim flag, Ad 4 $10/hour block, no extra audiences.</li>
+        <li><strong>Step 2: Create campaign shell</strong> - <span class="mono">IMB_MV_Meta_Leads_FirstBatch_202607</span> · Leads · Off/Paused · not an employment ad.</li>
+        <li><strong>Step 3: Create ad set</strong> - <span class="mono">IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day</span> · US · $500/day · exact 1% lookalike · Advantage+ · Instant Form optimization.</li>
+        <li><strong>Step 4: Create draft form</strong> - <span class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</span> · Higher Intent · save draft · leave URL placeholders.</li>
+        <li><strong>Step 5: Bulk import / build 4 ads</strong> - map <a href="/exports/meta-bulk-import-attempt.csv">import CSV</a> into Meta template, or paste from <a href="/exports/meta-paste-ready-ad-copy.txt">paste sheet</a>.</li>
+        <li><strong>Step 6: Review mobile previews</strong> - all 4 ads, language rules, Book a Demo CTA.</li>
+        <li><strong>Step 7: Send Haylie draft for review</strong> - keep paused; share blockers.</li>
+        <li><strong>Step 8: Add booking link / privacy URL</strong> - then HubSpot lead view + UTM.</li>
+        <li><strong>Step 9: Publish only after approval</strong> - final QA first.</li>
+      </ol>
+    </section>
+
     <section class="hero">
-      <h2>MedVirtual Meta Leads — First Batch</h2>
-      <p>Use this page as the single control surface for Ads Manager build. Copy names exactly. Form is shared across all 4 ads.</p>
+      <h2>MedVirtual Meta Leads - First Batch</h2>
+      <p>National US lookalike test. Creative segments the message. No interest stacks. No extra ad sets in first build.</p>
     </section>
 
     <div class="exports">
-      <a href="/exports/meta-launch-build-sheet.csv">Build sheet CSV</a>
-      <a href="/exports/meta-ad-copy-map.csv">Ad copy map CSV</a>
-      <a href="/exports/meta-form-draft-copy.md">Form draft MD</a>
-      <a href="/exports/meta-launch-checklist.md">Launch checklist</a>
-      <a class="secondary" href="/exports/selected-creative-contact-sheet.html">Creative contact sheet</a>
-      <a href="/exports/selected-creative-map.json">Creative map JSON</a>
+      <a class="warn" href="/exports/meta-bulk-import-attempt.csv">Bulk import attempt CSV</a>
+      <a class="secondary" href="/exports/meta-manual-build-sheet.csv">Manual build sheet</a>
+      <a class="secondary" href="/exports/meta-paste-ready-ad-copy.txt">Paste-ready ad copy</a>
+      <a href="/exports/meta-form-build-instructions.md">Form build instructions</a>
+      <a href="/exports/meta-launch-step-by-step.md">Step-by-step guide</a>
+      <a href="/exports/meta-draft-review-checklist.md">Draft review checklist</a>
+      <a href="/exports/meta-launch-build-sheet.csv">Launch build sheet</a>
+      <a href="/exports/meta-ad-copy-map.csv">Ad copy map</a>
+      <a href="/exports/selected-creative-contact-sheet.html">Creative contact sheet</a>
     </div>
+    <p class="note">Safest bulk workflow: create campaign/ad set shell in Meta → export Meta template → map Cursor rows to Meta column names → import → review every draft ad manually. Instant Forms must be created manually.</p>
 
     <div class="grid-2">
       <section class="panel">
@@ -217,7 +252,8 @@
           <div><dt>Conversion</dt><dd>Instant Form</dd></div>
           <div><dt>Optimization</dt><dd>Leads / Instant Form submissions</dd></div>
           <div><dt>Daily budget</dt><dd>$500/day</dd></div>
-          <div><dt>Monthly note</dt><dd>$10,000 monthly budget. At $500/day, this pace reaches $10,000 in about 20 days — monitor pacing.</dd></div>
+          <div><dt>Monthly note</dt><dd>$10,000 monthly budget. At $500/day, this pace reaches $10,000 in about 20 days - monitor pacing.</dd></div>
+          <div><dt>Geo</dt><dd>United States</dd></div>
           <div><dt>Placements</dt><dd>Advantage+ Placements</dd></div>
           <div><dt>Brand</dt><dd>MedVirtual</dd></div>
           <div><dt>CTA</dt><dd>Book a Demo</dd></div>
@@ -231,8 +267,8 @@
           <div><dt>Audience type</dt><dd>Lookalike (US, 1%)</dd></div>
           <div><dt>Lookalike status</dt><dd>Populating, but available for use</dd></div>
           <div><dt>Seed audience</dt><dd class="mono">MV HubSpot Clinic Prospects — Lookalike Seed</dd></div>
-          <div><dt>Seed status</dt><dd>Ready</dd></div>
-          <div><dt>Seed desc</dt><dd>HubSpot CRM clinic/practice prospects; cleaned seed list for lookalike creation.</dd></div>
+          <div><dt>Targeting rule</dt><dd>Lookalike only - no interests, job titles, or behaviors</dd></div>
+          <div><dt>Structure</dt><dd>1 campaign / 1 ad set / 4 ads</dd></div>
         </dl>
       </section>
     </div>
@@ -242,12 +278,12 @@
         <h3>Shared Instant Form</h3>
         <dl class="kv">
           <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
-          <div><dt>Form type</dt><dd>Higher intent (recommended for lead quality; use More volume only if speed matters)</dd></div>
+          <div><dt>Form type</dt><dd>Higher Intent (recommended for lead quality)</dd></div>
           <div><dt>Intro headline</dt><dd>Hire Full-Time Virtual Medical Staff Through MedVirtual</dd></div>
           <div><dt>Privacy URL</dt><dd class="mono">WAITING_ON_MEDVIRTUAL_PRIVACY_POLICY_URL_DO_NOT_PUBLISH</dd></div>
           <div><dt>Booking URL</dt><dd class="mono">WAITING_ON_HAYLIE_BOOKING_LINK_DO_NOT_PUBLISH</dd></div>
         </dl>
-        <p class="note">Create form manually in Meta. Do not claim CSV bulk upload for Instant Forms.</p>
+        <p class="note">Create form manually. See form build instructions.</p>
       </section>
       <section class="panel">
         <h3>Still waiting on Haylie</h3>
@@ -255,17 +291,32 @@
           <li>Booking link for thank-you button</li>
           <li>Privacy policy URL</li>
           <li>Form review / approval</li>
-          <li>Creative approval (correct on-image copy + final 1080×1350)</li>
+          <li>Creative approval (correct on-image copy + final 1080x1350)</li>
           <li>Confirm $10/hour before concept 4 spend</li>
+          <li>HubSpot lead view confirmation</li>
           <li>Final CMO publish approval</li>
         </ul>
       </section>
+    </div>
+
+    <div class="tracking">
+      <strong>Tracking Check Before Publish</strong>
+      <ul>
+        <li>This Instant Form campaign can be drafted before website pixel confirmation.</li>
+        <li>Before publishing, confirm HubSpot lead integration / lead view sees IMB_MV forms.</li>
+        <li>Check Events Manager for MedVirtual dataset/pixel status if booking-link conversions will be tracked.</li>
+        <li>If thank-you sends users to a booking page, confirm booking link + UTM tracking.</li>
+        <li>Recommended UTM once booking link exists: <code>utm_source=meta&amp;utm_medium=paid_social&amp;utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&amp;utm_content={{ad.name}}&amp;utm_term={{adset.name}}</code></li>
+        <li>If using website conversions later, verify pixel/conversion events before switching objectives.</li>
+        <li>For now, the primary tracked event is Meta Instant Form lead submission.</li>
+      </ul>
     </div>
 
     <h2 class="section-title">4 draft ads</h2>
     <article class="ad-card">
   <header class="ad-card__head">
     <span class="pill">Ad 01</span>
+    
     <h3>Medical Practice Owners</h3>
     <p class="mono">IMB_MV_Static_01_MedicalOwners</p>
   </header>
@@ -284,13 +335,14 @@
       <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
       <div><dt>Creative file</dt><dd class="mono">IMB_MV_Static_01_MedicalOwners.png</dd></div>
       <div><dt>Source image</dt><dd class="mono">Med Virtual Ads 01.png</dd></div>
-      <div class="warn"><dt>Notes</dt><dd>Selected: clean medical scrub visual, no $10 price on image. Baked-in on-image copy does not match approved headline — designer must re-export 1080×1350 with approved copy + Book a Demo CTA. Source is 2965×2965 square.</dd></div>
+      <div class="warn"><dt>Notes</dt><dd>Selected: clean medical scrub visual, no $10 price on image. Baked-in on-image copy does not match approved headline - designer must re-export 1080x1350 with approved copy + Book a Demo CTA. Source is 2965x2965 square.</dd></div>
     </dl>
   </div>
 </article>
 <article class="ad-card">
   <header class="ad-card__head">
     <span class="pill">Ad 02</span>
+    
     <h3>Dental Practice Owners</h3>
     <p class="mono">IMB_MV_Static_02_DentalOwners</p>
   </header>
@@ -316,6 +368,7 @@
 <article class="ad-card">
   <header class="ad-card__head">
     <span class="pill">Ad 03</span>
+    
     <h3>Virtual Medical Admin</h3>
     <p class="mono">IMB_MV_Static_03_VirtualMedAdmin</p>
   </header>
@@ -341,7 +394,8 @@
 <article class="ad-card">
   <header class="ad-card__head">
     <span class="pill">Ad 04</span>
-    <h3>Pain-first version</h3>
+    <span class="pill pill-warn">PRICE BLOCK</span>
+    <h3>Pain-first</h3>
     <p class="mono">IMB_MV_Static_04_TooManyCalls</p>
   </header>
   <div class="ad-card__body">
@@ -359,50 +413,47 @@
       <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
       <div><dt>Creative file</dt><dd class="mono">IMB_MV_Static_04_TooManyCalls.png</dd></div>
       <div><dt>Source image</dt><dd class="mono">Med Virtual Ads 10.png</dd></div>
-      <div class="warn"><dt>Notes</dt><dd>INTERNAL WARNING: Price “starting at $10/hour” must be confirmed by CMO before spend goes live. Selected before/after stress→calm visual. Baked-in headline differs from approved copy — re-export required. Keep $10/hour off concepts 1–3.</dd></div>
+      <div class="warn"><dt>Notes</dt><dd>BLOCKED UNTIL $10/HOUR CONFIRMED. Keep this ad PAUSED until CMO confirms price. Baked-in headline differs from approved copy - re-export required. Keep $10/hour off concepts 1-3.</dd></div>
     </dl>
   </div>
 </article>
 
-    <h2 class="section-title">2-hour action order</h2>
-    <ol class="steps">
-      <li><strong>Step 1</strong> Confirm launch pack and selected images.</li>
-      <li><strong>Step 2</strong> Create campaign shell: <span class="mono">IMB_MV_Meta_Leads_FirstBatch_202607</span></li>
-      <li><strong>Step 3</strong> Create ad set: <span class="mono">IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day</span></li>
-      <li><strong>Step 4</strong> Select audience: <span class="mono">Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed</span></li>
-      <li><strong>Step 5</strong> Create draft form: <span class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</span></li>
-      <li><strong>Step 6</strong> Build 4 draft ads using mapped copy and images.</li>
-      <li><strong>Step 7</strong> Pause / keep draft until Haylie reviews.</li>
-      <li><strong>Step 8</strong> Add booking link / privacy URL once received.</li>
-      <li><strong>Step 9</strong> Final QA.</li>
-      <li><strong>Step 10</strong> Publish only after approval.</li>
-    </ol>
-
-    <h2 class="section-title">Launch QA checklist</h2>
+    <h2 class="section-title">Creative blockers</h2>
     <ul class="checklist">
-      <li>☐ Campaign name uses IMB_MV</li>
-      <li>☐ Ad set name uses IMB_MV</li>
-      <li>☐ Form name starts with IMB_MV</li>
-      <li>☐ Audience is exact 1% lookalike</li>
-      <li>☐ Form saved as draft</li>
-      <li>☐ Haylie reviewed form</li>
-      <li>☐ Booking link added</li>
-      <li>☐ Privacy policy URL added</li>
-      <li>☐ MedVirtual only, no MedVirtual.ai</li>
-      <li>☐ No managed-service language</li>
-      <li>☐ No front-desk replacement language</li>
-      <li>☐ No recruiting/job-seeker language</li>
-      <li>☐ $10/hour approved before using concept 4</li>
-      <li>☐ Creative files are 1080×1350</li>
-      <li>☐ CTA says Book a Demo</li>
-      <li>☐ Ads previewed on mobile</li>
-      <li>☐ HubSpot lead view confirmed</li>
-      <li>☐ Budget set to $500/day</li>
-      <li>☐ Monthly pacing monitored for $10k budget</li>
-      <li>☐ Nothing published before CMO approval</li>
+      <li>Current source images may have baked-in wrong CTA/copy</li>
+      <li>Final ads must use Book a Demo</li>
+      <li>Final ads must be 1080x1350</li>
+      <li>Ad 2 image is interim (not dental-specific)</li>
+      <li>Concept 4 requires $10/hour confirmation - keep paused until confirmed</li>
     </ul>
 
-    <p class="note" style="margin-top:1rem">Red flags: all source creatives are square with baked-in copy/CTAs that do not match approved headlines; no dental-specific image in batch; concept 4 price needs CMO confirmation; booking link + privacy URL still missing.</p>
+    <h2 class="section-title">Final QA checklist</h2>
+    <ul class="checklist">
+      <li>☐ Campaign name correct</li>
+      <li>☐ Ad set name correct</li>
+      <li>☐ Audience exact</li>
+      <li>☐ Geo United States</li>
+      <li>☐ Budget $500/day</li>
+      <li>☐ Monthly pacing note understood</li>
+      <li>☐ Objective Leads</li>
+      <li>☐ Instant Form selected</li>
+      <li>☐ Form starts with IMB_MV</li>
+      <li>☐ Form saved as draft</li>
+      <li>☐ Booking link added</li>
+      <li>☐ Privacy policy URL added</li>
+      <li>☐ HubSpot lead view confirmed</li>
+      <li>☐ CTA Book a Demo</li>
+      <li>☐ MedVirtual only</li>
+      <li>☐ No MedVirtual.ai</li>
+      <li>☐ No managed service language</li>
+      <li>☐ No front desk replacement language</li>
+      <li>☐ No job-seeker/recruiting vibe</li>
+      <li>☐ $10/hour approved or ad 4 paused</li>
+      <li>☐ Creative copy matches approved copy</li>
+      <li>☐ Creative files 1080x1350</li>
+      <li>☐ All ads previewed on mobile</li>
+      <li>☐ Nothing published before Haylie approval</li>
+    </ul>
   </div>
 </body>
 </html>

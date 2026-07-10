@@ -2,7 +2,7 @@
 
 **Form name:** `IMB_MV_Form_BookDemo_FirstBatch_DRAFT`  
 **Status:** DRAFT — save as draft until CMO / Haylie review. Do not publish.  
-**Form type:** Higher intent (recommended for lead quality; use More volume only if speed matters)  
+**Form type:** Higher Intent (recommended for lead quality)  
 **Shared form:** One form for all 4 ads unless CMO requests separate HubSpot lead views by concept.
 
 ---
@@ -60,10 +60,10 @@ Do not invent a URL. Do not publish the form until a real privacy policy URL is 
 ## Thank-you screen
 
 **Headline:**  
-Thanks — your request was received.
+Thanks - your request was received.
 
 **Body:**  
-A MedVirtual team member will follow up to discuss your practice’s staffing needs.
+A MedVirtual team member will follow up to discuss your practice's staffing needs.
 
 **Button text:**  
 Book a Demo

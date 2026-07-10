@@ -1,0 +1,78 @@
+# Meta Instant Form Build Instructions
+
+**Form name (exact):** `IMB_MV_Form_BookDemo_FirstBatch_DRAFT`  
+**Status:** Save as **draft**. Do not publish.  
+**Shared form:** Use this one form for all 4 ads.
+
+Instant Forms are created manually in Meta Ads Manager / Instant Forms. Do not expect reliable CSV bulk creation for forms.
+
+---
+
+## Step-by-step
+
+1. In Ads Manager, open **Instant Forms** (or create form from the ad destination step).
+2. Create a new form.
+3. Set form name exactly:
+   `IMB_MV_Form_BookDemo_FirstBatch_DRAFT`
+4. Choose form type:
+   **Higher Intent (recommended for lead quality)**
+5. Intro headline:
+   Hire Full-Time Virtual Medical Staff Through MedVirtual
+6. Intro body:
+   MedVirtual helps medical and dental practices hire trained full-time virtual staff for calls, scheduling, intake, insurance, billing support, and admin workflows.
+7. Add required contact fields:
+   - Full name
+   - Email
+   - Phone number
+8. Custom question 1:
+   **Practice name** (short answer)
+9. Custom question 2:
+   **What type of practice do you manage?**
+   Options:
+   - Medical practice
+   - Dental practice
+   - Specialty practice
+   - Multi-location practice
+   - Other
+10. Custom question 3:
+    **What support do you need most?**
+    Options:
+    - Calls and scheduling
+    - Patient intake
+    - Insurance verification
+    - Billing support
+    - EMR/admin support
+    - Dental admin support
+    - Not sure yet
+11. Privacy policy URL:
+    `WAITING_ON_MEDVIRTUAL_PRIVACY_POLICY_URL_DO_NOT_PUBLISH`
+12. Thank-you screen headline:
+    Thanks - your request was received.
+13. Thank-you screen body:
+    A MedVirtual team member will follow up to discuss your practice's staffing needs.
+14. Button text:
+    Book a Demo
+15. Button URL:
+    `WAITING_ON_HAYLIE_BOOKING_LINK_DO_NOT_PUBLISH`
+16. Save as **draft**.
+17. Do **not** publish until privacy URL + booking link are replaced with real values.
+
+---
+
+## After URLs arrive
+
+1. Replace privacy policy URL with the real MedVirtual privacy policy.
+2. Replace thank-you button URL with Haylie booking link.
+3. Append UTM pattern to booking link:
+   `utm_source=meta&utm_medium=paid_social&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_content={{ad.name}}&utm_term={{adset.name}}`
+4. Re-QA form preview on mobile.
+5. Confirm HubSpot lead view sees `IMB_MV` form submissions.
+6. Keep form draft until CMO approval, then publish with campaign.
+
+---
+
+## Language check
+
+Use: MedVirtual, full-time virtual staff, part of your practice team, hire through MedVirtual, Book a Demo.
+
+Avoid: MedVirtual.ai, managed service, outsourced front desk, front desk replacement, we handle your front desk, recruiting/job-seeker language.
