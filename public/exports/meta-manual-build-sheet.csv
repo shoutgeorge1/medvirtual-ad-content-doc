@@ -9,16 +9,16 @@ Build Order,Object Type,Exact Name,Field,Exact Value,Status,Notes
 2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,Placements,Advantage+ Placements,PAUSED/DRAFT,Advantage+ unless CMO overrides
 2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,Optimization,Leads / Instant Form submissions,PAUSED/DRAFT,Instant Form leads
 2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,Conversion Location,Instant Form,PAUSED/DRAFT,Instant Form
-3,Form,IMB_MV_Form_BookDemo_FirstBatch_DRAFT,Form Name,IMB_MV_Form_BookDemo_FirstBatch_DRAFT,DRAFT,Create manually - not CSV
-3,Form,IMB_MV_Form_BookDemo_FirstBatch_DRAFT,Form Type,Higher Intent (recommended for lead quality),DRAFT,Higher Intent preferred
-3,Form,IMB_MV_Form_BookDemo_FirstBatch_DRAFT,Privacy Policy URL,WAITING_ON_MEDVIRTUAL_PRIVACY_POLICY_URL_DO_NOT_PUBLISH,BLOCKED,Do not publish until real URL
-3,Form,IMB_MV_Form_BookDemo_FirstBatch_DRAFT,Thank You Button URL,WAITING_ON_HAYLIE_BOOKING_LINK_DO_NOT_PUBLISH,BLOCKED,Do not publish until booking link
+3,Form,IMB_MV_Form_BookDemo_FirstBatch,Form Name,IMB_MV_Form_BookDemo_FirstBatch,DRAFT,Create manually - not CSV
+3,Form,IMB_MV_Form_BookDemo_FirstBatch,Form Type,Higher Intent (recommended for lead quality),DRAFT,Higher Intent preferred
+3,Form,IMB_MV_Form_BookDemo_FirstBatch,Privacy Policy URL,https://www.medvirtual.ai/privacy-policy,BLOCKED,Do not publish until real URL
+3,Form,IMB_MV_Form_BookDemo_FirstBatch,Thank You Button URL,https://meetings.hubspot.com/call-scheduling/mv-meta-imb,BLOCKED,Do not publish until booking link
 4,Ad,IMB_MV_Static_01_MedicalOwners,Ad Name,IMB_MV_Static_01_MedicalOwners,PAUSED/DRAFT,Medical Practice Owners
 4,Ad,IMB_MV_Static_01_MedicalOwners,Primary Text,"Medical practice owners: hire full-time virtual staff to support calls, scheduling, intake, and admin work.",PAUSED/DRAFT,Paste into Meta Body / Primary text
 4,Ad,IMB_MV_Static_01_MedicalOwners,Headline,Hire Full-Time Virtual Staff,PAUSED/DRAFT,Meta Title / Headline
 4,Ad,IMB_MV_Static_01_MedicalOwners,Description,Support your practice team with trained virtual staff.,PAUSED/DRAFT,
 4,Ad,IMB_MV_Static_01_MedicalOwners,CTA,Book a Demo,PAUSED/DRAFT,Book a Demo
-4,Ad,IMB_MV_Static_01_MedicalOwners,Destination,IMB_MV_Form_BookDemo_FirstBatch_DRAFT,PAUSED/DRAFT,Shared Instant Form
+4,Ad,IMB_MV_Static_01_MedicalOwners,Destination,IMB_MV_Form_BookDemo_FirstBatch,PAUSED/DRAFT,Shared Instant Form
 4,Ad,IMB_MV_Static_01_MedicalOwners,Creative File,IMB_MV_Static_01_MedicalOwners.png,PAUSED/DRAFT,Source: Med Virtual Ads 01.png
 4,Ad,IMB_MV_Static_01_MedicalOwners,On-image Headline,Medical Practice Owners,PAUSED/DRAFT,Must appear on final creative
 4,Ad,IMB_MV_Static_01_MedicalOwners,Supporting Line,Add full-time virtual support without adding office space.,PAUSED/DRAFT,Must appear on final creative
@@ -28,7 +28,7 @@ Build Order,Object Type,Exact Name,Field,Exact Value,Status,Notes
 5,Ad,IMB_MV_Static_02_DentalOwners,Headline,Virtual Staff for Dental Practices,PAUSED/DRAFT,Meta Title / Headline
 5,Ad,IMB_MV_Static_02_DentalOwners,Description,"Scheduling, insurance, and patient follow-up support.",PAUSED/DRAFT,
 5,Ad,IMB_MV_Static_02_DentalOwners,CTA,Book a Demo,PAUSED/DRAFT,Book a Demo
-5,Ad,IMB_MV_Static_02_DentalOwners,Destination,IMB_MV_Form_BookDemo_FirstBatch_DRAFT,PAUSED/DRAFT,Shared Instant Form
+5,Ad,IMB_MV_Static_02_DentalOwners,Destination,IMB_MV_Form_BookDemo_FirstBatch,PAUSED/DRAFT,Shared Instant Form
 5,Ad,IMB_MV_Static_02_DentalOwners,Creative File,IMB_MV_Static_02_DentalOwners.png,PAUSED/DRAFT,Source: Med Virtual Ads 02.png
 5,Ad,IMB_MV_Static_02_DentalOwners,On-image Headline,Dental Practice Owners,PAUSED/DRAFT,Must appear on final creative
 5,Ad,IMB_MV_Static_02_DentalOwners,Supporting Line,"Get help with scheduling, insurance, and patient follow-up.",PAUSED/DRAFT,Must appear on final creative
@@ -38,7 +38,7 @@ Build Order,Object Type,Exact Name,Field,Exact Value,Status,Notes
 6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Headline,Hire a Virtual Medical Admin,PAUSED/DRAFT,Meta Title / Headline
 6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Description,"Calls, scheduling, intake, and admin help.",PAUSED/DRAFT,
 6,Ad,IMB_MV_Static_03_VirtualMedAdmin,CTA,Book a Demo,PAUSED/DRAFT,Book a Demo
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Destination,IMB_MV_Form_BookDemo_FirstBatch_DRAFT,PAUSED/DRAFT,Shared Instant Form
+6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Destination,IMB_MV_Form_BookDemo_FirstBatch,PAUSED/DRAFT,Shared Instant Form
 6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Creative File,IMB_MV_Static_03_VirtualMedAdmin.png,PAUSED/DRAFT,Source: Med Virtual Ads 09.png
 6,Ad,IMB_MV_Static_03_VirtualMedAdmin,On-image Headline,Hire a Full-Time Virtual Medical Admin,PAUSED/DRAFT,Must appear on final creative
 6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Supporting Line,"Calls, scheduling, intake, and admin support.",PAUSED/DRAFT,Must appear on final creative
@@ -48,7 +48,7 @@ Build Order,Object Type,Exact Name,Field,Exact Value,Status,Notes
 7,Ad,IMB_MV_Static_04_TooManyCalls,Headline,Too Many Calls? Get Support.,PAUSED - PRICE BLOCK,Meta Title / Headline
 7,Ad,IMB_MV_Static_04_TooManyCalls,Description,Full-time virtual staff through MedVirtual.,PAUSED - PRICE BLOCK,
 7,Ad,IMB_MV_Static_04_TooManyCalls,CTA,Book a Demo,PAUSED - PRICE BLOCK,Book a Demo
-7,Ad,IMB_MV_Static_04_TooManyCalls,Destination,IMB_MV_Form_BookDemo_FirstBatch_DRAFT,PAUSED - PRICE BLOCK,Shared Instant Form
+7,Ad,IMB_MV_Static_04_TooManyCalls,Destination,IMB_MV_Form_BookDemo_FirstBatch,PAUSED - PRICE BLOCK,Shared Instant Form
 7,Ad,IMB_MV_Static_04_TooManyCalls,Creative File,IMB_MV_Static_04_TooManyCalls.png,PAUSED - PRICE BLOCK,Source: Med Virtual Ads 10.png
 7,Ad,IMB_MV_Static_04_TooManyCalls,On-image Headline,Too Many Calls. Not Enough Staff.,PAUSED - PRICE BLOCK,Must appear on final creative
 7,Ad,IMB_MV_Static_04_TooManyCalls,Supporting Line,Full-time virtual staff starting at $10/hour.,PAUSED - PRICE BLOCK,Must appear on final creative

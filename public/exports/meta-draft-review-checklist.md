@@ -21,13 +21,13 @@ Use this after the draft campaign exists in Ads Manager and before asking Haylie
 ## Form
 
 - [ ] Form starts with IMB_MV
-- [ ] Form name exact: `IMB_MV_Form_BookDemo_FirstBatch_DRAFT`
+- [ ] Form name exact: `IMB_MV_Form_BookDemo_FirstBatch`
 - [ ] Form saved as draft
 - [ ] Higher Intent selected if available
 - [ ] Required fields: full name, email, phone
 - [ ] Custom questions present (practice name, practice type, support needed)
-- [ ] Booking link added (not `WAITING_ON_HAYLIE_BOOKING_LINK_DO_NOT_PUBLISH`)
-- [ ] Privacy policy URL added (not `WAITING_ON_MEDVIRTUAL_PRIVACY_POLICY_URL_DO_NOT_PUBLISH`)
+- [ ] Booking link added (not `https://meetings.hubspot.com/call-scheduling/mv-meta-imb`)
+- [ ] Privacy policy URL added (not `https://www.medvirtual.ai/privacy-policy`)
 - [ ] Thank-you CTA = Book a Demo
 
 ## Ads
@@ -53,7 +53,7 @@ Use this after the draft campaign exists in Ads Manager and before asking Haylie
 - [ ] Events Manager checked for MedVirtual dataset/pixel status if booking-link conversions will be tracked later
 - [ ] If thank-you sends to booking page: booking link + UTM confirmed
 - [ ] Recommended UTM ready:
-  `utm_source=meta&utm_medium=paid_social&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_content={{ad.name}}&utm_term={{adset.name}}`
+  `utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_term={{adset.name}}&utm_content={{ad.name}}`
 - [ ] If switching to website conversions later: verify pixel/conversion events first
 - [ ] For now, primary tracked event = Meta Instant Form lead submission
 

@@ -143,6 +143,26 @@
     border-radius: 8px; padding: 0.55rem 0.75rem; font-size: 0.82rem;
   }
   .build-mode strong { color: #0f766e; }
+  .upload-now {
+    background: #0f172a; color: #f8fafc; border: 3px solid #f97316; border-radius: 14px;
+    padding: 1.1rem 1.2rem; margin-bottom: 1rem;
+  }
+  .upload-now h2 { font-size: 1.35rem; color: #fb923c; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+  .upload-now p { font-size: 0.86rem; color: #cbd5e1; margin-bottom: 0.75rem; }
+  .upload-links { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.75rem; }
+  .upload-links a {
+    display: inline-block; background: #f97316; color: #0f172a; text-decoration: none;
+    font-size: 0.78rem; font-weight: 800; padding: 0.45rem 0.7rem; border-radius: 6px;
+  }
+  .upload-links a.file { background: #e2e8f0; color: #0f172a; font-weight: 700; }
+  .upload-creatives { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+  @media (max-width: 900px) { .upload-creatives { grid-template-columns: 1fr 1fr; } }
+  .upload-creatives a {
+    display: block; background: #1e293b; border: 1px solid #334155; border-radius: 8px;
+    padding: 0.45rem; text-decoration: none; color: #f8fafc; font-size: 0.68rem; text-align: center;
+  }
+  .upload-creatives img { width: 100%; aspect-ratio: 4/5; object-fit: contain; background: #0f172a; border-radius: 4px; margin-bottom: 0.35rem; }
+  .upload-creatives strong { display: block; font-size: 0.72rem; color: #fdba74; }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.85rem; }
   @media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } }
   .panel {
@@ -207,20 +227,53 @@
 </header>
   <div class="wrap">
     <div class="banner">URGENT LAUNCH MODE - keep everything DRAFT / PAUSED until CMO / Haylie approval</div>
-    <div class="status"><strong>Build status:</strong> DRAFT - WAITING ON FORM REVIEW / BOOKING LINK / CREATIVE APPROVAL</div>
+    <div class="status"><strong>Build status:</strong> DRAFT / PAUSED - UPLOAD ADS NOW - PUBLISH ONLY AFTER HAYLIE APPROVAL</div>
+
+    <section class="upload-now">
+      <h2>UPLOAD THESE 4 ADS NOW</h2>
+      <p>Campaign + ad set already exist. Open Ad 1 shell, attach form <code>IMB_MV_Form_BookDemo_FirstBatch</code>, upload creative, paste copy, add UTMs, then duplicate 3 times. Creatives are draft padded 1080x1350 - swap final designer exports when ready.</p>
+      <div class="upload-links">
+        <a href="/exports/meta-upload-ready/README_UPLOAD_NOW.md">Upload-ready folder README</a>
+        <a href="/exports/meta-upload-ready/ad-copy-paste-ready.txt">Paste-ready copy</a>
+        <a href="/exports/meta-upload-ready/meta-upload-checklist.md">Build checklist</a>
+        <a href="/exports/meta-upload-ready/form-final-settings.md">Form final settings</a>
+        <a href="/exports/meta-upload-ready/ads-manager-build-order.md">Build order</a>
+        <a class="file" href="/exports/meta-upload-ready/utm-parameters.txt">UTM parameters</a>
+        <a class="file" href="/exports/meta-upload-ready/creative-map.csv">Creative map CSV</a>
+      </div>
+      <div class="upload-creatives">
+        <a href="/exports/meta-upload-ready/IMB_MV_Static_01_MedicalOwners_1080x1350.png">
+          <img src="/exports/meta-upload-ready/IMB_MV_Static_01_MedicalOwners_1080x1350.png" alt="IMB_MV_Static_01_MedicalOwners" />
+          <strong>IMB_MV_Static_01_MedicalOwners</strong>
+          IMB_MV_Static_01_MedicalOwners_1080x1350.png
+        </a><a href="/exports/meta-upload-ready/IMB_MV_Static_02_DentalOwners_1080x1350.png">
+          <img src="/exports/meta-upload-ready/IMB_MV_Static_02_DentalOwners_1080x1350.png" alt="IMB_MV_Static_02_DentalOwners" />
+          <strong>IMB_MV_Static_02_DentalOwners</strong>
+          IMB_MV_Static_02_DentalOwners_1080x1350.png
+        </a><a href="/exports/meta-upload-ready/IMB_MV_Static_03_VirtualMedAdmin_1080x1350.png">
+          <img src="/exports/meta-upload-ready/IMB_MV_Static_03_VirtualMedAdmin_1080x1350.png" alt="IMB_MV_Static_03_VirtualMedAdmin" />
+          <strong>IMB_MV_Static_03_VirtualMedAdmin</strong>
+          IMB_MV_Static_03_VirtualMedAdmin_1080x1350.png
+        </a><a href="/exports/meta-upload-ready/IMB_MV_Static_04_TooManyCalls_1080x1350.png">
+          <img src="/exports/meta-upload-ready/IMB_MV_Static_04_TooManyCalls_1080x1350.png" alt="IMB_MV_Static_04_TooManyCalls" />
+          <strong>IMB_MV_Static_04_TooManyCalls</strong>
+          IMB_MV_Static_04_TooManyCalls_1080x1350.png
+        </a>
+      </div>
+    </section>
 
     <section class="build-mode">
       <h2>2-Hour Meta Build Mode</h2>
       <p>Exact order inside Ads Manager. Do not publish. Structure stays simple: 1 campaign, 1 ad set, 4 ads, 1 shared form.</p>
       <ol>
         <li><strong>Step 1: Confirm assets</strong> - selected images, Ad 2 dental interim flag, Ad 4 $10/hour block, no extra audiences.</li>
-        <li><strong>Step 2: Create campaign shell</strong> - <span class="mono">IMB_MV_Meta_Leads_FirstBatch_202607</span> · Leads · Off/Paused · not an employment ad.</li>
-        <li><strong>Step 3: Create ad set</strong> - <span class="mono">IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day</span> · US · $500/day · exact 1% lookalike · Advantage+ · Instant Form optimization.</li>
-        <li><strong>Step 4: Create draft form</strong> - <span class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</span> · Higher Intent · save draft · leave URL placeholders.</li>
-        <li><strong>Step 5: Bulk import / build 4 ads</strong> - map <a href="/exports/meta-bulk-import-attempt.csv">import CSV</a> into Meta template, or paste from <a href="/exports/meta-paste-ready-ad-copy.txt">paste sheet</a>.</li>
+        <li><strong>Step 2: Campaign shell</strong> - <span class="mono">IMB_MV_Meta_Leads_FirstBatch_202607</span> already exists - skip recreate.</li>
+        <li><strong>Step 3: Ad set</strong> - <span class="mono">IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day</span> already exists - skip recreate.</li>
+        <li><strong>Step 4: Form</strong> - <span class="mono">IMB_MV_Form_BookDemo_FirstBatch</span> · Haylie routing + SMS + privacy + booking link.</li>
+        <li><strong>Step 5: Upload 4 ads</strong> - use <a href="/exports/meta-upload-ready/">upload-ready package</a>: fill Ad 1, duplicate x3, swap creative/copy.</li>
         <li><strong>Step 6: Review mobile previews</strong> - all 4 ads, language rules, Book a Demo CTA.</li>
-        <li><strong>Step 7: Send Haylie draft for review</strong> - keep paused; share blockers.</li>
-        <li><strong>Step 8: Add booking link / privacy URL</strong> - then HubSpot lead view + UTM.</li>
+        <li><strong>Step 7: Send Haylie draft for review</strong> - keep paused.</li>
+        <li><strong>Step 8: Confirm booking / privacy / HubSpot</strong> - URLs already in form settings.</li>
         <li><strong>Step 9: Publish only after approval</strong> - final QA first.</li>
       </ol>
     </section>
@@ -277,24 +330,21 @@
       <section class="panel">
         <h3>Shared Instant Form</h3>
         <dl class="kv">
-          <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
+          <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch</dd></div>
           <div><dt>Form type</dt><dd>Higher Intent (recommended for lead quality)</dd></div>
           <div><dt>Intro headline</dt><dd>Hire Full-Time Virtual Medical Staff Through MedVirtual</dd></div>
-          <div><dt>Privacy URL</dt><dd class="mono">WAITING_ON_MEDVIRTUAL_PRIVACY_POLICY_URL_DO_NOT_PUBLISH</dd></div>
-          <div><dt>Booking URL</dt><dd class="mono">WAITING_ON_HAYLIE_BOOKING_LINK_DO_NOT_PUBLISH</dd></div>
+          <div><dt>Privacy URL</dt><dd class="mono">https://www.medvirtual.ai/privacy-policy</dd></div>
+          <div><dt>Booking URL</dt><dd class="mono">https://meetings.hubspot.com/call-scheduling/mv-meta-imb</dd></div>
         </dl>
         <p class="note">Create form manually. See form build instructions.</p>
       </section>
       <section class="panel">
         <h3>Still waiting on Haylie</h3>
         <ul class="waiting">
-          <li>Booking link for thank-you button</li>
-          <li>Privacy policy URL</li>
-          <li>Form review / approval</li>
-          <li>Creative approval (correct on-image copy + final 1080x1350)</li>
-          <li>Confirm $10/hour before concept 4 spend</li>
-          <li>HubSpot lead view confirmation</li>
-          <li>Final CMO publish approval</li>
+          <li>Final creative design approval (current PNGs are draft padded exports)</li>
+          <li>Confirm $10/hour before publishing Ad 4 if price appears on creative</li>
+          <li>HubSpot lead view confirmation for IMB_MV form</li>
+          <li>Final CMO / Haylie publish approval</li>
         </ul>
       </section>
     </div>
@@ -306,7 +356,7 @@
         <li>Before publishing, confirm HubSpot lead integration / lead view sees IMB_MV forms.</li>
         <li>Check Events Manager for MedVirtual dataset/pixel status if booking-link conversions will be tracked.</li>
         <li>If thank-you sends users to a booking page, confirm booking link + UTM tracking.</li>
-        <li>Recommended UTM once booking link exists: <code>utm_source=meta&amp;utm_medium=paid_social&amp;utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&amp;utm_content={{ad.name}}&amp;utm_term={{adset.name}}</code></li>
+        <li>Recommended UTM once booking link exists: <code>utm_source=IMB_MV&amp;utm_medium=Meta&amp;utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&amp;utm_term={{adset.name}}&amp;utm_content={{ad.name}}</code></li>
         <li>If using website conversions later, verify pixel/conversion events before switching objectives.</li>
         <li>For now, the primary tracked event is Meta Instant Form lead submission.</li>
       </ul>
@@ -332,7 +382,7 @@
       <div><dt>Meta headline</dt><dd>Hire Full-Time Virtual Staff</dd></div>
       <div><dt>Description</dt><dd>Support your practice team with trained virtual staff.</dd></div>
       <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
-      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
+      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch</dd></div>
       <div><dt>Creative file</dt><dd class="mono">IMB_MV_Static_01_MedicalOwners.png</dd></div>
       <div><dt>Source image</dt><dd class="mono">Med Virtual Ads 01.png</dd></div>
       <div class="warn"><dt>Notes</dt><dd>Selected: clean medical scrub visual, no $10 price on image. Baked-in on-image copy does not match approved headline - designer must re-export 1080x1350 with approved copy + Book a Demo CTA. Source is 2965x2965 square.</dd></div>
@@ -358,7 +408,7 @@
       <div><dt>Meta headline</dt><dd>Virtual Staff for Dental Practices</dd></div>
       <div><dt>Description</dt><dd>Scheduling, insurance, and patient follow-up support.</dd></div>
       <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
-      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
+      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch</dd></div>
       <div><dt>Creative file</dt><dd class="mono">IMB_MV_Static_02_DentalOwners.png</dd></div>
       <div><dt>Source image</dt><dd class="mono">Med Virtual Ads 02.png</dd></div>
       <div class="warn"><dt>Notes</dt><dd>RED FLAG: No dental-specific image in the new 12-image batch. Using best available medical professional (clipboard). Designer should swap to a dental office visual before spend. Baked-in copy/CTA must be replaced with approved dental headline + Book a Demo.</dd></div>
@@ -384,7 +434,7 @@
       <div><dt>Meta headline</dt><dd>Hire a Virtual Medical Admin</dd></div>
       <div><dt>Description</dt><dd>Calls, scheduling, intake, and admin help.</dd></div>
       <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
-      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
+      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch</dd></div>
       <div><dt>Creative file</dt><dd class="mono">IMB_MV_Static_03_VirtualMedAdmin.png</dd></div>
       <div><dt>Source image</dt><dd class="mono">Med Virtual Ads 09.png</dd></div>
       <div class="warn"><dt>Notes</dt><dd>Selected: full-time VA / medical admin visual without $10 price (price reserved for concept 4). Re-export with approved headline/support + Book a Demo. Source is square.</dd></div>
@@ -410,7 +460,7 @@
       <div><dt>Meta headline</dt><dd>Too Many Calls? Get Support.</dd></div>
       <div><dt>Description</dt><dd>Full-time virtual staff through MedVirtual.</dd></div>
       <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
-      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch_DRAFT</dd></div>
+      <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_FirstBatch</dd></div>
       <div><dt>Creative file</dt><dd class="mono">IMB_MV_Static_04_TooManyCalls.png</dd></div>
       <div><dt>Source image</dt><dd class="mono">Med Virtual Ads 10.png</dd></div>
       <div class="warn"><dt>Notes</dt><dd>BLOCKED UNTIL $10/HOUR CONFIRMED. Keep this ad PAUSED until CMO confirms price. Baked-in headline differs from approved copy - re-export required. Keep $10/hour off concepts 1-3.</dd></div>

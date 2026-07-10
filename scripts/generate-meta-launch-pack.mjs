@@ -14,6 +14,7 @@ const PUBLIC = path.join(ROOT, 'public');
 const EXPORTS = path.join(PUBLIC, 'exports');
 const LAUNCH_SRC = path.join(PUBLIC, 'assets', 'launch-creatives');
 const SELECTED_DIR = path.join(EXPORTS, 'selected-creatives');
+const UPLOAD_DIR = path.join(EXPORTS, 'meta-upload-ready');
 
 const CAMPAIGN = {
   name: 'IMB_MV_Meta_Leads_FirstBatch_202607',
@@ -29,17 +30,18 @@ const CAMPAIGN = {
   brand: 'MedVirtual',
   cta: 'Book a Demo',
   ctaImport: 'BOOK_NOW',
-  status: 'DRAFT - WAITING ON FORM REVIEW / BOOKING LINK / CREATIVE APPROVAL',
+  status: 'DRAFT / PAUSED - UPLOAD ADS NOW - PUBLISH ONLY AFTER HAYLIE APPROVAL',
   statusImport: 'PAUSED',
 };
 
 const UTM_PATTERN =
-  'utm_source=meta&utm_medium=paid_social&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_content={{ad.name}}&utm_term={{adset.name}}';
+  'utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_term={{adset.name}}&utm_content={{ad.name}}';
 
 const WAITING = {
-  booking: 'WAITING_ON_HAYLIE_BOOKING_LINK_DO_NOT_PUBLISH',
-  privacy: 'WAITING_ON_MEDVIRTUAL_PRIVACY_POLICY_URL_DO_NOT_PUBLISH',
-  creative: 'WAITING_ON_FINAL_CREATIVE_EXPORTS',
+  booking: 'https://meetings.hubspot.com/call-scheduling/mv-meta-imb',
+  privacy: 'https://www.medvirtual.ai/privacy-policy',
+  creative: 'DRAFT CREATIVE — NEEDS FINAL DESIGN APPROVAL',
+  jobSeeker: 'https://apply.workable.com/berryvirtual/?lng=en',
 };
 
 const AD_SET = {
@@ -54,7 +56,7 @@ const AD_SET = {
 };
 
 const FORM = {
-  name: 'IMB_MV_Form_BookDemo_FirstBatch_DRAFT',
+  name: 'IMB_MV_Form_BookDemo_FirstBatch',
   type: 'Higher Intent (recommended for lead quality)',
   introHeadline: 'Hire Full-Time Virtual Medical Staff Through MedVirtual',
   introBody:
@@ -65,6 +67,10 @@ const FORM = {
     "A MedVirtual team member will follow up to discuss your practice's staffing needs.",
   buttonText: 'Book a Demo',
   buttonUrl: WAITING.booking,
+  jobSeekerUrl: WAITING.jobSeeker,
+  routingQuestion: 'Are you looking to hire staff for your medical practice?',
+  routingYes: 'Yes, I want to hire staff',
+  routingNo: 'No, I am looking for a job',
 };
 
 /** Final 4 concepts — image picks from launch-creatives batch */
@@ -85,6 +91,7 @@ const ADS = [
       'Clean medical professional visual; practice-owner framing; no recruiting vibe.',
     sourceFile: 'Med Virtual Ads 01.png',
     selectedFile: 'IMB_MV_Static_01_MedicalOwners.png',
+    uploadFile: 'IMB_MV_Static_01_MedicalOwners_1080x1350.png',
     notes:
       'Selected: clean medical scrub visual, no $10 price on image. Baked-in on-image copy does not match approved headline - designer must re-export 1080x1350 with approved copy + Book a Demo CTA. Source is 2965x2965 square.',
     publishBlock: false,
@@ -105,6 +112,7 @@ const ADS = [
       'Dental-specific visual preferred. Current batch has no dental imagery - best available medical professional used as interim.',
     sourceFile: 'Med Virtual Ads 02.png',
     selectedFile: 'IMB_MV_Static_02_DentalOwners.png',
+    uploadFile: 'IMB_MV_Static_02_DentalOwners_1080x1350.png',
     notes:
       'RED FLAG: No dental-specific image in the new 12-image batch. Using best available medical professional (clipboard). Designer should swap to a dental office visual before spend. Baked-in copy/CTA must be replaced with approved dental headline + Book a Demo.',
     publishBlock: false,
@@ -125,6 +133,7 @@ const ADS = [
       'Virtual medical admin with headset/laptop; healthcare-trained look; not generic call center.',
     sourceFile: 'Med Virtual Ads 09.png',
     selectedFile: 'IMB_MV_Static_03_VirtualMedAdmin.png',
+    uploadFile: 'IMB_MV_Static_03_VirtualMedAdmin_1080x1350.png',
     notes:
       'Selected: full-time VA / medical admin visual without $10 price (price reserved for concept 4). Re-export with approved headline/support + Book a Demo. Source is square.',
     publishBlock: false,
@@ -145,6 +154,7 @@ const ADS = [
       'Before/after: overwhelmed office vs calm virtual support. Keep $10/hour only on this concept.',
     sourceFile: 'Med Virtual Ads 10.png',
     selectedFile: 'IMB_MV_Static_04_TooManyCalls.png',
+    uploadFile: 'IMB_MV_Static_04_TooManyCalls_1080x1350.png',
     notes:
       'BLOCKED UNTIL $10/HOUR CONFIRMED. Keep this ad PAUSED until CMO confirms price. Baked-in headline differs from approved copy - re-export required. Keep $10/hour off concepts 1-3.',
     publishBlock: true,
@@ -167,6 +177,7 @@ function csvEscape(s) {
 
 function ensureDirs() {
   fs.mkdirSync(SELECTED_DIR, { recursive: true });
+  fs.mkdirSync(UPLOAD_DIR, { recursive: true });
   fs.mkdirSync(EXPORTS, { recursive: true });
 }
 
@@ -177,15 +188,13 @@ async function generatePreviewCrops() {
       console.warn(`Missing source image: ${ad.sourceFile}`);
       continue;
     }
-    const outPath = path.join(SELECTED_DIR, ad.selectedFile);
-    // Safe 4:5 preview: preserve full square composition with light padding
     const square = await sharp(input)
       .resize(1080, 1080, {
         fit: 'contain',
         background: { r: 241, g: 245, b: 249, alpha: 1 },
       })
       .toBuffer();
-    await sharp(square)
+    const padded = await sharp(square)
       .extend({
         top: 135,
         bottom: 135,
@@ -194,8 +203,260 @@ async function generatePreviewCrops() {
         background: { r: 241, g: 245, b: 249, alpha: 1 },
       })
       .png()
-      .toFile(outPath);
+      .toBuffer();
+    await sharp(padded).toFile(path.join(SELECTED_DIR, ad.selectedFile));
+    await sharp(padded).toFile(path.join(UPLOAD_DIR, ad.uploadFile));
   }
+}
+
+function writeUploadReadyPackage() {
+  const readme = `# UPLOAD THESE 4 ADS NOW
+
+Campaign and ad set already exist in Meta. Do not recreate them.
+
+## Already in Meta
+
+- Campaign: \`${CAMPAIGN.name}\`
+- Ad set: \`${AD_SET.name}\`
+- Ad shell: \`IMB_MV_Static_01_MedicalOwners\` (needs creative + copy)
+- Form: \`${FORM.name}\`
+
+## Fastest path
+
+1. Open Ad 1 shell.
+2. Attach form \`${FORM.name}\`.
+3. Upload \`IMB_MV_Static_01_MedicalOwners_1080x1350.png\`.
+4. Paste Ad 1 copy from \`ad-copy-paste-ready.txt\`.
+5. Add URL parameters from \`utm-parameters.txt\`.
+6. Duplicate Ad 1 three times.
+7. Rename + swap creative/copy for Ads 2-4.
+8. Keep everything paused.
+9. Do not publish until Haylie approves.
+
+## Files in this folder
+
+| File | Use |
+| --- | --- |
+| \`ad-copy-paste-ready.txt\` | Paste primary text / headline / description |
+| \`creative-map.csv\` | Image to ad mapping |
+| \`form-final-settings.md\` | Exact Instant Form settings |
+| \`utm-parameters.txt\` | URL parameters |
+| \`ads-manager-build-order.md\` | Step order inside Meta |
+| \`meta-upload-checklist.md\` | QA before review |
+| \`IMB_MV_Static_*_1080x1350.png\` | Upload creatives |
+
+## Creative status
+
+All four PNGs are **DRAFT CREATIVE - NEEDS FINAL DESIGN APPROVAL**.
+
+They are padded 1080x1350 exports from current source images. Source images may still have baked-in copy/CTA that does not match approved on-image headlines. Upload now to finish the Meta shell; swap final designer exports when ready.
+
+Ad 4: do not publish if the image shows \`$10/hour\` until Haylie confirms that claim.
+`;
+  fs.writeFileSync(path.join(UPLOAD_DIR, 'README_UPLOAD_NOW.md'), readme, 'utf8');
+
+  const paste = ADS.map((ad) => {
+    const warn = ad.publishBlock
+      ? `\nWARNING:\nDo not publish Ad 4 if the image contains $10/hour language until Haylie confirms that claim.\nKeep Ad 4 paused until confirmed.\n`
+      : '';
+    return `========================================
+AD ${ad.id} - ${ad.adName}
+========================================
+
+AD NAME:
+${ad.adName}
+
+PRIMARY TEXT:
+${ad.primaryRecommended}
+
+HEADLINE:
+${ad.metaHeadline}
+
+DESCRIPTION:
+${ad.description}
+
+CTA:
+${CAMPAIGN.cta}
+
+FORM:
+${FORM.name}
+
+CREATIVE:
+${ad.uploadFile}
+${warn}`;
+  }).join('\n');
+  fs.writeFileSync(path.join(UPLOAD_DIR, 'ad-copy-paste-ready.txt'), paste + '\n', 'utf8');
+
+  const checklist = `# Meta Upload Checklist
+
+Keep campaign / ad set / ads draft or paused.
+
+## Structure
+
+- [ ] Campaign name matches: \`${CAMPAIGN.name}\`
+- [ ] Ad set name matches: \`${AD_SET.name}\`
+- [ ] Four ad names match:
+  - [ ] \`IMB_MV_Static_01_MedicalOwners\`
+  - [ ] \`IMB_MV_Static_02_DentalOwners\`
+  - [ ] \`IMB_MV_Static_03_VirtualMedAdmin\`
+  - [ ] \`IMB_MV_Static_04_TooManyCalls\`
+
+## Each ad
+
+- [ ] Each ad has creative uploaded
+- [ ] Each ad has primary text
+- [ ] Each ad has headline
+- [ ] Each ad has description
+- [ ] CTA = Book a Demo
+- [ ] Destination = Instant Form
+- [ ] Form = \`${FORM.name}\`
+- [ ] URL parameters added
+
+## Form
+
+- [ ] SMS verification on
+- [ ] Company name required
+- [ ] Phone required
+- [ ] Email required
+- [ ] Full name required
+- [ ] Work email not required
+- [ ] Messenger off
+- [ ] Privacy policy = \`${FORM.privacyUrl}\`
+- [ ] Lead booking link = \`${FORM.buttonUrl}\`
+- [ ] Job seeker link = \`${FORM.jobSeekerUrl}\`
+- [ ] Q1 routing:
+  - [ ] \`${FORM.routingQuestion}\`
+  - [ ] \`${FORM.routingYes}\` → Submit the form
+  - [ ] \`${FORM.routingNo}\` → Close the form
+
+## Creative / publish gates
+
+- [ ] Creatives are DRAFT CREATIVE - NEEDS FINAL DESIGN APPROVAL (or final designer exports swapped in)
+- [ ] Ad 4 blocked if $10/hour appears without approval
+- [ ] Campaign remains draft/paused
+- [ ] Do not publish until Haylie approves
+`;
+  fs.writeFileSync(path.join(UPLOAD_DIR, 'meta-upload-checklist.md'), checklist, 'utf8');
+
+  const mapHeaders = [
+    'Ad Name',
+    'Concept',
+    'Creative File',
+    'Source Image',
+    'Primary Text',
+    'Headline',
+    'Description',
+    'CTA',
+    'Form',
+    'Creative Status',
+    'Notes',
+  ];
+  const mapRows = ADS.map((ad) =>
+    [
+      ad.adName,
+      ad.concept,
+      ad.uploadFile,
+      ad.sourceFile,
+      ad.primaryRecommended,
+      ad.metaHeadline,
+      ad.description,
+      CAMPAIGN.cta,
+      FORM.name,
+      'DRAFT CREATIVE - NEEDS FINAL DESIGN APPROVAL',
+      ad.publishBlock
+        ? 'Do not publish if image shows $10/hour until Haylie confirms'
+        : ad.id === '02'
+          ? 'Interim visual - not dental-specific'
+          : 'Upload now; swap final designer export when ready',
+    ]
+      .map(csvEscape)
+      .join(','),
+  );
+  fs.writeFileSync(
+    path.join(UPLOAD_DIR, 'creative-map.csv'),
+    [mapHeaders.join(','), ...mapRows].join('\n') + '\n',
+    'utf8',
+  );
+
+  fs.writeFileSync(path.join(UPLOAD_DIR, 'utm-parameters.txt'), UTM_PATTERN + '\n', 'utf8');
+
+  const formMd = `# Instant Form Final Settings
+
+**Form name:** \`${FORM.name}\`
+
+Use Haylie's requirements exactly. Do not add extra qualifier questions.
+
+## Routing question (Q1)
+
+**Question:**  
+\`${FORM.routingQuestion}\`
+
+| Answer | Meta logic |
+| --- | --- |
+| \`${FORM.routingYes}\` | Submit the form |
+| \`${FORM.routingNo}\` | Close the form |
+
+Job seeker link (for close / job-seeker routing flow):  
+\`${FORM.jobSeekerUrl}\`
+
+## Required contact fields
+
+- Email - required
+- Full name - required
+- Phone number - required
+- Company name - required
+
+## Settings
+
+- SMS verification: **ON**
+- Work email: **not required**
+- Messenger: **OFF**
+
+## Privacy + thank-you / booking
+
+- Privacy policy: \`${FORM.privacyUrl}\`
+- Lead booking link: \`${FORM.buttonUrl}\`
+
+Include required consent language per Haylie / MedVirtual privacy policy requirements.
+
+## Shared form
+
+All 4 ads use this same form:
+
+1. \`IMB_MV_Static_01_MedicalOwners\`
+2. \`IMB_MV_Static_02_DentalOwners\`
+3. \`IMB_MV_Static_03_VirtualMedAdmin\`
+4. \`IMB_MV_Static_04_TooManyCalls\`
+`;
+  fs.writeFileSync(path.join(UPLOAD_DIR, 'form-final-settings.md'), formMd, 'utf8');
+
+  const orderMd = `# Ads Manager Build Order
+
+Campaign and ad set already exist. Do not recreate them.
+
+1. Open existing ad shell:  
+   \`IMB_MV_Static_01_MedicalOwners\`
+2. Select final form:  
+   \`${FORM.name}\`
+3. Upload creative:  
+   \`IMB_MV_Static_01_MedicalOwners_1080x1350.png\`
+4. Paste Ad 1 primary text, headline, description, CTA from \`ad-copy-paste-ready.txt\`.
+5. Add URL parameters from \`utm-parameters.txt\`.
+6. Duplicate Ad 1 three times.
+7. Rename each duplicate to Ads 2-4:
+   - \`IMB_MV_Static_02_DentalOwners\`
+   - \`IMB_MV_Static_03_VirtualMedAdmin\`
+   - \`IMB_MV_Static_04_TooManyCalls\`
+8. Replace creative and copy for each duplicate.
+9. Confirm all four ads use the same instant form.
+10. Keep campaign/ad set/ads in draft or paused.
+11. Do not publish until Haylie approves.
+
+## Ad 4 note
+
+Keep Ad 4 paused if the creative shows \`$10/hour\` until Haylie confirms that claim.
+`;
+  fs.writeFileSync(path.join(UPLOAD_DIR, 'ads-manager-build-order.md'), orderMd, 'utf8');
 }
 
 function writeBuildSheetCsv() {
@@ -1130,6 +1391,26 @@ function writeLaunchPackHtml() {
     border-radius: 8px; padding: 0.55rem 0.75rem; font-size: 0.82rem;
   }
   .build-mode strong { color: #0f766e; }
+  .upload-now {
+    background: #0f172a; color: #f8fafc; border: 3px solid #f97316; border-radius: 14px;
+    padding: 1.1rem 1.2rem; margin-bottom: 1rem;
+  }
+  .upload-now h2 { font-size: 1.35rem; color: #fb923c; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+  .upload-now p { font-size: 0.86rem; color: #cbd5e1; margin-bottom: 0.75rem; }
+  .upload-links { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.75rem; }
+  .upload-links a {
+    display: inline-block; background: #f97316; color: #0f172a; text-decoration: none;
+    font-size: 0.78rem; font-weight: 800; padding: 0.45rem 0.7rem; border-radius: 6px;
+  }
+  .upload-links a.file { background: #e2e8f0; color: #0f172a; font-weight: 700; }
+  .upload-creatives { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+  @media (max-width: 900px) { .upload-creatives { grid-template-columns: 1fr 1fr; } }
+  .upload-creatives a {
+    display: block; background: #1e293b; border: 1px solid #334155; border-radius: 8px;
+    padding: 0.45rem; text-decoration: none; color: #f8fafc; font-size: 0.68rem; text-align: center;
+  }
+  .upload-creatives img { width: 100%; aspect-ratio: 4/5; object-fit: contain; background: #0f172a; border-radius: 4px; margin-bottom: 0.35rem; }
+  .upload-creatives strong { display: block; font-size: 0.72rem; color: #fdba74; }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.85rem; }
   @media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } }
   .panel {
@@ -1192,18 +1473,41 @@ function writeLaunchPackHtml() {
     <div class="banner">URGENT LAUNCH MODE - keep everything DRAFT / PAUSED until CMO / Haylie approval</div>
     <div class="status"><strong>Build status:</strong> ${esc(CAMPAIGN.status)}</div>
 
+    <section class="upload-now">
+      <h2>UPLOAD THESE 4 ADS NOW</h2>
+      <p>Campaign + ad set already exist. Open Ad 1 shell, attach form <code>${esc(FORM.name)}</code>, upload creative, paste copy, add UTMs, then duplicate 3 times. Creatives are draft padded 1080x1350 - swap final designer exports when ready.</p>
+      <div class="upload-links">
+        <a href="/exports/meta-upload-ready/README_UPLOAD_NOW.md">Upload-ready folder README</a>
+        <a href="/exports/meta-upload-ready/ad-copy-paste-ready.txt">Paste-ready copy</a>
+        <a href="/exports/meta-upload-ready/meta-upload-checklist.md">Build checklist</a>
+        <a href="/exports/meta-upload-ready/form-final-settings.md">Form final settings</a>
+        <a href="/exports/meta-upload-ready/ads-manager-build-order.md">Build order</a>
+        <a class="file" href="/exports/meta-upload-ready/utm-parameters.txt">UTM parameters</a>
+        <a class="file" href="/exports/meta-upload-ready/creative-map.csv">Creative map CSV</a>
+      </div>
+      <div class="upload-creatives">
+        ${ADS.map(
+          (ad) => `<a href="/exports/meta-upload-ready/${esc(ad.uploadFile)}">
+          <img src="/exports/meta-upload-ready/${esc(ad.uploadFile)}" alt="${esc(ad.adName)}" />
+          <strong>${esc(ad.adName)}</strong>
+          ${esc(ad.uploadFile)}
+        </a>`,
+        ).join('')}
+      </div>
+    </section>
+
     <section class="build-mode">
       <h2>2-Hour Meta Build Mode</h2>
       <p>Exact order inside Ads Manager. Do not publish. Structure stays simple: 1 campaign, 1 ad set, 4 ads, 1 shared form.</p>
       <ol>
         <li><strong>Step 1: Confirm assets</strong> - selected images, Ad 2 dental interim flag, Ad 4 $10/hour block, no extra audiences.</li>
-        <li><strong>Step 2: Create campaign shell</strong> - <span class="mono">${esc(CAMPAIGN.name)}</span> · Leads · Off/Paused · not an employment ad.</li>
-        <li><strong>Step 3: Create ad set</strong> - <span class="mono">${esc(AD_SET.name)}</span> · US · $500/day · exact 1% lookalike · Advantage+ · Instant Form optimization.</li>
-        <li><strong>Step 4: Create draft form</strong> - <span class="mono">${esc(FORM.name)}</span> · Higher Intent · save draft · leave URL placeholders.</li>
-        <li><strong>Step 5: Bulk import / build 4 ads</strong> - map <a href="/exports/meta-bulk-import-attempt.csv">import CSV</a> into Meta template, or paste from <a href="/exports/meta-paste-ready-ad-copy.txt">paste sheet</a>.</li>
+        <li><strong>Step 2: Campaign shell</strong> - <span class="mono">${esc(CAMPAIGN.name)}</span> already exists - skip recreate.</li>
+        <li><strong>Step 3: Ad set</strong> - <span class="mono">${esc(AD_SET.name)}</span> already exists - skip recreate.</li>
+        <li><strong>Step 4: Form</strong> - <span class="mono">${esc(FORM.name)}</span> · Haylie routing + SMS + privacy + booking link.</li>
+        <li><strong>Step 5: Upload 4 ads</strong> - use <a href="/exports/meta-upload-ready/">upload-ready package</a>: fill Ad 1, duplicate x3, swap creative/copy.</li>
         <li><strong>Step 6: Review mobile previews</strong> - all 4 ads, language rules, Book a Demo CTA.</li>
-        <li><strong>Step 7: Send Haylie draft for review</strong> - keep paused; share blockers.</li>
-        <li><strong>Step 8: Add booking link / privacy URL</strong> - then HubSpot lead view + UTM.</li>
+        <li><strong>Step 7: Send Haylie draft for review</strong> - keep paused.</li>
+        <li><strong>Step 8: Confirm booking / privacy / HubSpot</strong> - URLs already in form settings.</li>
         <li><strong>Step 9: Publish only after approval</strong> - final QA first.</li>
       </ol>
     </section>
@@ -1271,13 +1575,10 @@ function writeLaunchPackHtml() {
       <section class="panel">
         <h3>Still waiting on Haylie</h3>
         <ul class="waiting">
-          <li>Booking link for thank-you button</li>
-          <li>Privacy policy URL</li>
-          <li>Form review / approval</li>
-          <li>Creative approval (correct on-image copy + final 1080x1350)</li>
-          <li>Confirm $10/hour before concept 4 spend</li>
-          <li>HubSpot lead view confirmation</li>
-          <li>Final CMO publish approval</li>
+          <li>Final creative design approval (current PNGs are draft padded exports)</li>
+          <li>Confirm $10/hour before publishing Ad 4 if price appears on creative</li>
+          <li>HubSpot lead view confirmation for IMB_MV form</li>
+          <li>Final CMO / Haylie publish approval</li>
         </ul>
       </section>
     </div>
@@ -1348,6 +1649,7 @@ async function main() {
     process.exit(1);
   }
   await generatePreviewCrops();
+  writeUploadReadyPackage();
   writeBuildSheetCsv();
   writeCopyMapCsv();
   writeBulkImportAttemptCsv();
@@ -1363,6 +1665,7 @@ async function main() {
   writeLaunchPackHtml();
   console.log('Meta launch build pack generated.');
   console.log('- public/meta-launch-build-pack.html');
+  console.log('- public/exports/meta-upload-ready/');
   console.log('- public/exports/meta-bulk-import-attempt.csv');
   console.log('- public/exports/meta-manual-build-sheet.csv');
   console.log('- public/exports/meta-paste-ready-ad-copy.txt');

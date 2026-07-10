@@ -1,6 +1,6 @@
 # Meta Instant Form — Draft Copy
 
-**Form name:** `IMB_MV_Form_BookDemo_FirstBatch_DRAFT`  
+**Form name:** `IMB_MV_Form_BookDemo_FirstBatch`  
 **Status:** DRAFT — save as draft until CMO / Haylie review. Do not publish.  
 **Form type:** Higher Intent (recommended for lead quality)  
 **Shared form:** One form for all 4 ads unless CMO requests separate HubSpot lead views by concept.
@@ -51,7 +51,7 @@ Options:
 
 ## Privacy policy
 
-`WAITING_ON_MEDVIRTUAL_PRIVACY_POLICY_URL_DO_NOT_PUBLISH`
+`https://www.medvirtual.ai/privacy-policy`
 
 Do not invent a URL. Do not publish the form until a real privacy policy URL is added.
 
@@ -69,7 +69,7 @@ A MedVirtual team member will follow up to discuss your practice's staffing need
 Book a Demo
 
 **Button URL:**  
-`WAITING_ON_HAYLIE_BOOKING_LINK_DO_NOT_PUBLISH`
+`https://meetings.hubspot.com/call-scheduling/mv-meta-imb`
 
 ---
 

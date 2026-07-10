@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T20:37:57.422Z",
+  "generatedAt": "2026-07-10T23:06:25.276Z",
   "campaign": {
     "name": "IMB_MV_Meta_Leads_FirstBatch_202607",
     "objective": "Leads",
@@ -13,7 +13,7 @@
     "brand": "MedVirtual",
     "cta": "Book a Demo",
     "ctaImport": "BOOK_NOW",
-    "status": "DRAFT - WAITING ON FORM REVIEW / BOOKING LINK / CREATIVE APPROVAL",
+    "status": "DRAFT / PAUSED - UPLOAD ADS NOW - PUBLISH ONLY AFTER HAYLIE APPROVAL",
     "statusImport": "PAUSED"
   },
   "adSet": {
@@ -26,15 +26,19 @@
     "lookalikeStatus": "Populating, but available for use"
   },
   "form": {
-    "name": "IMB_MV_Form_BookDemo_FirstBatch_DRAFT",
+    "name": "IMB_MV_Form_BookDemo_FirstBatch",
     "type": "Higher Intent (recommended for lead quality)",
     "introHeadline": "Hire Full-Time Virtual Medical Staff Through MedVirtual",
     "introBody": "MedVirtual helps medical and dental practices hire trained full-time virtual staff for calls, scheduling, intake, insurance, billing support, and admin workflows.",
-    "privacyUrl": "WAITING_ON_MEDVIRTUAL_PRIVACY_POLICY_URL_DO_NOT_PUBLISH",
+    "privacyUrl": "https://www.medvirtual.ai/privacy-policy",
     "thankYouHeadline": "Thanks - your request was received.",
     "thankYouBody": "A MedVirtual team member will follow up to discuss your practice's staffing needs.",
     "buttonText": "Book a Demo",
-    "buttonUrl": "WAITING_ON_HAYLIE_BOOKING_LINK_DO_NOT_PUBLISH"
+    "buttonUrl": "https://meetings.hubspot.com/call-scheduling/mv-meta-imb",
+    "jobSeekerUrl": "https://apply.workable.com/berryvirtual/?lng=en",
+    "routingQuestion": "Are you looking to hire staff for your medical practice?",
+    "routingYes": "Yes, I want to hire staff",
+    "routingNo": "No, I am looking for a job"
   },
   "creatives": [
     {
@@ -52,7 +56,7 @@
       "metaHeadline": "Hire Full-Time Virtual Staff",
       "description": "Support your practice team with trained virtual staff.",
       "cta": "Book a Demo",
-      "formName": "IMB_MV_Form_BookDemo_FirstBatch_DRAFT",
+      "formName": "IMB_MV_Form_BookDemo_FirstBatch",
       "notes": "Selected: clean medical scrub visual, no $10 price on image. Baked-in on-image copy does not match approved headline - designer must re-export 1080x1350 with approved copy + Book a Demo CTA. Source is 2965x2965 square.",
       "dimensionsNote": "Source images are 2965×2965 (1:1). Preview crops are padded 1080×1350. Designer must produce final 1080×1350 exports with approved on-image copy."
     },
@@ -71,7 +75,7 @@
       "metaHeadline": "Virtual Staff for Dental Practices",
       "description": "Scheduling, insurance, and patient follow-up support.",
       "cta": "Book a Demo",
-      "formName": "IMB_MV_Form_BookDemo_FirstBatch_DRAFT",
+      "formName": "IMB_MV_Form_BookDemo_FirstBatch",
       "notes": "RED FLAG: No dental-specific image in the new 12-image batch. Using best available medical professional (clipboard). Designer should swap to a dental office visual before spend. Baked-in copy/CTA must be replaced with approved dental headline + Book a Demo.",
       "dimensionsNote": "Source images are 2965×2965 (1:1). Preview crops are padded 1080×1350. Designer must produce final 1080×1350 exports with approved on-image copy."
     },
@@ -90,7 +94,7 @@
       "metaHeadline": "Hire a Virtual Medical Admin",
       "description": "Calls, scheduling, intake, and admin help.",
       "cta": "Book a Demo",
-      "formName": "IMB_MV_Form_BookDemo_FirstBatch_DRAFT",
+      "formName": "IMB_MV_Form_BookDemo_FirstBatch",
       "notes": "Selected: full-time VA / medical admin visual without $10 price (price reserved for concept 4). Re-export with approved headline/support + Book a Demo. Source is square.",
       "dimensionsNote": "Source images are 2965×2965 (1:1). Preview crops are padded 1080×1350. Designer must produce final 1080×1350 exports with approved on-image copy."
     },
@@ -109,7 +113,7 @@
       "metaHeadline": "Too Many Calls? Get Support.",
       "description": "Full-time virtual staff through MedVirtual.",
       "cta": "Book a Demo",
-      "formName": "IMB_MV_Form_BookDemo_FirstBatch_DRAFT",
+      "formName": "IMB_MV_Form_BookDemo_FirstBatch",
       "notes": "BLOCKED UNTIL $10/HOUR CONFIRMED. Keep this ad PAUSED until CMO confirms price. Baked-in headline differs from approved copy - re-export required. Keep $10/hour off concepts 1-3.",
       "dimensionsNote": "Source images are 2965×2965 (1:1). Preview crops are padded 1080×1350. Designer must produce final 1080×1350 exports with approved on-image copy."
     }

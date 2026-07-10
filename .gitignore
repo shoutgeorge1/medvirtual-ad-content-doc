@@ -27,6 +27,7 @@ dist-ssr
 _private/
 *.csv
 !public/exports/meta-*.csv
+!public/exports/meta-upload-ready/*.csv
 *.xlsx
 *.xls
 audience_audit_report.md

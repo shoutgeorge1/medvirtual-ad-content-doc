@@ -2,7 +2,7 @@ MedVirtual Meta - Paste-Ready Ad Copy
 Campaign: IMB_MV_Meta_Leads_FirstBatch_202607
 Ad Set: IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day
 Audience: Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed
-Form: IMB_MV_Form_BookDemo_FirstBatch_DRAFT
+Form: IMB_MV_Form_BookDemo_FirstBatch
 Budget: $500/day
 Geo: United States
 Everything stays PAUSED/DRAFT until Haylie / CMO approval.
@@ -40,7 +40,7 @@ CTA:
 Book a Demo
 
 DESTINATION / FORM:
-IMB_MV_Form_BookDemo_FirstBatch_DRAFT
+IMB_MV_Form_BookDemo_FirstBatch
 
 ON-IMAGE HEADLINE (creative must show):
 Medical Practice Owners
@@ -81,7 +81,7 @@ CTA:
 Book a Demo
 
 DESTINATION / FORM:
-IMB_MV_Form_BookDemo_FirstBatch_DRAFT
+IMB_MV_Form_BookDemo_FirstBatch
 
 ON-IMAGE HEADLINE (creative must show):
 Dental Practice Owners
@@ -122,7 +122,7 @@ CTA:
 Book a Demo
 
 DESTINATION / FORM:
-IMB_MV_Form_BookDemo_FirstBatch_DRAFT
+IMB_MV_Form_BookDemo_FirstBatch
 
 ON-IMAGE HEADLINE (creative must show):
 Hire a Full-Time Virtual Medical Admin
@@ -163,7 +163,7 @@ CTA:
 Book a Demo
 
 DESTINATION / FORM:
-IMB_MV_Form_BookDemo_FirstBatch_DRAFT
+IMB_MV_Form_BookDemo_FirstBatch
 
 ON-IMAGE HEADLINE (creative must show):
 Too Many Calls. Not Enough Staff.

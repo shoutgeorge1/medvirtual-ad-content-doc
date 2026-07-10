@@ -49,7 +49,7 @@ Do not assume Cursor-generated import columns match Meta's live template. Column
 
 ### Step 4 - Create draft form
 - Follow `meta-form-build-instructions.md`
-- Form name: `IMB_MV_Form_BookDemo_FirstBatch_DRAFT`
+- Form name: `IMB_MV_Form_BookDemo_FirstBatch`
 - Save as draft
 - Leave privacy + booking placeholders until real URLs arrive
 
@@ -62,7 +62,7 @@ Do not assume Cursor-generated import columns match Meta's live template. Column
   2. `IMB_MV_Static_02_DentalOwners`
   3. `IMB_MV_Static_03_VirtualMedAdmin`
   4. `IMB_MV_Static_04_TooManyCalls` (keep paused / blocked until $10/hour confirmed)
-- Destination: shared form `IMB_MV_Form_BookDemo_FirstBatch_DRAFT`
+- Destination: shared form `IMB_MV_Form_BookDemo_FirstBatch`
 - CTA: Book a Demo
 
 ### Step 6 - Review mobile previews
@@ -80,7 +80,7 @@ Do not assume Cursor-generated import columns match Meta's live template. Column
 - Replace form privacy URL
 - Replace thank-you button URL
 - Add UTM pattern:
-  `utm_source=meta&utm_medium=paid_social&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_content={{ad.name}}&utm_term={{adset.name}}`
+  `utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_term={{adset.name}}&utm_content={{ad.name}}`
 - Confirm HubSpot lead view
 
 ### Step 9 - Publish only after approval

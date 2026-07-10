@@ -1,0 +1,104 @@
+========================================
+AD 01 - IMB_MV_Static_01_MedicalOwners
+========================================
+
+AD NAME:
+IMB_MV_Static_01_MedicalOwners
+
+PRIMARY TEXT:
+Medical practice owners: hire full-time virtual staff to support calls, scheduling, intake, and admin work.
+
+HEADLINE:
+Hire Full-Time Virtual Staff
+
+DESCRIPTION:
+Support your practice team with trained virtual staff.
+
+CTA:
+Book a Demo
+
+FORM:
+IMB_MV_Form_BookDemo_FirstBatch
+
+CREATIVE:
+IMB_MV_Static_01_MedicalOwners_1080x1350.png
+
+========================================
+AD 02 - IMB_MV_Static_02_DentalOwners
+========================================
+
+AD NAME:
+IMB_MV_Static_02_DentalOwners
+
+PRIMARY TEXT:
+Dental practice owners: get virtual staff support for scheduling, insurance, reminders, and patient follow-up.
+
+HEADLINE:
+Virtual Staff for Dental Practices
+
+DESCRIPTION:
+Scheduling, insurance, and patient follow-up support.
+
+CTA:
+Book a Demo
+
+FORM:
+IMB_MV_Form_BookDemo_FirstBatch
+
+CREATIVE:
+IMB_MV_Static_02_DentalOwners_1080x1350.png
+
+========================================
+AD 03 - IMB_MV_Static_03_VirtualMedAdmin
+========================================
+
+AD NAME:
+IMB_MV_Static_03_VirtualMedAdmin
+
+PRIMARY TEXT:
+Hire a full-time virtual medical admin for calls, scheduling, intake, and admin support.
+
+HEADLINE:
+Hire a Virtual Medical Admin
+
+DESCRIPTION:
+Calls, scheduling, intake, and admin help.
+
+CTA:
+Book a Demo
+
+FORM:
+IMB_MV_Form_BookDemo_FirstBatch
+
+CREATIVE:
+IMB_MV_Static_03_VirtualMedAdmin_1080x1350.png
+
+========================================
+AD 04 - IMB_MV_Static_04_TooManyCalls
+========================================
+
+AD NAME:
+IMB_MV_Static_04_TooManyCalls
+
+PRIMARY TEXT:
+Too many calls and not enough staff? Hire full-time virtual staff through MedVirtual.
+
+HEADLINE:
+Too Many Calls? Get Support.
+
+DESCRIPTION:
+Full-time virtual staff through MedVirtual.
+
+CTA:
+Book a Demo
+
+FORM:
+IMB_MV_Form_BookDemo_FirstBatch
+
+CREATIVE:
+IMB_MV_Static_04_TooManyCalls_1080x1350.png
+
+WARNING:
+Do not publish Ad 4 if the image contains $10/hour language until Haylie confirms that claim.
+Keep Ad 4 paused until confirmed.
+
