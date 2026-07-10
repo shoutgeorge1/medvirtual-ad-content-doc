@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Private audience / lead data (never commit)
+_private/
+*.csv
+*.xlsx
+*.xls
+audience_audit_report.md
+cleaned_meta_upload.csv
+rejected_or_questionable_rows.csv

@@ -11,8 +11,9 @@ export const DOC_BRAND = {
   homeHref: '/facebook-ad-copy.html',
 };
 
-/** Primary nav — Ad Copy first, then creative surfaces */
+/** Primary nav — Graphic brief first (production handoff), then copy & templates */
 export const PRIMARY_NAV = [
+  { href: '/graphic-request-brief.html', label: 'Graphic Brief', id: 'brief' },
   { href: '/facebook-ad-copy.html', label: 'Ad Copy', id: 'copy' },
   { href: '/template-test-board.html', label: 'Template Tests', id: 'templates' },
   { href: '/image-variation-review.html', label: 'Image Review', id: 'images' },

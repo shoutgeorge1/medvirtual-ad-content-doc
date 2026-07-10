@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T00:03:23.976Z",
+  "generatedAt": "2026-07-10T18:38:22.409Z",
   "tests": [
     {
       "layoutRating": "A",
@@ -17,6 +17,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "First cold static winner. Remotion STATIC_TO_SHORT seed. Practice-ops VO only.",
+      "testBucket": "front_desk_overload",
+      "mediaType": "static",
       "id": "T1-MC-45",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "4x5",
@@ -25,10 +27,10 @@
       "imageFamily": "teal_blouse_admin",
       "subjectSide": "left",
       "copy": {
-        "angle": "Missed Calls",
+        "angle": "Front Desk Overload",
         "hook": "Patient calls should not hit voicemail.",
         "hookAccent": "voicemail",
-        "support": "Remote medical admin support for busy practices.",
+        "support": "Hire full-time virtual staff through MedVirtual.",
         "bullets": [
           "Calls",
           "Scheduling"
@@ -55,6 +57,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Hold H1 2s. Reveal support. CTA last 4s. 18–22s. Simple text reveal + light zoom.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "before_after",
+      "mediaType": "video",
       "id": "T1-MC-916",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "9x16",
@@ -63,10 +67,10 @@
       "imageFamily": "teal_blouse_admin",
       "subjectSide": "left",
       "copy": {
-        "angle": "Missed Calls",
+        "angle": "Front Desk Overload",
         "hook": "Patient calls should not hit voicemail.",
         "hookAccent": "voicemail",
-        "support": "Remote medical admin support for busy practices.",
+        "support": "Hire full-time virtual staff through MedVirtual.",
         "bullets": [
           "Calls",
           "Scheduling"
@@ -75,7 +79,7 @@
       },
       "modifiers": "text-panel",
       "style": "split-red",
-      "notes": "TOP 5 · Strongest 9:16. First-frame hook for Reels."
+      "notes": "TOP 5 · Before/After video prototype. First-frame hook for Reels."
     },
     {
       "layoutRating": "B",
@@ -93,6 +97,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "front_desk_overload",
+      "mediaType": "static",
       "id": "T1-MC-11",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "1x1",
@@ -101,10 +107,10 @@
       "imageFamily": "teal_blouse_admin",
       "subjectSide": "left",
       "copy": {
-        "angle": "Missed Calls",
+        "angle": "Front Desk Overload",
         "hook": "Patient calls should not hit voicemail.",
         "hookAccent": "voicemail",
-        "support": "Remote medical admin support for busy practices.",
+        "support": "Hire full-time virtual staff through MedVirtual.",
         "bullets": [
           "Calls",
           "Scheduling"
@@ -131,6 +137,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "front_desk_overload",
+      "mediaType": "static",
       "id": "T1-FD-45",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "4x5",
@@ -139,15 +147,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "left",
       "copy": {
-        "angle": "Front Desk Backup",
-        "hook": "Give your front desk backup.",
-        "hookAccent": "backup",
-        "support": "Help with calls, intake, scheduling, and follow-up.",
+        "angle": "Front Desk Overload",
+        "hook": "Support your overloaded practice team.",
+        "hookAccent": "practice team",
+        "support": "Hire virtual staff for calls, intake & scheduling.",
         "bullets": [
           "Calls",
           "Intake"
         ],
-        "cta": "See How It Works"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel",
       "style": "split-red",
@@ -169,6 +177,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "dental_practice",
+      "mediaType": "static",
       "id": "T1-FD-916",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "9x16",
@@ -177,19 +187,19 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "left",
       "copy": {
-        "angle": "Front Desk Backup",
-        "hook": "Give your front desk backup.",
-        "hookAccent": "backup",
-        "support": "Help with calls, intake, scheduling, and follow-up.",
+        "angle": "Dental Practice Support",
+        "hook": "Hire virtual dental admin support.",
+        "hookAccent": "dental admin",
+        "support": "Scheduling, reminders & insurance coordination.",
         "bullets": [
-          "Calls",
-          "Intake"
+          "Scheduling",
+          "Pre-auth"
         ],
-        "cta": "See How It Works"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel",
       "style": "stamp-10",
-      "notes": "Strong vertical for front desk backup. $10/hr site-backed."
+      "notes": "Dental practice vertical. $10/hr site-backed."
     },
     {
       "layoutRating": "B",
@@ -207,6 +217,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "front_desk_overload",
+      "mediaType": "static",
       "id": "T1-FD-11",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "1x1",
@@ -215,15 +227,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "left",
       "copy": {
-        "angle": "Front Desk Backup",
-        "hook": "Give your front desk backup.",
-        "hookAccent": "backup",
-        "support": "Help with calls, intake, scheduling, and follow-up.",
+        "angle": "Front Desk Overload",
+        "hook": "Support your overloaded practice team.",
+        "hookAccent": "practice team",
+        "support": "Hire virtual staff for calls, intake & scheduling.",
         "bullets": [
           "Calls",
           "Intake"
         ],
-        "cta": "See How It Works"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel",
       "style": "handwritten",
@@ -245,6 +257,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "front_desk_overload",
+      "mediaType": "static",
       "id": "T1-FD2-45",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "4x5",
@@ -253,15 +267,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "left",
       "copy": {
-        "angle": "Front Desk Backup",
-        "hook": "Give your front desk backup.",
-        "hookAccent": "backup",
-        "support": "Help with calls, intake, scheduling, and follow-up.",
+        "angle": "Front Desk Overload",
+        "hook": "Support your overloaded practice team.",
+        "hookAccent": "practice team",
+        "support": "Hire virtual staff for calls, intake & scheduling.",
         "bullets": [
           "Calls",
           "Intake"
         ],
-        "cta": "See How It Works"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel drop-more zoom-out",
       "style": "highlighter",
@@ -283,6 +297,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "front_desk_overload",
+      "mediaType": "static",
       "id": "T1-FD2-916",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "9x16",
@@ -291,15 +307,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "left",
       "copy": {
-        "angle": "Front Desk Backup",
-        "hook": "Give your front desk backup.",
-        "hookAccent": "backup",
-        "support": "Help with calls, intake, scheduling, and follow-up.",
+        "angle": "Front Desk Overload",
+        "hook": "Support your overloaded practice team.",
+        "hookAccent": "practice team",
+        "support": "Hire virtual staff for calls, intake & scheduling.",
         "bullets": [
           "Calls",
           "Intake"
         ],
-        "cta": "See How It Works"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel drop-more zoom-out",
       "style": "split-red",
@@ -321,6 +337,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "front_desk_overload",
+      "mediaType": "static",
       "id": "T1-FD2-11",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "1x1",
@@ -329,15 +347,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "left",
       "copy": {
-        "angle": "Front Desk Backup",
-        "hook": "Give your front desk backup.",
-        "hookAccent": "backup",
-        "support": "Help with calls, intake, scheduling, and follow-up.",
+        "angle": "Front Desk Overload",
+        "hook": "Support your overloaded practice team.",
+        "hookAccent": "practice team",
+        "support": "Hire virtual staff for calls, intake & scheduling.",
         "bullets": [
           "Calls",
           "Intake"
         ],
-        "cta": "See How It Works"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel drop-more zoom-out copy-far-right shift-left",
       "style": "stamp-10",
@@ -359,6 +377,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Simplify/hide floating icons in edit.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "dental_practice",
+      "mediaType": "static",
       "id": "T1-SCH-45",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "4x5",
@@ -367,15 +387,15 @@
       "imageFamily": "teal_blouse_admin",
       "subjectSide": "left",
       "copy": {
-        "angle": "Scheduling",
-        "hook": "Keep scheduling moving.",
+        "angle": "Dental Practice Support",
+        "hook": "Keep dental scheduling moving.",
         "hookAccent": "scheduling",
-        "support": "Add support for appointments and patient follow-up.",
+        "support": "Virtual dental admin · patient reminders.",
         "bullets": [
           "Scheduling",
-          "Follow-up"
+          "Reminders"
         ],
-        "cta": "Learn More"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel copy-far-right",
       "style": "highlighter",
@@ -397,6 +417,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "dental_practice",
+      "mediaType": "static",
       "id": "T1-SCH-916",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "9x16",
@@ -405,15 +427,15 @@
       "imageFamily": "teal_blouse_admin",
       "subjectSide": "left",
       "copy": {
-        "angle": "Scheduling",
-        "hook": "Keep scheduling moving.",
+        "angle": "Dental Practice Support",
+        "hook": "Keep dental scheduling moving.",
         "hookAccent": "scheduling",
-        "support": "Add support for appointments and patient follow-up.",
+        "support": "Virtual dental admin · patient reminders.",
         "bullets": [
           "Scheduling",
-          "Follow-up"
+          "Reminders"
         ],
-        "cta": "Learn More"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel copy-far-right",
       "style": "handwritten",
@@ -435,6 +457,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "dental_practice",
+      "mediaType": "static",
       "id": "T1-SCH-11",
       "template": "PERSON_LEFT_HOOK_RIGHT",
       "ratio": "1x1",
@@ -443,15 +467,15 @@
       "imageFamily": "teal_blouse_admin",
       "subjectSide": "left",
       "copy": {
-        "angle": "Scheduling",
-        "hook": "Keep scheduling moving.",
+        "angle": "Dental Practice Support",
+        "hook": "Keep dental scheduling moving.",
         "hookAccent": "scheduling",
-        "support": "Add support for appointments and patient follow-up.",
+        "support": "Virtual dental admin · patient reminders.",
         "bullets": [
           "Scheduling",
-          "Follow-up"
+          "Reminders"
         ],
-        "cta": "Learn More"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel copy-far-right",
       "style": "stamp-10",
@@ -473,6 +497,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Practice-ops VO only — not fake testimonial.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "id": "T2-RMA-45",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "4x5",
@@ -481,15 +507,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Hiring Gap",
-        "hook": "Add support without another in-office hire.",
-        "hookAccent": "in-office hire",
-        "support": "Pre-vetted medical virtual assistants starting at $10/hr.",
+        "angle": "Virtual Medical Admin",
+        "hook": "Add a virtual staff member to your team.",
+        "hookAccent": "your team",
+        "support": "Full-time trained virtual medical staff.",
         "bullets": [
           "HIPAA-trained",
           "Ready in days"
         ],
-        "cta": "Get Started"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel-wide",
       "style": "highlighter",
@@ -511,6 +537,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "H1 hold → support → CTA. 18–22s.",
       "editorNote": "Practice-ops VO only.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "id": "T2-RMA-916",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "9x16",
@@ -519,15 +547,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Hiring Gap",
-        "hook": "Add support without another in-office hire.",
-        "hookAccent": "in-office hire",
-        "support": "Pre-vetted medical virtual assistants starting at $10/hr.",
+        "angle": "Virtual Medical Admin",
+        "hook": "Add a virtual staff member to your team.",
+        "hookAccent": "your team",
+        "support": "Full-time trained virtual medical staff.",
         "bullets": [
           "HIPAA-trained",
           "Ready in days"
         ],
-        "cta": "Get Started"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel-wide",
       "notes": "Hiring gap vertical. Strong video family (secondary to Missed Calls prototype)."
@@ -548,6 +576,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "id": "T2-RMA-11",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "1x1",
@@ -556,15 +586,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Hiring Gap",
-        "hook": "Add support without another in-office hire.",
-        "hookAccent": "in-office hire",
-        "support": "Pre-vetted medical virtual assistants starting at $10/hr.",
+        "angle": "Virtual Medical Admin",
+        "hook": "Add a virtual staff member to your team.",
+        "hookAccent": "your team",
+        "support": "Full-time trained virtual medical staff.",
         "bullets": [
           "HIPAA-trained",
           "Ready in days"
         ],
-        "cta": "Get Started"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel-wide",
       "notes": "1x1 usable. H1 may need shortening."
@@ -585,6 +615,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "id": "T2-RMA2-45",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "4x5",
@@ -593,15 +625,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Hiring Gap",
-        "hook": "Add support without another in-office hire.",
-        "hookAccent": "in-office hire",
-        "support": "Pre-vetted medical virtual assistants starting at $10/hr.",
+        "angle": "Virtual Medical Admin",
+        "hook": "Add a virtual staff member to your team.",
+        "hookAccent": "your team",
+        "support": "Full-time trained virtual medical staff.",
         "bullets": [
           "HIPAA-trained",
           "Ready in days"
         ],
-        "cta": "Get Started"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel-wide copy-bl-cta-tl",
       "notes": "Copy bottom-left. CTA top-left under logo."
@@ -622,6 +654,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "before_after",
+      "mediaType": "video",
       "id": "T2-RMA2-916",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "9x16",
@@ -630,15 +664,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Hiring Gap",
-        "hook": "Add support without another in-office hire.",
-        "hookAccent": "in-office hire",
-        "support": "Pre-vetted medical virtual assistants starting at $10/hr.",
+        "angle": "Virtual Medical Admin",
+        "hook": "Add a virtual staff member to your team.",
+        "hookAccent": "your team",
+        "support": "Full-time trained virtual medical staff.",
         "bullets": [
           "HIPAA-trained",
           "Ready in days"
         ],
-        "cta": "Get Started"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel-wide copy-bl-cta-tl",
       "notes": "Copy bottom-left. CTA top-left. Logo stays top."
@@ -659,6 +693,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "id": "T2-RMA2-11",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "1x1",
@@ -667,15 +703,15 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Hiring Gap",
-        "hook": "Add support without another in-office hire.",
-        "hookAccent": "in-office hire",
-        "support": "Pre-vetted medical virtual assistants starting at $10/hr.",
+        "angle": "Virtual Medical Admin",
+        "hook": "Add a virtual staff member to your team.",
+        "hookAccent": "your team",
+        "support": "Full-time trained virtual medical staff.",
         "bullets": [
           "HIPAA-trained",
           "Ready in days"
         ],
-        "cta": "Get Started"
+        "cta": "Book a Demo"
       },
       "modifiers": "text-panel-wide copy-bl-cta-tl",
       "notes": "1x1 — copy bottom-left, CTA top-left."
@@ -696,6 +732,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "id": "T2-ADM-45",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "4x5",
@@ -704,13 +742,13 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Admin Backlog",
-        "hook": "Clear repetitive admin work.",
-        "hookAccent": "admin work",
-        "support": "Support for intake, verification, billing tasks, and more.",
+        "angle": "Virtual Medical Admin",
+        "hook": "EMR updates & admin — handled remotely.",
+        "hookAccent": "handled remotely",
+        "support": "Virtual Medical Admin Assistants · $10/hour.",
         "bullets": [
-          "Intake",
-          "Verification"
+          "EMR",
+          "Intake"
         ],
         "cta": "Book a Demo"
       },
@@ -733,6 +771,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "insurance_billing",
+      "mediaType": "static",
       "id": "T2-ADM-916",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "9x16",
@@ -741,13 +781,13 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Admin Backlog",
-        "hook": "Clear repetitive admin work.",
-        "hookAccent": "admin work",
-        "support": "Support for intake, verification, billing tasks, and more.",
+        "angle": "Virtual Medical Admin",
+        "hook": "EMR updates & admin — handled remotely.",
+        "hookAccent": "handled remotely",
+        "support": "Virtual Medical Admin Assistants · $10/hour.",
         "bullets": [
-          "Intake",
-          "Verification"
+          "EMR",
+          "Intake"
         ],
         "cta": "Book a Demo"
       },
@@ -770,6 +810,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "id": "T2-ADM-11",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "1x1",
@@ -778,13 +820,13 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Admin Backlog",
-        "hook": "Clear repetitive admin work.",
-        "hookAccent": "admin work",
-        "support": "Support for intake, verification, billing tasks, and more.",
+        "angle": "Virtual Medical Admin",
+        "hook": "EMR updates & admin — handled remotely.",
+        "hookAccent": "handled remotely",
+        "support": "Virtual Medical Admin Assistants · $10/hour.",
         "bullets": [
-          "Intake",
-          "Verification"
+          "EMR",
+          "Intake"
         ],
         "cta": "Book a Demo"
       },
@@ -807,6 +849,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "insurance_billing",
+      "mediaType": "static",
       "id": "T2-WF-45",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "4x5",
@@ -815,18 +859,18 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Admin Backlog",
-        "hook": "Clear repetitive admin work.",
-        "hookAccent": "admin work",
-        "support": "Support for intake, verification, billing tasks, and more.",
+        "angle": "Insurance / Billing Support",
+        "hook": "Check coverage before appointments.",
+        "hookAccent": "coverage",
+        "support": "Virtual medical billers · Starting at $10/hour.",
         "bullets": [
-          "Intake",
-          "Verification"
+          "Verification",
+          "Billing"
         ],
         "cta": "Book a Demo"
       },
       "modifiers": "text-panel-wide copy-down",
-      "notes": "AI_004 workflow 4:5 — same source as T2-WF-916."
+      "notes": "AI_004 workflow 4:5 — insurance/billing angle."
     },
     {
       "layoutRating": "B",
@@ -844,6 +888,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "insurance_billing",
+      "mediaType": "video",
       "id": "T2-WF-916",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "9x16",
@@ -852,18 +898,18 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Admin Backlog",
-        "hook": "Clear repetitive admin work.",
-        "hookAccent": "admin work",
-        "support": "Support for intake, verification, billing tasks, and more.",
+        "angle": "Insurance / Billing Support",
+        "hook": "Check coverage before appointments.",
+        "hookAccent": "coverage",
+        "support": "Virtual medical billers · Starting at $10/hour.",
         "bullets": [
-          "Intake",
-          "Verification"
+          "Verification",
+          "Billing"
         ],
         "cta": "Book a Demo"
       },
       "modifiers": "text-panel-wide copy-down",
-      "notes": "Stories/Reels size for AI_004 workflow."
+      "notes": "Stories/Reels — insurance verification. Video candidate."
     },
     {
       "layoutRating": "B",
@@ -881,6 +927,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "insurance_billing",
+      "mediaType": "static",
       "id": "T2-WF-11",
       "template": "PERSON_RIGHT_HOOK_LEFT",
       "ratio": "1x1",
@@ -889,18 +937,18 @@
       "imageFamily": "blue_scrubs_headset",
       "subjectSide": "right",
       "copy": {
-        "angle": "Admin Backlog",
-        "hook": "Clear repetitive admin work.",
-        "hookAccent": "admin work",
-        "support": "Support for intake, verification, billing tasks, and more.",
+        "angle": "Insurance / Billing Support",
+        "hook": "Check coverage before appointments.",
+        "hookAccent": "coverage",
+        "support": "Virtual medical billers · Starting at $10/hour.",
         "bullets": [
-          "Intake",
-          "Verification"
+          "Verification",
+          "Billing"
         ],
         "cta": "Book a Demo"
       },
       "modifiers": "text-panel-wide copy-down",
-      "notes": "1x1 Meta/carousel size for AI_004."
+      "notes": "1x1 Meta/carousel — insurance/billing."
     },
     {
       "layoutRating": "B",
@@ -918,6 +966,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "id": "T3-CTR-45",
       "template": "CENTER_TOP_BAND",
       "ratio": "4x5",
@@ -926,13 +976,13 @@
       "imageFamily": "wide_office",
       "subjectSide": "center",
       "copy": {
-        "angle": "Admin Backlog",
-        "hook": "Clear repetitive admin work.",
-        "hookAccent": "admin work",
-        "support": "Support for intake, verification, billing tasks, and more.",
+        "angle": "Virtual Medical Admin",
+        "hook": "EMR updates & admin — handled remotely.",
+        "hookAccent": "handled remotely",
+        "support": "Virtual Medical Admin Assistants · $10/hour.",
         "bullets": [
-          "Intake",
-          "Verification"
+          "EMR",
+          "Intake"
         ],
         "cta": "Book a Demo"
       },
@@ -955,6 +1005,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "id": "T3-CTR-916",
       "template": "CENTER_TOP_BAND",
       "ratio": "9x16",
@@ -963,13 +1015,13 @@
       "imageFamily": "wide_office",
       "subjectSide": "center",
       "copy": {
-        "angle": "Admin Backlog",
-        "hook": "Clear repetitive admin work.",
-        "hookAccent": "admin work",
-        "support": "Support for intake, verification, billing tasks, and more.",
+        "angle": "Virtual Medical Admin",
+        "hook": "EMR updates & admin — handled remotely.",
+        "hookAccent": "handled remotely",
+        "support": "Virtual Medical Admin Assistants · $10/hour.",
         "bullets": [
-          "Intake",
-          "Verification"
+          "EMR",
+          "Intake"
         ],
         "cta": "Book a Demo"
       },
@@ -992,6 +1044,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "VO / practice-ops POV only. No fake testimonial.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "id": "T3-CTR-11",
       "template": "CENTER_TOP_BAND",
       "ratio": "1x1",
@@ -1000,13 +1054,13 @@
       "imageFamily": "wide_office",
       "subjectSide": "center",
       "copy": {
-        "angle": "Admin Backlog",
-        "hook": "Clear repetitive admin work.",
-        "hookAccent": "admin work",
-        "support": "Support for intake, verification, billing tasks, and more.",
+        "angle": "Virtual Medical Admin",
+        "hook": "EMR updates & admin — handled remotely.",
+        "hookAccent": "handled remotely",
+        "support": "Virtual Medical Admin Assistants · $10/hour.",
         "bullets": [
-          "Intake",
-          "Verification"
+          "EMR",
+          "Intake"
         ],
         "cta": "Book a Demo"
       },
@@ -1029,6 +1083,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later. Not first cold batch.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1062,6 +1118,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1095,6 +1153,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later. Not first cold batch.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1128,6 +1188,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1161,6 +1223,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1194,6 +1258,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later. Not first cold batch.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1227,6 +1293,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1260,6 +1328,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1293,6 +1363,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later. Not first cold batch.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1326,6 +1398,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1359,6 +1433,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1392,6 +1468,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later. Not first cold batch.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1425,6 +1503,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",
@@ -1458,6 +1538,8 @@
       "ctaTiming": "Appear at ~8s; hold through end",
       "motionNote": "Light Ken Burns 4–6%. Keep face clear.",
       "editorNote": "Retargeting / trust later.",
+      "testBucket": "virtual_med_admin",
+      "mediaType": "static",
       "template": "HEADSHOT_TRUST_CARD",
       "imageFamily": "landing_headshot",
       "subjectSide": "center",

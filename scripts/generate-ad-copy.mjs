@@ -10,6 +10,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
+import { ALL_CONCEPTS, FIRST_BATCH_COUNT, MESSAGING_RULES, TEST_BUCKETS } from './first-test-batch-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -284,7 +285,100 @@ const CSS = `
   .chars { font-size: 0.7rem; color: #94a3b8; margin-top: 0.45rem; }
   .chars.warn { color: #c2410c; }
   .hook-len { font-size: 0.7rem; color: #64748b; }
+  .launch-banner {
+    background: linear-gradient(135deg, #0f172a, #134e4a); color: #e2e8f0;
+    border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1rem;
+  }
+  .launch-banner h2 { margin: 0 0 0.35rem; font-size: 1rem; color: #5eead4; }
+  .launch-banner p { margin: 0; font-size: 0.85rem; color: #cbd5e1; }
+  .launch-banner a { color: #99f6e4; font-weight: 650; }
+  .bucket-label {
+    font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 4px;
+    background: #0f172a; color: #fff;
+  }
+  .bucket-label.dental { background: #1d4ed8; }
+  .bucket-label.insurance { background: #6d28d9; }
+  .bucket-label.admin { background: #047857; }
+  .bucket-label.video { background: #c2410c; }
+  .launch-meta { font-size: 0.78rem; color: #64748b; margin: 0.15rem 0 0.5rem; }
+  .headlines { font-size: 0.8rem; color: #475569; margin-top: 0.35rem; }
+  .library-divider {
+    margin: 2.5rem 0 1.25rem; padding: 1rem 1.15rem;
+    background: #fff7ed; border: 1px solid #fed7aa; border-radius: 10px;
+  }
+  .library-divider h2 { margin: 0 0 0.35rem; font-size: 0.95rem; color: #9a3412; }
+  .library-divider p { margin: 0; font-size: 0.82rem; color: #c2410c; }
 `;
+
+function bucketClassFor(id) {
+  if (id === 'dental_practice') return 'dental';
+  if (id === 'insurance_billing') return 'insurance';
+  if (id === 'virtual_med_admin') return 'admin';
+  return '';
+}
+
+function renderLaunchBatch() {
+  const toc = TEST_BUCKETS.map(
+    (b) => `<a href="#launch-${esc(b.id)}">${esc(b.label)} (${b.concepts.length})</a>`,
+  ).join('');
+
+  const sections = TEST_BUCKETS.map((bucket) => {
+    const cards = bucket.concepts
+      .flatMap((c) =>
+        c.primaryTexts.map((text, i) => {
+          const bClass = bucketClassFor(bucket.id);
+          const len = text.length;
+          const hook = firstLine(text);
+          const preview = visiblePreview(text);
+          const truncated = len > FEED_VISIBLE;
+          const badge = truncated
+            ? `<span class="badge expand">See more</span>`
+            : `<span class="badge safe">Feed-safe</span>`;
+          const previewHtml = truncated
+            ? `${esc(preview)}<span class="feed-preview__more">… See more</span>`
+            : esc(preview);
+          const fmtBadge =
+            c.format === 'video'
+              ? '<span class="bucket-label video">Video</span>'
+              : '<span class="badge safe">Static</span>';
+
+          return `<div class="card">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="num">${esc(c.id)}-pt${i + 1}</span>
+          <span class="bucket-label ${bClass}">${esc(bucket.label)}</span>
+          ${fmtBadge}
+          ${badge}
+          <span class="hook-len">Line 1: ${hook.length} chars</span>
+        </div>
+        <button type="button" class="copy-btn" data-copy="${esc(text)}">Copy</button>
+      </div>
+      <p class="launch-meta"><strong>${esc(c.name)}</strong> · ${esc(c.onImageText)} · Headlines: ${esc(c.headlines.join(' / '))}</p>
+      <div class="feed-preview">
+        <div class="feed-preview__label">Mobile feed preview (~${FEED_VISIBLE} chars)</div>
+        <div class="feed-preview__text">${previewHtml}</div>
+      </div>
+      <div class="text">${esc(text)}</div>
+      <div class="chars${truncated ? ' warn' : ''}">${len} characters · ${esc(c.description)}</div>
+    </div>`;
+        }),
+      )
+      .join('');
+
+    return `<section class="angle" id="launch-${esc(bucket.id)}">
+      <h2>${esc(bucket.label)}</h2>
+      <p class="meta">${esc(bucket.correctMessage)}</p>
+      ${cards}
+    </section>`;
+  }).join('');
+
+  return `<div class="launch-banner" id="launch-batch">
+      <h2>Recommended First Launch Batch — ${FIRST_BATCH_COUNT} concepts</h2>
+      <p>Production-ready copy for the first Meta graphic request. Full brief: <a href="/graphic-request-brief.html">graphic-request-brief.html</a></p>
+    </div>
+    <nav class="toc">${toc}</nav>
+    ${sections}`;
+}
 
 function main() {
   for (const angle of ANGLES) {
@@ -358,23 +452,36 @@ function main() {
   ${renderDocHeader({
     activeId: 'copy',
     pageTitle: 'Facebook Primary Text',
-    pageSubtitle: `${total} variations · ${ANGLES.length} angles × 25 · FB feed best practices · ${feedSafe} fully feed-safe`,
+    pageSubtitle: `First launch batch: ${FIRST_BATCH_COUNT} concepts · Reference library: ${total} variations below`,
   })}
   <div class="wrap">
     <div class="intro">
-      <strong>What this is:</strong> Facebook/Instagram <em>primary text</em> (caption above the creative) — not on-image H1s.
-      Aligned with <a href="https://www.medvirtual.ai/" target="_blank" rel="noopener">medvirtual.ai</a>:
-      starting at $10/hour · HIPAA-trained · pre-vetted · ready in days · 250+ practices · full-time dedicated support.
+      <strong>Start here:</strong> Use the <a href="/graphic-request-brief.html">Graphic Request Brief</a> for designer handoff.
+      This page’s <strong>Recommended First Launch Batch</strong> (${FIRST_BATCH_COUNT} ads) is what to produce first.
+      The copy library below is backup/reference only.
     </div>
     <div class="rules">
-      <h3>Facebook best practices (built into every line)</h3>
+      <h3>Messaging rules (CMO — first batch)</h3>
+      <ul>
+        <li><strong>Brand:</strong> MedVirtual only — never MedVirtual.ai in ad copy.</li>
+        <li><strong>Positioning:</strong> Practices hire full-time virtual staff through MedVirtual; staff join the practice team and work remotely.</li>
+        <li><strong>Do not</strong> imply MedVirtual is the front desk or a managed service provider.</li>
+        <li><strong>Use:</strong> ${esc(MESSAGING_RULES.use.slice(0, 5).join(' · '))}.</li>
+        <li><strong>CTA:</strong> Book a demo · <strong>Price:</strong> Starting at $10/hour where relevant.</li>
+      </ul>
+    </div>
+    ${renderLaunchBatch()}
+    <div class="library-divider" id="copy-library">
+      <h2>Copy Library (Reference / Backup)</h2>
+      <p>${total} additional primary-text variations · ${ANGLES.length} legacy angles × 25 · use only after the first batch is live</p>
+    </div>
+    <div class="rules">
+      <h3>Facebook best practices (library copy)</h3>
       <ul>
         <li><strong>First ~${FEED_VISIBLE} characters win</strong> — mobile truncates; ~1% tap See more. Each card shows a feed preview.</li>
         <li><strong>Hook in line 1</strong> — outcome, pain, or offer. Must work alone if nothing expands.</li>
-        <li><strong>One CTA</strong> — Book a demo / Talk to our team (form-fill). No multi-CTA clutter.</li>
-        <li><strong>Specific &amp; true</strong> — site claims only. Practice-ops POV. No fake testimonials.</li>
-        <li><strong>Light emoji</strong> — sparingly for scanability, never decoration spam.</li>
-        <li><strong>Test 3–5 per ad set</strong> — Meta can optimize across primary-text variants; pick from one angle first.</li>
+        <li><strong>One CTA</strong> — Book a demo (form-fill). No multi-CTA clutter.</li>
+        <li><strong>Specific &amp; true</strong> — verified claims only. Practice-ops POV. No fake testimonials.</li>
       </ul>
     </div>
     <nav class="toc">${toc}</nav>

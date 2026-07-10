@@ -9,6 +9,13 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { spawnSync } from 'child_process';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
+import {
+  BUCKET_COLORS,
+  BUCKET_LABELS,
+  FIRST_BATCH_COUNT,
+  TEMPLATE_BUCKET_MAP,
+  TEST_BUCKETS,
+} from './first-test-batch-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -21,44 +28,84 @@ const LOGO = '/assets/logo/medvirtual-logo.svg';
  * Site-backed claims only: $10/hr · HIPAA-trained · Pre-vetted · Ready in days.
  */
 const COPY = {
+  front_desk_overload: {
+    angle: 'Front Desk Overload',
+    hook: 'Missed calls should not pile up.',
+    hookAccent: 'pile up',
+    support: 'Hire full-time virtual staff through MedVirtual.',
+    bullets: ['Calls', 'Scheduling'],
+    cta: 'Book a Demo',
+  },
+  dental: {
+    angle: 'Dental Practice Support',
+    hook: 'Hire virtual dental admin support.',
+    hookAccent: 'dental admin',
+    support: 'Scheduling, reminders & insurance coordination.',
+    bullets: ['Scheduling', 'Pre-auth'],
+    cta: 'Book a Demo',
+  },
+  insurance_billing: {
+    angle: 'Insurance / Billing Support',
+    hook: 'Check coverage before appointments.',
+    hookAccent: 'coverage',
+    support: 'Virtual medical billers · Starting at $10/hour.',
+    bullets: ['Verification', 'Billing'],
+    cta: 'Book a Demo',
+  },
+  virtual_med_admin: {
+    angle: 'Virtual Medical Admin',
+    hook: 'Your virtual medical admin joins the team.',
+    hookAccent: 'joins the team',
+    support: 'Calls, scheduling, EMR updates & intake.',
+    bullets: ['EMR', 'Intake'],
+    cta: 'Book a Demo',
+  },
+  before_after: {
+    angle: 'Before/After MedVirtual',
+    hook: 'Before overload. After support.',
+    hookAccent: 'After support',
+    support: 'Hire full-time virtual staff through MedVirtual.',
+    bullets: ['Remote', 'Full-time'],
+    cta: 'Book a Demo',
+  },
   missed_calls: {
-    angle: 'Missed Calls',
+    angle: 'Front Desk Overload',
     hook: 'Patient calls should not hit voicemail.',
     hookAccent: 'voicemail',
-    support: 'Remote medical admin support for busy practices.',
+    support: 'Hire full-time virtual staff through MedVirtual.',
     bullets: ['Calls', 'Scheduling'],
     cta: 'Book a Demo',
   },
   front_desk: {
-    angle: 'Front Desk Backup',
-    hook: 'Give your front desk backup.',
-    hookAccent: 'backup',
-    support: 'Help with calls, intake, scheduling, and follow-up.',
+    angle: 'Front Desk Overload',
+    hook: 'Support your overloaded practice team.',
+    hookAccent: 'practice team',
+    support: 'Hire virtual staff for calls, intake & scheduling.',
     bullets: ['Calls', 'Intake'],
-    cta: 'See How It Works',
+    cta: 'Book a Demo',
   },
   scheduling: {
-    angle: 'Scheduling',
-    hook: 'Keep scheduling moving.',
+    angle: 'Dental Practice Support',
+    hook: 'Keep dental scheduling moving.',
     hookAccent: 'scheduling',
-    support: 'Add support for appointments and patient follow-up.',
-    bullets: ['Scheduling', 'Follow-up'],
-    cta: 'Learn More',
+    support: 'Virtual dental admin · patient reminders.',
+    bullets: ['Scheduling', 'Reminders'],
+    cta: 'Book a Demo',
   },
   hiring_gap: {
-    angle: 'Hiring Gap',
-    hook: 'Add support without another in-office hire.',
-    hookAccent: 'in-office hire',
-    support: 'Pre-vetted medical virtual assistants starting at $10/hr.',
+    angle: 'Virtual Medical Admin',
+    hook: 'Add a virtual staff member to your team.',
+    hookAccent: 'your team',
+    support: 'Full-time trained virtual medical staff.',
     bullets: ['HIPAA-trained', 'Ready in days'],
-    cta: 'Get Started',
+    cta: 'Book a Demo',
   },
   admin_backlog: {
-    angle: 'Admin Backlog',
-    hook: 'Clear repetitive admin work.',
-    hookAccent: 'admin work',
-    support: 'Support for intake, verification, billing tasks, and more.',
-    bullets: ['Intake', 'Verification'],
+    angle: 'Virtual Medical Admin',
+    hook: 'EMR updates & admin — handled remotely.',
+    hookAccent: 'handled remotely',
+    support: 'Virtual Medical Admin Assistants · $10/hour.',
+    bullets: ['EMR', 'Intake'],
     cta: 'Book a Demo',
   },
 };
@@ -186,6 +233,12 @@ function esc(s) {
 }
 
 function t(opts) {
+  const bucketId = opts.testBucket || TEMPLATE_BUCKET_MAP[opts.id] || 'virtual_med_admin';
+  const mediaType =
+    opts.mediaType ||
+    (opts.ratio === '9x16' && (bucketId === 'before_after' || opts.ronaldJinCandidate === 'yes')
+      ? 'video'
+      : 'static');
   return {
     layoutRating: 'A',
     faceSafe: 'yes',
@@ -202,6 +255,8 @@ function t(opts) {
     ctaTiming: 'Appear at ~8s; hold through end',
     motionNote: 'Light Ken Burns 4–6%. Keep face clear.',
     editorNote: 'VO / practice-ops POV only. No fake testimonial.',
+    testBucket: bucketId,
+    mediaType,
     ...opts,
   };
 }
@@ -290,7 +345,9 @@ async function buildTests() {
       priceClaim: 'none',
       hipaaClaim: 'none',
       ronaldJinCandidate: 'yes',
-      notes: 'TOP 5 · Strongest 9:16. First-frame hook for Reels.',
+      testBucket: 'before_after',
+      mediaType: 'video',
+      notes: 'TOP 5 · Before/After video prototype. First-frame hook for Reels.',
       firstFrameHookArea: 'top',
       motionNote: 'Hold H1 2s. Reveal support. CTA last 4s. 18–22s. Simple text reveal + light zoom.',
     }),
@@ -331,11 +388,12 @@ async function buildTests() {
       imageId: 'IMG_AI_010_9X16_SUBJECT_LEFT',
       imageFamily: 'blue_scrubs_headset',
       subjectSide: 'left',
-      copy: COPY.front_desk,
+      copy: COPY.dental,
       modifiers: 'text-panel',
       style: 'stamp-10',
       priceClaim: 'site_$10',
-      notes: 'Strong vertical for front desk backup. $10/hr site-backed.',
+      testBucket: 'dental_practice',
+      notes: 'Dental practice vertical. $10/hr site-backed.',
     }),
     t({
       id: 'T1-FD-11',
@@ -569,10 +627,11 @@ async function buildTests() {
       imageId: 'IMG_AI_004_4X5_FACE_RIGHT',
       imageFamily: 'blue_scrubs_headset',
       subjectSide: 'right',
-      copy: COPY.admin_backlog,
+      copy: COPY.insurance_billing,
       layoutRating: 'B',
       modifiers: 'text-panel-wide copy-down',
-      notes: 'AI_004 workflow 4:5 — same source as T2-WF-916.',
+      testBucket: 'insurance_billing',
+      notes: 'AI_004 workflow 4:5 — insurance/billing angle.',
     }),
     t({
       id: 'T2-WF-916',
@@ -582,10 +641,12 @@ async function buildTests() {
       imageId: 'IMG_AI_004_9X16_SUBJECT_RIGHT',
       imageFamily: 'blue_scrubs_headset',
       subjectSide: 'right',
-      copy: COPY.admin_backlog,
+      copy: COPY.insurance_billing,
       layoutRating: 'B',
       modifiers: 'text-panel-wide copy-down',
-      notes: 'Stories/Reels size for AI_004 workflow.',
+      testBucket: 'insurance_billing',
+      mediaType: 'video',
+      notes: 'Stories/Reels — insurance verification. Video candidate.',
     }),
     t({
       id: 'T2-WF-11',
@@ -595,10 +656,11 @@ async function buildTests() {
       imageId: 'IMG_AI_004_1X1_FACE_CENTER',
       imageFamily: 'blue_scrubs_headset',
       subjectSide: 'right',
-      copy: COPY.admin_backlog,
+      copy: COPY.insurance_billing,
       layoutRating: 'B',
       modifiers: 'text-panel-wide copy-down',
-      notes: '1x1 Meta/carousel size for AI_004.',
+      testBucket: 'insurance_billing',
+      notes: '1x1 Meta/carousel — insurance/billing.',
     }),
 
     // ── TEMPLATE 3: CENTER_TOP_BAND ──
@@ -969,6 +1031,26 @@ const CSS = `
 
   .style-badge { display: inline-block; font-size: 0.64rem; font-weight: 800; padding: 0.18rem 0.5rem;
     border-radius: 4px; margin: 0.3rem 0.25rem 0 0; background: #312e81; color: #c7d2fe; }
+  .bucket-tag {
+    display: inline-block; font-size: 0.64rem; font-weight: 800; padding: 0.2rem 0.5rem;
+    border-radius: 4px; margin: 0.3rem 0.25rem 0 0; color: #fff;
+  }
+  .media-tag {
+    display: inline-block; font-size: 0.64rem; font-weight: 800; padding: 0.2rem 0.5rem;
+    border-radius: 4px; margin: 0.3rem 0.25rem 0 0;
+  }
+  .media-tag.static { background: #1e3a5f; color: #bfdbfe; }
+  .media-tag.video { background: #7c2d12; color: #ffedd5; }
+  .batch-intro {
+    padding: 1rem 2rem; background: #0f172a; border-bottom: 1px solid #1f2937;
+    font-size: 0.82rem; color: #94a3b8;
+  }
+  .batch-intro h2 { font-size: 0.95rem; color: #5eead4; margin-bottom: 0.4rem; }
+  .batch-intro a { color: #99f6e4; font-weight: 650; }
+  .batch-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+  .batch-pill {
+    font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; color: #fff;
+  }
 
   /* PERSON_LEFT_HOOK_RIGHT — H1 top-right, below white fade */
   .tpl-left .copy { top: 11%; right: 4%; left: 40%; }
@@ -1143,6 +1225,14 @@ function renderMock(x, index = 0) {
     x.ronaldJinCandidate === 'yes'
       ? '<span class="badge proto">RONALD/JIN PROTOTYPE</span>'
       : '';
+  const bucketId = x.testBucket || 'virtual_med_admin';
+  const bucketLabel = BUCKET_LABELS[bucketId] || bucketId;
+  const bucketColor = BUCKET_COLORS[bucketId] || '#334155';
+  const mediaType = x.mediaType || 'static';
+  const mediaNote =
+    mediaType === 'video'
+      ? 'Short-form video candidate — text reveal + light zoom'
+      : 'Static creative — feed/story export';
   return `
   <div class="card">
     <div class="mock ${ratioClass(x.ratio)} ${tplClass(x.template)} ${mods} style-${style} ${shapeClass}">
@@ -1163,6 +1253,9 @@ function renderMock(x, index = 0) {
       <div class="id">${esc(x.id)} · ${esc(x.imageId)}</div>
       <div><strong>${esc(x.template)}</strong> · ${esc(x.ratio)} · ${esc(x.subjectSide || '—')}</div>
       <div style="margin-top:0.2rem;color:#94a3b8">${esc(x.copy.angle)}</div>
+      <span class="bucket-tag" style="background:${bucketColor}">${esc(bucketLabel)}</span>
+      <span class="media-tag ${esc(mediaType)}">${mediaType === 'video' ? 'Video' : 'Static'}</span>
+      <div class="hook-line"><strong>Format note:</strong> ${esc(mediaNote)}</div>
       <div class="hook-line"><strong>H1:</strong> ${esc(x.copy.hook)}</div>
       <div class="hook-line"><strong>Support:</strong> ${esc(x.copy.support || '—')}</div>
       <div class="hook-line"><strong>CTA:</strong> ${esc(cta || 'none')}</div>
@@ -1185,6 +1278,42 @@ function renderMock(x, index = 0) {
 
 async function main() {
   const tests = await buildTests();
+  const firstBatch = tests.filter((x) => x.phase === 'first_batch');
+  const bucketOrder = [
+    'front_desk_overload',
+    'dental_practice',
+    'insurance_billing',
+    'virtual_med_admin',
+    'before_after',
+  ];
+
+  const batchIntro = `<div class="batch-intro">
+    <h2>First Graphic Request Batch — Visual Reference</h2>
+    <p>${FIRST_BATCH_COUNT} ad concepts across 4 test buckets. Full copy &amp; brief: <a href="/graphic-request-brief.html">graphic-request-brief.html</a> · Launch copy: <a href="/facebook-ad-copy.html#launch-batch">facebook-ad-copy.html</a></p>
+    <div class="batch-pills">
+      ${bucketOrder
+        .map(
+          (id) =>
+            `<span class="batch-pill" style="background:${BUCKET_COLORS[id]}">${esc(BUCKET_LABELS[id])}</span>`,
+        )
+        .join('')}
+    </div>
+  </div>`;
+
+  const firstBatchBody = bucketOrder
+    .map((bucketId) => {
+      const items = firstBatch.filter((x) => x.testBucket === bucketId);
+      if (!items.length) return '';
+      const staticCount = items.filter((x) => x.mediaType !== 'video').length;
+      const videoCount = items.filter((x) => x.mediaType === 'video').length;
+      return `<div class="section-head" id="bucket-${esc(bucketId)}">
+        <h2>${esc(BUCKET_LABELS[bucketId])}</h2>
+        <p>First-batch templates · ${items.length} layouts · ${staticCount} static · ${videoCount} video candidate(s)</p>
+      </div>
+      <div class="grid">${items.map((item, i) => renderMock(item, i)).join('')}</div>`;
+    })
+    .join('');
+
   const groups = [
     { key: 'PERSON_LEFT_HOOK_RIGHT', title: 'Template 1 — Person left', subtitle: 'H1 top-right' },
     { key: 'PERSON_RIGHT_HOOK_LEFT', title: 'Template 2 — Person right', subtitle: 'H1 top-left' },
@@ -1192,7 +1321,11 @@ async function main() {
     { key: 'HEADSHOT_TRUST_CARD', title: 'Headshots (Phase 2)', subtitle: 'Retargeting / trust only — not first cold test' },
   ];
 
-  const body = groups
+  const body =
+    batchIntro +
+    firstBatchBody +
+    `<div class="section-head"><h2>All Templates by Layout</h2><p>Full template library grouped by layout type (includes Phase 2 headshots)</p></div>` +
+    groups
     .map((g) => {
       const items = tests.filter((x) => x.template === g.key);
       if (!items.length) return '';
@@ -1215,7 +1348,7 @@ async function main() {
   ${renderDocHeader({
     activeId: 'templates',
     pageTitle: 'Template Test Board',
-    pageSubtitle: 'Meta cleanup: outcome H1s · $10/hr only · HIPAA-trained · face-safe · Phase 2 headshots = retarget',
+    pageSubtitle: `First batch: ${FIRST_BATCH_COUNT} concepts · bucket labels · static vs video notes · CMO positioning`,
   })}
   ${body}
 </body>
