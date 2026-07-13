@@ -1,4 +1,4 @@
-# Meta Draft Review Checklist (Before CMO Review)
+# Meta Draft Review Checklist (Before Final Review)
 
 Use this after the draft campaign exists in Ads Manager and before asking Haylie to approve publish.
 

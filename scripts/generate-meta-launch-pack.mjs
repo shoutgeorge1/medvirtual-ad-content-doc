@@ -1195,7 +1195,7 @@ Those are future tests only.
 }
 
 function writeDraftReviewChecklist() {
-  const md = `# Meta Draft Review Checklist (Before CMO Review)
+  const md = `# Meta Draft Review Checklist (Before Final Review)
 
 Use this after the draft campaign exists in Ads Manager and before asking Haylie to approve publish.
 
