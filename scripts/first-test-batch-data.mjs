@@ -416,6 +416,8 @@ export const PRODUCTION_CONCEPTS = [
     warning: 'Do not imply MedVirtual operates or replaces the clinic front desk.',
     primaryText:
       'Medical practice owners: add full-time virtual support without adding office space.\n\nHire full-time virtual staff through MedVirtual — part of your practice team.\n\nBook a demo →',
+    metaHeadline: 'Medical Practice Owners',
+    description: 'Full-time virtual staff for medical practices.',
   },
   {
     id: '2',
@@ -429,6 +431,8 @@ export const PRODUCTION_CONCEPTS = [
     warning: 'Keep the visual clearly dental-specific without using graphic clinical imagery.',
     primaryText:
       'Dental practice owners: get help with scheduling, insurance, and patient follow-up.\n\nHire full-time virtual dental staff through MedVirtual — part of your practice team.\n\nBook a demo →',
+    metaHeadline: 'Dental Practice Owners',
+    description: 'Virtual staff for dental scheduling and follow-up.',
   },
   {
     id: '3',
@@ -442,6 +446,8 @@ export const PRODUCTION_CONCEPTS = [
     warning: 'Do not make the person look like a generic call-center agent or a job-seeker ad.',
     primaryText:
       'Hire a full-time virtual medical admin through MedVirtual.\n\nTrained virtual staff for calls, scheduling, intake, and admin support — part of your practice team.\n\nBook a demo →',
+    metaHeadline: 'Hire a Virtual Medical Admin',
+    description: 'Trained virtual staff for medical practices.',
   },
   {
     id: '4',
@@ -455,6 +461,8 @@ export const PRODUCTION_CONCEPTS = [
     warning: 'Keep the message simple. Do not add a long list of tasks.',
     primaryText:
       'Too many calls. Not enough staff.\n\nHire full-time virtual staff through MedVirtual — starting at $10/hour.\n\nBook a demo →',
+    metaHeadline: 'Too Many Calls. Not Enough Staff.',
+    description: 'Full-time virtual staff starting at $10/hour.',
   },
 ];
 

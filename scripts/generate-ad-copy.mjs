@@ -1,427 +1,145 @@
 /**
- * Facebook primary-text board — best angles × 25 variations each.
- * Follows Meta feed best practices:
- * - First ~125 chars = the ad (mobile truncates; ~1% tap See more)
- * - Hook / outcome / offer in line 1
- * - One CTA only (form-fill)
- * - Site-aligned claims only · light emoji · practice-ops POV
+ * Facebook Ad Copy — Meta-ready packages for the 4 production concepts only.
  */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
-import { PRODUCTION_CONCEPTS, FIRST_BATCH_COUNT, ARCHIVED_CONCEPTS, MESSAGING_RULES, PRODUCTION_DELIVERABLES_NOTE } from './first-test-batch-data.mjs';
+import { PRODUCTION_CONCEPTS, FIRST_BATCH_COUNT } from './first-test-batch-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const PUBLIC = path.join(ROOT, 'public');
 
-const FEED_VISIBLE = 125;
-
 function esc(s) {
-  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
-function firstLine(text) {
-  return text.split(/\n/)[0] || '';
+function packageText(c) {
+  return [
+    `ON-IMAGE HEADLINE: ${c.headline}`,
+    `SUPPORT: ${c.support}`,
+    '',
+    `PRIMARY TEXT:`,
+    c.primaryText,
+    '',
+    `META HEADLINE: ${c.metaHeadline}`,
+    `DESCRIPTION: ${c.description}`,
+    `CTA: ${c.cta}`,
+  ].join('\n');
 }
 
-function visiblePreview(text) {
-  if (text.length <= FEED_VISIBLE) return text;
-  return text.slice(0, FEED_VISIBLE);
+function renderPrimary(text) {
+  return text
+    .split(/\n\n+/)
+    .map((p) => `<p class="primary-p">${esc(p)}</p>`)
+    .join('');
 }
 
-/** Site-aligned facts (from medvirtual.ai) — use only verified claims */
-const SITE = {
-  rate: 'Starting at $10/hour',
-  monthly: '$1,760/mo full-time',
-  trust: 'Trusted by 250+ healthcare practices',
-  badges: 'HIPAA-trained · Pre-vetted · Ready in days',
-  cta: 'Book a demo',
-  ctaAlt: 'Talk to our team',
-};
-
-/**
- * 5 best angle families × 25 primary texts.
- * Structure: HOOK (stands alone in ~125 chars) → proof/detail → one CTA.
- * Mix of feed-safe shorts (≤125) and expandable longs with a strong first line.
- */
-const ANGLES = [
-  {
-    id: 'full_time',
-    title: 'Full-time coverage · Team of four, price of one',
-    pairsWith: 'T1-MC / T2-RMA · strongest cold hooks',
-    siteAlign: 'Full-time dedicated medical staff · Starting at $10/hr',
-    texts: [
-      `Team of four, price of one — full-time medical virtual assistants.\n\n${SITE.badges}\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Full-time medical virtual assistants — without another in-office hire.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Get full-time medical admin support starting at $10/hour.\n\nHIPAA-trained. Pre-vetted. Ready in days.\n\n${SITE.cta} →`,
-      `Your practice deserves full-time backup — not another stretched hire.\n\nRemote medical virtual assistants.\n\n${SITE.cta} →`,
-      `Full-time dedicated medical staff for your practice — remote.\n\n${SITE.monthly}\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Stop stretching your front desk thinner. Add full-time VA support.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Team of four. Price of one.\n\nFull-time medical virtual assistants for calls, scheduling, and admin.\n\n${SITE.cta} →`,
-      `Need full-time coverage without full-time overhead?\n\nMedVirtual — ${SITE.rate.toLowerCase()}.\n\n${SITE.ctaAlt} →`,
-      `Build capacity — not payroll bloat.\n\nFull-time remote medical admin for US healthcare practices.\n\n${SITE.cta} →`,
-      `✅ Full-time medical VAs · HIPAA-trained · Ready in days\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Keep the practice running at full capacity with remote medical VAs.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `What if full-time help didn’t mean another in-office hire?\n\nMedVirtual medical virtual assistants.\n\n${SITE.ctaAlt} →`,
-      `Dedicated. Full-time. Remote. Starting at $10/hour.\n\nMedical virtual assistants for healthcare practices.\n\n${SITE.cta} →`,
-      `More coverage. Less overhead. Full-time medical virtual assistants.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Full-time medical admin help — without the hire headache.\n\nReady in days.\n\n${SITE.cta} →`,
-      `Scale your team without scaling your office footprint.\n\nFull-time medical virtual assistants.\n\n${SITE.cta} →`,
-      `📞 Calls · 📅 Scheduling · 📋 Admin — covered full-time.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `The backup your front desk has been asking for.\n\nFull-time medical VAs — starting at $10/hour.\n\n${SITE.cta} →`,
-      `${SITE.trust}.\n\nFull-time medical virtual assistants — ${SITE.rate.toLowerCase()}.\n\n${SITE.cta} →`,
-      `Team of four, price of one.\n\nSee how MedVirtual supports practices with full-time medical VAs.\n\n${SITE.cta} →`,
-      `Full-time medical virtual assistants for busy practices.\n\n${SITE.badges}\n${SITE.rate}\n\n${SITE.cta} →`,
-      `One full-time dedicated medical staff member — remote & ready.\n\n${SITE.monthly}\n\n${SITE.cta} →`,
-      `Patients expect answers. Your team needs full-time backup.\n\nStarting at $10/hour.\n\n${SITE.cta} →`,
-      `Full-time support for calls, intake, follow-up, and admin.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Practices choose MedVirtual for full-time medical VA support.\n\n${SITE.trust}.\n\n${SITE.cta} →`,
-    ],
-  },
-  {
-    id: 'missed_calls',
-    title: 'Missed calls · Answer more patient calls',
-    pairsWith: 'T1-MC · AI_003',
-    siteAlign: 'Front-office / admin support · patient communication',
-    texts: [
-      `Missing calls = missing patients. Get phone & scheduling backup.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Patient calls shouldn’t die in voicemail.\n\nRemote medical admin support for busy practices.\n\n${SITE.cta} →`,
-      `Every missed call is a patient who may not call back.\n\nGet front-desk backup with MedVirtual.\n\n${SITE.ctaAlt} →`,
-      `Answer more patient calls — without another in-office hire.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Voicemail is not a growth strategy.\n\nFull-time medical VA support — starting at $10/hour.\n\n${SITE.cta} →`,
-      `When the phones won’t stop, your team needs backup.\n\nHIPAA-trained medical virtual assistants.\n\n${SITE.cta} →`,
-      `Your front desk can’t be everywhere at once.\n\nRemote VAs for calls and scheduling.\n\n${SITE.cta} →`,
-      `📞 Patient calls deserve a real answer — not a full mailbox.\n\nReady in days.\n\n${SITE.cta} →`,
-      `Stop losing new patients to unanswered rings.\n\nRemote medical admin for US practices.\n\n${SITE.cta} →`,
-      `More rings answered. Less front-desk burnout.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `If phones are busier than your schedule, you need backup.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Help your team answer more patient calls — consistently.\n\nHIPAA-trained medical VAs.\n\n${SITE.cta} →`,
-      `Don’t let voicemail become your front desk.\n\nRemote medical VAs — starting at $10/hour.\n\n${SITE.cta} →`,
-      `Missed calls cost more than you think.\n\nAdd remote medical admin support.\n\n${SITE.cta} →`,
-      `When hold times climb, patients leave.\n\nFull-time medical VA coverage can help.\n\n${SITE.cta} →`,
-      `Support for the busiest line in the office — the phone.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Patient access starts with someone picking up.\n\nMedVirtual for calls & scheduling.\n\n${SITE.cta} →`,
-      `Fewer missed calls. More booked appointments.\n\nTalk to our team about full-time medical VA support →`,
-      `Keep patients from hanging up — add remote phone support.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Busy phones. Short staff. Same story every week?\n\nAdd full-time remote medical admin.\n\n${SITE.cta} →`,
-      `Answer the call. Book the visit. Keep the day moving.\n\nMedical VAs for busy practices.\n\n${SITE.cta} →`,
-      `Give every patient call a better chance of getting through.\n\n${SITE.trust}.\n\n${SITE.cta} →`,
-      `Calls. Scheduling. Follow-up — so fewer patients slip away.\n\n${SITE.cta} →`,
-      `Your patients are calling. Is someone there?\n\nFull-time medical VAs for practice ops.\n\n${SITE.ctaAlt} →`,
-      `Front-desk phones shouldn’t run the practice into the ground.\n\nBackup from $10/hour.\n\n${SITE.cta} →`,
-    ],
-  },
-  {
-    id: 'front_desk',
-    title: 'Front desk overload · Give your team backup',
-    pairsWith: 'T1-FD / T1-FD2 · AI_010 / AI_015',
-    siteAlign: 'Medical admin · intake · scheduling · EMR support',
-    texts: [
-      `Front desk overloaded? Add full-time medical VA backup.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Give your front desk backup — calls, intake, everyday admin.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Your front desk shouldn’t carry the whole practice alone.\n\nRemote medical admin support.\n\n${SITE.ctaAlt} →`,
-      `Stop asking one person to do five jobs.\n\nMedVirtual medical virtual assistants.\n\n${SITE.cta} →`,
-      `Intake. Phones. Scheduling. Follow-up — get expert VA help.\n\n${SITE.cta} →`,
-      `Relieve front-desk pressure starting at $10/hour.\n\nHIPAA-trained medical virtual assistants.\n\n${SITE.cta} →`,
-      `When the waiting room and the phone both need you — get backup.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Your team is great — they’re just outnumbered.\n\nAdd full-time medical VA coverage.\n\n${SITE.cta} →`,
-      `✅ Calls · ✅ Intake · ✅ Scheduling support\n\nRemote medical VAs for busy offices.\n\n${SITE.cta} →`,
-      `Don’t wait until someone burns out to add help.\n\nRemote medical admin — ready in days.\n\n${SITE.cta} →`,
-      `Give your front desk a teammate — remote, trained, ready.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Less chaos at the desk. More consistency for patients.\n\nMedical VAs for practice operations.\n\n${SITE.cta} →`,
-      `Overloaded mornings. Overflowing inboxes. Same every week?\n\nFull-time medical VAs can help.\n\n${SITE.cta} →`,
-      `Backup for the people who keep your schedule alive.\n\nHIPAA-trained medical VAs.\n\n${SITE.cta} →`,
-      `Front desk running on fumes? Support from $10/hour.\n\n${SITE.cta} →`,
-      `Help your team protect the patient experience — at the desk.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `More hands for the work patients notice first.\n\nFull-time medical virtual assistants.\n\n${SITE.cta} →`,
-      `Your front desk deserves a full-time partner.\n\nMedVirtual medical virtual assistants.\n\n${SITE.cta} →`,
-      `Give your front desk backup — before the next busy Monday.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Busy practices need more than “we’ll figure it out.”\n\nFull-time remote medical admin.\n\n${SITE.cta} →`,
-      `Front-desk backup that understands healthcare workflows.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Admin work expands to fill every spare minute — and person.\n\nGet help.\n\n${SITE.cta} →`,
-      `The front desk is the heartbeat of the practice. Keep it supported.\n\n${SITE.ctaAlt} →`,
-      `Expert virtual medical assistant support for intake, calls & admin.\n\n${SITE.trust}.\n\n${SITE.cta} →`,
-      `Scheduling, calls, and admin — covered with remote support.\n\n${SITE.ctaAlt} →`,
-    ],
-  },
-  {
-    id: 'hiring_gap',
-    title: 'Hiring gap · Remote MA without another in-office hire',
-    pairsWith: 'T2-RMA / T2-RMA2 · AI_007 / AI_013',
-    siteAlign: 'Fast hiring · pre-vetted · ready in days · $10/hr',
-    texts: [
-      `Hiring taking too long? Pre-vetted medical VAs — ready in days.\n\n${SITE.cta} →`,
-      `Add support without another in-office hire.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Need help now — not after another round of interviews?\n\nMedVirtual medical VAs.\n\n${SITE.ctaAlt} →`,
-      `Skip the “post and hope” hiring cycle. Full-time remote VAs from $10/hr.\n\n${SITE.cta} →`,
-      `Your open role costs you every week it stays open.\n\nFill the gap with a pre-vetted medical VA.\n\n${SITE.cta} →`,
-      `Get an expert virtual medical assistant — without the 3-month slog.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Another in-office hire isn’t the only option.\n\nRemote medical VAs for US healthcare practices.\n\n${SITE.cta} →`,
-      `Staffing gap? Start with remote medical admin support.\n\n${SITE.monthly}\n\n${SITE.cta} →`,
-      `✅ Pre-vetted · ✅ HIPAA-trained · ✅ Ready in days\n\nMedical VAs for busy practices.\n\n${SITE.cta} →`,
-      `Don’t pause growth while you hunt for the perfect local hire.\n\nAdd remote coverage now.\n\n${SITE.cta} →`,
-      `When hiring stalls, operations shouldn’t.\n\nFull-time medical virtual assistants.\n\n${SITE.cta} →`,
-      `Hire slower. Cover faster — with MedVirtual medical VAs.\n\n${SITE.cta} →`,
-      `Expert admin help without expanding office headcount.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `The alternative to “we’ll just work harder until we hire.”\n\nRemote medical admin.\n\n${SITE.ctaAlt} →`,
-      `Need a medical VA who’s ready to work — not train from zero?\n\nPre-vetted. Ready in days.\n\n${SITE.cta} →`,
-      `Fill the gap between “we need help” and “we finally hired.”\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Remote medical VAs — so your next hire isn’t a crisis hire.\n\nStarting at $10/hour.\n\n${SITE.cta} →`,
-      `Support without the office chair and 90-day ramp.\n\n${SITE.ctaAlt} →`,
-      `A full-time dedicated medical staff member — remote.\n\n${SITE.monthly}\n\n${SITE.cta} →`,
-      `Stop choosing between overwork and a rushed hire. There’s a third option.\n\n${SITE.cta} →`,
-      `Hiring gap? Cover it with MedVirtual — ready in days.\n\nHIPAA-trained medical VAs.\n\n${SITE.cta} →`,
-      `Fast support for practices that can’t wait on hiring.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Get matched with medical VAs experienced in US healthcare workflows.\n\n${SITE.trust}.\n\n${SITE.cta} →`,
-      `Get an expert VA for admin, scheduling support, and follow-up.\n\n${SITE.cta} →`,
-      `Practices use MedVirtual to add capacity while hiring stays open.\n\n${SITE.cta} →`,
-    ],
-  },
-  {
-    id: 'cost_admin',
-    title: 'Admin backlog · Clear work · Cut overhead',
-    pairsWith: 'T2-ADM / T3 / T4 · AI_014 / AI_008',
-    siteAlign: 'Cut overhead · insurance verification · EMR · billing support · $10/hr',
-    texts: [
-      `Clear the admin backlog — intake, verification, follow-up & more.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-      `Cut overhead without cutting care. HIPAA-compliant medical VAs.\n\n${SITE.ctaAlt} →`,
-      `Admin backlog growing faster than your schedule?\n\nFull-time medical VAs can help.\n\n${SITE.cta} →`,
-      `Your providers didn’t go to school to chase paperwork.\n\nMedical VAs for practice ops.\n\n${SITE.cta} →`,
-      `Transparent pricing. Predictable support. Starting at $10/hour.\n\n${SITE.cta} →`,
-      `Insurance verification. EMR updates. Follow-ups — remote help.\n\n${SITE.cta} →`,
-      `Less admin drag. More patient-facing capacity.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `The backlog doesn’t clear itself. Add remote medical admin.\n\n${SITE.cta} →`,
-      `✅ Insurance verification · ✅ EMR support · ✅ Follow-up\n\nRemote medical VAs.\n\n${SITE.cta} →`,
-      `Repetitive admin is expensive when your best people do it.\n\nDelegate with MedVirtual.\n\n${SITE.cta} →`,
-      `Full-time medical staff support — without full-time office overhead.\n\n${SITE.monthly}\n\n${SITE.cta} →`,
-      `Keep care quality high — and admin costs in check.\n\n${SITE.trust}.\n\n${SITE.cta} →`,
-      `Billing data, claims support, patient billing inquiries — covered.\n\nFrom $10/hour.\n\n${SITE.cta} →`,
-      `If admin is always “later,” it’s already late. Get help — ready in days.\n\n${SITE.cta} →`,
-      `Cut the cost of routine admin — without cutting compliance corners.\n\nHIPAA-trained talent.\n\n${SITE.cta} →`,
-      `Your backlog is a staffing problem in an admin costume.\n\nMedVirtual can help.\n\n${SITE.cta} →`,
-      `Clear repetitive back-office work with remote medical VAs.\n\n${SITE.cta} →`,
-      `Less overhead. Same standard of care. Full-time medical VAs from $10/hr.\n\n${SITE.cta} →`,
-      `Healthcare VAs for billing support, insurance verification & EMR.\n\n${SITE.cta} →`,
-      `More ops output — without more chaos in your office.\n\nFull-time medical VAs.\n\n${SITE.cta} →`,
-      `Admin work is real work — it deserves dedicated support.\n\nStarting at $10/hour.\n\n${SITE.cta} →`,
-      `Stop letting back-office tasks set the pace of the practice.\n\n${SITE.ctaAlt} →`,
-      `Support tailored to practice operations — not generic VAs.\n\n${SITE.trust}.\n\n${SITE.cta} →`,
-      `Clear the pile: intake, verification, scheduling support, follow-up.\n\n${SITE.badges}\n\n${SITE.cta} →`,
-      `Predictable pricing for medical virtual assistant services.\n\n${SITE.rate}\n\n${SITE.cta} →`,
-    ],
-  },
-];
+function renderCard(c, index) {
+  const pkg = packageText(c);
+  return `<article class="card">
+    <div class="card-head">
+      <span class="num">${index + 1}</span>
+      <h3>${esc(c.name)}</h3>
+      <button type="button" class="copy-btn" data-copy="${esc(pkg)}">Copy Meta package</button>
+    </div>
+    <div class="fields">
+      <div class="field">
+        <span class="label">On-image headline</span>
+        <p class="val headline">${esc(c.headline)}</p>
+      </div>
+      <div class="field">
+        <span class="label">Support</span>
+        <p class="val">${esc(c.support)}</p>
+      </div>
+      <div class="field field-primary">
+        <span class="label">Primary text</span>
+        <div class="primary">${renderPrimary(c.primaryText)}</div>
+      </div>
+      <div class="meta-row">
+        <div class="field">
+          <span class="label">Meta headline</span>
+          <p class="val">${esc(c.metaHeadline)}</p>
+        </div>
+        <div class="field">
+          <span class="label">Description</span>
+          <p class="val">${esc(c.description)}</p>
+        </div>
+        <div class="field">
+          <span class="label">CTA</span>
+          <p class="val cta">${esc(c.cta)}</p>
+        </div>
+      </div>
+    </div>
+  </article>`;
+}
 
 const CSS = `
   ${HEADER_CSS}
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.5; }
-  .wrap { max-width: 920px; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
-  .intro {
-    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
-    padding: 1.1rem 1.25rem; margin-bottom: 1rem; font-size: 0.9rem; color: #475569;
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; }
+  .banner {
+    background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 0.95rem 1.1rem; margin-bottom: 0.85rem;
   }
-  .intro strong { color: #0f172a; }
-  .intro a { color: #0d9488; font-weight: 650; }
-  .rules {
-    background: #0f172a; color: #e2e8f0; border-radius: 12px;
-    padding: 1rem 1.2rem; margin-bottom: 1.25rem; font-size: 0.84rem;
+  .banner h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
+  .banner p { font-size: 0.88rem; color: #cbd5e1; }
+  .banner a { color: #5eead4; font-weight: 700; text-decoration: none; }
+  .banner-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem; }
+  .banner-meta span {
+    font-size: 0.72rem; font-weight: 750; padding: 0.28rem 0.55rem; border-radius: 6px;
+    background: rgba(13,148,136,0.25); border: 1px solid rgba(94,234,212,0.35); color: #99f6e4;
   }
-  .rules h3 { margin: 0 0 0.5rem; font-size: 0.8rem; color: #5eead4; text-transform: uppercase; letter-spacing: 0.04em; }
-  .rules ul { margin: 0; padding-left: 1.1rem; color: #cbd5e1; }
-  .rules li { margin: 0.25rem 0; }
-  .rules code { font-size: 0.78rem; background: #1e293b; padding: 0.05rem 0.35rem; border-radius: 4px; color: #99f6e4; }
-  .toc { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0 0 1.5rem; }
-  .toc a {
-    font-size: 0.78rem; padding: 0.4rem 0.7rem; border-radius: 8px;
-    background: #0f172a; color: #fff; text-decoration: none; font-weight: 600;
-  }
-  .angle { margin: 2rem 0 0.5rem; scroll-margin-top: 110px; }
-  .angle h2 {
-    font-size: 1.05rem; color: #0f172a; padding-bottom: 0.4rem;
-    border-bottom: 2px solid #0d9488;
-  }
-  .angle .meta { font-size: 0.8rem; color: #64748b; margin: 0.4rem 0 0.85rem; }
+  .cards { display: grid; gap: 0.75rem; }
   .card {
-    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
-    padding: 0.85rem 1rem; margin-bottom: 0.65rem;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1rem;
   }
-  .card-top {
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 0.5rem; margin-bottom: 0.55rem; flex-wrap: wrap;
+  .card-head {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;
+    padding-bottom: 0.55rem; border-bottom: 1px solid #e2e8f0;
   }
-  .card-top-left { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
   .num {
-    font-family: ui-monospace, monospace; font-size: 0.72rem; font-weight: 700;
-    color: #0d9488; background: #ecfdf5; padding: 0.15rem 0.45rem; border-radius: 4px;
+    width: 1.85rem; height: 1.85rem; border-radius: 7px; background: #0d9488; color: #fff;
+    font-weight: 800; font-size: 0.88rem; display: grid; place-items: center;
   }
-  .badge {
-    font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 4px;
-    text-transform: uppercase; letter-spacing: 0.03em;
-  }
-  .badge.safe { background: #ecfdf5; color: #047857; }
-  .badge.expand { background: #fff7ed; color: #c2410c; }
+  .card-head h3 { flex: 1 1 auto; font-size: 0.92rem; font-weight: 800; color: #0f172a; }
   .copy-btn {
-    font-size: 0.72rem; font-weight: 650; color: #0f766e; background: #f0fdfa;
-    border: 1px solid #99f6e4; border-radius: 6px; padding: 0.25rem 0.55rem; cursor: pointer;
+    font-size: 0.74rem; font-weight: 750; color: #fff; background: #0d9488;
+    border: 0; border-radius: 7px; padding: 0.4rem 0.65rem; cursor: pointer;
   }
-  .copy-btn:hover { background: #ccfbf1; }
-  .copy-btn.done { background: #0d9488; color: #fff; border-color: #0d9488; }
-  .feed-preview {
-    background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px;
-    padding: 0.55rem 0.7rem; margin-bottom: 0.55rem; font-size: 0.82rem; color: #334155;
+  .copy-btn:hover { background: #0f766e; }
+  .copy-btn.done { background: #134e4a; }
+  .fields { display: grid; gap: 0.65rem; }
+  .label {
+    display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.04em; color: #0d9488; margin-bottom: 0.2rem;
   }
-  .feed-preview__label {
-    font-size: 0.65rem; font-weight: 700; color: #64748b; text-transform: uppercase;
-    letter-spacing: 0.04em; margin-bottom: 0.25rem;
+  .val { font-size: 0.92rem; color: #1e293b; font-weight: 650; }
+  .val.headline { font-size: 1.12rem; font-weight: 800; color: #0f172a; line-height: 1.25; }
+  .val.cta {
+    display: inline-block; background: #0d9488; color: #fff; font-size: 0.75rem;
+    font-weight: 800; padding: 0.25rem 0.55rem; border-radius: 6px;
   }
-  .feed-preview__text { white-space: pre-wrap; line-height: 1.4; }
-  .feed-preview__more { color: #64748b; font-weight: 600; }
-  .text {
-    white-space: pre-wrap; font-size: 0.88rem; color: #1e293b; line-height: 1.45;
+  .primary-p { font-size: 0.9rem; color: #1e293b; margin: 0 0 0.4rem; white-space: pre-wrap; }
+  .primary-p:last-child { margin-bottom: 0; }
+  .meta-row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.55rem;
+    padding-top: 0.55rem; border-top: 1px solid #e2e8f0;
   }
-  .chars { font-size: 0.7rem; color: #94a3b8; margin-top: 0.45rem; }
-  .chars.warn { color: #c2410c; }
-  .hook-len { font-size: 0.7rem; color: #64748b; }
-  .launch-banner {
-    background: linear-gradient(135deg, #0f172a, #134e4a); color: #e2e8f0;
-    border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1rem;
+  @media (max-width: 640px) { .meta-row { grid-template-columns: 1fr; } }
+  .note {
+    margin-top: 0.85rem; font-size: 0.82rem; color: #64748b; background: #fff;
+    border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.7rem 0.85rem;
   }
-  .launch-banner h2 { margin: 0 0 0.35rem; font-size: 1rem; color: #5eead4; }
-  .launch-banner p { margin: 0; font-size: 0.85rem; color: #cbd5e1; }
-  .launch-banner a { color: #99f6e4; font-weight: 650; }
-  .bucket-label {
-    font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 4px;
-    background: #0f172a; color: #fff;
-  }
-  .bucket-label.dental { background: #1d4ed8; }
-  .bucket-label.insurance { background: #6d28d9; }
-  .bucket-label.admin { background: #047857; }
-  .bucket-label.video { background: #c2410c; }
-  .launch-meta { font-size: 0.78rem; color: #64748b; margin: 0.15rem 0 0.5rem; }
-  .headlines { font-size: 0.8rem; color: #475569; margin-top: 0.35rem; }
-  .library-divider {
-    margin: 2.5rem 0 1.25rem; padding: 1rem 1.15rem;
-    background: #fff7ed; border: 1px solid #fed7aa; border-radius: 10px;
-  }
-  .library-divider h2 { margin: 0 0 0.35rem; font-size: 0.95rem; color: #9a3412; }
-  .library-divider p { margin: 0; font-size: 0.82rem; color: #c2410c; }
 `;
 
-function renderLaunchBatch() {
-  const cards = PRODUCTION_CONCEPTS.map((c) => {
-    const text = c.primaryText;
-    const len = text.length;
-    const hook = firstLine(text);
-    const preview = visiblePreview(text);
-    const truncated = len > FEED_VISIBLE;
-    const badge = truncated
-      ? `<span class="badge expand">See more</span>`
-      : `<span class="badge safe">Feed-safe</span>`;
-    const previewHtml = truncated
-      ? `${esc(preview)}<span class="feed-preview__more">… See more</span>`
-      : esc(preview);
-
-    return `<div class="card">
-      <div class="card-top">
-        <div class="card-top-left">
-          <span class="num">${esc(c.name)}</span>
-          ${badge}
-          <span class="hook-len">Line 1: ${hook.length} chars</span>
-        </div>
-        <button type="button" class="copy-btn" data-copy="${esc(text)}">Copy</button>
-      </div>
-      <p class="launch-meta"><strong>On-image headline:</strong> ${esc(c.headline)} · ${esc(c.support)}</p>
-      <div class="feed-preview">
-        <div class="feed-preview__label">Facebook primary text</div>
-        <div class="feed-preview__text">${previewHtml}</div>
-      </div>
-      <div class="text">${esc(text)}</div>
-      <div class="chars${truncated ? ' warn' : ''}">${len} characters</div>
-    </div>`;
-  }).join('');
-
-  const archivedList = ARCHIVED_CONCEPTS.map(
-    (c) => `<li><strong>${esc(c.name)}</strong> — ${esc(c.onImageText || c.headlines?.[0] || '')}</li>`,
-  ).join('');
-
-  return `<div class="launch-banner" id="launch-batch">
-      <h2>First Production Batch — ${FIRST_BATCH_COUNT} static concepts only</h2>
-      <p>1080×1350 feed only · one design per concept · no variations yet. Brief: <a href="/graphic-request-brief.html">graphic-request-brief.html</a></p>
-      <p style="margin-top:0.35rem;font-size:0.82rem;color:#cbd5e1">${esc(PRODUCTION_DELIVERABLES_NOTE)}</p>
-    </div>
-    <section class="angle" id="launch-production">
-      <h2>Production concepts</h2>
-      <p class="meta">One Facebook primary text per concept — matches on-image headlines in the graphic brief. Price on-image only for Pain-First (concept 4).</p>
-      ${cards}
-    </section>
-    <details style="margin:1.5rem 0;padding:1rem;background:#fff;border:1px dashed #cbd5e1;border-radius:10px">
-      <summary style="font-weight:700;font-size:0.88rem;color:#64748b;cursor:pointer">Additional concepts — do not produce yet</summary>
-      <ul style="margin-top:0.75rem;padding-left:1.2rem;font-size:0.82rem;color:#64748b">${archivedList}</ul>
-    </details>`;
-}
-
 function main() {
-  for (const angle of ANGLES) {
-    if (angle.texts.length !== 25) {
-      throw new Error(`${angle.id} has ${angle.texts.length} texts (need 25)`);
-    }
-  }
-
-  const total = ANGLES.reduce((n, a) => n + a.texts.length, 0);
-  const feedSafe = ANGLES.reduce(
-    (n, a) => n + a.texts.filter((t) => t.length <= FEED_VISIBLE).length,
-    0,
-  );
-
-  const toc = ANGLES.map(
-    (a) => `<a href="#${esc(a.id)}">${esc(a.title.split('·')[0].trim())} (${a.texts.length})</a>`,
-  ).join('');
-
-  const body = ANGLES.map((angle) => {
-    const cards = angle.texts
-      .map((text, i) => {
-        const len = text.length;
-        const hook = firstLine(text);
-        const preview = visiblePreview(text);
-        const truncated = len > FEED_VISIBLE;
-        const badge = truncated
-          ? `<span class="badge expand">See more</span>`
-          : `<span class="badge safe">Feed-safe</span>`;
-        const note = truncated
-          ? ` · expands past ${FEED_VISIBLE} (hook must stand alone)`
-          : ` · fully visible before See more`;
-        const previewHtml = truncated
-          ? `${esc(preview)}<span class="feed-preview__more">… See more</span>`
-          : esc(preview);
-
-        return `<div class="card">
-      <div class="card-top">
-        <div class="card-top-left">
-          <span class="num">${esc(angle.id)}-${String(i + 1).padStart(2, '0')}</span>
-          ${badge}
-          <span class="hook-len">Line 1: ${hook.length} chars</span>
-        </div>
-        <button type="button" class="copy-btn" data-copy="${esc(text)}">Copy</button>
-      </div>
-      <div class="feed-preview">
-        <div class="feed-preview__label">Mobile feed preview (~${FEED_VISIBLE} chars)</div>
-        <div class="feed-preview__text">${previewHtml}</div>
-      </div>
-      <div class="text">${esc(text)}</div>
-      <div class="chars${truncated ? ' warn' : ''}">${len} characters${note}</div>
-    </div>`;
-      })
-      .join('');
-
-    return `<section class="angle" id="${esc(angle.id)}">
-      <h2>${esc(angle.title)}</h2>
-      <p class="meta">Pairs with: ${esc(angle.pairsWith)} · Site: ${esc(angle.siteAlign)}</p>
-      ${cards}
-    </section>`;
-  }).join('');
+  const cards = PRODUCTION_CONCEPTS.map((c, i) => renderCard(c, i)).join('');
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -434,53 +152,34 @@ function main() {
 <body>
   ${renderDocHeader({
     activeId: 'copy',
-    pageTitle: 'Facebook Primary Text',
-    pageSubtitle: `First production batch: ${FIRST_BATCH_COUNT} concepts only · Reference library below`,
+    pageTitle: 'Facebook Ad Copy',
+    pageSubtitle: `${FIRST_BATCH_COUNT} Meta packages · labeled fields · paste-ready`,
   })}
   <div class="wrap">
-    <div class="intro">
-      <strong>Start here:</strong> <a href="/graphic-request-brief.html">Graphic Request Brief</a> — produce <strong>${FIRST_BATCH_COUNT} concepts only</strong>.
-      This page has one Facebook primary text per concept. The copy library below is backup only.
-    </div>
-    <div class="rules">
-      <h3>Messaging rules (CMO — first batch)</h3>
-      <ul>
-        <li><strong>Brand:</strong> MedVirtual only — never MedVirtual.ai in ad copy.</li>
-        <li><strong>Positioning:</strong> Practices hire full-time virtual staff through MedVirtual; staff join the practice team and work remotely.</li>
-        <li><strong>Do not</strong> imply MedVirtual is the front desk or a managed service provider.</li>
-        <li><strong>Use:</strong> ${esc(MESSAGING_RULES.use.slice(0, 5).join(' · '))}.</li>
-        <li><strong>CTA:</strong> Book a demo · <strong>Price:</strong> “Starting at $10/hour” on Pain-First concept only — confirm before spend.</li>
-      </ul>
-    </div>
-    ${renderLaunchBatch()}
-    <div class="library-divider" id="copy-library">
-      <h2>Copy Library (Reference / Backup)</h2>
-      <p>${total} additional primary-text variations · ${ANGLES.length} legacy angles × 25 · use only after the first batch is live</p>
-    </div>
-    <div class="rules">
-      <h3>Facebook best practices (library copy)</h3>
-      <ul>
-        <li><strong>First ~${FEED_VISIBLE} characters win</strong> — mobile truncates; ~1% tap See more. Each card shows a feed preview.</li>
-        <li><strong>Hook in line 1</strong> — outcome, pain, or offer. Must work alone if nothing expands.</li>
-        <li><strong>One CTA</strong> — Book a demo (form-fill). No multi-CTA clutter.</li>
-        <li><strong>Specific &amp; true</strong> — verified claims only. Practice-ops POV. No fake testimonials.</li>
-      </ul>
-    </div>
-    <nav class="toc">${toc}</nav>
-    ${body}
+    <header class="banner">
+      <h2>${FIRST_BATCH_COUNT} Meta copy packages</h2>
+      <p>Matches the <a href="/graphic-request-brief.html">Graphic Brief</a>. Paste into Ads Manager.</p>
+      <div class="banner-meta">
+        <span>Primary text</span>
+        <span>Headline</span>
+        <span>Description</span>
+        <span>CTA: Book a Demo</span>
+      </div>
+    </header>
+
+    <div class="cards">${cards}</div>
+
+    <p class="note">Brand: MedVirtual only — never MedVirtual.ai. “Starting at $10/hour” is on concept 4 only.</p>
   </div>
   <script>
     document.querySelectorAll('.copy-btn').forEach((btn) => {
       btn.addEventListener('click', async () => {
-        const t = btn.getAttribute('data-copy') || '';
         try {
-          await navigator.clipboard.writeText(t);
+          await navigator.clipboard.writeText(btn.getAttribute('data-copy') || '');
           btn.textContent = 'Copied';
           btn.classList.add('done');
-          setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1200);
-        } catch (e) {
-          btn.textContent = 'Select text';
-        }
+          setTimeout(() => { btn.textContent = 'Copy Meta package'; btn.classList.remove('done'); }, 1200);
+        } catch (e) {}
       });
     });
   </script>
@@ -489,32 +188,18 @@ function main() {
 
   fs.writeFileSync(path.join(PUBLIC, 'facebook-ad-copy.html'), html);
 
-  const md = `# Facebook Primary Text — MedVirtual
+  const md = `# Facebook Ad Copy — MedVirtual
 
-Aligned with [medvirtual.ai](https://www.medvirtual.ai/). ${ANGLES.length} angles × 25 = **${total}** variations.
+${FIRST_BATCH_COUNT} Meta packages. Source: [Graphic Brief](https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html)
 
-## Facebook best practices applied
-- First ~${FEED_VISIBLE} characters = the ad for most viewers (mobile truncates)
-- Hook / outcome / offer in line 1 — must stand alone
-- One form-fill CTA only
-- Verified site claims only · practice-ops POV · light emoji
-- ${feedSafe} of ${total} are fully feed-safe (≤${FEED_VISIBLE} chars); the rest expand with a strong first line
+${PRODUCTION_CONCEPTS.map((c, i) => `## ${i + 1}. ${c.name}
 
-Verified claims: Starting at $10/hour · $1,760/mo full-time · HIPAA-trained · Pre-vetted · Ready in days · Trusted by 250+ healthcare practices.
-
-Review board: http://localhost:5173/facebook-ad-copy.html
-
-${ANGLES.map(
-  (a) => `## ${a.title}
-
-Pairs with: ${a.pairsWith}
-
-${a.texts.map((t, i) => `### ${a.id}-${String(i + 1).padStart(2, '0')}\n\n${t}\n`).join('\n')}`,
-).join('\n\n')}
+${packageText(c)}
+`).join('\n')}
 `;
 
   fs.writeFileSync(path.join(ROOT, 'facebook-ad-copy.md'), md);
-  console.log(`Facebook copy: http://localhost:5173/facebook-ad-copy.html (${total} texts, ${feedSafe} feed-safe)`);
+  console.log(`Facebook copy: http://localhost:5173/facebook-ad-copy.html (${FIRST_BATCH_COUNT} packages)`);
 }
 
 main();
