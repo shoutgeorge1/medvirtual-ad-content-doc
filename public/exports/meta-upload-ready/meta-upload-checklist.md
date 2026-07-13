@@ -4,13 +4,14 @@ Keep campaign / ad set / ads draft or paused.
 
 ## Structure
 
-- [ ] Campaign name matches: `IMB_MV_Meta_Leads_FirstBatch_202607`
-- [ ] Ad set name matches: `IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day`
-- [ ] Four ad names match:
-  - [ ] `IMB_MV_Static_01_MedicalOwners`
-  - [ ] `IMB_MV_Static_02_DentalOwners`
-  - [ ] `IMB_MV_Static_03_VirtualMedAdmin`
-  - [ ] `IMB_MV_Static_04_TooManyCalls`
+- [ ] Campaign name matches: `IMB_MV_Meta_Leads_RealPeople_202607`
+- [ ] Ad set name matches: `IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople`
+- [ ] FirstBatch campaign stays killed / paused
+- [ ] Four Real People ad names match:
+  - [ ] `IMB_MV_RP_Static_01_JessicaAdmin`
+  - [ ] `IMB_MV_RP_Static_02_ChelseaScheduling`
+  - [ ] `IMB_MV_RP_Static_03_AngelicaFrontDesk`
+  - [ ] `IMB_MV_RP_Static_04_MarkVerification`
 
 ## Each ad
 
@@ -20,8 +21,11 @@ Keep campaign / ad set / ads draft or paused.
 - [ ] Each ad has description
 - [ ] CTA = Book a Demo
 - [ ] Destination = Instant Form
-- [ ] Form = `IMB_MV_Form_BookDemo_FirstBatch`
+- [ ] Form = `IMB_MV_Form_BookDemo_RealPeople`
 - [ ] URL parameters added
+- [ ] No MedVirtual.ai in ad copy
+- [ ] No managed-service / “we handle your front desk” language
+- [ ] No unverified $10 claim
 
 ## Form
 

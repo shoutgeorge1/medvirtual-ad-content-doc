@@ -31,16 +31,16 @@ Do not assume Cursor-generated import columns match Meta's live template. Column
 - Confirm no extra audiences / ad sets
 
 ### Step 2 - Create campaign shell
-- Name: `IMB_MV_Meta_Leads_FirstBatch_202607`
+- Name: `IMB_MV_Meta_Leads_RealPeople_202607`
 - Objective: Leads
 - Special ad categories: do **not** mark as employment/job ad
 - Status: **Off / Paused**
 
 ### Step 3 - Create ad set
-- Name: `IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day`
+- Name: `IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople`
 - Conversion location: Instant Form
 - Optimization: Leads / Instant Form submissions
-- Budget: $500/day
+- Budget: $100/day
 - Geo: United States
 - Audience: `Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed`
 - Do **not** add interests, job titles, behaviors, or extra detailed targeting
@@ -49,7 +49,7 @@ Do not assume Cursor-generated import columns match Meta's live template. Column
 
 ### Step 4 - Create draft form
 - Follow `meta-form-build-instructions.md`
-- Form name: `IMB_MV_Form_BookDemo_FirstBatch`
+- Form name: `IMB_MV_Form_BookDemo_RealPeople`
 - Save as draft
 - Leave privacy + booking placeholders until real URLs arrive
 
@@ -58,11 +58,11 @@ Do not assume Cursor-generated import columns match Meta's live template. Column
 - Try import using Meta template + mapped values from `meta-bulk-import-attempt.csv`
 - If import fails, use `meta-manual-build-sheet.csv` + `meta-paste-ready-ad-copy.txt`
 - Create exactly these ads:
-  1. `IMB_MV_Static_01_MedicalOwners`
-  2. `IMB_MV_Static_02_DentalOwners`
-  3. `IMB_MV_Static_03_VirtualMedAdmin`
-  4. `IMB_MV_Static_04_TooManyCalls` (keep paused / blocked until $10/hour confirmed)
-- Destination: shared form `IMB_MV_Form_BookDemo_FirstBatch`
+  1. `IMB_MV_RP_Static_01_JessicaAdmin`
+  2. `IMB_MV_RP_Static_02_ChelseaScheduling`
+  3. `IMB_MV_RP_Static_03_AngelicaFrontDesk`
+  4. `IMB_MV_RP_Static_04_MarkVerification` (keep paused / blocked until $10/hour confirmed)
+- Destination: shared form `IMB_MV_Form_BookDemo_RealPeople`
 - CTA: Book a Demo
 
 ### Step 6 - Review mobile previews
@@ -80,7 +80,7 @@ Do not assume Cursor-generated import columns match Meta's live template. Column
 - Replace form privacy URL
 - Replace thank-you button URL
 - Add UTM pattern:
-  `utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_term={{adset.name}}&utm_content={{ad.name}}`
+  `utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_RealPeople_202607&utm_term={{adset.name}}&utm_content={{ad.name}}`
 - Confirm HubSpot lead view
 
 ### Step 9 - Publish only after approval

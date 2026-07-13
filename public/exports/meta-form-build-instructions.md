@@ -1,6 +1,6 @@
 # Meta Instant Form Build Instructions
 
-**Form name (exact):** `IMB_MV_Form_BookDemo_FirstBatch`  
+**Form name (exact):** `IMB_MV_Form_BookDemo_RealPeople`  
 **Status:** Save as **draft**. Do not publish.  
 **Shared form:** Use this one form for all 4 ads.
 
@@ -13,13 +13,13 @@ Instant Forms are created manually in Meta Ads Manager / Instant Forms. Do not e
 1. In Ads Manager, open **Instant Forms** (or create form from the ad destination step).
 2. Create a new form.
 3. Set form name exactly:
-   `IMB_MV_Form_BookDemo_FirstBatch`
+   `IMB_MV_Form_BookDemo_RealPeople`
 4. Choose form type:
    **Higher Intent (recommended for lead quality)**
 5. Intro headline:
-   Hire Full-Time Virtual Medical Staff Through MedVirtual
+   Meet Real MedVirtual Talent for Your Practice
 6. Intro body:
-   MedVirtual helps medical and dental practices hire trained full-time virtual staff for calls, scheduling, intake, insurance, billing support, and admin workflows.
+   MedVirtual helps practices hire dedicated full-time virtual staff who become part of your team — for calls, scheduling, insurance verification, intake, and admin support.
 7. Add required contact fields:
    - Full name
    - Email
@@ -49,7 +49,7 @@ Instant Forms are created manually in Meta Ads Manager / Instant Forms. Do not e
 12. Thank-you screen headline:
     Thanks - your request was received.
 13. Thank-you screen body:
-    A MedVirtual team member will follow up to discuss your practice's staffing needs.
+    A MedVirtual team member will follow up so you can review candidates and request interviews.
 14. Button text:
     Book a Demo
 15. Button URL:
@@ -64,7 +64,7 @@ Instant Forms are created manually in Meta Ads Manager / Instant Forms. Do not e
 1. Replace privacy policy URL with the real MedVirtual privacy policy.
 2. Replace thank-you button URL with Haylie booking link.
 3. Append UTM pattern to booking link:
-   `utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_term={{adset.name}}&utm_content={{ad.name}}`
+   `utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_RealPeople_202607&utm_term={{adset.name}}&utm_content={{ad.name}}`
 4. Re-QA form preview on mobile.
 5. Confirm HubSpot lead view sees `IMB_MV` form submissions.
 6. Keep form draft until CMO approval, then publish with campaign.

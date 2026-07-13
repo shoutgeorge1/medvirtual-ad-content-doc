@@ -1,42 +1,44 @@
-# UPLOAD THESE 4 ADS NOW
+# NEW LAUNCH — UPLOAD THESE 4 REAL PEOPLE ADS
 
-Campaign and ad set already exist in Meta. Do not recreate them.
+FirstBatch (`IMB_MV_Meta_Leads_FirstBatch_202607`) is **killed**.
 
-## Already in Meta
+Learning: only TooManyCalls had signal — and creative quality still was not good enough.
+This relaunch uses named Talent Pool people + hire-dedicated-staff messaging.
 
-- Campaign: `IMB_MV_Meta_Leads_FirstBatch_202607`
-- Ad set: `IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day`
-- Ad shell: `IMB_MV_Static_01_MedicalOwners` (needs creative + copy)
-- Form: `IMB_MV_Form_BookDemo_FirstBatch`
+## Create in Meta (new shell)
+
+- Campaign: `IMB_MV_Meta_Leads_RealPeople_202607`
+- Ad set: `IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople`
+- Form: `IMB_MV_Form_BookDemo_RealPeople`
+- Budget: $100/day
+
+Do **not** revive MedicalOwners / DentalOwners / VirtualMedAdmin stock statics.
 
 ## Fastest path
 
-1. Open Ad 1 shell.
-2. Attach form `IMB_MV_Form_BookDemo_FirstBatch`.
-3. Upload `IMB_MV_Static_01_MedicalOwners_1080x1350.png`.
+1. Create paused campaign + ad set + Instant Form (or duplicate FirstBatch form and rename).
+2. Create Ad 1: `IMB_MV_RP_Static_01_JessicaAdmin`.
+3. Upload `IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png`.
 4. Paste Ad 1 copy from `ad-copy-paste-ready.txt`.
-5. Add URL parameters from `utm-parameters.txt`.
-6. Duplicate Ad 1 three times.
-7. Rename + swap creative/copy for Ads 2-4.
-8. Keep everything paused.
-9. Do not publish until Haylie approves.
+5. Attach form `IMB_MV_Form_BookDemo_RealPeople` + UTMs from `utm-parameters.txt`.
+6. Duplicate Ad 1 three times; rename + swap creative/copy for Ads 2–4.
+7. Keep everything paused.
+8. Send to Haylie / CMO — publish only after approval.
 
-## Files in this folder
+## Creatives
 
-| File | Use |
-| --- | --- |
-| `ad-copy-paste-ready.txt` | Paste primary text / headline / description |
-| `creative-map.csv` | Image to ad mapping |
-| `form-final-settings.md` | Exact Instant Form settings |
-| `utm-parameters.txt` | URL parameters |
-| `ads-manager-build-order.md` | Step order inside Meta |
-| `meta-upload-checklist.md` | QA before review |
-| `IMB_MV_Static_*_1080x1350.png` | Upload creatives |
+| # | Ad | File | Angle |
+| --- | --- | --- | --- |
+| 01 | `IMB_MV_RP_Static_01_JessicaAdmin` | `IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png` | Jessica · Admin / calls overload |
+| 02 | `IMB_MV_RP_Static_02_ChelseaScheduling` | `IMB_MV_RP_Static_02_ChelseaScheduling_1080x1350.png` | Chelsea · Scheduling pressure |
+| 03 | `IMB_MV_RP_Static_03_AngelicaFrontDesk` | `IMB_MV_RP_Static_03_AngelicaFrontDesk_1080x1350.png` | Angelica · Front-desk pressure |
+| 04 | `IMB_MV_RP_Static_04_MarkVerification` | `IMB_MV_RP_Static_04_MarkVerification_1080x1350.png` | Mark · Insurance verification |
 
-## Creative status
+All PNGs are **1080×1350 Real People drafts** (Treatment C). Designer polish welcome — still uploadable now.
 
-All four PNGs are **DRAFT CREATIVE - NEEDS FINAL DESIGN APPROVAL**.
+## Language rules
 
-They are padded 1080x1350 exports from current source images. Source images may still have baked-in copy/CTA that does not match approved on-image headlines. Upload now to finish the Meta shell; swap final designer exports when ready.
-
-Ad 4: do not publish if the image shows `$10/hour` until Haylie confirms that claim.
+- Brand: **MedVirtual** only (never MedVirtual.ai in ad copy)
+- Frame: hire dedicated full-time virtual staff who join the practice team
+- Avoid: managed service, “we run your front desk,” call-center vibes, “MedVirtual handles…”
+- No new unverified $10 / savings / HIPAA-certified claims on this batch

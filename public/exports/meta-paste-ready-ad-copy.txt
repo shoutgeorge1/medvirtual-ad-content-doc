@@ -1,9 +1,9 @@
 MedVirtual Meta - Paste-Ready Ad Copy
-Campaign: IMB_MV_Meta_Leads_FirstBatch_202607
-Ad Set: IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day
+Campaign: IMB_MV_Meta_Leads_RealPeople_202607
+Ad Set: IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople
 Audience: Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed
-Form: IMB_MV_Form_BookDemo_FirstBatch
-Budget: $500/day
+Form: IMB_MV_Form_BookDemo_RealPeople
+Budget: $100/day
 Geo: United States
 Everything stays PAUSED/DRAFT until Haylie / CMO approval.
 
@@ -16,165 +16,181 @@ Safest workflow if bulk import fails:
 6) Send draft for review - do not publish
 
 ========================================
-IMB_MV_Static_01_MedicalOwners
-Concept: Medical Practice Owners
+IMB_MV_RP_Static_01_JessicaAdmin
+Concept: Jessica · Admin / calls overload
 STATUS: DRAFT / PAUSED until CMO approval
 ========================================
 
 AD NAME (exact):
-IMB_MV_Static_01_MedicalOwners
+IMB_MV_RP_Static_01_JessicaAdmin
 
 PRIMARY TEXT:
-Medical practice owners: hire full-time virtual staff to support calls, scheduling, intake, and admin work.
+Calls keep coming. Tasks keep stacking. Your team is already stretched.
+
+Meet Jessica — a Jr. Medical Admin available through MedVirtual. Hire a dedicated full-time virtual staff member who works as part of your practice team.
+
+Book a demo to request an interview.
 
 BACKUP PRIMARY TEXT:
-Add trained virtual support to your practice team without adding more office space.
+Too much admin and not enough day? Meet Jessica and hire dedicated virtual medical admin support through MedVirtual — not another generic staffing promise.
 
 META HEADLINE:
-Hire Full-Time Virtual Staff
+Admin Work Piling Up?
 
 DESCRIPTION:
-Support your practice team with trained virtual staff.
+Meet real MedVirtual medical admin talent.
 
 CTA:
 Book a Demo
 
 DESTINATION / FORM:
-IMB_MV_Form_BookDemo_FirstBatch
+IMB_MV_Form_BookDemo_RealPeople
 
 ON-IMAGE HEADLINE (creative must show):
-Medical Practice Owners
+THE ADMIN WORK DOESN’T STOP.
 
 SUPPORTING LINE (creative must show):
-Add full-time virtual support without adding office space.
+Meet Jessica · Jr. Medical Admin
 
 CREATIVE FILE:
-IMB_MV_Static_01_MedicalOwners.png
+IMB_MV_RP_Static_01_JessicaAdmin.png
 SOURCE IMAGE:
-Med Virtual Ads 01.png
+jessica/ad-treatment-c-4x5.png
 
 NOTES:
-Selected: clean medical scrub visual, no $10 price on image. Baked-in on-image copy does not match approved headline - designer must re-export 1080x1350 with approved copy + Book a Demo CTA. Source is 2965x2965 square.
+Lead creative. Closest to the only FirstBatch signal (TooManyCalls / overloaded staff). Treatment C is a production draft — designer may polish; still uploadable now at 1080×1350.
 
 ========================================
-IMB_MV_Static_02_DentalOwners
-Concept: Dental Practice Owners
+IMB_MV_RP_Static_02_ChelseaScheduling
+Concept: Chelsea · Scheduling pressure
 STATUS: DRAFT / PAUSED until CMO approval
 ========================================
 
 AD NAME (exact):
-IMB_MV_Static_02_DentalOwners
+IMB_MV_RP_Static_02_ChelseaScheduling
 
 PRIMARY TEXT:
-Dental practice owners: get virtual staff support for scheduling, insurance, reminders, and patient follow-up.
+Scheduling should not consume your entire front desk.
+
+Meet Chelsea — a Dental Virtual Assistant available through MedVirtual. Add a dedicated full-time virtual teammate your practice can interview.
+
+Book a demo to get started.
 
 BACKUP PRIMARY TEXT:
-Hire full-time virtual dental staff through MedVirtual to support your daily workflow.
+Scheduling taking over the front desk? Meet Chelsea and hire dedicated virtual scheduling support through MedVirtual.
 
 META HEADLINE:
-Virtual Staff for Dental Practices
+Meet Chelsea for Scheduling Support
 
 DESCRIPTION:
-Scheduling, insurance, and patient follow-up support.
+Interview real MedVirtual talent.
 
 CTA:
 Book a Demo
 
 DESTINATION / FORM:
-IMB_MV_Form_BookDemo_FirstBatch
+IMB_MV_Form_BookDemo_RealPeople
 
 ON-IMAGE HEADLINE (creative must show):
-Dental Practice Owners
+YOUR FRONT DESK SHOULDN’T SPEND ALL DAY SCHEDULING.
 
 SUPPORTING LINE (creative must show):
-Get help with scheduling, insurance, and patient follow-up.
+Meet Chelsea · Dental Virtual Assistant
 
 CREATIVE FILE:
-IMB_MV_Static_02_DentalOwners.png
+IMB_MV_RP_Static_02_ChelseaScheduling.png
 SOURCE IMAGE:
-Med Virtual Ads 02.png
+chelsea/ad-treatment-c-4x5.png
 
 NOTES:
-RED FLAG: No dental-specific image in the new 12-image batch. Using best available medical professional (clipboard). Designer should swap to a dental office visual before spend. Baked-in copy/CTA must be replaced with approved dental headline + Book a Demo.
+Skill-specific scheduling pain. No $10 claim.
 
 ========================================
-IMB_MV_Static_03_VirtualMedAdmin
-Concept: Virtual Medical Admin
+IMB_MV_RP_Static_03_AngelicaFrontDesk
+Concept: Angelica · Front-desk pressure
 STATUS: DRAFT / PAUSED until CMO approval
 ========================================
 
 AD NAME (exact):
-IMB_MV_Static_03_VirtualMedAdmin
+IMB_MV_RP_Static_03_AngelicaFrontDesk
 
 PRIMARY TEXT:
-Hire a full-time virtual medical admin for calls, scheduling, intake, and admin support.
+Patients are waiting. Phones are ringing. Follow-up is stacking up.
+
+Meet Angelica — a Front Desk Assistant available through MedVirtual. Hire dedicated virtual staff who support your front-desk workflow as part of your practice team.
+
+Book a demo to request an interview.
 
 BACKUP PRIMARY TEXT:
-MedVirtual helps practices hire trained virtual staff who work as part of the team.
+When the front desk is doing too much, meet Angelica and hire dedicated virtual support through MedVirtual — not a call center.
 
 META HEADLINE:
-Hire a Virtual Medical Admin
+Front Desk Stretched Thin?
 
 DESCRIPTION:
-Calls, scheduling, intake, and admin help.
+Meet a real front-desk support candidate.
 
 CTA:
 Book a Demo
 
 DESTINATION / FORM:
-IMB_MV_Form_BookDemo_FirstBatch
+IMB_MV_Form_BookDemo_RealPeople
 
 ON-IMAGE HEADLINE (creative must show):
-Hire a Full-Time Virtual Medical Admin
+YOUR FRONT DESK CAN’T DO EVERYTHING.
 
 SUPPORTING LINE (creative must show):
-Calls, scheduling, intake, and admin support.
+Meet Angelica · Front Desk Assistant
 
 CREATIVE FILE:
-IMB_MV_Static_03_VirtualMedAdmin.png
+IMB_MV_RP_Static_03_AngelicaFrontDesk.png
 SOURCE IMAGE:
-Med Virtual Ads 09.png
+angelica/ad-treatment-c-4x5.png
 
 NOTES:
-Selected: full-time VA / medical admin visual without $10 price (price reserved for concept 4). Re-export with approved headline/support + Book a Demo. Source is square.
+Pain-first front desk. Hire framing only.
 
 ========================================
-IMB_MV_Static_04_TooManyCalls
-Concept: Pain-first
-STATUS: PAUSED / BLOCKED until $10/hour confirmed
+IMB_MV_RP_Static_04_MarkVerification
+Concept: Mark · Insurance verification
+STATUS: DRAFT / PAUSED until CMO approval
 ========================================
 
 AD NAME (exact):
-IMB_MV_Static_04_TooManyCalls
+IMB_MV_RP_Static_04_MarkVerification
 
 PRIMARY TEXT:
-Too many calls and not enough staff? Hire full-time virtual staff through MedVirtual.
+Insurance verification can pull your team away from patients.
+
+Meet Mark — an Insurance Verification Specialist available through MedVirtual. Hire a dedicated full-time virtual staff member for eligibility and verification support.
+
+Book a demo to request an interview.
 
 BACKUP PRIMARY TEXT:
-Support your practice team with trained full-time virtual staff starting at $10/hour.
+Verification work piling up? Meet Mark and hire dedicated insurance verification support through MedVirtual.
 
 META HEADLINE:
-Too Many Calls? Get Support.
+Meet Mark for Verification Support
 
 DESCRIPTION:
-Full-time virtual staff through MedVirtual.
+Insurance verification talent from MedVirtual.
 
 CTA:
 Book a Demo
 
 DESTINATION / FORM:
-IMB_MV_Form_BookDemo_FirstBatch
+IMB_MV_Form_BookDemo_RealPeople
 
 ON-IMAGE HEADLINE (creative must show):
-Too Many Calls. Not Enough Staff.
+HOW MUCH OF YOUR DAY GOES TO INSURANCE VERIFICATION?
 
 SUPPORTING LINE (creative must show):
-Full-time virtual staff starting at $10/hour.
+Meet Mark · Insurance Verification Specialist
 
 CREATIVE FILE:
-IMB_MV_Static_04_TooManyCalls.png
+IMB_MV_RP_Static_04_MarkVerification.png
 SOURCE IMAGE:
-Med Virtual Ads 10.png
+mark/ad-treatment-c-4x5.png
 
 NOTES:
-BLOCKED UNTIL $10/HOUR CONFIRMED. Keep this ad PAUSED until CMO confirms price. Baked-in headline differs from approved copy - re-export required. Keep $10/hour off concepts 1-3.
+Skill-specific alternate. No outcome guarantees. No $10 on this batch.

@@ -1,104 +1,116 @@
 ========================================
-AD 01 - IMB_MV_Static_01_MedicalOwners
+AD 01 - IMB_MV_RP_Static_01_JessicaAdmin
 ========================================
 
 AD NAME:
-IMB_MV_Static_01_MedicalOwners
+IMB_MV_RP_Static_01_JessicaAdmin
 
 PRIMARY TEXT:
-Medical practice owners: hire full-time virtual staff to support calls, scheduling, intake, and admin work.
+Calls keep coming. Tasks keep stacking. Your team is already stretched.
+
+Meet Jessica — a Jr. Medical Admin available through MedVirtual. Hire a dedicated full-time virtual staff member who works as part of your practice team.
+
+Book a demo to request an interview.
 
 HEADLINE:
-Hire Full-Time Virtual Staff
+Admin Work Piling Up?
 
 DESCRIPTION:
-Support your practice team with trained virtual staff.
+Meet real MedVirtual medical admin talent.
 
 CTA:
 Book a Demo
 
 FORM:
-IMB_MV_Form_BookDemo_FirstBatch
+IMB_MV_Form_BookDemo_RealPeople
 
 CREATIVE:
-IMB_MV_Static_01_MedicalOwners_1080x1350.png
+IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png
 
 ========================================
-AD 02 - IMB_MV_Static_02_DentalOwners
+AD 02 - IMB_MV_RP_Static_02_ChelseaScheduling
 ========================================
 
 AD NAME:
-IMB_MV_Static_02_DentalOwners
+IMB_MV_RP_Static_02_ChelseaScheduling
 
 PRIMARY TEXT:
-Dental practice owners: get virtual staff support for scheduling, insurance, reminders, and patient follow-up.
+Scheduling should not consume your entire front desk.
+
+Meet Chelsea — a Dental Virtual Assistant available through MedVirtual. Add a dedicated full-time virtual teammate your practice can interview.
+
+Book a demo to get started.
 
 HEADLINE:
-Virtual Staff for Dental Practices
+Meet Chelsea for Scheduling Support
 
 DESCRIPTION:
-Scheduling, insurance, and patient follow-up support.
+Interview real MedVirtual talent.
 
 CTA:
 Book a Demo
 
 FORM:
-IMB_MV_Form_BookDemo_FirstBatch
+IMB_MV_Form_BookDemo_RealPeople
 
 CREATIVE:
-IMB_MV_Static_02_DentalOwners_1080x1350.png
+IMB_MV_RP_Static_02_ChelseaScheduling_1080x1350.png
 
 ========================================
-AD 03 - IMB_MV_Static_03_VirtualMedAdmin
+AD 03 - IMB_MV_RP_Static_03_AngelicaFrontDesk
 ========================================
 
 AD NAME:
-IMB_MV_Static_03_VirtualMedAdmin
+IMB_MV_RP_Static_03_AngelicaFrontDesk
 
 PRIMARY TEXT:
-Hire a full-time virtual medical admin for calls, scheduling, intake, and admin support.
+Patients are waiting. Phones are ringing. Follow-up is stacking up.
+
+Meet Angelica — a Front Desk Assistant available through MedVirtual. Hire dedicated virtual staff who support your front-desk workflow as part of your practice team.
+
+Book a demo to request an interview.
 
 HEADLINE:
-Hire a Virtual Medical Admin
+Front Desk Stretched Thin?
 
 DESCRIPTION:
-Calls, scheduling, intake, and admin help.
+Meet a real front-desk support candidate.
 
 CTA:
 Book a Demo
 
 FORM:
-IMB_MV_Form_BookDemo_FirstBatch
+IMB_MV_Form_BookDemo_RealPeople
 
 CREATIVE:
-IMB_MV_Static_03_VirtualMedAdmin_1080x1350.png
+IMB_MV_RP_Static_03_AngelicaFrontDesk_1080x1350.png
 
 ========================================
-AD 04 - IMB_MV_Static_04_TooManyCalls
+AD 04 - IMB_MV_RP_Static_04_MarkVerification
 ========================================
 
 AD NAME:
-IMB_MV_Static_04_TooManyCalls
+IMB_MV_RP_Static_04_MarkVerification
 
 PRIMARY TEXT:
-Too many calls and not enough staff? Hire full-time virtual staff through MedVirtual.
+Insurance verification can pull your team away from patients.
+
+Meet Mark — an Insurance Verification Specialist available through MedVirtual. Hire a dedicated full-time virtual staff member for eligibility and verification support.
+
+Book a demo to request an interview.
 
 HEADLINE:
-Too Many Calls? Get Support.
+Meet Mark for Verification Support
 
 DESCRIPTION:
-Full-time virtual staff through MedVirtual.
+Insurance verification talent from MedVirtual.
 
 CTA:
 Book a Demo
 
 FORM:
-IMB_MV_Form_BookDemo_FirstBatch
+IMB_MV_Form_BookDemo_RealPeople
 
 CREATIVE:
-IMB_MV_Static_04_TooManyCalls_1080x1350.png
-
-WARNING:
-Do not publish Ad 4 if the image contains $10/hour language until Haylie confirms that claim.
-Keep Ad 4 paused until confirmed.
+IMB_MV_RP_Static_04_MarkVerification_1080x1350.png
 

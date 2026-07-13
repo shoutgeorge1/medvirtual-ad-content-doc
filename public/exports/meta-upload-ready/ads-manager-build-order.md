@@ -5,7 +5,7 @@ Campaign and ad set already exist. Do not recreate them.
 1. Open existing ad shell:  
    `IMB_MV_Static_01_MedicalOwners`
 2. Select final form:  
-   `IMB_MV_Form_BookDemo_FirstBatch`
+   `IMB_MV_Form_BookDemo_RealPeople`
 3. Upload creative:  
    `IMB_MV_Static_01_MedicalOwners_1080x1350.png`
 4. Paste Ad 1 primary text, headline, description, CTA from `ad-copy-paste-ready.txt`.

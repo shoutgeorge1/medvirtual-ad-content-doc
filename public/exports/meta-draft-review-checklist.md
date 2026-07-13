@@ -6,12 +6,12 @@ Use this after the draft campaign exists in Ads Manager and before asking Haylie
 
 ## Campaign / ad set
 
-- [ ] Campaign name correct: `IMB_MV_Meta_Leads_FirstBatch_202607`
-- [ ] Ad set name correct: `IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day`
+- [ ] Campaign name correct: `IMB_MV_Meta_Leads_RealPeople_202607`
+- [ ] Ad set name correct: `IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople`
 - [ ] Audience exact: `Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed`
 - [ ] No interests / job titles / behaviors added
 - [ ] Geo United States
-- [ ] Budget $500/day
+- [ ] Budget $100/day
 - [ ] Monthly pacing note understood ($10k ~ 20 days at $500/day)
 - [ ] Objective Leads
 - [ ] Instant Form selected
@@ -21,7 +21,7 @@ Use this after the draft campaign exists in Ads Manager and before asking Haylie
 ## Form
 
 - [ ] Form starts with IMB_MV
-- [ ] Form name exact: `IMB_MV_Form_BookDemo_FirstBatch`
+- [ ] Form name exact: `IMB_MV_Form_BookDemo_RealPeople`
 - [ ] Form saved as draft
 - [ ] Higher Intent selected if available
 - [ ] Required fields: full name, email, phone
@@ -53,7 +53,7 @@ Use this after the draft campaign exists in Ads Manager and before asking Haylie
 - [ ] Events Manager checked for MedVirtual dataset/pixel status if booking-link conversions will be tracked later
 - [ ] If thank-you sends to booking page: booking link + UTM confirmed
 - [ ] Recommended UTM ready:
-  `utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_term={{adset.name}}&utm_content={{ad.name}}`
+  `utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_RealPeople_202607&utm_term={{adset.name}}&utm_content={{ad.name}}`
 - [ ] If switching to website conversions later: verify pixel/conversion events first
 - [ ] For now, primary tracked event = Meta Instant Form lead submission
 

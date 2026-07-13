@@ -1,55 +1,71 @@
 Build Order,Object Type,Exact Name,Field,Exact Value,Status,Notes
-1,Campaign,IMB_MV_Meta_Leads_FirstBatch_202607,Name,IMB_MV_Meta_Leads_FirstBatch_202607,PAUSED/DRAFT,Create first
-1,Campaign,IMB_MV_Meta_Leads_FirstBatch_202607,Objective,Leads,PAUSED/DRAFT,Leads
-1,Campaign,IMB_MV_Meta_Leads_FirstBatch_202607,Special Ad Categories,None / not employment,PAUSED/DRAFT,B2B practice staffing - not a job-seeker ad
-2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,Name,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,PAUSED/DRAFT,One ad set only
-2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,Daily Budget,$500/day,PAUSED/DRAFT,"$10,000 monthly budget. At $500/day, this pace reaches $10,000 in about 20 days - monitor pacing."
-2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,Geo,United States,PAUSED/DRAFT,National US
-2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,Audience,"Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed",PAUSED/DRAFT,Exact 1% lookalike only - no interests
-2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,Placements,Advantage+ Placements,PAUSED/DRAFT,Advantage+ unless CMO overrides
-2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,Optimization,Leads / Instant Form submissions,PAUSED/DRAFT,Instant Form leads
-2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day,Conversion Location,Instant Form,PAUSED/DRAFT,Instant Form
-3,Form,IMB_MV_Form_BookDemo_FirstBatch,Form Name,IMB_MV_Form_BookDemo_FirstBatch,DRAFT,Create manually - not CSV
-3,Form,IMB_MV_Form_BookDemo_FirstBatch,Form Type,Higher Intent (recommended for lead quality),DRAFT,Higher Intent preferred
-3,Form,IMB_MV_Form_BookDemo_FirstBatch,Privacy Policy URL,https://www.medvirtual.ai/privacy-policy,BLOCKED,Do not publish until real URL
-3,Form,IMB_MV_Form_BookDemo_FirstBatch,Thank You Button URL,https://meetings.hubspot.com/call-scheduling/mv-meta-imb,BLOCKED,Do not publish until booking link
-4,Ad,IMB_MV_Static_01_MedicalOwners,Ad Name,IMB_MV_Static_01_MedicalOwners,PAUSED/DRAFT,Medical Practice Owners
-4,Ad,IMB_MV_Static_01_MedicalOwners,Primary Text,"Medical practice owners: hire full-time virtual staff to support calls, scheduling, intake, and admin work.",PAUSED/DRAFT,Paste into Meta Body / Primary text
-4,Ad,IMB_MV_Static_01_MedicalOwners,Headline,Hire Full-Time Virtual Staff,PAUSED/DRAFT,Meta Title / Headline
-4,Ad,IMB_MV_Static_01_MedicalOwners,Description,Support your practice team with trained virtual staff.,PAUSED/DRAFT,
-4,Ad,IMB_MV_Static_01_MedicalOwners,CTA,Book a Demo,PAUSED/DRAFT,Book a Demo
-4,Ad,IMB_MV_Static_01_MedicalOwners,Destination,IMB_MV_Form_BookDemo_FirstBatch,PAUSED/DRAFT,Shared Instant Form
-4,Ad,IMB_MV_Static_01_MedicalOwners,Creative File,IMB_MV_Static_01_MedicalOwners.png,PAUSED/DRAFT,Source: Med Virtual Ads 01.png
-4,Ad,IMB_MV_Static_01_MedicalOwners,On-image Headline,Medical Practice Owners,PAUSED/DRAFT,Must appear on final creative
-4,Ad,IMB_MV_Static_01_MedicalOwners,Supporting Line,Add full-time virtual support without adding office space.,PAUSED/DRAFT,Must appear on final creative
-4,Ad,IMB_MV_Static_01_MedicalOwners,Notes,"Selected: clean medical scrub visual, no $10 price on image. Baked-in on-image copy does not match approved headline - designer must re-export 1080x1350 with approved copy + Book a Demo CTA. Source is 2965x2965 square.",PAUSED/DRAFT,
-5,Ad,IMB_MV_Static_02_DentalOwners,Ad Name,IMB_MV_Static_02_DentalOwners,PAUSED/DRAFT,Dental Practice Owners
-5,Ad,IMB_MV_Static_02_DentalOwners,Primary Text,"Dental practice owners: get virtual staff support for scheduling, insurance, reminders, and patient follow-up.",PAUSED/DRAFT,Paste into Meta Body / Primary text
-5,Ad,IMB_MV_Static_02_DentalOwners,Headline,Virtual Staff for Dental Practices,PAUSED/DRAFT,Meta Title / Headline
-5,Ad,IMB_MV_Static_02_DentalOwners,Description,"Scheduling, insurance, and patient follow-up support.",PAUSED/DRAFT,
-5,Ad,IMB_MV_Static_02_DentalOwners,CTA,Book a Demo,PAUSED/DRAFT,Book a Demo
-5,Ad,IMB_MV_Static_02_DentalOwners,Destination,IMB_MV_Form_BookDemo_FirstBatch,PAUSED/DRAFT,Shared Instant Form
-5,Ad,IMB_MV_Static_02_DentalOwners,Creative File,IMB_MV_Static_02_DentalOwners.png,PAUSED/DRAFT,Source: Med Virtual Ads 02.png
-5,Ad,IMB_MV_Static_02_DentalOwners,On-image Headline,Dental Practice Owners,PAUSED/DRAFT,Must appear on final creative
-5,Ad,IMB_MV_Static_02_DentalOwners,Supporting Line,"Get help with scheduling, insurance, and patient follow-up.",PAUSED/DRAFT,Must appear on final creative
-5,Ad,IMB_MV_Static_02_DentalOwners,Notes,RED FLAG: No dental-specific image in the new 12-image batch. Using best available medical professional (clipboard). Designer should swap to a dental office visual before spend. Baked-in copy/CTA must be replaced with approved dental headline + Book a Demo.,PAUSED/DRAFT,
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Ad Name,IMB_MV_Static_03_VirtualMedAdmin,PAUSED/DRAFT,Virtual Medical Admin
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Primary Text,"Hire a full-time virtual medical admin for calls, scheduling, intake, and admin support.",PAUSED/DRAFT,Paste into Meta Body / Primary text
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Headline,Hire a Virtual Medical Admin,PAUSED/DRAFT,Meta Title / Headline
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Description,"Calls, scheduling, intake, and admin help.",PAUSED/DRAFT,
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,CTA,Book a Demo,PAUSED/DRAFT,Book a Demo
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Destination,IMB_MV_Form_BookDemo_FirstBatch,PAUSED/DRAFT,Shared Instant Form
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Creative File,IMB_MV_Static_03_VirtualMedAdmin.png,PAUSED/DRAFT,Source: Med Virtual Ads 09.png
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,On-image Headline,Hire a Full-Time Virtual Medical Admin,PAUSED/DRAFT,Must appear on final creative
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Supporting Line,"Calls, scheduling, intake, and admin support.",PAUSED/DRAFT,Must appear on final creative
-6,Ad,IMB_MV_Static_03_VirtualMedAdmin,Notes,Selected: full-time VA / medical admin visual without $10 price (price reserved for concept 4). Re-export with approved headline/support + Book a Demo. Source is square.,PAUSED/DRAFT,
-7,Ad,IMB_MV_Static_04_TooManyCalls,Ad Name,IMB_MV_Static_04_TooManyCalls,PAUSED - PRICE BLOCK,Pain-first
-7,Ad,IMB_MV_Static_04_TooManyCalls,Primary Text,Too many calls and not enough staff? Hire full-time virtual staff through MedVirtual.,PAUSED - PRICE BLOCK,Paste into Meta Body / Primary text
-7,Ad,IMB_MV_Static_04_TooManyCalls,Headline,Too Many Calls? Get Support.,PAUSED - PRICE BLOCK,Meta Title / Headline
-7,Ad,IMB_MV_Static_04_TooManyCalls,Description,Full-time virtual staff through MedVirtual.,PAUSED - PRICE BLOCK,
-7,Ad,IMB_MV_Static_04_TooManyCalls,CTA,Book a Demo,PAUSED - PRICE BLOCK,Book a Demo
-7,Ad,IMB_MV_Static_04_TooManyCalls,Destination,IMB_MV_Form_BookDemo_FirstBatch,PAUSED - PRICE BLOCK,Shared Instant Form
-7,Ad,IMB_MV_Static_04_TooManyCalls,Creative File,IMB_MV_Static_04_TooManyCalls.png,PAUSED - PRICE BLOCK,Source: Med Virtual Ads 10.png
-7,Ad,IMB_MV_Static_04_TooManyCalls,On-image Headline,Too Many Calls. Not Enough Staff.,PAUSED - PRICE BLOCK,Must appear on final creative
-7,Ad,IMB_MV_Static_04_TooManyCalls,Supporting Line,Full-time virtual staff starting at $10/hour.,PAUSED - PRICE BLOCK,Must appear on final creative
-7,Ad,IMB_MV_Static_04_TooManyCalls,Notes,BLOCKED UNTIL $10/HOUR CONFIRMED. Keep this ad PAUSED until CMO confirms price. Baked-in headline differs from approved copy - re-export required. Keep $10/hour off concepts 1-3.,PAUSED - PRICE BLOCK,
+1,Campaign,IMB_MV_Meta_Leads_RealPeople_202607,Name,IMB_MV_Meta_Leads_RealPeople_202607,PAUSED/DRAFT,Create first
+1,Campaign,IMB_MV_Meta_Leads_RealPeople_202607,Objective,Leads,PAUSED/DRAFT,Leads
+1,Campaign,IMB_MV_Meta_Leads_RealPeople_202607,Special Ad Categories,None / not employment,PAUSED/DRAFT,B2B practice staffing - not a job-seeker ad
+2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople,Name,IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople,PAUSED/DRAFT,One ad set only
+2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople,Daily Budget,$100/day,PAUSED/DRAFT,Start at $100/day for Real People creative learning. Scale only after Haylie / CMO approval.
+2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople,Geo,United States,PAUSED/DRAFT,National US
+2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople,Audience,"Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed",PAUSED/DRAFT,Exact 1% lookalike only - no interests
+2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople,Placements,Advantage+ Placements,PAUSED/DRAFT,Advantage+ unless CMO overrides
+2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople,Optimization,Leads / Instant Form submissions,PAUSED/DRAFT,Instant Form leads
+2,Ad Set,IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople,Conversion Location,Instant Form,PAUSED/DRAFT,Instant Form
+3,Form,IMB_MV_Form_BookDemo_RealPeople,Form Name,IMB_MV_Form_BookDemo_RealPeople,DRAFT,Create manually - not CSV
+3,Form,IMB_MV_Form_BookDemo_RealPeople,Form Type,Higher Intent (recommended for lead quality),DRAFT,Higher Intent preferred
+3,Form,IMB_MV_Form_BookDemo_RealPeople,Privacy Policy URL,https://www.medvirtual.ai/privacy-policy,BLOCKED,Do not publish until real URL
+3,Form,IMB_MV_Form_BookDemo_RealPeople,Thank You Button URL,https://meetings.hubspot.com/call-scheduling/mv-meta-imb,BLOCKED,Do not publish until booking link
+4,Ad,IMB_MV_RP_Static_01_JessicaAdmin,Ad Name,IMB_MV_RP_Static_01_JessicaAdmin,PAUSED/DRAFT,Jessica · Admin / calls overload
+4,Ad,IMB_MV_RP_Static_01_JessicaAdmin,Primary Text,"Calls keep coming. Tasks keep stacking. Your team is already stretched.
+
+Meet Jessica — a Jr. Medical Admin available through MedVirtual. Hire a dedicated full-time virtual staff member who works as part of your practice team.
+
+Book a demo to request an interview.",PAUSED/DRAFT,Paste into Meta Body / Primary text
+4,Ad,IMB_MV_RP_Static_01_JessicaAdmin,Headline,Admin Work Piling Up?,PAUSED/DRAFT,Meta Title / Headline
+4,Ad,IMB_MV_RP_Static_01_JessicaAdmin,Description,Meet real MedVirtual medical admin talent.,PAUSED/DRAFT,
+4,Ad,IMB_MV_RP_Static_01_JessicaAdmin,CTA,Book a Demo,PAUSED/DRAFT,Book a Demo
+4,Ad,IMB_MV_RP_Static_01_JessicaAdmin,Destination,IMB_MV_Form_BookDemo_RealPeople,PAUSED/DRAFT,Shared Instant Form
+4,Ad,IMB_MV_RP_Static_01_JessicaAdmin,Creative File,IMB_MV_RP_Static_01_JessicaAdmin.png,PAUSED/DRAFT,Source: jessica/ad-treatment-c-4x5.png
+4,Ad,IMB_MV_RP_Static_01_JessicaAdmin,On-image Headline,THE ADMIN WORK DOESN’T STOP.,PAUSED/DRAFT,Must appear on final creative
+4,Ad,IMB_MV_RP_Static_01_JessicaAdmin,Supporting Line,Meet Jessica · Jr. Medical Admin,PAUSED/DRAFT,Must appear on final creative
+4,Ad,IMB_MV_RP_Static_01_JessicaAdmin,Notes,Lead creative. Closest to the only FirstBatch signal (TooManyCalls / overloaded staff). Treatment C is a production draft — designer may polish; still uploadable now at 1080×1350.,PAUSED/DRAFT,
+5,Ad,IMB_MV_RP_Static_02_ChelseaScheduling,Ad Name,IMB_MV_RP_Static_02_ChelseaScheduling,PAUSED/DRAFT,Chelsea · Scheduling pressure
+5,Ad,IMB_MV_RP_Static_02_ChelseaScheduling,Primary Text,"Scheduling should not consume your entire front desk.
+
+Meet Chelsea — a Dental Virtual Assistant available through MedVirtual. Add a dedicated full-time virtual teammate your practice can interview.
+
+Book a demo to get started.",PAUSED/DRAFT,Paste into Meta Body / Primary text
+5,Ad,IMB_MV_RP_Static_02_ChelseaScheduling,Headline,Meet Chelsea for Scheduling Support,PAUSED/DRAFT,Meta Title / Headline
+5,Ad,IMB_MV_RP_Static_02_ChelseaScheduling,Description,Interview real MedVirtual talent.,PAUSED/DRAFT,
+5,Ad,IMB_MV_RP_Static_02_ChelseaScheduling,CTA,Book a Demo,PAUSED/DRAFT,Book a Demo
+5,Ad,IMB_MV_RP_Static_02_ChelseaScheduling,Destination,IMB_MV_Form_BookDemo_RealPeople,PAUSED/DRAFT,Shared Instant Form
+5,Ad,IMB_MV_RP_Static_02_ChelseaScheduling,Creative File,IMB_MV_RP_Static_02_ChelseaScheduling.png,PAUSED/DRAFT,Source: chelsea/ad-treatment-c-4x5.png
+5,Ad,IMB_MV_RP_Static_02_ChelseaScheduling,On-image Headline,YOUR FRONT DESK SHOULDN’T SPEND ALL DAY SCHEDULING.,PAUSED/DRAFT,Must appear on final creative
+5,Ad,IMB_MV_RP_Static_02_ChelseaScheduling,Supporting Line,Meet Chelsea · Dental Virtual Assistant,PAUSED/DRAFT,Must appear on final creative
+5,Ad,IMB_MV_RP_Static_02_ChelseaScheduling,Notes,Skill-specific scheduling pain. No $10 claim.,PAUSED/DRAFT,
+6,Ad,IMB_MV_RP_Static_03_AngelicaFrontDesk,Ad Name,IMB_MV_RP_Static_03_AngelicaFrontDesk,PAUSED/DRAFT,Angelica · Front-desk pressure
+6,Ad,IMB_MV_RP_Static_03_AngelicaFrontDesk,Primary Text,"Patients are waiting. Phones are ringing. Follow-up is stacking up.
+
+Meet Angelica — a Front Desk Assistant available through MedVirtual. Hire dedicated virtual staff who support your front-desk workflow as part of your practice team.
+
+Book a demo to request an interview.",PAUSED/DRAFT,Paste into Meta Body / Primary text
+6,Ad,IMB_MV_RP_Static_03_AngelicaFrontDesk,Headline,Front Desk Stretched Thin?,PAUSED/DRAFT,Meta Title / Headline
+6,Ad,IMB_MV_RP_Static_03_AngelicaFrontDesk,Description,Meet a real front-desk support candidate.,PAUSED/DRAFT,
+6,Ad,IMB_MV_RP_Static_03_AngelicaFrontDesk,CTA,Book a Demo,PAUSED/DRAFT,Book a Demo
+6,Ad,IMB_MV_RP_Static_03_AngelicaFrontDesk,Destination,IMB_MV_Form_BookDemo_RealPeople,PAUSED/DRAFT,Shared Instant Form
+6,Ad,IMB_MV_RP_Static_03_AngelicaFrontDesk,Creative File,IMB_MV_RP_Static_03_AngelicaFrontDesk.png,PAUSED/DRAFT,Source: angelica/ad-treatment-c-4x5.png
+6,Ad,IMB_MV_RP_Static_03_AngelicaFrontDesk,On-image Headline,YOUR FRONT DESK CAN’T DO EVERYTHING.,PAUSED/DRAFT,Must appear on final creative
+6,Ad,IMB_MV_RP_Static_03_AngelicaFrontDesk,Supporting Line,Meet Angelica · Front Desk Assistant,PAUSED/DRAFT,Must appear on final creative
+6,Ad,IMB_MV_RP_Static_03_AngelicaFrontDesk,Notes,Pain-first front desk. Hire framing only.,PAUSED/DRAFT,
+7,Ad,IMB_MV_RP_Static_04_MarkVerification,Ad Name,IMB_MV_RP_Static_04_MarkVerification,PAUSED/DRAFT,Mark · Insurance verification
+7,Ad,IMB_MV_RP_Static_04_MarkVerification,Primary Text,"Insurance verification can pull your team away from patients.
+
+Meet Mark — an Insurance Verification Specialist available through MedVirtual. Hire a dedicated full-time virtual staff member for eligibility and verification support.
+
+Book a demo to request an interview.",PAUSED/DRAFT,Paste into Meta Body / Primary text
+7,Ad,IMB_MV_RP_Static_04_MarkVerification,Headline,Meet Mark for Verification Support,PAUSED/DRAFT,Meta Title / Headline
+7,Ad,IMB_MV_RP_Static_04_MarkVerification,Description,Insurance verification talent from MedVirtual.,PAUSED/DRAFT,
+7,Ad,IMB_MV_RP_Static_04_MarkVerification,CTA,Book a Demo,PAUSED/DRAFT,Book a Demo
+7,Ad,IMB_MV_RP_Static_04_MarkVerification,Destination,IMB_MV_Form_BookDemo_RealPeople,PAUSED/DRAFT,Shared Instant Form
+7,Ad,IMB_MV_RP_Static_04_MarkVerification,Creative File,IMB_MV_RP_Static_04_MarkVerification.png,PAUSED/DRAFT,Source: mark/ad-treatment-c-4x5.png
+7,Ad,IMB_MV_RP_Static_04_MarkVerification,On-image Headline,HOW MUCH OF YOUR DAY GOES TO INSURANCE VERIFICATION?,PAUSED/DRAFT,Must appear on final creative
+7,Ad,IMB_MV_RP_Static_04_MarkVerification,Supporting Line,Meet Mark · Insurance Verification Specialist,PAUSED/DRAFT,Must appear on final creative
+7,Ad,IMB_MV_RP_Static_04_MarkVerification,Notes,Skill-specific alternate. No outcome guarantees. No $10 on this batch.,PAUSED/DRAFT,

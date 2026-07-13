@@ -1,163 +1,171 @@
 /**
- * Meta Launch Build Pack — same-day campaign shell + 4-ad mapping.
+ * Meta Launch Build Pack — Real People relaunch (FirstBatch killed).
  * Generates HTML control page, CSVs, form draft, checklist, JSON map, contact sheet.
  */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import sharp from 'sharp';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const PUBLIC = path.join(ROOT, 'public');
 const EXPORTS = path.join(PUBLIC, 'exports');
-const LAUNCH_SRC = path.join(PUBLIC, 'assets', 'launch-creatives');
 const SELECTED_DIR = path.join(EXPORTS, 'selected-creatives');
 const UPLOAD_DIR = path.join(EXPORTS, 'meta-upload-ready');
+const ARCHIVE_DIR = path.join(EXPORTS, 'meta-upload-ready-archived-first-batch');
 
 const CAMPAIGN = {
-  name: 'IMB_MV_Meta_Leads_FirstBatch_202607',
+  name: 'IMB_MV_Meta_Leads_RealPeople_202607',
   objective: 'Leads',
   conversionLocation: 'Instant Form',
   optimization: 'Leads / Instant Form submissions',
-  dailyBudget: '500',
-  dailyBudgetDisplay: '$500/day',
+  dailyBudget: '100',
+  dailyBudgetDisplay: '$100/day',
   monthlyBudgetNote:
-    '$10,000 monthly budget. At $500/day, this pace reaches $10,000 in about 20 days - monitor pacing.',
+    'Start at $100/day for Real People creative learning. Scale only after Haylie / CMO approval.',
   placements: 'Advantage+ Placements',
   geo: 'United States',
   brand: 'MedVirtual',
   cta: 'Book a Demo',
-  ctaImport: 'BOOK_NOW',
-  status: 'DRAFT / PAUSED - UPLOAD ADS NOW - PUBLISH ONLY AFTER HAYLIE APPROVAL',
+  ctaImport: 'LEARN_MORE',
+  status: 'NEW LAUNCH · DRAFT / PAUSED — FirstBatch killed. Upload Real People ads now.',
   statusImport: 'PAUSED',
+  killedCampaign: 'IMB_MV_Meta_Leads_FirstBatch_202607',
+  killNote:
+    'FirstBatch failed. Only Static_04 TooManyCalls had signal — and even that creative quality was not good enough. Do not rebuild MedicalOwners / DentalOwners / VirtualMedAdmin stock statics.',
 };
 
 const UTM_PATTERN =
-  'utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_FirstBatch_202607&utm_term={{adset.name}}&utm_content={{ad.name}}';
+  'utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_RealPeople_202607&utm_term={{adset.name}}&utm_content={{ad.name}}';
 
 const WAITING = {
   booking: 'https://meetings.hubspot.com/call-scheduling/mv-meta-imb',
   privacy: 'https://www.medvirtual.ai/privacy-policy',
-  creative: 'DRAFT CREATIVE — NEEDS FINAL DESIGN APPROVAL',
+  creative: 'REAL PEOPLE DRAFTS — DESIGNER POLISH WELCOME, UPLOADABLE NOW',
   jobSeeker: 'https://apply.workable.com/berryvirtual/?lng=en',
 };
 
 const AD_SET = {
-  name: 'IMB_MV_LAL1_MVHubSpotClinicProspects_US_500day',
+  name: 'IMB_MV_LAL1_MVHubSpotClinicProspects_US_RealPeople',
   audienceName: 'Lookalike (US, 1%) - MV HubSpot Clinic Prospects — Lookalike Seed',
   audienceType: 'Lookalike (US, 1%)',
   seedName: 'MV HubSpot Clinic Prospects — Lookalike Seed',
   seedDescription:
     'HubSpot CRM clinic/practice prospects; cleaned seed list for lookalike creation.',
   seedStatus: 'Ready',
-  lookalikeStatus: 'Populating, but available for use',
+  lookalikeStatus: 'Reuse same seed / LAL as FirstBatch if available',
+  reuseNote:
+    'Prefer a NEW ad set under the RealPeople campaign. You may reuse the same LAL audience object.',
 };
 
 const FORM = {
-  name: 'IMB_MV_Form_BookDemo_FirstBatch',
+  name: 'IMB_MV_Form_BookDemo_RealPeople',
   type: 'Higher Intent (recommended for lead quality)',
-  introHeadline: 'Hire Full-Time Virtual Medical Staff Through MedVirtual',
+  introHeadline: 'Meet Real MedVirtual Talent for Your Practice',
   introBody:
-    'MedVirtual helps medical and dental practices hire trained full-time virtual staff for calls, scheduling, intake, insurance, billing support, and admin workflows.',
+    'MedVirtual helps practices hire dedicated full-time virtual staff who become part of your team — for calls, scheduling, insurance verification, intake, and admin support.',
   privacyUrl: WAITING.privacy,
   thankYouHeadline: 'Thanks - your request was received.',
   thankYouBody:
-    "A MedVirtual team member will follow up to discuss your practice's staffing needs.",
+    "A MedVirtual team member will follow up so you can review candidates and request interviews.",
   buttonText: 'Book a Demo',
   buttonUrl: WAITING.booking,
   jobSeekerUrl: WAITING.jobSeeker,
   routingQuestion: 'Are you looking to hire staff for your medical practice?',
   routingYes: 'Yes, I want to hire staff',
   routingNo: 'No, I am looking for a job',
+  reuseNote:
+    'Create as a new form (or duplicate FirstBatch form and rename). Keep hiring routing + SMS + privacy + booking link.',
 };
 
-/** Final 4 concepts — image picks from launch-creatives batch */
+/**
+ * Real People relaunch — named talent, pain-first.
+ * Order: Jessica (closest to winning TooManyCalls angle) → Chelsea → Angelica → Mark.
+ */
 const ADS = [
   {
     id: '01',
-    concept: 'Medical Practice Owners',
-    adName: 'IMB_MV_Static_01_MedicalOwners',
-    onImageHeadline: 'Medical Practice Owners',
-    supportingLine: 'Add full-time virtual support without adding office space.',
+    concept: 'Jessica · Admin / calls overload',
+    adName: 'IMB_MV_RP_Static_01_JessicaAdmin',
+    onImageHeadline: 'THE ADMIN WORK DOESN’T STOP.',
+    supportingLine: 'Meet Jessica · Jr. Medical Admin',
     primaryRecommended:
-      'Medical practice owners: hire full-time virtual staff to support calls, scheduling, intake, and admin work.',
+      'Calls keep coming. Tasks keep stacking. Your team is already stretched.\n\nMeet Jessica — a Jr. Medical Admin available through MedVirtual. Hire a dedicated full-time virtual staff member who works as part of your practice team.\n\nBook a demo to request an interview.',
     primaryBackup:
-      'Add trained virtual support to your practice team without adding more office space.',
-    metaHeadline: 'Hire Full-Time Virtual Staff',
-    description: 'Support your practice team with trained virtual staff.',
+      'Too much admin and not enough day? Meet Jessica and hire dedicated virtual medical admin support through MedVirtual — not another generic staffing promise.',
+    metaHeadline: 'Admin Work Piling Up?',
+    description: 'Meet real MedVirtual medical admin talent.',
     creativeDirection:
-      'Clean medical professional visual; practice-owner framing; no recruiting vibe.',
-    sourceFile: 'Med Virtual Ads 01.png',
-    selectedFile: 'IMB_MV_Static_01_MedicalOwners.png',
-    uploadFile: 'IMB_MV_Static_01_MedicalOwners_1080x1350.png',
+      'Named Talent Pool person. Pain-first admin/calls angle (learned from TooManyCalls). Hire dedicated staff framing — not managed service.',
+    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'jessica', 'ad-treatment-c-4x5.png'),
+    sourceFile: 'jessica/ad-treatment-c-4x5.png',
+    selectedFile: 'IMB_MV_RP_Static_01_JessicaAdmin.png',
+    uploadFile: 'IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png',
     notes:
-      'Selected: clean medical scrub visual, no $10 price on image. Baked-in on-image copy does not match approved headline - designer must re-export 1080x1350 with approved copy + Book a Demo CTA. Source is 2965x2965 square.',
+      'Lead creative. Closest to the only FirstBatch signal (TooManyCalls / overloaded staff). Treatment C is a production draft — designer may polish; still uploadable now at 1080×1350.',
     publishBlock: false,
   },
   {
     id: '02',
-    concept: 'Dental Practice Owners',
-    adName: 'IMB_MV_Static_02_DentalOwners',
-    onImageHeadline: 'Dental Practice Owners',
-    supportingLine: 'Get help with scheduling, insurance, and patient follow-up.',
+    concept: 'Chelsea · Scheduling pressure',
+    adName: 'IMB_MV_RP_Static_02_ChelseaScheduling',
+    onImageHeadline: 'YOUR FRONT DESK SHOULDN’T SPEND ALL DAY SCHEDULING.',
+    supportingLine: 'Meet Chelsea · Dental Virtual Assistant',
     primaryRecommended:
-      'Dental practice owners: get virtual staff support for scheduling, insurance, reminders, and patient follow-up.',
+      'Scheduling should not consume your entire front desk.\n\nMeet Chelsea — a Dental Virtual Assistant available through MedVirtual. Add a dedicated full-time virtual teammate your practice can interview.\n\nBook a demo to get started.',
     primaryBackup:
-      'Hire full-time virtual dental staff through MedVirtual to support your daily workflow.',
-    metaHeadline: 'Virtual Staff for Dental Practices',
-    description: 'Scheduling, insurance, and patient follow-up support.',
-    creativeDirection:
-      'Dental-specific visual preferred. Current batch has no dental imagery - best available medical professional used as interim.',
-    sourceFile: 'Med Virtual Ads 02.png',
-    selectedFile: 'IMB_MV_Static_02_DentalOwners.png',
-    uploadFile: 'IMB_MV_Static_02_DentalOwners_1080x1350.png',
-    notes:
-      'RED FLAG: No dental-specific image in the new 12-image batch. Using best available medical professional (clipboard). Designer should swap to a dental office visual before spend. Baked-in copy/CTA must be replaced with approved dental headline + Book a Demo.',
+      'Scheduling taking over the front desk? Meet Chelsea and hire dedicated virtual scheduling support through MedVirtual.',
+    metaHeadline: 'Meet Chelsea for Scheduling Support',
+    description: 'Interview real MedVirtual talent.',
+    creativeDirection: 'Named person + scheduling pain. Soft dental relevance without clinical imagery.',
+    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'chelsea', 'ad-treatment-c-4x5.png'),
+    sourceFile: 'chelsea/ad-treatment-c-4x5.png',
+    selectedFile: 'IMB_MV_RP_Static_02_ChelseaScheduling.png',
+    uploadFile: 'IMB_MV_RP_Static_02_ChelseaScheduling_1080x1350.png',
+    notes: 'Skill-specific scheduling pain. No $10 claim.',
     publishBlock: false,
   },
   {
     id: '03',
-    concept: 'Virtual Medical Admin',
-    adName: 'IMB_MV_Static_03_VirtualMedAdmin',
-    onImageHeadline: 'Hire a Full-Time Virtual Medical Admin',
-    supportingLine: 'Calls, scheduling, intake, and admin support.',
+    concept: 'Angelica · Front-desk pressure',
+    adName: 'IMB_MV_RP_Static_03_AngelicaFrontDesk',
+    onImageHeadline: 'YOUR FRONT DESK CAN’T DO EVERYTHING.',
+    supportingLine: 'Meet Angelica · Front Desk Assistant',
     primaryRecommended:
-      'Hire a full-time virtual medical admin for calls, scheduling, intake, and admin support.',
+      'Patients are waiting. Phones are ringing. Follow-up is stacking up.\n\nMeet Angelica — a Front Desk Assistant available through MedVirtual. Hire dedicated virtual staff who support your front-desk workflow as part of your practice team.\n\nBook a demo to request an interview.',
     primaryBackup:
-      'MedVirtual helps practices hire trained virtual staff who work as part of the team.',
-    metaHeadline: 'Hire a Virtual Medical Admin',
-    description: 'Calls, scheduling, intake, and admin help.',
+      'When the front desk is doing too much, meet Angelica and hire dedicated virtual support through MedVirtual — not a call center.',
+    metaHeadline: 'Front Desk Stretched Thin?',
+    description: 'Meet a real front-desk support candidate.',
     creativeDirection:
-      'Virtual medical admin with headset/laptop; healthcare-trained look; not generic call center.',
-    sourceFile: 'Med Virtual Ads 09.png',
-    selectedFile: 'IMB_MV_Static_03_VirtualMedAdmin.png',
-    uploadFile: 'IMB_MV_Static_03_VirtualMedAdmin_1080x1350.png',
-    notes:
-      'Selected: full-time VA / medical admin visual without $10 price (price reserved for concept 4). Re-export with approved headline/support + Book a Demo. Source is square.',
+      'Front-desk overload without “we run your front desk” or managed-service language.',
+    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'angelica', 'ad-treatment-c-4x5.png'),
+    sourceFile: 'angelica/ad-treatment-c-4x5.png',
+    selectedFile: 'IMB_MV_RP_Static_03_AngelicaFrontDesk.png',
+    uploadFile: 'IMB_MV_RP_Static_03_AngelicaFrontDesk_1080x1350.png',
+    notes: 'Pain-first front desk. Hire framing only.',
     publishBlock: false,
   },
   {
     id: '04',
-    concept: 'Pain-first',
-    adName: 'IMB_MV_Static_04_TooManyCalls',
-    onImageHeadline: 'Too Many Calls. Not Enough Staff.',
-    supportingLine: 'Full-time virtual staff starting at $10/hour.',
+    concept: 'Mark · Insurance verification',
+    adName: 'IMB_MV_RP_Static_04_MarkVerification',
+    onImageHeadline: 'HOW MUCH OF YOUR DAY GOES TO INSURANCE VERIFICATION?',
+    supportingLine: 'Meet Mark · Insurance Verification Specialist',
     primaryRecommended:
-      'Too many calls and not enough staff? Hire full-time virtual staff through MedVirtual.',
+      'Insurance verification can pull your team away from patients.\n\nMeet Mark — an Insurance Verification Specialist available through MedVirtual. Hire a dedicated full-time virtual staff member for eligibility and verification support.\n\nBook a demo to request an interview.',
     primaryBackup:
-      'Support your practice team with trained full-time virtual staff starting at $10/hour.',
-    metaHeadline: 'Too Many Calls? Get Support.',
-    description: 'Full-time virtual staff through MedVirtual.',
-    creativeDirection:
-      'Before/after: overwhelmed office vs calm virtual support. Keep $10/hour only on this concept.',
-    sourceFile: 'Med Virtual Ads 10.png',
-    selectedFile: 'IMB_MV_Static_04_TooManyCalls.png',
-    uploadFile: 'IMB_MV_Static_04_TooManyCalls_1080x1350.png',
-    notes:
-      'BLOCKED UNTIL $10/HOUR CONFIRMED. Keep this ad PAUSED until CMO confirms price. Baked-in headline differs from approved copy - re-export required. Keep $10/hour off concepts 1-3.',
-    publishBlock: true,
+      'Verification work piling up? Meet Mark and hire dedicated insurance verification support through MedVirtual.',
+    metaHeadline: 'Meet Mark for Verification Support',
+    description: 'Insurance verification talent from MedVirtual.',
+    creativeDirection: 'Named specialist. No reimbursement or denial-rate promises.',
+    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'mark', 'ad-treatment-c-4x5.png'),
+    sourceFile: 'mark/ad-treatment-c-4x5.png',
+    selectedFile: 'IMB_MV_RP_Static_04_MarkVerification.png',
+    uploadFile: 'IMB_MV_RP_Static_04_MarkVerification_1080x1350.png',
+    notes: 'Skill-specific alternate. No outcome guarantees. No $10 on this batch.',
+    publishBlock: false,
   },
 ];
 
@@ -181,77 +189,72 @@ function ensureDirs() {
   fs.mkdirSync(EXPORTS, { recursive: true });
 }
 
+async function archiveFirstBatchUploads() {
+  fs.mkdirSync(ARCHIVE_DIR, { recursive: true });
+  if (!fs.existsSync(UPLOAD_DIR)) return;
+  for (const f of fs.readdirSync(UPLOAD_DIR)) {
+    if (/^IMB_MV_Static_0[1-4]_/.test(f)) {
+      fs.renameSync(path.join(UPLOAD_DIR, f), path.join(ARCHIVE_DIR, f));
+    }
+  }
+}
+
 async function generatePreviewCrops() {
+  await archiveFirstBatchUploads();
   for (const ad of ADS) {
-    const input = path.join(LAUNCH_SRC, ad.sourceFile);
+    const input = ad.sourcePath;
     if (!fs.existsSync(input)) {
-      console.warn(`Missing source image: ${ad.sourceFile}`);
+      console.warn(`Missing Real People creative: ${ad.sourceFile}`);
       continue;
     }
-    const square = await sharp(input)
-      .resize(1080, 1080, {
-        fit: 'contain',
-        background: { r: 241, g: 245, b: 249, alpha: 1 },
-      })
-      .toBuffer();
-    const padded = await sharp(square)
-      .extend({
-        top: 135,
-        bottom: 135,
-        left: 0,
-        right: 0,
-        background: { r: 241, g: 245, b: 249, alpha: 1 },
-      })
-      .png()
-      .toBuffer();
-    await sharp(padded).toFile(path.join(SELECTED_DIR, ad.selectedFile));
-    await sharp(padded).toFile(path.join(UPLOAD_DIR, ad.uploadFile));
+    // Treatment C is already 1080×1350 — copy into upload package
+    fs.copyFileSync(input, path.join(SELECTED_DIR, ad.selectedFile));
+    fs.copyFileSync(input, path.join(UPLOAD_DIR, ad.uploadFile));
   }
 }
 
 function writeUploadReadyPackage() {
-  const readme = `# UPLOAD THESE 4 ADS NOW
+  const readme = `# NEW LAUNCH — UPLOAD THESE 4 REAL PEOPLE ADS
 
-Campaign and ad set already exist in Meta. Do not recreate them.
+FirstBatch (\`${CAMPAIGN.killedCampaign}\`) is **killed**.
 
-## Already in Meta
+Learning: only TooManyCalls had signal — and creative quality still was not good enough.
+This relaunch uses named Talent Pool people + hire-dedicated-staff messaging.
+
+## Create in Meta (new shell)
 
 - Campaign: \`${CAMPAIGN.name}\`
 - Ad set: \`${AD_SET.name}\`
-- Ad shell: \`IMB_MV_Static_01_MedicalOwners\` (needs creative + copy)
 - Form: \`${FORM.name}\`
+- Budget: ${CAMPAIGN.dailyBudgetDisplay}
+
+Do **not** revive MedicalOwners / DentalOwners / VirtualMedAdmin stock statics.
 
 ## Fastest path
 
-1. Open Ad 1 shell.
-2. Attach form \`${FORM.name}\`.
-3. Upload \`IMB_MV_Static_01_MedicalOwners_1080x1350.png\`.
+1. Create paused campaign + ad set + Instant Form (or duplicate FirstBatch form and rename).
+2. Create Ad 1: \`${ADS[0].adName}\`.
+3. Upload \`${ADS[0].uploadFile}\`.
 4. Paste Ad 1 copy from \`ad-copy-paste-ready.txt\`.
-5. Add URL parameters from \`utm-parameters.txt\`.
-6. Duplicate Ad 1 three times.
-7. Rename + swap creative/copy for Ads 2-4.
-8. Keep everything paused.
-9. Do not publish until Haylie approves.
+5. Attach form \`${FORM.name}\` + UTMs from \`utm-parameters.txt\`.
+6. Duplicate Ad 1 three times; rename + swap creative/copy for Ads 2–4.
+7. Keep everything paused.
+8. Send to Haylie / CMO — publish only after approval.
 
-## Files in this folder
+## Creatives
 
-| File | Use |
-| --- | --- |
-| \`ad-copy-paste-ready.txt\` | Paste primary text / headline / description |
-| \`creative-map.csv\` | Image to ad mapping |
-| \`form-final-settings.md\` | Exact Instant Form settings |
-| \`utm-parameters.txt\` | URL parameters |
-| \`ads-manager-build-order.md\` | Step order inside Meta |
-| \`meta-upload-checklist.md\` | QA before review |
-| \`IMB_MV_Static_*_1080x1350.png\` | Upload creatives |
+| # | Ad | File | Angle |
+| --- | --- | --- | --- |
+${ADS.map((ad) => `| ${ad.id} | \`${ad.adName}\` | \`${ad.uploadFile}\` | ${ad.concept} |`).join('\n')}
 
-## Creative status
+All PNGs are **1080×1350 Real People drafts** (Treatment C). Designer polish welcome — still uploadable now.
 
-All four PNGs are **DRAFT CREATIVE - NEEDS FINAL DESIGN APPROVAL**.
+## Language rules
 
-They are padded 1080x1350 exports from current source images. Source images may still have baked-in copy/CTA that does not match approved on-image headlines. Upload now to finish the Meta shell; swap final designer exports when ready.
-
-Ad 4: do not publish if the image shows \`$10/hour\` until Haylie confirms that claim.
+- Brand: **MedVirtual** only (never MedVirtual.ai in ad copy)
+- Frame: hire dedicated full-time virtual staff who join the practice team
+- Avoid: managed service, “we run your front desk,” call-center vibes, “MedVirtual handles…”
+- No new unverified $10 / savings / HIPAA-certified claims on this batch
 `;
   fs.writeFileSync(path.join(UPLOAD_DIR, 'README_UPLOAD_NOW.md'), readme, 'utf8');
 
@@ -295,11 +298,9 @@ Keep campaign / ad set / ads draft or paused.
 
 - [ ] Campaign name matches: \`${CAMPAIGN.name}\`
 - [ ] Ad set name matches: \`${AD_SET.name}\`
-- [ ] Four ad names match:
-  - [ ] \`IMB_MV_Static_01_MedicalOwners\`
-  - [ ] \`IMB_MV_Static_02_DentalOwners\`
-  - [ ] \`IMB_MV_Static_03_VirtualMedAdmin\`
-  - [ ] \`IMB_MV_Static_04_TooManyCalls\`
+- [ ] FirstBatch campaign stays killed / paused
+- [ ] Four Real People ad names match:
+${ADS.map((ad) => `  - [ ] \`${ad.adName}\``).join('\n')}
 
 ## Each ad
 
@@ -311,6 +312,9 @@ Keep campaign / ad set / ads draft or paused.
 - [ ] Destination = Instant Form
 - [ ] Form = \`${FORM.name}\`
 - [ ] URL parameters added
+- [ ] No MedVirtual.ai in ad copy
+- [ ] No managed-service / “we handle your front desk” language
+- [ ] No unverified $10 claim
 
 ## Form
 
@@ -1467,15 +1471,23 @@ function writeLaunchPackHtml() {
   ${renderDocHeader({
     activeId: 'launch',
     pageTitle: 'Meta Launch Build Pack',
-    pageSubtitle: '2-hour Meta build mode · draft only · 1 campaign · 1 ad set · 4 ads',
+    pageSubtitle: 'NEW Real People launch · FirstBatch killed · draft / paused · 4 ads ready to upload',
   })}
   <div class="wrap">
-    <div class="banner">URGENT LAUNCH MODE - keep everything DRAFT / PAUSED until CMO / Haylie approval</div>
+    <div class="banner">NEW LAUNCH — FirstBatch killed. Upload Real People ads. Keep DRAFT / PAUSED until Haylie / CMO approval.</div>
     <div class="status"><strong>Build status:</strong> ${esc(CAMPAIGN.status)}</div>
+    <div class="tracking" style="background:#fff7ed;border-color:#fdba74;border-left-color:#ea580c">
+      <strong>What failed</strong>
+      <ul>
+        <li>Campaign <code>${esc(CAMPAIGN.killedCampaign)}</code> is dead — do not reopen spend on those statics.</li>
+        <li>${esc(CAMPAIGN.killNote)}</li>
+        <li>Kill anything that says “MedVirtual handles…”, “scale your clinic not your stress,” or managed front-desk language.</li>
+      </ul>
+    </div>
 
     <section class="upload-now">
-      <h2>UPLOAD THESE 4 ADS NOW</h2>
-      <p>Campaign + ad set already exist. Open Ad 1 shell, attach form <code>${esc(FORM.name)}</code>, upload creative, paste copy, add UTMs, then duplicate 3 times. Creatives are draft padded 1080x1350 - swap final designer exports when ready.</p>
+      <h2>UPLOAD THESE 4 REAL PEOPLE ADS NOW</h2>
+      <p>Create a <strong>new</strong> paused campaign + ad set + Instant Form. Upload these 1080×1350 drafts, paste copy, add UTMs, keep paused. Designer polish can swap files later — these are ready to load.</p>
       <div class="upload-links">
         <a href="/exports/meta-upload-ready/README_UPLOAD_NOW.md">Upload-ready folder README</a>
         <a href="/exports/meta-upload-ready/ad-copy-paste-ready.txt">Paste-ready copy</a>
@@ -1484,10 +1496,11 @@ function writeLaunchPackHtml() {
         <a href="/exports/meta-upload-ready/ads-manager-build-order.md">Build order</a>
         <a class="file" href="/exports/meta-upload-ready/utm-parameters.txt">UTM parameters</a>
         <a class="file" href="/exports/meta-upload-ready/creative-map.csv">Creative map CSV</a>
+        <a href="/real-people-assets.html">RP Assets / designer notes</a>
       </div>
       <div class="upload-creatives">
         ${ADS.map(
-          (ad) => `<a href="/exports/meta-upload-ready/${esc(ad.uploadFile)}">
+          (ad) => `<a href="/exports/meta-upload-ready/${esc(ad.uploadFile)}" target="_blank" rel="noopener">
           <img src="/exports/meta-upload-ready/${esc(ad.uploadFile)}" alt="${esc(ad.adName)}" />
           <strong>${esc(ad.adName)}</strong>
           ${esc(ad.uploadFile)}
@@ -1497,24 +1510,23 @@ function writeLaunchPackHtml() {
     </section>
 
     <section class="build-mode">
-      <h2>2-Hour Meta Build Mode</h2>
-      <p>Exact order inside Ads Manager. Do not publish. Structure stays simple: 1 campaign, 1 ad set, 4 ads, 1 shared form.</p>
+      <h2>Build order (new shell)</h2>
+      <p>Do not revive FirstBatch ads. Structure: 1 new campaign, 1 new ad set, 4 Real People ads, 1 Instant Form.</p>
       <ol>
-        <li><strong>Step 1: Confirm assets</strong> - selected images, Ad 2 dental interim flag, Ad 4 $10/hour block, no extra audiences.</li>
-        <li><strong>Step 2: Campaign shell</strong> - <span class="mono">${esc(CAMPAIGN.name)}</span> already exists - skip recreate.</li>
-        <li><strong>Step 3: Ad set</strong> - <span class="mono">${esc(AD_SET.name)}</span> already exists - skip recreate.</li>
-        <li><strong>Step 4: Form</strong> - <span class="mono">${esc(FORM.name)}</span> · Haylie routing + SMS + privacy + booking link.</li>
-        <li><strong>Step 5: Upload 4 ads</strong> - use <a href="/exports/meta-upload-ready/">upload-ready package</a>: fill Ad 1, duplicate x3, swap creative/copy.</li>
-        <li><strong>Step 6: Review mobile previews</strong> - all 4 ads, language rules, Book a Demo CTA.</li>
-        <li><strong>Step 7: Send Haylie draft for review</strong> - keep paused.</li>
-        <li><strong>Step 8: Confirm booking / privacy / HubSpot</strong> - URLs already in form settings.</li>
-        <li><strong>Step 9: Publish only after approval</strong> - final QA first.</li>
+        <li><strong>Step 1: Confirm assets</strong> — 4 Real People 1080×1350 files in upload-ready folder.</li>
+        <li><strong>Step 2: Campaign</strong> — create <span class="mono">${esc(CAMPAIGN.name)}</span> (paused).</li>
+        <li><strong>Step 3: Ad set</strong> — create <span class="mono">${esc(AD_SET.name)}</span> with same LAL audience (${esc(AD_SET.reuseNote)}).</li>
+        <li><strong>Step 4: Form</strong> — create <span class="mono">${esc(FORM.name)}</span> (${esc(FORM.reuseNote)}).</li>
+        <li><strong>Step 5: Upload 4 ads</strong> — Jessica first (lead), then Chelsea, Angelica, Mark.</li>
+        <li><strong>Step 6: Mobile preview</strong> — hire framing, MedVirtual only, Book a Demo CTA.</li>
+        <li><strong>Step 7: Send Haylie / CMO draft</strong> — keep paused.</li>
+        <li><strong>Step 8: Publish only after approval</strong>.</li>
       </ol>
     </section>
 
     <section class="hero">
-      <h2>MedVirtual Meta Leads - First Batch</h2>
-      <p>National US lookalike test. Creative segments the message. No interest stacks. No extra ad sets in first build.</p>
+      <h2>MedVirtual Meta Leads — Real People</h2>
+      <p>National US lookalike. Named Talent Pool people. Pain-first. Hire dedicated staff who join the practice team.</p>
     </section>
 
     <div class="exports">
@@ -1573,12 +1585,12 @@ function writeLaunchPackHtml() {
         <p class="note">Create form manually. See form build instructions.</p>
       </section>
       <section class="panel">
-        <h3>Still waiting on Haylie</h3>
+        <h3>Still waiting on Haylie / CMO</h3>
         <ul class="waiting">
-          <li>Final creative design approval (current PNGs are draft padded exports)</li>
-          <li>Confirm $10/hour before publishing Ad 4 if price appears on creative</li>
-          <li>HubSpot lead view confirmation for IMB_MV form</li>
-          <li>Final CMO / Haylie publish approval</li>
+          <li>Approve Real People creative direction (Treatment C drafts uploadable now)</li>
+          <li>Optional designer polish / re-export of final art</li>
+          <li>HubSpot lead view confirmation for new IMB_MV form</li>
+          <li>Final publish approval — keep paused until then</li>
         </ul>
       </section>
     </div>
@@ -1599,41 +1611,33 @@ function writeLaunchPackHtml() {
     <h2 class="section-title">4 draft ads</h2>
     ${adCards}
 
-    <h2 class="section-title">Creative blockers</h2>
+    <h2 class="section-title">Creative rules</h2>
     <ul class="checklist">
-      <li>Current source images may have baked-in wrong CTA/copy</li>
-      <li>Final ads must use Book a Demo</li>
-      <li>Final ads must be 1080x1350</li>
-      <li>Ad 2 image is interim (not dental-specific)</li>
-      <li>Concept 4 requires $10/hour confirmation - keep paused until confirmed</li>
+      <li>Upload Real People 1080×1350 drafts now — designer polish can replace files later</li>
+      <li>CTA = Book a Demo</li>
+      <li>MedVirtual only — never MedVirtual.ai in ad copy</li>
+      <li>Hire dedicated staff who join the practice team — not a managed front desk</li>
+      <li>No “MedVirtual handles…” / call-center / scale-your-stress creatives</li>
+      <li>No unverified $10 / savings claims on this batch</li>
+      <li>FirstBatch statics stay archived / killed</li>
     </ul>
 
     <h2 class="section-title">Final QA checklist</h2>
     <ul class="checklist">
-      <li>☐ Campaign name correct</li>
+      <li>☐ New campaign name: RealPeople (not FirstBatch)</li>
       <li>☐ Ad set name correct</li>
-      <li>☐ Audience exact</li>
+      <li>☐ Same LAL audience, no interest stacks</li>
       <li>☐ Geo United States</li>
-      <li>☐ Budget $500/day</li>
-      <li>☐ Monthly pacing note understood</li>
-      <li>☐ Objective Leads</li>
-      <li>☐ Instant Form selected</li>
-      <li>☐ Form starts with IMB_MV</li>
-      <li>☐ Form saved as draft</li>
-      <li>☐ Booking link added</li>
-      <li>☐ Privacy policy URL added</li>
-      <li>☐ HubSpot lead view confirmed</li>
-      <li>☐ CTA Book a Demo</li>
-      <li>☐ MedVirtual only</li>
-      <li>☐ No MedVirtual.ai</li>
-      <li>☐ No managed service language</li>
-      <li>☐ No front desk replacement language</li>
-      <li>☐ No job-seeker/recruiting vibe</li>
-      <li>☐ $10/hour approved or ad 4 paused</li>
-      <li>☐ Creative copy matches approved copy</li>
-      <li>☐ Creative files 1080x1350</li>
-      <li>☐ All ads previewed on mobile</li>
-      <li>☐ Nothing published before Haylie approval</li>
+      <li>☐ Budget ${esc(CAMPAIGN.dailyBudgetDisplay)}</li>
+      <li>☐ Objective Leads · Instant Form</li>
+      <li>☐ Form starts with IMB_MV · Book a Demo</li>
+      <li>☐ Booking + privacy URLs set</li>
+      <li>☐ MedVirtual only · no MedVirtual.ai</li>
+      <li>☐ No managed service / front desk replacement language</li>
+      <li>☐ No job-seeker vibe</li>
+      <li>☐ No $10 claim unless separately approved</li>
+      <li>☐ Four Real People creatives previewed on mobile</li>
+      <li>☐ Nothing published before Haylie / CMO approval</li>
     </ul>
   </div>
 </body>
@@ -1644,9 +1648,11 @@ function writeLaunchPackHtml() {
 
 async function main() {
   ensureDirs();
-  if (!fs.existsSync(LAUNCH_SRC)) {
-    console.error('Missing launch creatives folder:', LAUNCH_SRC);
-    process.exit(1);
+  for (const ad of ADS) {
+    if (!fs.existsSync(ad.sourcePath)) {
+      console.error('Missing Real People creative:', ad.sourcePath);
+      process.exit(1);
+    }
   }
   await generatePreviewCrops();
   writeUploadReadyPackage();
@@ -1663,15 +1669,10 @@ async function main() {
   writeSelectedMapJson();
   writeContactSheetHtml();
   writeLaunchPackHtml();
-  console.log('Meta launch build pack generated.');
+  console.log('Meta Real People relaunch pack generated.');
   console.log('- public/meta-launch-build-pack.html');
   console.log('- public/exports/meta-upload-ready/');
-  console.log('- public/exports/meta-bulk-import-attempt.csv');
-  console.log('- public/exports/meta-manual-build-sheet.csv');
-  console.log('- public/exports/meta-paste-ready-ad-copy.txt');
-  console.log('- public/exports/meta-form-build-instructions.md');
-  console.log('- public/exports/meta-launch-step-by-step.md');
-  console.log('- public/exports/meta-draft-review-checklist.md');
+  console.log(`- archived FirstBatch PNGs → ${ARCHIVE_DIR}`);
 }
 
 main().catch((err) => {
