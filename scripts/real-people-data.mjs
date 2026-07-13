@@ -857,29 +857,317 @@ export const TREATMENT_C = [
 
 /** Monday graphics request — first batch only (4 ads) */
 export const MONDAY_REAL_PEOPLE_BATCH = [
-  { talentId: 'chelsea', angle: '4:5 pain-first · scheduling', treatmentC: true },
-  { talentId: 'mark', angle: '4:5 pain-first · insurance verification', treatmentC: true },
-  { talentId: 'jessica', angle: '4:5 pain-first · admin backlog', treatmentC: true },
-  { talentId: 'angelica', angle: '4:5 pain-first · front desk', treatmentC: true },
+  { talentId: 'chelsea', angle: 'Scheduling pressure', treatmentC: true },
+  { talentId: 'mark', angle: 'Verification workload', treatmentC: true },
+  { talentId: 'jessica', angle: 'Administrative overload', treatmentC: true },
+  { talentId: 'angelica', angle: 'Front-desk pressure', treatmentC: true },
+];
+
+/** Meta copy packages for RP Assets ad examples (CMO-facing) */
+export const META_AD_PACKAGES = [
+  {
+    talentId: 'chelsea',
+    creativeAngle: 'Scheduling pressure',
+    onImageHook: 'YOUR FRONT DESK SHOULDN’T SPEND ALL DAY SCHEDULING.',
+    primaryText:
+      'Scheduling should not consume your entire front desk.\n\nMeet Chelsea, a Dental Virtual Assistant whose MedVirtual profile lists appointment setting, customer service, and healthcare support.\n\nIntroduce your practice to a real person who may be able to help keep the calendar moving and the front desk focused.',
+    headline: 'Meet Chelsea for Scheduling Support',
+    description: 'Interview real MedVirtual talent.',
+    cta: 'Learn More',
+    alternateHook: 'SCHEDULING TAKING OVER THE FRONT DESK?',
+    supportingLine: 'Meet Chelsea · Dental Virtual Assistant',
+  },
+  {
+    talentId: 'mark',
+    creativeAngle: 'Insurance verification workload',
+    onImageHook: 'HOW MUCH OF YOUR DAY GOES TO INSURANCE VERIFICATION?',
+    primaryText:
+      'Insurance verification can pull your team away from patients and everything else that needs attention.\n\nMeet Mark, an Insurance Verification Specialist whose MedVirtual profile also lists medical billing support.\n\nStart with a real person your team can interview—not another generic staffing promise.',
+    headline: 'Meet Mark for Verification Support',
+    description: 'Insurance verification talent from MedVirtual.',
+    cta: 'Learn More',
+    alternateHook: 'VERIFICATION WORK PILING UP?',
+    supportingLine: 'Meet Mark · Insurance Verification Specialist',
+  },
+  {
+    talentId: 'jessica',
+    creativeAngle: 'Administrative workload',
+    onImageHook: 'THE ADMIN WORK DOESN’T STOP.',
+    primaryText:
+      'Calls keep coming. Tasks keep stacking. Your team is already stretched.\n\nMeet Jessica, a Jr. Medical Admin whose MedVirtual profile lists customer-service and healthcare-support skills.\n\nSee whether a real remote team member could help keep the day-to-day work moving.',
+    headline: 'Admin Work Piling Up?',
+    description: 'Meet real MedVirtual medical admin talent.',
+    cta: 'Learn More',
+    alternateHook: 'TOO MUCH ADMIN. NOT ENOUGH DAY.',
+    supportingLine: 'Meet Jessica · Jr. Medical Admin',
+  },
+  {
+    talentId: 'angelica',
+    creativeAngle: 'Front-desk pressure',
+    onImageHook: 'YOUR FRONT DESK CAN’T DO EVERYTHING.',
+    primaryText:
+      'Patients are waiting. Phones are ringing. Follow-up tasks are stacking up.\n\nMeet Angelica, a Dermatology Front Desk Assistant whose MedVirtual profile shows medical-admin and healthcare-support experience.\n\nGive your team a real person to meet—not another anonymous stock image.',
+    headline: 'Front Desk Stretched Thin?',
+    description: 'Meet a real front-desk support candidate.',
+    cta: 'Learn More',
+    alternateHook: 'WHEN THE FRONT DESK IS DOING TOO MUCH.',
+    supportingLine: 'Meet Angelica · Front Desk Assistant',
+  },
+];
+
+/** AI video storyboards for Jin — examples only, not finished videos */
+export const AI_VIDEO_CONCEPTS = [
+  {
+    talentId: 'chelsea',
+    title: 'Chelsea · Scheduling Pressure',
+    duration: '12–15 seconds',
+    format: '9:16 primary · 4:5 adaptation',
+    openingHook: 'SCHEDULING TAKING OVER YOUR FRONT DESK?',
+    scenes: [
+      {
+        time: '0–3 sec',
+        label: 'Scene 1',
+        action: 'Quick cuts of a ringing phone, a crowded calendar, and appointment notifications.',
+        onScreen: 'Scheduling taking over the day?',
+      },
+      {
+        time: '3–7 sec',
+        label: 'Scene 2',
+        action: 'Reveal Chelsea’s profile with a subtle push-in or parallax motion.',
+        onScreen: 'Meet Chelsea\nDental Virtual Assistant',
+      },
+      {
+        time: '7–11 sec',
+        label: 'Scene 3',
+        action: 'Animate three capability labels: Appointment Setting · Customer Service · Healthcare Support',
+        onScreen: 'Appointment Setting · Customer Service · Healthcare Support',
+      },
+      {
+        time: '11–15 sec',
+        label: 'Scene 4',
+        action: 'Chelsea profile, MedVirtual logo, and CTA.',
+        onScreen: 'Meet Chelsea · Request an Interview',
+      },
+    ],
+    finalFrame: ['Meet Chelsea', 'Request an Interview'],
+    narrator:
+      'When scheduling starts taking over the front desk, meet Chelsea—a Dental Virtual Assistant with appointment-setting, customer-service, and healthcare-support skills listed on her MedVirtual profile.',
+    productionNotes: [
+      'Begin with real operational pressure, not the portrait',
+      'Use phone and calendar B-roll',
+      'Avoid fake patient information',
+      'Do not imply Chelsea already works for the viewer',
+      'Neutral narrator is preferred for the first version',
+      'Do not clone Chelsea’s voice',
+    ],
+  },
+  {
+    talentId: 'mark',
+    title: 'Mark · Insurance Verification',
+    duration: '12–15 seconds',
+    format: '9:16 primary · 1:1 adaptation',
+    openingHook: 'HOW MUCH TIME IS VERIFICATION TAKING FROM YOUR TEAM?',
+    scenes: [
+      {
+        time: '0–3 sec',
+        label: 'Scene 1',
+        action: 'Insurance card, loading screen, eligibility checklist, and a growing task counter.',
+        onScreen: 'Verification work piling up?',
+      },
+      {
+        time: '3–7 sec',
+        label: 'Scene 2',
+        action: 'Reveal Mark’s portrait and role.',
+        onScreen: 'Meet Mark\nInsurance Verification Specialist',
+      },
+      {
+        time: '7–11 sec',
+        label: 'Scene 3',
+        action: 'Animate capability labels: Insurance Verification · Medical Billing Support · Full-Time Talent',
+        onScreen: 'Insurance Verification · Medical Billing Support · Full-Time Talent',
+      },
+      {
+        time: '11–15 sec',
+        label: 'Scene 4',
+        action: 'Profile card and CTA.',
+        onScreen: 'Meet Mark · Request an Interview',
+      },
+    ],
+    finalFrame: ['Meet Mark', 'Request an Interview'],
+    narrator:
+      'Insurance verification can pull your team away from patients. Meet Mark, an Insurance Verification Specialist with medical billing support listed on his MedVirtual profile.',
+    productionNotes: [
+      'Use demo or blurred interfaces only',
+      'Never show real patient or insurance information',
+      'Avoid claims about denial reduction, faster reimbursement, or revenue improvement',
+      'Use a calm, competent tone',
+    ],
+  },
+  {
+    talentId: 'jessica',
+    title: 'Jessica · Admin Work Piling Up',
+    duration: '10–13 seconds',
+    format: '9:16 primary · 4:5 adaptation',
+    openingHook: 'THE ADMIN WORK DOESN’T STOP.',
+    scenes: [
+      {
+        time: '0–3 sec',
+        label: 'Scene 1',
+        action: 'Rapid stack of voicemail, email, calendar, and task notifications.',
+        onScreen: 'Calls. Follow-ups. Admin tasks.',
+      },
+      {
+        time: '3–7 sec',
+        label: 'Scene 2',
+        action: 'Reveal Jessica with subtle motion.',
+        onScreen: 'Meet Jessica\nJr. Medical Admin',
+      },
+      {
+        time: '7–10 sec',
+        label: 'Scene 3',
+        action: 'Animate: Customer Service · Healthcare Support · Medical Admin',
+        onScreen: 'Customer Service · Healthcare Support · Medical Admin',
+      },
+      {
+        time: '10–13 sec',
+        label: 'Scene 4',
+        action: 'Logo and CTA.',
+        onScreen: 'Meet Jessica · Real MedVirtual Talent',
+      },
+    ],
+    finalFrame: ['Meet Jessica', 'Real MedVirtual Talent'],
+    narrator:
+      'The admin work does not stop just because your team is already stretched. Meet Jessica, a Jr. Medical Admin with customer-service and healthcare-support skills listed on her MedVirtual profile.',
+    productionNotes: [
+      'Fast opening, calmer profile reveal',
+      'Use notification sounds lightly',
+      'Avoid a chaotic or negative portrayal of the practice',
+      'Keep the person warm and credible rather than overly corporate',
+    ],
+  },
+  {
+    talentId: 'angelica',
+    title: 'Angelica · Front Desk Pressure',
+    duration: '12–15 seconds',
+    format: '9:16 primary · 4:5 adaptation',
+    openingHook: 'YOUR FRONT DESK CAN’T DO EVERYTHING.',
+    scenes: [
+      {
+        time: '0–3 sec',
+        label: 'Scene 1',
+        action: 'Phone ringing, patient arrival icon, scheduling alert, and follow-up reminder.',
+        onScreen: 'Phones ringing. Patients waiting.',
+      },
+      {
+        time: '3–7 sec',
+        label: 'Scene 2',
+        action: 'Reveal Angelica’s portrait.',
+        onScreen: 'Meet Angelica\nFront Desk Assistant',
+      },
+      {
+        time: '7–11 sec',
+        label: 'Scene 3',
+        action: 'Animate: Medical Admin Support · Healthcare Support · Front-Desk Experience',
+        onScreen: 'Medical Admin Support · Healthcare Support · Front-Desk Experience',
+      },
+      {
+        time: '11–15 sec',
+        label: 'Scene 4',
+        action: 'Profile, logo, and CTA.',
+        onScreen: 'Give the Front Desk Backup · Request an Interview',
+      },
+    ],
+    finalFrame: ['Give the Front Desk Backup', 'Request an Interview'],
+    narrator:
+      'When the front desk is doing too much at once, meet Angelica—a Dermatology Front Desk Assistant with medical-admin and healthcare-support experience shown on her MedVirtual profile.',
+    productionNotes: [
+      'Use clinic-environment B-roll without identifiable patients',
+      'Keep the tone supportive, not alarmist',
+      'Do not imply that Angelica performs clinical work',
+      'Do not invent software knowledge or certifications',
+    ],
+  },
+];
+
+export const AI_VIDEO_FORMATS = [
+  {
+    id: 'A',
+    title: 'Format A — Motion Graphic Profile',
+    badge: 'Safest first option',
+    recommended: false,
+    points: [
+      'Animate the existing still image',
+      'Add parallax, zoom, captions, and capability chips',
+      'Use neutral narration or music only',
+      'No synthetic speech from the person',
+      'Fastest version for Jin to produce',
+    ],
+  },
+  {
+    id: 'B',
+    title: 'Format B — AI Talking Portrait',
+    badge: 'Requires approval',
+    recommended: false,
+    points: [
+      'Subtle facial and head movement',
+      'Approved first-person script',
+      'Synthetic voice must not imitate the person without permission',
+      'Clearly track internally as synthetic creative',
+      'Keep movements restrained and realistic',
+    ],
+  },
+  {
+    id: 'C',
+    title: 'Format C — Pain-First B-Roll',
+    badge: 'Recommended first AI-video test',
+    recommended: true,
+    points: [
+      'Start with calls, calendar, verification, or admin pressure',
+      'Reveal the person after the hook',
+      'Use the candidate as the tangible solution',
+      'End with Request an Interview',
+      'Strongest connection to the current Too Many Calls direction',
+    ],
+  },
 ];
 
 export const SYNTHETIC_VIDEO_HANDOFF = [
-  'Use only approved Talent Pool images',
-  'Do not change the person’s identity',
-  'Do not invent credentials or experience',
-  'Do not clone or imitate a person’s voice without approval',
-  'Do not create dialogue implying the person personally performed unverified work',
-  'Scripts must remain limited to public profile facts',
+  'Use approved MedVirtual profile images only',
+  'Do not change the person’s identity or appearance',
+  'Do not invent credentials, software expertise, experience, or results',
+  'Do not clone or imitate the person’s voice without explicit approval',
+  'Do not imply the person completed work that has not been verified',
+  'Never show patient information or confidential systems',
   'Label synthetic drafts internally',
-  'Obtain explicit internal approval before publishing',
-  'Prefer real direct-to-camera footage when available',
-  'Never show patient information, real medical records, or confidential systems',
-  'Keep original source files archived separately',
-  'Still-image approval does NOT auto-approve synthetic animation',
+  'Still-image approval does not approve animation or lip-sync',
+  'Prefer real direct-to-camera footage when it becomes available',
 ];
+
+export const SYNTHETIC_VIDEO_RECOMMENDED =
+  'Recommended first step: motion graphics and neutral narration—not synthetic talking heads.';
 
 export function talentById(id) {
   return TALENT.find((t) => t.id === id);
+}
+
+export function metaAdPackageByTalentId(id) {
+  return META_AD_PACKAGES.find((p) => p.talentId === id);
+}
+
+export function metaAdPackageText(pkg) {
+  return [
+    `ON-IMAGE HOOK:`,
+    pkg.onImageHook,
+    '',
+    `PRIMARY TEXT:`,
+    pkg.primaryText,
+    '',
+    `HEADLINE: ${pkg.headline}`,
+    `DESCRIPTION: ${pkg.description}`,
+    `CTA: ${pkg.cta}`,
+    '',
+    `ALTERNATE HOOK: ${pkg.alternateHook}`,
+  ].join('\n');
 }
 
 export function treatmentCPackage(tc) {

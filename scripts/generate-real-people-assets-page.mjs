@@ -7,10 +7,13 @@ import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
 import {
   SYNTHETIC_VIDEO_HANDOFF,
+  SYNTHETIC_VIDEO_RECOMMENDED,
   TALENT,
-  TREATMENT_C,
   MONDAY_REAL_PEOPLE_BATCH,
-  treatmentCPackage,
+  META_AD_PACKAGES,
+  AI_VIDEO_CONCEPTS,
+  AI_VIDEO_FORMATS,
+  metaAdPackageText,
   talentById,
   SOURCE_CHECKED_AT,
 } from './real-people-data.mjs';
@@ -111,16 +114,24 @@ function renderPerson(t, catPerson) {
   </article>`;
 }
 
+function renderPrimaryParagraphs(text) {
+  return text
+    .split(/\n\n+/)
+    .map((p) => `<p class="copy-primary__p">${esc(p)}</p>`)
+    .join('');
+}
+
 function renderExamples(cat) {
   return `<div class="example-grid">${MONDAY_REAL_PEOPLE_BATCH.map((row) => {
-    const tc = TREATMENT_C.find((x) => x.talentId === row.talentId);
+    const pkg = META_AD_PACKAGES.find((x) => x.talentId === row.talentId);
     const t = talentById(row.talentId);
     const slug = t.assetSlug || t.id;
     const person = (cat.people || []).find((p) => p.slug === slug || p.id === t.id);
     const raw = person?.files?.cleanMaster?.path || person?.files?.original?.path || t.imagePath;
     const ad45 = `/assets/real-people/${slug}/ad-treatment-c-4x5.png`;
     const ad11 = `/assets/real-people/${slug}/ad-treatment-c-1x1.png`;
-    const pkg = treatmentCPackage(tc);
+    const ad916 = `/assets/real-people/${slug}/ad-treatment-c-9x16.png`;
+    const copyText = metaAdPackageText(pkg);
     return `<article class="example-card">
       <div class="example-card__arts">
         <button type="button" class="preview-hit art-45" data-preview="${esc(ad45)}" aria-label="Preview ${esc(t.firstName)} 4:5">
@@ -133,18 +144,100 @@ function renderExamples(cat) {
         </button>
       </div>
       <div class="example-card__meta">
-        <h3>${esc(t.firstName)}</h3>
-        <p class="role">${esc(t.title)}</p>
-        <p class="angle">${esc(tc.angle || row.angle.replace(/^4:5 pain-first · /i, ''))}</p>
-        <p class="hook">${esc(tc.headlineLines.join(' '))}</p>
+        <div class="example-card__who">
+          <h3>${esc(t.firstName)}</h3>
+          <p class="role">${esc(t.title)}</p>
+          <p class="angle">${esc(pkg.creativeAngle || row.angle)}</p>
+        </div>
+        <p class="hook">${esc(pkg.onImageHook)}</p>
+        <p class="support-line">${esc(pkg.supportingLine)}</p>
+        <div class="copy-panel">
+          <div class="copy-block">
+            <span class="copy-label">Primary text</span>
+            <div class="copy-primary">${renderPrimaryParagraphs(pkg.primaryText)}</div>
+          </div>
+          <div class="copy-meta-grid">
+            <div class="copy-block">
+              <span class="copy-label">Headline</span>
+              <p class="copy-val">${esc(pkg.headline)}</p>
+            </div>
+            <div class="copy-block">
+              <span class="copy-label">Description</span>
+              <p class="copy-val">${esc(pkg.description)}</p>
+            </div>
+            <div class="copy-block">
+              <span class="copy-label">CTA</span>
+              <p class="copy-val">${esc(pkg.cta)}</p>
+            </div>
+            <div class="copy-block">
+              <span class="copy-label">Alternate hook</span>
+              <p class="copy-val alt-hook">${esc(pkg.alternateHook)}</p>
+            </div>
+          </div>
+        </div>
         <div class="dl-row compact">
           <a class="dl" href="${esc(raw)}" download>Raw photo</a>
           <a class="dl" href="${esc(ad45)}" download>4:5 PNG</a>
-          <button type="button" class="copy-btn" data-copy="${esc(pkg)}">Copy package</button>
+          <a class="dl" href="${esc(ad11)}" download>1:1 PNG</a>
+          <a class="dl" href="${esc(ad916)}" download>9:16 PNG</a>
+          <button type="button" class="copy-btn primary-copy" data-copy="${esc(copyText)}">Copy full Meta package</button>
         </div>
       </div>
     </article>`;
   }).join('')}</div>`;
+}
+
+function renderVideoConcepts() {
+  return `<div class="video-grid">${AI_VIDEO_CONCEPTS.map((v) => {
+    const t = talentById(v.talentId);
+    return `<article class="video-card">
+      <header class="video-card__head">
+        <h3>${esc(v.title)}</h3>
+        <div class="video-meta">
+          <span>${esc(v.duration)}</span>
+          <span>${esc(v.format)}</span>
+        </div>
+        <p class="video-hook">${esc(v.openingHook)}</p>
+      </header>
+      <ol class="storyboard">
+        ${v.scenes
+          .map(
+            (s) => `<li class="story-beat">
+          <div class="story-beat__time">${esc(s.time)}</div>
+          <div class="story-beat__body">
+            <strong>${esc(s.label)}</strong>
+            <p>${esc(s.action)}</p>
+            <p class="story-ost"><span>On-screen</span> ${esc(s.onScreen).replace(/\n/g, ' · ')}</p>
+          </div>
+        </li>`,
+          )
+          .join('')}
+      </ol>
+      <div class="video-block">
+        <span class="copy-label">Voiceover / caption</span>
+        <p>${esc(v.narrator)}</p>
+      </div>
+      <div class="video-block final-frame">
+        <span class="copy-label">Final frame</span>
+        <p>${v.finalFrame.map((line) => esc(line)).join('<br />')}</p>
+      </div>
+      <div class="video-block">
+        <span class="copy-label">Production notes · ${esc(t.firstName)}</span>
+        <ul>${v.productionNotes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>
+      </div>
+    </article>`;
+  }).join('')}</div>`;
+}
+
+function renderVideoFormats() {
+  return `<div class="format-grid">${AI_VIDEO_FORMATS.map(
+    (f) => `<article class="format-card${f.recommended ? ' format-card--rec' : ''}">
+      ${f.recommended ? '<p class="format-rec">Recommended first AI-video test</p>' : ''}
+      <h3>${esc(f.title)}</h3>
+      <p class="format-badge">${esc(f.badge)}</p>
+      <ul>${f.points.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>
+    </article>`,
+  ).join('')}</div>`;
 }
 
 const CSS = `
@@ -154,26 +247,30 @@ const CSS = `
   .wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.15rem 3rem; }
   .hero { background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 1.1rem 1.2rem; margin-bottom: 0.75rem; }
   .hero h2 { font-size: 1.15rem; margin-bottom: 0.35rem; }
-  .hero p { color: #cbd5e1; font-size: 0.88rem; max-width: 65ch; }
+  .hero p { color: #cbd5e1; font-size: 0.88rem; max-width: 68ch; }
   .top-actions { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.75rem 0; }
   .dl, .copy-btn {
     display: inline-block; font-size: 0.74rem; font-weight: 700; padding: 0.4rem 0.65rem; border-radius: 7px;
     text-decoration: none; border: 1px solid #99f6e4; background: #f0fdfa; color: #0f766e; cursor: pointer;
   }
   .dl:hover, .copy-btn:hover { background: #ccfbf1; }
-  .dl.primary { background: #0d9488; color: #fff; border-color: #0d9488; }
+  .dl.primary, .copy-btn.primary-copy { background: #0d9488; color: #fff; border-color: #0d9488; }
+  .dl.primary:hover, .copy-btn.primary-copy:hover { background: #0f766e; }
   .dl.disabled { opacity: 0.45; pointer-events: none; }
-  .section { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.9rem 1rem; margin-bottom: 0.7rem; }
-  .section > h2 { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #64748b; margin-bottom: 0.35rem; }
-  .section > .lede { font-size: 0.84rem; color: #64748b; margin-bottom: 0.75rem; }
+  .section { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.95rem 1.05rem; margin-bottom: 0.7rem; }
+  .section > h2 { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #0f172a; margin-bottom: 0.35rem; }
+  .section > .lede { font-size: 0.88rem; color: #475569; margin-bottom: 0.85rem; max-width: 72ch; }
 
-  .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
-  @media (max-width: 800px) { .example-grid { grid-template-columns: 1fr; } }
+  .example-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
   .example-card {
-    border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.75rem; background: #f8fafc;
+    border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.85rem; background: #f8fafc;
+    display: grid; grid-template-columns: minmax(220px, 320px) 1fr; gap: 0.95rem; align-items: start;
+  }
+  @media (max-width: 860px) {
+    .example-card { grid-template-columns: 1fr; }
   }
   .example-card__arts {
-    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 0.55rem; align-items: end; margin-bottom: 0.65rem;
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 0.45rem; align-items: end;
   }
   .preview-hit {
     padding: 0; border: 0; background: transparent; cursor: zoom-in; display: block; text-align: left;
@@ -188,14 +285,96 @@ const CSS = `
   .art-11 { aspect-ratio: 1 / 1; }
   .art-45 img, .art-11 img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   .example-card__arts .preview-hit span {
-    position: absolute; left: 0.4rem; bottom: 0.4rem; font-size: 0.65rem; font-weight: 800;
-    color: #fff; background: rgba(15,23,42,0.7); padding: 0.15rem 0.4rem; border-radius: 4px;
+    position: absolute; left: 0.35rem; bottom: 0.35rem; font-size: 0.62rem; font-weight: 800;
+    color: #fff; background: rgba(15,23,42,0.72); padding: 0.12rem 0.35rem; border-radius: 4px;
   }
-  .example-card__meta h3 { font-size: 1rem; font-weight: 800; }
-  .example-card__meta .role { font-size: 0.82rem; color: #475569; font-weight: 600; margin: 0.1rem 0; }
-  .example-card__meta .angle { font-size: 0.72rem; font-weight: 750; color: #0f766e; margin: 0.25rem 0; }
-  .example-card__meta .hook { font-size: 0.78rem; color: #334155; margin: 0.25rem 0 0.5rem; }
-  .dl-row.compact { gap: 0.3rem; }
+  .example-card__who h3 { font-size: 1.15rem; font-weight: 800; color: #0f172a; }
+  .example-card__meta .role { font-size: 0.9rem; color: #334155; font-weight: 650; margin: 0.15rem 0 0.25rem; }
+  .example-card__meta .angle {
+    display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.02em;
+    color: #0f766e; background: #ccfbf1; border: 1px solid #99f6e4; border-radius: 999px;
+    padding: 0.18rem 0.55rem; margin-bottom: 0.55rem;
+  }
+  .example-card__meta .hook {
+    font-size: 1.02rem; font-weight: 800; color: #0f172a; line-height: 1.3;
+    margin: 0.15rem 0 0.35rem; max-width: 36ch;
+  }
+  .support-line { font-size: 0.8rem; color: #64748b; font-weight: 600; margin-bottom: 0.65rem; }
+  .copy-panel {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.7rem 0.8rem; margin-bottom: 0.65rem;
+  }
+  .copy-label {
+    display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.04em; color: #0d9488; margin-bottom: 0.25rem;
+  }
+  .copy-block + .copy-block { margin-top: 0.55rem; }
+  .copy-primary__p { font-size: 0.88rem; color: #1e293b; margin: 0 0 0.45rem; max-width: 62ch; }
+  .copy-primary__p:last-child { margin-bottom: 0; }
+  .copy-meta-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 0.75rem; margin-top: 0.7rem;
+    padding-top: 0.65rem; border-top: 1px solid #e2e8f0;
+  }
+  @media (max-width: 640px) { .copy-meta-grid { grid-template-columns: 1fr; } }
+  .copy-val { font-size: 0.86rem; color: #0f172a; font-weight: 650; }
+  .copy-val.alt-hook { font-weight: 750; color: #134e4a; }
+  .dl-row.compact { gap: 0.35rem; }
+
+  .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  @media (max-width: 800px) { .video-grid { grid-template-columns: 1fr; } }
+  .video-card {
+    border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.8rem 0.85rem; background: #f8fafc;
+  }
+  .video-card__head h3 { font-size: 1rem; font-weight: 800; color: #0f172a; }
+  .video-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.35rem 0 0.45rem; }
+  .video-meta span {
+    font-size: 0.68rem; font-weight: 750; color: #334155; background: #e2e8f0;
+    border-radius: 999px; padding: 0.15rem 0.5rem;
+  }
+  .video-hook {
+    font-size: 0.92rem; font-weight: 800; color: #0f172a; line-height: 1.3; margin-bottom: 0.65rem;
+  }
+  .storyboard { list-style: none; display: grid; gap: 0.45rem; margin-bottom: 0.7rem; }
+  .story-beat {
+    display: grid; grid-template-columns: 4.4rem 1fr; gap: 0.5rem; align-items: start;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.45rem 0.5rem;
+  }
+  .story-beat__time {
+    font-size: 0.68rem; font-weight: 800; color: #0f766e; background: #ccfbf1;
+    border-radius: 6px; padding: 0.25rem 0.35rem; text-align: center; line-height: 1.2;
+  }
+  .story-beat__body strong { display: block; font-size: 0.76rem; color: #0f172a; margin-bottom: 0.12rem; }
+  .story-beat__body p { font-size: 0.8rem; color: #334155; }
+  .story-ost { margin-top: 0.25rem !important; color: #0f172a !important; font-weight: 650; }
+  .story-ost span {
+    display: inline-block; font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.03em; color: #0d9488; margin-right: 0.25rem;
+  }
+  .video-block { margin-top: 0.55rem; }
+  .video-block p, .video-block li { font-size: 0.82rem; color: #1e293b; }
+  .video-block ul { padding-left: 1.05rem; }
+  .video-block li { margin: 0.15rem 0; }
+  .final-frame {
+    background: #0f172a; color: #f8fafc; border-radius: 8px; padding: 0.55rem 0.65rem;
+  }
+  .final-frame .copy-label { color: #5eead4; }
+  .final-frame p { color: #f8fafc; font-weight: 750; font-size: 0.9rem; line-height: 1.35; }
+
+  .format-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 0.85rem; }
+  @media (max-width: 800px) { .format-grid { grid-template-columns: 1fr; } }
+  .format-card {
+    border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.75rem 0.8rem; background: #fff;
+  }
+  .format-card--rec {
+    border-color: #14b8a6; box-shadow: 0 0 0 2px rgba(13,148,136,0.12); background: #f0fdfa;
+  }
+  .format-rec {
+    font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+    color: #0f766e; margin-bottom: 0.35rem;
+  }
+  .format-card h3 { font-size: 0.92rem; font-weight: 800; color: #0f172a; margin-bottom: 0.2rem; }
+  .format-badge { font-size: 0.78rem; color: #0d9488; font-weight: 700; margin-bottom: 0.45rem; }
+  .format-card ul { padding-left: 1.05rem; }
+  .format-card li { font-size: 0.8rem; color: #334155; margin: 0.18rem 0; }
 
   .asset-card { display: grid; grid-template-columns: 180px 1fr; gap: 0.85rem; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #fff; margin-bottom: 0.75rem; }
   @media (max-width: 720px) { .asset-card { grid-template-columns: 1fr; } }
@@ -251,7 +430,12 @@ const CSS = `
     position: absolute; top: 1rem; right: 1rem; background: #fff; border: 0; border-radius: 8px;
     font-weight: 800; padding: 0.45rem 0.7rem; cursor: pointer;
   }
-  .synth li { font-size: 0.82rem; margin: 0.2rem 0; color: #334155; }
+  .synth { padding-left: 1.1rem; }
+  .synth li { font-size: 0.86rem; margin: 0.28rem 0; color: #1e293b; }
+  .synth-rec {
+    margin-top: 0.7rem; font-size: 0.88rem; font-weight: 750; color: #0f766e;
+    background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 8px; padding: 0.55rem 0.7rem;
+  }
   .toast { position: fixed; bottom: 1rem; right: 1rem; background: #0f172a; color: #fff; padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.78rem; opacity: 0; transition: opacity .2s; z-index: 40; }
   .toast.show { opacity: 1; }
 `;
@@ -271,12 +455,12 @@ const html = `<!DOCTYPE html>
   ${renderDocHeader({
     activeId: 'real-people-assets',
     pageTitle: 'Real People Assets',
-    pageSubtitle: 'Real Talent Pool photos, ad examples, and downloadable crops for graphics and video.',
+    pageSubtitle: 'Real Talent Pool photos, Meta-ready copy, AI video concepts, and downloadable crops.',
   })}
   <div class="wrap">
     <header class="hero">
       <h2>Real People Assets</h2>
-      <p>Real MedVirtual Talent Pool photos and ad examples. Click any image to preview full size, then download what you need.</p>
+      <p>Four pain-first profile ads with Meta copy packages, then short AI-video storyboards for Jin. Click any image to preview; download assets below.</p>
       <div class="top-actions">
         ${cat.masterZip ? `<a class="dl primary" href="${esc(cat.masterZip)}" download>Download all Real People assets</a>` : '<span class="dl disabled">Master ZIP unavailable</span>'}
         <a class="dl" href="/real-people-creative.html">Creative details</a>
@@ -285,8 +469,15 @@ const html = `<!DOCTYPE html>
 
     <section class="section" id="examples">
       <h2>Ad examples</h2>
-      <p class="lede">Four sample layouts using real Talent Pool people. Click an image to view it properly sized.</p>
+      <p class="lede">Each card shows the pain the ad addresses, why this person is relevant, Meta-ready copy, and downloadable Treatment C art.</p>
       ${renderExamples(cat)}
+    </section>
+
+    <section class="section" id="ai-video">
+      <h2>AI Video Concepts for Jin</h2>
+      <p class="lede">These concepts turn the static profile ads into short 10–15 second videos. The recommended first version uses motion, captions, licensed B-roll, and a neutral narrator. Synthetic talking-head or lip-sync versions require separate approval.</p>
+      ${renderVideoConcepts()}
+      ${renderVideoFormats()}
     </section>
 
     <section class="section" id="library">
@@ -296,9 +487,9 @@ const html = `<!DOCTYPE html>
     </section>
 
     <section class="section" id="synthetic">
-      <h2>Synthetic Video Handoff</h2>
+      <h2>Synthetic Video Rules</h2>
       <ul class="synth">${SYNTHETIC_VIDEO_HANDOFF.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
-      <p style="margin-top:0.55rem;font-size:0.8rem;color:#b45309;font-weight:700">Still-image approval does not auto-approve synthetic animation.</p>
+      <p class="synth-rec">${esc(SYNTHETIC_VIDEO_RECOMMENDED)}</p>
     </section>
   </div>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
@@ -312,6 +503,7 @@ const html = `<!DOCTYPE html>
       btn.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(btn.getAttribute('data-copy') || '');
+          toast.textContent = 'Copied Meta package';
           toast.classList.add('show');
           setTimeout(() => toast.classList.remove('show'), 1100);
         } catch (e) {}
