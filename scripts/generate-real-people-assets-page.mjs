@@ -54,6 +54,14 @@ function dl(href, label) {
   return `<a class="dl" href="${esc(href)}" download>${esc(label)}</a>`;
 }
 
+const THUMB_LABELS = {
+  cleanMaster: 'Master',
+  profile11: '1:1',
+  feed45: '4:5',
+  vertical: '9:16',
+  aiReference: 'AI ref',
+};
+
 function renderPerson(t, catPerson) {
   const slug = t.assetSlug || t.id;
   const files = catPerson?.files || {};
@@ -62,7 +70,7 @@ function renderPerson(t, catPerson) {
   const src = files.original || files.cleanMaster;
   return `<article class="asset-card" id="asset-${esc(slug)}">
     <div class="asset-card__media">
-      <button type="button" class="preview-hit" data-preview="${esc(files.profile11?.path || t.imagePath)}" aria-label="Preview ${esc(t.firstName)} profile">
+      <button type="button" class="preview-hit media-hit" data-preview="${esc(files.profile11?.path || t.imagePath)}" aria-label="Preview ${esc(t.firstName)} profile">
         <img src="${esc(files.profile11?.path || t.imagePath)}" alt="${esc(t.fullPublicName)} — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
       </button>
     </div>
@@ -74,9 +82,6 @@ function renderPerson(t, catPerson) {
         <div><dt>Original</dt><dd>${src ? `${esc(src.width)}×${esc(src.height)} · ${esc(src.format)} · ${esc(src.sizeLabel)}` : 'See folder'}</dd></div>
         <div><dt>Recommended usage</dt><dd>${esc(notes.recommendedUsage || '—')}</dd></div>
         <div><dt>Crop quality</dt><dd>${esc(notes.cropQuality || '—')}</dd></div>
-        <div><dt>Background</dt><dd>${esc(notes.backgroundNotes || '—')}</dd></div>
-        <div><dt>Face / shoulders</dt><dd>${esc(notes.faceVisibility || '—')} · shoulders ${notes.shouldersVisible ? 'visible' : 'limited'}</dd></div>
-        <div><dt>AI speaking reference</dt><dd>${notes.aiSpeakingSuitable ? 'Suitable (face forward, unobstructed)' : 'SOURCE LIMITATION — MANUAL REVIEW REQUIRED'}</dd></div>
       </dl>
       ${limits.length ? `<p class="limit">${limits.map(esc).join(' ')}</p>` : ''}
       <div class="status-row">${statusPills(t.approvalStatus)}</div>
@@ -89,56 +94,57 @@ function renderPerson(t, catPerson) {
         ${dl(files.aiReference?.path, 'AI reference')}
         ${dl(catPerson?.personZip, 'Download all for this person')}
       </div>
-      <div class="thumb-row">
+      <div class="thumb-grid">
         ${['cleanMaster', 'profile11', 'feed45', 'vertical', 'aiReference']
           .filter((k) => files[k])
           .map(
             (k) =>
-              `<button type="button" class="thumb preview-hit" data-preview="${esc(files[k].path)}" aria-label="Preview ${esc(k)}">
-                <img src="${esc(files[k].path)}" alt="${esc(k)} preview" width="96" height="96" loading="lazy" />
+              `<button type="button" class="thumb preview-hit" data-preview="${esc(files[k].path)}" aria-label="Preview ${esc(THUMB_LABELS[k] || k)}">
+                <span class="thumb-frame"><img src="${esc(files[k].path)}" alt="" width="120" height="120" loading="lazy" /></span>
+                <span class="thumb-label">${esc(THUMB_LABELS[k] || k)}</span>
                </button>`,
           )
           .join('')}
       </div>
-      <p class="preview-hint">Click any image to preview full size. Use the buttons above to download.</p>
+      <p class="preview-hint">Click a square to preview full size. Use the buttons above to download files.</p>
     </div>
   </article>`;
 }
 
-function renderMonday(cat) {
-  return MONDAY_REAL_PEOPLE_BATCH.map((row) => {
+function renderExamples(cat) {
+  return `<div class="example-grid">${MONDAY_REAL_PEOPLE_BATCH.map((row) => {
     const tc = TREATMENT_C.find((x) => x.talentId === row.talentId);
     const t = talentById(row.talentId);
     const slug = t.assetSlug || t.id;
     const person = (cat.people || []).find((p) => p.slug === slug || p.id === t.id);
     const raw = person?.files?.cleanMaster?.path || person?.files?.original?.path || t.imagePath;
     const ad45 = `/assets/real-people/${slug}/ad-treatment-c-4x5.png`;
+    const ad11 = `/assets/real-people/${slug}/ad-treatment-c-1x1.png`;
     const pkg = treatmentCPackage(tc);
-    return `<article class="monday-card">
-      <div class="monday-card__preview">
-        <button type="button" class="preview-hit" data-preview="${esc(ad45)}" aria-label="Preview ${esc(t.firstName)} 4:5 Treatment C">
-          <img src="${esc(ad45)}" alt="${esc(tc.meetLine)} Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+    return `<article class="example-card">
+      <div class="example-card__arts">
+        <button type="button" class="preview-hit art-45" data-preview="${esc(ad45)}" aria-label="Preview ${esc(t.firstName)} 4:5">
+          <img src="${esc(ad45)}" alt="${esc(t.firstName)} 4:5 example" width="432" height="540" loading="lazy" />
+          <span>4:5</span>
+        </button>
+        <button type="button" class="preview-hit art-11" data-preview="${esc(ad11)}" aria-label="Preview ${esc(t.firstName)} 1:1">
+          <img src="${esc(ad11)}" alt="${esc(t.firstName)} 1:1 example" width="320" height="320" loading="lazy" />
+          <span>1:1</span>
         </button>
       </div>
-      <div>
-        <h3>${esc(t.firstName)} — ${esc(row.angle)}</h3>
-        <ul class="monday-list">
-          <li><strong>Canvas:</strong> 1080 × 1350 (primary)</li>
-          <li><strong>Headline:</strong> ${esc(tc.headlineLines.join(' / '))}</li>
-          <li><strong>Name:</strong> ${esc(tc.meetLine)}</li>
-          <li><strong>Role:</strong> ${esc(tc.role)}</li>
-          <li><strong>Bullets:</strong> ${esc(tc.bullets.map((b) => b.text).join(' · '))}</li>
-          <li><strong>CTA strip:</strong> ${esc(tc.ctaStrip)}</li>
-          <li><strong>Logo:</strong> Larger MedVirtual mark in white high-contrast plate</li>
-          <li><strong>Raw image:</strong> <a href="${esc(raw)}" download>Download clean master</a></li>
-          <li><strong>Source:</strong> <a href="${esc(t.profileUrl)}" target="_blank" rel="noopener noreferrer">Talent Pool</a></li>
-          <li><strong>Claim restrictions:</strong> No HIPAA / YOE / software / availability / outcome inventions. Full-Time only when employment type is shown.</li>
-        </ul>
-        <button type="button" class="copy-btn" data-copy="${esc(pkg)}">Copy all for Monday</button>
-        <a class="dl" href="${esc(ad45)}" download>Download 4:5 Treatment C PNG</a>
+      <div class="example-card__meta">
+        <h3>${esc(t.firstName)}</h3>
+        <p class="role">${esc(t.title)}</p>
+        <p class="angle">${esc(tc.angle || row.angle.replace(/^4:5 pain-first · /i, ''))}</p>
+        <p class="hook">${esc(tc.headlineLines.join(' '))}</p>
+        <div class="dl-row compact">
+          <a class="dl" href="${esc(raw)}" download>Raw photo</a>
+          <a class="dl" href="${esc(ad45)}" download>4:5 PNG</a>
+          <button type="button" class="copy-btn" data-copy="${esc(pkg)}">Copy package</button>
+        </div>
       </div>
     </article>`;
-  }).join('');
+  }).join('')}</div>`;
 }
 
 const CSS = `
@@ -158,10 +164,44 @@ const CSS = `
   .dl.primary { background: #0d9488; color: #fff; border-color: #0d9488; }
   .dl.disabled { opacity: 0.45; pointer-events: none; }
   .section { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.9rem 1rem; margin-bottom: 0.7rem; }
-  .section > h2 { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #64748b; margin-bottom: 0.5rem; }
-  .asset-card { display: grid; grid-template-columns: 200px 1fr; gap: 0.85rem; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #fff; margin-bottom: 0.75rem; }
+  .section > h2 { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #64748b; margin-bottom: 0.35rem; }
+  .section > .lede { font-size: 0.84rem; color: #64748b; margin-bottom: 0.75rem; }
+
+  .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  @media (max-width: 800px) { .example-grid { grid-template-columns: 1fr; } }
+  .example-card {
+    border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.75rem; background: #f8fafc;
+  }
+  .example-card__arts {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 0.55rem; align-items: end; margin-bottom: 0.65rem;
+  }
+  .preview-hit {
+    padding: 0; border: 0; background: transparent; cursor: zoom-in; display: block; text-align: left;
+  }
+  .example-card__arts .preview-hit {
+    position: relative; border-radius: 8px; overflow: hidden; background: #0f172a; border: 1px solid #e2e8f0;
+  }
+  .example-card__arts .preview-hit img {
+    width: 100%; height: auto; display: block; vertical-align: top;
+  }
+  .art-45 { aspect-ratio: 4 / 5; }
+  .art-11 { aspect-ratio: 1 / 1; }
+  .art-45 img, .art-11 img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .example-card__arts .preview-hit span {
+    position: absolute; left: 0.4rem; bottom: 0.4rem; font-size: 0.65rem; font-weight: 800;
+    color: #fff; background: rgba(15,23,42,0.7); padding: 0.15rem 0.4rem; border-radius: 4px;
+  }
+  .example-card__meta h3 { font-size: 1rem; font-weight: 800; }
+  .example-card__meta .role { font-size: 0.82rem; color: #475569; font-weight: 600; margin: 0.1rem 0; }
+  .example-card__meta .angle { font-size: 0.72rem; font-weight: 750; color: #0f766e; margin: 0.25rem 0; }
+  .example-card__meta .hook { font-size: 0.78rem; color: #334155; margin: 0.25rem 0 0.5rem; }
+  .dl-row.compact { gap: 0.3rem; }
+
+  .asset-card { display: grid; grid-template-columns: 180px 1fr; gap: 0.85rem; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #fff; margin-bottom: 0.75rem; }
   @media (max-width: 720px) { .asset-card { grid-template-columns: 1fr; } }
-  .asset-card__media img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #0f172a; }
+  .asset-card__media { background: #0f172a; }
+  .media-hit { width: 100%; }
+  .media-hit img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
   .asset-card__body { padding: 0.75rem 0.85rem 0.9rem; }
   .muted { font-size: 0.75rem; color: #64748b; font-weight: 600; }
   .role { font-size: 0.9rem; font-weight: 700; margin: 0.15rem 0; }
@@ -177,28 +217,40 @@ const CSS = `
   .status-warn { background: #fff7ed; color: #c2410c; border: 1px solid #fdba74; }
   .status-off { background: #f8fafc; color: #94a3b8; border: 1px solid #e2e8f0; }
   .dl-row { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.45rem; }
-  .thumb-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.55rem; }
-  .thumb-row img { width: 72px; height: 72px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; display: block; }
-  .thumb { padding: 0; border: 0; background: transparent; cursor: zoom-in; border-radius: 6px; }
-  .preview-hit { padding: 0; border: 0; background: transparent; cursor: zoom-in; display: block; width: 100%; }
-  .preview-hit img { width: 100%; display: block; border-radius: 8px; }
-  .asset-card__media .preview-hit img { aspect-ratio: 1; object-fit: cover; }
-  .preview-hint { font-size: 0.72rem; color: #64748b; margin-top: 0.35rem; }
+
+  .thumb-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin-top: 0.65rem;
+  }
+  @media (max-width: 700px) {
+    .thumb-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .thumb {
+    display: grid; gap: 0.25rem; justify-items: stretch;
+    padding: 0; border: 0; background: transparent; cursor: zoom-in; text-align: center;
+  }
+  .thumb-frame {
+    display: block; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden;
+    border: 1px solid #e2e8f0; background: #0f172a;
+  }
+  .thumb-frame img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;
+  }
+  .thumb-label { font-size: 0.65rem; font-weight: 750; color: #64748b; }
+  .preview-hint { font-size: 0.72rem; color: #64748b; margin-top: 0.4rem; }
+
   .lightbox {
-    position: fixed; inset: 0; background: rgba(15,23,42,0.88); display: none;
+    position: fixed; inset: 0; background: rgba(15,23,42,0.9); display: none;
     align-items: center; justify-content: center; z-index: 80; padding: 1rem;
   }
   .lightbox.open { display: flex; }
-  .lightbox img { max-width: min(100%, 900px); max-height: 92vh; width: auto; height: auto; border-radius: 10px; background: #0f172a; }
+  .lightbox img { max-width: min(100%, 920px); max-height: 92vh; width: auto; height: auto; border-radius: 10px; background: #0f172a; }
   .lightbox-close {
     position: absolute; top: 1rem; right: 1rem; background: #fff; border: 0; border-radius: 8px;
     font-weight: 800; padding: 0.45rem 0.7rem; cursor: pointer;
   }
-  .monday-card { display: grid; grid-template-columns: 180px 1fr; gap: 0.85rem; border: 2px solid #0d9488; border-radius: 12px; padding: 0.75rem; margin-bottom: 0.65rem; }
-  @media (max-width: 720px) { .monday-card { grid-template-columns: 1fr; } }
-  .monday-card__preview img { width: 100%; border-radius: 8px; display: block; }
-  .monday-list { padding-left: 1.1rem; font-size: 0.8rem; color: #334155; }
-  .monday-list li { margin: 0.18rem 0; }
   .synth li { font-size: 0.82rem; margin: 0.2rem 0; color: #334155; }
   .toast { position: fixed; bottom: 1rem; right: 1rem; background: #0f172a; color: #fff; padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.78rem; opacity: 0; transition: opacity .2s; z-index: 40; }
   .toast.show { opacity: 1; }
@@ -219,33 +271,34 @@ const html = `<!DOCTYPE html>
   ${renderDocHeader({
     activeId: 'real-people-assets',
     pageTitle: 'Real People Assets',
-    pageSubtitle: 'Clean Talent Pool originals, production crops, Treatment C previews, and AI/video reference files.',
+    pageSubtitle: 'Real Talent Pool photos, ad examples, and downloadable crops for graphics and video.',
   })}
   <div class="wrap">
     <header class="hero">
-      <h2>Asset library for graphics, Ronald, Jin, and editors</h2>
-      <p>Not a strategy page — download sources and crops here. Strategy and copy live on Real People Creative. Public avatar sources are typically 1024×1024; crops use mild resize to 1080 — no generative face fill.</p>
+      <h2>Real People Assets</h2>
+      <p>Real MedVirtual Talent Pool photos and ad examples. Click any image to preview full size, then download what you need.</p>
       <div class="top-actions">
-        ${cat.masterZip ? `<a class="dl primary" href="${esc(cat.masterZip)}" download>Download all Real People assets</a>` : '<span class="dl disabled">Master ZIP unavailable — run generate:real-people-assets</span>'}
-        <a class="dl" href="/real-people-creative.html">Open Real People Creative</a>
+        ${cat.masterZip ? `<a class="dl primary" href="${esc(cat.masterZip)}" download>Download all Real People assets</a>` : '<span class="dl disabled">Master ZIP unavailable</span>'}
+        <a class="dl" href="/real-people-creative.html">Creative details</a>
       </div>
     </header>
 
-    <section class="section" id="monday">
-      <h2>Monday Graphics Request — first batch only</h2>
-      <p style="font-size:0.84rem;color:#64748b;margin-bottom:0.65rem">Produce these four 1080×1350 Treatment C ads. Full library is below — do not expand the first request to all six profiles.</p>
-      ${renderMonday(cat)}
+    <section class="section" id="examples">
+      <h2>Ad examples</h2>
+      <p class="lede">Four sample layouts using real Talent Pool people. Click an image to view it properly sized.</p>
+      ${renderExamples(cat)}
+    </section>
+
+    <section class="section" id="library">
+      <h2>Downloads by person</h2>
+      <p class="lede">Source photos and production crops. Thumbnails are square previews — click to open full size.</p>
+      ${TALENT.map((t) => renderPerson(t, bySlug[t.assetSlug || t.id])).join('')}
     </section>
 
     <section class="section" id="synthetic">
       <h2>Synthetic Video Handoff</h2>
       <ul class="synth">${SYNTHETIC_VIDEO_HANDOFF.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
       <p style="margin-top:0.55rem;font-size:0.8rem;color:#b45309;font-weight:700">Still-image approval does not auto-approve synthetic animation.</p>
-    </section>
-
-    <section class="section" id="library">
-      <h2>Full profile asset library</h2>
-      ${TALENT.map((t) => renderPerson(t, bySlug[t.assetSlug || t.id])).join('')}
     </section>
   </div>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
