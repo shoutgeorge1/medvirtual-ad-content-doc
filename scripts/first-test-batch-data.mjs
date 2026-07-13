@@ -424,13 +424,13 @@ export const PRODUCTION_CONCEPTS = [
     name: 'Dental Practice Callout',
     audience: 'Dental practice owners and dental practice managers',
     headline: 'Dental Practice Owners',
-    support: 'Get help with scheduling, insurance, and patient follow-up.',
+    support: 'Help with scheduling, insurance, and patient follow-up.',
     visual:
       'Professional dental office setting paired with a remote virtual staff member handling scheduling, reminders, insurance verification, or pre-authorizations.',
     cta: 'Book a Demo',
     warning: 'Keep the visual clearly dental-specific without using graphic clinical imagery.',
     primaryText:
-      'Dental practice owners: get help with scheduling, insurance, and patient follow-up.\n\nHire full-time virtual dental staff through MedVirtual — part of your practice team.\n\nBook a demo →',
+      'Dental practice owners: help with scheduling, insurance, and patient follow-up.\n\nHire full-time virtual dental staff through MedVirtual — part of your practice team.\n\nBook a demo →',
     metaHeadline: 'Dental Practice Owners',
     description: 'Virtual staff for dental scheduling and follow-up.',
   },

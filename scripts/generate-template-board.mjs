@@ -19,7 +19,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const PUBLIC = path.join(ROOT, 'public');
 const ASSETS = path.join(PUBLIC, 'assets');
-const LOGO = '/assets/logo/medvirtual-logo.svg';
+const LOGO = '/assets/brand/medvirtual/logo-colored.svg';
 
 /**
  * Outcome-first hooks (Meta cleanup). Product label goes in support, not H1.
@@ -1188,44 +1188,167 @@ function renderSupport(copy, style) {
   return `<div class="support">${esc(support)}</div>`;
 }
 
-function productionCopyFor(concept) {
-  return {
-    angle: concept.name,
-    hook: concept.headline,
-    hookAccent: '',
-    support: concept.support,
-    bullets: [],
-    cta: concept.cta,
-  };
-}
+/**
+ * Layout-reference profiles for the four Brief concepts.
+ * Dedicated text zones — not neon style experiments.
+ */
+const LAYOUT_REF_PROFILES = {
+  '1': {
+    className: 'lr lr-c1',
+    template: 'PERSON_LEFT_HOOK_RIGHT',
+    objectPosition: '18% 28%',
+    hookHtml: 'MEDICAL PRACTICE<br />OWNERS',
+    support: 'Add full-time virtual support without adding office space.',
+  },
+  '2': {
+    className: 'lr lr-c2',
+    template: 'PERSON_LEFT_HOOK_RIGHT',
+    objectPosition: '20% 26%',
+    hookHtml: 'DENTAL PRACTICE<br />OWNERS',
+    support: 'Help with scheduling, insurance, and patient follow-up.',
+  },
+  '3': {
+    className: 'lr lr-c3',
+    template: 'PERSON_RIGHT_HOOK_LEFT',
+    objectPosition: '78% 32%',
+    hookHtml: 'HIRE A FULL-TIME<br />VIRTUAL MEDICAL<br />ADMIN',
+    support: 'Hire trained virtual staff through MedVirtual.',
+  },
+  '4': {
+    className: 'lr lr-c4',
+    template: 'PERSON_LEFT_HOOK_RIGHT',
+    objectPosition: '16% 30%',
+    hookHtml: 'TOO MANY CALLS.<br />NOT ENOUGH<br />STAFF.',
+    support: 'Full-time virtual staff starting at $10/hour.',
+  },
+};
+
+/** Layout-reference mockup CSS — clean text zones, brand colors, face-safe */
+const LAYOUT_REF_CSS = `
+  /* ── Layout reference mockups (Templates page only) ── */
+  .mock.lr {
+    font-family: var(--mv-font);
+    --lr-pad: 6%;
+  }
+  .mock.lr img.bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; transform: none !important;
+  }
+  .mock.lr .top-fade,
+  .mock.lr .wash { display: none; }
+  .mock.lr .logo-wrap {
+    position: absolute; top: var(--lr-pad); left: var(--lr-pad); z-index: 6;
+    background: rgba(255,255,255,0.92); border-radius: 6px;
+    padding: 0.35em 0.55em; box-shadow: none; border: none;
+    transform: none !important;
+  }
+  .mock.lr .logo {
+    display: block; height: 26px; width: auto; max-width: 160px;
+    object-fit: contain;
+  }
+  .mock.lr .copy {
+    position: absolute; z-index: 5; display: flex; flex-direction: column;
+    gap: 0.45em; pointer-events: none;
+  }
+  .mock.lr .text-panel {
+    background: rgba(240, 245, 255, 0.94);
+    border: 1px solid rgba(0, 178, 226, 0.22);
+    border-radius: 10px;
+    padding: 0.65em 0.75em;
+    box-shadow: none;
+  }
+  .mock.lr .hook {
+    font-weight: 700; color: var(--mv-deep-teal); line-height: 1.12;
+    letter-spacing: -0.02em; text-wrap: balance;
+    font-size: clamp(15px, 3.6vw, 22px) !important;
+  }
+  .mock.lr .support {
+    font-weight: 500; color: #163a48; line-height: 1.35;
+    font-size: clamp(11px, 2.2vw, 13px) !important;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(0, 192, 212, 0.28);
+    border-radius: 8px;
+    padding: 0.4em 0.55em;
+    text-transform: none !important; letter-spacing: 0; box-shadow: none; transform: none !important;
+  }
+  .mock.lr .cta {
+    position: absolute; z-index: 6;
+    display: inline-block;
+    background: var(--mv-primary); color: #fff;
+    font-weight: 700; font-size: clamp(11px, 2.1vw, 13px) !important;
+    padding: 0.45em 0.9em; border-radius: 8px;
+    letter-spacing: 0; text-transform: none;
+    box-shadow: none; border: none;
+    top: auto !important; transform: none !important;
+  }
+  .mock.lr.lr-c3 .hook { font-size: clamp(14px, 3.3vw, 20px) !important; }
+
+  /* C1 Medical — person left, pale panel upper-right */
+  .lr-c1 img.bg { object-position: 18% 28%; }
+  .lr-c1 .copy {
+    top: 14%; right: var(--lr-pad); left: 46%;
+  }
+  .lr-c1 .cta { bottom: var(--lr-pad); right: var(--lr-pad); left: auto; }
+
+  /* C2 Dental — soft deep-teal side wash, pale support */
+  .lr-c2 img.bg { object-position: 20% 26%; }
+  .lr-c2::before {
+    content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: linear-gradient(90deg, transparent 42%, rgba(13,84,107,0.55) 72%, rgba(13,84,107,0.72) 100%);
+  }
+  .lr-c2 .copy {
+    top: 14%; right: var(--lr-pad); left: 48%;
+  }
+  .lr-c2 .text-panel {
+    background: rgba(240, 245, 255, 0.96);
+  }
+  .lr-c2 .hook { color: var(--mv-deep-teal); }
+  .lr-c2 .support {
+    background: rgba(240, 245, 255, 0.95);
+    border-color: rgba(0, 178, 226, 0.35);
+  }
+  .lr-c2 .cta { bottom: var(--lr-pad); right: var(--lr-pad); left: auto; }
+
+  /* C3 Virtual Med Admin — person right, left text column ~44% */
+  .lr-c3 img.bg { object-position: 78% 32%; }
+  .lr-c3::before {
+    content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: linear-gradient(90deg, rgba(240,245,255,0.96) 0%, rgba(240,245,255,0.88) 38%, rgba(240,245,255,0.25) 52%, transparent 62%);
+  }
+  .lr-c3 .copy {
+    top: 16%; left: var(--lr-pad); right: 55%;
+  }
+  .lr-c3 .text-panel {
+    background: transparent; border: 0; padding: 0;
+  }
+  .lr-c3 .cta { bottom: var(--lr-pad); left: var(--lr-pad); right: auto; }
+
+  /* C4 Too Many Calls — person left, upper-right panel */
+  .lr-c4 img.bg { object-position: 16% 30%; }
+  .lr-c4 .copy {
+    top: 14%; right: var(--lr-pad); left: 48%;
+  }
+  .lr-c4 .cta { bottom: var(--lr-pad); right: var(--lr-pad); left: auto; }
+`;
 
 /** One clean layout mock + labeled fields per Brief concept */
 function renderProductionCard(concept, baseTest, index) {
-  const x = {
-    ...baseTest,
-    copy: productionCopyFor(concept),
-    style: baseTest.style || 'highlighter',
-    modifiers: baseTest.modifiers || 'text-panel',
-  };
-  const style = styleFor(x, index);
-  const cta = ctaLabel(x.copy, style);
-  const shape = ctaShape(style, index);
-  const isLeft = x.template === 'PERSON_LEFT_HOOK_RIGHT';
-  const mods = (x.modifiers || '').trim();
-  const shapeClass = shape ? `cta-shape-${shape}` : '';
+  const profile = LAYOUT_REF_PROFILES[concept.id] || LAYOUT_REF_PROFILES['1'];
+  const template = profile.template || baseTest.template;
+  const cta = concept.cta || 'Book a Demo';
 
   return `<article class="prod-card">
     <div class="prod-card__preview">
-      <div class="mock ${ratioClass(x.ratio)} ${tplClass(x.template)} ${mods} style-${style} ${shapeClass}">
-        <img class="bg" src="${esc(x.image)}" alt="" />
-        ${isLeft ? '<div class="top-fade"></div>' : ''}
-        <div class="wash"></div>
-        <div class="logo-wrap"><img class="logo left" src="${LOGO}" alt="MedVirtual" /></div>
+      <div class="mock r-4x5 ${tplClass(template)} ${profile.className}">
+        <img class="bg" src="${esc(baseTest.image)}" alt="" style="object-position:${esc(profile.objectPosition)}" />
+        <div class="logo-wrap"><img class="logo" src="${LOGO}" alt="MedVirtual" /></div>
         <div class="copy">
-          <div class="hook">${renderHook(x.copy)}</div>
-          ${renderSupport(x.copy, style)}
+          <div class="text-panel">
+            <div class="hook">${profile.hookHtml}</div>
+          </div>
+          <div class="support">${esc(profile.support)}</div>
         </div>
-        ${cta ? `<span class="cta">${esc(cta)}</span>` : ''}
+        <span class="cta">${esc(cta)}</span>
       </div>
     </div>
     <div class="prod-card__meta">
@@ -1234,12 +1357,12 @@ function renderProductionCard(concept, baseTest, index) {
         <p class="field-label">On-image headline</p>
         <p class="field-headline">${esc(concept.headline)}</p>
         <p class="field-label">Support</p>
-        <p class="field-val">${esc(concept.support)}</p>
+        <p class="field-val">${esc(profile.support)}</p>
         <p class="field-label">Visual</p>
         <p class="field-val muted">${esc(concept.visual)}</p>
         <p class="field-label">Layout</p>
-        <p class="field-val">${esc(x.template.replaceAll('_', ' '))} · 1080×1350</p>
-        <span class="cta-pill">${esc(concept.cta)}</span>
+        <p class="field-val">${esc(template.replaceAll('_', ' '))} · 1080×1350</p>
+        <span class="cta-pill">${esc(cta)}</span>
       </div>
     </div>
   </article>`;
@@ -1269,47 +1392,59 @@ async function main() {
     .join('');
 
   const pageCss = `
-  body { background: #f1f5f9 !important; color: #0f172a !important; }
-  .wrap { max-width: 900px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; }
+  ${LAYOUT_REF_CSS}
+  body { background: var(--mv-neutral-blue) !important; color: var(--mv-ink) !important; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; overflow-x: hidden; }
   .banner {
-    background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 0.95rem 1.1rem; margin-bottom: 0.85rem;
+    background: var(--mv-deep-teal); color: #f8fafc; border-radius: 12px; padding: 1rem 1.15rem; margin-bottom: 1rem;
   }
-  .banner h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; color: #f8fafc; }
-  .banner p { font-size: 0.88rem; color: #cbd5e1; }
-  .banner a { color: #5eead4; font-weight: 700; text-decoration: none; }
-  .banner-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem; }
+  .banner h2 { font-size: 1.08rem; font-weight: 700; margin-bottom: 0.3rem; color: #f8fafc; font-family: var(--mv-font); }
+  .banner p { font-size: 0.88rem; color: #d7eaf2; font-weight: 400; max-width: 68ch; }
+  .banner .clarify { font-size: 0.8rem; color: #b8d4e0; margin-top: 0.4rem; font-weight: 400; }
+  .banner a { color: var(--mv-bright-accent); font-weight: 700; text-decoration: none; }
+  .banner-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.7rem; }
   .banner-meta span {
-    font-size: 0.72rem; font-weight: 750; padding: 0.28rem 0.55rem; border-radius: 6px;
-    background: rgba(13,148,136,0.25); border: 1px solid rgba(94,234,212,0.35); color: #99f6e4;
+    font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.55rem; border-radius: 6px;
+    background: rgba(0,178,226,0.2); border: 1px solid rgba(39,230,250,0.35); color: #c9f4fb;
   }
-  .prod-list { display: grid; gap: 0.85rem; }
+  .prod-list { display: grid; gap: 1rem; }
   .prod-card {
-    display: grid; grid-template-columns: minmax(220px, 280px) 1fr; gap: 0.85rem;
-    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.75rem;
+    display: grid; grid-template-columns: minmax(280px, 360px) 1fr; gap: 1rem;
+    align-items: start;
+    background: #fff; border: 1px solid #d7e3f0; border-radius: 12px; padding: 0.95rem;
+    min-height: 0;
   }
-  @media (max-width: 720px) { .prod-card { grid-template-columns: 1fr; } }
-  .prod-card__preview { border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; background: #0f172a; }
+  @media (max-width: 800px) {
+    .prod-card { grid-template-columns: 1fr; }
+  }
+  .prod-card__preview {
+    border-radius: 8px; overflow: hidden; border: 1px solid #d7e3f0;
+    background: var(--mv-deep-teal); max-width: 360px; width: 100%;
+  }
   .prod-card__preview .mock { width: 100%; }
-  .prod-card__meta { display: grid; grid-template-columns: 2.1rem 1fr; gap: 0.55rem; align-content: start; padding: 0.25rem 0.15rem; }
+  .prod-card__meta {
+    display: grid; grid-template-columns: 2.1rem 1fr; gap: 0.65rem;
+    align-content: start; padding: 0.15rem 0.1rem 0.25rem;
+  }
   .prod-num {
     width: 2.1rem; height: 2.1rem; border-radius: 8px; background: var(--mv-primary); color: #fff;
-    font-weight: 800; display: grid; place-items: center;
+    font-weight: 700; display: grid; place-items: center; font-family: var(--mv-font);
   }
   .field-label {
-    font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-    color: var(--mv-primary); margin-top: 0.45rem; margin-bottom: 0.1rem;
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--mv-primary); margin-top: 0.65rem; margin-bottom: 0.2rem;
   }
   .prod-fields .field-label:first-child { margin-top: 0; }
-  .field-headline { font-size: 1.1rem; font-weight: 800; color: #0f172a; line-height: 1.25; }
-  .field-val { font-size: 0.88rem; color: #334155; font-weight: 600; }
-  .field-val.muted { font-weight: 500; color: #64748b; }
+  .field-headline { font-size: 1.08rem; font-weight: 700; color: var(--mv-ink); line-height: 1.3; margin-bottom: 0.15rem; }
+  .field-val { font-size: 0.88rem; color: #334155; font-weight: 500; line-height: 1.4; }
+  .field-val.muted { font-weight: 400; color: #64748b; }
   .cta-pill {
-    display: inline-block; margin-top: 0.65rem; background: var(--mv-primary); color: #fff;
-    font-size: 0.75rem; font-weight: 800; padding: 0.28rem 0.6rem; border-radius: 6px;
+    display: inline-block; margin-top: 0.85rem; background: var(--mv-primary); color: #fff;
+    font-size: 0.75rem; font-weight: 700; padding: 0.28rem 0.6rem; border-radius: 6px;
   }
   .note {
-    margin-top: 0.85rem; font-size: 0.84rem; color: #64748b; background: #fff;
-    border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.7rem 0.85rem;
+    margin-top: 1rem; font-size: 0.84rem; color: #5a6b78; background: #fff;
+    border: 1px solid #d7e3f0; border-radius: 10px; padding: 0.75rem 0.9rem; font-weight: 400;
   }
 `;
 
@@ -1332,15 +1467,16 @@ async function main() {
   <div class="wrap">
     <header class="banner">
       <h2>Layout reference only</h2>
-      <p>Produce from the <a href="/graphic-request-brief.html">Creative Brief</a>. These mocks show text zones + composition — not extra ads to build.</p>
+      <p>Produce from the <a href="/graphic-request-brief.html">Creative Brief</a>. These mocks show person placement, headline, support, and CTA zones — not final ads.</p>
+      <p class="clarify">Final typography, image treatment, and polish will be completed by the design team.</p>
       <div class="banner-meta">
         <span>${FIRST_BATCH_COUNT} concepts</span>
-        <span>1080×1350</span>
-        <span>Person left · hook right</span>
+        <span>1080×1350 · 4:5</span>
+        <span>Composition reference</span>
       </div>
     </header>
     <div class="prod-list">${cards}</div>
-    <p class="note">Brief owns headlines and Meta copy. Use this page to see how type sits on the image.</p>
+    <p class="note">Brief owns Meta copy. This page is only for reviewing text zones on the image.</p>
   </div>
 </body>
 </html>`,
