@@ -10,12 +10,9 @@ import { fileURLToPath } from 'url';
 import { spawnSync } from 'child_process';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
 import {
-  BUCKET_COLORS,
-  BUCKET_LABELS,
   PRODUCTION_CONCEPTS,
   FIRST_BATCH_COUNT,
   TEMPLATE_BUCKET_MAP,
-  TEST_BUCKETS,
 } from './first-test-batch-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1191,146 +1188,130 @@ function renderSupport(copy, style) {
   return `<div class="support">${esc(support)}</div>`;
 }
 
-function renderStamp(style) {
-  // Site-backed only — never $7 / $8.5 (landing page mismatch risk)
-  if (style === 'stamp-10') {
-    return `<div class="rate-stamp" aria-hidden="true"><span class="price">$10</span><span class="hr">/HR</span></div>`;
-  }
-  return '';
+function productionCopyFor(concept) {
+  return {
+    angle: concept.name,
+    hook: concept.headline,
+    hookAccent: '',
+    support: concept.support,
+    bullets: [],
+    cta: concept.cta,
+  };
 }
 
-function claimBadge(label, value) {
-  if (!value || value === 'none') return `<span class="claim ok">${esc(label)}: none</span>`;
-  if (value === 'site_$10' || value === 'site_trained' || value === 'site_ready') {
-    return `<span class="claim ok">${esc(label)}: ${esc(value.replace('site_', ''))}</span>`;
-  }
-  return `<span class="claim verify">[VERIFY] ${esc(label)}: ${esc(value)}</span>`;
-}
-
-function renderMock(x, index = 0) {
+/** One clean layout mock + labeled fields per Brief concept */
+function renderProductionCard(concept, baseTest, index) {
+  const x = {
+    ...baseTest,
+    copy: productionCopyFor(concept),
+    style: baseTest.style || 'highlighter',
+    modifiers: baseTest.modifiers || 'text-panel',
+  };
   const style = styleFor(x, index);
   const cta = ctaLabel(x.copy, style);
   const shape = ctaShape(style, index);
-  const bullets = (x.copy.bullets || []).map((b) => `<li>${esc(b)}</li>`).join('');
   const isLeft = x.template === 'PERSON_LEFT_HOOK_RIGHT';
   const mods = (x.modifiers || '').trim();
   const shapeClass = shape ? `cta-shape-${shape}` : '';
-  const priceClaim = style === 'stamp-10' ? (x.priceClaim === 'none' ? 'site_$10' : x.priceClaim) : x.priceClaim;
-  const hipaaClaim =
-    x.hipaaClaim && x.hipaaClaim !== 'none'
-      ? x.hipaaClaim
-      : /\bHIPAA-trained\b/i.test([x.copy?.support, ...(x.copy?.bullets || [])].join(' '))
-        ? 'site_trained'
-        : 'none';
-  const prototype =
-    x.ronaldJinCandidate === 'yes'
-      ? '<span class="badge proto">RONALD/JIN PROTOTYPE</span>'
-      : '';
-  const bucketId = x.testBucket || 'virtual_med_admin';
-  const bucketLabel = BUCKET_LABELS[bucketId] || bucketId;
-  const bucketColor = BUCKET_COLORS[bucketId] || '#334155';
-  const mediaType = x.mediaType || 'static';
-  const mediaNote =
-    mediaType === 'video'
-      ? 'Short-form video candidate — text reveal + light zoom'
-      : 'Static creative — feed/story export';
-  return `
-  <div class="card">
-    <div class="mock ${ratioClass(x.ratio)} ${tplClass(x.template)} ${mods} style-${style} ${shapeClass}">
-      <img class="bg" src="${esc(x.image)}" alt="" />
-      ${isLeft ? '<div class="top-fade"></div>' : ''}
-      <div class="wash"></div>
-      <div class="logo-wrap"><img class="logo left" src="${LOGO}" alt="MedVirtual" /></div>
-      ${x.phase === 'phase_2' ? '<span class="phase-tag">PHASE 2 · RETARGET</span>' : ''}
-      ${renderStamp(style)}
-      <div class="copy">
-        <div class="hook">${renderHook(x.copy)}</div>
-        ${renderSupport(x.copy, style)}
-        ${bullets ? `<ul class="bullets">${bullets}</ul>` : ''}
+
+  return `<article class="prod-card">
+    <div class="prod-card__preview">
+      <div class="mock ${ratioClass(x.ratio)} ${tplClass(x.template)} ${mods} style-${style} ${shapeClass}">
+        <img class="bg" src="${esc(x.image)}" alt="" />
+        ${isLeft ? '<div class="top-fade"></div>' : ''}
+        <div class="wash"></div>
+        <div class="logo-wrap"><img class="logo left" src="${LOGO}" alt="MedVirtual" /></div>
+        <div class="copy">
+          <div class="hook">${renderHook(x.copy)}</div>
+          ${renderSupport(x.copy, style)}
+        </div>
+        ${cta ? `<span class="cta">${esc(cta)}</span>` : ''}
       </div>
-      ${cta ? `<span class="cta">${esc(cta)}</span>` : ''}
     </div>
-    <div class="meta">
-      <div class="id">${esc(x.id)} · ${esc(x.imageId)}</div>
-      <div><strong>${esc(x.template)}</strong> · ${esc(x.ratio)} · ${esc(x.subjectSide || '—')}</div>
-      <div style="margin-top:0.2rem;color:#94a3b8">${esc(x.copy.angle)}</div>
-      <span class="bucket-tag" style="background:${bucketColor}">${esc(bucketLabel)}</span>
-      <span class="media-tag ${esc(mediaType)}">${mediaType === 'video' ? 'Video' : 'Static'}</span>
-      <div class="hook-line"><strong>Format note:</strong> ${esc(mediaNote)}</div>
-      <div class="hook-line"><strong>H1:</strong> ${esc(x.copy.hook)}</div>
-      <div class="hook-line"><strong>Support:</strong> ${esc(x.copy.support || '—')}</div>
-      <div class="hook-line"><strong>CTA:</strong> ${esc(cta || 'none')}</div>
-      <span class="badge rating-${x.layoutRating.toLowerCase()}">Layout ${x.layoutRating}</span>
-      <span class="style-badge">${esc(style)}${cta ? ` · ${esc(shape)}` : ' · no CTA'}</span>
-      <span class="badge ${x.phase === 'phase_2' ? 'phase-2' : ''}">${x.phase === 'phase_2' ? 'Phase 2 / retarget' : 'First batch'}</span>
-      ${prototype}
-      <div class="claims">
-        ${claimBadge('Price', priceClaim)}
-        ${claimBadge('HIPAA', hipaaClaim)}
-        <span class="claim ${x.faceSafe === 'yes' ? 'ok' : 'bad'}">Face-safe: ${esc(x.faceSafe)}</span>
-        <span class="claim ${x.metaSafe === 'yes' ? 'ok' : 'bad'}">Meta-safe: ${esc(x.metaSafe)}</span>
-        <span class="claim ok">Anim: ${esc(x.animationReady)}</span>
-        <span class="claim ok">Ratio: ${esc(x.ratio)}${x.manualRatioAdjust !== 'no' ? ' · manual adjust' : ''}</span>
+    <div class="prod-card__meta">
+      <span class="prod-num">${index + 1}</span>
+      <div class="prod-fields">
+        <p class="field-label">On-image headline</p>
+        <p class="field-headline">${esc(concept.headline)}</p>
+        <p class="field-label">Support</p>
+        <p class="field-val">${esc(concept.support)}</p>
+        <p class="field-label">Visual</p>
+        <p class="field-val muted">${esc(concept.visual)}</p>
+        <p class="field-label">Layout</p>
+        <p class="field-val">${esc(x.template.replaceAll('_', ' '))} · 1080×1350</p>
+        <span class="cta-pill">${esc(concept.cta)}</span>
       </div>
-      <div class="notes">${esc(x.notes)}</div>
     </div>
-  </div>`;
+  </article>`;
 }
 
 async function main() {
   const tests = await buildTests();
-  const firstBatch = tests.filter((x) => x.phase === 'first_batch');
-  const bucketOrder = [
-    'front_desk_overload',
-    'dental_practice',
-    'insurance_billing',
-    'virtual_med_admin',
-    'before_after',
+  const byId = Object.fromEntries(tests.map((x) => [x.id, x]));
+
+  const productionLayouts = [
+    { conceptId: '1', templateId: 'T1-FD-45' },
+    { conceptId: '2', templateId: 'T1-FD2-45' },
+    { conceptId: '3', templateId: 'T2-RMA-45' },
+    { conceptId: '4', templateId: 'T1-MC-45' },
   ];
 
-  const productionHeadlines = PRODUCTION_CONCEPTS.map(
-    (c) => `<span class="batch-pill" style="background:#0d9488">${esc(c.headline)}</span>`,
-  ).join('');
-
-  const batchIntro = `<div class="batch-intro">
-    <h2>Visual Reference — Not a Production List</h2>
-    <p>Produce exactly <strong>${FIRST_BATCH_COUNT} static concepts</strong> at <strong>1080×1350</strong> per <a href="/graphic-request-brief.html">graphic-request-brief.html</a>. Templates below are layout reference only — no variations, resizes, or video yet.</p>
-    <div class="batch-pills">${productionHeadlines}</div>
-  </div>`;
-
-  const firstBatchBody = bucketOrder
-    .map((bucketId) => {
-      const items = firstBatch.filter((x) => x.testBucket === bucketId);
-      if (!items.length) return '';
-      const staticCount = items.filter((x) => x.mediaType !== 'video').length;
-      const videoCount = items.filter((x) => x.mediaType === 'video').length;
-      return `<div class="section-head" id="bucket-${esc(bucketId)}">
-        <h2>${esc(BUCKET_LABELS[bucketId])}</h2>
-        <p>First-batch templates · ${items.length} layouts · ${staticCount} static · ${videoCount} video candidate(s)</p>
-      </div>
-      <div class="grid">${items.map((item, i) => renderMock(item, i)).join('')}</div>`;
+  const cards = productionLayouts
+    .map((row, i) => {
+      const concept = PRODUCTION_CONCEPTS.find((c) => c.id === row.conceptId);
+      const base = byId[row.templateId];
+      if (!concept || !base) {
+        console.warn(`Missing layout for concept ${row.conceptId} / ${row.templateId}`);
+        return '';
+      }
+      return renderProductionCard(concept, base, i);
     })
     .join('');
 
-  const groups = [
-    { key: 'PERSON_LEFT_HOOK_RIGHT', title: 'Template 1 — Person left', subtitle: 'H1 top-right' },
-    { key: 'PERSON_RIGHT_HOOK_LEFT', title: 'Template 2 — Person right', subtitle: 'H1 top-left' },
-    { key: 'CENTER_TOP_BAND', title: 'Template 3 — Center', subtitle: 'H1 in top band' },
-    { key: 'HEADSHOT_TRUST_CARD', title: 'Headshots (Phase 2)', subtitle: 'Retargeting / trust only — not first cold test' },
-  ];
-
-  const body =
-    batchIntro +
-    firstBatchBody +
-    `<div class="section-head"><h2>All Templates by Layout</h2><p>Full template library grouped by layout type (includes Phase 2 headshots)</p></div>` +
-    groups
-    .map((g) => {
-      const items = tests.filter((x) => x.template === g.key);
-      if (!items.length) return '';
-      return `<div class="section-head"><h2>${esc(g.title)}</h2><p>${esc(g.subtitle)} · style variations for review (${items.length})</p></div>
-        <div class="grid">${items.map((item, i) => renderMock(item, i)).join('')}</div>`;
-    })
-    .join('');
+  const pageCss = `
+  body { background: #f1f5f9 !important; color: #0f172a !important; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; }
+  .banner {
+    background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 0.95rem 1.1rem; margin-bottom: 0.85rem;
+  }
+  .banner h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; color: #f8fafc; }
+  .banner p { font-size: 0.88rem; color: #cbd5e1; }
+  .banner a { color: #5eead4; font-weight: 700; text-decoration: none; }
+  .banner-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem; }
+  .banner-meta span {
+    font-size: 0.72rem; font-weight: 750; padding: 0.28rem 0.55rem; border-radius: 6px;
+    background: rgba(13,148,136,0.25); border: 1px solid rgba(94,234,212,0.35); color: #99f6e4;
+  }
+  .prod-list { display: grid; gap: 0.85rem; }
+  .prod-card {
+    display: grid; grid-template-columns: minmax(220px, 280px) 1fr; gap: 0.85rem;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.75rem;
+  }
+  @media (max-width: 720px) { .prod-card { grid-template-columns: 1fr; } }
+  .prod-card__preview { border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; background: #0f172a; }
+  .prod-card__preview .mock { width: 100%; }
+  .prod-card__meta { display: grid; grid-template-columns: 2.1rem 1fr; gap: 0.55rem; align-content: start; padding: 0.25rem 0.15rem; }
+  .prod-num {
+    width: 2.1rem; height: 2.1rem; border-radius: 8px; background: #0d9488; color: #fff;
+    font-weight: 800; display: grid; place-items: center;
+  }
+  .field-label {
+    font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+    color: #0d9488; margin-top: 0.45rem; margin-bottom: 0.1rem;
+  }
+  .prod-fields .field-label:first-child { margin-top: 0; }
+  .field-headline { font-size: 1.1rem; font-weight: 800; color: #0f172a; line-height: 1.25; }
+  .field-val { font-size: 0.88rem; color: #334155; font-weight: 600; }
+  .field-val.muted { font-weight: 500; color: #64748b; }
+  .cta-pill {
+    display: inline-block; margin-top: 0.65rem; background: #0d9488; color: #fff;
+    font-size: 0.75rem; font-weight: 800; padding: 0.28rem 0.6rem; border-radius: 6px;
+  }
+  .note {
+    margin-top: 0.85rem; font-size: 0.84rem; color: #64748b; background: #fff;
+    border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.7rem 0.85rem;
+  }
+`;
 
   fs.writeFileSync(
     path.join(PUBLIC, 'template-test-board.html'),
@@ -1339,16 +1320,28 @@ async function main() {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Template Test Board — MedVirtual Content Doc</title>
-  <style>${CSS}</style>
+  <title>Templates — MedVirtual</title>
+  <style>${CSS}${pageCss}</style>
 </head>
 <body>
   ${renderDocHeader({
     activeId: 'templates',
-    pageTitle: 'Template Test Board',
-    pageSubtitle: `Reference only · produce ${FIRST_BATCH_COUNT} static 1080×1350 ads per graphic brief`,
+    pageTitle: 'Templates',
+    pageSubtitle: `Layout reference · ${FIRST_BATCH_COUNT} ads · 1080×1350`,
   })}
-  ${body}
+  <div class="wrap">
+    <header class="banner">
+      <h2>Layout reference only</h2>
+      <p>Produce from the <a href="/graphic-request-brief.html">Creative Brief</a>. These mocks show text zones + composition — not extra ads to build.</p>
+      <div class="banner-meta">
+        <span>${FIRST_BATCH_COUNT} concepts</span>
+        <span>1080×1350</span>
+        <span>Person left · hook right</span>
+      </div>
+    </header>
+    <div class="prod-list">${cards}</div>
+    <p class="note">Brief owns headlines and Meta copy. Use this page to see how type sits on the image.</p>
+  </div>
 </body>
 </html>`,
   );
@@ -1364,197 +1357,32 @@ async function main() {
     path.join(ROOT, 'template-system-notes.md'),
     `# Template System Notes
 
-## Philosophy
+Layout reference for the Creative Brief (${FIRST_BATCH_COUNT} static 1080×1350 ads).
 
-Small set of reusable Meta templates. Image as background. Strong H1 at top. Face never covered. Native, direct, B2B — not brochure polish.
+Primary layout: PERSON_LEFT_HOOK_RIGHT — person left, headline top-right, CTA bottom.
 
-Learned from competitor patterns (not copied): top H1, text-on-image, vertical-first, faces matter, hooks beat fancy design.
-
-## Templates
-
-| Template | Use when | H1 zone | First batch? |
-|----------|----------|---------|--------------|
-| PERSON_LEFT_HOOK_RIGHT | Person left | Top-right | Yes — strongest |
-| PERSON_RIGHT_HOOK_LEFT | Person right / center-right | Top-left | Yes — video family |
-| CENTER_TOP_BAND | Center + blank above | Top band | Yes — limited |
-| LAPTOP_EXPLAINER | Desk / workflow plate | Top | Optional |
-| HEADSHOT_TRUST_CARD | Flush-bottom headshot | White above | Phase 2 only |
-
-## Text hierarchy
-
-1. **H1 / Hook** — largest, top, swappable, first-frame ready  
-2. Support — one short line  
-3. Bullets — max 2, optional  
-4. CTA — Book a Demo / See How It Works / Learn More / Get Started  
-5. Logo — visible, not dominant  
-
-## Face-safe rules
-
-No text on eyes, nose, mouth, chin, neck, headset. Soft top wash for H1 contrast only — does not cover mid/lower face.
-
-## Aspect ratios
-
-Priority: **4:5 → 9:16 → 1:1**. Flag when 1:1 needs shorter H1. Do not force broken crops.
-
-## Remotion readiness
-
-Winning layouts include: first_frame_hook_area, text_reveal_order, CTA timing, motion note, editor note.
+See \`template-test-board.html\` and \`graphic-request-brief.html\`.
 `,
   );
 
   fs.writeFileSync(
     path.join(ROOT, 'first-batch-template-map.md'),
-    `# First-Batch Template Map (Meta cleanup)
+    `# First Batch Template Map
 
-Outcome-first H1s. Site-backed claims only ($10/hr · HIPAA-trained · Pre-vetted · Ready in days). No $7 / $8.5.
+| # | Brief concept | Layout seed |
+|---|---------------|-------------|
+${productionLayouts
+  .map((row) => {
+    const c = PRODUCTION_CONCEPTS.find((x) => x.id === row.conceptId);
+    return `| ${row.conceptId} | ${c?.headline || row.conceptId} | ${row.templateId} |`;
+  })
+  .join('\n')}
 
-| Angle | H1 | Best template | Best image | Ratios |
-|-------|----|---------------|------------|--------|
-| Missed Calls | Patient calls should not hit voicemail. | PERSON_LEFT_HOOK_RIGHT | AI_003 | 4:5, 9:16, 1:1 (B) |
-| Front Desk Backup | Give your front desk backup. | PERSON_LEFT_HOOK_RIGHT | AI_010 / AI_015 | 4:5, 9:16 |
-| Scheduling | Keep scheduling moving. | PERSON_LEFT_HOOK_RIGHT | AI_009 | 4:5, 9:16 (B) |
-| Hiring Gap | Add support without another in-office hire. | PERSON_RIGHT_HOOK_LEFT | AI_007 / AI_013 | 4:5, 9:16 |
-| Admin Backlog | Clear repetitive admin work. | PERSON_RIGHT_HOOK_LEFT | AI_014 | 4:5, 9:16 |
-
-## Top 5 for George review (cold)
-
-1. **T1-MC-45** — Missed Calls / AI_003 · 4:5  
-2. **T1-MC-916** — Missed Calls / AI_003 · 9:16 · **RONALD/JIN PROTOTYPE**  
-3. **T1-FD-45** / **T1-FD2-45** — Front Desk / AI_010 or AI_015 · 4:5  
-4. **T1-SCH-45** — Scheduling / AI_009 · 4:5  
-5. **T2-RMA-45** + **T2-ADM-45** — Hiring Gap / Admin · 4:5  
-
-## Later (not first cold)
-
-- All **HEADSHOT_TRUST_CARD** — Phase 2 / retargeting / trust only  
-- Laptop explainer — process/demo only  
-- 1:1 — backup when layout holds  
-
-## Claims needing approval before spend
-
-| Claim | Status |
-|-------|--------|
-| Starting at $10/hr | Site-backed — OK |
-| $1,760/mo full-time | Site-backed — OK if used |
-| HIPAA-trained | Site-backed — OK (prefer over “HIPAA-compliant person”) |
-| Pre-vetted · Ready in days | Site-backed — OK |
-| 250+ practices | Site-backed — OK if used |
-| 70% cost savings | **[VERIFY]** — do not use in ads until leadership confirms |
-| $7 / $8.5 /hr | **Removed** — mismatched landing page |
-| Team of four, price of one | Soften / clarify if used (“one hire covers multiple roles”) |
-| Named headshot profiles | Internal note: confirm real staff vs stock |
-
-## Ronald/Jin first prototype
-
-**T1-MC-916** — Missed Calls  
-H1: Patient calls should not hit voicemail.  
-Image: AI_003 headset/admin  
-Format: **9:16 first**, then 4:5  
-Motion: simple text reveal, light zoom, CTA end frame  
-VO: practice-ops only — not fake customer/doctor.
+Source of truth: Creative Brief.
 `,
   );
 
-  fs.writeFileSync(
-    path.join(ROOT, 'meta-cleanup-summary.md'),
-    `# Meta Cleanup Summary
-
-## Top 5 ready for George
-
-1. T1-MC-45 / T1-MC-916 — Missed Calls (AI_003)  
-2. T1-FD-45 or T1-FD2-45 — Front Desk Backup  
-3. T1-SCH-45 — Scheduling  
-4. T2-RMA-45 — Hiring Gap ($10/hr + HIPAA-trained bullets)  
-5. T2-ADM-45 — Admin Backlog  
-
-## Claims that need approval
-
-- **70% cost savings** — site mentions it; do not put in ads until confirmed  
-- Named LP headshots as “real employees” — confirm ownership  
-- Any price other than **Starting at $10/hr** — blocked  
-
-## Removed / flagged
-
-- **$7 and $8.5 stamps** — removed (landing-page mismatch)  
-- Generic H1 “Full-time medical virtual assistants” as lead — demoted to support/trust phase  
-- “Expert” as primary hook — replaced with pre-vetted / outcome hooks  
-- Headshots — marked Phase 2 / retarget, not first cold  
-
-## Strongest ratios
-
-- **9:16:** T1-MC-916 (Missed Calls / AI_003) — Ronald/Jin prototype  
-- **4:5:** T1-MC-45 (Missed Calls) and T1-FD2-45 (Front Desk)  
-
-## Recommended Ronald/Jin prototype
-
-Missed Calls · AI_003 · 9:16 → 4:5 · text reveal + light zoom + CTA end.
-`,
-  );
-
-  fs.writeFileSync(
-    path.join(ROOT, 'creative-asset-shortlist.md'),
-    `# Creative Asset Shortlist
-
-## Template winners
-
-1. AI_003 + PERSON_LEFT_HOOK_RIGHT — Missed Calls (A)  
-2. AI_015 + PERSON_LEFT_HOOK_RIGHT — Front Desk (A)  
-3. AI_007 + PERSON_RIGHT_HOOK_LEFT — Remote MA (A)  
-
-## Best 4:5
-
-- IMG_AI_003_4X5_FACE_LEFT  
-- IMG_AI_015_4X5_FACE_LEFT  
-- IMG_AI_010_4X5_FACE_LEFT  
-- IMG_AI_007_4X5_FACE_RIGHT  
-- IMG_AI_013_4X5_FACE_RIGHT  
-
-## Best 9:16
-
-- IMG_AI_003_9X16_SUBJECT_LEFT  
-- IMG_AI_015_9X16_SUBJECT_LEFT  
-- IMG_AI_007_9X16_SUBJECT_RIGHT  
-- IMG_AI_013_9X16_SUBJECT_RIGHT  
-
-## Phase 2 only
-
-- LP headshots → HEADSHOT_TRUST_CARD  
-
-## Deprioritize
-
-- AI_009 if icons fight copy  
-- Weak 1:1 without H1 shorten  
-- Headshots in cold traffic  
-
-Boards: /template-test-board.html · /image-variation-review.html
-`,
-  );
-
-  const handoffPath = path.join(ROOT, 'video-editor-handoff.md');
-  let handoff = fs.existsSync(handoffPath) ? fs.readFileSync(handoffPath, 'utf8') : '# MedVirtual Video Editor Handoff\n';
-  const marker = '## Template Implementation Pass';
-  if (!handoff.includes(marker)) {
-    handoff += `
-
-${marker}
-
-See \`template-test-board.html\`, \`template-system-notes.md\`, \`first-batch-template-map.md\`.
-
-**First Ronald/Jin prototype:** T2-RMA-916 (AI_007 + Remote MA + PERSON_RIGHT_HOOK_LEFT).
-
-Static winners to animate:
-1. T1-MC-45 / T1-MC-916 — Missed Calls / AI_003  
-2. T1-FD2-45 / T1-FD2-916 — Front Desk / AI_015  
-3. T2-RMA-45 / T2-RMA-916 — Remote MA / AI_007  
-4. T2-RMA2-45 / T2-RMA2-916 — Remote MA / AI_013 (alternate)
-
-Motion notes: H1 first frame → support → bullets → CTA. Light Ken Burns. Face clear. VO practice-ops POV only.
-`;
-    fs.writeFileSync(handoffPath, handoff);
-  }
-
-  console.log(`Template tests: ${tests.length}`);
-  console.log('Board: http://localhost:5173/template-test-board.html');
+  console.log(`Templates: http://localhost:5173/template-test-board.html (${FIRST_BATCH_COUNT} layout refs)`);
 }
 
 main().catch((e) => {
