@@ -1,0 +1,2425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Real People Creative — MedVirtual</title>
+  <meta name="description" content="Named MedVirtual Talent Pool profiles for Meta static ads, Reels, and short iPhone videos." />
+  <style>
+  
+  .doc-header {
+    background: #0f172a;
+    color: #ffffff;
+    border-bottom: 3px solid #0d9488;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0d9488, #0891b2);
+    font-weight: 800;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid #1e293b;
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    max-width: 820px;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .doc-nav a {
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+  }
+  .doc-nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: #0d9488;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: #5eead4;
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid #334155;
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: #0d9488; color: #99f6e4; }
+  .doc-subnav a.active {
+    background: rgba(13, 148, 136, 0.2);
+    border-color: #0d9488;
+    color: #ccfbf1;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.15rem 3rem; }
+  .hero {
+    background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 1.15rem 1.25rem; margin-bottom: 0.75rem;
+  }
+  .hero h2 { font-size: 1.2rem; margin-bottom: 0.4rem; }
+  .hero p { font-size: 0.88rem; color: #cbd5e1; max-width: 62ch; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+  .hero-pill {
+    font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.55rem; border-radius: 6px;
+    background: rgba(13,148,136,0.25); border: 1px solid rgba(94,234,212,0.35); color: #ccfbf1;
+  }
+  .section {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 0.9rem 1rem; margin-bottom: 0.7rem;
+  }
+  .section > h2 {
+    font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+    color: #64748b; margin-bottom: 0.5rem;
+  }
+  .section p, .section li { font-size: 0.86rem; color: #334155; }
+  .hyp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.55rem; }
+  @media (max-width: 700px) { .hyp-grid { grid-template-columns: 1fr; } }
+  .hyp-card {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #0d9488;
+    border-radius: 8px; padding: 0.55rem 0.65rem;
+  }
+  .hyp-card strong { display: block; font-size: 0.8rem; color: #0f172a; margin-bottom: 0.15rem; }
+  .hyp-card span { font-size: 0.76rem; color: #64748b; }
+  .filters {
+    display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: end;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.7rem 0.85rem; margin-bottom: 0.7rem;
+    position: sticky; top: 72px; z-index: 30;
+  }
+  .filters label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: #94a3b8; display: grid; gap: 0.2rem; }
+  .filters select {
+    font-size: 0.8rem; padding: 0.35rem 0.45rem; border-radius: 6px; border: 1px solid #cbd5e1; background: #fff; min-width: 140px;
+  }
+  .filters .filter-note { font-size: 0.72rem; color: #64748b; margin-left: auto; }
+  .talent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  @media (max-width: 800px) { .talent-grid { grid-template-columns: 1fr; } }
+  .talent-card {
+    display: grid; grid-template-columns: 140px 1fr; gap: 0.75rem;
+    border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; background: #fff;
+  }
+  @media (max-width: 560px) { .talent-card { grid-template-columns: 1fr; } }
+  .talent-card__media { position: relative; background: #0f172a; min-height: 140px; }
+  .talent-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 1; }
+  .talent-card__body { padding: 0.65rem 0.7rem 0.75rem; }
+  .talent-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+  .full-name { font-size: 0.72rem; font-weight: 600; color: #64748b; }
+  .title-line { font-size: 0.82rem; margin: 0.15rem 0; color: #1e293b; }
+  .title-line.muted { color: #64748b; font-size: 0.78rem; }
+  .fact-label { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; color: #94a3b8; margin-right: 0.25rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0.4rem 0; }
+  .chip {
+    font-size: 0.68rem; font-weight: 650; padding: 0.18rem 0.45rem; border-radius: 999px;
+    background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4;
+  }
+  .chip-muted { background: #f8fafc; color: #64748b; border-color: #e2e8f0; }
+  .why { font-size: 0.78rem; color: #475569; margin: 0.25rem 0; }
+  .source { font-size: 0.76rem; margin-top: 0.4rem; }
+  .source a { color: #0d9488; font-weight: 700; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+  .badge-rec, .badge-alt, .badge-cta, .tag-suggested, .tag-fact {
+    display: inline-block; font-size: 0.65rem; font-weight: 800; padding: 0.18rem 0.45rem; border-radius: 5px;
+  }
+  .badge-rec { background: #0d9488; color: #fff; }
+  .badge-alt { background: #e2e8f0; color: #475569; }
+  .badge-cta { background: #0d9488; color: #fff; }
+  .talent-card__media .badge-rec, .talent-card__media .badge-alt {
+    position: absolute; left: 0.4rem; bottom: 0.4rem;
+  }
+  .profile-section {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1rem; margin-bottom: 0.85rem;
+  }
+  .profile-head { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; }
+  .profile-avatar { width: 72px; height: 72px; border-radius: 12px; object-fit: cover; border: 2px solid #e2e8f0; }
+  .split-facts { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0.55rem; margin-bottom: 0.65rem; }
+  @media (max-width: 700px) { .split-facts { grid-template-columns: 1fr; } }
+  .fact-box, .suggest-box { border-radius: 8px; padding: 0.55rem 0.7rem; font-size: 0.8rem; }
+  .fact-box { background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #334155; }
+  .suggest-box { background: #f0fdfa; border: 1px solid #99f6e4; border-left: 3px solid #0d9488; }
+  .fact-box h4, .suggest-box h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 0.3rem; }
+  .fact-box ul { padding-left: 1rem; }
+  .fact-box li { margin: 0.12rem 0; font-size: 0.78rem; }
+  .concept-block {
+    border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.65rem 0.75rem; margin-bottom: 0.55rem; background: #fafafa;
+  }
+  .concept-head { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+  .concept-head h4 { font-size: 0.88rem; }
+  .tag-suggested { background: #ecfdf5; color: #0f766e; border: 1px solid #99f6e4; }
+  .fields > div { margin-bottom: 0.35rem; }
+  .fields dt { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; color: #94a3b8; }
+  .fields dd { font-size: 0.82rem; color: #1e293b; }
+  .fields dd.pre { white-space: pre-wrap; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.45rem 0.55rem; }
+  .copy-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.4rem; }
+  .copy-btn {
+    font-size: 0.72rem; font-weight: 650; color: #0f766e; background: #f0fdfa;
+    border: 1px solid #99f6e4; border-radius: 6px; padding: 0.3rem 0.55rem; cursor: pointer;
+  }
+  .copy-btn:hover { background: #ccfbf1; }
+  .copy-btn.copied { background: #0d9488; color: #fff; border-color: #0d9488; }
+  .mock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; margin: 0.75rem 0; }
+  @media (max-width: 900px) { .mock-grid { grid-template-columns: 1fr; max-width: 360px; } }
+  .mock-label { font-size: 0.68rem; font-weight: 700; color: #64748b; margin-bottom: 0.3rem; text-transform: uppercase; }
+  .mock {
+    position: relative; width: 100%; border-radius: 10px; overflow: hidden; background: #0f172a;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  }
+  .mock-1x1 { aspect-ratio: 1 / 1; }
+  .mock-4x5 { aspect-ratio: 4 / 5; }
+  .mock-9x16 { aspect-ratio: 9 / 16; }
+  .mock-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .mock-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(15,23,42,0.15) 20%, rgba(15,23,42,0.82) 100%);
+  }
+  .mock-scrim-strong {
+    background: linear-gradient(180deg, rgba(15,23,42,0.45) 10%, rgba(15,23,42,0.88) 100%);
+  }
+  .mock-copy { position: absolute; left: 6%; right: 6%; bottom: 12%; color: #fff; }
+  .mock-kicker { font-size: clamp(0.95rem, 2.8vw, 1.25rem); font-weight: 850; letter-spacing: 0.02em; }
+  .mock-role { font-size: clamp(0.72rem, 2vw, 0.92rem); font-weight: 650; margin-top: 0.2rem; color: #e2e8f0; }
+  .mock-skills { font-size: clamp(0.62rem, 1.7vw, 0.78rem); margin-top: 0.35rem; color: #99f6e4; }
+  .mock-pain-line { font-size: clamp(0.95rem, 3vw, 1.2rem); font-weight: 850; line-height: 1.2; margin-bottom: 0.45rem; }
+  .mock-logo {
+    position: absolute; top: 5%; right: 5%; width: 18%; max-width: 88px; height: auto;
+    filter: brightness(0) invert(1); opacity: 0.92;
+  }
+  .video-block { border: 1px dashed #99f6e4; border-radius: 10px; padding: 0.65rem 0.75rem; margin-top: 0.4rem; background: #f8fffd; }
+  .matrix { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+  .matrix th, .matrix td { border: 1px solid #e2e8f0; padding: 0.4rem 0.45rem; text-align: left; vertical-align: top; }
+  .matrix th { background: #f8fafc; font-size: 0.65rem; text-transform: uppercase; color: #64748b; }
+  .matrix tr[data-rec="true"] { background: #f0fdfa; }
+  .checklist { columns: 2; gap: 1rem; padding-left: 1.1rem; }
+  @media (max-width: 700px) { .checklist { columns: 1; } }
+  .checklist li { font-size: 0.8rem; margin: 0.2rem 0; break-inside: avoid; }
+  .settings { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+  .settings span {
+    font-size: 0.7rem; font-weight: 650; padding: 0.25rem 0.45rem; border-radius: 6px;
+    background: #0f172a; color: #e2e8f0;
+  }
+  .toc { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.4rem 0 0.2rem; }
+  .toc a {
+    font-size: 0.72rem; font-weight: 650; color: #0f766e; text-decoration: none;
+    padding: 0.25rem 0.5rem; border: 1px solid #99f6e4; border-radius: 6px; background: #f0fdfa;
+  }
+  .strong-list { display: grid; gap: 0.4rem; }
+  .strong-item { padding: 0.5rem 0.6rem; border-radius: 8px; border: 1px solid #e2e8f0; background: #f8fafc; }
+  .strong-item strong { display: block; font-size: 0.84rem; margin-bottom: 0.15rem; }
+  .is-hidden { display: none !important; }
+  .toast {
+    position: fixed; bottom: 1rem; right: 1rem; background: #0f172a; color: #fff;
+    padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.78rem; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 50;
+  }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/graphic-request-brief.html">
+      <span class="doc-header__mark">MV</span>
+      <div>
+        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
+        <p class="doc-header__tagline">Meta ads · production brief · copy · templates · assets</p>
+      </div>
+    </a>
+    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Graphic Brief</a><a href="/facebook-ad-copy.html" class="">Ad Copy</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="">Meta Launch</a><a href="/real-people-creative.html" class="active">Real People</a></nav>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Real People Creative</h2>
+          <p class="doc-header__page-sub">Replace stock staffing ads with named MedVirtual Talent Pool profiles — static, carousel, Reels, and short video concepts.</p>
+          
+        </div>
+</header>
+  <div class="wrap">
+    <section class="hero" id="strategy">
+      <h2>Strategy introduction</h2>
+      <p>Most virtual medical staffing ads look identical. This direction replaces stock-style creative with actual MedVirtual talent, named profiles, role-specific skills, and natural workplace footage.</p>
+      <div class="hero-meta">
+        <span class="hero-pill">Creative hypotheses — not proven winners</span>
+        <span class="hero-pill">Source checked 2026-07-13</span>
+        <span class="hero-pill"><a href="https://app.medvirtual.ai/talent-pool" style="color:#ccfbf1;text-decoration:none" target="_blank" rel="noopener noreferrer">Public Talent Pool</a></span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why this may work</h2>
+      <p style="margin-bottom:0.35rem;color:#64748b;font-size:0.8rem">Labeled as creative hypotheses only. Do not treat as performance claims.</p>
+      <div class="hyp-grid">
+        <div class="hyp-card"><strong>Real faces create credibility</strong><span>Hypothesis: a named profile photo feels less interchangeable than stock headset imagery.</span></div><div class="hyp-card"><strong>Names make the service tangible</strong><span>Hypothesis: “Meet Jessica” is easier to imagine interviewing than “hire a VA.”</span></div><div class="hyp-card"><strong>Specific skills help the buyer self-qualify</strong><span>Hypothesis: scheduling, intake, or billing language helps the right practices lean in.</span></div><div class="hyp-card"><strong>Harder for competitors to imitate</strong><span>Hypothesis: real Talent Pool people are a brand asset stock packs cannot copy.</span></div><div class="hyp-card"><strong>One profile → many variations</strong><span>Hypothesis: each person can feed static, carousel, Reel cover, and short video tests.</span></div>
+      </div>
+    </section>
+
+    <nav class="toc" aria-label="On this page">
+      <a href="#first-test">First test</a>
+      <a href="#profiles">Profile cards</a>
+      <a href="#mockups-note">Mockups</a>
+      <a href="#broll">B-roll plan</a>
+      <a href="#test-plan">Test plan</a>
+      <a href="#strongest">Strongest four</a>
+    </nav>
+
+    <div class="filters" id="filters">
+      <label>Role
+        <select id="filter-role">
+          <option value="all">All roles</option>
+          <option value="medical-admin">Medical admin</option>
+          <option value="front-office">Front office</option>
+          <option value="patient-scheduling">Scheduling</option>
+          <option value="patient-intake">Patient intake</option>
+          <option value="insurance-verification">Insurance verification</option>
+          <option value="billing-support">Billing support</option>
+          <option value="patient-calls">Patient calls</option>
+        </select>
+      </label>
+      <label>Format
+        <select id="filter-format">
+          <option value="all">All formats</option>
+          <option value="static-1x1">1:1 static</option>
+          <option value="static-4x5">4:5 static</option>
+          <option value="story-9x16">9:16 story</option>
+          <option value="reel">Reel</option>
+          <option value="iphone-video">iPhone video</option>
+        </select>
+      </label>
+      <label>Operational pain
+        <select id="filter-pain">
+          <option value="all">All pains</option>
+          <option value="admin-backlog">Admin backlog</option>
+          <option value="front-desk">Front desk</option>
+          <option value="scheduling">Scheduling</option>
+          <option value="patient-calls">Patient calls</option>
+          <option value="patient-intake">Patient intake</option>
+          <option value="insurance-verification">Insurance verification</option>
+          <option value="billing-support">Billing support</option>
+        </select>
+      </label>
+      <label>Batch
+        <select id="filter-batch">
+          <option value="all">All profiles</option>
+          <option value="yes">Recommended first batch</option>
+        </select>
+      </label>
+      <p class="filter-note">Filters profile cards + concept sections below.</p>
+    </div>
+
+    <section class="section" id="first-test">
+      <h2>Recommended first test · 6 profiles</h2>
+      <p style="margin-bottom:0.65rem">Selected for complete public profiles, usable headshots, role relevance to medical practices, and operational variety — not appearance.</p>
+      <div class="talent-grid">
+        <article class="talent-card" data-talent="jessica" data-role="medical-admin front-office patient-calls" data-pain="admin-backlog patient-calls front-desk" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+    <div class="talent-card__media">
+      <img src="/assets/real-people/jessica.jpg" alt="Jessica Valles profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <span class="badge-rec">Recommended first batch</span>
+    </div>
+    <div class="talent-card__body">
+      <h3>Jessica <span class="full-name">Jessica Valles</span></h3>
+      <p class="title-line"><span class="fact-label">Public title</span> Jr. Medical Admin</p>
+      <p class="title-line muted"><span class="fact-label">Position tag</span> Medical Admin Jr</p>
+      <div class="chips"><span class="chip">BPO - Customer Service</span><span class="chip">BPO - Healthcare</span></div>
+      <p class="why"><strong>Why relevant:</strong> Junior medical admin with customer-service and healthcare support tags — useful when a practice needs remote help with day-to-day patient and office coordination.</p>
+      <p class="why"><strong>Recommended angle:</strong> Meet the person</p>
+      <p class="why"><strong>Recommended format:</strong> 4:5 static · optional 9:16 cover</p>
+      <p class="source"><a href="https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4" target="_blank" rel="noopener noreferrer">Open Talent Pool profile</a></p>
+    </div>
+  </article><article class="talent-card" data-talent="angelica" data-role="front-office medical-admin practice-coordination" data-pain="front-desk patient-calls admin-backlog" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+    <div class="talent-card__media">
+      <img src="/assets/real-people/angelica.jpg" alt="Angelica Aljas profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <span class="badge-rec">Recommended first batch</span>
+    </div>
+    <div class="talent-card__body">
+      <h3>Angelica <span class="full-name">Angelica Aljas</span></h3>
+      <p class="title-line"><span class="fact-label">Public title</span> Dermatology Front Desk Assistant</p>
+      <p class="title-line muted"><span class="fact-label">Position tag</span> Medical Admin Sr</p>
+      <div class="chips"><span class="chip">VA - Medical General</span><span class="chip">BPO - Healthcare</span></div>
+      <p class="why"><strong>Why relevant:</strong> Front-desk experience title plus medical-admin positioning — strong fit for practices that need remote help around patient-facing office work.</p>
+      <p class="why"><strong>Recommended angle:</strong> Meet the person</p>
+      <p class="why"><strong>Recommended format:</strong> 4:5 static · optional 9:16 cover</p>
+      <p class="source"><a href="https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3" target="_blank" rel="noopener noreferrer">Open Talent Pool profile</a></p>
+    </div>
+  </article><article class="talent-card" data-talent="chelsea-rose" data-role="patient-scheduling front-office medical-admin" data-pain="scheduling patient-calls front-desk" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+    <div class="talent-card__media">
+      <img src="/assets/real-people/chelsea-rose.jpg" alt="Chelsea Rose Santos profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <span class="badge-rec">Recommended first batch</span>
+    </div>
+    <div class="talent-card__body">
+      <h3>Chelsea <span class="full-name">Chelsea Rose Santos</span></h3>
+      <p class="title-line"><span class="fact-label">Public title</span> Dental Virtual Assistant</p>
+      <p class="title-line muted"><span class="fact-label">Position tag</span> Dental Admin Jr</p>
+      <div class="chips"><span class="chip">Appointment Setting</span><span class="chip">Medical - Healthcare</span><span class="chip">BPO - Customer Service</span><span class="chip">VA - Medical General</span><span class="chip">BPO - Healthcare</span></div>
+      <p class="why"><strong>Why relevant:</strong> Clear appointment-setting skill plus dental/admin positioning — strong for practices where scheduling and front-office coordination soak the team.</p>
+      <p class="why"><strong>Recommended angle:</strong> Operational pain · scheduling</p>
+      <p class="why"><strong>Recommended format:</strong> 4:5 static · optional 9:16 cover</p>
+      <p class="source"><a href="https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4" target="_blank" rel="noopener noreferrer">Open Talent Pool profile</a></p>
+    </div>
+  </article><article class="talent-card" data-talent="mark" data-role="insurance-verification billing-support" data-pain="insurance-verification billing-support" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+    <div class="talent-card__media">
+      <img src="/assets/real-people/mark.jpg" alt="Mark Robert Seno profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <span class="badge-rec">Recommended first batch</span>
+    </div>
+    <div class="talent-card__body">
+      <h3>Mark <span class="full-name">Mark Robert Seno</span></h3>
+      <p class="title-line"><span class="fact-label">Public title</span> Insurance Verification Specialist</p>
+      <p class="title-line muted"><span class="fact-label">Position tag</span> Medical Biller Sr</p>
+      <div class="chips"><span class="chip">VA - Medical Biller</span></div>
+      <p class="why"><strong>Why relevant:</strong> Insurance verification experience title is directly relevant to practices slowed by eligibility checks — pair with medical-biller skill tag without inventing extra certifications.</p>
+      <p class="why"><strong>Recommended angle:</strong> Operational pain · insurance</p>
+      <p class="why"><strong>Recommended format:</strong> 1:1 static · optional 9:16 cover</p>
+      <p class="source"><a href="https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8" target="_blank" rel="noopener noreferrer">Open Talent Pool profile</a></p>
+    </div>
+  </article><article class="talent-card" data-talent="carmen" data-role="billing-support medical-admin" data-pain="billing-support admin-backlog" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+    <div class="talent-card__media">
+      <img src="/assets/real-people/carmen.jpg" alt="Carmen De Leon profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <span class="badge-rec">Recommended first batch</span>
+    </div>
+    <div class="talent-card__body">
+      <h3>Carmen <span class="full-name">Carmen De Leon</span></h3>
+      <p class="title-line"><span class="fact-label">Public title</span> Medical Biller</p>
+      <p class="title-line muted"><span class="fact-label">Position tag</span> Medical Biller Sr</p>
+      <div class="chips"><span class="chip">BPO - Customer Service</span><span class="chip">VA - Medical Biller</span><span class="chip">VA - Medical General</span></div>
+      <p class="why"><strong>Why relevant:</strong> Clear medical biller title with three practical listed skills — strong billing-support angle without inventing collections metrics.</p>
+      <p class="why"><strong>Recommended angle:</strong> Meet the person</p>
+      <p class="why"><strong>Recommended format:</strong> 4:5 static · optional 9:16 cover</p>
+      <p class="source"><a href="https://app.medvirtual.ai/talent-pool/6b08ff4a-33c7-496e-94f2-f11026c4079b" target="_blank" rel="noopener noreferrer">Open Talent Pool profile</a></p>
+    </div>
+  </article><article class="talent-card" data-talent="jennifer" data-role="patient-intake medical-admin front-office" data-pain="patient-intake admin-backlog patient-calls" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="no">
+    <div class="talent-card__media">
+      <img src="/assets/real-people/jennifer.jpg" alt="Jennifer Villarubia profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <span class="badge-alt">Strong alternate</span>
+    </div>
+    <div class="talent-card__body">
+      <h3>Jennifer <span class="full-name">Jennifer Villarubia</span></h3>
+      <p class="title-line"><span class="fact-label">Public title</span> Patient Intake Coordinator</p>
+      <p class="title-line muted"><span class="fact-label">Position tag</span> Medical Admin Jr</p>
+      <div class="chips"><span class="chip chip-muted">No separate skill tags listed on public profile</span></div>
+      <p class="why"><strong>Why relevant:</strong> Patient Intake Coordinator title is highly relevant for practices drowning in new-patient paperwork and intake calls — creative must not invent skill tags she does not list.</p>
+      <p class="why"><strong>Recommended angle:</strong> Meet the person</p>
+      <p class="why"><strong>Recommended format:</strong> 9:16 static · optional 9:16 cover</p>
+      <p class="source"><a href="https://app.medvirtual.ai/talent-pool/f72257a8-15ce-4a6f-92d7-f05a637bd741" target="_blank" rel="noopener noreferrer">Open Talent Pool profile</a></p>
+    </div>
+  </article>
+      </div>
+    </section>
+
+    <section class="section" id="strongest">
+      <h2>Strongest four recommended ad concepts</h2>
+      <div class="strong-list"><div class="strong-item"><strong>Chelsea · Scheduling pain → named person</strong><span>Clearest operational skill tag (Appointment Setting) + acute clinic pain. Best pain-first static.</span></div><div class="strong-item"><strong>Jessica · Meet the person</strong><span>Simple medical-admin introduction; easy first editorial static for the named-profile hypothesis.</span></div><div class="strong-item"><strong>Mark · Insurance verification</strong><span>Specific revenue-cycle pain with a literal public experience title.</span></div><div class="strong-item"><strong>Angelica · Front desk</strong><span>Front-desk experience title reads immediately for practice owners scanning the feed.</span></div></div>
+    </section>
+
+    <div id="profiles">
+      <section class="section" style="margin-bottom:0.5rem">
+        <h2>Profile creative cards</h2>
+        <p>Each profile separates exact Talent Pool facts from suggested Meta copy. Copy buttons capture primary text, headline, or the full package.</p>
+      </section>
+      <section class="profile-section" id="profile-jessica" data-talent="jessica" data-role="medical-admin front-office patient-calls" data-pain="admin-backlog patient-calls front-desk" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+    <header class="profile-head">
+      <img class="profile-avatar" src="/assets/real-people/jessica.jpg" alt="Jessica Valles" width="96" height="96" loading="lazy" />
+      <div>
+        <h3>Jessica <span class="full-name">Jessica Valles</span>
+          <span class="badge-rec">Recommended first batch</span>
+        </h3>
+        <p class="title-line">Jr. Medical Admin</p>
+        <p class="source"><a href="https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4" target="_blank" rel="noopener noreferrer">Source profile</a> · checked 2026-07-13</p>
+      </div>
+    </header>
+
+    <div class="split-facts">
+      <div class="fact-box">
+        <h4>Exact public profile facts</h4>
+        <ul><li>Name: Jessica Valles</li><li>Title / experience: Jr. Medical Admin</li><li>Approved position: Medical Admin Jr</li><li>Employment type shown: Full Time</li><li>Shift block shown: Full Time</li><li>Listed skills: BPO - Customer Service; BPO - Healthcare</li><li>Specializations shown: Primary Care</li></ul>
+      </div>
+      <div class="suggest-box">
+        <h4>Suggested advertising copy</h4>
+        <p>Concepts A–D and the best static below are marketing drafts. They must not be stored or presented as Talent Pool facts.</p>
+      </div>
+    </div>
+
+    <div class="concept-block suggested" data-talent="jessica" data-format="static-4x5" data-pain="admin-backlog" data-role="medical-admin">
+      <div class="concept-head">
+        <h4>Best recommended static</h4>
+        <span class="tag-suggested">Suggested ad copy</span>
+      </div>
+      <dl class="fields">
+        <div><dt>On-image hook (≤10 words)</dt><dd>Meet Jessica</dd></div>
+        <div><dt>Supporting line (≤14 words)</dt><dd>Jr. Medical Admin · Customer service · Healthcare support</dd></div>
+        <div><dt>Primary text</dt><dd class="pre">Meet Jessica — Jr. Medical Admin on MedVirtual’s Talent Pool.
+
+Her public profile lists customer-service and healthcare support skills. If front-desk and admin work keep overflowing, introduce your team to a real person you can interview.
+
+Learn more about Jessica.</dd></div>
+        <div><dt>Meta headline</dt><dd>Meet Jessica · Medical Admin</dd></div>
+        <div><dt>Description</dt><dd>Real MedVirtual talent. Request interview.</dd></div>
+        <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+        <div><dt>Format / treatment</dt><dd>4:5 · editorial</dd></div>
+      </dl>
+      <div class="copy-row">
+        <button type="button" class="copy-btn" data-copy="Meet Jessica — Jr. Medical Admin on MedVirtual’s Talent Pool.
+
+Her public profile lists customer-service and healthcare support skills. If front-desk and admin work keep overflowing, introduce your team to a real person you can interview.
+
+Learn more about Jessica.">Copy primary text</button>
+        <button type="button" class="copy-btn" data-copy="Meet Jessica · Medical Admin">Copy headline</button>
+        <button type="button" class="copy-btn" data-copy="PROFILE: Jessica Valles
+TITLE: Jr. Medical Admin
+SOURCE: https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4
+
+ON-IMAGE HOOK: Meet Jessica
+ON-IMAGE SUPPORT: Jr. Medical Admin · Customer service · Healthcare support
+
+PRIMARY TEXT:
+Meet Jessica — Jr. Medical Admin on MedVirtual’s Talent Pool.
+
+Her public profile lists customer-service and healthcare support skills. If front-desk and admin work keep overflowing, introduce your team to a real person you can interview.
+
+Learn more about Jessica.
+
+HEADLINE: Meet Jessica · Medical Admin
+DESCRIPTION: Real MedVirtual talent. Request interview.
+CTA: Learn More">Copy full package</button>
+      </div>
+    </div>
+    <div class="concept-block suggested" data-talent="jessica" data-format="static" data-pain="admin-backlog" data-role="medical-admin">
+    <div class="concept-head">
+      <h4>Concept A — Meet the person</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>MEET JESSICA</dd></div>
+         <div><dt>Role / skill line</dt><dd>Jr. Medical Admin · Customer Service · Healthcare Support</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Meet Jessica — a MedVirtual Medical Admin Jr.
+
+Her public profile lists customer service and healthcare support skills. If your practice needs remote help keeping admin work moving, you can request an interview and meet her directly.
+
+Learn more about Jessica and other MedVirtual talent.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Jessica · Medical Admin</dd></div>
+      <div><dt>Description</dt><dd>Named MedVirtual talent. Request an interview.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Editorial headshot left or center. Name large. Role + two skill chips. Small MedVirtual mark. No fake Meta CTA in artwork.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Meet Jessica — a MedVirtual Medical Admin Jr.
+
+Her public profile lists customer service and healthcare support skills. If your practice needs remote help keeping admin work moving, you can request an interview and meet her directly.
+
+Learn more about Jessica and other MedVirtual talent.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Jessica · Medical Admin">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Jessica Valles
+CONCEPT: Meet the person
+SOURCE: https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4
+
+ON-IMAGE HEADLINE: MEET JESSICA
+ON-IMAGE SUPPORT: Jr. Medical Admin · Customer Service · Healthcare Support
+
+PRIMARY TEXT:
+Meet Jessica — a MedVirtual Medical Admin Jr.
+
+Her public profile lists customer service and healthcare support skills. If your practice needs remote help keeping admin work moving, you can request an interview and meet her directly.
+
+Learn more about Jessica and other MedVirtual talent.
+
+HEADLINE: Meet Jessica · Medical Admin
+DESCRIPTION: Named MedVirtual talent. Request an interview.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="jessica" data-format="static" data-pain="admin-backlog" data-role="medical-admin">
+    <div class="concept-head">
+      <h4>Concept B — Operational pain</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>Pain-first image copy</dt><dd>Admin work piling up?</dd></div>
+         <div><dt>Person intro on image</dt><dd>Meet Jessica · Jr. Medical Admin</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Admin work piling up while the team is already stretched?
+
+Jessica is a MedVirtual Jr. Medical Admin with listed customer-service and healthcare support skills. This ad introduces a real person you can interview — not another generic staffing graphic.
+
+Request an interview to see if she fits your practice.</dd></div>
+      <div><dt>Headline</dt><dd>Admin backlog? Meet Jessica</dd></div>
+      <div><dt>Description</dt><dd>Real MedVirtual medical admin talent.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Pain line first (max ~6 words), then photo + name. Keep copy concrete: admin work, patient coordination — no “transform your practice.”</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Admin work piling up while the team is already stretched?
+
+Jessica is a MedVirtual Jr. Medical Admin with listed customer-service and healthcare support skills. This ad introduces a real person you can interview — not another generic staffing graphic.
+
+Request an interview to see if she fits your practice.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Admin backlog? Meet Jessica">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Jessica Valles
+CONCEPT: Operational pain
+SOURCE: https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4
+
+ON-IMAGE PAIN: Admin work piling up?
+ON-IMAGE INTRO: Meet Jessica · Jr. Medical Admin
+
+PRIMARY TEXT:
+Admin work piling up while the team is already stretched?
+
+Jessica is a MedVirtual Jr. Medical Admin with listed customer-service and healthcare support skills. This ad introduces a real person you can interview — not another generic staffing graphic.
+
+Request an interview to see if she fits your practice.
+
+HEADLINE: Admin backlog? Meet Jessica
+DESCRIPTION: Real MedVirtual medical admin talent.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="jessica" data-format="static" data-pain="admin-backlog" data-role="medical-admin">
+    <div class="concept-head">
+      <h4>Concept C — Not another app</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>Your front desk doesn’t need another app.</dd></div>
+         <div><dt>Role / skill line</dt><dd>It needs capable support. Meet Jessica · Jr. Medical Admin</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Your front desk doesn’t need another app. It needs capable support.
+
+Jessica is listed on MedVirtual’s Talent Pool as a Jr. Medical Admin, with customer-service and healthcare support skills shown on her public profile.
+
+Learn more and request an interview.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Jessica · Medical Admin</dd></div>
+      <div><dt>Description</dt><dd>Named talent for practice admin support.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Keep tone firm but not anti-software. Do not claim Jessica replaces specific tools.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Your front desk doesn’t need another app. It needs capable support.
+
+Jessica is listed on MedVirtual’s Talent Pool as a Jr. Medical Admin, with customer-service and healthcare support skills shown on her public profile.
+
+Learn more and request an interview.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Jessica · Medical Admin">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Jessica Valles
+CONCEPT: Not another app
+SOURCE: https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4
+
+ON-IMAGE HEADLINE: Your front desk doesn’t need another app.
+ON-IMAGE SUPPORT: It needs capable support. Meet Jessica · Jr. Medical Admin
+
+PRIMARY TEXT:
+Your front desk doesn’t need another app. It needs capable support.
+
+Jessica is listed on MedVirtual’s Talent Pool as a Jr. Medical Admin, with customer-service and healthcare support skills shown on her public profile.
+
+Learn more and request an interview.
+
+HEADLINE: Meet Jessica · Medical Admin
+DESCRIPTION: Named talent for practice admin support.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="jessica" data-format="static" data-pain="admin-backlog" data-role="medical-admin">
+    <div class="concept-head">
+      <h4>Concept D — Ready to meet</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>YOUR NEXT MEDICAL ADMIN MAY ALREADY BE HERE.</dd></div>
+         <div><dt>Role / skill line</dt><dd>Jessica · Jr. Medical Admin · Customer Service · Healthcare Support</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Your next medical admin may already be here.
+
+Jessica — Jr. Medical Admin on MedVirtual’s public Talent Pool. Listed skills include customer service and healthcare support.
+
+Request an interview to meet her.</dd></div>
+      <div><dt>Headline</dt><dd>Request an interview with Jessica</dd></div>
+      <div><dt>Description</dt><dd>Browse MedVirtual Talent Pool profiles.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Do not say “available now” unless the public profile explicitly shows availability status beyond employment type.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Your next medical admin may already be here.
+
+Jessica — Jr. Medical Admin on MedVirtual’s public Talent Pool. Listed skills include customer service and healthcare support.
+
+Request an interview to meet her.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Request an interview with Jessica">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Jessica Valles
+CONCEPT: Ready to meet
+SOURCE: https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4
+
+ON-IMAGE HEADLINE: YOUR NEXT MEDICAL ADMIN MAY ALREADY BE HERE.
+ON-IMAGE SUPPORT: Jessica · Jr. Medical Admin · Customer Service · Healthcare Support
+
+PRIMARY TEXT:
+Your next medical admin may already be here.
+
+Jessica — Jr. Medical Admin on MedVirtual’s public Talent Pool. Listed skills include customer service and healthcare support.
+
+Request an interview to meet her.
+
+HEADLINE: Request an interview with Jessica
+DESCRIPTION: Browse MedVirtual Talent Pool profiles.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+
+    <div class="mock-grid">
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 1:1</p>
+        <div class="mock mock-1x1 mock-editorial" data-talent="jessica" data-format="1x1" data-pain="admin-backlog" data-role="medical-admin">
+    <img class="mock-photo" src="/assets/real-people/jessica.jpg" alt="Jessica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET JESSICA</p>
+      <p class="mock-role">Jr. Medical Admin</p>
+      <p class="mock-skills">BPO - Customer Service · BPO - Healthcare</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 4:5</p>
+        <div class="mock mock-4x5 mock-editorial" data-talent="jessica" data-format="4x5" data-pain="admin-backlog" data-role="medical-admin">
+    <img class="mock-photo" src="/assets/real-people/jessica.jpg" alt="Jessica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET JESSICA</p>
+      <p class="mock-role">Jr. Medical Admin</p>
+      <p class="mock-skills">BPO - Customer Service · BPO - Healthcare</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment B · Pain-first · 9:16</p>
+        <div class="mock mock-9x16 mock-pain" data-talent="jessica" data-format="9x16" data-pain="admin-backlog" data-role="medical-admin">
+    <img class="mock-photo" src="/assets/real-people/jessica.jpg" alt="Jessica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim mock-scrim-strong"></div>
+    <div class="mock-copy mock-copy-pain">
+      <p class="mock-pain-line">Admin work piling up?</p>
+      <p class="mock-kicker">Meet Jessica</p>
+      <p class="mock-role">Jr. Medical Admin</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+    </div>
+
+    <div class="video-block suggested" data-talent="jessica" data-format="iphone-video" data-pain="admin-backlog" data-role="medical-admin">
+      <div class="concept-head">
+        <h4>iPhone video script · 10–12 seconds</h4>
+        <span class="tag-suggested">Suggested script</span>
+      </div>
+      <dl class="fields">
+        <div><dt>Spoken</dt><dd class="pre">Hi, I'm Jessica. I help medical practices with customer service and healthcare admin support. If your team needs backup on day-to-day office work, I'd be glad to meet you.</dd></div>
+        <div><dt>Opening visual</dt><dd>Direct to camera, eye level, soft front light, plain workstation behind.</dd></div>
+        <div><dt>B-roll</dt><dd>Quick cut of typing · Headset adjustment · Team call over shoulder (no screens readable)</dd></div>
+        <div><dt>Captions</dt><dd>Hi, I’m Jessica / Medical admin support / Customer service · Healthcare support</dd></div>
+        <div><dt>Final frame</dt><dd>Jessica · Jr. Medical Admin · MedVirtual</dd></div>
+      </dl>
+      <button type="button" class="copy-btn" data-copy="Hi, I'm Jessica. I help medical practices with customer service and healthcare admin support. If your team needs backup on day-to-day office work, I'd be glad to meet you.">Copy spoken script</button>
+    </div>
+  </section><section class="profile-section" id="profile-angelica" data-talent="angelica" data-role="front-office medical-admin practice-coordination" data-pain="front-desk patient-calls admin-backlog" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+    <header class="profile-head">
+      <img class="profile-avatar" src="/assets/real-people/angelica.jpg" alt="Angelica Aljas" width="96" height="96" loading="lazy" />
+      <div>
+        <h3>Angelica <span class="full-name">Angelica Aljas</span>
+          <span class="badge-rec">Recommended first batch</span>
+        </h3>
+        <p class="title-line">Dermatology Front Desk Assistant</p>
+        <p class="source"><a href="https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3" target="_blank" rel="noopener noreferrer">Source profile</a> · checked 2026-07-13</p>
+      </div>
+    </header>
+
+    <div class="split-facts">
+      <div class="fact-box">
+        <h4>Exact public profile facts</h4>
+        <ul><li>Name: Angelica Aljas</li><li>Title / experience: Dermatology Front Desk Assistant</li><li>Approved position: Medical Admin Sr</li><li>Employment type shown: Full Time</li><li>Listed skills: VA - Medical General; BPO - Healthcare</li><li>Specializations shown: Dermatology</li></ul>
+      </div>
+      <div class="suggest-box">
+        <h4>Suggested advertising copy</h4>
+        <p>Concepts A–D and the best static below are marketing drafts. They must not be stored or presented as Talent Pool facts.</p>
+      </div>
+    </div>
+
+    <div class="concept-block suggested" data-talent="angelica" data-format="static-4x5" data-pain="front-desk" data-role="front-office">
+      <div class="concept-head">
+        <h4>Best recommended static</h4>
+        <span class="tag-suggested">Suggested ad copy</span>
+      </div>
+      <dl class="fields">
+        <div><dt>On-image hook (≤10 words)</dt><dd>Meet Angelica</dd></div>
+        <div><dt>Supporting line (≤14 words)</dt><dd>Front desk assistant · Medical admin support</dd></div>
+        <div><dt>Primary text</dt><dd class="pre">Meet Angelica — Dermatology Front Desk Assistant on MedVirtual’s Talent Pool.
+
+Her profile lists medical general and healthcare support skills. When the front desk cannot cover everything at once, start with a real person your team can interview.
+
+Learn more.</dd></div>
+        <div><dt>Meta headline</dt><dd>Meet Angelica · Front Desk</dd></div>
+        <div><dt>Description</dt><dd>Real MedVirtual talent. Request interview.</dd></div>
+        <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+        <div><dt>Format / treatment</dt><dd>4:5 · editorial</dd></div>
+      </dl>
+      <div class="copy-row">
+        <button type="button" class="copy-btn" data-copy="Meet Angelica — Dermatology Front Desk Assistant on MedVirtual’s Talent Pool.
+
+Her profile lists medical general and healthcare support skills. When the front desk cannot cover everything at once, start with a real person your team can interview.
+
+Learn more.">Copy primary text</button>
+        <button type="button" class="copy-btn" data-copy="Meet Angelica · Front Desk">Copy headline</button>
+        <button type="button" class="copy-btn" data-copy="PROFILE: Angelica Aljas
+TITLE: Dermatology Front Desk Assistant
+SOURCE: https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3
+
+ON-IMAGE HOOK: Meet Angelica
+ON-IMAGE SUPPORT: Front desk assistant · Medical admin support
+
+PRIMARY TEXT:
+Meet Angelica — Dermatology Front Desk Assistant on MedVirtual’s Talent Pool.
+
+Her profile lists medical general and healthcare support skills. When the front desk cannot cover everything at once, start with a real person your team can interview.
+
+Learn more.
+
+HEADLINE: Meet Angelica · Front Desk
+DESCRIPTION: Real MedVirtual talent. Request interview.
+CTA: Learn More">Copy full package</button>
+      </div>
+    </div>
+    <div class="concept-block suggested" data-talent="angelica" data-format="static" data-pain="front-desk" data-role="front-office">
+    <div class="concept-head">
+      <h4>Concept A — Meet the person</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>MEET ANGELICA</dd></div>
+         <div><dt>Role / skill line</dt><dd>Dermatology Front Desk Assistant · Medical General · Healthcare</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Meet Angelica — listed as a Dermatology Front Desk Assistant, with Medical Admin Sr as her Talent Pool position.
+
+Public skills include medical general VA support and healthcare BPO. If your front desk needs capable remote backup, you can request an interview.
+
+Learn more.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Angelica · Front Desk</dd></div>
+      <div><dt>Description</dt><dd>Named MedVirtual medical admin talent.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Clean profile card. Emphasize front-desk title. Avoid inventing dermatology clinical duties she does not list.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Meet Angelica — listed as a Dermatology Front Desk Assistant, with Medical Admin Sr as her Talent Pool position.
+
+Public skills include medical general VA support and healthcare BPO. If your front desk needs capable remote backup, you can request an interview.
+
+Learn more.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Angelica · Front Desk">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Angelica Aljas
+CONCEPT: Meet the person
+SOURCE: https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3
+
+ON-IMAGE HEADLINE: MEET ANGELICA
+ON-IMAGE SUPPORT: Dermatology Front Desk Assistant · Medical General · Healthcare
+
+PRIMARY TEXT:
+Meet Angelica — listed as a Dermatology Front Desk Assistant, with Medical Admin Sr as her Talent Pool position.
+
+Public skills include medical general VA support and healthcare BPO. If your front desk needs capable remote backup, you can request an interview.
+
+Learn more.
+
+HEADLINE: Meet Angelica · Front Desk
+DESCRIPTION: Named MedVirtual medical admin talent.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="angelica" data-format="static" data-pain="front-desk" data-role="front-office">
+    <div class="concept-head">
+      <h4>Concept B — Operational pain</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>Pain-first image copy</dt><dd>Front desk stretched thin?</dd></div>
+         <div><dt>Person intro on image</dt><dd>Meet Angelica · Front Desk Assistant</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Front desk stretched thin?
+
+Angelica’s public MedVirtual profile lists her as a Dermatology Front Desk Assistant (Medical Admin Sr), with medical general and healthcare support skills.
+
+Request an interview to see whether she fits your workflow.</dd></div>
+      <div><dt>Headline</dt><dd>Front desk help? Meet Angelica</dd></div>
+      <div><dt>Description</dt><dd>Real talent from MedVirtual Talent Pool.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Pain-first layout. Photo secondary but still clear and human.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Front desk stretched thin?
+
+Angelica’s public MedVirtual profile lists her as a Dermatology Front Desk Assistant (Medical Admin Sr), with medical general and healthcare support skills.
+
+Request an interview to see whether she fits your workflow.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Front desk help? Meet Angelica">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Angelica Aljas
+CONCEPT: Operational pain
+SOURCE: https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3
+
+ON-IMAGE PAIN: Front desk stretched thin?
+ON-IMAGE INTRO: Meet Angelica · Front Desk Assistant
+
+PRIMARY TEXT:
+Front desk stretched thin?
+
+Angelica’s public MedVirtual profile lists her as a Dermatology Front Desk Assistant (Medical Admin Sr), with medical general and healthcare support skills.
+
+Request an interview to see whether she fits your workflow.
+
+HEADLINE: Front desk help? Meet Angelica
+DESCRIPTION: Real talent from MedVirtual Talent Pool.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="angelica" data-format="static" data-pain="front-desk" data-role="front-office">
+    <div class="concept-head">
+      <h4>Concept C — Not another app</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>Busy days need people, not another login.</dd></div>
+         <div><dt>Role / skill line</dt><dd>Meet Angelica · Dermatology Front Desk Assistant</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Busy clinic days need capable people — not another login screen.
+
+Angelica is a named MedVirtual profile: Dermatology Front Desk Assistant, with listed medical general and healthcare skills.
+
+Learn more and request an interview.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Angelica · Medical Admin</dd></div>
+      <div><dt>Description</dt><dd>Front-desk focused Talent Pool profile.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Do not bash EHRs. Position as human support alongside existing tools.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Busy clinic days need capable people — not another login screen.
+
+Angelica is a named MedVirtual profile: Dermatology Front Desk Assistant, with listed medical general and healthcare skills.
+
+Learn more and request an interview.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Angelica · Medical Admin">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Angelica Aljas
+CONCEPT: Not another app
+SOURCE: https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3
+
+ON-IMAGE HEADLINE: Busy days need people, not another login.
+ON-IMAGE SUPPORT: Meet Angelica · Dermatology Front Desk Assistant
+
+PRIMARY TEXT:
+Busy clinic days need capable people — not another login screen.
+
+Angelica is a named MedVirtual profile: Dermatology Front Desk Assistant, with listed medical general and healthcare skills.
+
+Learn more and request an interview.
+
+HEADLINE: Meet Angelica · Medical Admin
+DESCRIPTION: Front-desk focused Talent Pool profile.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="angelica" data-format="static" data-pain="front-desk" data-role="front-office">
+    <div class="concept-head">
+      <h4>Concept D — Ready to meet</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>YOUR NEXT FRONT-DESK SUPPORT MAY ALREADY BE HERE.</dd></div>
+         <div><dt>Role / skill line</dt><dd>Angelica · Front Desk Assistant · Medical General · Healthcare</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Your next front-desk support may already be here.
+
+Angelica — Dermatology Front Desk Assistant on MedVirtual’s Talent Pool.
+
+Request an interview to meet her.</dd></div>
+      <div><dt>Headline</dt><dd>Request an interview with Angelica</dd></div>
+      <div><dt>Description</dt><dd>Named front-desk medical admin talent.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Employment type is Full Time on profile — do not add “immediately available” language.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Your next front-desk support may already be here.
+
+Angelica — Dermatology Front Desk Assistant on MedVirtual’s Talent Pool.
+
+Request an interview to meet her.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Request an interview with Angelica">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Angelica Aljas
+CONCEPT: Ready to meet
+SOURCE: https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3
+
+ON-IMAGE HEADLINE: YOUR NEXT FRONT-DESK SUPPORT MAY ALREADY BE HERE.
+ON-IMAGE SUPPORT: Angelica · Front Desk Assistant · Medical General · Healthcare
+
+PRIMARY TEXT:
+Your next front-desk support may already be here.
+
+Angelica — Dermatology Front Desk Assistant on MedVirtual’s Talent Pool.
+
+Request an interview to meet her.
+
+HEADLINE: Request an interview with Angelica
+DESCRIPTION: Named front-desk medical admin talent.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+
+    <div class="mock-grid">
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 1:1</p>
+        <div class="mock mock-1x1 mock-editorial" data-talent="angelica" data-format="1x1" data-pain="front-desk" data-role="front-office">
+    <img class="mock-photo" src="/assets/real-people/angelica.jpg" alt="Angelica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET ANGELICA</p>
+      <p class="mock-role">Dermatology Front Desk Assistant</p>
+      <p class="mock-skills">VA - Medical General · BPO - Healthcare</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 4:5</p>
+        <div class="mock mock-4x5 mock-editorial" data-talent="angelica" data-format="4x5" data-pain="front-desk" data-role="front-office">
+    <img class="mock-photo" src="/assets/real-people/angelica.jpg" alt="Angelica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET ANGELICA</p>
+      <p class="mock-role">Dermatology Front Desk Assistant</p>
+      <p class="mock-skills">VA - Medical General · BPO - Healthcare</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment B · Pain-first · 9:16</p>
+        <div class="mock mock-9x16 mock-pain" data-talent="angelica" data-format="9x16" data-pain="front-desk" data-role="front-office">
+    <img class="mock-photo" src="/assets/real-people/angelica.jpg" alt="Angelica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim mock-scrim-strong"></div>
+    <div class="mock-copy mock-copy-pain">
+      <p class="mock-pain-line">Front desk stretched thin?</p>
+      <p class="mock-kicker">Meet Angelica</p>
+      <p class="mock-role">Dermatology Front Desk Assistant</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+    </div>
+
+    <div class="video-block suggested" data-talent="angelica" data-format="iphone-video" data-pain="front-desk" data-role="front-office">
+      <div class="concept-head">
+        <h4>iPhone video script · 11–13 seconds</h4>
+        <span class="tag-suggested">Suggested script</span>
+      </div>
+      <dl class="fields">
+        <div><dt>Spoken</dt><dd class="pre">Hi, I'm Angelica. I've supported medical front-desk work, and my profile highlights medical general and healthcare support. If your practice needs help keeping the desk moving, I'm happy to introduce myself.</dd></div>
+        <div><dt>Opening visual</dt><dd>Seated at desk, headset nearby, looking at camera.</dd></div>
+        <div><dt>B-roll</dt><dd>Greeting gesture (no scripted smile freeze) · Notebook / scheduling UI blurred · Wide office</dd></div>
+        <div><dt>Captions</dt><dd>Hi, I’m Angelica / Front desk support / Medical admin</dd></div>
+        <div><dt>Final frame</dt><dd>Angelica · Front Desk Assistant · MedVirtual</dd></div>
+      </dl>
+      <button type="button" class="copy-btn" data-copy="Hi, I'm Angelica. I've supported medical front-desk work, and my profile highlights medical general and healthcare support. If your practice needs help keeping the desk moving, I'm happy to introduce myself.">Copy spoken script</button>
+    </div>
+  </section><section class="profile-section" id="profile-chelsea-rose" data-talent="chelsea-rose" data-role="patient-scheduling front-office medical-admin" data-pain="scheduling patient-calls front-desk" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+    <header class="profile-head">
+      <img class="profile-avatar" src="/assets/real-people/chelsea-rose.jpg" alt="Chelsea Rose Santos" width="96" height="96" loading="lazy" />
+      <div>
+        <h3>Chelsea <span class="full-name">Chelsea Rose Santos</span>
+          <span class="badge-rec">Recommended first batch</span>
+        </h3>
+        <p class="title-line">Dental Virtual Assistant</p>
+        <p class="source"><a href="https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4" target="_blank" rel="noopener noreferrer">Source profile</a> · checked 2026-07-13</p>
+      </div>
+    </header>
+
+    <div class="split-facts">
+      <div class="fact-box">
+        <h4>Exact public profile facts</h4>
+        <ul><li>Name: Chelsea Rose Santos</li><li>Title / experience: Dental Virtual Assistant</li><li>Approved position: Dental Admin Jr</li><li>Employment type shown: Full Time</li><li>Shift block shown: Full Time</li><li>Listed skills: Appointment Setting; Medical - Healthcare; BPO - Customer Service; VA - Medical General; BPO - Healthcare</li><li>Specializations shown: Dentistry; Dental - Orthodontics; Dental - General Dentistry; DME / Durable Medical Equipment; General Medicine</li></ul>
+      </div>
+      <div class="suggest-box">
+        <h4>Suggested advertising copy</h4>
+        <p>Concepts A–D and the best static below are marketing drafts. They must not be stored or presented as Talent Pool facts.</p>
+      </div>
+    </div>
+
+    <div class="concept-block suggested" data-talent="chelsea-rose" data-format="static-4x5" data-pain="scheduling" data-role="patient-scheduling">
+      <div class="concept-head">
+        <h4>Best recommended static</h4>
+        <span class="tag-suggested">Suggested ad copy</span>
+      </div>
+      <dl class="fields">
+        <div><dt>On-image hook (≤10 words)</dt><dd>Scheduling taking over?</dd></div>
+        <div><dt>Supporting line (≤14 words)</dt><dd>Meet Chelsea · Appointment setting · Dental VA</dd></div>
+        <div><dt>Primary text</dt><dd class="pre">Scheduling taking over the front desk?
+
+Meet Chelsea — Dental Virtual Assistant on MedVirtual’s Talent Pool. Her listed skills include appointment setting, customer service, and healthcare support.
+
+Request an interview to see if she fits.</dd></div>
+        <div><dt>Meta headline</dt><dd>Meet Chelsea · Scheduling Help</dd></div>
+        <div><dt>Description</dt><dd>Real talent. Appointment-setting skills listed.</dd></div>
+        <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+        <div><dt>Format / treatment</dt><dd>4:5 · pain-first</dd></div>
+      </dl>
+      <div class="copy-row">
+        <button type="button" class="copy-btn" data-copy="Scheduling taking over the front desk?
+
+Meet Chelsea — Dental Virtual Assistant on MedVirtual’s Talent Pool. Her listed skills include appointment setting, customer service, and healthcare support.
+
+Request an interview to see if she fits.">Copy primary text</button>
+        <button type="button" class="copy-btn" data-copy="Meet Chelsea · Scheduling Help">Copy headline</button>
+        <button type="button" class="copy-btn" data-copy="PROFILE: Chelsea Rose Santos
+TITLE: Dental Virtual Assistant
+SOURCE: https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4
+
+ON-IMAGE HOOK: Scheduling taking over?
+ON-IMAGE SUPPORT: Meet Chelsea · Appointment setting · Dental VA
+
+PRIMARY TEXT:
+Scheduling taking over the front desk?
+
+Meet Chelsea — Dental Virtual Assistant on MedVirtual’s Talent Pool. Her listed skills include appointment setting, customer service, and healthcare support.
+
+Request an interview to see if she fits.
+
+HEADLINE: Meet Chelsea · Scheduling Help
+DESCRIPTION: Real talent. Appointment-setting skills listed.
+CTA: Learn More">Copy full package</button>
+      </div>
+    </div>
+    <div class="concept-block suggested" data-talent="chelsea-rose" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
+    <div class="concept-head">
+      <h4>Concept A — Meet the person</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>MEET CHELSEA</dd></div>
+         <div><dt>Role / skill line</dt><dd>Dental Virtual Assistant · Appointment Setting · Customer Service</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Meet Chelsea — Dental Virtual Assistant (Dental Admin Jr) on MedVirtual’s Talent Pool.
+
+Listed skills include appointment setting, healthcare support, customer service, and medical general VA work.
+
+Request an interview to meet her.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Chelsea · Scheduling</dd></div>
+      <div><dt>Description</dt><dd>Named talent with appointment-setting skills.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Lead with Appointment Setting in the skill line. Prefer “Chelsea” on-image (public first name includes Rose).</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Meet Chelsea — Dental Virtual Assistant (Dental Admin Jr) on MedVirtual’s Talent Pool.
+
+Listed skills include appointment setting, healthcare support, customer service, and medical general VA work.
+
+Request an interview to meet her.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Chelsea · Scheduling">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Chelsea Rose Santos
+CONCEPT: Meet the person
+SOURCE: https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4
+
+ON-IMAGE HEADLINE: MEET CHELSEA
+ON-IMAGE SUPPORT: Dental Virtual Assistant · Appointment Setting · Customer Service
+
+PRIMARY TEXT:
+Meet Chelsea — Dental Virtual Assistant (Dental Admin Jr) on MedVirtual’s Talent Pool.
+
+Listed skills include appointment setting, healthcare support, customer service, and medical general VA work.
+
+Request an interview to meet her.
+
+HEADLINE: Meet Chelsea · Scheduling
+DESCRIPTION: Named talent with appointment-setting skills.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="chelsea-rose" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
+    <div class="concept-head">
+      <h4>Concept B — Operational pain</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>Pain-first image copy</dt><dd>Scheduling taking over the front desk?</dd></div>
+         <div><dt>Person intro on image</dt><dd>Meet Chelsea · Appointment Setting</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Scheduling taking over the front desk?
+
+Chelsea is a Dental Virtual Assistant on MedVirtual’s Talent Pool. Her listed skills include appointment setting, customer service, and healthcare support.
+
+Learn more and request an interview — no claim that she already works with your clinic.</dd></div>
+      <div><dt>Headline</dt><dd>Scheduling backlog? Meet Chelsea</dd></div>
+      <div><dt>Description</dt><dd>Appointment-setting focused Talent Pool profile.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Best pain-first test candidate. Keep pain line ≤8 words.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Scheduling taking over the front desk?
+
+Chelsea is a Dental Virtual Assistant on MedVirtual’s Talent Pool. Her listed skills include appointment setting, customer service, and healthcare support.
+
+Learn more and request an interview — no claim that she already works with your clinic.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Scheduling backlog? Meet Chelsea">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Chelsea Rose Santos
+CONCEPT: Operational pain
+SOURCE: https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4
+
+ON-IMAGE PAIN: Scheduling taking over the front desk?
+ON-IMAGE INTRO: Meet Chelsea · Appointment Setting
+
+PRIMARY TEXT:
+Scheduling taking over the front desk?
+
+Chelsea is a Dental Virtual Assistant on MedVirtual’s Talent Pool. Her listed skills include appointment setting, customer service, and healthcare support.
+
+Learn more and request an interview — no claim that she already works with your clinic.
+
+HEADLINE: Scheduling backlog? Meet Chelsea
+DESCRIPTION: Appointment-setting focused Talent Pool profile.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="chelsea-rose" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
+    <div class="concept-head">
+      <h4>Concept C — Not another app</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>Scheduling shouldn’t require another tool.</dd></div>
+         <div><dt>Role / skill line</dt><dd>It needs capable support. Meet Chelsea · Dental VA</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Scheduling shouldn’t require another tool battle. It needs capable support.
+
+Chelsea’s public skills include appointment setting and customer service. Meet a real MedVirtual profile — then request an interview.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Chelsea · Appointment Setting</dd></div>
+      <div><dt>Description</dt><dd>Human scheduling support — named talent.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Do not promise calendar software migration.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Scheduling shouldn’t require another tool battle. It needs capable support.
+
+Chelsea’s public skills include appointment setting and customer service. Meet a real MedVirtual profile — then request an interview.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Chelsea · Appointment Setting">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Chelsea Rose Santos
+CONCEPT: Not another app
+SOURCE: https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4
+
+ON-IMAGE HEADLINE: Scheduling shouldn’t require another tool.
+ON-IMAGE SUPPORT: It needs capable support. Meet Chelsea · Dental VA
+
+PRIMARY TEXT:
+Scheduling shouldn’t require another tool battle. It needs capable support.
+
+Chelsea’s public skills include appointment setting and customer service. Meet a real MedVirtual profile — then request an interview.
+
+HEADLINE: Meet Chelsea · Appointment Setting
+DESCRIPTION: Human scheduling support — named talent.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="chelsea-rose" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
+    <div class="concept-head">
+      <h4>Concept D — Ready to meet</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>YOUR NEXT SCHEDULING SUPPORT MAY ALREADY BE HERE.</dd></div>
+         <div><dt>Role / skill line</dt><dd>Chelsea · Dental VA · Appointment Setting · Customer Service</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Your next scheduling support may already be here.
+
+Chelsea — Dental Virtual Assistant with appointment setting listed on her MedVirtual profile.
+
+Request an interview.</dd></div>
+      <div><dt>Headline</dt><dd>Request an interview with Chelsea</dd></div>
+      <div><dt>Description</dt><dd>Named MedVirtual dental admin talent.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Avoid “hire instantly” claims not shown on profile.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Your next scheduling support may already be here.
+
+Chelsea — Dental Virtual Assistant with appointment setting listed on her MedVirtual profile.
+
+Request an interview.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Request an interview with Chelsea">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Chelsea Rose Santos
+CONCEPT: Ready to meet
+SOURCE: https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4
+
+ON-IMAGE HEADLINE: YOUR NEXT SCHEDULING SUPPORT MAY ALREADY BE HERE.
+ON-IMAGE SUPPORT: Chelsea · Dental VA · Appointment Setting · Customer Service
+
+PRIMARY TEXT:
+Your next scheduling support may already be here.
+
+Chelsea — Dental Virtual Assistant with appointment setting listed on her MedVirtual profile.
+
+Request an interview.
+
+HEADLINE: Request an interview with Chelsea
+DESCRIPTION: Named MedVirtual dental admin talent.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+
+    <div class="mock-grid">
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 1:1</p>
+        <div class="mock mock-1x1 mock-editorial" data-talent="chelsea-rose" data-format="1x1" data-pain="scheduling" data-role="patient-scheduling">
+    <img class="mock-photo" src="/assets/real-people/chelsea-rose.jpg" alt="Chelsea — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET CHELSEA</p>
+      <p class="mock-role">Dental Virtual Assistant</p>
+      <p class="mock-skills">Appointment Setting · Medical - Healthcare · BPO - Customer Service</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 4:5</p>
+        <div class="mock mock-4x5 mock-editorial" data-talent="chelsea-rose" data-format="4x5" data-pain="scheduling" data-role="patient-scheduling">
+    <img class="mock-photo" src="/assets/real-people/chelsea-rose.jpg" alt="Chelsea — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET CHELSEA</p>
+      <p class="mock-role">Dental Virtual Assistant</p>
+      <p class="mock-skills">Appointment Setting · Medical - Healthcare · BPO - Customer Service</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment B · Pain-first · 9:16</p>
+        <div class="mock mock-9x16 mock-pain" data-talent="chelsea-rose" data-format="9x16" data-pain="scheduling" data-role="patient-scheduling">
+    <img class="mock-photo" src="/assets/real-people/chelsea-rose.jpg" alt="Chelsea — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim mock-scrim-strong"></div>
+    <div class="mock-copy mock-copy-pain">
+      <p class="mock-pain-line">Scheduling taking over the front desk?</p>
+      <p class="mock-kicker">Meet Chelsea</p>
+      <p class="mock-role">Dental Virtual Assistant</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+    </div>
+
+    <div class="video-block suggested" data-talent="chelsea-rose" data-format="iphone-video" data-pain="scheduling" data-role="patient-scheduling">
+      <div class="concept-head">
+        <h4>iPhone video script · 12–14 seconds</h4>
+        <span class="tag-suggested">Suggested script</span>
+      </div>
+      <dl class="fields">
+        <div><dt>Spoken</dt><dd class="pre">Hi, I'm Chelsea. If your team needs help with appointment setting, customer service, or day-to-day healthcare admin support, that's the kind of work my profile is built around.</dd></div>
+        <div><dt>Opening visual</dt><dd>Standing or seated, calm, natural pace — not corporate teleprompter energy.</dd></div>
+        <div><dt>B-roll</dt><dd>Calendar UI blurred · Phone check-in motion · Typing</dd></div>
+        <div><dt>Captions</dt><dd>Hi, I’m Chelsea / Appointment setting / Customer service · Healthcare support</dd></div>
+        <div><dt>Final frame</dt><dd>Chelsea · Dental Virtual Assistant · MedVirtual</dd></div>
+      </dl>
+      <button type="button" class="copy-btn" data-copy="Hi, I'm Chelsea. If your team needs help with appointment setting, customer service, or day-to-day healthcare admin support, that's the kind of work my profile is built around.">Copy spoken script</button>
+    </div>
+  </section><section class="profile-section" id="profile-mark" data-talent="mark" data-role="insurance-verification billing-support" data-pain="insurance-verification billing-support" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+    <header class="profile-head">
+      <img class="profile-avatar" src="/assets/real-people/mark.jpg" alt="Mark Robert Seno" width="96" height="96" loading="lazy" />
+      <div>
+        <h3>Mark <span class="full-name">Mark Robert Seno</span>
+          <span class="badge-rec">Recommended first batch</span>
+        </h3>
+        <p class="title-line">Insurance Verification Specialist</p>
+        <p class="source"><a href="https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8" target="_blank" rel="noopener noreferrer">Source profile</a> · checked 2026-07-13</p>
+      </div>
+    </header>
+
+    <div class="split-facts">
+      <div class="fact-box">
+        <h4>Exact public profile facts</h4>
+        <ul><li>Name: Mark Robert Seno</li><li>Title / experience: Insurance Verification Specialist</li><li>Approved position: Medical Biller Sr</li><li>Employment type shown: Full Time</li><li>Shift block shown: Full Time</li><li>Listed skills: VA - Medical Biller</li><li>Specializations shown: Psychiatry</li></ul>
+      </div>
+      <div class="suggest-box">
+        <h4>Suggested advertising copy</h4>
+        <p>Concepts A–D and the best static below are marketing drafts. They must not be stored or presented as Talent Pool facts.</p>
+      </div>
+    </div>
+
+    <div class="concept-block suggested" data-talent="mark" data-format="static-1x1" data-pain="insurance-verification" data-role="insurance-verification">
+      <div class="concept-head">
+        <h4>Best recommended static</h4>
+        <span class="tag-suggested">Suggested ad copy</span>
+      </div>
+      <dl class="fields">
+        <div><dt>On-image hook (≤10 words)</dt><dd>Verification slowing you down?</dd></div>
+        <div><dt>Supporting line (≤14 words)</dt><dd>Meet Mark · Insurance verification</dd></div>
+        <div><dt>Primary text</dt><dd class="pre">Insurance verification slowing the day?
+
+Meet Mark — Insurance Verification Specialist on MedVirtual’s Talent Pool. His profile lists medical biller VA skills.
+
+Request an interview to see if he fits your practice.</dd></div>
+        <div><dt>Meta headline</dt><dd>Meet Mark · Verification Help</dd></div>
+        <div><dt>Description</dt><dd>Named talent. Insurance verification focus.</dd></div>
+        <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+        <div><dt>Format / treatment</dt><dd>1:1 · pain-first</dd></div>
+      </dl>
+      <div class="copy-row">
+        <button type="button" class="copy-btn" data-copy="Insurance verification slowing the day?
+
+Meet Mark — Insurance Verification Specialist on MedVirtual’s Talent Pool. His profile lists medical biller VA skills.
+
+Request an interview to see if he fits your practice.">Copy primary text</button>
+        <button type="button" class="copy-btn" data-copy="Meet Mark · Verification Help">Copy headline</button>
+        <button type="button" class="copy-btn" data-copy="PROFILE: Mark Robert Seno
+TITLE: Insurance Verification Specialist
+SOURCE: https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8
+
+ON-IMAGE HOOK: Verification slowing you down?
+ON-IMAGE SUPPORT: Meet Mark · Insurance verification
+
+PRIMARY TEXT:
+Insurance verification slowing the day?
+
+Meet Mark — Insurance Verification Specialist on MedVirtual’s Talent Pool. His profile lists medical biller VA skills.
+
+Request an interview to see if he fits your practice.
+
+HEADLINE: Meet Mark · Verification Help
+DESCRIPTION: Named talent. Insurance verification focus.
+CTA: Learn More">Copy full package</button>
+      </div>
+    </div>
+    <div class="concept-block suggested" data-talent="mark" data-format="static" data-pain="insurance-verification" data-role="insurance-verification">
+    <div class="concept-head">
+      <h4>Concept A — Meet the person</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>MEET MARK</dd></div>
+         <div><dt>Role / skill line</dt><dd>Insurance Verification Specialist · Medical Biller</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Meet Mark — Insurance Verification Specialist on MedVirtual’s Talent Pool (Medical Biller Sr position).
+
+His listed skill tag includes medical billing VA work. If eligibility checks slow your day, start by meeting a real person.
+
+Learn more and request an interview.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Mark · Insurance Verify</dd></div>
+      <div><dt>Description</dt><dd>Named insurance verification talent.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Use first name Mark on-image. Do not invent years of experience (profile shows 0). Do not claim HIPAA certification.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Meet Mark — Insurance Verification Specialist on MedVirtual’s Talent Pool (Medical Biller Sr position).
+
+His listed skill tag includes medical billing VA work. If eligibility checks slow your day, start by meeting a real person.
+
+Learn more and request an interview.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Mark · Insurance Verify">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Mark Robert Seno
+CONCEPT: Meet the person
+SOURCE: https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8
+
+ON-IMAGE HEADLINE: MEET MARK
+ON-IMAGE SUPPORT: Insurance Verification Specialist · Medical Biller
+
+PRIMARY TEXT:
+Meet Mark — Insurance Verification Specialist on MedVirtual’s Talent Pool (Medical Biller Sr position).
+
+His listed skill tag includes medical billing VA work. If eligibility checks slow your day, start by meeting a real person.
+
+Learn more and request an interview.
+
+HEADLINE: Meet Mark · Insurance Verify
+DESCRIPTION: Named insurance verification talent.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="mark" data-format="static" data-pain="insurance-verification" data-role="insurance-verification">
+    <div class="concept-head">
+      <h4>Concept B — Operational pain</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>Pain-first image copy</dt><dd>Insurance verification slowing the day?</dd></div>
+         <div><dt>Person intro on image</dt><dd>Meet Mark · Insurance Verification</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Insurance verification slowing the day?
+
+Mark’s public MedVirtual title is Insurance Verification Specialist, with a medical biller skill listed. This creative introduces him as someone your practice can interview — not a claim that he already supports your clinic.
+
+Learn more.</dd></div>
+      <div><dt>Headline</dt><dd>Verification backlog? Meet Mark</dd></div>
+      <div><dt>Description</dt><dd>Insurance verification focused Talent Pool profile.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Strong second pain-first creative after Chelsea.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Insurance verification slowing the day?
+
+Mark’s public MedVirtual title is Insurance Verification Specialist, with a medical biller skill listed. This creative introduces him as someone your practice can interview — not a claim that he already supports your clinic.
+
+Learn more.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Verification backlog? Meet Mark">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Mark Robert Seno
+CONCEPT: Operational pain
+SOURCE: https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8
+
+ON-IMAGE PAIN: Insurance verification slowing the day?
+ON-IMAGE INTRO: Meet Mark · Insurance Verification
+
+PRIMARY TEXT:
+Insurance verification slowing the day?
+
+Mark’s public MedVirtual title is Insurance Verification Specialist, with a medical biller skill listed. This creative introduces him as someone your practice can interview — not a claim that he already supports your clinic.
+
+Learn more.
+
+HEADLINE: Verification backlog? Meet Mark
+DESCRIPTION: Insurance verification focused Talent Pool profile.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="mark" data-format="static" data-pain="insurance-verification" data-role="insurance-verification">
+    <div class="concept-head">
+      <h4>Concept C — Not another app</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>Eligibility work needs people too.</dd></div>
+         <div><dt>Role / skill line</dt><dd>Meet Mark · Insurance Verification Specialist</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Eligibility work needs people too — not only another portal.
+
+Meet Mark, listed as an Insurance Verification Specialist on MedVirtual’s Talent Pool.
+
+Request an interview to learn more.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Mark · Insurance Support</dd></div>
+      <div><dt>Description</dt><dd>Named MedVirtual billing / verification talent.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Do not promise faster claim outcomes or denial-rate improvements.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Eligibility work needs people too — not only another portal.
+
+Meet Mark, listed as an Insurance Verification Specialist on MedVirtual’s Talent Pool.
+
+Request an interview to learn more.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Mark · Insurance Support">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Mark Robert Seno
+CONCEPT: Not another app
+SOURCE: https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8
+
+ON-IMAGE HEADLINE: Eligibility work needs people too.
+ON-IMAGE SUPPORT: Meet Mark · Insurance Verification Specialist
+
+PRIMARY TEXT:
+Eligibility work needs people too — not only another portal.
+
+Meet Mark, listed as an Insurance Verification Specialist on MedVirtual’s Talent Pool.
+
+Request an interview to learn more.
+
+HEADLINE: Meet Mark · Insurance Support
+DESCRIPTION: Named MedVirtual billing / verification talent.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="mark" data-format="static" data-pain="insurance-verification" data-role="insurance-verification">
+    <div class="concept-head">
+      <h4>Concept D — Ready to meet</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>YOUR NEXT VERIFICATION SUPPORT MAY ALREADY BE HERE.</dd></div>
+         <div><dt>Role / skill line</dt><dd>Mark · Insurance Verification · Medical Biller</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Your next verification support may already be here.
+
+Mark — Insurance Verification Specialist on MedVirtual’s public Talent Pool.
+
+Request an interview.</dd></div>
+      <div><dt>Headline</dt><dd>Request an interview with Mark</dd></div>
+      <div><dt>Description</dt><dd>Real MedVirtual Talent Pool profile.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Keep claims limited to title + listed skill.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Your next verification support may already be here.
+
+Mark — Insurance Verification Specialist on MedVirtual’s public Talent Pool.
+
+Request an interview.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Request an interview with Mark">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Mark Robert Seno
+CONCEPT: Ready to meet
+SOURCE: https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8
+
+ON-IMAGE HEADLINE: YOUR NEXT VERIFICATION SUPPORT MAY ALREADY BE HERE.
+ON-IMAGE SUPPORT: Mark · Insurance Verification · Medical Biller
+
+PRIMARY TEXT:
+Your next verification support may already be here.
+
+Mark — Insurance Verification Specialist on MedVirtual’s public Talent Pool.
+
+Request an interview.
+
+HEADLINE: Request an interview with Mark
+DESCRIPTION: Real MedVirtual Talent Pool profile.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+
+    <div class="mock-grid">
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 1:1</p>
+        <div class="mock mock-1x1 mock-editorial" data-talent="mark" data-format="1x1" data-pain="insurance-verification" data-role="insurance-verification">
+    <img class="mock-photo" src="/assets/real-people/mark.jpg" alt="Mark — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET MARK</p>
+      <p class="mock-role">Insurance Verification Specialist</p>
+      <p class="mock-skills">VA - Medical Biller</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 4:5</p>
+        <div class="mock mock-4x5 mock-editorial" data-talent="mark" data-format="4x5" data-pain="insurance-verification" data-role="insurance-verification">
+    <img class="mock-photo" src="/assets/real-people/mark.jpg" alt="Mark — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET MARK</p>
+      <p class="mock-role">Insurance Verification Specialist</p>
+      <p class="mock-skills">VA - Medical Biller</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment B · Pain-first · 9:16</p>
+        <div class="mock mock-9x16 mock-pain" data-talent="mark" data-format="9x16" data-pain="insurance-verification" data-role="insurance-verification">
+    <img class="mock-photo" src="/assets/real-people/mark.jpg" alt="Mark — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim mock-scrim-strong"></div>
+    <div class="mock-copy mock-copy-pain">
+      <p class="mock-pain-line">Insurance verification slowing the day?</p>
+      <p class="mock-kicker">Meet Mark</p>
+      <p class="mock-role">Insurance Verification Specialist</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+    </div>
+
+    <div class="video-block suggested" data-talent="mark" data-format="iphone-video" data-pain="insurance-verification" data-role="insurance-verification">
+      <div class="concept-head">
+        <h4>iPhone video script · 12–14 seconds</h4>
+        <span class="tag-suggested">Suggested script</span>
+      </div>
+      <dl class="fields">
+        <div><dt>Spoken</dt><dd class="pre">Hi, I'm Mark. I support insurance verification work for medical practices, and my profile also lists medical billing VA skills. If eligibility checks are weighing on your team, I'd welcome a conversation.</dd></div>
+        <div><dt>Opening visual</dt><dd>Direct to camera at desk; clean background.</dd></div>
+        <div><dt>B-roll</dt><dd>Scrolling blurred eligibility UI (fake/demo only) · Typing · Notes pad</dd></div>
+        <div><dt>Captions</dt><dd>Hi, I’m Mark / Insurance verification / Medical billing support</dd></div>
+        <div><dt>Final frame</dt><dd>Mark · Insurance Verification · MedVirtual</dd></div>
+      </dl>
+      <button type="button" class="copy-btn" data-copy="Hi, I'm Mark. I support insurance verification work for medical practices, and my profile also lists medical billing VA skills. If eligibility checks are weighing on your team, I'd welcome a conversation.">Copy spoken script</button>
+    </div>
+  </section><section class="profile-section" id="profile-carmen" data-talent="carmen" data-role="billing-support medical-admin" data-pain="billing-support admin-backlog" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+    <header class="profile-head">
+      <img class="profile-avatar" src="/assets/real-people/carmen.jpg" alt="Carmen De Leon" width="96" height="96" loading="lazy" />
+      <div>
+        <h3>Carmen <span class="full-name">Carmen De Leon</span>
+          <span class="badge-rec">Recommended first batch</span>
+        </h3>
+        <p class="title-line">Medical Biller</p>
+        <p class="source"><a href="https://app.medvirtual.ai/talent-pool/6b08ff4a-33c7-496e-94f2-f11026c4079b" target="_blank" rel="noopener noreferrer">Source profile</a> · checked 2026-07-13</p>
+      </div>
+    </header>
+
+    <div class="split-facts">
+      <div class="fact-box">
+        <h4>Exact public profile facts</h4>
+        <ul><li>Name: Carmen De Leon</li><li>Title / experience: Medical Biller</li><li>Approved position: Medical Biller Sr</li><li>Employment type shown: Full Time</li><li>Shift block shown: Full Time</li><li>Listed skills: BPO - Customer Service; VA - Medical Biller; VA - Medical General</li><li>Specializations shown: Neurology; Mental Health; Behavioral Health</li></ul>
+      </div>
+      <div class="suggest-box">
+        <h4>Suggested advertising copy</h4>
+        <p>Concepts A–D and the best static below are marketing drafts. They must not be stored or presented as Talent Pool facts.</p>
+      </div>
+    </div>
+
+    <div class="concept-block suggested" data-talent="carmen" data-format="static-4x5" data-pain="billing-support" data-role="billing-support">
+      <div class="concept-head">
+        <h4>Best recommended static</h4>
+        <span class="tag-suggested">Suggested ad copy</span>
+      </div>
+      <dl class="fields">
+        <div><dt>On-image hook (≤10 words)</dt><dd>Meet Carmen</dd></div>
+        <div><dt>Supporting line (≤14 words)</dt><dd>Medical Biller · Customer service · Billing support</dd></div>
+        <div><dt>Primary text</dt><dd class="pre">Meet Carmen — Medical Biller on MedVirtual’s Talent Pool.
+
+Her listed skills include customer service, medical biller VA work, and medical general support. If billing follow-up keeps slipping, start with a named person your team can interview.
+
+Learn more.</dd></div>
+        <div><dt>Meta headline</dt><dd>Meet Carmen · Medical Biller</dd></div>
+        <div><dt>Description</dt><dd>Real MedVirtual talent. Request interview.</dd></div>
+        <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+        <div><dt>Format / treatment</dt><dd>4:5 · editorial</dd></div>
+      </dl>
+      <div class="copy-row">
+        <button type="button" class="copy-btn" data-copy="Meet Carmen — Medical Biller on MedVirtual’s Talent Pool.
+
+Her listed skills include customer service, medical biller VA work, and medical general support. If billing follow-up keeps slipping, start with a named person your team can interview.
+
+Learn more.">Copy primary text</button>
+        <button type="button" class="copy-btn" data-copy="Meet Carmen · Medical Biller">Copy headline</button>
+        <button type="button" class="copy-btn" data-copy="PROFILE: Carmen De Leon
+TITLE: Medical Biller
+SOURCE: https://app.medvirtual.ai/talent-pool/6b08ff4a-33c7-496e-94f2-f11026c4079b
+
+ON-IMAGE HOOK: Meet Carmen
+ON-IMAGE SUPPORT: Medical Biller · Customer service · Billing support
+
+PRIMARY TEXT:
+Meet Carmen — Medical Biller on MedVirtual’s Talent Pool.
+
+Her listed skills include customer service, medical biller VA work, and medical general support. If billing follow-up keeps slipping, start with a named person your team can interview.
+
+Learn more.
+
+HEADLINE: Meet Carmen · Medical Biller
+DESCRIPTION: Real MedVirtual talent. Request interview.
+CTA: Learn More">Copy full package</button>
+      </div>
+    </div>
+    <div class="concept-block suggested" data-talent="carmen" data-format="static" data-pain="billing-support" data-role="billing-support">
+    <div class="concept-head">
+      <h4>Concept A — Meet the person</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>MEET CARMEN</dd></div>
+         <div><dt>Role / skill line</dt><dd>Medical Biller · Customer Service · Medical General</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Meet Carmen — Medical Biller (Medical Biller Sr) on MedVirtual’s Talent Pool.
+
+Listed skills: customer service, medical biller VA, and medical general VA support.
+
+Request an interview to meet her.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Carmen · Medical Biller</dd></div>
+      <div><dt>Description</dt><dd>Named MedVirtual billing talent.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Do not claim revenue lift, clean claim rates, or A/R days improved.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Meet Carmen — Medical Biller (Medical Biller Sr) on MedVirtual’s Talent Pool.
+
+Listed skills: customer service, medical biller VA, and medical general VA support.
+
+Request an interview to meet her.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Carmen · Medical Biller">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Carmen De Leon
+CONCEPT: Meet the person
+SOURCE: https://app.medvirtual.ai/talent-pool/6b08ff4a-33c7-496e-94f2-f11026c4079b
+
+ON-IMAGE HEADLINE: MEET CARMEN
+ON-IMAGE SUPPORT: Medical Biller · Customer Service · Medical General
+
+PRIMARY TEXT:
+Meet Carmen — Medical Biller (Medical Biller Sr) on MedVirtual’s Talent Pool.
+
+Listed skills: customer service, medical biller VA, and medical general VA support.
+
+Request an interview to meet her.
+
+HEADLINE: Meet Carmen · Medical Biller
+DESCRIPTION: Named MedVirtual billing talent.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="carmen" data-format="static" data-pain="billing-support" data-role="billing-support">
+    <div class="concept-head">
+      <h4>Concept B — Operational pain</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>Pain-first image copy</dt><dd>Billing follow-up falling behind?</dd></div>
+         <div><dt>Person intro on image</dt><dd>Meet Carmen · Medical Biller</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Billing follow-up falling behind?
+
+Carmen is listed as a Medical Biller on MedVirtual’s Talent Pool, with customer-service and medical biller skills shown publicly.
+
+Learn more and request an interview.</dd></div>
+      <div><dt>Headline</dt><dd>Billing backlog? Meet Carmen</dd></div>
+      <div><dt>Description</dt><dd>Real medical biller profile.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Pain line concrete. No “supercharge revenue.”</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Billing follow-up falling behind?
+
+Carmen is listed as a Medical Biller on MedVirtual’s Talent Pool, with customer-service and medical biller skills shown publicly.
+
+Learn more and request an interview.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Billing backlog? Meet Carmen">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Carmen De Leon
+CONCEPT: Operational pain
+SOURCE: https://app.medvirtual.ai/talent-pool/6b08ff4a-33c7-496e-94f2-f11026c4079b
+
+ON-IMAGE PAIN: Billing follow-up falling behind?
+ON-IMAGE INTRO: Meet Carmen · Medical Biller
+
+PRIMARY TEXT:
+Billing follow-up falling behind?
+
+Carmen is listed as a Medical Biller on MedVirtual’s Talent Pool, with customer-service and medical biller skills shown publicly.
+
+Learn more and request an interview.
+
+HEADLINE: Billing backlog? Meet Carmen
+DESCRIPTION: Real medical biller profile.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="carmen" data-format="static" data-pain="billing-support" data-role="billing-support">
+    <div class="concept-head">
+      <h4>Concept C — Not another app</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>Billing queues need capacity.</dd></div>
+         <div><dt>Role / skill line</dt><dd>Meet Carmen · Medical Biller Sr</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Billing queues need capacity — not only another dashboard.
+
+Meet Carmen, a Medical Biller on MedVirtual’s public Talent Pool.
+
+Request an interview.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Carmen · Billing Support</dd></div>
+      <div><dt>Description</dt><dd>Named Talent Pool medical biller.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Keep respectful of billing software already in place.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Billing queues need capacity — not only another dashboard.
+
+Meet Carmen, a Medical Biller on MedVirtual’s public Talent Pool.
+
+Request an interview.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Carmen · Billing Support">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Carmen De Leon
+CONCEPT: Not another app
+SOURCE: https://app.medvirtual.ai/talent-pool/6b08ff4a-33c7-496e-94f2-f11026c4079b
+
+ON-IMAGE HEADLINE: Billing queues need capacity.
+ON-IMAGE SUPPORT: Meet Carmen · Medical Biller Sr
+
+PRIMARY TEXT:
+Billing queues need capacity — not only another dashboard.
+
+Meet Carmen, a Medical Biller on MedVirtual’s public Talent Pool.
+
+Request an interview.
+
+HEADLINE: Meet Carmen · Billing Support
+DESCRIPTION: Named Talent Pool medical biller.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="carmen" data-format="static" data-pain="billing-support" data-role="billing-support">
+    <div class="concept-head">
+      <h4>Concept D — Ready to meet</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>YOUR NEXT BILLING SUPPORT MAY ALREADY BE HERE.</dd></div>
+         <div><dt>Role / skill line</dt><dd>Carmen · Medical Biller · Customer Service · Medical General</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Your next billing support may already be here.
+
+Carmen — Medical Biller on MedVirtual’s Talent Pool.
+
+Request an interview to meet her.</dd></div>
+      <div><dt>Headline</dt><dd>Request an interview with Carmen</dd></div>
+      <div><dt>Description</dt><dd>Real MedVirtual billing talent.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Full Time employment shown — still avoid “available immediately” unless UI says so.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Your next billing support may already be here.
+
+Carmen — Medical Biller on MedVirtual’s Talent Pool.
+
+Request an interview to meet her.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Request an interview with Carmen">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Carmen De Leon
+CONCEPT: Ready to meet
+SOURCE: https://app.medvirtual.ai/talent-pool/6b08ff4a-33c7-496e-94f2-f11026c4079b
+
+ON-IMAGE HEADLINE: YOUR NEXT BILLING SUPPORT MAY ALREADY BE HERE.
+ON-IMAGE SUPPORT: Carmen · Medical Biller · Customer Service · Medical General
+
+PRIMARY TEXT:
+Your next billing support may already be here.
+
+Carmen — Medical Biller on MedVirtual’s Talent Pool.
+
+Request an interview to meet her.
+
+HEADLINE: Request an interview with Carmen
+DESCRIPTION: Real MedVirtual billing talent.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+
+    <div class="mock-grid">
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 1:1</p>
+        <div class="mock mock-1x1 mock-editorial" data-talent="carmen" data-format="1x1" data-pain="billing-support" data-role="billing-support">
+    <img class="mock-photo" src="/assets/real-people/carmen.jpg" alt="Carmen — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET CARMEN</p>
+      <p class="mock-role">Medical Biller</p>
+      <p class="mock-skills">BPO - Customer Service · VA - Medical Biller · VA - Medical General</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 4:5</p>
+        <div class="mock mock-4x5 mock-editorial" data-talent="carmen" data-format="4x5" data-pain="billing-support" data-role="billing-support">
+    <img class="mock-photo" src="/assets/real-people/carmen.jpg" alt="Carmen — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET CARMEN</p>
+      <p class="mock-role">Medical Biller</p>
+      <p class="mock-skills">BPO - Customer Service · VA - Medical Biller · VA - Medical General</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment B · Pain-first · 9:16</p>
+        <div class="mock mock-9x16 mock-pain" data-talent="carmen" data-format="9x16" data-pain="billing-support" data-role="billing-support">
+    <img class="mock-photo" src="/assets/real-people/carmen.jpg" alt="Carmen — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim mock-scrim-strong"></div>
+    <div class="mock-copy mock-copy-pain">
+      <p class="mock-pain-line">Billing follow-up falling behind?</p>
+      <p class="mock-kicker">Meet Carmen</p>
+      <p class="mock-role">Medical Biller</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+    </div>
+
+    <div class="video-block suggested" data-talent="carmen" data-format="iphone-video" data-pain="billing-support" data-role="billing-support">
+      <div class="concept-head">
+        <h4>iPhone video script · 11–13 seconds</h4>
+        <span class="tag-suggested">Suggested script</span>
+      </div>
+      <dl class="fields">
+        <div><dt>Spoken</dt><dd class="pre">Hi, I'm Carmen. I help with medical billing support, customer service, and general medical VA work. If your practice needs help keeping billing tasks moving, I'd like to meet your team.</dd></div>
+        <div><dt>Opening visual</dt><dd>Direct to camera; quiet room.</dd></div>
+        <div><dt>B-roll</dt><dd>Typing · Spreadsheet UI fully anonymized · Headset on</dd></div>
+        <div><dt>Captions</dt><dd>Hi, I’m Carmen / Medical billing support / Customer service</dd></div>
+        <div><dt>Final frame</dt><dd>Carmen · Medical Biller · MedVirtual</dd></div>
+      </dl>
+      <button type="button" class="copy-btn" data-copy="Hi, I'm Carmen. I help with medical billing support, customer service, and general medical VA work. If your practice needs help keeping billing tasks moving, I'd like to meet your team.">Copy spoken script</button>
+    </div>
+  </section><section class="profile-section" id="profile-jennifer" data-talent="jennifer" data-role="patient-intake medical-admin front-office" data-pain="patient-intake admin-backlog patient-calls" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="no">
+    <header class="profile-head">
+      <img class="profile-avatar" src="/assets/real-people/jennifer.jpg" alt="Jennifer Villarubia" width="96" height="96" loading="lazy" />
+      <div>
+        <h3>Jennifer <span class="full-name">Jennifer Villarubia</span>
+          
+        </h3>
+        <p class="title-line">Patient Intake Coordinator</p>
+        <p class="source"><a href="https://app.medvirtual.ai/talent-pool/f72257a8-15ce-4a6f-92d7-f05a637bd741" target="_blank" rel="noopener noreferrer">Source profile</a> · checked 2026-07-13</p>
+      </div>
+    </header>
+
+    <div class="split-facts">
+      <div class="fact-box">
+        <h4>Exact public profile facts</h4>
+        <ul><li>Name: Jennifer Villarubia</li><li>Title / experience: Patient Intake Coordinator</li><li>Approved position: Medical Admin Jr</li><li>Employment type shown: Full Time</li><li>Shift block shown: Full Time</li><li>Listed skills: (none on public profile at source check)</li><li>Specializations shown: Wound Care; Assisted Living / Home Care Services</li></ul>
+      </div>
+      <div class="suggest-box">
+        <h4>Suggested advertising copy</h4>
+        <p>Concepts A–D and the best static below are marketing drafts. They must not be stored or presented as Talent Pool facts.</p>
+      </div>
+    </div>
+
+    <div class="concept-block suggested" data-talent="jennifer" data-format="static-9x16" data-pain="patient-intake" data-role="patient-intake">
+      <div class="concept-head">
+        <h4>Best recommended static</h4>
+        <span class="tag-suggested">Suggested ad copy</span>
+      </div>
+      <dl class="fields">
+        <div><dt>On-image hook (≤10 words)</dt><dd>Meet Jennifer</dd></div>
+        <div><dt>Supporting line (≤14 words)</dt><dd>Patient Intake Coordinator · Medical Admin Jr</dd></div>
+        <div><dt>Primary text</dt><dd class="pre">Meet Jennifer — Patient Intake Coordinator on MedVirtual’s Talent Pool.
+
+If new-patient intake keeps spilling onto your front desk, introduce your team to a real named profile and request an interview.
+
+Learn more.</dd></div>
+        <div><dt>Meta headline</dt><dd>Meet Jennifer · Patient Intake</dd></div>
+        <div><dt>Description</dt><dd>Real MedVirtual talent. Request interview.</dd></div>
+        <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+        <div><dt>Format / treatment</dt><dd>9:16 · editorial</dd></div>
+      </dl>
+      <div class="copy-row">
+        <button type="button" class="copy-btn" data-copy="Meet Jennifer — Patient Intake Coordinator on MedVirtual’s Talent Pool.
+
+If new-patient intake keeps spilling onto your front desk, introduce your team to a real named profile and request an interview.
+
+Learn more.">Copy primary text</button>
+        <button type="button" class="copy-btn" data-copy="Meet Jennifer · Patient Intake">Copy headline</button>
+        <button type="button" class="copy-btn" data-copy="PROFILE: Jennifer Villarubia
+TITLE: Patient Intake Coordinator
+SOURCE: https://app.medvirtual.ai/talent-pool/f72257a8-15ce-4a6f-92d7-f05a637bd741
+
+ON-IMAGE HOOK: Meet Jennifer
+ON-IMAGE SUPPORT: Patient Intake Coordinator · Medical Admin Jr
+
+PRIMARY TEXT:
+Meet Jennifer — Patient Intake Coordinator on MedVirtual’s Talent Pool.
+
+If new-patient intake keeps spilling onto your front desk, introduce your team to a real named profile and request an interview.
+
+Learn more.
+
+HEADLINE: Meet Jennifer · Patient Intake
+DESCRIPTION: Real MedVirtual talent. Request interview.
+CTA: Learn More">Copy full package</button>
+      </div>
+    </div>
+    <div class="concept-block suggested" data-talent="jennifer" data-format="static" data-pain="patient-intake" data-role="patient-intake">
+    <div class="concept-head">
+      <h4>Concept A — Meet the person</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>MEET JENNIFER</dd></div>
+         <div><dt>Role / skill line</dt><dd>Patient Intake Coordinator · Medical Admin Jr</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Meet Jennifer — Patient Intake Coordinator on MedVirtual’s Talent Pool (Medical Admin Jr position).
+
+Her public profile does not list separate skill tags; the role title itself is the fact to lead with.
+
+Request an interview to learn more about fit.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Jennifer · Patient Intake</dd></div>
+      <div><dt>Description</dt><dd>Named Talent Pool intake coordinator.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Do not fabricate 3–5 skill chips. Use role title only, or label any specialization chips as specialties — not invented skills.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Meet Jennifer — Patient Intake Coordinator on MedVirtual’s Talent Pool (Medical Admin Jr position).
+
+Her public profile does not list separate skill tags; the role title itself is the fact to lead with.
+
+Request an interview to learn more about fit.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Jennifer · Patient Intake">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Jennifer Villarubia
+CONCEPT: Meet the person
+SOURCE: https://app.medvirtual.ai/talent-pool/f72257a8-15ce-4a6f-92d7-f05a637bd741
+
+ON-IMAGE HEADLINE: MEET JENNIFER
+ON-IMAGE SUPPORT: Patient Intake Coordinator · Medical Admin Jr
+
+PRIMARY TEXT:
+Meet Jennifer — Patient Intake Coordinator on MedVirtual’s Talent Pool (Medical Admin Jr position).
+
+Her public profile does not list separate skill tags; the role title itself is the fact to lead with.
+
+Request an interview to learn more about fit.
+
+HEADLINE: Meet Jennifer · Patient Intake
+DESCRIPTION: Named Talent Pool intake coordinator.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="jennifer" data-format="static" data-pain="patient-intake" data-role="patient-intake">
+    <div class="concept-head">
+      <h4>Concept B — Operational pain</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>Pain-first image copy</dt><dd>Intake forms slowing new patients?</dd></div>
+         <div><dt>Person intro on image</dt><dd>Meet Jennifer · Patient Intake Coordinator</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Intake forms slowing new patients?
+
+Jennifer’s public MedVirtual experience title is Patient Intake Coordinator. We are not inventing extra skills beyond what the profile shows.
+
+Request an interview to meet her.</dd></div>
+      <div><dt>Headline</dt><dd>Intake backlog? Meet Jennifer</dd></div>
+      <div><dt>Description</dt><dd>Patient intake focused Talent Pool profile.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Honesty about limited skill tags is a feature for internal docs; external ads simply omit invented chips.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Intake forms slowing new patients?
+
+Jennifer’s public MedVirtual experience title is Patient Intake Coordinator. We are not inventing extra skills beyond what the profile shows.
+
+Request an interview to meet her.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Intake backlog? Meet Jennifer">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Jennifer Villarubia
+CONCEPT: Operational pain
+SOURCE: https://app.medvirtual.ai/talent-pool/f72257a8-15ce-4a6f-92d7-f05a637bd741
+
+ON-IMAGE PAIN: Intake forms slowing new patients?
+ON-IMAGE INTRO: Meet Jennifer · Patient Intake Coordinator
+
+PRIMARY TEXT:
+Intake forms slowing new patients?
+
+Jennifer’s public MedVirtual experience title is Patient Intake Coordinator. We are not inventing extra skills beyond what the profile shows.
+
+Request an interview to meet her.
+
+HEADLINE: Intake backlog? Meet Jennifer
+DESCRIPTION: Patient intake focused Talent Pool profile.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="jennifer" data-format="static" data-pain="patient-intake" data-role="patient-intake">
+    <div class="concept-head">
+      <h4>Concept C — Not another app</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>Intake still needs a person.</dd></div>
+         <div><dt>Role / skill line</dt><dd>Meet Jennifer · Patient Intake Coordinator</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Intake still needs a person in the loop.
+
+Meet Jennifer — Patient Intake Coordinator on MedVirtual’s Talent Pool.
+
+Learn more and request an interview.</dd></div>
+      <div><dt>Headline</dt><dd>Meet Jennifer · Intake Support</dd></div>
+      <div><dt>Description</dt><dd>Named MedVirtual medical admin talent.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>No guarantee she will handle a specific EMR workflow.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Intake still needs a person in the loop.
+
+Meet Jennifer — Patient Intake Coordinator on MedVirtual’s Talent Pool.
+
+Learn more and request an interview.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Meet Jennifer · Intake Support">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Jennifer Villarubia
+CONCEPT: Not another app
+SOURCE: https://app.medvirtual.ai/talent-pool/f72257a8-15ce-4a6f-92d7-f05a637bd741
+
+ON-IMAGE HEADLINE: Intake still needs a person.
+ON-IMAGE SUPPORT: Meet Jennifer · Patient Intake Coordinator
+
+PRIMARY TEXT:
+Intake still needs a person in the loop.
+
+Meet Jennifer — Patient Intake Coordinator on MedVirtual’s Talent Pool.
+
+Learn more and request an interview.
+
+HEADLINE: Meet Jennifer · Intake Support
+DESCRIPTION: Named MedVirtual medical admin talent.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+    <div class="concept-block suggested" data-talent="jennifer" data-format="static" data-pain="patient-intake" data-role="patient-intake">
+    <div class="concept-head">
+      <h4>Concept D — Ready to meet</h4>
+      <span class="tag-suggested">Suggested ad copy</span>
+    </div>
+    <dl class="fields">
+      <div><dt>On-image headline</dt><dd>YOUR NEXT INTAKE SUPPORT MAY ALREADY BE HERE.</dd></div>
+         <div><dt>Role / skill line</dt><dd>Jennifer · Patient Intake Coordinator · Medical Admin Jr</dd></div>
+      <div><dt>Primary text</dt><dd class="pre">Your next intake support may already be here.
+
+Jennifer — Patient Intake Coordinator on MedVirtual’s public Talent Pool.
+
+Request an interview.</dd></div>
+      <div><dt>Headline</dt><dd>Request an interview with Jennifer</dd></div>
+      <div><dt>Description</dt><dd>Real MedVirtual Talent Pool profile.</dd></div>
+      <div><dt>CTA</dt><dd><span class="badge-cta">Learn More</span></dd></div>
+      <div><dt>Production note</dt><dd>Specialize chips only if design labels them as specialties shown on profile.</dd></div>
+    </dl>
+    <div class="copy-row">
+      <button type="button" class="copy-btn" data-copy="Your next intake support may already be here.
+
+Jennifer — Patient Intake Coordinator on MedVirtual’s public Talent Pool.
+
+Request an interview.">Copy primary text</button>
+      <button type="button" class="copy-btn" data-copy="Request an interview with Jennifer">Copy headline</button>
+      <button type="button" class="copy-btn" data-copy="PROFILE: Jennifer Villarubia
+CONCEPT: Ready to meet
+SOURCE: https://app.medvirtual.ai/talent-pool/f72257a8-15ce-4a6f-92d7-f05a637bd741
+
+ON-IMAGE HEADLINE: YOUR NEXT INTAKE SUPPORT MAY ALREADY BE HERE.
+ON-IMAGE SUPPORT: Jennifer · Patient Intake Coordinator · Medical Admin Jr
+
+PRIMARY TEXT:
+Your next intake support may already be here.
+
+Jennifer — Patient Intake Coordinator on MedVirtual’s public Talent Pool.
+
+Request an interview.
+
+HEADLINE: Request an interview with Jennifer
+DESCRIPTION: Real MedVirtual Talent Pool profile.
+CTA: Learn More">Copy full package</button>
+    </div>
+  </div>
+
+    <div class="mock-grid">
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 1:1</p>
+        <div class="mock mock-1x1 mock-editorial" data-talent="jennifer" data-format="1x1" data-pain="patient-intake" data-role="patient-intake">
+    <img class="mock-photo" src="/assets/real-people/jennifer.jpg" alt="Jennifer — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET JENNIFER</p>
+      <p class="mock-role">Patient Intake Coordinator</p>
+      <p class="mock-skills">Patient Intake Coordinator</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment A · Editorial · 4:5</p>
+        <div class="mock mock-4x5 mock-editorial" data-talent="jennifer" data-format="4x5" data-pain="patient-intake" data-role="patient-intake">
+    <img class="mock-photo" src="/assets/real-people/jennifer.jpg" alt="Jennifer — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim"></div>
+    <div class="mock-copy">
+      <p class="mock-kicker">MEET JENNIFER</p>
+      <p class="mock-role">Patient Intake Coordinator</p>
+      <p class="mock-skills">Patient Intake Coordinator</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+      <div>
+        <p class="mock-label">Treatment B · Pain-first · 9:16</p>
+        <div class="mock mock-9x16 mock-pain" data-talent="jennifer" data-format="9x16" data-pain="patient-intake" data-role="patient-intake">
+    <img class="mock-photo" src="/assets/real-people/jennifer.jpg" alt="Jennifer — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <div class="mock-scrim mock-scrim-strong"></div>
+    <div class="mock-copy mock-copy-pain">
+      <p class="mock-pain-line">Intake forms slowing new patients?</p>
+      <p class="mock-kicker">Meet Jennifer</p>
+      <p class="mock-role">Patient Intake Coordinator</p>
+    </div>
+    <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
+  </div>
+      </div>
+    </div>
+
+    <div class="video-block suggested" data-talent="jennifer" data-format="iphone-video" data-pain="patient-intake" data-role="patient-intake">
+      <div class="concept-head">
+        <h4>iPhone video script · 10–12 seconds</h4>
+        <span class="tag-suggested">Suggested script</span>
+      </div>
+      <dl class="fields">
+        <div><dt>Spoken</dt><dd class="pre">Hi, I'm Jennifer. I support patient intake coordination for medical practices. If your team needs help keeping new-patient intake organized, I'd be glad to meet you.</dd></div>
+        <div><dt>Opening visual</dt><dd>Direct to camera; no PHI paperwork readable.</dd></div>
+        <div><dt>B-roll</dt><dd>Clipboard with blank/demo forms · Typing · Phone on silent nearby</dd></div>
+        <div><dt>Captions</dt><dd>Hi, I’m Jennifer / Patient intake coordination / Medical admin support</dd></div>
+        <div><dt>Final frame</dt><dd>Jennifer · Patient Intake Coordinator · MedVirtual</dd></div>
+      </dl>
+      <button type="button" class="copy-btn" data-copy="Hi, I'm Jennifer. I support patient intake coordination for medical practices. If your team needs help keeping new-patient intake organized, I'd be glad to meet you.">Copy spoken script</button>
+    </div>
+  </section>
+    </div>
+
+    <section class="section" id="mockups-note">
+      <h2>Visual mockups</h2>
+      <p>Responsive HTML/CSS mockups live inside each profile section: editorial 1:1 + 4:5, and a pain-first 9:16 cover. Hierarchy: photo → name → role → hook/skills → small MedVirtual mark. No fake Meta CTA inside artwork.</p>
+    </section>
+
+    <section class="section" id="broll">
+      <h2>Office B-roll plan</h2>
+      <p style="margin-bottom:0.4rem">Compact checklist for Ronald or an in-house videographer.</p>
+      <ul class="checklist">
+        <li>Employee putting on headset</li><li>Employee typing at a clean workstation</li><li>Employee joining a team call</li><li>Natural workstation footage (no PHI on screens)</li><li>Supervisor helping a VA</li><li>Training session (wide + close)</li><li>Team collaboration at desks</li><li>Wide office shot</li><li>Employee looking briefly at camera</li><li>Direct-to-camera introduction</li><li>Screen activity with all private information hidden</li>
+      </ul>
+      <div class="settings">
+        <span>Vertical 9:16</span><span>1080p or 4K</span><span>30 fps</span><span>Camera at eye level</span><span>Clean lens</span><span>No digital zoom</span><span>Natural or soft front lighting</span><span>Quiet room for speaking</span><span>Three takes per script</span><span>One second of silence before and after</span><span>No patient data, private information, or confidential systems visible</span>
+      </div>
+    </section>
+
+    <section class="section" id="test-plan">
+      <h2>Fast-iteration test plan</h2>
+      <p style="margin-bottom:0.5rem">Small first batch: 3 named profile statics, 1 pain-first static, 2 direct-to-camera clips, 1 office montage, 1 Ronald walkthrough. These are creative hypotheses — not predetermined winners. Keep the matrix manageable; do not explode into dozens of near-duplicates.</p>
+      <div style="overflow-x:auto">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th>Concept</th><th>Talent</th><th>Format</th><th>Hook</th>
+              <th>Operational problem</th><th>Main variation</th><th>Status</th><th>Asset needed</th>
+            </tr>
+          </thead>
+          <tbody><tr data-rec="true">
+    <td>Meet the person · ★</td>
+    <td>jessica</td>
+    <td>4:5 static</td>
+    <td>Meet Jessica</td>
+    <td>Admin / front-desk backlog</td>
+    <td>Named profile card</td>
+    <td>Ready to produce</td>
+    <td>Approved still crop</td>
+  </tr><tr data-rec="true">
+    <td>Meet the person · ★</td>
+    <td>angelica</td>
+    <td>4:5 static</td>
+    <td>Meet Angelica</td>
+    <td>Front-desk coverage</td>
+    <td>Named profile card</td>
+    <td>Ready to produce</td>
+    <td>Approved still crop</td>
+  </tr><tr data-rec="true">
+    <td>Meet the person · ★</td>
+    <td>mark</td>
+    <td>1:1 static</td>
+    <td>Meet Mark</td>
+    <td>Insurance verification</td>
+    <td>Named profile card</td>
+    <td>Ready to produce</td>
+    <td>Approved still crop</td>
+  </tr><tr data-rec="true">
+    <td>Operational pain · ★</td>
+    <td>chelsea-rose</td>
+    <td>4:5 static</td>
+    <td>Scheduling taking over the front desk?</td>
+    <td>Patient scheduling</td>
+    <td>Pain → named person</td>
+    <td>Ready to produce</td>
+    <td>Approved still crop</td>
+  </tr><tr data-rec="true">
+    <td>Direct-to-camera · ★</td>
+    <td>jessica</td>
+    <td>9:16 video 8–15s</td>
+    <td>Hi, I’m Jessica…</td>
+    <td>Admin support</td>
+    <td>Phone intro + role skills</td>
+    <td>Needs filming</td>
+    <td>iPhone vertical clip</td>
+  </tr><tr data-rec="true">
+    <td>Direct-to-camera · ★</td>
+    <td>carmen</td>
+    <td>9:16 video 8–15s</td>
+    <td>Hi, I’m Carmen…</td>
+    <td>Billing support</td>
+    <td>Phone intro + role skills</td>
+    <td>Needs filming</td>
+    <td>iPhone vertical clip</td>
+  </tr><tr data-rec="true">
+    <td>Office montage · ★</td>
+    <td>office</td>
+    <td>9:16 video 10–20s</td>
+    <td>Real work, real people</td>
+    <td>Credibility / atmosphere</td>
+    <td>Headset · typing · team call</td>
+    <td>Needs filming</td>
+    <td>B-roll pack</td>
+  </tr><tr data-rec="true">
+    <td>Ronald walkthrough · ★</td>
+    <td>ronald</td>
+    <td>9:16 video 20–40s</td>
+    <td>How practices meet talent</td>
+    <td>Explain the interview path</td>
+    <td>Host explain + cut to profile</td>
+    <td>Needs filming</td>
+    <td>Ronald host clip</td>
+  </tr></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status">Copied</div>
+  <script>
+    (function () {
+      const toast = document.getElementById('toast');
+      function flash(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1200);
+      }
+      document.querySelectorAll('[data-copy]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const text = btn.getAttribute('data-copy') || '';
+          try {
+            await navigator.clipboard.writeText(text);
+            btn.classList.add('copied');
+            flash('Copied');
+            setTimeout(() => btn.classList.remove('copied'), 900);
+          } catch (e) {
+            flash('Copy failed');
+          }
+        });
+      });
+
+      const role = document.getElementById('filter-role');
+      const format = document.getElementById('filter-format');
+      const pain = document.getElementById('filter-pain');
+      const batch = document.getElementById('filter-batch');
+      const targets = () => document.querySelectorAll('[data-talent].talent-card, .profile-section');
+
+      function applyFilters() {
+        const r = role.value;
+        const f = format.value;
+        const p = pain.value;
+        const b = batch.value;
+        targets().forEach((el) => {
+          const okRole = r === 'all' || (el.dataset.role || '').includes(r);
+          const okFormat = f === 'all' || (el.dataset.format || '').includes(f);
+          const okPain = p === 'all' || (el.dataset.pain || '').includes(p);
+          const okBatch = b === 'all' || el.dataset.batch === b;
+          el.classList.toggle('is-hidden', !(okRole && okFormat && okPain && okBatch));
+        });
+      }
+      [role, format, pain, batch].forEach((el) => el.addEventListener('change', applyFilters));
+    })();
+  </script>
+</body>
+</html>

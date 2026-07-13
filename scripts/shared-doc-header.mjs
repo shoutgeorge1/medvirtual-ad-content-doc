@@ -48,6 +48,12 @@ export const PRIMARY_NAV = [
     id: 'launch',
     description: 'Same-day Meta build pack: campaign shell, 4 ads, form draft, QA checklist.',
   },
+  {
+    href: '/real-people-creative.html',
+    label: 'Real People',
+    id: 'real-people',
+    description: 'Named Talent Pool profiles for Meta static, Reels, and short video creative.',
+  },
 ];
 
 /** Image/crop sub-pages — linked from Image Review header */

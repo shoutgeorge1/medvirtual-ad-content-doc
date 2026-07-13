@@ -15,7 +15,8 @@
     "generate:copy": "node scripts/generate-ad-copy.mjs",
     "generate:brief": "node scripts/generate-graphic-request-brief.mjs",
     "generate:meta-launch": "node scripts/generate-meta-launch-pack.mjs",
-    "generate:docs": "node scripts/generate-graphic-request-brief.mjs && node scripts/generate-ad-copy.mjs && node scripts/generate-template-board.mjs && node scripts/generate-meta-launch-pack.mjs"
+    "generate:real-people": "node scripts/generate-real-people-creative.mjs",
+    "generate:docs": "node scripts/generate-graphic-request-brief.mjs && node scripts/generate-ad-copy.mjs && node scripts/generate-template-board.mjs && node scripts/generate-meta-launch-pack.mjs && node scripts/generate-real-people-creative.mjs"
   },
   "dependencies": {
     "html-to-image": "^1.11.13",
