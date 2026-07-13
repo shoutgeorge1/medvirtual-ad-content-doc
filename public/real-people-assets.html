@@ -151,7 +151,22 @@
   .status-off { background: #f8fafc; color: #94a3b8; border: 1px solid #e2e8f0; }
   .dl-row { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.45rem; }
   .thumb-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.55rem; }
-  .thumb-row img { width: 72px; height: 72px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; }
+  .thumb-row img { width: 72px; height: 72px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; display: block; }
+  .thumb { padding: 0; border: 0; background: transparent; cursor: zoom-in; border-radius: 6px; }
+  .preview-hit { padding: 0; border: 0; background: transparent; cursor: zoom-in; display: block; width: 100%; }
+  .preview-hit img { width: 100%; display: block; border-radius: 8px; }
+  .asset-card__media .preview-hit img { aspect-ratio: 1; object-fit: cover; }
+  .preview-hint { font-size: 0.72rem; color: #64748b; margin-top: 0.35rem; }
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(15,23,42,0.88); display: none;
+    align-items: center; justify-content: center; z-index: 80; padding: 1rem;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: min(100%, 900px); max-height: 92vh; width: auto; height: auto; border-radius: 10px; background: #0f172a; }
+  .lightbox-close {
+    position: absolute; top: 1rem; right: 1rem; background: #fff; border: 0; border-radius: 8px;
+    font-weight: 800; padding: 0.45rem 0.7rem; cursor: pointer;
+  }
   .monday-card { display: grid; grid-template-columns: 180px 1fr; gap: 0.85rem; border: 2px solid #0d9488; border-radius: 12px; padding: 0.75rem; margin-bottom: 0.65rem; }
   @media (max-width: 720px) { .monday-card { grid-template-columns: 1fr; } }
   .monday-card__preview img { width: 100%; border-radius: 8px; display: block; }
@@ -195,7 +210,9 @@
       <p style="font-size:0.84rem;color:#64748b;margin-bottom:0.65rem">Produce these four 1080×1350 Treatment C ads. Full library is below — do not expand the first request to all six profiles.</p>
       <article class="monday-card">
       <div class="monday-card__preview">
-        <img src="/assets/real-people/chelsea/ad-treatment-c-4x5.png" alt="Meet Chelsea Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/chelsea/ad-treatment-c-4x5.png" aria-label="Preview Chelsea 4:5 Treatment C">
+          <img src="/assets/real-people/chelsea/ad-treatment-c-4x5.png" alt="Meet Chelsea Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+        </button>
       </div>
       <div>
         <h3>Chelsea — 4:5 pain-first · scheduling</h3>
@@ -239,7 +256,9 @@ CLAIM RESTRICTIONS:
       </div>
     </article><article class="monday-card">
       <div class="monday-card__preview">
-        <img src="/assets/real-people/mark/ad-treatment-c-4x5.png" alt="Meet Mark Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/mark/ad-treatment-c-4x5.png" aria-label="Preview Mark 4:5 Treatment C">
+          <img src="/assets/real-people/mark/ad-treatment-c-4x5.png" alt="Meet Mark Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+        </button>
       </div>
       <div>
         <h3>Mark — 4:5 pain-first · insurance verification</h3>
@@ -283,7 +302,9 @@ CLAIM RESTRICTIONS:
       </div>
     </article><article class="monday-card">
       <div class="monday-card__preview">
-        <img src="/assets/real-people/jessica/ad-treatment-c-4x5.png" alt="Meet Jessica Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/jessica/ad-treatment-c-4x5.png" aria-label="Preview Jessica 4:5 Treatment C">
+          <img src="/assets/real-people/jessica/ad-treatment-c-4x5.png" alt="Meet Jessica Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+        </button>
       </div>
       <div>
         <h3>Jessica — 4:5 pain-first · admin backlog</h3>
@@ -327,7 +348,9 @@ CLAIM RESTRICTIONS:
       </div>
     </article><article class="monday-card">
       <div class="monday-card__preview">
-        <img src="/assets/real-people/angelica/ad-treatment-c-4x5.png" alt="Meet Angelica Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/angelica/ad-treatment-c-4x5.png" aria-label="Preview Angelica 4:5 Treatment C">
+          <img src="/assets/real-people/angelica/ad-treatment-c-4x5.png" alt="Meet Angelica Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+        </button>
       </div>
       <div>
         <h3>Angelica — 4:5 pain-first · front desk</h3>
@@ -382,7 +405,9 @@ CLAIM RESTRICTIONS:
       <h2>Full profile asset library</h2>
       <article class="asset-card" id="asset-jessica">
     <div class="asset-card__media">
-      <img src="/assets/real-people/jessica/profile-1080x1080.jpg" alt="Jessica Valles — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      <button type="button" class="preview-hit" data-preview="/assets/real-people/jessica/profile-1080x1080.jpg" aria-label="Preview Jessica profile">
+        <img src="/assets/real-people/jessica/profile-1080x1080.jpg" alt="Jessica Valles — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      </button>
     </div>
     <div class="asset-card__body">
       <h3>Jessica <span class="muted">Jessica Valles</span></h3>
@@ -408,12 +433,25 @@ CLAIM RESTRICTIONS:
         <a class="dl" href="/exports/real-people/jessica-real-people-assets.zip" download>Download all for this person</a>
       </div>
       <div class="thumb-row">
-        <a href="/assets/real-people/jessica/clean-master.jpg" download><img src="/assets/real-people/jessica/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/jessica/profile-1080x1080.jpg" download><img src="/assets/real-people/jessica/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/jessica/feed-1080x1350.jpg" download><img src="/assets/real-people/jessica/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/jessica/vertical-reference-1080x1920.jpg" download><img src="/assets/real-people/jessica/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/jessica/ai-speaking-reference.jpg" download><img src="/assets/real-people/jessica/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" /></a>
+        <button type="button" class="thumb preview-hit" data-preview="/assets/real-people/jessica/clean-master.jpg" aria-label="Preview cleanMaster">
+                <img src="/assets/real-people/jessica/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/jessica/profile-1080x1080.jpg" aria-label="Preview profile11">
+                <img src="/assets/real-people/jessica/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/jessica/feed-1080x1350.jpg" aria-label="Preview feed45">
+                <img src="/assets/real-people/jessica/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/jessica/vertical-reference-1080x1920.jpg" aria-label="Preview vertical">
+                <img src="/assets/real-people/jessica/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/jessica/ai-speaking-reference.jpg" aria-label="Preview aiReference">
+                <img src="/assets/real-people/jessica/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" />
+               </button>
       </div>
+      <p class="preview-hint">Click any image to preview full size. Use the buttons above to download.</p>
     </div>
   </article><article class="asset-card" id="asset-angelica">
     <div class="asset-card__media">
-      <img src="/assets/real-people/angelica/profile-1080x1080.jpg" alt="Angelica Aljas — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      <button type="button" class="preview-hit" data-preview="/assets/real-people/angelica/profile-1080x1080.jpg" aria-label="Preview Angelica profile">
+        <img src="/assets/real-people/angelica/profile-1080x1080.jpg" alt="Angelica Aljas — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      </button>
     </div>
     <div class="asset-card__body">
       <h3>Angelica <span class="muted">Angelica Aljas</span></h3>
@@ -439,12 +477,25 @@ CLAIM RESTRICTIONS:
         <a class="dl" href="/exports/real-people/angelica-real-people-assets.zip" download>Download all for this person</a>
       </div>
       <div class="thumb-row">
-        <a href="/assets/real-people/angelica/clean-master.jpg" download><img src="/assets/real-people/angelica/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/angelica/profile-1080x1080.jpg" download><img src="/assets/real-people/angelica/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/angelica/feed-1080x1350.jpg" download><img src="/assets/real-people/angelica/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/angelica/vertical-reference-1080x1920.jpg" download><img src="/assets/real-people/angelica/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/angelica/ai-speaking-reference.jpg" download><img src="/assets/real-people/angelica/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" /></a>
+        <button type="button" class="thumb preview-hit" data-preview="/assets/real-people/angelica/clean-master.jpg" aria-label="Preview cleanMaster">
+                <img src="/assets/real-people/angelica/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/angelica/profile-1080x1080.jpg" aria-label="Preview profile11">
+                <img src="/assets/real-people/angelica/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/angelica/feed-1080x1350.jpg" aria-label="Preview feed45">
+                <img src="/assets/real-people/angelica/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/angelica/vertical-reference-1080x1920.jpg" aria-label="Preview vertical">
+                <img src="/assets/real-people/angelica/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/angelica/ai-speaking-reference.jpg" aria-label="Preview aiReference">
+                <img src="/assets/real-people/angelica/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" />
+               </button>
       </div>
+      <p class="preview-hint">Click any image to preview full size. Use the buttons above to download.</p>
     </div>
   </article><article class="asset-card" id="asset-chelsea">
     <div class="asset-card__media">
-      <img src="/assets/real-people/chelsea/profile-1080x1080.jpg" alt="Chelsea Rose Santos — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      <button type="button" class="preview-hit" data-preview="/assets/real-people/chelsea/profile-1080x1080.jpg" aria-label="Preview Chelsea profile">
+        <img src="/assets/real-people/chelsea/profile-1080x1080.jpg" alt="Chelsea Rose Santos — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      </button>
     </div>
     <div class="asset-card__body">
       <h3>Chelsea <span class="muted">Chelsea Rose Santos</span></h3>
@@ -470,12 +521,25 @@ CLAIM RESTRICTIONS:
         <a class="dl" href="/exports/real-people/chelsea-real-people-assets.zip" download>Download all for this person</a>
       </div>
       <div class="thumb-row">
-        <a href="/assets/real-people/chelsea/clean-master.jpg" download><img src="/assets/real-people/chelsea/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/chelsea/profile-1080x1080.jpg" download><img src="/assets/real-people/chelsea/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/chelsea/feed-1080x1350.jpg" download><img src="/assets/real-people/chelsea/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/chelsea/vertical-reference-1080x1920.jpg" download><img src="/assets/real-people/chelsea/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/chelsea/ai-speaking-reference.jpg" download><img src="/assets/real-people/chelsea/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" /></a>
+        <button type="button" class="thumb preview-hit" data-preview="/assets/real-people/chelsea/clean-master.jpg" aria-label="Preview cleanMaster">
+                <img src="/assets/real-people/chelsea/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/chelsea/profile-1080x1080.jpg" aria-label="Preview profile11">
+                <img src="/assets/real-people/chelsea/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/chelsea/feed-1080x1350.jpg" aria-label="Preview feed45">
+                <img src="/assets/real-people/chelsea/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/chelsea/vertical-reference-1080x1920.jpg" aria-label="Preview vertical">
+                <img src="/assets/real-people/chelsea/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/chelsea/ai-speaking-reference.jpg" aria-label="Preview aiReference">
+                <img src="/assets/real-people/chelsea/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" />
+               </button>
       </div>
+      <p class="preview-hint">Click any image to preview full size. Use the buttons above to download.</p>
     </div>
   </article><article class="asset-card" id="asset-mark">
     <div class="asset-card__media">
-      <img src="/assets/real-people/mark/profile-1080x1080.jpg" alt="Mark Robert Seno — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      <button type="button" class="preview-hit" data-preview="/assets/real-people/mark/profile-1080x1080.jpg" aria-label="Preview Mark profile">
+        <img src="/assets/real-people/mark/profile-1080x1080.jpg" alt="Mark Robert Seno — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      </button>
     </div>
     <div class="asset-card__body">
       <h3>Mark <span class="muted">Mark Robert Seno</span></h3>
@@ -501,12 +565,25 @@ CLAIM RESTRICTIONS:
         <a class="dl" href="/exports/real-people/mark-real-people-assets.zip" download>Download all for this person</a>
       </div>
       <div class="thumb-row">
-        <a href="/assets/real-people/mark/clean-master.jpg" download><img src="/assets/real-people/mark/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/mark/profile-1080x1080.jpg" download><img src="/assets/real-people/mark/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/mark/feed-1080x1350.jpg" download><img src="/assets/real-people/mark/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/mark/vertical-reference-1080x1920.jpg" download><img src="/assets/real-people/mark/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/mark/ai-speaking-reference.jpg" download><img src="/assets/real-people/mark/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" /></a>
+        <button type="button" class="thumb preview-hit" data-preview="/assets/real-people/mark/clean-master.jpg" aria-label="Preview cleanMaster">
+                <img src="/assets/real-people/mark/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/mark/profile-1080x1080.jpg" aria-label="Preview profile11">
+                <img src="/assets/real-people/mark/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/mark/feed-1080x1350.jpg" aria-label="Preview feed45">
+                <img src="/assets/real-people/mark/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/mark/vertical-reference-1080x1920.jpg" aria-label="Preview vertical">
+                <img src="/assets/real-people/mark/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/mark/ai-speaking-reference.jpg" aria-label="Preview aiReference">
+                <img src="/assets/real-people/mark/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" />
+               </button>
       </div>
+      <p class="preview-hint">Click any image to preview full size. Use the buttons above to download.</p>
     </div>
   </article><article class="asset-card" id="asset-carmen">
     <div class="asset-card__media">
-      <img src="/assets/real-people/carmen/profile-1080x1080.jpg" alt="Carmen De Leon — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      <button type="button" class="preview-hit" data-preview="/assets/real-people/carmen/profile-1080x1080.jpg" aria-label="Preview Carmen profile">
+        <img src="/assets/real-people/carmen/profile-1080x1080.jpg" alt="Carmen De Leon — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      </button>
     </div>
     <div class="asset-card__body">
       <h3>Carmen <span class="muted">Carmen De Leon</span></h3>
@@ -532,12 +609,25 @@ CLAIM RESTRICTIONS:
         <a class="dl" href="/exports/real-people/carmen-real-people-assets.zip" download>Download all for this person</a>
       </div>
       <div class="thumb-row">
-        <a href="/assets/real-people/carmen/clean-master.jpg" download><img src="/assets/real-people/carmen/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/carmen/profile-1080x1080.jpg" download><img src="/assets/real-people/carmen/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/carmen/feed-1080x1350.jpg" download><img src="/assets/real-people/carmen/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/carmen/vertical-reference-1080x1920.jpg" download><img src="/assets/real-people/carmen/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/carmen/ai-speaking-reference.jpg" download><img src="/assets/real-people/carmen/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" /></a>
+        <button type="button" class="thumb preview-hit" data-preview="/assets/real-people/carmen/clean-master.jpg" aria-label="Preview cleanMaster">
+                <img src="/assets/real-people/carmen/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/carmen/profile-1080x1080.jpg" aria-label="Preview profile11">
+                <img src="/assets/real-people/carmen/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/carmen/feed-1080x1350.jpg" aria-label="Preview feed45">
+                <img src="/assets/real-people/carmen/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/carmen/vertical-reference-1080x1920.jpg" aria-label="Preview vertical">
+                <img src="/assets/real-people/carmen/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/carmen/ai-speaking-reference.jpg" aria-label="Preview aiReference">
+                <img src="/assets/real-people/carmen/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" />
+               </button>
       </div>
+      <p class="preview-hint">Click any image to preview full size. Use the buttons above to download.</p>
     </div>
   </article><article class="asset-card" id="asset-jennifer">
     <div class="asset-card__media">
-      <img src="/assets/real-people/jennifer/profile-1080x1080.jpg" alt="Jennifer Villarubia — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      <button type="button" class="preview-hit" data-preview="/assets/real-people/jennifer/profile-1080x1080.jpg" aria-label="Preview Jennifer profile">
+        <img src="/assets/real-people/jennifer/profile-1080x1080.jpg" alt="Jennifer Villarubia — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      </button>
     </div>
     <div class="asset-card__body">
       <h3>Jennifer <span class="muted">Jennifer Villarubia</span></h3>
@@ -563,11 +653,26 @@ CLAIM RESTRICTIONS:
         <a class="dl" href="/exports/real-people/jennifer-real-people-assets.zip" download>Download all for this person</a>
       </div>
       <div class="thumb-row">
-        <a href="/assets/real-people/jennifer/clean-master.jpg" download><img src="/assets/real-people/jennifer/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/jennifer/profile-1080x1080.jpg" download><img src="/assets/real-people/jennifer/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/jennifer/feed-1080x1350.jpg" download><img src="/assets/real-people/jennifer/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/jennifer/vertical-reference-1080x1920.jpg" download><img src="/assets/real-people/jennifer/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" /></a><a href="/assets/real-people/jennifer/ai-speaking-reference.jpg" download><img src="/assets/real-people/jennifer/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" /></a>
+        <button type="button" class="thumb preview-hit" data-preview="/assets/real-people/jennifer/clean-master.jpg" aria-label="Preview cleanMaster">
+                <img src="/assets/real-people/jennifer/clean-master.jpg" alt="cleanMaster preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/jennifer/profile-1080x1080.jpg" aria-label="Preview profile11">
+                <img src="/assets/real-people/jennifer/profile-1080x1080.jpg" alt="profile11 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/jennifer/feed-1080x1350.jpg" aria-label="Preview feed45">
+                <img src="/assets/real-people/jennifer/feed-1080x1350.jpg" alt="feed45 preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/jennifer/vertical-reference-1080x1920.jpg" aria-label="Preview vertical">
+                <img src="/assets/real-people/jennifer/vertical-reference-1080x1920.jpg" alt="vertical preview" width="96" height="96" loading="lazy" />
+               </button><button type="button" class="thumb preview-hit" data-preview="/assets/real-people/jennifer/ai-speaking-reference.jpg" aria-label="Preview aiReference">
+                <img src="/assets/real-people/jennifer/ai-speaking-reference.jpg" alt="aiReference preview" width="96" height="96" loading="lazy" />
+               </button>
       </div>
+      <p class="preview-hint">Click any image to preview full size. Use the buttons above to download.</p>
     </div>
   </article>
     </section>
+  </div>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" id="lightbox-close">Close</button>
+    <img id="lightbox-img" alt="" />
   </div>
   <div class="toast" id="toast">Copied</div>
   <script>
@@ -581,6 +686,23 @@ CLAIM RESTRICTIONS:
         } catch (e) {}
       });
     });
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    function openPreview(src) {
+      lbImg.src = src;
+      lbImg.alt = 'Full-size preview';
+      lb.classList.add('open');
+    }
+    function closePreview() {
+      lb.classList.remove('open');
+      lbImg.removeAttribute('src');
+    }
+    document.querySelectorAll('[data-preview]').forEach((btn) => {
+      btn.addEventListener('click', () => openPreview(btn.getAttribute('data-preview')));
+    });
+    document.getElementById('lightbox-close').addEventListener('click', closePreview);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closePreview(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePreview(); });
   </script>
 </body>
 </html>

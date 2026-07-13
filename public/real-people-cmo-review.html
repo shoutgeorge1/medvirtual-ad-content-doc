@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Real People Creative Review — MedVirtual</title>
-  <meta name="description" content="CMO review: Real People creative direction for MedVirtual Meta ads." />
   <style>
   
   .doc-header {
@@ -118,202 +117,84 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: #f1f5f9;
-    color: #0f172a;
-    line-height: 1.5;
-  }
-  .wrap { max-width: 1200px; margin: 0 auto; padding: 1.25rem 1.25rem 3.5rem; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; }
   .hero {
-    background: #0f172a;
-    color: #f8fafc;
-    border-radius: 14px;
-    padding: 1.35rem 1.4rem;
-    margin-bottom: 1.1rem;
+    background: #0f172a; color: #f8fafc; border-radius: 12px;
+    padding: 1rem 1.15rem; margin-bottom: 0.85rem;
   }
-  .hero h2 { font-size: 1.45rem; font-weight: 750; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
-  .hero p { color: #cbd5e1; font-size: 0.98rem; max-width: 52ch; }
-  .review-label {
-    display: inline-block;
-    margin-top: 0.85rem;
-    font-size: 0.72rem;
-    font-weight: 750;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: #99f6e4;
-    background: rgba(13,148,136,0.2);
-    border: 1px solid rgba(94,234,212,0.35);
-    border-radius: 6px;
-    padding: 0.3rem 0.55rem;
+  .hero h2 { font-size: 1.25rem; font-weight: 750; margin-bottom: 0.3rem; }
+  .hero p { color: #94a3b8; font-size: 0.9rem; max-width: 48ch; }
+  .tag {
+    display: inline-block; margin-top: 0.65rem; font-size: 0.68rem; font-weight: 750;
+    text-transform: uppercase; letter-spacing: 0.03em; color: #99f6e4;
+    border: 1px solid rgba(94,234,212,0.35); border-radius: 6px; padding: 0.25rem 0.5rem;
   }
-  .section {
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 1.15rem 1.25rem;
-    margin-bottom: 1rem;
+  .intro {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 0.75rem 0.9rem; margin-bottom: 0.85rem; font-size: 0.9rem; color: #475569;
   }
-  .section > h2 {
-    font-size: 1.05rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 0.65rem;
-  }
-  .section > .lede {
-    font-size: 0.95rem;
-    color: #475569;
-    max-width: 62ch;
-    margin-bottom: 0.9rem;
-  }
-  .updated { font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.75rem; }
-  .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  @media (max-width: 800px) { .status-grid { grid-template-columns: 1fr; } }
-  .status-group-label {
-    font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-    color: #64748b; margin: 0.85rem 0 0.4rem;
-  }
-  .status-card {
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 0.85rem 0.95rem;
-    background: #fff;
-  }
-  .status-card.is-leader {
-    border-color: #0d9488;
-    box-shadow: 0 0 0 1px rgba(13,148,136,0.25);
-    background: #f0fdfa;
-  }
-  .status-card.is-paused {
-    opacity: 0.72;
-    background: #f8fafc;
-  }
-  .status-card__head {
-    display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center;
-    justify-content: space-between; margin-bottom: 0.45rem;
-  }
-  .status-card h3 { font-size: 0.95rem; font-weight: 800; color: #0f172a; }
-  .pill {
-    font-size: 0.65rem; font-weight: 850; padding: 0.22rem 0.5rem; border-radius: 999px;
-    letter-spacing: 0.02em;
-  }
-  .pill-leader { background: #0d9488; color: #fff; }
-  .pill-live { background: #ccfbf1; color: #0f766e; border: 1px solid #99f6e4; }
-  .pill-paused { background: #e2e8f0; color: #475569; }
-  .learning { font-size: 0.86rem; color: #334155; }
-  .metrics {
-    display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.55rem;
-    font-size: 0.84rem; color: #0f172a;
-  }
-  .metrics strong { color: #64748b; font-size: 0.68rem; text-transform: uppercase; margin-right: 0.25rem; }
-  .metrics-note { margin-top: 0.35rem; font-size: 0.72rem; color: #0f766e; font-weight: 650; }
-  .takeaway {
-    margin-top: 0.9rem;
-    background: #0f172a;
-    color: #e2e8f0;
-    border-radius: 10px;
-    padding: 0.85rem 1rem;
-    font-size: 0.9rem;
-    font-weight: 650;
-    line-height: 1.45;
-  }
-  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
-  @media (max-width: 800px) { .principles { grid-template-columns: 1fr; } }
-  .principle {
-    border: 1px solid #e2e8f0;
-    border-left: 3px solid #0d9488;
-    border-radius: 10px;
-    padding: 0.75rem 0.85rem;
-    background: #f8fafc;
-  }
-  .principle strong { display: block; font-size: 0.88rem; margin-bottom: 0.25rem; color: #0f172a; }
-  .principle span { font-size: 0.82rem; color: #475569; }
   .person {
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 1rem 1.05rem 1.1rem;
-    margin-bottom: 0.9rem;
-    background: #fff;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+    padding: 0.85rem 0.95rem 1rem; margin-bottom: 0.75rem;
   }
-  .person__head {
-    display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: baseline;
-    justify-content: space-between; margin-bottom: 0.85rem;
-  }
-  .person h3 { font-size: 1.2rem; font-weight: 800; color: #0f172a; }
-  .person__role { font-size: 0.9rem; color: #475569; font-weight: 600; }
+  .person__head { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: space-between; align-items: baseline; margin-bottom: 0.65rem; }
+  .person h3 { font-size: 1.1rem; font-weight: 800; }
+  .person__role { font-size: 0.85rem; color: #64748b; font-weight: 600; }
   .angle {
-    font-size: 0.72rem; font-weight: 750; color: #0f766e;
-    background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 999px;
-    padding: 0.28rem 0.6rem;
+    font-size: 0.7rem; font-weight: 750; color: #0f766e; background: #f0fdfa;
+    border: 1px solid #99f6e4; border-radius: 999px; padding: 0.22rem 0.55rem;
   }
-  .ratio-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr 0.72fr;
-    gap: 0.75rem;
-    align-items: start;
-    margin-bottom: 0.85rem;
+  .ratio-grid { display: grid; grid-template-columns: 1.05fr 0.95fr 0.7fr; gap: 0.55rem; margin-bottom: 0.7rem; }
+  @media (max-width: 860px) { .ratio-grid { grid-template-columns: 1fr; max-width: 360px; } }
+  .ratio-grid figcaption { font-size: 0.65rem; font-weight: 750; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.25rem; }
+  .preview-hit {
+    display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; border-radius: 8px;
   }
-  @media (max-width: 900px) {
-    .ratio-grid { grid-template-columns: 1fr; max-width: 420px; }
+  .preview-hit img {
+    width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid #e2e8f0; background: #0f172a;
   }
-  .ratio-grid figure { margin: 0; }
-  .ratio-grid figcaption {
-    font-size: 0.68rem; font-weight: 750; text-transform: uppercase; letter-spacing: 0.04em;
-    color: #94a3b8; margin-bottom: 0.35rem;
-  }
-  .ratio-grid img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    border: 1px solid #e2e8f0;
-    background: #0f172a;
-  }
-  .ratio-916 img { max-height: 420px; width: auto; max-width: 100%; margin: 0 auto; }
-  .copy-card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 0.75rem 0.85rem;
-  }
-  .copy-row { margin-bottom: 0.55rem; }
-  .copy-row .k {
-    display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
-    letter-spacing: 0.04em; color: #94a3b8; margin-bottom: 0.15rem;
-  }
-  .copy-row p { font-size: 0.88rem; color: #1e293b; }
+  .ratio-916 .preview-hit img { max-height: 380px; width: auto; max-width: 100%; margin: 0 auto; }
+  .copy-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.65rem 0.75rem; }
+  .hl { font-size: 0.95rem; font-weight: 800; color: #0f172a; margin-bottom: 0.2rem; }
+  .desc { font-size: 0.82rem; color: #475569; margin-bottom: 0.4rem; }
+  details { margin: 0.35rem 0; }
+  details summary { font-size: 0.75rem; font-weight: 700; color: #0d9488; cursor: pointer; }
+  details p { margin-top: 0.35rem; font-size: 0.84rem; color: #334155; }
   .copy-btn {
-    margin-top: 0.25rem;
-    font-size: 0.78rem; font-weight: 700; color: #0f766e;
-    background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 7px;
-    padding: 0.4rem 0.7rem; cursor: pointer;
+    margin-top: 0.35rem; font-size: 0.74rem; font-weight: 700; color: #0f766e;
+    background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 6px; padding: 0.3rem 0.55rem; cursor: pointer;
   }
-  .copy-btn:hover { background: #ccfbf1; }
   .copy-btn.copied { background: #0d9488; color: #fff; border-color: #0d9488; }
-  .approval { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+  .review-row { display: grid; grid-template-columns: auto 1fr; gap: 0.75rem; margin-top: 0.7rem; align-items: start; }
+  @media (max-width: 700px) { .review-row { grid-template-columns: 1fr; } }
+  .approval { display: flex; flex-wrap: wrap; gap: 0.35rem; }
   .appr {
-    font-size: 0.78rem; font-weight: 750; padding: 0.4rem 0.75rem; border-radius: 8px;
+    font-size: 0.78rem; font-weight: 750; padding: 0.4rem 0.7rem; border-radius: 8px;
     border: 1px solid #cbd5e1; background: #fff; color: #475569; cursor: pointer;
   }
   .appr[data-appr="approve"].on { background: #0d9488; border-color: #0d9488; color: #fff; }
   .appr[data-appr="revise"].on { background: #f59e0b; border-color: #f59e0b; color: #fff; }
   .appr[data-appr="hold"].on { background: #64748b; border-color: #64748b; color: #fff; }
-  .decision-list { padding-left: 1.15rem; margin: 0.35rem 0 0.9rem; }
-  .decision-list li { font-size: 0.92rem; color: #1e293b; margin: 0.45rem 0; font-weight: 600; }
-  .reco {
-    background: #f0fdfa;
-    border: 1px solid #99f6e4;
-    border-left: 4px solid #0d9488;
-    border-radius: 10px;
-    padding: 0.9rem 1rem;
-    font-size: 0.92rem;
-    color: #134e4a;
-    font-weight: 650;
+  .notes-label { display: grid; gap: 0.25rem; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; color: #94a3b8; }
+  .notes {
+    width: 100%; font: inherit; font-size: 0.88rem; font-weight: 500; text-transform: none;
+    color: #0f172a; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.5rem 0.6rem; resize: vertical; min-height: 52px;
+  }
+  .notes:focus { outline: 2px solid #99f6e4; border-color: #0d9488; }
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(15,23,42,0.88); display: none;
+    align-items: center; justify-content: center; z-index: 80; padding: 1rem;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: min(100%, 720px); max-height: 92vh; width: auto; height: auto; border-radius: 10px; }
+  .lightbox-close {
+    position: absolute; top: 1rem; right: 1rem; background: #fff; border: 0; border-radius: 8px;
+    font-weight: 800; padding: 0.45rem 0.7rem; cursor: pointer;
   }
   .toast {
     position: fixed; bottom: 1rem; right: 1rem; background: #0f172a; color: #fff;
-    padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.78rem;
-    opacity: 0; transition: opacity 0.2s; z-index: 50; pointer-events: none;
+    padding: 0.45rem 0.7rem; border-radius: 8px; font-size: 0.78rem; opacity: 0; transition: opacity .2s; z-index: 90;
   }
   .toast.show { opacity: 1; }
 </style>
@@ -332,74 +213,20 @@
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Real People Creative Review</h2>
-          <p class="doc-header__page-sub">Named MedVirtual talent, clearer operational pain, and a more human alternative to generic staffing ads.</p>
+          <p class="doc-header__page-sub">Named MedVirtual talent as Meta ad creative — quick sample for review.</p>
           
         </div>
 </header>
   <div class="wrap">
     <header class="hero">
       <h2>Real People Creative Review</h2>
-      <p>Named MedVirtual talent, clearer operational pain, and a more human alternative to generic staffing ads.</p>
-      <span class="review-label">CMO review · creative direction examples · not final campaign approval</span>
+      <p>Real Talent Pool faces and roles, framed as Meta ads. Click any image to view full size.</p>
+      <span class="tag">CMO sample review · not final campaign approval</span>
     </header>
 
-    <section class="section" id="snapshot">
-      <h2>What is live now</h2>
-      <p class="updated">Updated July 13, 2026</p>
-      <p class="status-group-label">Live</p>
-      <div class="status-grid"><article class="status-card  is-leader">
-    <div class="status-card__head">
-      <h3>Static 04 — Too Many Calls</h3>
-      <span class="pill pill-leader">LIVE · CURRENT LEADER</span>
-    </div>
-    <p class="learning">The clearest operational pain is producing the strongest engagement so far. “Too many calls” is immediate, specific, and recognizable to a busy practice.</p>
-    <div class="metrics">
-          <span><strong>CTR</strong> 6.82%</span>
-          <span><strong>CPC</strong> $5.19</span>
-          <span><strong>CPM</strong> ~$235</span>
-        </div>
-        <p class="metrics-note">Early directional data — not enough volume for a final winner</p>
-  </article><article class="status-card  ">
-    <div class="status-card__head">
-      <h3>Static 01 — Medical Owners</h3>
-      <span class="pill pill-live">LIVE</span>
-    </div>
-    <p class="learning">The audience callout is direct enough to remain in the test, but it has not created the same response as the pain-first “Too Many Calls” concept.</p>
-    
-  </article></div>
-      <p class="status-group-label">Paused</p>
-      <div class="status-grid"><article class="status-card is-paused ">
-    <div class="status-card__head">
-      <h3>Lower Overhead</h3>
-      <span class="pill pill-paused">PAUSED · HIGH CPM</span>
-    </div>
-    <p class="learning">The broad cost-saving promise was expensive and did not earn enough engagement to justify continued spend.</p>
-    
-  </article><article class="status-card is-paused ">
-    <div class="status-card__head">
-      <h3>Virtual Med Admin</h3>
-      <span class="pill pill-paused">PAUSED · WEAK RESPONSE</span>
-    </div>
-    <p class="learning">The language was too generic. It described the service category without giving the viewer a sharp pain, a memorable person, or a compelling reason to stop scrolling.</p>
-    
-  </article></div>
-      <p class="takeaway">Early takeaway: specific operational pain is outperforming generic staffing and overhead language. The next test pairs that pain with a real, named person.</p>
-    </section>
+    <p class="intro">Instead of stock headsets, show a real MedVirtual VA the practice can imagine interviewing. Four examples below — mark approve / revise / hold and add notes as you go.</p>
 
-    <section class="section" id="direction">
-      <h2>Next Creative Direction: Make the Service Human</h2>
-      <p class="lede">Instead of another stock headset image, introduce a real MedVirtual professional the practice can imagine interviewing. Each concept combines a recognizable operational problem, a named person, verified capabilities, and a direct next step.</p>
-      <div class="principles">
-        <div class="principle"><strong>Specific pain</strong><span>Calls, scheduling, verification, front-desk pressure, or admin backlog.</span></div>
-        <div class="principle"><strong>Real person</strong><span>A name, face, role, and credible capabilities—not anonymous stock imagery.</span></div>
-        <div class="principle"><strong>Clear next step</strong><span>Invite the practice to learn more or request an interview.</span></div>
-      </div>
-    </section>
-
-    <section class="section" id="examples">
-      <h2>Best examples</h2>
-      <p class="lede">Four named-person concepts for the first production batch. Previews use the finished Treatment C layouts in each Meta ratio.</p>
-      <section class="person" id="ex-chelsea">
+    <section class="person" id="ex-chelsea" data-id="chelsea">
     <header class="person__head">
       <div>
         <h3>Chelsea</h3>
@@ -409,23 +236,31 @@
     </header>
     <div class="ratio-grid">
       <figure>
-        <figcaption>4:5 Feed</figcaption>
-        <img src="/assets/real-people/chelsea/ad-treatment-c-4x5.png" alt="Chelsea Treatment C 4:5 ad" width="1080" height="1350" loading="lazy" decoding="async" />
+        <figcaption>4:5</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/chelsea/ad-treatment-c-4x5.png" aria-label="Open Chelsea 4:5 full size">
+          <img src="/assets/real-people/chelsea/ad-treatment-c-4x5.png" alt="Chelsea 4:5" width="1080" height="1350" loading="lazy" decoding="async" />
+        </button>
       </figure>
       <figure>
-        <figcaption>1:1 Square</figcaption>
-        <img src="/assets/real-people/chelsea/ad-treatment-c-1x1.png" alt="Chelsea Treatment C 1:1 ad" width="1080" height="1080" loading="lazy" decoding="async" />
+        <figcaption>1:1</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/chelsea/ad-treatment-c-1x1.png" aria-label="Open Chelsea 1:1 full size">
+          <img src="/assets/real-people/chelsea/ad-treatment-c-1x1.png" alt="Chelsea 1:1" width="1080" height="1080" loading="lazy" decoding="async" />
+        </button>
       </figure>
       <figure class="ratio-916">
-        <figcaption>9:16 Story / Reel</figcaption>
-        <img src="/assets/real-people/chelsea/ad-treatment-c-9x16.png" alt="Chelsea Treatment C 9:16 ad" width="1080" height="1920" loading="lazy" decoding="async" />
+        <figcaption>9:16</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/chelsea/ad-treatment-c-9x16.png" aria-label="Open Chelsea 9:16 full size">
+          <img src="/assets/real-people/chelsea/ad-treatment-c-9x16.png" alt="Chelsea 9:16" width="1080" height="1920" loading="lazy" decoding="async" />
+        </button>
       </figure>
     </div>
     <div class="copy-card">
-      <div class="copy-row"><span class="k">Primary text</span><p>Your front desk has enough to handle without letting the schedule take over the entire day. Meet Chelsea, a Dental Virtual Assistant whose listed skills include appointment setting, customer service, and healthcare support. See whether she could fit your workflow.</p></div>
-      <div class="copy-row"><span class="k">Headline</span><p>Meet Chelsea for Scheduling Support</p></div>
-      <div class="copy-row"><span class="k">Description</span><p>Real MedVirtual talent you can interview.</p></div>
-      <div class="copy-row"><span class="k">CTA</span><p>Learn More</p></div>
+      <p class="hl">Meet Chelsea for Scheduling Support</p>
+      <p class="desc">Real MedVirtual talent you can interview. · CTA: <strong>Learn More</strong></p>
+      <details>
+        <summary>Primary text</summary>
+        <p>Your front desk has enough to handle without letting the schedule take over the entire day. Meet Chelsea, a Dental Virtual Assistant whose listed skills include appointment setting, customer service, and healthcare support. See whether she could fit your workflow.</p>
+      </details>
       <button type="button" class="copy-btn" data-copy="PRIMARY TEXT:
 Your front desk has enough to handle without letting the schedule take over the entire day. Meet Chelsea, a Dental Virtual Assistant whose listed skills include appointment setting, customer service, and healthcare support. See whether she could fit your workflow.
 
@@ -433,12 +268,17 @@ HEADLINE: Meet Chelsea for Scheduling Support
 DESCRIPTION: Real MedVirtual talent you can interview.
 CTA: Learn More">Copy package</button>
     </div>
-    <div class="approval" role="group" aria-label="Review status for Chelsea">
-      <button type="button" class="appr" data-appr="approve">Approve</button>
-      <button type="button" class="appr" data-appr="revise">Revise</button>
-      <button type="button" class="appr" data-appr="hold">Hold</button>
+    <div class="review-row">
+      <div class="approval" role="group" aria-label="Status for Chelsea">
+        <button type="button" class="appr" data-appr="approve">Approve</button>
+        <button type="button" class="appr" data-appr="revise">Revise</button>
+        <button type="button" class="appr" data-appr="hold">Hold</button>
+      </div>
+      <label class="notes-label">Notes
+        <textarea class="notes" rows="2" placeholder="Quick notes from this review…" data-notes></textarea>
+      </label>
     </div>
-  </section><section class="person" id="ex-mark">
+  </section><section class="person" id="ex-mark" data-id="mark">
     <header class="person__head">
       <div>
         <h3>Mark</h3>
@@ -448,23 +288,31 @@ CTA: Learn More">Copy package</button>
     </header>
     <div class="ratio-grid">
       <figure>
-        <figcaption>4:5 Feed</figcaption>
-        <img src="/assets/real-people/mark/ad-treatment-c-4x5.png" alt="Mark Treatment C 4:5 ad" width="1080" height="1350" loading="lazy" decoding="async" />
+        <figcaption>4:5</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/mark/ad-treatment-c-4x5.png" aria-label="Open Mark 4:5 full size">
+          <img src="/assets/real-people/mark/ad-treatment-c-4x5.png" alt="Mark 4:5" width="1080" height="1350" loading="lazy" decoding="async" />
+        </button>
       </figure>
       <figure>
-        <figcaption>1:1 Square</figcaption>
-        <img src="/assets/real-people/mark/ad-treatment-c-1x1.png" alt="Mark Treatment C 1:1 ad" width="1080" height="1080" loading="lazy" decoding="async" />
+        <figcaption>1:1</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/mark/ad-treatment-c-1x1.png" aria-label="Open Mark 1:1 full size">
+          <img src="/assets/real-people/mark/ad-treatment-c-1x1.png" alt="Mark 1:1" width="1080" height="1080" loading="lazy" decoding="async" />
+        </button>
       </figure>
       <figure class="ratio-916">
-        <figcaption>9:16 Story / Reel</figcaption>
-        <img src="/assets/real-people/mark/ad-treatment-c-9x16.png" alt="Mark Treatment C 9:16 ad" width="1080" height="1920" loading="lazy" decoding="async" />
+        <figcaption>9:16</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/mark/ad-treatment-c-9x16.png" aria-label="Open Mark 9:16 full size">
+          <img src="/assets/real-people/mark/ad-treatment-c-9x16.png" alt="Mark 9:16" width="1080" height="1920" loading="lazy" decoding="async" />
+        </button>
       </figure>
     </div>
     <div class="copy-card">
-      <div class="copy-row"><span class="k">Primary text</span><p>Insurance verification should not keep pulling your best people away from patients. Meet Mark, an Insurance Verification Specialist with medical billing support listed on his MedVirtual profile. Start with a real person, not another generic staffing promise.</p></div>
-      <div class="copy-row"><span class="k">Headline</span><p>Verification Backlog? Meet Mark</p></div>
-      <div class="copy-row"><span class="k">Description</span><p>Explore insurance verification support.</p></div>
-      <div class="copy-row"><span class="k">CTA</span><p>Learn More</p></div>
+      <p class="hl">Verification Backlog? Meet Mark</p>
+      <p class="desc">Explore insurance verification support. · CTA: <strong>Learn More</strong></p>
+      <details>
+        <summary>Primary text</summary>
+        <p>Insurance verification should not keep pulling your best people away from patients. Meet Mark, an Insurance Verification Specialist with medical billing support listed on his MedVirtual profile. Start with a real person, not another generic staffing promise.</p>
+      </details>
       <button type="button" class="copy-btn" data-copy="PRIMARY TEXT:
 Insurance verification should not keep pulling your best people away from patients. Meet Mark, an Insurance Verification Specialist with medical billing support listed on his MedVirtual profile. Start with a real person, not another generic staffing promise.
 
@@ -472,12 +320,17 @@ HEADLINE: Verification Backlog? Meet Mark
 DESCRIPTION: Explore insurance verification support.
 CTA: Learn More">Copy package</button>
     </div>
-    <div class="approval" role="group" aria-label="Review status for Mark">
-      <button type="button" class="appr" data-appr="approve">Approve</button>
-      <button type="button" class="appr" data-appr="revise">Revise</button>
-      <button type="button" class="appr" data-appr="hold">Hold</button>
+    <div class="review-row">
+      <div class="approval" role="group" aria-label="Status for Mark">
+        <button type="button" class="appr" data-appr="approve">Approve</button>
+        <button type="button" class="appr" data-appr="revise">Revise</button>
+        <button type="button" class="appr" data-appr="hold">Hold</button>
+      </div>
+      <label class="notes-label">Notes
+        <textarea class="notes" rows="2" placeholder="Quick notes from this review…" data-notes></textarea>
+      </label>
     </div>
-  </section><section class="person" id="ex-jessica">
+  </section><section class="person" id="ex-jessica" data-id="jessica">
     <header class="person__head">
       <div>
         <h3>Jessica</h3>
@@ -487,23 +340,31 @@ CTA: Learn More">Copy package</button>
     </header>
     <div class="ratio-grid">
       <figure>
-        <figcaption>4:5 Feed</figcaption>
-        <img src="/assets/real-people/jessica/ad-treatment-c-4x5.png" alt="Jessica Treatment C 4:5 ad" width="1080" height="1350" loading="lazy" decoding="async" />
+        <figcaption>4:5</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/jessica/ad-treatment-c-4x5.png" aria-label="Open Jessica 4:5 full size">
+          <img src="/assets/real-people/jessica/ad-treatment-c-4x5.png" alt="Jessica 4:5" width="1080" height="1350" loading="lazy" decoding="async" />
+        </button>
       </figure>
       <figure>
-        <figcaption>1:1 Square</figcaption>
-        <img src="/assets/real-people/jessica/ad-treatment-c-1x1.png" alt="Jessica Treatment C 1:1 ad" width="1080" height="1080" loading="lazy" decoding="async" />
+        <figcaption>1:1</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/jessica/ad-treatment-c-1x1.png" aria-label="Open Jessica 1:1 full size">
+          <img src="/assets/real-people/jessica/ad-treatment-c-1x1.png" alt="Jessica 1:1" width="1080" height="1080" loading="lazy" decoding="async" />
+        </button>
       </figure>
       <figure class="ratio-916">
-        <figcaption>9:16 Story / Reel</figcaption>
-        <img src="/assets/real-people/jessica/ad-treatment-c-9x16.png" alt="Jessica Treatment C 9:16 ad" width="1080" height="1920" loading="lazy" decoding="async" />
+        <figcaption>9:16</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/jessica/ad-treatment-c-9x16.png" aria-label="Open Jessica 9:16 full size">
+          <img src="/assets/real-people/jessica/ad-treatment-c-9x16.png" alt="Jessica 9:16" width="1080" height="1920" loading="lazy" decoding="async" />
+        </button>
       </figure>
     </div>
     <div class="copy-card">
-      <div class="copy-row"><span class="k">Primary text</span><p>The admin work does not stop just because your team is already stretched. Meet Jessica, a Jr. Medical Admin with customer-service and healthcare support skills listed on her MedVirtual profile. Request an interview and see whether she fits your practice.</p></div>
-      <div class="copy-row"><span class="k">Headline</span><p>Admin Work Piling Up?</p></div>
-      <div class="copy-row"><span class="k">Description</span><p>Meet real MedVirtual medical admin talent.</p></div>
-      <div class="copy-row"><span class="k">CTA</span><p>Learn More</p></div>
+      <p class="hl">Admin Work Piling Up?</p>
+      <p class="desc">Meet real MedVirtual medical admin talent. · CTA: <strong>Learn More</strong></p>
+      <details>
+        <summary>Primary text</summary>
+        <p>The admin work does not stop just because your team is already stretched. Meet Jessica, a Jr. Medical Admin with customer-service and healthcare support skills listed on her MedVirtual profile. Request an interview and see whether she fits your practice.</p>
+      </details>
       <button type="button" class="copy-btn" data-copy="PRIMARY TEXT:
 The admin work does not stop just because your team is already stretched. Meet Jessica, a Jr. Medical Admin with customer-service and healthcare support skills listed on her MedVirtual profile. Request an interview and see whether she fits your practice.
 
@@ -511,12 +372,17 @@ HEADLINE: Admin Work Piling Up?
 DESCRIPTION: Meet real MedVirtual medical admin talent.
 CTA: Learn More">Copy package</button>
     </div>
-    <div class="approval" role="group" aria-label="Review status for Jessica">
-      <button type="button" class="appr" data-appr="approve">Approve</button>
-      <button type="button" class="appr" data-appr="revise">Revise</button>
-      <button type="button" class="appr" data-appr="hold">Hold</button>
+    <div class="review-row">
+      <div class="approval" role="group" aria-label="Status for Jessica">
+        <button type="button" class="appr" data-appr="approve">Approve</button>
+        <button type="button" class="appr" data-appr="revise">Revise</button>
+        <button type="button" class="appr" data-appr="hold">Hold</button>
+      </div>
+      <label class="notes-label">Notes
+        <textarea class="notes" rows="2" placeholder="Quick notes from this review…" data-notes></textarea>
+      </label>
     </div>
-  </section><section class="person" id="ex-angelica">
+  </section><section class="person" id="ex-angelica" data-id="angelica">
     <header class="person__head">
       <div>
         <h3>Angelica</h3>
@@ -526,23 +392,31 @@ CTA: Learn More">Copy package</button>
     </header>
     <div class="ratio-grid">
       <figure>
-        <figcaption>4:5 Feed</figcaption>
-        <img src="/assets/real-people/angelica/ad-treatment-c-4x5.png" alt="Angelica Treatment C 4:5 ad" width="1080" height="1350" loading="lazy" decoding="async" />
+        <figcaption>4:5</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/angelica/ad-treatment-c-4x5.png" aria-label="Open Angelica 4:5 full size">
+          <img src="/assets/real-people/angelica/ad-treatment-c-4x5.png" alt="Angelica 4:5" width="1080" height="1350" loading="lazy" decoding="async" />
+        </button>
       </figure>
       <figure>
-        <figcaption>1:1 Square</figcaption>
-        <img src="/assets/real-people/angelica/ad-treatment-c-1x1.png" alt="Angelica Treatment C 1:1 ad" width="1080" height="1080" loading="lazy" decoding="async" />
+        <figcaption>1:1</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/angelica/ad-treatment-c-1x1.png" aria-label="Open Angelica 1:1 full size">
+          <img src="/assets/real-people/angelica/ad-treatment-c-1x1.png" alt="Angelica 1:1" width="1080" height="1080" loading="lazy" decoding="async" />
+        </button>
       </figure>
       <figure class="ratio-916">
-        <figcaption>9:16 Story / Reel</figcaption>
-        <img src="/assets/real-people/angelica/ad-treatment-c-9x16.png" alt="Angelica Treatment C 9:16 ad" width="1080" height="1920" loading="lazy" decoding="async" />
+        <figcaption>9:16</figcaption>
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/angelica/ad-treatment-c-9x16.png" aria-label="Open Angelica 9:16 full size">
+          <img src="/assets/real-people/angelica/ad-treatment-c-9x16.png" alt="Angelica 9:16" width="1080" height="1920" loading="lazy" decoding="async" />
+        </button>
       </figure>
     </div>
     <div class="copy-card">
-      <div class="copy-row"><span class="k">Primary text</span><p>Phones ringing. Patients waiting. Tasks stacking up. Meet Angelica, a Dermatology Front Desk Assistant with medical admin and healthcare support experience shown on her MedVirtual profile. Give the front desk capable backup without adding another chair.</p></div>
-      <div class="copy-row"><span class="k">Headline</span><p>Front Desk Stretched Thin?</p></div>
-      <div class="copy-row"><span class="k">Description</span><p>Meet a real front-desk support candidate.</p></div>
-      <div class="copy-row"><span class="k">CTA</span><p>Learn More</p></div>
+      <p class="hl">Front Desk Stretched Thin?</p>
+      <p class="desc">Meet a real front-desk support candidate. · CTA: <strong>Learn More</strong></p>
+      <details>
+        <summary>Primary text</summary>
+        <p>Phones ringing. Patients waiting. Tasks stacking up. Meet Angelica, a Dermatology Front Desk Assistant with medical admin and healthcare support experience shown on her MedVirtual profile. Give the front desk capable backup without adding another chair.</p>
+      </details>
       <button type="button" class="copy-btn" data-copy="PRIMARY TEXT:
 Phones ringing. Patients waiting. Tasks stacking up. Meet Angelica, a Dermatology Front Desk Assistant with medical admin and healthcare support experience shown on her MedVirtual profile. Give the front desk capable backup without adding another chair.
 
@@ -550,28 +424,64 @@ HEADLINE: Front Desk Stretched Thin?
 DESCRIPTION: Meet a real front-desk support candidate.
 CTA: Learn More">Copy package</button>
     </div>
-    <div class="approval" role="group" aria-label="Review status for Angelica">
-      <button type="button" class="appr" data-appr="approve">Approve</button>
-      <button type="button" class="appr" data-appr="revise">Revise</button>
-      <button type="button" class="appr" data-appr="hold">Hold</button>
+    <div class="review-row">
+      <div class="approval" role="group" aria-label="Status for Angelica">
+        <button type="button" class="appr" data-appr="approve">Approve</button>
+        <button type="button" class="appr" data-appr="revise">Revise</button>
+        <button type="button" class="appr" data-appr="hold">Hold</button>
+      </div>
+      <label class="notes-label">Notes
+        <textarea class="notes" rows="2" placeholder="Quick notes from this review…" data-notes></textarea>
+      </label>
     </div>
   </section>
-    </section>
+  </div>
 
-    <section class="section" id="decision">
-      <h2>Decision Needed</h2>
-      <ol class="decision-list">
-        <li>Do we approve real MedVirtual talent as the next static-ad direction?</li>
-        <li>Should the first production batch remain Chelsea, Mark, Jessica, and Angelica?</li>
-        <li>Can approved profiles later move into real iPhone video or separately approved synthetic-motion tests?</li>
-      </ol>
-      <p class="reco"><strong>Recommendation:</strong> approve the four-person static batch first. Launch the real-person concepts alongside the two remaining controls, then compare pain-first named-person creative against “Too Many Calls.”</p>
-    </section>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" id="lightbox-close">Close</button>
+    <img id="lightbox-img" alt="" />
   </div>
   <div class="toast" id="toast" role="status">Copied</div>
   <script>
     (function () {
+      const KEY = 'mv-cmo-review-v1';
       const toast = document.getElementById('toast');
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      function load() {
+        try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+      }
+      function save(data) { localStorage.setItem(KEY, JSON.stringify(data)); }
+      let state = load();
+
+      document.querySelectorAll('.person').forEach((sec) => {
+        const id = sec.dataset.id;
+        const saved = state[id] || {};
+        if (saved.appr) {
+          const btn = sec.querySelector('.appr[data-appr="' + saved.appr + '"]');
+          if (btn) btn.classList.add('on');
+        }
+        const notes = sec.querySelector('[data-notes]');
+        if (notes && saved.notes) notes.value = saved.notes;
+
+        sec.querySelectorAll('.appr').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            sec.querySelectorAll('.appr').forEach((b) => b.classList.remove('on'));
+            btn.classList.add('on');
+            state[id] = state[id] || {};
+            state[id].appr = btn.getAttribute('data-appr');
+            save(state);
+          });
+        });
+        if (notes) {
+          notes.addEventListener('input', () => {
+            state[id] = state[id] || {};
+            state[id].notes = notes.value;
+            save(state);
+          });
+        }
+      });
+
       document.querySelectorAll('[data-copy]').forEach((btn) => {
         btn.addEventListener('click', async () => {
           try {
@@ -579,24 +489,26 @@ CTA: Learn More">Copy package</button>
             btn.classList.add('copied');
             toast.textContent = 'Copied';
             toast.classList.add('show');
-            setTimeout(() => {
-              btn.classList.remove('copied');
-              toast.classList.remove('show');
-            }, 1100);
-          } catch (e) {
-            toast.textContent = 'Copy failed';
-            toast.classList.add('show');
-          }
+            setTimeout(() => { btn.classList.remove('copied'); toast.classList.remove('show'); }, 1000);
+          } catch (e) {}
         });
       });
-      document.querySelectorAll('.approval').forEach((group) => {
-        group.querySelectorAll('.appr').forEach((btn) => {
-          btn.addEventListener('click', () => {
-            group.querySelectorAll('.appr').forEach((b) => b.classList.remove('on'));
-            btn.classList.add('on');
-          });
-        });
+
+      function openPreview(src) {
+        lbImg.src = src;
+        lbImg.alt = 'Full-size preview';
+        lb.classList.add('open');
+      }
+      function closePreview() {
+        lb.classList.remove('open');
+        lbImg.removeAttribute('src');
+      }
+      document.querySelectorAll('[data-preview]').forEach((btn) => {
+        btn.addEventListener('click', () => openPreview(btn.getAttribute('data-preview')));
       });
+      document.getElementById('lightbox-close').addEventListener('click', closePreview);
+      lb.addEventListener('click', (e) => { if (e.target === lb) closePreview(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePreview(); });
     })();
   </script>
 </body>

@@ -62,7 +62,9 @@ function renderPerson(t, catPerson) {
   const src = files.original || files.cleanMaster;
   return `<article class="asset-card" id="asset-${esc(slug)}">
     <div class="asset-card__media">
-      <img src="${esc(files.profile11?.path || t.imagePath)}" alt="${esc(t.fullPublicName)} — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      <button type="button" class="preview-hit" data-preview="${esc(files.profile11?.path || t.imagePath)}" aria-label="Preview ${esc(t.firstName)} profile">
+        <img src="${esc(files.profile11?.path || t.imagePath)}" alt="${esc(t.fullPublicName)} — clean profile crop" width="320" height="320" loading="lazy" decoding="async" />
+      </button>
     </div>
     <div class="asset-card__body">
       <h3>${esc(t.firstName)} <span class="muted">${esc(t.fullPublicName)}</span></h3>
@@ -92,10 +94,13 @@ function renderPerson(t, catPerson) {
           .filter((k) => files[k])
           .map(
             (k) =>
-              `<a href="${esc(files[k].path)}" download><img src="${esc(files[k].path)}" alt="${esc(k)} preview" width="96" height="96" loading="lazy" /></a>`,
+              `<button type="button" class="thumb preview-hit" data-preview="${esc(files[k].path)}" aria-label="Preview ${esc(k)}">
+                <img src="${esc(files[k].path)}" alt="${esc(k)} preview" width="96" height="96" loading="lazy" />
+               </button>`,
           )
           .join('')}
       </div>
+      <p class="preview-hint">Click any image to preview full size. Use the buttons above to download.</p>
     </div>
   </article>`;
 }
@@ -111,7 +116,9 @@ function renderMonday(cat) {
     const pkg = treatmentCPackage(tc);
     return `<article class="monday-card">
       <div class="monday-card__preview">
-        <img src="${esc(ad45)}" alt="${esc(tc.meetLine)} Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+        <button type="button" class="preview-hit" data-preview="${esc(ad45)}" aria-label="Preview ${esc(t.firstName)} 4:5 Treatment C">
+          <img src="${esc(ad45)}" alt="${esc(tc.meetLine)} Treatment C 4:5 preview" width="270" height="338" loading="lazy" />
+        </button>
       </div>
       <div>
         <h3>${esc(t.firstName)} — ${esc(row.angle)}</h3>
@@ -171,7 +178,22 @@ const CSS = `
   .status-off { background: #f8fafc; color: #94a3b8; border: 1px solid #e2e8f0; }
   .dl-row { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.45rem; }
   .thumb-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.55rem; }
-  .thumb-row img { width: 72px; height: 72px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; }
+  .thumb-row img { width: 72px; height: 72px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; display: block; }
+  .thumb { padding: 0; border: 0; background: transparent; cursor: zoom-in; border-radius: 6px; }
+  .preview-hit { padding: 0; border: 0; background: transparent; cursor: zoom-in; display: block; width: 100%; }
+  .preview-hit img { width: 100%; display: block; border-radius: 8px; }
+  .asset-card__media .preview-hit img { aspect-ratio: 1; object-fit: cover; }
+  .preview-hint { font-size: 0.72rem; color: #64748b; margin-top: 0.35rem; }
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(15,23,42,0.88); display: none;
+    align-items: center; justify-content: center; z-index: 80; padding: 1rem;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: min(100%, 900px); max-height: 92vh; width: auto; height: auto; border-radius: 10px; background: #0f172a; }
+  .lightbox-close {
+    position: absolute; top: 1rem; right: 1rem; background: #fff; border: 0; border-radius: 8px;
+    font-weight: 800; padding: 0.45rem 0.7rem; cursor: pointer;
+  }
   .monday-card { display: grid; grid-template-columns: 180px 1fr; gap: 0.85rem; border: 2px solid #0d9488; border-radius: 12px; padding: 0.75rem; margin-bottom: 0.65rem; }
   @media (max-width: 720px) { .monday-card { grid-template-columns: 1fr; } }
   .monday-card__preview img { width: 100%; border-radius: 8px; display: block; }
@@ -226,6 +248,10 @@ const html = `<!DOCTYPE html>
       ${TALENT.map((t) => renderPerson(t, bySlug[t.assetSlug || t.id])).join('')}
     </section>
   </div>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" id="lightbox-close">Close</button>
+    <img id="lightbox-img" alt="" />
+  </div>
   <div class="toast" id="toast">Copied</div>
   <script>
     const toast = document.getElementById('toast');
@@ -238,6 +264,23 @@ const html = `<!DOCTYPE html>
         } catch (e) {}
       });
     });
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    function openPreview(src) {
+      lbImg.src = src;
+      lbImg.alt = 'Full-size preview';
+      lb.classList.add('open');
+    }
+    function closePreview() {
+      lb.classList.remove('open');
+      lbImg.removeAttribute('src');
+    }
+    document.querySelectorAll('[data-preview]').forEach((btn) => {
+      btn.addEventListener('click', () => openPreview(btn.getAttribute('data-preview')));
+    });
+    document.getElementById('lightbox-close').addEventListener('click', closePreview);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closePreview(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePreview(); });
   </script>
 </body>
 </html>`;
