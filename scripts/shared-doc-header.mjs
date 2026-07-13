@@ -16,25 +16,25 @@ export const PRIMARY_NAV = [
     href: '/graphic-request-brief.html',
     label: 'Graphic Brief',
     id: 'brief',
-    description: 'Start here. What to produce: 4 static 1080×1350 ads, on-image copy, visuals, QA, Monday request.',
+    description: 'Start here. 4 static 1080×1350 ads with headline, support, and visual direction.',
   },
   {
     href: '/facebook-ad-copy.html',
     label: 'Ad Copy',
     id: 'copy',
-    description: 'Facebook primary text (caption above the ad) for the same 4 concepts. Copy-paste for Meta.',
+    description: 'Optional. Facebook captions for Meta — not needed to design the statics.',
   },
   {
     href: '/template-test-board.html',
     label: 'Templates',
     id: 'templates',
-    description: 'Layout and on-image text zone reference. Visual guide only — not a production checklist.',
+    description: 'Optional layout reference only — not a second brief.',
   },
   {
     href: '/image-variation-review.html',
     label: 'Image Review',
     id: 'images',
-    description: 'Approved image crops by ratio and face placement. Pick backgrounds for templates.',
+    description: 'Approved image crops by ratio and face placement.',
   },
   {
     href: '/asset-hub.html',
@@ -46,19 +46,19 @@ export const PRIMARY_NAV = [
     href: '/meta-launch-build-pack.html',
     label: 'Meta Launch',
     id: 'launch',
-    description: 'Same-day Meta build pack: campaign shell, 4 ads, form draft, QA checklist.',
+    description: 'Same-day Meta build pack: campaign shell, ads, form draft, QA.',
   },
   {
     href: '/real-people-creative.html',
     label: 'Real People',
     id: 'real-people',
-    description: 'Named Talent Pool profiles for Meta static, Reels, and short video creative.',
+    description: 'Named Talent Pool profiles for Meta static, Reels, and short video.',
   },
   {
     href: '/real-people-assets.html',
     label: 'RP Assets',
     id: 'real-people-assets',
-    description: 'Download Talent Pool originals, crops, Treatment C mocks, and AI video references.',
+    description: 'Talent Pool originals, crops, Treatment C mocks, AI video refs.',
   },
 ];
 

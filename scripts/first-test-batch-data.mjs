@@ -507,37 +507,23 @@ export const BUCKET_COLORS = {
   before_after: '#ea580c',
 };
 
-/** Monday.com graphic request form — ready to paste */
+/** Monday.com / Slack graphic request — one link, labeled on-image copy */
 export function buildMondayFormCopy(baseUrl = 'https://medvirtual-ad-content-doc.vercel.app') {
+  const concepts = PRODUCTION_CONCEPTS.map((c, i) => {
+    return `${i + 1}. Headline: ${c.headline}
+   Support: ${c.support}`;
+  }).join('\n\n');
+
   return `PROJECT: MedVirtual Meta Ads — First Creative Batch
 
-REFERENCE LINKS:
-• Graphic brief: ${baseUrl}/graphic-request-brief.html
-• Ad copy: ${baseUrl}/facebook-ad-copy.html
-• Templates: ${baseUrl}/template-test-board.html
+Brief (source of truth):
+${baseUrl}/graphic-request-brief.html
 
-PRODUCE EXACTLY THESE 4 STATIC CONCEPTS
+Produce exactly 4 static ads · 1080×1350 · CTA: Book a Demo · one design each · no variations yet
 
-1. Medical Practice Owners
-2. Dental Practice Owners
-3. Hire a Full-Time Virtual Medical Admin
-4. Too Many Calls. Not Enough Staff.
+ON-IMAGE COPY
 
-DELIVERABLES:
-• Exactly 4 static concepts
-• 1080 × 1350 feed only
-• One design per concept
-• No variations yet
-• No 1080 × 1920 resizes yet
-• No video yet
-• Variations, resizes, and videos only after the first four are reviewed
+${concepts}
 
-REQUIREMENTS:
-• CTA: Book a Demo
-• Brand: MedVirtual only
-• No MedVirtual.ai in ad copy or on-image text
-• No patient information
-• No overcrowded layouts
-• Do not imply MedVirtual runs the clinic front desk or is a managed service
-• Practices hire full-time virtual staff through MedVirtual — staff become part of the practice team`;
+Brand: MedVirtual only (never MedVirtual.ai). No patient info. Don’t make it look like a call center or like we run their front desk.`;
 }

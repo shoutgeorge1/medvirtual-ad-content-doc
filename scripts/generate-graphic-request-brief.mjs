@@ -1,12 +1,16 @@
 /**
  * Graphic Request Brief — slim designer handoff.
- * 4 concepts · size/CTA · short rules. No strategy dump.
+ * 4 concepts · size/CTA · short rules. One brief link for handoffs.
  */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
-import { BRAND_NAME, PRODUCTION_CONCEPTS } from './first-test-batch-data.mjs';
+import {
+  BRAND_NAME,
+  PRODUCTION_CONCEPTS,
+  buildMondayFormCopy,
+} from './first-test-batch-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -28,8 +32,10 @@ function renderConceptCard(c, index) {
   return `<article class="card">
     <div class="card-num">${index + 1}</div>
     <div class="card-body">
+      <p class="field-label">Headline</p>
       <h3 class="card-headline">${esc(c.headline)}</h3>
       ${audience}
+      <p class="field-label">Support</p>
       <p class="card-support">${esc(c.support)}</p>
       <p class="card-visual"><span>Visual</span>${esc(c.visual)}</p>
       <div class="card-foot">
@@ -50,6 +56,7 @@ const CSS = `
   }
   .banner h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
   .banner p { font-size: 0.88rem; color: #cbd5e1; }
+  .banner a { color: #5eead4; font-weight: 700; }
   .banner-meta {
     display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem;
   }
@@ -66,11 +73,16 @@ const CSS = `
     width: 2.1rem; height: 2.1rem; border-radius: 8px; background: #0d9488; color: #fff;
     font-weight: 800; font-size: 0.95rem; display: grid; place-items: center;
   }
+  .field-label {
+    font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+    color: #0d9488; margin-top: 0.45rem; margin-bottom: 0.12rem;
+  }
+  .field-label:first-child { margin-top: 0; }
   .card-headline { font-size: 1.15rem; font-weight: 800; color: #0f172a; line-height: 1.25; }
   .card-audience {
     margin-top: 0.35rem; font-size: 0.78rem; font-weight: 700; color: #0f766e;
   }
-  .card-support { margin-top: 0.4rem; font-size: 0.95rem; color: #334155; font-weight: 600; }
+  .card-support { font-size: 0.95rem; color: #334155; font-weight: 600; }
   .card-visual {
     margin-top: 0.55rem; font-size: 0.86rem; color: #475569; line-height: 1.4;
   }
@@ -97,10 +109,20 @@ const CSS = `
   .panel.do-not { background: #fff7ed; border-color: #fed7aa; }
   .panel.do-not h2 { color: #c2410c; }
   .panel.do-not li { color: #9a3412; }
+  .send-box {
+    background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 0.75rem 0.85rem;
+    font-family: ui-monospace, monospace; font-size: 0.72rem; white-space: pre-wrap; line-height: 1.45;
+  }
+  .copy-btn {
+    margin-top: 0.5rem; font-size: 0.74rem; font-weight: 700; color: #fff; background: #0d9488;
+    border: 0; border-radius: 7px; padding: 0.4rem 0.7rem; cursor: pointer;
+  }
+  .copy-btn:hover { background: #0f766e; }
 `;
 
 function main() {
   const cards = PRODUCTION_CONCEPTS.map((c, i) => renderConceptCard(c, i)).join('');
+  const mondayCopy = buildMondayFormCopy();
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -119,7 +141,7 @@ function main() {
   <div class="wrap">
     <header class="banner">
       <h2>Produce these 4 static ads</h2>
-      <p>Full-time virtual staff through MedVirtual — part of the practice team. One design per concept.</p>
+      <p>This page is the only brief for graphics. One design per concept.</p>
       <div class="banner-meta">
         <span>4 static</span>
         <span>1080×1350</span>
@@ -151,7 +173,25 @@ function main() {
         <li>Create recruiting / job-seeker ads</li>
       </ul>
     </section>
+
+    <section class="panel" id="send">
+      <h2>Send to graphics</h2>
+      <p style="font-size:0.84rem;color:#64748b;margin-bottom:0.5rem">One link. Headlines labeled. Paste into Slack / Monday.</p>
+      <div class="send-box" id="send-copy">${esc(mondayCopy)}</div>
+      <button type="button" class="copy-btn" data-copy="${esc(mondayCopy)}">Copy handoff</button>
+    </section>
   </div>
+  <script>
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.getAttribute('data-copy') || '');
+          btn.textContent = 'Copied';
+          setTimeout(() => { btn.textContent = 'Copy handoff'; }, 1400);
+        } catch (e) {}
+      });
+    });
+  </script>
 </body>
 </html>`;
 

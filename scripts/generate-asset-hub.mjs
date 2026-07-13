@@ -86,12 +86,11 @@ function main() {
   })}
   <div class="wrap">
     <div class="note">
-      <strong>Right now:</strong> lock Ad Copy + Template Tests. Scale image variations after.
+      <strong>Graphics:</strong> start with the <a href="/graphic-request-brief.html">Graphic Brief</a> only.
       Video editors: grab masters below, or use <a href="/image-variation-review.html">Image Review</a> for approved crops.
     </div>
     <div class="links">
-      <a href="/facebook-ad-copy.html">Ad Copy</a>
-      <a href="/template-test-board.html">Template Tests</a>
+      <a href="/graphic-request-brief.html">Graphic Brief</a>
       <a class="secondary" href="/image-variation-review.html">Image Review (crops)</a>
     </div>
 
