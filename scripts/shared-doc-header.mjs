@@ -6,23 +6,17 @@
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Creative Handoff',
-  tagline: 'Meta ads · production brief · copy · templates · assets',
+  tagline: 'Meta ads · brief · templates · assets',
   homeHref: '/graphic-request-brief.html',
 };
 
-/** Primary nav — workflow order: brief → copy → templates → images → assets */
+/** Primary nav — Graphic Brief is the only production handoff */
 export const PRIMARY_NAV = [
   {
     href: '/graphic-request-brief.html',
-    label: 'Graphic Brief',
+    label: 'Brief',
     id: 'brief',
-    description: 'Start here. 4 static 1080×1350 ads with headline, support, and visual direction.',
-  },
-  {
-    href: '/facebook-ad-copy.html',
-    label: 'Ad Copy',
-    id: 'copy',
-    description: 'Optional. Facebook captions for Meta — not needed to design the statics.',
+    description: 'Start here. 4 static ads with on-image copy, visual direction, and Meta paste fields.',
   },
   {
     href: '/template-test-board.html',

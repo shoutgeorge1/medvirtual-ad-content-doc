@@ -4,16 +4,16 @@ import './Layout.css';
 /** Keep in sync with scripts/shared-doc-header.mjs */
 const BRAND = {
   mark: 'MV',
-  title: 'Facebook Ad Content Doc',
-  tagline: 'MedVirtual · Primary text · templates · crops',
-  homeHref: '/facebook-ad-copy.html',
+  title: 'MedVirtual Creative Handoff',
+  tagline: 'Meta ads · brief · templates · assets',
+  homeHref: '/graphic-request-brief.html',
 };
 
 const PRIMARY_NAV = [
-  { href: '/facebook-ad-copy.html', label: 'Ad Copy' },
-  { href: '/template-test-board.html', label: 'Template Tests' },
+  { href: '/graphic-request-brief.html', label: 'Brief' },
+  { href: '/template-test-board.html', label: 'Templates' },
   { href: '/image-variation-review.html', label: 'Image Review' },
-  { href: '/asset-hub.html', label: 'Raw Assets' },
+  { href: '/asset-hub.html', label: 'Assets' },
   { href: '/meta-launch-build-pack.html', label: 'Meta Launch' },
 ];
 
@@ -30,7 +30,7 @@ export function Layout() {
       ? 'Download composed ad PNGs for Meta. For raw video sources, use Raw Assets.'
       : pathname.startsWith('/editor')
         ? 'Edit copy and layout for one concept.'
-        : 'Parked React surface — use Ad Copy and Template Tests.';
+        : 'Parked React surface — use Creative Brief and Templates.';
 
   return (
     <div className="app-shell">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Graphic Request Brief — MedVirtual</title>
+  <title>Creative Brief — MedVirtual</title>
   <style>
   
   .doc-header {
@@ -124,10 +124,7 @@
   }
   .banner h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
   .banner p { font-size: 0.88rem; color: #cbd5e1; }
-  .banner a { color: #5eead4; font-weight: 700; }
-  .banner-meta {
-    display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem;
-  }
+  .banner-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem; }
   .banner-meta span {
     font-size: 0.72rem; font-weight: 750; padding: 0.28rem 0.55rem; border-radius: 6px;
     background: rgba(13,148,136,0.25); border: 1px solid rgba(94,234,212,0.35); color: #99f6e4;
@@ -141,15 +138,16 @@
     width: 2.1rem; height: 2.1rem; border-radius: 8px; background: #0d9488; color: #fff;
     font-weight: 800; font-size: 0.95rem; display: grid; place-items: center;
   }
+  .card-top {
+    display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: space-between; align-items: flex-start;
+  }
   .field-label {
     font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
     color: #0d9488; margin-top: 0.45rem; margin-bottom: 0.12rem;
   }
-  .field-label:first-child { margin-top: 0; }
+  .card-top .field-label:first-child { margin-top: 0; }
   .card-headline { font-size: 1.15rem; font-weight: 800; color: #0f172a; line-height: 1.25; }
-  .card-audience {
-    margin-top: 0.35rem; font-size: 0.78rem; font-weight: 700; color: #0f766e;
-  }
+  .card-audience { margin-top: 0.3rem; font-size: 0.78rem; font-weight: 700; color: #0f766e; }
   .card-support { font-size: 0.95rem; color: #334155; font-weight: 600; }
   .card-visual {
     margin-top: 0.55rem; font-size: 0.86rem; color: #475569; line-height: 1.4;
@@ -158,12 +156,23 @@
     display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
     letter-spacing: 0.04em; color: #94a3b8; margin-bottom: 0.15rem;
   }
-  .card-foot { margin-top: 0.65rem; display: flex; flex-wrap: wrap; gap: 0.45rem 0.75rem; align-items: center; }
+  .meta-block {
+    margin-top: 0.7rem; padding-top: 0.65rem; border-top: 1px solid #e2e8f0;
+  }
+  .primary-p { font-size: 0.88rem; color: #1e293b; margin: 0 0 0.35rem; white-space: pre-wrap; }
+  .primary-p:last-child { margin-bottom: 0; }
+  .meta-row {
+    display: grid; grid-template-columns: 1fr 1fr auto; gap: 0.55rem; margin-top: 0.55rem;
+  }
+  @media (max-width: 640px) { .meta-row { grid-template-columns: 1fr; } }
+  .meta-val { font-size: 0.88rem; color: #0f172a; font-weight: 650; }
   .cta {
     display: inline-block; background: #0d9488; color: #fff; font-size: 0.75rem; font-weight: 800;
     padding: 0.28rem 0.6rem; border-radius: 6px;
   }
-  .card-warn { font-size: 0.8rem; color: #b45309; font-weight: 650; flex: 1 1 12rem; }
+  .card-warn {
+    margin-top: 0.55rem; font-size: 0.8rem; color: #b45309; font-weight: 650;
+  }
   .panel {
     background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
     padding: 0.85rem 1rem; margin-bottom: 0.65rem;
@@ -182,10 +191,12 @@
     font-family: ui-monospace, monospace; font-size: 0.72rem; white-space: pre-wrap; line-height: 1.45;
   }
   .copy-btn {
-    margin-top: 0.5rem; font-size: 0.74rem; font-weight: 700; color: #fff; background: #0d9488;
-    border: 0; border-radius: 7px; padding: 0.4rem 0.7rem; cursor: pointer;
+    font-size: 0.74rem; font-weight: 700; color: #fff; background: #0d9488;
+    border: 0; border-radius: 7px; padding: 0.4rem 0.7rem; cursor: pointer; white-space: nowrap;
   }
   .copy-btn:hover { background: #0f766e; }
+  .card-copy { margin-top: 0; }
+  .send .copy-btn { margin-top: 0.5rem; }
 </style>
 </head>
 <body>
@@ -195,24 +206,24 @@
       <span class="doc-header__mark">MV</span>
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Meta ads · production brief · copy · templates · assets</p>
+        <p class="doc-header__tagline">Meta ads · brief · templates · assets</p>
       </div>
     </a>
-    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="active">Graphic Brief</a><a href="/facebook-ad-copy.html" class="">Ad Copy</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="">Meta Launch</a><a href="/real-people-creative.html" class="">Real People</a><a href="/real-people-assets.html" class="">RP Assets</a></nav>
+    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="active">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="">Meta Launch</a><a href="/real-people-creative.html" class="">Real People</a><a href="/real-people-assets.html" class="">RP Assets</a></nav>
   </div>
   <div class="doc-header__page">
-          <h2 class="doc-header__page-title">Graphic Request Brief</h2>
-          <p class="doc-header__page-sub">4 static ads · 1080×1350 · designer handoff</p>
+          <h2 class="doc-header__page-title">Creative Brief</h2>
+          <p class="doc-header__page-sub">4 static ads · art + Meta copy · one page</p>
           
         </div>
 </header>
   <div class="wrap">
     <header class="banner">
-      <h2>Produce these 4 static ads</h2>
-      <p>This page is the only brief for graphics. One design per concept.</p>
+      <h2>4 ads — design + Meta copy</h2>
+      <p>One page for graphics and Ads Manager. 1080×1350 · one design each · no variations yet.</p>
       <div class="banner-meta">
-        <span>4 static</span>
-        <span>1080×1350</span>
+        <span>On-image</span>
+        <span>Primary text</span>
         <span>CTA: Book a Demo</span>
         <span>No variations yet</span>
       </div>
@@ -221,58 +232,186 @@
     <div class="cards"><article class="card">
     <div class="card-num">1</div>
     <div class="card-body">
-      <p class="field-label">Headline</p>
-      <h3 class="card-headline">Medical Practice Owners</h3>
-      <p class="card-audience">Medical practice owners and practice managers</p>
-      <p class="field-label">Support</p>
-      <p class="card-support">Add full-time virtual support without adding office space.</p>
-      <p class="card-visual"><span>Visual</span>Professional medical office environment and a calm remote virtual staff member handling calls, scheduling, patient intake, or administrative work.</p>
-      <div class="card-foot">
-        <span class="cta">Book a Demo</span>
-        <p class="card-warn">Do not imply MedVirtual operates or replaces the clinic front desk.</p>
+      <div class="card-top">
+        <div>
+          <p class="field-label">On-image headline</p>
+          <h3 class="card-headline">Medical Practice Owners</h3>
+          <p class="card-audience">Medical practice owners and practice managers</p>
+          <p class="field-label">Support</p>
+          <p class="card-support">Add full-time virtual support without adding office space.</p>
+        </div>
+        <button type="button" class="copy-btn card-copy" data-copy="ON-IMAGE HEADLINE: Medical Practice Owners
+SUPPORT: Add full-time virtual support without adding office space.
+
+PRIMARY TEXT:
+Medical practice owners: add full-time virtual support without adding office space.
+
+Hire full-time virtual staff through MedVirtual — part of your practice team.
+
+Book a demo →
+
+META HEADLINE: Medical Practice Owners
+DESCRIPTION: Full-time virtual staff for medical practices.
+CTA: Book a Demo">Copy Meta package</button>
       </div>
+      <p class="card-visual"><span>Visual</span>Professional medical office environment and a calm remote virtual staff member handling calls, scheduling, patient intake, or administrative work.</p>
+      <div class="meta-block">
+        <p class="field-label">Primary text</p>
+        <div class="primary"><p class="primary-p">Medical practice owners: add full-time virtual support without adding office space.</p><p class="primary-p">Hire full-time virtual staff through MedVirtual — part of your practice team.</p><p class="primary-p">Book a demo →</p></div>
+        <div class="meta-row">
+          <div>
+            <p class="field-label">Meta headline</p>
+            <p class="meta-val">Medical Practice Owners</p>
+          </div>
+          <div>
+            <p class="field-label">Description</p>
+            <p class="meta-val">Full-time virtual staff for medical practices.</p>
+          </div>
+          <div>
+            <p class="field-label">CTA</p>
+            <span class="cta">Book a Demo</span>
+          </div>
+        </div>
+      </div>
+      <p class="card-warn">Do not imply MedVirtual operates or replaces the clinic front desk.</p>
     </div>
   </article><article class="card">
     <div class="card-num">2</div>
     <div class="card-body">
-      <p class="field-label">Headline</p>
-      <h3 class="card-headline">Dental Practice Owners</h3>
-      <p class="card-audience">Dental practice owners and dental practice managers</p>
-      <p class="field-label">Support</p>
-      <p class="card-support">Get help with scheduling, insurance, and patient follow-up.</p>
-      <p class="card-visual"><span>Visual</span>Professional dental office setting paired with a remote virtual staff member handling scheduling, reminders, insurance verification, or pre-authorizations.</p>
-      <div class="card-foot">
-        <span class="cta">Book a Demo</span>
-        <p class="card-warn">Keep the visual clearly dental-specific without using graphic clinical imagery.</p>
+      <div class="card-top">
+        <div>
+          <p class="field-label">On-image headline</p>
+          <h3 class="card-headline">Dental Practice Owners</h3>
+          <p class="card-audience">Dental practice owners and dental practice managers</p>
+          <p class="field-label">Support</p>
+          <p class="card-support">Get help with scheduling, insurance, and patient follow-up.</p>
+        </div>
+        <button type="button" class="copy-btn card-copy" data-copy="ON-IMAGE HEADLINE: Dental Practice Owners
+SUPPORT: Get help with scheduling, insurance, and patient follow-up.
+
+PRIMARY TEXT:
+Dental practice owners: get help with scheduling, insurance, and patient follow-up.
+
+Hire full-time virtual dental staff through MedVirtual — part of your practice team.
+
+Book a demo →
+
+META HEADLINE: Dental Practice Owners
+DESCRIPTION: Virtual staff for dental scheduling and follow-up.
+CTA: Book a Demo">Copy Meta package</button>
       </div>
+      <p class="card-visual"><span>Visual</span>Professional dental office setting paired with a remote virtual staff member handling scheduling, reminders, insurance verification, or pre-authorizations.</p>
+      <div class="meta-block">
+        <p class="field-label">Primary text</p>
+        <div class="primary"><p class="primary-p">Dental practice owners: get help with scheduling, insurance, and patient follow-up.</p><p class="primary-p">Hire full-time virtual dental staff through MedVirtual — part of your practice team.</p><p class="primary-p">Book a demo →</p></div>
+        <div class="meta-row">
+          <div>
+            <p class="field-label">Meta headline</p>
+            <p class="meta-val">Dental Practice Owners</p>
+          </div>
+          <div>
+            <p class="field-label">Description</p>
+            <p class="meta-val">Virtual staff for dental scheduling and follow-up.</p>
+          </div>
+          <div>
+            <p class="field-label">CTA</p>
+            <span class="cta">Book a Demo</span>
+          </div>
+        </div>
+      </div>
+      <p class="card-warn">Keep the visual clearly dental-specific without using graphic clinical imagery.</p>
     </div>
   </article><article class="card">
     <div class="card-num">3</div>
     <div class="card-body">
-      <p class="field-label">Headline</p>
-      <h3 class="card-headline">Hire a Full-Time Virtual Medical Admin</h3>
-      
-      <p class="field-label">Support</p>
-      <p class="card-support">Hire trained virtual staff through MedVirtual.</p>
-      <p class="card-visual"><span>Visual</span>Professional virtual medical administrative staff member using a laptop and headset in a clean remote workspace. Subtle medical office context without patient information.</p>
-      <div class="card-foot">
-        <span class="cta">Book a Demo</span>
-        <p class="card-warn">Do not make the person look like a generic call-center agent or a job-seeker ad.</p>
+      <div class="card-top">
+        <div>
+          <p class="field-label">On-image headline</p>
+          <h3 class="card-headline">Hire a Full-Time Virtual Medical Admin</h3>
+          
+          <p class="field-label">Support</p>
+          <p class="card-support">Hire trained virtual staff through MedVirtual.</p>
+        </div>
+        <button type="button" class="copy-btn card-copy" data-copy="ON-IMAGE HEADLINE: Hire a Full-Time Virtual Medical Admin
+SUPPORT: Hire trained virtual staff through MedVirtual.
+
+PRIMARY TEXT:
+Hire a full-time virtual medical admin through MedVirtual.
+
+Trained virtual staff for calls, scheduling, intake, and admin support — part of your practice team.
+
+Book a demo →
+
+META HEADLINE: Hire a Virtual Medical Admin
+DESCRIPTION: Trained virtual staff for medical practices.
+CTA: Book a Demo">Copy Meta package</button>
       </div>
+      <p class="card-visual"><span>Visual</span>Professional virtual medical administrative staff member using a laptop and headset in a clean remote workspace. Subtle medical office context without patient information.</p>
+      <div class="meta-block">
+        <p class="field-label">Primary text</p>
+        <div class="primary"><p class="primary-p">Hire a full-time virtual medical admin through MedVirtual.</p><p class="primary-p">Trained virtual staff for calls, scheduling, intake, and admin support — part of your practice team.</p><p class="primary-p">Book a demo →</p></div>
+        <div class="meta-row">
+          <div>
+            <p class="field-label">Meta headline</p>
+            <p class="meta-val">Hire a Virtual Medical Admin</p>
+          </div>
+          <div>
+            <p class="field-label">Description</p>
+            <p class="meta-val">Trained virtual staff for medical practices.</p>
+          </div>
+          <div>
+            <p class="field-label">CTA</p>
+            <span class="cta">Book a Demo</span>
+          </div>
+        </div>
+      </div>
+      <p class="card-warn">Do not make the person look like a generic call-center agent or a job-seeker ad.</p>
     </div>
   </article><article class="card">
     <div class="card-num">4</div>
     <div class="card-body">
-      <p class="field-label">Headline</p>
-      <h3 class="card-headline">Too Many Calls. Not Enough Staff.</h3>
-      
-      <p class="field-label">Support</p>
-      <p class="card-support">Full-time virtual staff starting at $10/hour.</p>
-      <p class="card-visual"><span>Visual</span>Strong split-screen or before/after: overloaded office on one side, calm remote virtual staff member supporting the team on the other.</p>
-      <div class="card-foot">
-        <span class="cta">Book a Demo</span>
-        <p class="card-warn">Keep the message simple. Do not add a long list of tasks.</p>
+      <div class="card-top">
+        <div>
+          <p class="field-label">On-image headline</p>
+          <h3 class="card-headline">Too Many Calls. Not Enough Staff.</h3>
+          
+          <p class="field-label">Support</p>
+          <p class="card-support">Full-time virtual staff starting at $10/hour.</p>
+        </div>
+        <button type="button" class="copy-btn card-copy" data-copy="ON-IMAGE HEADLINE: Too Many Calls. Not Enough Staff.
+SUPPORT: Full-time virtual staff starting at $10/hour.
+
+PRIMARY TEXT:
+Too many calls. Not enough staff.
+
+Hire full-time virtual staff through MedVirtual — starting at $10/hour.
+
+Book a demo →
+
+META HEADLINE: Too Many Calls. Not Enough Staff.
+DESCRIPTION: Full-time virtual staff starting at $10/hour.
+CTA: Book a Demo">Copy Meta package</button>
       </div>
+      <p class="card-visual"><span>Visual</span>Strong split-screen or before/after: overloaded office on one side, calm remote virtual staff member supporting the team on the other.</p>
+      <div class="meta-block">
+        <p class="field-label">Primary text</p>
+        <div class="primary"><p class="primary-p">Too many calls. Not enough staff.</p><p class="primary-p">Hire full-time virtual staff through MedVirtual — starting at $10/hour.</p><p class="primary-p">Book a demo →</p></div>
+        <div class="meta-row">
+          <div>
+            <p class="field-label">Meta headline</p>
+            <p class="meta-val">Too Many Calls. Not Enough Staff.</p>
+          </div>
+          <div>
+            <p class="field-label">Description</p>
+            <p class="meta-val">Full-time virtual staff starting at $10/hour.</p>
+          </div>
+          <div>
+            <p class="field-label">CTA</p>
+            <span class="cta">Book a Demo</span>
+          </div>
+        </div>
+      </div>
+      <p class="card-warn">Keep the message simple. Do not add a long list of tasks.</p>
     </div>
   </article></div>
 
@@ -298,12 +437,12 @@
       </ul>
     </section>
 
-    <section class="panel" id="send">
-      <h2>Send to graphics</h2>
-      <p style="font-size:0.84rem;color:#64748b;margin-bottom:0.5rem">One link. Headlines labeled. Paste into Slack / Monday.</p>
-      <div class="send-box" id="send-copy">PROJECT: MedVirtual Meta Ads — First Creative Batch
+    <section class="panel send" id="send">
+      <h2>Send this</h2>
+      <p style="font-size:0.84rem;color:#64748b;margin-bottom:0.5rem">One link for Slack / Monday.</p>
+      <div class="send-box">PROJECT: MedVirtual Meta Ads — First Creative Batch
 
-Brief (source of truth):
+Brief (art + Meta copy):
 https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
 
 Produce exactly 4 static ads · 1080×1350 · CTA: Book a Demo · one design each · no variations yet
@@ -325,7 +464,7 @@ ON-IMAGE COPY
 Brand: MedVirtual only (never MedVirtual.ai). No patient info. Don’t make it look like a call center or like we run their front desk.</div>
       <button type="button" class="copy-btn" data-copy="PROJECT: MedVirtual Meta Ads — First Creative Batch
 
-Brief (source of truth):
+Brief (art + Meta copy):
 https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
 
 Produce exactly 4 static ads · 1080×1350 · CTA: Book a Demo · one design each · no variations yet
@@ -344,16 +483,17 @@ ON-IMAGE COPY
 4. Headline: Too Many Calls. Not Enough Staff.
    Support: Full-time virtual staff starting at $10/hour.
 
-Brand: MedVirtual only (never MedVirtual.ai). No patient info. Don’t make it look like a call center or like we run their front desk.">Copy handoff</button>
+Brand: MedVirtual only (never MedVirtual.ai). No patient info. Don’t make it look like a call center or like we run their front desk." data-label="Copy handoff">Copy handoff</button>
     </section>
   </div>
   <script>
     document.querySelectorAll('.copy-btn').forEach((btn) => {
+      const label = btn.getAttribute('data-label') || 'Copy Meta package';
       btn.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(btn.getAttribute('data-copy') || '');
           btn.textContent = 'Copied';
-          setTimeout(() => { btn.textContent = 'Copy handoff'; }, 1400);
+          setTimeout(() => { btn.textContent = label; }, 1400);
         } catch (e) {}
       });
     });

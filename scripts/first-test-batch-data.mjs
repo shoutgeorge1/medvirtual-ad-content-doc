@@ -515,7 +515,7 @@ export const BUCKET_COLORS = {
   before_after: '#ea580c',
 };
 
-/** Monday.com / Slack graphic request — one link, labeled on-image copy */
+/** Monday.com / Slack graphic request — one brief link */
 export function buildMondayFormCopy(baseUrl = 'https://medvirtual-ad-content-doc.vercel.app') {
   const concepts = PRODUCTION_CONCEPTS.map((c, i) => {
     return `${i + 1}. Headline: ${c.headline}
@@ -524,7 +524,7 @@ export function buildMondayFormCopy(baseUrl = 'https://medvirtual-ad-content-doc
 
   return `PROJECT: MedVirtual Meta Ads — First Creative Batch
 
-Brief (source of truth):
+Brief (art + Meta copy):
 ${baseUrl}/graphic-request-brief.html
 
 Produce exactly 4 static ads · 1080×1350 · CTA: Book a Demo · one design each · no variations yet
