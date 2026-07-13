@@ -1293,7 +1293,7 @@ function writeContactSheetHtml() {
   <title>Selected Creative Contact Sheet - MedVirtual Meta Launch</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.4; }
+    body { font-family: var(--mv-font); background: #f1f5f9; color: #0f172a; line-height: 1.4; }
     .wrap { max-width: 1200px; margin: 0 auto; padding: 1.25rem 1.15rem 2.5rem; }
     .hero { background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 1.1rem 1.2rem; margin-bottom: 1rem; }
     .hero h1 { font-size: 1.15rem; margin-bottom: 0.35rem; }
@@ -1302,7 +1302,7 @@ function writeContactSheetHtml() {
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
     .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
     .card-meta { padding: 0.85rem 0.9rem 0.5rem; }
-    .pill { display: inline-block; font-size: 0.68rem; font-weight: 700; background: #0d9488; color: #fff; padding: 0.2rem 0.45rem; border-radius: 4px; margin-bottom: 0.35rem; }
+    .pill { display: inline-block; font-size: 0.68rem; font-weight: 700; background: var(--mv-primary); color: #fff; padding: 0.2rem 0.45rem; border-radius: 4px; margin-bottom: 0.35rem; }
     .card h2 { font-size: 0.98rem; }
     .ad-name { font-size: 0.72rem; color: #64748b; margin-top: 0.2rem; }
     .frame { background: #e2e8f0; aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; }
@@ -1311,7 +1311,7 @@ function writeContactSheetHtml() {
     .copy dt { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.04em; color: #64748b; font-weight: 700; }
     .copy dd { color: #0f172a; }
     .warn dd { color: #9a3412; }
-    a.back { display: inline-block; margin-bottom: 0.75rem; font-size: 0.82rem; color: #0d9488; font-weight: 600; }
+    a.back { display: inline-block; margin-bottom: 0.75rem; font-size: 0.82rem; color: var(--mv-primary); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -1365,10 +1365,10 @@ function writeLaunchPackHtml() {
   const css = `
   ${HEADER_CSS}
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  body { font-family: var(--mv-font); background: #f1f5f9; color: #0f172a; line-height: 1.45; }
   .wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; }
   .banner {
-    background: #0d9488; color: #fff; border-radius: 10px; padding: 0.7rem 1rem;
+    background: var(--mv-primary); color: #fff; border-radius: 10px; padding: 0.7rem 1rem;
     font-size: 0.86rem; font-weight: 700; text-align: center; margin-bottom: 0.75rem;
   }
   .status {
@@ -1381,16 +1381,16 @@ function writeLaunchPackHtml() {
   .hero h2 { font-size: 1.15rem; margin-bottom: 0.35rem; }
   .hero p { font-size: 0.84rem; color: #94a3b8; }
   .build-mode {
-    background: #fff; border: 2px solid #0d9488; border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 1rem;
+    background: #fff; border: 2px solid var(--mv-primary); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 1rem;
   }
   .build-mode h2 { font-size: 1.05rem; margin-bottom: 0.35rem; color: #0f172a; }
   .build-mode > p { font-size: 0.8rem; color: #64748b; margin-bottom: 0.75rem; }
   .build-mode ol { list-style: none; display: grid; gap: 0.4rem; }
   .build-mode li {
-    background: #f0fdfa; border: 1px solid #99f6e4; border-left: 4px solid #0d9488;
+    background: #f0fdfa; border: 1px solid #99f6e4; border-left: 4px solid var(--mv-primary);
     border-radius: 8px; padding: 0.55rem 0.75rem; font-size: 0.82rem;
   }
-  .build-mode strong { color: #0f766e; }
+  .build-mode strong { color: var(--mv-primary); }
   .upload-now {
     background: #0f172a; color: #f8fafc; border: 3px solid #f97316; border-radius: 14px;
     padding: 1.1rem 1.2rem; margin-bottom: 1rem;
@@ -1428,7 +1428,7 @@ function writeLaunchPackHtml() {
   }
   .ad-card__head { padding: 0.75rem 0.95rem; border-bottom: 1px solid #e2e8f0; background: #f8fafc; }
   .ad-card__head h3 { font-size: 0.98rem; margin-top: 0.25rem; }
-  .pill { display: inline-block; font-size: 0.68rem; font-weight: 700; background: #0d9488; color: #fff; padding: 0.18rem 0.45rem; border-radius: 4px; margin-right: 0.25rem; }
+  .pill { display: inline-block; font-size: 0.68rem; font-weight: 700; background: var(--mv-primary); color: #fff; padding: 0.18rem 0.45rem; border-radius: 4px; margin-right: 0.25rem; }
   .pill-warn { background: #ea580c; }
   .ad-card__body { display: grid; grid-template-columns: 180px 1fr; gap: 0.85rem; padding: 0.85rem; }
   @media (max-width: 700px) { .ad-card__body { grid-template-columns: 1fr; } }
@@ -1438,17 +1438,17 @@ function writeLaunchPackHtml() {
   .fields dt { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.04em; color: #64748b; font-weight: 700; }
   .fields dd { margin-top: 0.1rem; }
   .fields .warn dd { color: #9a3412; }
-  .badge { display: inline-block; background: #ccfbf1; color: #0f766e; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 4px; font-size: 0.75rem; }
+  .badge { display: inline-block; background: #ccfbf1; color: var(--mv-primary); font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 4px; font-size: 0.75rem; }
   .checklist, .steps, .waiting { list-style: none; display: grid; gap: 0.35rem; font-size: 0.82rem; }
   .checklist li, .waiting li { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.5rem 0.7rem; }
-  .steps li { background: #fff; border: 1px solid #e2e8f0; border-left: 3px solid #0d9488; border-radius: 8px; padding: 0.55rem 0.75rem; }
-  .steps strong { display: block; font-size: 0.78rem; color: #0d9488; margin-bottom: 0.15rem; }
+  .steps li { background: #fff; border: 1px solid #e2e8f0; border-left: 3px solid var(--mv-primary); border-radius: 8px; padding: 0.55rem 0.75rem; }
+  .steps strong { display: block; font-size: 0.78rem; color: var(--mv-primary); margin-bottom: 0.15rem; }
   .exports { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.5rem 0 1rem; }
   .exports a {
     display: inline-block; background: #0f172a; color: #fff; text-decoration: none; font-size: 0.75rem;
     font-weight: 600; padding: 0.4rem 0.65rem; border-radius: 6px;
   }
-  .exports a.secondary { background: #0d9488; }
+  .exports a.secondary { background: var(--mv-primary); }
   .exports a.warn { background: #ea580c; }
   .note { font-size: 0.78rem; color: #64748b; margin-top: 0.35rem; }
   .tracking { background: #eff6ff; border: 1px solid #bfdbfe; border-left: 4px solid #2563eb; border-radius: 8px; padding: 0.75rem 0.9rem; margin: 0.85rem 0; font-size: 0.8rem; }

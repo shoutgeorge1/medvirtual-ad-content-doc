@@ -93,7 +93,7 @@ function renderConceptCard(c, index) {
 const CSS = `
   ${HEADER_CSS}
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  body { font-family: var(--mv-font); background: #f1f5f9; color: #0f172a; line-height: 1.45; }
   .wrap { max-width: 720px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; }
   .banner {
     background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 0.95rem 1.1rem; margin-bottom: 0.85rem;
@@ -111,7 +111,7 @@ const CSS = `
     background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1rem;
   }
   .card-num {
-    width: 2.1rem; height: 2.1rem; border-radius: 8px; background: #0d9488; color: #fff;
+    width: 2.1rem; height: 2.1rem; border-radius: 8px; background: var(--mv-primary); color: #fff;
     font-weight: 800; font-size: 0.95rem; display: grid; place-items: center;
   }
   .card-top {
@@ -119,11 +119,11 @@ const CSS = `
   }
   .field-label {
     font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-    color: #0d9488; margin-top: 0.45rem; margin-bottom: 0.12rem;
+    color: var(--mv-primary); margin-top: 0.45rem; margin-bottom: 0.12rem;
   }
   .card-top .field-label:first-child { margin-top: 0; }
   .card-headline { font-size: 1.15rem; font-weight: 800; color: #0f172a; line-height: 1.25; }
-  .card-audience { margin-top: 0.3rem; font-size: 0.78rem; font-weight: 700; color: #0f766e; }
+  .card-audience { margin-top: 0.3rem; font-size: 0.78rem; font-weight: 700; color: var(--mv-primary); }
   .card-support { font-size: 0.95rem; color: #334155; font-weight: 600; }
   .card-visual {
     margin-top: 0.55rem; font-size: 0.86rem; color: #475569; line-height: 1.4;
@@ -143,7 +143,7 @@ const CSS = `
   @media (max-width: 640px) { .meta-row { grid-template-columns: 1fr; } }
   .meta-val { font-size: 0.88rem; color: #0f172a; font-weight: 650; }
   .cta {
-    display: inline-block; background: #0d9488; color: #fff; font-size: 0.75rem; font-weight: 800;
+    display: inline-block; background: var(--mv-primary); color: #fff; font-size: 0.75rem; font-weight: 800;
     padding: 0.28rem 0.6rem; border-radius: 6px;
   }
   .card-warn {
@@ -167,10 +167,10 @@ const CSS = `
     font-family: ui-monospace, monospace; font-size: 0.72rem; white-space: pre-wrap; line-height: 1.45;
   }
   .copy-btn {
-    font-size: 0.74rem; font-weight: 700; color: #fff; background: #0d9488;
+    font-size: 0.74rem; font-weight: 700; color: #fff; background: var(--mv-primary);
     border: 0; border-radius: 7px; padding: 0.4rem 0.7rem; cursor: pointer; white-space: nowrap;
   }
-  .copy-btn:hover { background: #0f766e; }
+  .copy-btn:hover { background: var(--mv-primary); }
   .card-copy { margin-top: 0; }
   .send .copy-btn { margin-top: 0.5rem; }
 `;

@@ -761,7 +761,7 @@ async function buildTests() {
 const CSS = `
   ${HEADER_CSS}
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #0b1220; color: #e2e8f0; }
+  body { font-family: var(--mv-font); background: #0b1220; color: #e2e8f0; }
   .stats { display: flex; flex-wrap: wrap; gap: 1.25rem; padding: 1rem 2rem; background: #111827; border-bottom: 1px solid #1f2937; }
   .stat strong { display: block; font-size: 1.2rem; color: #f1f5f9; }
   .stat { font-size: 0.78rem; color: #94a3b8; }
@@ -915,7 +915,7 @@ const CSS = `
     text-wrap: balance;
   }
   .mock .hook .accent {
-    color: #0d9488;
+    color: var(--mv-primary);
   }
   .mock .support {
     font-weight: 650; color: #0f172a; line-height: 1.3;
@@ -928,13 +928,13 @@ const CSS = `
   }
   .mock .bullets { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35em; margin-top: 0.15em; }
   .mock .bullets li {
-    font-weight: 700; color: #0f766e; background: rgba(255,255,255,0.92);
+    font-weight: 700; color: var(--mv-primary); background: rgba(255,255,255,0.92);
     padding: 0.28em 0.65em; border-radius: 999px; border: 1px solid rgba(13,148,136,0.35);
     font-size: inherit;
   }
   /* CTA — brand teal/green only. Shape varies; color stays in palette. */
   .mock .cta {
-    display: inline-block; background: #0d9488; color: #fff; font-weight: 800;
+    display: inline-block; background: var(--mv-primary); color: #fff; font-weight: 800;
     padding: 0.55em 1.15em; border-radius: 999px; letter-spacing: -0.01em;
     box-shadow: 0 3px 10px rgba(13,148,136,0.28);
     border: none; text-transform: none;
@@ -944,10 +944,10 @@ const CSS = `
   .cta-shape-soft .cta { border-radius: 6px; padding: 0.5em 1.05em; }
   .cta-shape-square .cta { border-radius: 2px; letter-spacing: 0.02em; text-transform: uppercase; font-size: 0.92em; }
   .cta-shape-outline .cta {
-    background: rgba(255,255,255,0.92); color: #0f766e;
-    border: 2px solid #0d9488; box-shadow: none; border-radius: 999px;
+    background: rgba(255,255,255,0.92); color: var(--mv-primary);
+    border: 2px solid var(--mv-primary); box-shadow: none; border-radius: 999px;
   }
-  .cta-shape-deep .cta { background: #0f766e; border-radius: 999px; }
+  .cta-shape-deep .cta { background: var(--mv-primary); border-radius: 999px; }
   .style-no-cta .cta { display: none; }
   .phase-tag { position: absolute; top: 10%; right: 3%; z-index: 6; background: #9a3412; color: #ffedd5;
     font-size: 10px; font-weight: 800; padding: 0.25em 0.55em; border-radius: 4px; letter-spacing: 0.04em; }
@@ -1019,7 +1019,7 @@ const CSS = `
     font-size: 0.72em; font-weight: 900; letter-spacing: 0.1em;
     text-transform: uppercase; opacity: 0.95;
   }
-  .style-stamp-10 .rate-stamp { background: #0d9488; color: #fff; }
+  .style-stamp-10 .rate-stamp { background: var(--mv-primary); color: #fff; }
   .tpl-left .rate-stamp { bottom: 11%; left: 3%; }
   .tpl-right .rate-stamp { bottom: 11%; right: 3%; }
   .tpl-center .rate-stamp, .tpl-explainer .rate-stamp { bottom: 11%; right: 4%; }
@@ -1292,19 +1292,19 @@ async function main() {
   .prod-card__preview .mock { width: 100%; }
   .prod-card__meta { display: grid; grid-template-columns: 2.1rem 1fr; gap: 0.55rem; align-content: start; padding: 0.25rem 0.15rem; }
   .prod-num {
-    width: 2.1rem; height: 2.1rem; border-radius: 8px; background: #0d9488; color: #fff;
+    width: 2.1rem; height: 2.1rem; border-radius: 8px; background: var(--mv-primary); color: #fff;
     font-weight: 800; display: grid; place-items: center;
   }
   .field-label {
     font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-    color: #0d9488; margin-top: 0.45rem; margin-bottom: 0.1rem;
+    color: var(--mv-primary); margin-top: 0.45rem; margin-bottom: 0.1rem;
   }
   .prod-fields .field-label:first-child { margin-top: 0; }
   .field-headline { font-size: 1.1rem; font-weight: 800; color: #0f172a; line-height: 1.25; }
   .field-val { font-size: 0.88rem; color: #334155; font-weight: 600; }
   .field-val.muted { font-weight: 500; color: #64748b; }
   .cta-pill {
-    display: inline-block; margin-top: 0.65rem; background: #0d9488; color: #fff;
+    display: inline-block; margin-top: 0.65rem; background: var(--mv-primary); color: #fff;
     font-size: 0.75rem; font-weight: 800; padding: 0.28rem 0.6rem; border-radius: 6px;
   }
   .note {

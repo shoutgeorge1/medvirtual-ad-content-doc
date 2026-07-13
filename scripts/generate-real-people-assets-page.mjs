@@ -1,10 +1,12 @@
 /**
- * Real People Assets — download library for graphics / video / AI reference.
+ * Real People Assets — designer-ready production brief + downloads.
+ * Concept Treatment C mocks are labeled as drafts, not approved finals.
  */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
+import { BRAND } from './medvirtual-brand-data.mjs';
 import {
   SYNTHETIC_VIDEO_HANDOFF,
   SYNTHETIC_VIDEO_RECOMMENDED,
@@ -65,6 +67,14 @@ const THUMB_LABELS = {
   aiReference: 'AI ref',
 };
 
+const DESIGNER_NOTES = {
+  chelsea:
+    'Keep scheduling pain specific. Logo: official SVG. Do not invent dental clinical claims.',
+  mark: 'Lead with verification workload. Candidate interview framing. No reimbursement guarantees.',
+  jessica: 'Admin overload / calls — dedicated staff joining the practice team. Not a call center.',
+  angelica: 'Front-desk pressure without “we run your front desk.” Offer a real person to interview.',
+};
+
 function renderPerson(t, catPerson) {
   const slug = t.assetSlug || t.id;
   const files = catPerson?.files || {};
@@ -121,6 +131,48 @@ function renderPrimaryParagraphs(text) {
     .join('');
 }
 
+/** Streamlined production cards — first thing designers see */
+function renderProductionBatch(cat) {
+  return `<div class="prod-grid">${MONDAY_REAL_PEOPLE_BATCH.map((row) => {
+    const pkg = META_AD_PACKAGES.find((x) => x.talentId === row.talentId);
+    const t = talentById(row.talentId);
+    const slug = t.assetSlug || t.id;
+    const person = (cat.people || []).find((p) => p.slug === slug || p.id === t.id);
+    const raw = person?.files?.cleanMaster?.path || person?.files?.original?.path || t.imagePath;
+    const ad45 = `/assets/real-people/${slug}/ad-treatment-c-4x5.png`;
+    return `<article class="prod-card" id="prod-${esc(slug)}">
+      <div class="prod-card__photo">
+        <button type="button" class="preview-hit" data-preview="${esc(raw)}" aria-label="Preview ${esc(t.firstName)} source">
+          <img src="${esc(raw)}" alt="${esc(t.firstName)} source photo" width="280" height="350" loading="lazy" />
+        </button>
+        <p class="draft-label">Draft layout ref only — not approved final art</p>
+        <button type="button" class="preview-hit draft-thumb" data-preview="${esc(ad45)}" aria-label="Preview draft ${esc(t.firstName)}">
+          <img src="${esc(ad45)}" alt="" width="120" height="150" loading="lazy" />
+        </button>
+      </div>
+      <div class="prod-card__body">
+        <h3>${esc(t.firstName)}</h3>
+        <dl class="prod-facts">
+          <div><dt>Role</dt><dd>${esc(t.title)}</dd></div>
+          <div><dt>Pain</dt><dd>${esc(pkg.creativeAngle || row.angle)}</dd></div>
+          <div><dt>On-image copy</dt><dd class="hook">${esc(pkg.onImageHook)}</dd></div>
+          <div><dt>Support line</dt><dd>${esc(pkg.supportingLine)}</dd></div>
+          <div><dt>Headline</dt><dd>${esc(pkg.headline)}</dd></div>
+          <div><dt>CTA</dt><dd>${esc(pkg.cta)}</dd></div>
+          <div><dt>Ratios</dt><dd>4:5 primary · 1:1 · 9:16</dd></div>
+        </dl>
+        <p class="designer-note"><strong>Designer notes:</strong> ${esc(DESIGNER_NOTES[t.id] || 'Use official MedVirtual logo SVG. Part-of-practice framing.')}</p>
+        <div class="dl-row compact">
+          <a class="dl primary" href="${esc(raw)}" download>Source photo</a>
+          <a class="dl" href="${esc(BRAND.assets.logoColoredSvg)}" download>Logo SVG</a>
+          <a class="dl" href="${esc(BRAND.assets.logoWhiteSvg)}" download>Logo white SVG</a>
+          <a class="dl" href="/medvirtual-brand-guide.html">Brand Guide</a>
+        </div>
+      </div>
+    </article>`;
+  }).join('')}</div>`;
+}
+
 function renderExamples(cat) {
   return `<div class="example-grid">${MONDAY_REAL_PEOPLE_BATCH.map((row) => {
     const pkg = META_AD_PACKAGES.find((x) => x.talentId === row.talentId);
@@ -135,12 +187,12 @@ function renderExamples(cat) {
     return `<article class="example-card">
       <div class="example-card__arts">
         <button type="button" class="preview-hit art-45" data-preview="${esc(ad45)}" aria-label="Preview ${esc(t.firstName)} 4:5">
-          <img src="${esc(ad45)}" alt="${esc(t.firstName)} 4:5 example" width="432" height="540" loading="lazy" />
-          <span>4:5</span>
+          <img src="${esc(ad45)}" alt="${esc(t.firstName)} 4:5 draft" width="432" height="540" loading="lazy" />
+          <span>4:5 draft</span>
         </button>
         <button type="button" class="preview-hit art-11" data-preview="${esc(ad11)}" aria-label="Preview ${esc(t.firstName)} 1:1">
-          <img src="${esc(ad11)}" alt="${esc(t.firstName)} 1:1 example" width="320" height="320" loading="lazy" />
-          <span>1:1</span>
+          <img src="${esc(ad11)}" alt="${esc(t.firstName)} 1:1 draft" width="320" height="320" loading="lazy" />
+          <span>1:1 draft</span>
         </button>
       </div>
       <div class="example-card__meta">
@@ -243,32 +295,85 @@ function renderVideoFormats() {
 const CSS = `
   ${HEADER_CSS}
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  body { font-family: var(--mv-font); background: var(--mv-neutral-blue); color: var(--mv-ink); line-height: 1.45; }
   .wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.15rem 3rem; }
-  .hero { background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 1.1rem 1.2rem; margin-bottom: 0.75rem; }
-  .hero h2 { font-size: 1.15rem; margin-bottom: 0.35rem; }
-  .hero p { color: #cbd5e1; font-size: 0.88rem; max-width: 68ch; }
-  .top-actions { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.75rem 0; }
+  .hero {
+    background: var(--mv-gradient-deep); color: #f8fafc; border-radius: 12px;
+    padding: 1.1rem 1.2rem; margin-bottom: 0.75rem;
+  }
+  .hero h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .hero p { color: #d7eaf2; font-size: 0.88rem; max-width: 68ch; font-weight: 400; }
+  .top-actions { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.75rem 0 0; }
   .dl, .copy-btn {
     display: inline-block; font-size: 0.74rem; font-weight: 700; padding: 0.4rem 0.65rem; border-radius: 7px;
-    text-decoration: none; border: 1px solid #99f6e4; background: #f0fdfa; color: #0f766e; cursor: pointer;
+    text-decoration: none; border: 1px solid #7dd3e8; background: #e8f8fc; color: var(--mv-primary); cursor: pointer;
   }
-  .dl:hover, .copy-btn:hover { background: #ccfbf1; }
-  .dl.primary, .copy-btn.primary-copy { background: #0d9488; color: #fff; border-color: #0d9488; }
-  .dl.primary:hover, .copy-btn.primary-copy:hover { background: #0f766e; }
+  .dl:hover, .copy-btn:hover { background: #d0f0f8; }
+  .dl.primary, .copy-btn.primary-copy {
+    background: var(--mv-primary); color: #fff; border-color: var(--mv-primary);
+  }
+  .dl.primary:hover, .copy-btn.primary-copy:hover { background: var(--mv-deep-teal); }
   .dl.disabled { opacity: 0.45; pointer-events: none; }
-  .section { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.95rem 1.05rem; margin-bottom: 0.7rem; }
-  .section > h2 { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #0f172a; margin-bottom: 0.35rem; }
-  .section > .lede { font-size: 0.88rem; color: #475569; margin-bottom: 0.85rem; max-width: 72ch; }
+  .section {
+    background: #fff; border: 1px solid #d7e3f0; border-radius: 10px;
+    padding: 0.95rem 1.05rem; margin-bottom: 0.7rem;
+  }
+  .section > h2 {
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--mv-deep-teal); margin-bottom: 0.35rem;
+  }
+  .section > .lede { font-size: 0.88rem; color: #3d4f5f; margin-bottom: 0.85rem; max-width: 72ch; font-weight: 400; }
+  .draft-banner {
+    background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px;
+    padding: 0.55rem 0.75rem; font-size: 0.82rem; color: #92400e; margin-bottom: 0.85rem;
+  }
+
+  .prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  @media (max-width: 860px) { .prod-grid { grid-template-columns: 1fr; } }
+  .prod-card {
+    display: grid; grid-template-columns: 140px 1fr; gap: 0.75rem;
+    border: 1px solid #d7e3f0; border-radius: 12px; padding: 0.75rem; background: #fafcff;
+  }
+  @media (max-width: 560px) { .prod-card { grid-template-columns: 1fr; } }
+  .prod-card__photo .preview-hit img {
+    width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 8px; display: block;
+    border: 1px solid #d7e3f0;
+  }
+  .draft-label {
+    font-size: 0.62rem; font-weight: 700; color: #92400e; margin: 0.35rem 0 0.25rem; text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .draft-thumb img {
+    width: 72px; height: auto; border-radius: 4px; border: 1px solid #e2e8f0; opacity: 0.85;
+  }
+  .prod-card__body h3 { font-size: 1.1rem; font-weight: 700; color: var(--mv-deep-teal); }
+  .prod-facts { display: grid; gap: 0.35rem; margin: 0.45rem 0; }
+  .prod-facts dt { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; color: #8090a0; }
+  .prod-facts dd { font-size: 0.84rem; color: var(--mv-ink); font-weight: 500; }
+  .prod-facts dd.hook { font-weight: 700; color: var(--mv-primary); }
+  .designer-note {
+    font-size: 0.8rem; color: #3d4f5f; background: var(--mv-neutral-warm); border-radius: 6px;
+    padding: 0.45rem 0.55rem; margin-bottom: 0.5rem;
+  }
+
+  details.secondary {
+    background: #fff; border: 1px solid #d7e3f0; border-radius: 10px; margin-bottom: 0.7rem;
+  }
+  details.secondary > summary {
+    cursor: pointer; list-style: none; padding: 0.85rem 1.05rem; font-size: 0.85rem;
+    font-weight: 700; color: var(--mv-deep-teal); user-select: none;
+  }
+  details.secondary > summary::-webkit-details-marker { display: none; }
+  details.secondary > summary::after { content: ' ▸'; color: var(--mv-cyan); }
+  details.secondary[open] > summary::after { content: ' ▾'; }
+  details.secondary .details-body { padding: 0 1.05rem 1.05rem; }
 
   .example-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
   .example-card {
-    border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.85rem; background: #f8fafc;
+    border: 1px solid #d7e3f0; border-radius: 12px; padding: 0.85rem; background: #fafcff;
     display: grid; grid-template-columns: minmax(220px, 320px) 1fr; gap: 0.95rem; align-items: start;
   }
-  @media (max-width: 860px) {
-    .example-card { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 860px) { .example-card { grid-template-columns: 1fr; } }
   .example-card__arts {
     display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 0.45rem; align-items: end;
   }
@@ -276,119 +381,117 @@ const CSS = `
     padding: 0; border: 0; background: transparent; cursor: zoom-in; display: block; text-align: left;
   }
   .example-card__arts .preview-hit {
-    position: relative; border-radius: 8px; overflow: hidden; background: #0f172a; border: 1px solid #e2e8f0;
+    position: relative; border-radius: 8px; overflow: hidden; background: var(--mv-deep-teal); border: 1px solid #d7e3f0;
   }
-  .example-card__arts .preview-hit img {
-    width: 100%; height: auto; display: block; vertical-align: top;
-  }
+  .example-card__arts .preview-hit img { width: 100%; height: auto; display: block; }
   .art-45 { aspect-ratio: 4 / 5; }
   .art-11 { aspect-ratio: 1 / 1; }
   .art-45 img, .art-11 img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   .example-card__arts .preview-hit span {
     position: absolute; left: 0.35rem; bottom: 0.35rem; font-size: 0.62rem; font-weight: 800;
-    color: #fff; background: rgba(15,23,42,0.72); padding: 0.12rem 0.35rem; border-radius: 4px;
+    color: #fff; background: rgba(13,84,107,0.8); padding: 0.12rem 0.35rem; border-radius: 4px;
   }
-  .example-card__who h3 { font-size: 1.15rem; font-weight: 800; color: #0f172a; }
+  .example-card__who h3 { font-size: 1.15rem; font-weight: 700; color: var(--mv-ink); }
   .example-card__meta .role { font-size: 0.9rem; color: #334155; font-weight: 650; margin: 0.15rem 0 0.25rem; }
   .example-card__meta .angle {
-    display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.02em;
-    color: #0f766e; background: #ccfbf1; border: 1px solid #99f6e4; border-radius: 999px;
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    color: var(--mv-primary); background: #e8f8fc; border: 1px solid #7dd3e8; border-radius: 999px;
     padding: 0.18rem 0.55rem; margin-bottom: 0.55rem;
   }
   .example-card__meta .hook {
-    font-size: 1.02rem; font-weight: 800; color: #0f172a; line-height: 1.3;
+    font-size: 1.02rem; font-weight: 700; color: var(--mv-ink); line-height: 1.3;
     margin: 0.15rem 0 0.35rem; max-width: 36ch;
   }
-  .support-line { font-size: 0.8rem; color: #64748b; font-weight: 600; margin-bottom: 0.65rem; }
+  .support-line { font-size: 0.8rem; color: #5a6b78; font-weight: 600; margin-bottom: 0.65rem; }
   .copy-panel {
-    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.7rem 0.8rem; margin-bottom: 0.65rem;
+    background: #fff; border: 1px solid #d7e3f0; border-radius: 10px; padding: 0.7rem 0.8rem; margin-bottom: 0.65rem;
   }
   .copy-label {
-    display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
-    letter-spacing: 0.04em; color: #0d9488; margin-bottom: 0.25rem;
+    display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.04em; color: var(--mv-primary); margin-bottom: 0.25rem;
   }
   .copy-block + .copy-block { margin-top: 0.55rem; }
-  .copy-primary__p { font-size: 0.88rem; color: #1e293b; margin: 0 0 0.45rem; max-width: 62ch; }
+  .copy-primary__p { font-size: 0.88rem; color: #1e293b; margin: 0 0 0.45rem; max-width: 62ch; font-weight: 400; }
   .copy-primary__p:last-child { margin-bottom: 0; }
   .copy-meta-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 0.75rem; margin-top: 0.7rem;
-    padding-top: 0.65rem; border-top: 1px solid #e2e8f0;
+    padding-top: 0.65rem; border-top: 1px solid #d7e3f0;
   }
   @media (max-width: 640px) { .copy-meta-grid { grid-template-columns: 1fr; } }
-  .copy-val { font-size: 0.86rem; color: #0f172a; font-weight: 650; }
-  .copy-val.alt-hook { font-weight: 750; color: #134e4a; }
+  .copy-val { font-size: 0.86rem; color: var(--mv-ink); font-weight: 650; }
+  .copy-val.alt-hook { font-weight: 700; color: var(--mv-deep-teal); }
   .dl-row.compact { gap: 0.35rem; }
 
   .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
   @media (max-width: 800px) { .video-grid { grid-template-columns: 1fr; } }
   .video-card {
-    border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.8rem 0.85rem; background: #f8fafc;
+    border: 1px solid #d7e3f0; border-radius: 12px; padding: 0.8rem 0.85rem; background: #fafcff;
   }
-  .video-card__head h3 { font-size: 1rem; font-weight: 800; color: #0f172a; }
+  .video-card__head h3 { font-size: 1rem; font-weight: 700; color: var(--mv-ink); }
   .video-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.35rem 0 0.45rem; }
   .video-meta span {
-    font-size: 0.68rem; font-weight: 750; color: #334155; background: #e2e8f0;
+    font-size: 0.68rem; font-weight: 700; color: #334155; background: #e2e8f0;
     border-radius: 999px; padding: 0.15rem 0.5rem;
   }
   .video-hook {
-    font-size: 0.92rem; font-weight: 800; color: #0f172a; line-height: 1.3; margin-bottom: 0.65rem;
+    font-size: 0.92rem; font-weight: 700; color: var(--mv-ink); line-height: 1.3; margin-bottom: 0.65rem;
   }
   .storyboard { list-style: none; display: grid; gap: 0.45rem; margin-bottom: 0.7rem; }
   .story-beat {
     display: grid; grid-template-columns: 4.4rem 1fr; gap: 0.5rem; align-items: start;
-    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.45rem 0.5rem;
+    background: #fff; border: 1px solid #d7e3f0; border-radius: 8px; padding: 0.45rem 0.5rem;
   }
   .story-beat__time {
-    font-size: 0.68rem; font-weight: 800; color: #0f766e; background: #ccfbf1;
+    font-size: 0.68rem; font-weight: 700; color: var(--mv-primary); background: #e8f8fc;
     border-radius: 6px; padding: 0.25rem 0.35rem; text-align: center; line-height: 1.2;
   }
-  .story-beat__body strong { display: block; font-size: 0.76rem; color: #0f172a; margin-bottom: 0.12rem; }
-  .story-beat__body p { font-size: 0.8rem; color: #334155; }
-  .story-ost { margin-top: 0.25rem !important; color: #0f172a !important; font-weight: 650; }
+  .story-beat__body strong { display: block; font-size: 0.76rem; color: var(--mv-ink); margin-bottom: 0.12rem; }
+  .story-beat__body p { font-size: 0.8rem; color: #334155; font-weight: 400; }
+  .story-ost { margin-top: 0.25rem !important; color: var(--mv-ink) !important; font-weight: 650; }
   .story-ost span {
-    display: inline-block; font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
-    letter-spacing: 0.03em; color: #0d9488; margin-right: 0.25rem;
+    display: inline-block; font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.03em; color: var(--mv-primary); margin-right: 0.25rem;
   }
   .video-block { margin-top: 0.55rem; }
-  .video-block p, .video-block li { font-size: 0.82rem; color: #1e293b; }
+  .video-block p, .video-block li { font-size: 0.82rem; color: #1e293b; font-weight: 400; }
   .video-block ul { padding-left: 1.05rem; }
   .video-block li { margin: 0.15rem 0; }
   .final-frame {
-    background: #0f172a; color: #f8fafc; border-radius: 8px; padding: 0.55rem 0.65rem;
+    background: var(--mv-deep-teal); color: #f8fafc; border-radius: 8px; padding: 0.55rem 0.65rem;
   }
-  .final-frame .copy-label { color: #5eead4; }
-  .final-frame p { color: #f8fafc; font-weight: 750; font-size: 0.9rem; line-height: 1.35; }
+  .final-frame .copy-label { color: var(--mv-bright-accent); }
+  .final-frame p { color: #f8fafc; font-weight: 700; font-size: 0.9rem; line-height: 1.35; }
 
   .format-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 0.85rem; }
   @media (max-width: 800px) { .format-grid { grid-template-columns: 1fr; } }
   .format-card {
-    border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.75rem 0.8rem; background: #fff;
+    border: 1px solid #d7e3f0; border-radius: 10px; padding: 0.75rem 0.8rem; background: #fff;
   }
   .format-card--rec {
-    border-color: #14b8a6; box-shadow: 0 0 0 2px rgba(13,148,136,0.12); background: #f0fdfa;
+    border-color: var(--mv-cyan); box-shadow: 0 0 0 2px rgba(0,178,226,0.12); background: #f0fbfd;
   }
   .format-rec {
-    font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-    color: #0f766e; margin-bottom: 0.35rem;
+    font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--mv-primary); margin-bottom: 0.35rem;
   }
-  .format-card h3 { font-size: 0.92rem; font-weight: 800; color: #0f172a; margin-bottom: 0.2rem; }
-  .format-badge { font-size: 0.78rem; color: #0d9488; font-weight: 700; margin-bottom: 0.45rem; }
+  .format-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--mv-ink); margin-bottom: 0.2rem; }
+  .format-badge { font-size: 0.78rem; color: var(--mv-primary); font-weight: 700; margin-bottom: 0.45rem; }
   .format-card ul { padding-left: 1.05rem; }
-  .format-card li { font-size: 0.8rem; color: #334155; margin: 0.18rem 0; }
+  .format-card li { font-size: 0.8rem; color: #334155; margin: 0.18rem 0; font-weight: 400; }
 
-  .asset-card { display: grid; grid-template-columns: 180px 1fr; gap: 0.85rem; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #fff; margin-bottom: 0.75rem; }
+  .asset-card { display: grid; grid-template-columns: 180px 1fr; gap: 0.85rem; border: 1px solid #d7e3f0; border-radius: 12px; overflow: hidden; background: #fff; margin-bottom: 0.75rem; }
   @media (max-width: 720px) { .asset-card { grid-template-columns: 1fr; } }
-  .asset-card__media { background: #0f172a; }
+  .asset-card__media { background: var(--mv-deep-teal); }
   .media-hit { width: 100%; }
   .media-hit img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
   .asset-card__body { padding: 0.75rem 0.85rem 0.9rem; }
   .muted { font-size: 0.75rem; color: #64748b; font-weight: 600; }
   .role { font-size: 0.9rem; font-weight: 700; margin: 0.15rem 0; }
   .meta { font-size: 0.76rem; color: #64748b; margin-bottom: 0.45rem; }
-  .meta a { color: #0d9488; font-weight: 700; text-decoration: none; }
+  .meta a { color: var(--mv-primary); font-weight: 700; text-decoration: none; }
   .facts { display: grid; gap: 0.25rem; margin-bottom: 0.5rem; }
-  .facts dt { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; color: #94a3b8; }
-  .facts dd { font-size: 0.8rem; color: #334155; }
+  .facts dt { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; color: #94a3b8; }
+  .facts dd { font-size: 0.8rem; color: #334155; font-weight: 400; }
   .limit { font-size: 0.76rem; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 0.35rem 0.5rem; margin-bottom: 0.4rem; }
   .status-row { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.4rem 0; }
   .status { font-size: 0.65rem; font-weight: 750; padding: 0.18rem 0.4rem; border-radius: 5px; }
@@ -412,7 +515,7 @@ const CSS = `
   }
   .thumb-frame {
     display: block; aspect-ratio: 1 / 1; border-radius: 8px; overflow: hidden;
-    border: 1px solid #e2e8f0; background: #0f172a;
+    border: 1px solid #d7e3f0; background: var(--mv-deep-teal);
   }
   .thumb-frame img {
     width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;
@@ -421,22 +524,22 @@ const CSS = `
   .preview-hint { font-size: 0.72rem; color: #64748b; margin-top: 0.4rem; }
 
   .lightbox {
-    position: fixed; inset: 0; background: rgba(15,23,42,0.9); display: none;
+    position: fixed; inset: 0; background: rgba(13,84,107,0.92); display: none;
     align-items: center; justify-content: center; z-index: 80; padding: 1rem;
   }
   .lightbox.open { display: flex; }
-  .lightbox img { max-width: min(100%, 920px); max-height: 92vh; width: auto; height: auto; border-radius: 10px; background: #0f172a; }
+  .lightbox img { max-width: min(100%, 920px); max-height: 92vh; width: auto; height: auto; border-radius: 10px; background: var(--mv-deep-teal); }
   .lightbox-close {
     position: absolute; top: 1rem; right: 1rem; background: #fff; border: 0; border-radius: 8px;
     font-weight: 800; padding: 0.45rem 0.7rem; cursor: pointer;
   }
   .synth { padding-left: 1.1rem; }
-  .synth li { font-size: 0.86rem; margin: 0.28rem 0; color: #1e293b; }
+  .synth li { font-size: 0.86rem; margin: 0.28rem 0; color: #1e293b; font-weight: 400; }
   .synth-rec {
-    margin-top: 0.7rem; font-size: 0.88rem; font-weight: 750; color: #0f766e;
-    background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 8px; padding: 0.55rem 0.7rem;
+    margin-top: 0.7rem; font-size: 0.88rem; font-weight: 700; color: var(--mv-primary);
+    background: #e8f8fc; border: 1px solid #7dd3e8; border-radius: 8px; padding: 0.55rem 0.7rem;
   }
-  .toast { position: fixed; bottom: 1rem; right: 1rem; background: #0f172a; color: #fff; padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.78rem; opacity: 0; transition: opacity .2s; z-index: 40; }
+  .toast { position: fixed; bottom: 1rem; right: 1rem; background: var(--mv-deep-teal); color: #fff; padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.78rem; opacity: 0; transition: opacity .2s; z-index: 40; }
   .toast.show { opacity: 1; }
 `;
 
@@ -455,42 +558,59 @@ const html = `<!DOCTYPE html>
   ${renderDocHeader({
     activeId: 'real-people-assets',
     pageTitle: 'Real People Assets',
-    pageSubtitle: 'Real Talent Pool photos, Meta-ready copy, AI video concepts, and downloadable crops.',
+    pageSubtitle: 'Designer production request: four candidates, copy, ratios, source photo, official logo. Treatment C PNGs are draft references only.',
   })}
   <div class="wrap">
     <header class="hero">
-      <h2>Real People Assets</h2>
-      <p>Four pain-first profile ads with Meta copy packages, then short AI-video storyboards for Jin. Click any image to preview; download assets below.</p>
+      <h2>First-batch production request</h2>
+      <p>Four Talent Pool candidates. Use official MedVirtual logos and Brand Guide colors. Internal design owns final graphic execution — generated Treatment C files are conceptual drafts.</p>
       <div class="top-actions">
         ${cat.masterZip ? `<a class="dl primary" href="${esc(cat.masterZip)}" download>Download all Real People assets</a>` : '<span class="dl disabled">Master ZIP unavailable</span>'}
-        <a class="dl" href="/real-people-creative.html">Creative details</a>
+        <a class="dl" href="${esc(BRAND.assets.logoColoredSvg)}" download>Official logo SVG</a>
+        <a class="dl" href="/medvirtual-brand-guide.html">Brand Guide</a>
+        <a class="dl" href="/real-people-creative.html">Strategy (Real People)</a>
       </div>
     </header>
 
-    <section class="section" id="examples">
-      <h2>Ad examples</h2>
-      <p class="lede">Each card shows the pain the ad addresses, why this person is relevant, Meta-ready copy, and downloadable Treatment C art.</p>
-      ${renderExamples(cat)}
+    <section class="section" id="production">
+      <h2>Production brief · four candidates</h2>
+      <div class="draft-banner">Treatment C mockups below each card are <strong>draft / production references</strong> — not approved final creative. Do not treat them as locked designs.</div>
+      <p class="lede">Each card: exact role, pain, approved copy direction, required ratios, source photo, official logo links, and concise designer notes.</p>
+      ${renderProductionBatch(cat)}
     </section>
 
-    <section class="section" id="ai-video">
-      <h2>AI Video Concepts for Jin</h2>
-      <p class="lede">These concepts turn the static profile ads into short 10–15 second videos. The recommended first version uses motion, captions, licensed B-roll, and a neutral narrator. Synthetic talking-head or lip-sync versions require separate approval.</p>
-      ${renderVideoConcepts()}
-      ${renderVideoFormats()}
-    </section>
+    <details class="secondary" id="full-copy">
+      <summary>Full Meta copy packages &amp; draft layout previews</summary>
+      <div class="details-body">
+        <p class="lede" style="padding-top:0.35rem">Alternate hooks and primary text for paste into Meta. Draft Treatment C art for reference only.</p>
+        ${renderExamples(cat)}
+      </div>
+    </details>
 
-    <section class="section" id="library">
-      <h2>Downloads by person</h2>
-      <p class="lede">Source photos and production crops. Thumbnails are square previews — click to open full size.</p>
-      ${TALENT.map((t) => renderPerson(t, bySlug[t.assetSlug || t.id])).join('')}
-    </section>
+    <details class="secondary" id="ai-video">
+      <summary>AI video concepts &amp; formats (secondary)</summary>
+      <div class="details-body">
+        <p class="lede" style="padding-top:0.35rem">Storyboards for Jin. Synthetic talking-head versions need separate approval.</p>
+        ${renderVideoConcepts()}
+        ${renderVideoFormats()}
+      </div>
+    </details>
 
-    <section class="section" id="synthetic">
-      <h2>Synthetic Video Rules</h2>
-      <ul class="synth">${SYNTHETIC_VIDEO_HANDOFF.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
-      <p class="synth-rec">${esc(SYNTHETIC_VIDEO_RECOMMENDED)}</p>
-    </section>
+    <details class="secondary" id="library" open>
+      <summary>Downloads by person</summary>
+      <div class="details-body">
+        <p class="lede" style="padding-top:0.35rem">Source photos and production crops. Thumbnails are square previews — click to open full size.</p>
+        ${TALENT.map((t) => renderPerson(t, bySlug[t.assetSlug || t.id])).join('')}
+      </div>
+    </details>
+
+    <details class="secondary" id="synthetic">
+      <summary>Synthetic video rules</summary>
+      <div class="details-body">
+        <ul class="synth">${SYNTHETIC_VIDEO_HANDOFF.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+        <p class="synth-rec">${esc(SYNTHETIC_VIDEO_RECOMMENDED)}</p>
+      </div>
+    </details>
   </div>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
     <button type="button" class="lightbox-close" id="lightbox-close">Close</button>

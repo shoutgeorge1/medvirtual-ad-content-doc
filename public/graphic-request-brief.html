@@ -6,14 +6,54 @@
   <title>Creative Brief — MedVirtual</title>
   <style>
   
+  
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --mv-deep-teal: #0D546B;
+  --mv-accent: #00C0D4;
+  --mv-bright-accent: #27E6FA;
+  --mv-neutral-blue: #F0F5FF;
+  --mv-neutral-warm: #EFEDE1;
+  --mv-ink: #161511;
+  --mv-white: #FFFFFF;
+  --mv-gradient-primary: linear-gradient(90deg, #077999 0%, #00B2E2 100%);
+  --mv-gradient-light: linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%);
+  --mv-gradient-bright: linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%);
+  --mv-gradient-deep: linear-gradient(90deg, #0D546B 0%, #00C0D4 100%);
+  --mv-font: "Be Vietnam", Inter, Arial, sans-serif;
+}
+
   .doc-header {
-    background: #0f172a;
+    background: var(--mv-deep-teal);
     color: #ffffff;
-    border-bottom: 3px solid #0d9488;
+    border-bottom: 3px solid var(--mv-cyan);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 40;
+    font-family: var(--mv-font);
   }
   .doc-header__row {
     display: flex;
@@ -29,33 +69,33 @@
     text-decoration: none;
     color: inherit;
   }
-  .doc-header__mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #0d9488, #0891b2);
-    font-weight: 800;
-    font-size: 0.9rem;
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
     flex-shrink: 0;
+  }
+  .doc-header__mark {
+    display: none;
   }
   .doc-header__title {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #f8fafc;
   }
   .doc-header__tagline {
     margin: 0.1rem 0 0;
-    font-size: 0.8rem;
-    color: #94a3b8;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #b8d4e0;
   }
   .doc-header__page {
     margin: 0.85rem 0 0;
     padding-top: 0.75rem;
-    border-top: 1px solid #1e293b;
+    border-top: 1px solid rgba(255,255,255,0.12);
   }
   .doc-header__page-title {
     margin: 0;
@@ -66,7 +106,8 @@
   .doc-header__page-sub {
     margin: 0.25rem 0 0;
     font-size: 0.82rem;
-    color: #94a3b8;
+    font-weight: 400;
+    color: #b8d4e0;
     max-width: 820px;
   }
   .doc-nav {
@@ -75,11 +116,11 @@
     gap: 0.35rem;
   }
   .doc-nav a {
-    padding: 0.45rem 0.85rem;
+    padding: 0.45rem 0.75rem;
     border-radius: 8px;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    color: #cbd5e1;
+    color: #d7e8f0;
     text-decoration: none;
     border: 1px solid transparent;
     transition: background 0.15s, color 0.15s;
@@ -90,7 +131,7 @@
   }
   .doc-nav a.active {
     color: #ffffff;
-    background: #0d9488;
+    background: var(--mv-primary);
   }
   .doc-subnav {
     display: flex;
@@ -99,25 +140,26 @@
     margin-top: 0.75rem;
   }
   .doc-subnav a {
-    color: #5eead4;
+    color: var(--mv-bright-accent);
     text-decoration: none;
     font-size: 0.75rem;
     padding: 0.25rem 0.6rem;
-    border: 1px solid #334155;
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 6px;
   }
-  .doc-subnav a:hover { border-color: #0d9488; color: #99f6e4; }
+  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
   .doc-subnav a.active {
-    background: rgba(13, 148, 136, 0.2);
-    border-color: #0d9488;
-    color: #ccfbf1;
+    background: rgba(0, 178, 226, 0.2);
+    border-color: var(--mv-cyan);
+    color: #fff;
   }
   @media (max-width: 640px) {
     .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  body { font-family: var(--mv-font); background: #f1f5f9; color: #0f172a; line-height: 1.45; }
   .wrap { max-width: 720px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; }
   .banner {
     background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 0.95rem 1.1rem; margin-bottom: 0.85rem;
@@ -135,7 +177,7 @@
     background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1rem;
   }
   .card-num {
-    width: 2.1rem; height: 2.1rem; border-radius: 8px; background: #0d9488; color: #fff;
+    width: 2.1rem; height: 2.1rem; border-radius: 8px; background: var(--mv-primary); color: #fff;
     font-weight: 800; font-size: 0.95rem; display: grid; place-items: center;
   }
   .card-top {
@@ -143,11 +185,11 @@
   }
   .field-label {
     font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-    color: #0d9488; margin-top: 0.45rem; margin-bottom: 0.12rem;
+    color: var(--mv-primary); margin-top: 0.45rem; margin-bottom: 0.12rem;
   }
   .card-top .field-label:first-child { margin-top: 0; }
   .card-headline { font-size: 1.15rem; font-weight: 800; color: #0f172a; line-height: 1.25; }
-  .card-audience { margin-top: 0.3rem; font-size: 0.78rem; font-weight: 700; color: #0f766e; }
+  .card-audience { margin-top: 0.3rem; font-size: 0.78rem; font-weight: 700; color: var(--mv-primary); }
   .card-support { font-size: 0.95rem; color: #334155; font-weight: 600; }
   .card-visual {
     margin-top: 0.55rem; font-size: 0.86rem; color: #475569; line-height: 1.4;
@@ -167,7 +209,7 @@
   @media (max-width: 640px) { .meta-row { grid-template-columns: 1fr; } }
   .meta-val { font-size: 0.88rem; color: #0f172a; font-weight: 650; }
   .cta {
-    display: inline-block; background: #0d9488; color: #fff; font-size: 0.75rem; font-weight: 800;
+    display: inline-block; background: var(--mv-primary); color: #fff; font-size: 0.75rem; font-weight: 800;
     padding: 0.28rem 0.6rem; border-radius: 6px;
   }
   .card-warn {
@@ -191,10 +233,10 @@
     font-family: ui-monospace, monospace; font-size: 0.72rem; white-space: pre-wrap; line-height: 1.45;
   }
   .copy-btn {
-    font-size: 0.74rem; font-weight: 700; color: #fff; background: #0d9488;
+    font-size: 0.74rem; font-weight: 700; color: #fff; background: var(--mv-primary);
     border: 0; border-radius: 7px; padding: 0.4rem 0.7rem; cursor: pointer; white-space: nowrap;
   }
-  .copy-btn:hover { background: #0f766e; }
+  .copy-btn:hover { background: var(--mv-primary); }
   .card-copy { margin-top: 0; }
   .send .copy-btn { margin-top: 0.5rem; }
 </style>
@@ -203,13 +245,13 @@
   <header class="doc-header">
   <div class="doc-header__row">
     <a class="doc-header__brand" href="/graphic-request-brief.html">
-      <span class="doc-header__mark">MV</span>
+      <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Meta ads · brief · templates · assets</p>
+        <p class="doc-header__tagline">Meta ads · brief · brand · assets</p>
       </div>
     </a>
-    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="active">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="">Meta Launch</a><a href="/real-people-creative.html" class="">Real People</a><a href="/real-people-assets.html" class="">RP Assets</a></nav>
+    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="active">Brief</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="">Meta Launch</a><a href="/real-people-creative.html" class="">Real People</a><a href="/real-people-assets.html" class="">RP Assets</a></nav>
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Creative Brief</h2>

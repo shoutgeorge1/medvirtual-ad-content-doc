@@ -2,12 +2,14 @@
  * Shared MedVirtual Content Doc header — identical across all surfaces.
  * Home = Graphic Brief (designer/VA start). Nav follows production workflow left → right.
  */
+import { brandCssVariables, BRAND } from './medvirtual-brand-data.mjs';
 
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Creative Handoff',
-  tagline: 'Meta ads · brief · templates · assets',
+  tagline: 'Meta ads · brief · brand · assets',
   homeHref: '/graphic-request-brief.html',
+  logoWhite: BRAND.assets.logoWhiteSvg,
 };
 
 /** Primary nav — Graphic Brief is the only production handoff */
@@ -17,6 +19,12 @@ export const PRIMARY_NAV = [
     label: 'Brief',
     id: 'brief',
     description: 'Start here. 4 static ads with on-image copy, visual direction, and Meta paste fields.',
+  },
+  {
+    href: '/medvirtual-brand-guide.html',
+    label: 'Brand Guide',
+    id: 'brand-guide',
+    description: 'Official logos, colors, type, voice, and claims guardrails.',
   },
   {
     href: '/template-test-board.html',
@@ -34,7 +42,7 @@ export const PRIMARY_NAV = [
     href: '/asset-hub.html',
     label: 'Assets',
     id: 'hub',
-    description: 'Download raw AI images and source files for editors.',
+    description: 'Download brand logos and raw AI images for editors.',
   },
   {
     href: '/meta-launch-build-pack.html',
@@ -52,7 +60,7 @@ export const PRIMARY_NAV = [
     href: '/real-people-assets.html',
     label: 'RP Assets',
     id: 'real-people-assets',
-    description: 'Talent Pool originals, crops, Treatment C mocks, AI video refs.',
+    description: 'Talent Pool originals, crops, design drafts, AI video refs.',
   },
 ];
 
@@ -95,14 +103,16 @@ export const SECONDARY_PAGES = [
 ];
 
 export const HEADER_CSS = `
+  ${brandCssVariables()}
   .doc-header {
-    background: #0f172a;
+    background: var(--mv-deep-teal);
     color: #ffffff;
-    border-bottom: 3px solid #0d9488;
+    border-bottom: 3px solid var(--mv-cyan);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 40;
+    font-family: var(--mv-font);
   }
   .doc-header__row {
     display: flex;
@@ -118,33 +128,33 @@ export const HEADER_CSS = `
     text-decoration: none;
     color: inherit;
   }
-  .doc-header__mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #0d9488, #0891b2);
-    font-weight: 800;
-    font-size: 0.9rem;
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
     flex-shrink: 0;
+  }
+  .doc-header__mark {
+    display: none;
   }
   .doc-header__title {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #f8fafc;
   }
   .doc-header__tagline {
     margin: 0.1rem 0 0;
-    font-size: 0.8rem;
-    color: #94a3b8;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #b8d4e0;
   }
   .doc-header__page {
     margin: 0.85rem 0 0;
     padding-top: 0.75rem;
-    border-top: 1px solid #1e293b;
+    border-top: 1px solid rgba(255,255,255,0.12);
   }
   .doc-header__page-title {
     margin: 0;
@@ -155,7 +165,8 @@ export const HEADER_CSS = `
   .doc-header__page-sub {
     margin: 0.25rem 0 0;
     font-size: 0.82rem;
-    color: #94a3b8;
+    font-weight: 400;
+    color: #b8d4e0;
     max-width: 820px;
   }
   .doc-nav {
@@ -164,11 +175,11 @@ export const HEADER_CSS = `
     gap: 0.35rem;
   }
   .doc-nav a {
-    padding: 0.45rem 0.85rem;
+    padding: 0.45rem 0.75rem;
     border-radius: 8px;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    color: #cbd5e1;
+    color: #d7e8f0;
     text-decoration: none;
     border: 1px solid transparent;
     transition: background 0.15s, color 0.15s;
@@ -179,7 +190,7 @@ export const HEADER_CSS = `
   }
   .doc-nav a.active {
     color: #ffffff;
-    background: #0d9488;
+    background: var(--mv-primary);
   }
   .doc-subnav {
     display: flex;
@@ -188,21 +199,22 @@ export const HEADER_CSS = `
     margin-top: 0.75rem;
   }
   .doc-subnav a {
-    color: #5eead4;
+    color: var(--mv-bright-accent);
     text-decoration: none;
     font-size: 0.75rem;
     padding: 0.25rem 0.6rem;
-    border: 1px solid #334155;
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 6px;
   }
-  .doc-subnav a:hover { border-color: #0d9488; color: #99f6e4; }
+  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
   .doc-subnav a.active {
-    background: rgba(13, 148, 136, 0.2);
-    border-color: #0d9488;
-    color: #ccfbf1;
+    background: rgba(0, 178, 226, 0.2);
+    border-color: var(--mv-cyan);
+    color: #fff;
   }
   @media (max-width: 640px) {
     .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
   }
 `;
 
@@ -246,7 +258,7 @@ export function renderDocHeader(opts = {}) {
   return `<header class="doc-header">
   <div class="doc-header__row">
     <a class="doc-header__brand" href="${esc(DOC_BRAND.homeHref)}">
-      <span class="doc-header__mark">${esc(DOC_BRAND.mark)}</span>
+      <img class="doc-header__logo" src="${esc(DOC_BRAND.logoWhite)}" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">${esc(DOC_BRAND.title)}</h1>
         <p class="doc-header__tagline">${esc(DOC_BRAND.tagline)}</p>

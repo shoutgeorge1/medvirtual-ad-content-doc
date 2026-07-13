@@ -348,7 +348,7 @@ function renderProfileCreative(t) {
 const CSS = `
   ${HEADER_CSS}
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  body { font-family: var(--mv-font); background: #f1f5f9; color: #0f172a; line-height: 1.45; }
   .wrap { max-width: 1100px; margin: 0 auto; padding: 1rem 1.15rem 3rem; }
   .hero {
     background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 1.15rem 1.25rem; margin-bottom: 0.75rem;
@@ -372,7 +372,7 @@ const CSS = `
   .hyp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.55rem; }
   @media (max-width: 700px) { .hyp-grid { grid-template-columns: 1fr; } }
   .hyp-card {
-    background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #0d9488;
+    background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid var(--mv-primary);
     border-radius: 8px; padding: 0.55rem 0.65rem;
   }
   .hyp-card strong { display: block; font-size: 0.8rem; color: #0f172a; margin-bottom: 0.15rem; }
@@ -405,19 +405,19 @@ const CSS = `
   .chips { display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0.4rem 0; }
   .chip {
     font-size: 0.68rem; font-weight: 650; padding: 0.18rem 0.45rem; border-radius: 999px;
-    background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4;
+    background: #f0fdfa; color: var(--mv-primary); border: 1px solid #99f6e4;
   }
   .chip-muted { background: #f8fafc; color: #64748b; border-color: #e2e8f0; }
   .why { font-size: 0.78rem; color: #475569; margin: 0.25rem 0; }
   .source { font-size: 0.76rem; margin-top: 0.4rem; }
-  .source a { color: #0d9488; font-weight: 700; text-decoration: none; }
+  .source a { color: var(--mv-primary); font-weight: 700; text-decoration: none; }
   .source a:hover { text-decoration: underline; }
   .badge-rec, .badge-alt, .badge-cta, .tag-suggested, .tag-fact {
     display: inline-block; font-size: 0.65rem; font-weight: 800; padding: 0.18rem 0.45rem; border-radius: 5px;
   }
-  .badge-rec { background: #0d9488; color: #fff; }
+  .badge-rec { background: var(--mv-primary); color: #fff; }
   .badge-alt { background: #e2e8f0; color: #475569; }
-  .badge-cta { background: #0d9488; color: #fff; }
+  .badge-cta { background: var(--mv-primary); color: #fff; }
   .talent-card__media .badge-rec, .talent-card__media .badge-alt {
     position: absolute; left: 0.4rem; bottom: 0.4rem;
   }
@@ -430,7 +430,7 @@ const CSS = `
   @media (max-width: 700px) { .split-facts { grid-template-columns: 1fr; } }
   .fact-box, .suggest-box { border-radius: 8px; padding: 0.55rem 0.7rem; font-size: 0.8rem; }
   .fact-box { background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #334155; }
-  .suggest-box { background: #f0fdfa; border: 1px solid #99f6e4; border-left: 3px solid #0d9488; }
+  .suggest-box { background: #f0fdfa; border: 1px solid #99f6e4; border-left: 3px solid var(--mv-primary); }
   .fact-box h4, .suggest-box h4 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 0.3rem; }
   .fact-box ul { padding-left: 1rem; }
   .fact-box li { margin: 0.12rem 0; font-size: 0.78rem; }
@@ -439,18 +439,18 @@ const CSS = `
   }
   .concept-head { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
   .concept-head h4 { font-size: 0.88rem; }
-  .tag-suggested { background: #ecfdf5; color: #0f766e; border: 1px solid #99f6e4; }
+  .tag-suggested { background: #ecfdf5; color: var(--mv-primary); border: 1px solid #99f6e4; }
   .fields > div { margin-bottom: 0.35rem; }
   .fields dt { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; color: #94a3b8; }
   .fields dd { font-size: 0.82rem; color: #1e293b; }
   .fields dd.pre { white-space: pre-wrap; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.45rem 0.55rem; }
   .copy-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.4rem; }
   .copy-btn {
-    font-size: 0.72rem; font-weight: 650; color: #0f766e; background: #f0fdfa;
+    font-size: 0.72rem; font-weight: 650; color: var(--mv-primary); background: #f0fdfa;
     border: 1px solid #99f6e4; border-radius: 6px; padding: 0.3rem 0.55rem; cursor: pointer;
   }
   .copy-btn:hover { background: #ccfbf1; }
-  .copy-btn.copied { background: #0d9488; color: #fff; border-color: #0d9488; }
+  .copy-btn.copied { background: var(--mv-primary); color: #fff; border-color: var(--mv-primary); }
   .mock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; margin: 0.75rem 0; }
   @media (max-width: 900px) { .mock-grid { grid-template-columns: 1fr; max-width: 360px; } }
   .mock-label { font-size: 0.68rem; font-weight: 700; color: #64748b; margin-bottom: 0.3rem; text-transform: uppercase; }
@@ -493,7 +493,7 @@ const CSS = `
   }
   .toc { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.4rem 0 0.2rem; }
   .toc a {
-    font-size: 0.72rem; font-weight: 650; color: #0f766e; text-decoration: none;
+    font-size: 0.72rem; font-weight: 650; color: var(--mv-primary); text-decoration: none;
     padding: 0.25rem 0.5rem; border: 1px solid #99f6e4; border-radius: 6px; background: #f0fdfa;
   }
   .strong-list { display: grid; gap: 0.4rem; }
@@ -502,7 +502,7 @@ const CSS = `
   .tc-grid { display: grid; gap: 0.85rem; }
   .tc-panel {
     display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.85rem;
-    border: 2px solid #0d9488; border-radius: 12px; padding: 0.75rem; background: #f8fffd;
+    border: 2px solid var(--mv-primary); border-radius: 12px; padding: 0.75rem; background: #f8fffd;
   }
   @media (max-width: 800px) { .tc-panel { grid-template-columns: 1fr; } }
   .tc-panel__meta h3 { font-size: 1rem; margin-bottom: 0.2rem; }
@@ -513,11 +513,11 @@ const CSS = `
   .tc-hierarchy { font-size: 0.76rem; color: #64748b; margin-top: 0.45rem; }
   .tc-controls { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.5rem; }
   .tc-controls button, .tc-controls .tc-dl, .tc-controls .copy-btn {
-    font-size: 0.72rem; font-weight: 650; color: #0f766e; background: #f0fdfa;
+    font-size: 0.72rem; font-weight: 650; color: var(--mv-primary); background: #f0fdfa;
     border: 1px solid #99f6e4; border-radius: 6px; padding: 0.3rem 0.55rem; cursor: pointer; text-decoration: none;
   }
   .tc-controls button:hover, .tc-controls .tc-dl:hover { background: #ccfbf1; }
-  .tc-controls .tc-ratio-btn.is-active { background: #0d9488; color: #fff; border-color: #0d9488; }
+  .tc-controls .tc-ratio-btn.is-active { background: var(--mv-primary); color: #fff; border-color: var(--mv-primary); }
   .tc-stage {
     position: relative; width: 100%; max-width: 320px; border-radius: 10px; overflow: hidden;
     background: #0f172a; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
@@ -535,7 +535,7 @@ const CSS = `
   .tc-stage.safe-zone[data-ratio="9x16"]::after { bottom: 0; }
   .tc-safe-note { font-size: 0.7rem; color: #94a3b8; margin-top: 0.35rem; max-width: 320px; }
   .tc-profile-block { margin: 0.75rem 0; }
-  .tc-profile-heading { font-size: 0.88rem; margin-bottom: 0.25rem; color: #0f766e; }
+  .tc-profile-heading { font-size: 0.88rem; margin-bottom: 0.25rem; color: var(--mv-primary); }
   .tc-profile-note { font-size: 0.76rem; color: #64748b; margin-bottom: 0.45rem; }
   .mock-alt-label {
     font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em;
@@ -696,7 +696,7 @@ const html = `<!DOCTYPE html>
 
     <section class="section" id="monday-graphics">
       <h2>Monday Graphics Request</h2>
-      <p style="margin-bottom:0.4rem">First production batch only — four Treatment C ads (1080×1350 primary). Raw crops and downloads: <a href="/real-people-assets.html" style="color:#0d9488;font-weight:700;text-decoration:none">Real People Assets</a>.</p>
+      <p style="margin-bottom:0.4rem">First production batch only — four Treatment C ads (1080×1350 primary). Raw crops and downloads: <a href="/real-people-assets.html" style="color:var(--mv-primary);font-weight:700;text-decoration:none">Real People Assets</a>.</p>
       <ul class="monday-compact">
         ${MONDAY_REAL_PEOPLE_BATCH.map((row) => {
           const t = talentById(row.talentId);

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Brand Guide — MedVirtual (Internal)</title>
+  <style>
+  
+  
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --mv-deep-teal: #0D546B;
+  --mv-accent: #00C0D4;
+  --mv-bright-accent: #27E6FA;
+  --mv-neutral-blue: #F0F5FF;
+  --mv-neutral-warm: #EFEDE1;
+  --mv-ink: #161511;
+  --mv-white: #FFFFFF;
+  --mv-gradient-primary: linear-gradient(90deg, #077999 0%, #00B2E2 100%);
+  --mv-gradient-light: linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%);
+  --mv-gradient-bright: linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%);
+  --mv-gradient-deep: linear-gradient(90deg, #0D546B 0%, #00C0D4 100%);
+  --mv-font: "Be Vietnam", Inter, Arial, sans-serif;
+}
+
+  .doc-header {
+    background: var(--mv-deep-teal);
+    color: #ffffff;
+    border-bottom: 3px solid var(--mv-cyan);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    font-family: var(--mv-font);
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .doc-header__mark {
+    display: none;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #b8d4e0;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #b8d4e0;
+    max-width: 820px;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .doc-nav a {
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #d7e8f0;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+  }
+  .doc-nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: var(--mv-primary);
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: var(--mv-bright-accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
+  .doc-subnav a.active {
+    background: rgba(0, 178, 226, 0.2);
+    border-color: var(--mv-cyan);
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--mv-font);
+    background: var(--mv-neutral-blue);
+    color: var(--mv-ink);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 1.25rem 1.15rem 3.5rem; }
+  .hero {
+    background: var(--mv-gradient-deep);
+    color: var(--mv-white);
+    border-radius: 14px;
+    padding: 1.25rem 1.35rem;
+    margin-bottom: 1rem;
+  }
+  .hero h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .hero p { font-size: 0.92rem; opacity: 0.92; max-width: 62ch; font-weight: 400; }
+  .badge {
+    display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; background: rgba(255,255,255,0.18); padding: 0.2rem 0.55rem;
+    border-radius: 6px; margin-bottom: 0.55rem;
+  }
+  .section {
+    background: var(--mv-white);
+    border: 1px solid #d7e3f0;
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+    margin-bottom: 0.85rem;
+  }
+  .section > h2 {
+    font-size: 1.05rem; font-weight: 700; color: var(--mv-deep-teal);
+    margin-bottom: 0.35rem; padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--mv-cyan);
+  }
+  .section > .lede { font-size: 0.9rem; color: #3d4f5f; margin-bottom: 0.9rem; max-width: 70ch; font-weight: 400; }
+  h3 { font-size: 0.88rem; font-weight: 700; color: var(--mv-primary); margin: 0.9rem 0 0.45rem; }
+  .logo-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+  }
+  @media (max-width: 700px) { .logo-grid { grid-template-columns: 1fr; } }
+  .logo-card {
+    border: 1px solid #d7e3f0; border-radius: 10px; padding: 0.85rem; background: #fff;
+  }
+  .logo-card.dark { background: var(--mv-deep-teal); border-color: var(--mv-deep-teal); color: #fff; }
+  .logo-card.light-cool { background: var(--mv-neutral-blue); }
+  .logo-card.light-warm { background: var(--mv-neutral-warm); }
+  .logo-card img {
+    display: block; max-width: 100%; height: auto; max-height: 72px; width: auto;
+    object-fit: contain; object-position: left center;
+  }
+  .logo-card.mark img { max-height: 88px; margin: 0 auto; }
+  .logo-card .lbl { font-size: 0.72rem; font-weight: 600; margin-top: 0.55rem; opacity: 0.85; }
+  .rules { padding-left: 1.15rem; margin: 0.5rem 0; }
+  .rules li { font-size: 0.88rem; margin: 0.28rem 0; color: #2a3a45; }
+  .swatch-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.65rem;
+  }
+  .swatch {
+    border: 1px solid #d7e3f0; border-radius: 10px; overflow: hidden; background: #fff;
+  }
+  .swatch__chip { height: 64px; }
+  .swatch__meta { padding: 0.55rem 0.65rem; }
+  .swatch__name { font-size: 0.8rem; font-weight: 700; }
+  .swatch__hex { font-family: ui-monospace, monospace; font-size: 0.72rem; color: var(--mv-primary); }
+  .swatch__use { font-size: 0.72rem; color: #5a6b78; margin-top: 0.2rem; }
+  .swatch__token { font-size: 0.65rem; color: #8090a0; margin-top: 0.15rem; }
+  .grad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+  @media (max-width: 640px) { .grad-grid { grid-template-columns: 1fr; } }
+  .grad {
+    border-radius: 10px; min-height: 72px; padding: 0.75rem; color: #fff;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    border: 1px solid #d7e3f0;
+  }
+  .grad.light-text-dark { color: var(--mv-deep-teal); }
+  .grad strong { font-size: 0.85rem; }
+  .grad span { font-size: 0.7rem; opacity: 0.9; }
+  .type-sample { margin: 0.55rem 0; }
+  .type-xl { font-size: 2rem; font-weight: 700; line-height: 1.15; color: var(--mv-deep-teal); }
+  .type-lg { font-size: 1.45rem; font-weight: 700; line-height: 1.2; color: var(--mv-primary); }
+  .type-sub { font-size: 1.1rem; font-weight: 500; color: #2a3a45; }
+  .type-body { font-size: 1rem; font-weight: 400; max-width: 58ch; color: #2a3a45; }
+  .cta-demo {
+    display: inline-block; margin-top: 0.65rem; background: var(--mv-gradient-primary);
+    color: #fff; font-weight: 700; font-size: 0.9rem; padding: 0.65rem 1.15rem; border-radius: 8px;
+    text-decoration: none;
+  }
+  .weight-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0.5rem 0 0.85rem; }
+  .weight {
+    flex: 1; min-width: 140px; border: 1px solid #d7e3f0; border-radius: 8px; padding: 0.65rem;
+  }
+  .weight .w { font-size: 1.25rem; }
+  .weight .meta { font-size: 0.7rem; color: #5a6b78; margin-top: 0.25rem; }
+  .compare { display: grid; gap: 0.55rem; }
+  .pair {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem;
+  }
+  @media (max-width: 700px) { .pair { grid-template-columns: 1fr; } }
+  .weak, .better {
+    border-radius: 8px; padding: 0.7rem 0.8rem; font-size: 0.86rem;
+  }
+  .weak { background: #fff5f5; border: 1px solid #fecaca; color: #7f1d1d; }
+  .better { background: #f0fdfa; border: 1px solid #99f6e4; color: #134e4a; }
+  .weak strong, .better strong { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+  .structure { counter-reset: step; list-style: none; }
+  .structure li {
+    counter-increment: step; position: relative; padding: 0.55rem 0.65rem 0.55rem 2.5rem;
+    border: 1px solid #d7e3f0; border-radius: 8px; margin: 0.35rem 0; font-size: 0.9rem;
+  }
+  .structure li::before {
+    content: counter(step); position: absolute; left: 0.65rem; top: 0.55rem;
+    width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--mv-primary); color: #fff;
+    font-size: 0.75rem; font-weight: 700; display: grid; place-items: center;
+  }
+  .example-box {
+    margin-top: 0.75rem; background: var(--mv-neutral-blue); border-left: 4px solid var(--mv-cyan);
+    padding: 0.75rem 0.9rem; border-radius: 0 8px 8px 0; font-size: 0.9rem;
+  }
+  .warn-wrap { border: 2px solid #f59e0b; background: #fffbeb; border-radius: 12px; padding: 1rem 1.1rem; }
+  .warn-wrap > h2 { border-bottom-color: #f59e0b; color: #92400e; }
+  .claim {
+    border: 1px solid #fcd34d; border-radius: 8px; padding: 0.75rem 0.85rem; background: #fff;
+    margin: 0.55rem 0;
+  }
+  .claim__top { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: baseline; justify-content: space-between; }
+  .claim__cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #b45309; }
+  .claim__status {
+    font-size: 0.7rem; font-weight: 700; background: #fef3c7; color: #92400e;
+    border: 1px solid #fcd34d; border-radius: 999px; padding: 0.15rem 0.5rem;
+  }
+  .claim__status.block { background: #fee2e2; color: #991b1b; border-color: #fecaca; }
+  .claim__status.safe { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+  .claim h3 { margin: 0.35rem 0 0.25rem; color: var(--mv-ink); font-size: 0.95rem; }
+  .claim ul { padding-left: 1.1rem; margin: 0.25rem 0; }
+  .claim li { font-size: 0.82rem; margin: 0.12rem 0; }
+  .claim .src, .claim .note { font-size: 0.78rem; color: #5a6b78; margin-top: 0.35rem; }
+  .claim .ok { font-size: 0.82rem; font-weight: 600; color: #047857; margin-top: 0.35rem; }
+  .role-grid { display: grid; gap: 0.65rem; }
+  .role {
+    border: 1px solid #d7e3f0; border-radius: 10px; padding: 0.75rem 0.85rem; background: #fafcff;
+  }
+  .role h3 { margin-top: 0; }
+  .role .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  @media (max-width: 640px) { .role .cols { grid-template-columns: 1fr; } }
+  .role ul { padding-left: 1.05rem; font-size: 0.8rem; color: #2a3a45; }
+  .role .disallow { color: #991b1b; }
+  .doc-map {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.55rem;
+  }
+  .doc-map a {
+    display: block; text-decoration: none; color: inherit; border: 1px solid #d7e3f0;
+    border-radius: 8px; padding: 0.65rem 0.75rem; background: #fff;
+  }
+  .doc-map a:hover { border-color: var(--mv-cyan); }
+  .doc-map strong { display: block; font-size: 0.85rem; color: var(--mv-deep-teal); }
+  .doc-map span { font-size: 0.75rem; color: #5a6b78; }
+  .clearspace {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem;
+  }
+  @media (max-width: 640px) { .clearspace { grid-template-columns: 1fr; } }
+  .clearspace-box {
+    border: 1px dashed var(--mv-cyan); border-radius: 10px; padding: 1.5rem;
+    display: grid; place-items: center; background: #fff;
+  }
+  .clearspace-box img { max-height: 48px; width: auto; }
+  .clearspace-box p { font-size: 0.72rem; color: #5a6b78; margin-top: 0.55rem; text-align: center; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/graphic-request-brief.html">
+      <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
+      <div>
+        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
+        <p class="doc-header__tagline">Meta ads · brief · brand · assets</p>
+      </div>
+    </a>
+    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/medvirtual-brand-guide.html" class="active">Brand Guide</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="">Meta Launch</a><a href="/real-people-creative.html" class="">Real People</a><a href="/real-people-assets.html" class="">RP Assets</a></nav>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Brand Guide</h2>
+          <p class="doc-header__page-sub">Internal creative standards — logos, colors, type, voice, claims guardrails. Not a public sales page.</p>
+          
+        </div>
+</header>
+  <div class="wrap">
+    <header class="hero">
+      <span class="badge">Internal · Creative production</span>
+      <h2>MedVirtual brand &amp; messaging source of truth</h2>
+      <p>Use this page for production decisions. Ad-facing name is <strong>MedVirtual</strong> (not MedVirtual.ai). Website may still use https://www.medvirtual.ai.</p>
+    </header>
+
+    <section class="section" id="identity">
+      <h2>1 · Official identity</h2>
+      <p class="lede">Prefer SVG for web and production. Do not use Illustrator (.ai) sources in the browser. PNG is fallback for raster export only.</p>
+      <div class="logo-grid">
+        <div class="logo-card light-cool">
+          <img src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual colored logo" />
+          <p class="lbl">Colored horizontal · light blue</p>
+        </div>
+        <div class="logo-card dark">
+          <img src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual white logo" />
+          <p class="lbl">White horizontal · dark teal</p>
+        </div>
+        <div class="logo-card light-warm mark">
+          <img src="/assets/brand/medvirtual/logomark-colored.svg" alt="MedVirtual colored mark" />
+          <p class="lbl">Colored logomark</p>
+        </div>
+        <div class="logo-card dark mark">
+          <img src="/assets/brand/medvirtual/logomark-white.svg" alt="MedVirtual white mark" />
+          <p class="lbl">White logomark</p>
+        </div>
+      </div>
+      <div class="clearspace">
+        <div class="clearspace-box">
+          <img src="/assets/brand/medvirtual/logo-colored.svg" alt="" />
+          <p>Clear space — keep breathing room equal to roughly the mark height</p>
+        </div>
+        <div class="clearspace-box" style="background:var(--mv-deep-teal)">
+          <img src="/assets/brand/medvirtual/logo-white.svg" alt="" />
+          <p style="color:#cfe8f0">Dark background — white logo only</p>
+        </div>
+      </div>
+      <h3>Logo rules</h3>
+      <ul class="rules">
+        <li>Do not distort, skew, or stretch</li>
+        <li>Do not recolor outside approved colored / white variants</li>
+        <li>Do not use tiny corner logos when the brand must be recognized</li>
+        <li>Do not use low-resolution screenshot logos</li>
+        <li>Prefer SVG for web and production; PNG for raster fallback</li>
+      </ul>
+    </section>
+
+    <section class="section" id="color">
+      <h2>2 · Color system</h2>
+      <p class="lede">Official Brand Kit values. Use CSS tokens from <code>medvirtual-brand-data.mjs</code> instead of scattering hex values.</p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__chip" style="background:#077999"></div>
+          <div class="swatch__meta">
+            <div class="swatch__name">Main 01</div>
+            <div class="swatch__hex">#077999</div>
+            <div class="swatch__use">Primary brand · CTAs · accents</div>
+            <div class="swatch__token">--mv-primary</div>
+          </div>
+        </div><div class="swatch">
+          <div class="swatch__chip" style="background:#00B2E2"></div>
+          <div class="swatch__meta">
+            <div class="swatch__name">Main 02</div>
+            <div class="swatch__hex">#00B2E2</div>
+            <div class="swatch__use">Cyan highlight · gradients · links</div>
+            <div class="swatch__token">--mv-cyan</div>
+          </div>
+        </div><div class="swatch">
+          <div class="swatch__chip" style="background:#0D546B"></div>
+          <div class="swatch__meta">
+            <div class="swatch__name">Main 03</div>
+            <div class="swatch__hex">#0D546B</div>
+            <div class="swatch__use">Deep teal · dark panels · headers</div>
+            <div class="swatch__token">--mv-deep-teal</div>
+          </div>
+        </div><div class="swatch">
+          <div class="swatch__chip" style="background:#00C0D4"></div>
+          <div class="swatch__meta">
+            <div class="swatch__name">Accent 01</div>
+            <div class="swatch__hex">#00C0D4</div>
+            <div class="swatch__use">Secondary accent · charts · UI</div>
+            <div class="swatch__token">--mv-accent</div>
+          </div>
+        </div><div class="swatch">
+          <div class="swatch__chip" style="background:#27E6FA"></div>
+          <div class="swatch__meta">
+            <div class="swatch__name">Accent 02</div>
+            <div class="swatch__hex">#27E6FA</div>
+            <div class="swatch__use">Bright accent · sparingly</div>
+            <div class="swatch__token">--mv-bright-accent</div>
+          </div>
+        </div><div class="swatch">
+          <div class="swatch__chip" style="background:#F0F5FF"></div>
+          <div class="swatch__meta">
+            <div class="swatch__name">Neutral 01</div>
+            <div class="swatch__hex">#F0F5FF</div>
+            <div class="swatch__use">Cool light backgrounds</div>
+            <div class="swatch__token">--mv-neutral-blue</div>
+          </div>
+        </div><div class="swatch">
+          <div class="swatch__chip" style="background:#EFEDE1"></div>
+          <div class="swatch__meta">
+            <div class="swatch__name">Neutral 02</div>
+            <div class="swatch__hex">#EFEDE1</div>
+            <div class="swatch__use">Warm light backgrounds</div>
+            <div class="swatch__token">--mv-neutral-warm</div>
+          </div>
+        </div>
+      </div>
+      <h3>Official gradients</h3>
+      <div class="grad-grid">
+        <div class="grad" style="background:linear-gradient(90deg, #077999 0%, #00B2E2 100%)">
+          <strong>Gradient 01</strong>
+          <span>Primary brand gradient · --mv-gradient-primary</span>
+        </div><div class="grad light-text-dark" style="background:linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%)">
+          <strong>Gradient 02</strong>
+          <span>Light marketing wash · --mv-gradient-light</span>
+        </div><div class="grad light-text-dark" style="background:linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%)">
+          <strong>Gradient 03</strong>
+          <span>Bright accent wash · --mv-gradient-bright</span>
+        </div><div class="grad" style="background:linear-gradient(90deg, #0D546B 0%, #00C0D4 100%)">
+          <strong>Gradient 04</strong>
+          <span>Deep teal → cyan · --mv-gradient-deep</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="type">
+      <h2>3 · Typography</h2>
+      <p class="lede">Official family: Be Vietnam. Fallbacks: Inter, Arial, sans-serif. Do not make every element bold.</p>
+      <div class="weight-row">
+        <div class="weight"><div class="w" style="font-weight:700">Be Vietnam Bold</div><div class="meta">Extra-large &amp; large headings</div></div>
+        <div class="weight"><div class="w" style="font-weight:500">Be Vietnam Medium</div><div class="meta">Subheadings</div></div>
+        <div class="weight"><div class="w" style="font-weight:400">Be Vietnam Regular</div><div class="meta">Body copy</div></div>
+      </div>
+      <div class="type-sample type-xl">Extra-large heading</div>
+      <div class="type-sample type-lg">Large heading</div>
+      <div class="type-sample type-sub">Subheading · Medium weight</div>
+      <p class="type-sample type-body">Body: MedVirtual helps practices hire dedicated full-time virtual staff who become part of the practice’s team — healthcare-trained talent matched to real workflows.</p>
+      <a class="cta-demo" href="#voice">Request an interview</a>
+    </section>
+
+    <section class="section" id="voice">
+      <h2>4 · Brand voice</h2>
+      <p class="lede">Professional · Healthcare-specific · Confident · Direct · Supportive · Solution-oriented · Operationally credible · Clear and concise</p>
+      <p class="lede"><strong>Service model:</strong> MedVirtual helps practices hire dedicated full-time virtual staff who become part of the practice’s team.</p>
+      <h3>Weak vs better</h3>
+      <div class="compare">
+        <div class="pair">
+          <div class="weak"><strong>Weak</strong>Unlock growth with virtual solutions.</div>
+          <div class="better"><strong>Better</strong>Too many patient calls for your front desk? Add a dedicated virtual medical admin to your team.</div>
+        </div><div class="pair">
+          <div class="weak"><strong>Weak</strong>MedVirtual handles your entire front desk.</div>
+          <div class="better"><strong>Better</strong>Hire dedicated virtual staff who work remotely as part of your practice.</div>
+        </div><div class="pair">
+          <div class="weak"><strong>Weak</strong>Reduce overhead and scale effortlessly.</div>
+          <div class="better"><strong>Better</strong>Add scheduling, billing, or front-desk support without adding another in-office workstation.</div>
+        </div>
+      </div>
+      <h3>Prefer</h3>
+      <ul class="rules"><li>Add dedicated virtual staff to your practice</li><li>Meet a candidate your team can interview</li><li>Full-time virtual staff who work as part of your practice</li><li>Healthcare-trained talent matched to your workflow</li><li>A dedicated team member working remotely</li><li>Your dedicated virtual staff can support calls and scheduling</li><li>Add a virtual medical admin to your team</li><li>Interview healthcare-trained talent for your practice</li></ul>
+      <h3>Avoid</h3>
+      <ul class="rules"><li>Unlock growth</li><li>Transform your practice</li><li>Revolutionize</li><li>Generic virtual help</li><li>MedVirtual handles your calls</li><li>We run your front desk</li><li>Outsource your front desk to MedVirtual</li><li>MedVirtual answers every call</li><li>MedVirtual.ai (in ad-facing copy)</li></ul>
+      <h3>Not MedVirtual</h3>
+      <ul class="rules"><li>A call center</li><li>A managed front-desk service</li><li>A software product</li><li>A generic outsourcing agency</li><li>A service that performs all work independently on behalf of the practice</li></ul>
+    </section>
+
+    <section class="section" id="messaging">
+      <h2>5 · Approved messaging structure</h2>
+      <ol class="structure">
+        <li>Specific practice pain</li><li>Specific staff role</li><li>Specific workflow supported</li><li>Human or candidate proof</li><li>Clear next action</li>
+      </ol>
+      <div class="example-box">Insurance verification slowing the team down? Meet Mark, an Insurance Verification Specialist available through MedVirtual’s talent pool. Request an interview to see whether he fits your workflow.</div>
+      <h3>Core verticals &amp; buyers</h3>
+      <p class="lede">Primary care · Dental · Aesthetic and cosmetic · Chiropractic · 18+ practice types</p>
+      <p class="lede" style="margin-bottom:0">Practice Owner · Clinic Owner · Medical Director · Lead Dentist · Lead Chiropractor · Office Manager · Practice Manager · Practice Administrator · Treatment Coordinator · Billing Manager · Revenue Cycle Manager · Sales Director (aesthetic)</p>
+    </section>
+
+    <section class="section warn-wrap" id="claims">
+      <h2>6 · Claims requiring approval</h2>
+      <p class="lede">Updated 2026-07-13. Internal only — do not copy unverified numbers into new ads. Safe HIPAA default shown where available.</p>
+      <article class="claim" id="claim-pricing">
+        <div class="claim__top">
+          <span class="claim__cat">Pricing</span>
+          <span class="claim__status ">Needs CMO / sales confirmation</span>
+        </div>
+        <h3>Hourly / monthly starting price</h3>
+        <ul><li>Starting at $10/hour</li><li>$11/hour</li><li>$11–$17/hour</li><li>Approximately $2,200/month</li><li>Less than $2,000/month</li></ul>
+        <p class="src">Sources: GTM Strategy- MedVirtual.xlsx · MedVirtual Intake for SDR.docx · Prior Meta creative / landing copy (legacy)</p>
+        <p class="note">Approved public wording: none yet</p>
+        <p class="note">Do not publish a specific price on a new page unless it already appears in approved live creative or is separately confirmed.</p>
+      </article><article class="claim" id="claim-cost-savings">
+        <div class="claim__top">
+          <span class="claim__cat">Cost savings</span>
+          <span class="claim__status ">Needs confirmation and substantiation</span>
+        </div>
+        <h3>Cost savings vs in-office hire</h3>
+        <ul><li>Up to 68%</li><li>Up to 70%</li></ul>
+        <p class="src">Sources: GTM Strategy- MedVirtual.xlsx · MedVirtual Intake for SDR.docx</p>
+        <p class="note">Approved public wording: none yet</p>
+        <p class="note">Do not automatically publish either number. Requires methodology + approval.</p>
+      </article><article class="claim" id="claim-hipaa">
+        <div class="claim__top">
+          <span class="claim__cat">Compliance</span>
+          <span class="claim__status safe">Default safe wording until approved</span>
+        </div>
+        <h3>HIPAA / compliance language</h3>
+        <ul><li>HIPAA-trained</li><li>HIPAA-certified</li><li>100% HIPAA compliance</li><li>Compliance-ready</li></ul>
+        <p class="src">Sources: GTM Strategy- MedVirtual.xlsx · SDR intake · Legacy ad copy</p>
+        <p class="ok">Approved / safe wording: Healthcare-trained virtual staff with HIPAA training</p>
+        <p class="note">Do not claim certification or 100% compliance without confirmation. Prefer trained wording until legal/CMO signs off.</p>
+      </article><article class="claim" id="claim-deployment-speed">
+        <div class="claim__top">
+          <span class="claim__cat">Operations</span>
+          <span class="claim__status ">Needs operational confirmation</span>
+        </div>
+        <h3>Time to place / start virtual staff</h3>
+        <ul><li>Under two weeks</li><li>Days, not months</li></ul>
+        <p class="src">Sources: GTM Strategy- MedVirtual.xlsx · SDR intake</p>
+        <p class="note">Approved public wording: none yet</p>
+        <p class="note">Confirm against current recruiting / onboarding SLAs before advertising.</p>
+      </article><article class="claim" id="claim-practice-count">
+        <div class="claim__top">
+          <span class="claim__cat">Social proof</span>
+          <span class="claim__status ">Confirm current approved number</span>
+        </div>
+        <h3>Practices served</h3>
+        <ul><li>250+ practices served</li></ul>
+        <p class="src">Sources: GTM Strategy- MedVirtual.xlsx · Prior marketing materials</p>
+        <p class="note">Approved public wording: none yet</p>
+        <p class="note">Use only the current sales-approved count once confirmed.</p>
+      </article><article class="claim" id="claim-retention-performance">
+        <div class="claim__top">
+          <span class="claim__cat">Performance</span>
+          <span class="claim__status block">Do not publish without supporting evidence</span>
+        </div>
+        <h3>Retention and performance outcomes</h3>
+        <ul><li>90%+ retention</li><li>Reduced denials</li><li>Faster reimbursements</li><li>Higher conversion</li><li>Revenue recovery</li><li>Exact savings calculations</li><li>Exact missed-call revenue calculations</li></ul>
+        <p class="src">Sources: GTM Strategy- MedVirtual.xlsx · Legacy creative / decks</p>
+        <p class="note">Approved public wording: none yet</p>
+        <p class="note">No outcome claims in new ads unless substantiated and approved.</p>
+      </article><article class="claim" id="claim-managed-service">
+        <div class="claim__top">
+          <span class="claim__cat">Service model</span>
+          <span class="claim__status block">Conflicting — do not use in external advertising</span>
+        </div>
+        <h3>Managed service / MedVirtual operates workflows</h3>
+        <ul><li>Fully managed by MedVirtual</li><li>MedVirtual handles workflows</li><li>We run your front desk (implied in some internal lines)</li></ul>
+        <p class="src">Sources: GTM Strategy- MedVirtual.xlsx (internal framing) · Prior strategy notes</p>
+        <p class="ok">Approved / safe wording: Hire dedicated full-time virtual staff who become part of your practice’s team</p>
+        <p class="note">Current CMO advertising standard: staff join the client’s team. Internal managed-service wording must not appear in external ads.</p>
+      </article>
+    </section>
+
+    <section class="section" id="roles">
+      <h2>Role &amp; use-case map</h2>
+      <p class="lede">Safe ad hooks and disallowed claims by role. Expand from SDR intake / GTM — do not invent outcome metrics.</p>
+      <div class="role-grid">
+        <article class="role">
+          <h3>Medical Admin</h3>
+          <p class="lede" style="margin-bottom:0.45rem">Practices: Primary care, Specialty clinics, Multi-provider groups</p>
+          <div class="cols">
+            <div><strong style="font-size:0.75rem">Pains</strong><ul><li>Too many calls</li><li>Scheduling backlog</li><li>Patient intake overload</li><li>Follow-up tasks piling up</li><li>Front-desk turnover</li></ul></div>
+            <div><strong style="font-size:0.75rem">Workflows</strong><ul><li>Calls</li><li>Scheduling</li><li>Intake</li><li>Patient communication</li><li>EHR or EMR updates</li><li>Referral coordination</li></ul></div>
+          </div>
+          <p style="margin-top:0.45rem"><strong style="font-size:0.75rem">Safe hooks</strong></p>
+          <ul><li>THE ADMIN WORK DOESN’T STOP.</li><li>TOO MANY CALLS. NOT ENOUGH DAY.</li><li>Add a Jr. Medical Admin your team can interview.</li></ul>
+          <p style="margin-top:0.35rem"><strong style="font-size:0.75rem" class="disallow">Disallowed / unverified</strong></p>
+          <ul class="disallow"><li>Guaranteed call answer rates</li><li>MedVirtual runs your front desk</li><li>Specific revenue outcomes</li></ul>
+        </article><article class="role">
+          <h3>Medical Biller</h3>
+          <p class="lede" style="margin-bottom:0.45rem">Practices: Primary care, Specialty, Dental (billing support)</p>
+          <div class="cols">
+            <div><strong style="font-size:0.75rem">Pains</strong><ul><li>Billing backlog</li><li>Claims waiting for follow-up</li><li>AR workload</li><li>Payment-posting workload</li><li>Denial follow-up</li></ul></div>
+            <div><strong style="font-size:0.75rem">Workflows</strong><ul><li>Claims support</li><li>Payment posting</li><li>AR follow-up</li><li>Billing inquiries</li></ul></div>
+          </div>
+          <p style="margin-top:0.45rem"><strong style="font-size:0.75rem">Safe hooks</strong></p>
+          <ul><li>BILLING WORK PILING UP?</li><li>Meet a Medical Billing support candidate.</li></ul>
+          <p style="margin-top:0.35rem"><strong style="font-size:0.75rem" class="disallow">Disallowed / unverified</strong></p>
+          <ul class="disallow"><li>Specific reimbursement increases</li><li>Specific denial-rate reductions</li><li>Guaranteed revenue recovery</li></ul>
+        </article><article class="role">
+          <h3>Insurance Verification Specialist</h3>
+          <p class="lede" style="margin-bottom:0.45rem">Practices: Primary care, Specialty, Dental</p>
+          <div class="cols">
+            <div><strong style="font-size:0.75rem">Pains</strong><ul><li>Eligibility checks consuming staff time</li><li>Verification delays</li><li>Coverage surprises</li><li>Prior-authorization workload</li></ul></div>
+            <div><strong style="font-size:0.75rem">Workflows</strong><ul><li>Eligibility checks</li><li>Insurance verification</li><li>Prior-auth support</li></ul></div>
+          </div>
+          <p style="margin-top:0.45rem"><strong style="font-size:0.75rem">Safe hooks</strong></p>
+          <ul><li>HOW MUCH OF YOUR DAY GOES TO INSURANCE VERIFICATION?</li><li>VERIFICATION WORK PILING UP?</li></ul>
+          <p style="margin-top:0.35rem"><strong style="font-size:0.75rem" class="disallow">Disallowed / unverified</strong></p>
+          <ul class="disallow"><li>Faster reimbursement guarantees</li><li>Denial reduction guarantees</li></ul>
+        </article><article class="role">
+          <h3>Dental Admin</h3>
+          <p class="lede" style="margin-bottom:0.45rem">Practices: Dental, Ortho, Multi-location dental / DSO</p>
+          <div class="cols">
+            <div><strong style="font-size:0.75rem">Pains</strong><ul><li>Treatment-plan follow-up</li><li>Recall management</li><li>Scheduling</li><li>Insurance verification</li><li>Case acceptance follow-up</li></ul></div>
+            <div><strong style="font-size:0.75rem">Workflows</strong><ul><li>Scheduling</li><li>Recalls</li><li>Insurance verification</li><li>Patient follow-up</li></ul></div>
+          </div>
+          <p style="margin-top:0.45rem"><strong style="font-size:0.75rem">Safe hooks</strong></p>
+          <ul><li>YOUR FRONT DESK SHOULDN’T SPEND ALL DAY SCHEDULING.</li><li>SCHEDULING TAKING OVER THE FRONT DESK?</li></ul>
+          <p style="margin-top:0.35rem"><strong style="font-size:0.75rem" class="disallow">Disallowed / unverified</strong></p>
+          <ul class="disallow"><li>Clinical claims</li><li>Case acceptance rate guarantees</li></ul>
+        </article><article class="role">
+          <h3>Patient Intake Coordinator</h3>
+          <p class="lede" style="margin-bottom:0.45rem">Practices: Primary care, Specialty, Aesthetic</p>
+          <div class="cols">
+            <div><strong style="font-size:0.75rem">Pains</strong><ul><li>Slow response to new-patient inquiries</li><li>Intake paperwork</li><li>Phone and appointment coordination</li><li>Follow-up gaps</li></ul></div>
+            <div><strong style="font-size:0.75rem">Workflows</strong><ul><li>New-patient intake</li><li>Phone coordination</li><li>Appointment follow-up</li></ul></div>
+          </div>
+          <p style="margin-top:0.45rem"><strong style="font-size:0.75rem">Safe hooks</strong></p>
+          <ul><li>NEW PATIENT INTAKE FALLING BEHIND?</li><li>INTAKE AND FOLLOW-UP PILING UP?</li></ul>
+          <p style="margin-top:0.35rem"><strong style="font-size:0.75rem" class="disallow">Disallowed / unverified</strong></p>
+          <ul class="disallow"><li>Conversion-rate guarantees</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="doc-purposes">
+      <h2>Document purposes</h2>
+      <p class="lede">Keep these roles separate — no single page should carry strategy, brief, downloads, and Meta build together.</p>
+      <div class="doc-map">
+        <a href="/graphic-request-brief.html"><strong>Brief</strong><span>Designer production request</span></a>
+        <a href="/real-people-creative.html"><strong>Real People</strong><span>Strategy &amp; copy exploration</span></a>
+        <a href="/real-people-assets.html"><strong>RP Assets</strong><span>Sources, ratios, downloads</span></a>
+        <a href="/medvirtual-brand-guide.html"><strong>Brand Guide</strong><span>Visual + verbal standards</span></a>
+        <a href="/meta-launch-build-pack.html"><strong>Meta Launch</strong><span>Campaign implementation &amp; QA</span></a>
+        <a href="/asset-hub.html"><strong>Assets</strong><span>Brand + raw creative downloads</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="refs">
+      <h2>Reference boards</h2>
+      <p class="lede">Official kit images for designers — not logos to place in ads.</p>
+      <div class="logo-grid">
+        <div class="logo-card"><img src="/assets/brand/medvirtual/brand-kit-reference.png" alt="Brand kit reference" style="max-height:180px;width:100%;object-fit:contain" /><p class="lbl">Brand Kit reference</p></div>
+        <div class="logo-card"><img src="/assets/brand/medvirtual/linkedin-banner-reference.png" alt="LinkedIn banner" style="max-height:120px;width:100%;object-fit:contain" /><p class="lbl">LinkedIn banner reference</p></div>
+        <div class="logo-card" style="grid-column:1/-1"><img src="/assets/brand/medvirtual/story-gradient-reference.png" alt="Story gradient" style="max-height:160px;width:100%;object-fit:contain" /><p class="lbl">Stories gradient reference</p></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
