@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-09T23:56:27.561Z",
+  "generatedAt": "2026-07-13T22:44:38.198Z",
   "mode": "george-approved-by-subject-side",
   "kept": [
     {
@@ -10,13 +10,13 @@
       "family": "teal_blouse_admin",
       "boardSection": "person_left",
       "subjectSide": "left",
-      "textZone": "Top line + right side",
+      "textZone": "Copy zone: Right side + top",
       "aspectRatio": "4x5",
       "cropType": "FACE_LEFT",
       "cropLabel": "4x5/face/left",
       "candidateRating": "A",
       "placeholderLabel": "Follow-Up",
-      "recommendedUse": "Text: Top line + right side",
+      "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_003_4X5_FACE_LEFT.png",
@@ -39,7 +39,10 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "recommended",
+      "displayName": "Image 03 — Follow-Up",
+      "copyZone": "Copy zone: Right side + top"
     },
     {
       "variationId": "IMG_AI_009_4X5_FACE_LEFT",
@@ -49,13 +52,13 @@
       "family": "teal_blouse_admin",
       "boardSection": "person_left",
       "subjectSide": "left",
-      "textZone": "Top line + right side",
+      "textZone": "Copy zone: Right side + top",
       "aspectRatio": "4x5",
       "cropType": "FACE_LEFT",
       "cropLabel": "4x5/face/left",
       "candidateRating": "A",
       "placeholderLabel": "Scheduling",
-      "recommendedUse": "Text: Top line + right side",
+      "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_009_4X5_FACE_LEFT.png",
@@ -77,7 +80,10 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "recommended",
+      "displayName": "Image 09 — Scheduling",
+      "copyZone": "Copy zone: Right side + top"
     },
     {
       "variationId": "IMG_AI_010_4X5_FACE_LEFT",
@@ -87,13 +93,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_left",
       "subjectSide": "left",
-      "textZone": "Top line + right side",
+      "textZone": "Copy zone: Right side + top",
       "aspectRatio": "4x5",
       "cropType": "FACE_LEFT",
       "cropLabel": "4x5/face/left",
       "candidateRating": "A",
-      "placeholderLabel": "Front Desk Backup",
-      "recommendedUse": "Text: Top line + right side",
+      "placeholderLabel": "Front Desk",
+      "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png",
@@ -115,7 +121,10 @@
           "I'm a real clinic owner framing"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "recommended",
+      "displayName": "Image 10 — Front Desk",
+      "copyZone": "Copy zone: Right side + top"
     },
     {
       "variationId": "IMG_AI_003_1X1_FACE_CENTER",
@@ -125,13 +134,13 @@
       "family": "teal_blouse_admin",
       "boardSection": "person_left",
       "subjectSide": "left",
-      "textZone": "Top line + right side",
+      "textZone": "Copy zone: Right side + top",
       "aspectRatio": "1x1",
       "cropType": "FACE_CENTER",
       "cropLabel": "1x1/face/center",
       "candidateRating": "A",
       "placeholderLabel": "Follow-Up",
-      "recommendedUse": "Text: Top line + right side",
+      "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/square-1x1/IMG_AI_003_1X1_FACE_CENTER.png",
@@ -154,7 +163,10 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "recommended",
+      "displayName": "Image 03 — Follow-Up",
+      "copyZone": "Copy zone: Right side + top"
     },
     {
       "variationId": "IMG_AI_009_9X16_SUBJECT_LEFT",
@@ -164,13 +176,13 @@
       "family": "teal_blouse_admin",
       "boardSection": "person_left",
       "subjectSide": "left",
-      "textZone": "Top line + right side",
+      "textZone": "Copy zone: Right side + top",
       "aspectRatio": "9x16",
       "cropType": "SUBJECT_LEFT",
       "cropLabel": "9x16/subject/left",
       "candidateRating": "A",
       "placeholderLabel": "Scheduling",
-      "recommendedUse": "Text: Top line + right side",
+      "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/story-9x16/IMG_AI_009_9X16_SUBJECT_LEFT.png",
@@ -192,7 +204,10 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "alternate",
+      "displayName": "Image 09 — Scheduling",
+      "copyZone": "Copy zone: Right side + top"
     },
     {
       "variationId": "IMG_AI_009_1X1_FACE_CENTER",
@@ -202,13 +217,13 @@
       "family": "teal_blouse_admin",
       "boardSection": "person_left",
       "subjectSide": "left",
-      "textZone": "Top line + right side",
+      "textZone": "Copy zone: Right side + top",
       "aspectRatio": "1x1",
       "cropType": "FACE_CENTER",
       "cropLabel": "1x1/face/center",
       "candidateRating": "A",
       "placeholderLabel": "Scheduling",
-      "recommendedUse": "Text: Top line + right side",
+      "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/square-1x1/IMG_AI_009_1X1_FACE_CENTER.png",
@@ -230,7 +245,10 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "alternate",
+      "displayName": "Image 09 — Scheduling",
+      "copyZone": "Copy zone: Right side + top"
     },
     {
       "variationId": "IMG_AI_010_4X5_SUBJECT_LEFT",
@@ -240,13 +258,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_left",
       "subjectSide": "left",
-      "textZone": "Top line + right side",
+      "textZone": "Copy zone: Right side + top",
       "aspectRatio": "4x5",
       "cropType": "SUBJECT_LEFT",
       "cropLabel": "4x5/subject/left",
       "candidateRating": "A",
-      "placeholderLabel": "Front Desk Backup",
-      "recommendedUse": "Text: Top line + right side",
+      "placeholderLabel": "Front Desk",
+      "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_010_4X5_SUBJECT_LEFT.png",
@@ -268,7 +286,10 @@
           "I'm a real clinic owner framing"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "alternate",
+      "displayName": "Image 10 — Front Desk",
+      "copyZone": "Copy zone: Right side + top"
     },
     {
       "variationId": "IMG_AI_006_1X1_SUBJECT_CENTER",
@@ -278,13 +299,13 @@
       "family": "navy_scrubs_admin",
       "boardSection": "person_left",
       "subjectSide": "left",
-      "textZone": "Top line + right side",
+      "textZone": "Copy zone: Right side + top",
       "aspectRatio": "1x1",
       "cropType": "SUBJECT_CENTER",
       "cropLabel": "1x1/subject/center",
       "candidateRating": "A",
       "placeholderLabel": "Scheduling",
-      "recommendedUse": "Text: Top line + right side",
+      "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/square-1x1/IMG_AI_006_1X1_SUBJECT_CENTER.png",
@@ -306,7 +327,10 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "alternate",
+      "displayName": "Image 06 — Scheduling",
+      "copyZone": "Copy zone: Right side + top"
     },
     {
       "variationId": "IMG_AI_015_4X5_FACE_LEFT",
@@ -316,13 +340,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_left",
       "subjectSide": "left",
-      "textZone": "Top line + right side",
+      "textZone": "Copy zone: Right side + top",
       "aspectRatio": "4x5",
       "cropType": "FACE_LEFT",
       "cropLabel": "4x5/face/left",
       "candidateRating": "A",
-      "placeholderLabel": "Front Desk Backup",
-      "recommendedUse": "Text: Top line + right side",
+      "placeholderLabel": "Front Desk",
+      "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_015_4X5_FACE_LEFT.png",
@@ -346,7 +370,10 @@
           "clinical care promises"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "recommended",
+      "displayName": "Image 15 — Front Desk",
+      "copyZone": "Copy zone: Right side + top"
     },
     {
       "variationId": "IMG_AI_015_9X16_SUBJECT_LEFT",
@@ -356,13 +383,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_left",
       "subjectSide": "left",
-      "textZone": "Top line + right side",
+      "textZone": "Copy zone: Right side + top",
       "aspectRatio": "9x16",
       "cropType": "SUBJECT_LEFT",
       "cropLabel": "9x16/subject/left",
       "candidateRating": "A",
-      "placeholderLabel": "Front Desk Backup",
-      "recommendedUse": "Text: Top line + right side",
+      "placeholderLabel": "Front Desk",
+      "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/story-9x16/IMG_AI_015_9X16_SUBJECT_LEFT.png",
@@ -386,7 +413,10 @@
           "clinical care promises"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "recommended",
+      "displayName": "Image 15 — Front Desk",
+      "copyZone": "Copy zone: Right side + top"
     },
     {
       "variationId": "IMG_AI_004_4X5_FACE_RIGHT",
@@ -396,13 +426,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_right",
       "subjectSide": "right",
-      "textZone": "Top line + left side",
+      "textZone": "Copy zone: Left side + top",
       "aspectRatio": "4x5",
       "cropType": "FACE_RIGHT",
       "cropLabel": "4x5/face/right",
       "candidateRating": "A",
       "placeholderLabel": "Workflow",
-      "recommendedUse": "Text: Top line + left side",
+      "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_004_4X5_FACE_RIGHT.png",
@@ -424,7 +454,10 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "recommended",
+      "displayName": "Image 04 — Workflow",
+      "copyZone": "Copy zone: Left side + top"
     },
     {
       "variationId": "IMG_AI_004_9X16_SUBJECT_RIGHT",
@@ -434,13 +467,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_right",
       "subjectSide": "right",
-      "textZone": "Top line + left side",
+      "textZone": "Copy zone: Left side + top",
       "aspectRatio": "9x16",
       "cropType": "SUBJECT_RIGHT",
       "cropLabel": "9x16/subject/right",
       "candidateRating": "A",
       "placeholderLabel": "Workflow",
-      "recommendedUse": "Text: Top line + left side",
+      "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/story-9x16/IMG_AI_004_9X16_SUBJECT_RIGHT.png",
@@ -462,7 +495,10 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "alternate",
+      "displayName": "Image 04 — Workflow",
+      "copyZone": "Copy zone: Left side + top"
     },
     {
       "variationId": "IMG_AI_004_1X1_FACE_CENTER",
@@ -472,13 +508,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_right",
       "subjectSide": "right",
-      "textZone": "Top line + left side",
+      "textZone": "Copy zone: Left side + top",
       "aspectRatio": "1x1",
       "cropType": "FACE_CENTER",
       "cropLabel": "1x1/face/center",
       "candidateRating": "A",
       "placeholderLabel": "Workflow",
-      "recommendedUse": "Text: Top line + left side",
+      "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/square-1x1/IMG_AI_004_1X1_FACE_CENTER.png",
@@ -500,7 +536,10 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "alternate",
+      "displayName": "Image 04 — Workflow",
+      "copyZone": "Copy zone: Left side + top"
     },
     {
       "variationId": "IMG_AI_007_1X1_FACE_CENTER",
@@ -510,13 +549,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_right",
       "subjectSide": "right",
-      "textZone": "Top line + left side",
+      "textZone": "Copy zone: Left side + top",
       "aspectRatio": "1x1",
       "cropType": "FACE_CENTER",
       "cropLabel": "1x1/face/center",
       "candidateRating": "A",
       "placeholderLabel": "Workflow",
-      "recommendedUse": "Text: Top line + left side",
+      "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/square-1x1/IMG_AI_007_1X1_FACE_CENTER.png",
@@ -540,7 +579,10 @@
           "patient outcomes"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "alternate",
+      "displayName": "Image 07 — Workflow",
+      "copyZone": "Copy zone: Left side + top"
     },
     {
       "variationId": "IMG_AI_013_4X5_FACE_RIGHT",
@@ -550,13 +592,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_right",
       "subjectSide": "right",
-      "textZone": "Top line + left side (center-right)",
+      "textZone": "Copy zone: Left side + top",
       "aspectRatio": "4x5",
       "cropType": "FACE_RIGHT",
       "cropLabel": "4x5/face/right",
       "candidateRating": "A",
-      "placeholderLabel": "Remote Medical Assistant",
-      "recommendedUse": "Text: Top line + left side (center-right)",
+      "placeholderLabel": "Medical Assistant",
+      "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_013_4X5_FACE_RIGHT.png",
@@ -580,7 +622,10 @@
           "patient outcomes"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "recommended",
+      "displayName": "Image 13 — Medical Assistant",
+      "copyZone": "Copy zone: Left side + top"
     },
     {
       "variationId": "IMG_AI_013_9X16_SUBJECT_RIGHT",
@@ -590,13 +635,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_right",
       "subjectSide": "right",
-      "textZone": "Top line + left side (center-right)",
+      "textZone": "Copy zone: Left side + top",
       "aspectRatio": "9x16",
       "cropType": "SUBJECT_RIGHT",
       "cropLabel": "9x16/subject/right",
       "candidateRating": "A",
-      "placeholderLabel": "Remote Medical Assistant",
-      "recommendedUse": "Text: Top line + left side (center-right)",
+      "placeholderLabel": "Medical Assistant",
+      "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/story-9x16/IMG_AI_013_9X16_SUBJECT_RIGHT.png",
@@ -620,7 +665,10 @@
           "patient outcomes"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "alternate",
+      "displayName": "Image 13 — Medical Assistant",
+      "copyZone": "Copy zone: Left side + top"
     },
     {
       "variationId": "IMG_AI_014_4X5_FACE_RIGHT",
@@ -630,13 +678,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_right",
       "subjectSide": "right",
-      "textZone": "Top line + left side (center-right)",
+      "textZone": "Copy zone: Left side + top",
       "aspectRatio": "4x5",
       "cropType": "FACE_RIGHT",
       "cropLabel": "4x5/face/right",
       "candidateRating": "A",
       "placeholderLabel": "Workflow",
-      "recommendedUse": "Text: Top line + left side (center-right)",
+      "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_014_4X5_FACE_RIGHT.png",
@@ -659,7 +707,10 @@
           "clinical treatment claims"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "hold",
+      "displayName": "Image 14 — Workflow",
+      "copyZone": "Copy zone: Left side + top"
     },
     {
       "variationId": "IMG_AI_014_9X16_SUBJECT_RIGHT",
@@ -669,13 +720,13 @@
       "family": "blue_scrubs_headset",
       "boardSection": "person_right",
       "subjectSide": "right",
-      "textZone": "Top line + left side (center-right)",
+      "textZone": "Copy zone: Left side + top",
       "aspectRatio": "9x16",
       "cropType": "SUBJECT_RIGHT",
       "cropLabel": "9x16/subject/right",
       "candidateRating": "A",
       "placeholderLabel": "Workflow",
-      "recommendedUse": "Text: Top line + left side (center-right)",
+      "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/story-9x16/IMG_AI_014_9X16_SUBJECT_RIGHT.png",
@@ -698,7 +749,10 @@
           "clinical treatment claims"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "hold",
+      "displayName": "Image 14 — Workflow",
+      "copyZone": "Copy zone: Left side + top"
     },
     {
       "variationId": "IMG_AI_008_4X5_SUBJECT_CENTER",
@@ -706,15 +760,15 @@
       "sourceFile": "ai-generated-08.png",
       "sourceType": "AI-generated",
       "family": "wide_office",
-      "boardSection": "person_center",
-      "subjectSide": "center",
-      "textZone": "Top band — blank space above subject",
+      "boardSection": "person_right",
+      "subjectSide": "right",
+      "textZone": "Copy zone: Left side + top",
       "aspectRatio": "4x5",
       "cropType": "SUBJECT_CENTER",
       "cropLabel": "4x5/subject/center",
       "candidateRating": "A",
       "placeholderLabel": "Payroll Pressure",
-      "recommendedUse": "Text: Top band — blank space above subject",
+      "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
       "warnings": [],
       "previewPath": "/exports/image-tests/feed-4x5/IMG_AI_008_4X5_SUBJECT_CENTER.png",
@@ -738,7 +792,10 @@
           "fake dashboard data"
         ]
       },
-      "sourceFolder": "ai-images"
+      "sourceFolder": "ai-images",
+      "status": "alternate",
+      "displayName": "Image 08 — Payroll Pressure",
+      "copyZone": "Copy zone: Left side + top"
     },
     {
       "variationId": "IMG_LP_001_4X5_WHITE_TEXT_TOP",
@@ -746,15 +803,15 @@
       "sourceFile": "assistant.avif",
       "sourceType": "Landing page image",
       "family": "landing_headshot",
-      "boardSection": "usable_later",
+      "boardSection": "person_center",
       "subjectSide": "center",
-      "textZone": "White band above head — do not cover face",
+      "textZone": "Copy zone: Open top band",
       "aspectRatio": "4x5",
       "cropType": "WHITE_TEXT_TOP",
       "cropLabel": "4x5/white/text-above",
       "candidateRating": "B",
       "placeholderLabel": "Front Desk Backup",
-      "recommendedUse": "Flush bottom on white — put hook in top white band",
+      "recommendedUse": "Copy zone: Open top band",
       "owned": true,
       "warnings": [
         "Usable later — text above head only"
@@ -780,7 +837,10 @@
           "first cold video batch"
         ]
       },
-      "sourceFolder": "landing-page-images"
+      "sourceFolder": "landing-page-images",
+      "status": "alternate",
+      "displayName": "Image 01 — Front Desk Backup",
+      "copyZone": "Copy zone: Open top band"
     },
     {
       "variationId": "IMG_LP_002_4X5_WHITE_TEXT_TOP",
@@ -788,15 +848,15 @@
       "sourceFile": "biller.avif",
       "sourceType": "Landing page image",
       "family": "landing_headshot",
-      "boardSection": "usable_later",
+      "boardSection": "person_center",
       "subjectSide": "center",
-      "textZone": "White band above head — do not cover face",
+      "textZone": "Copy zone: Open top band",
       "aspectRatio": "4x5",
       "cropType": "WHITE_TEXT_TOP",
       "cropLabel": "4x5/white/text-above",
       "candidateRating": "B",
       "placeholderLabel": "Payroll Pressure",
-      "recommendedUse": "Flush bottom on white — put hook in top white band",
+      "recommendedUse": "Copy zone: Open top band",
       "owned": true,
       "warnings": [
         "Usable later — text above head only"
@@ -821,7 +881,10 @@
           "Veo lip-sync"
         ]
       },
-      "sourceFolder": "landing-page-images"
+      "sourceFolder": "landing-page-images",
+      "status": "alternate",
+      "displayName": "Image 02 — Payroll Pressure",
+      "copyZone": "Copy zone: Open top band"
     },
     {
       "variationId": "IMG_LP_003_4X5_WHITE_TEXT_TOP",
@@ -829,15 +892,15 @@
       "sourceFile": "casecoord.avif",
       "sourceType": "Landing page image",
       "family": "landing_headshot",
-      "boardSection": "usable_later",
+      "boardSection": "person_center",
       "subjectSide": "center",
-      "textZone": "White band above head — do not cover face",
+      "textZone": "Copy zone: Open top band",
       "aspectRatio": "4x5",
       "cropType": "WHITE_TEXT_TOP",
       "cropLabel": "4x5/white/text-above",
       "candidateRating": "B",
       "placeholderLabel": "Follow-Up",
-      "recommendedUse": "Flush bottom on white — put hook in top white band",
+      "recommendedUse": "Copy zone: Open top band",
       "owned": true,
       "warnings": [
         "Usable later — text above head only"
@@ -863,7 +926,10 @@
           "first batch video"
         ]
       },
-      "sourceFolder": "landing-page-images"
+      "sourceFolder": "landing-page-images",
+      "status": "alternate",
+      "displayName": "Image 03 — Follow-Up",
+      "copyZone": "Copy zone: Open top band"
     },
     {
       "variationId": "IMG_LP_004_4X5_WHITE_TEXT_TOP",
@@ -871,15 +937,15 @@
       "sourceFile": "general.avif",
       "sourceType": "Landing page image",
       "family": "landing_headshot",
-      "boardSection": "usable_later",
+      "boardSection": "person_center",
       "subjectSide": "center",
-      "textZone": "White band above head — do not cover face",
+      "textZone": "Copy zone: Open top band",
       "aspectRatio": "4x5",
       "cropType": "WHITE_TEXT_TOP",
       "cropLabel": "4x5/white/text-above",
       "candidateRating": "B",
       "placeholderLabel": "Staffing Gap",
-      "recommendedUse": "Flush bottom on white — put hook in top white band",
+      "recommendedUse": "Copy zone: Open top band",
       "owned": true,
       "warnings": [
         "Usable later — text above head only"
@@ -904,7 +970,10 @@
           "first batch"
         ]
       },
-      "sourceFolder": "landing-page-images"
+      "sourceFolder": "landing-page-images",
+      "status": "alternate",
+      "displayName": "Image 04 — Staffing Gap",
+      "copyZone": "Copy zone: Open top band"
     },
     {
       "variationId": "IMG_LP_005_4X5_WHITE_TEXT_TOP",
@@ -912,15 +981,15 @@
       "sourceFile": "nurse.avif",
       "sourceType": "Landing page image",
       "family": "landing_headshot",
-      "boardSection": "usable_later",
+      "boardSection": "person_center",
       "subjectSide": "center",
-      "textZone": "White band above head — do not cover face",
+      "textZone": "Copy zone: Open top band",
       "aspectRatio": "4x5",
       "cropType": "WHITE_TEXT_TOP",
       "cropLabel": "4x5/white/text-above",
       "candidateRating": "B",
       "placeholderLabel": "Follow-Up",
-      "recommendedUse": "Flush bottom on white — put hook in top white band",
+      "recommendedUse": "Copy zone: Open top band",
       "owned": true,
       "warnings": [
         "Usable later — text above head only"
@@ -946,17 +1015,21 @@
           "Veo lip-sync"
         ]
       },
-      "sourceFolder": "landing-page-images"
+      "sourceFolder": "landing-page-images",
+      "status": "alternate",
+      "displayName": "Image 05 — Follow-Up",
+      "copyZone": "Copy zone: Open top band"
     }
   ],
   "rejected": [],
   "summary": {
     "personLeft": 10,
-    "personRight": 8,
-    "personCenter": 1,
+    "personRight": 9,
+    "personCenter": 0,
     "headshots": 5,
+    "totalVisible": 19,
     "total": 24,
-    "textRule": "Most images: put hook on top line. Person-left → text right. Person-right → text left. Center → text in top blank band."
+    "textRule": "Choose the image first. Place copy opposite the person."
   },
   "videoProductionReady": true
 }

@@ -36,7 +36,7 @@ export const PRIMARY_NAV = [
     href: '/image-variation-review.html',
     label: 'Image Review',
     id: 'images',
-    description: 'Approved image crops by ratio and face placement.',
+    description: 'Designer image selection by subject position and copy space.',
   },
   {
     href: '/asset-hub.html',
@@ -66,11 +66,10 @@ export const PRIMARY_NAV = [
 
 /** Image/crop sub-pages — linked from Image Review header */
 export const IMAGE_SUBNAV = [
-  { href: '/image-variation-review.html', label: 'Review Board' },
+  { href: '/image-variation-review.html', label: 'Selection Board' },
   { href: '/contact-sheet-best-candidates.html', label: 'Approved Only' },
   { href: '/contact-sheet-all-4x5.html', label: '4:5 Feed' },
   { href: '/contact-sheet-all-9x16.html', label: '9:16 Stories' },
-  { href: '/contact-sheet-landing-page-images.html', label: 'Headshots' },
 ];
 
 /** Secondary reference pages — not in main nav */
@@ -89,11 +88,6 @@ export const SECONDARY_PAGES = [
     href: '/contact-sheet-all-9x16.html',
     label: '9:16 Story Crops',
     description: 'All story/reels crops — for later resize phase only.',
-  },
-  {
-    href: '/contact-sheet-landing-page-images.html',
-    label: 'Headshot Crops',
-    description: 'Landing-page headshot crops (phase 2 / trust ads).',
   },
   {
     href: '/contact-sheet-ai-images.html',
