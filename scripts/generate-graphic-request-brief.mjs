@@ -1,157 +1,106 @@
 /**
- * Graphic Request Brief — 4-concept production handoff only.
+ * Graphic Request Brief — slim designer handoff.
+ * 4 concepts · size/CTA · short rules. No strategy dump.
  */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
-import {
-  ARCHIVED_CONCEPTS,
-  BRAND_NAME,
-  INTERNAL_NOTES,
-  MESSAGING_RULES,
-  PRACTICE_TYPES,
-  PRODUCTION_CONCEPTS,
-  PRODUCTION_DELIVERABLES,
-  PRODUCTION_DELIVERABLES_NOTE,
-  ROLES,
-  USE_CASES,
-  buildMondayFormCopy,
-} from './first-test-batch-data.mjs';
+import { BRAND_NAME, PRODUCTION_CONCEPTS } from './first-test-batch-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const PUBLIC = path.join(ROOT, 'public');
 
-const CONCEPT_COUNT = PRODUCTION_CONCEPTS.length;
-
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-function li(items) {
-  return `<ul class="bullets">${items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
+/** Audience only when it changes the visual (medical vs dental callouts). */
+function showAudience(c) {
+  return c.id === '1' || c.id === '2';
 }
 
-function renderProductionCard(c) {
-  return `<article class="concept-card">
-    <h3 class="concept-title">${esc(c.name)}</h3>
-    <dl class="concept-fields">
-      <div><dt>Audience</dt><dd>${esc(c.audience)}</dd></div>
-      <div class="field-headline"><dt>On-image headline</dt><dd>${esc(c.headline)}</dd></div>
-      <div><dt>Supporting line</dt><dd>${esc(c.support)}</dd></div>
-      <div><dt>Visual direction</dt><dd>${esc(c.visual)}</dd></div>
-      <div><dt>CTA</dt><dd><span class="badge-cta">${esc(c.cta)}</span></dd></div>
-      <div class="field-warn"><dt>Warning</dt><dd>${esc(c.warning)}</dd></div>
-    </dl>
+function renderConceptCard(c, index) {
+  const audience = showAudience(c)
+    ? `<p class="card-audience">${esc(c.audience)}</p>`
+    : '';
+  return `<article class="card">
+    <div class="card-num">${index + 1}</div>
+    <div class="card-body">
+      <h3 class="card-headline">${esc(c.headline)}</h3>
+      ${audience}
+      <p class="card-support">${esc(c.support)}</p>
+      <p class="card-visual"><span>Visual</span>${esc(c.visual)}</p>
+      <div class="card-foot">
+        <span class="cta">${esc(c.cta)}</span>
+        <p class="card-warn">${esc(c.warning)}</p>
+      </div>
+    </div>
   </article>`;
-}
-
-function renderArchivedConcept(c) {
-  return `<div class="archived-item">
-    <strong>${esc(c.name)}</strong> <span class="archived-tag">Do not produce</span>
-    <p>${esc(c.audience)} · ${esc(c.onImageText || c.headlines?.[0] || '')}</p>
-  </div>`;
 }
 
 const CSS = `
   ${HEADER_CSS}
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.4; }
-  .wrap { max-width: 920px; margin: 0 auto; padding: 1rem 1.15rem 2.5rem; }
-  .produce-banner {
-    background: #0d9488; color: #fff; border-radius: 10px; padding: 0.75rem 1rem;
-    font-size: 0.88rem; font-weight: 700; text-align: center; margin-bottom: 0.65rem;
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; }
+  .banner {
+    background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 0.95rem 1.1rem; margin-bottom: 0.85rem;
   }
-  .strategy-note {
-    background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #94a3b8;
-    border-radius: 8px; padding: 0.55rem 0.75rem; margin-bottom: 0.65rem;
-    font-size: 0.78rem; color: #64748b; line-height: 1.4;
+  .banner h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
+  .banner p { font-size: 0.88rem; color: #cbd5e1; }
+  .banner-meta {
+    display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem;
   }
-  .hero {
-    background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 1.1rem 1.2rem; margin-bottom: 0.75rem;
+  .banner-meta span {
+    font-size: 0.72rem; font-weight: 750; padding: 0.28rem 0.55rem; border-radius: 6px;
+    background: rgba(13,148,136,0.25); border: 1px solid rgba(94,234,212,0.35); color: #99f6e4;
   }
-  .hero h2 { font-size: 1.1rem; margin-bottom: 0.35rem; }
-  .hero p { font-size: 0.84rem; color: #94a3b8; }
-  .hero-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.65rem; }
-  .hero-pill {
-    font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.6rem; border-radius: 6px;
-    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  .cards { display: grid; gap: 0.75rem; margin-bottom: 0.85rem; }
+  .card {
+    display: grid; grid-template-columns: 2.25rem 1fr; gap: 0.65rem;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1rem;
   }
-  .section {
-    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+  .card-num {
+    width: 2.1rem; height: 2.1rem; border-radius: 8px; background: #0d9488; color: #fff;
+    font-weight: 800; font-size: 0.95rem; display: grid; place-items: center;
+  }
+  .card-headline { font-size: 1.15rem; font-weight: 800; color: #0f172a; line-height: 1.25; }
+  .card-audience {
+    margin-top: 0.35rem; font-size: 0.78rem; font-weight: 700; color: #0f766e;
+  }
+  .card-support { margin-top: 0.4rem; font-size: 0.95rem; color: #334155; font-weight: 600; }
+  .card-visual {
+    margin-top: 0.55rem; font-size: 0.86rem; color: #475569; line-height: 1.4;
+  }
+  .card-visual span {
+    display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.04em; color: #94a3b8; margin-bottom: 0.15rem;
+  }
+  .card-foot { margin-top: 0.65rem; display: flex; flex-wrap: wrap; gap: 0.45rem 0.75rem; align-items: center; }
+  .cta {
+    display: inline-block; background: #0d9488; color: #fff; font-size: 0.75rem; font-weight: 800;
+    padding: 0.28rem 0.6rem; border-radius: 6px;
+  }
+  .card-warn { font-size: 0.8rem; color: #b45309; font-weight: 650; flex: 1 1 12rem; }
+  .panel {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
     padding: 0.85rem 1rem; margin-bottom: 0.65rem;
   }
-  .section h2 {
-    font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-    color: #64748b; margin-bottom: 0.45rem;
+  .panel h2 {
+    font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+    color: #0f172a; margin-bottom: 0.4rem;
   }
-  .section p, .bullets li { font-size: 0.84rem; color: #334155; }
-  .bullets { margin: 0; padding-left: 1rem; }
-  .bullets li { margin: 0.15rem 0; }
-  .deliverables { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .deliverable-item {
-    font-size: 0.78rem; font-weight: 600; padding: 0.35rem 0.55rem; border-radius: 6px;
-    background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4;
-  }
-  .concepts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
-  @media (max-width: 700px) { .concepts-grid { grid-template-columns: 1fr; } }
-  .concept-card {
-    border: 2px solid #0d9488; border-radius: 10px; padding: 0.75rem 0.85rem; background: #fff;
-  }
-  .concept-title { font-size: 0.88rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; padding-bottom: 0.35rem; border-bottom: 1px solid #e2e8f0; }
-  .concept-fields > div { margin-bottom: 0.4rem; }
-  .concept-fields dt { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.08rem; }
-  .concept-fields dd { font-size: 0.82rem; color: #1e293b; }
-  .field-headline dd { font-size: 0.95rem; font-weight: 800; color: #0f172a; }
-  .field-warn dd { color: #b45309; font-size: 0.78rem; font-weight: 600; }
-  .badge-cta { display: inline-block; background: #0d9488; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 5px; }
-  .compact-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.8rem; }
-  @media (max-width: 560px) { .compact-split { grid-template-columns: 1fr; } }
-  .use-box { background: #ecfdf5; border-radius: 6px; padding: 0.5rem 0.6rem; }
-  .avoid-box { background: #fef2f2; border-radius: 6px; padding: 0.5rem 0.6rem; }
-  .use-box strong, .avoid-box strong { font-size: 0.65rem; text-transform: uppercase; display: block; margin-bottom: 0.2rem; }
-  .warn-section { background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 0.65rem; }
-  .warn-section h2 { color: #b91c1c; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem; }
-  .warn-section li { color: #7f1d1d; font-size: 0.8rem; }
-  .ref-links a {
-    display: block; font-size: 0.82rem; font-weight: 700; color: #0d9488; text-decoration: none;
-    padding: 0.45rem 0; border-bottom: 1px solid #f1f5f9;
-  }
-  .ref-links a:last-child { border-bottom: none; }
-  .qa-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; }
-  @media (max-width: 560px) { .qa-list { grid-template-columns: 1fr; } }
-  .qa-list li { font-size: 0.78rem; padding: 0.3rem 0.45rem; background: #f8fafc; border-radius: 5px; border: 1px solid #e2e8f0; }
-  .qa-list li::before { content: '☐ '; color: #0d9488; font-weight: 700; }
-  .monday-box {
-    background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 0.75rem 0.85rem;
-    font-family: ui-monospace, monospace; font-size: 0.72rem; white-space: pre-wrap; line-height: 1.4;
-  }
-  .copy-btn {
-    margin-top: 0.5rem; font-size: 0.72rem; font-weight: 650; color: #0f766e; background: #f0fdfa;
-    border: 1px solid #99f6e4; border-radius: 6px; padding: 0.3rem 0.6rem; cursor: pointer;
-  }
-  .copy-btn:hover { background: #ccfbf1; }
-  details.collapsed {
-    background: #fff; border: 1px dashed #cbd5e1; border-radius: 10px; margin-top: 0.75rem;
-  }
-  details.collapsed summary {
-    padding: 0.75rem 1rem; font-weight: 700; font-size: 0.82rem; color: #64748b; cursor: pointer; list-style: none;
-  }
-  details.collapsed summary::-webkit-details-marker { display: none; }
-  details.collapsed[open] summary { border-bottom: 1px dashed #e2e8f0; color: #b45309; }
-  .collapsed-body { padding: 0.85rem 1rem; font-size: 0.78rem; color: #64748b; }
-  .archived-item { padding: 0.45rem 0; border-bottom: 1px solid #f1f5f9; }
-  .archived-item:last-child { border-bottom: none; }
-  .archived-tag { font-size: 0.62rem; font-weight: 700; color: #b91c1c; text-transform: uppercase; }
-  .pill-row { display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0.35rem 0; }
-  .pill { font-size: 0.65rem; padding: 0.12rem 0.4rem; border-radius: 999px; background: #f1f5f9; border: 1px solid #e2e8f0; }
+  .panel ul { padding-left: 1.05rem; }
+  .panel li { font-size: 0.88rem; color: #334155; margin: 0.22rem 0; }
+  .panel.do-not { background: #fff7ed; border-color: #fed7aa; }
+  .panel.do-not h2 { color: #c2410c; }
+  .panel.do-not li { color: #9a3412; }
 `;
 
 function main() {
-  const mondayCopy = buildMondayFormCopy();
-  const conceptsHtml = PRODUCTION_CONCEPTS.map(renderProductionCard).join('');
-  const archivedHtml = ARCHIVED_CONCEPTS.map(renderArchivedConcept).join('');
+  const cards = PRODUCTION_CONCEPTS.map((c, i) => renderConceptCard(c, i)).join('');
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -165,144 +114,49 @@ function main() {
   ${renderDocHeader({
     activeId: 'brief',
     pageTitle: 'Graphic Request Brief',
-    pageSubtitle: '4 static ads · 1080×1350 only · designer/VA handoff',
+    pageSubtitle: '4 static ads · 1080×1350 · designer handoff',
   })}
   <div class="wrap">
-    <p class="produce-banner">Produce exactly 4 static concepts · 1080×1350 only · no variations yet</p>
-
-    <header class="hero" id="summary">
-      <h2>MedVirtual Meta Ads — First Creative Batch</h2>
-      <p>Four static Meta feed ads. Practices hire <strong>full-time virtual staff</strong> through MedVirtual — staff become part of the practice team.</p>
-      <p style="margin-top:0.25rem"><strong>CTA:</strong> Book a Demo</p>
-      <div class="hero-meta">
-        <span class="hero-pill">4 static</span>
-        <span class="hero-pill">1080×1350</span>
-        <span class="hero-pill">No variations yet</span>
+    <header class="banner">
+      <h2>Produce these 4 static ads</h2>
+      <p>Full-time virtual staff through MedVirtual — part of the practice team. One design per concept.</p>
+      <div class="banner-meta">
+        <span>4 static</span>
+        <span>1080×1350</span>
+        <span>CTA: Book a Demo</span>
+        <span>No variations yet</span>
       </div>
     </header>
 
-    <section class="section" id="deliverables">
-      <h2>Deliverables</h2>
-      <div class="deliverables">
-        ${PRODUCTION_DELIVERABLES.map((d) => `<span class="deliverable-item">${esc(d)}</span>`).join('')}
-      </div>
-      <p style="margin-top:0.5rem;font-size:0.82rem;font-weight:600;color:#0f766e">${esc(PRODUCTION_DELIVERABLES_NOTE)}</p>
+    <div class="cards">${cards}</div>
+
+    <section class="panel">
+      <h2>Design rules</h2>
+      <ul>
+        <li>MedVirtual only — never MedVirtual.ai on the ad</li>
+        <li>One clear hook · large headline · minimal support text</li>
+        <li>Clean healthcare visuals · show virtual staff working</li>
+        <li>Visible Book a Demo CTA · mobile-readable · no clutter</li>
+        <li>1080×1350 static feed only for this batch</li>
+      </ul>
     </section>
 
-    <section class="section" id="audience">
-      <h2>Audience</h2>
-      ${li(['Medical practice owners', 'Dental practice owners', 'Practice managers', 'Healthcare office managers'])}
-      <p style="margin-top:0.35rem;font-size:0.8rem;color:#64748b">Use audience callouts on some ads only. Do not default to “Doctors.”</p>
+    <section class="panel do-not">
+      <h2>Do not</h2>
+      <ul>
+        <li>Look like a call center or managed service</li>
+        <li>Imply MedVirtual runs the clinic front desk</li>
+        <li>Use fake patient data or readable medical records</li>
+        <li>Use long on-image paragraphs, handshake stock, or icon overload</li>
+        <li>Create recruiting / job-seeker ads</li>
+      </ul>
     </section>
-
-    <section class="section" id="core-message">
-      <h2>Core Message</h2>
-      <p>Practices hire <strong>full-time virtual staff</strong> through MedVirtual. Virtual staff support calls, scheduling, intake, insurance, billing, and admin — as <strong>part of your practice team</strong>. CTA: Book a Demo.</p>
-      <div class="compact-split" style="margin-top:0.5rem">
-        <div class="use-box"><strong>Use</strong>full-time virtual staff · virtual staff member · part of your practice team · hire through MedVirtual</div>
-        <div class="avoid-box"><strong>Avoid</strong>managed service · outsourced front desk · front desk replacement · we handle your front desk · MedVirtual.ai</div>
-      </div>
-    </section>
-
-    <section class="section" id="concepts">
-      <h2>Four Ad Concepts — Produce These Only</h2>
-      <div class="concepts-grid">${conceptsHtml}</div>
-    </section>
-
-    <section class="section" id="rules">
-      <h2>Design Rules</h2>
-      ${li([
-        'MedVirtual only — never MedVirtual.ai on the ad',
-        'One clear hook per ad · large headline · minimal support text',
-        'Clean healthcare visuals · show virtual staff working',
-        'Visible Book a Demo CTA · mobile-readable · no clutter',
-        '1080×1350 static feed only for this batch',
-      ])}
-    </section>
-
-    <section class="warn-section" id="avoid">
-      <h2>Do Not</h2>
-      ${li([
-        'Look like a call center or managed service',
-        'Imply MedVirtual runs the clinic front desk',
-        'Use fake patient data or readable medical records',
-        'Use long on-image paragraphs, handshake stock, or icon overload',
-        'Create recruiting / job-seeker ads',
-      ])}
-    </section>
-
-    <section class="section" id="references">
-      <h2>Reference Links</h2>
-      <p style="font-size:0.8rem;color:#64748b;margin-bottom:0.35rem">Brand direction only — follow this brief for production.</p>
-      <div class="ref-links">
-        <a href="/facebook-ad-copy.html#launch-batch">Ad copy launch batch</a>
-        <a href="/template-test-board.html">Template &amp; visual reference</a>
-      </div>
-    </section>
-
-    <section class="section" id="monday">
-      <h2>Monday Graphic Request</h2>
-      <div class="monday">${esc(mondayCopy)}</div>
-      <button type="button" class="copy-btn" data-copy="${esc(mondayCopy)}">Copy Monday request</button>
-    </section>
-
-    <section class="section" id="qa">
-      <h2>QA Before Submit</h2>
-      <ul class="qa-list">${[
-        'Correct brand name',
-        'Correct audience',
-        'Correct headline',
-        'CTA included',
-        'Mobile-readable',
-        'No patient info',
-        'No clutter',
-        'No managed-service language',
-        '1080×1350 static only',
-        'No variations in this batch',
-        'Source + PNG/JPG',
-      ].map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
-    </section>
-
-    <details class="collapsed">
-      <summary>Internal Notes</summary>
-      <div class="collapsed-body">
-        ${li(INTERNAL_NOTES)}
-      </div>
-    </details>
-
-    <details class="collapsed">
-      <summary>Additional Concepts — Do Not Produce Yet</summary>
-      <div class="collapsed-body">
-        <p><strong>Internal reference only.</strong> These are not part of the first production batch.</p>
-        ${archivedHtml}
-        <h3 style="margin:0.75rem 0 0.35rem;font-size:0.75rem;color:#334155">Roles</h3>
-        <div class="pill-row">${ROLES.map((r) => `<span class="pill">${esc(r)}</span>`).join('')}</div>
-        <h3 style="margin:0.75rem 0 0.35rem;font-size:0.75rem;color:#334155">Practice types</h3>
-        <div class="pill-row">${PRACTICE_TYPES.map((p) => `<span class="pill">${esc(p)}</span>`).join('')}</div>
-        <h3 style="margin:0.75rem 0 0.35rem;font-size:0.75rem;color:#334155">Use cases</h3>
-        <div class="pill-row">${USE_CASES.map((u) => `<span class="pill">${esc(u)}</span>`).join('')}</div>
-        <h3 style="margin:0.75rem 0 0.35rem;font-size:0.75rem;color:#334155">Extended positioning</h3>
-        ${li(MESSAGING_RULES.positioning)}
-      </div>
-    </details>
   </div>
-  <script>
-    document.querySelectorAll('.copy-btn').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const t = btn.getAttribute('data-copy') || '';
-        try {
-          await navigator.clipboard.writeText(t);
-          btn.textContent = 'Copied';
-          setTimeout(() => { btn.textContent = 'Copy Monday request'; }, 1400);
-        } catch (e) { btn.textContent = 'Select text'; }
-      });
-    });
-  </script>
 </body>
 </html>`;
 
   fs.writeFileSync(path.join(PUBLIC, 'graphic-request-brief.html'), html);
-  console.log(`Graphic brief: ${CONCEPT_COUNT} production concepts`);
+  console.log(`Graphic brief: ${PRODUCTION_CONCEPTS.length} production concepts (slim)`);
 }
 
 main();

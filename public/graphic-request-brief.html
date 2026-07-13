@@ -117,97 +117,60 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.4; }
-  .wrap { max-width: 920px; margin: 0 auto; padding: 1rem 1.15rem 2.5rem; }
-  .produce-banner {
-    background: #0d9488; color: #fff; border-radius: 10px; padding: 0.75rem 1rem;
-    font-size: 0.88rem; font-weight: 700; text-align: center; margin-bottom: 0.65rem;
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #0f172a; line-height: 1.45; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; }
+  .banner {
+    background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 0.95rem 1.1rem; margin-bottom: 0.85rem;
   }
-  .strategy-note {
-    background: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #94a3b8;
-    border-radius: 8px; padding: 0.55rem 0.75rem; margin-bottom: 0.65rem;
-    font-size: 0.78rem; color: #64748b; line-height: 1.4;
+  .banner h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
+  .banner p { font-size: 0.88rem; color: #cbd5e1; }
+  .banner-meta {
+    display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem;
   }
-  .hero {
-    background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 1.1rem 1.2rem; margin-bottom: 0.75rem;
+  .banner-meta span {
+    font-size: 0.72rem; font-weight: 750; padding: 0.28rem 0.55rem; border-radius: 6px;
+    background: rgba(13,148,136,0.25); border: 1px solid rgba(94,234,212,0.35); color: #99f6e4;
   }
-  .hero h2 { font-size: 1.1rem; margin-bottom: 0.35rem; }
-  .hero p { font-size: 0.84rem; color: #94a3b8; }
-  .hero-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.65rem; }
-  .hero-pill {
-    font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.6rem; border-radius: 6px;
-    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  .cards { display: grid; gap: 0.75rem; margin-bottom: 0.85rem; }
+  .card {
+    display: grid; grid-template-columns: 2.25rem 1fr; gap: 0.65rem;
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0.9rem 1rem;
   }
-  .section {
-    background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+  .card-num {
+    width: 2.1rem; height: 2.1rem; border-radius: 8px; background: #0d9488; color: #fff;
+    font-weight: 800; font-size: 0.95rem; display: grid; place-items: center;
+  }
+  .card-headline { font-size: 1.15rem; font-weight: 800; color: #0f172a; line-height: 1.25; }
+  .card-audience {
+    margin-top: 0.35rem; font-size: 0.78rem; font-weight: 700; color: #0f766e;
+  }
+  .card-support { margin-top: 0.4rem; font-size: 0.95rem; color: #334155; font-weight: 600; }
+  .card-visual {
+    margin-top: 0.55rem; font-size: 0.86rem; color: #475569; line-height: 1.4;
+  }
+  .card-visual span {
+    display: block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.04em; color: #94a3b8; margin-bottom: 0.15rem;
+  }
+  .card-foot { margin-top: 0.65rem; display: flex; flex-wrap: wrap; gap: 0.45rem 0.75rem; align-items: center; }
+  .cta {
+    display: inline-block; background: #0d9488; color: #fff; font-size: 0.75rem; font-weight: 800;
+    padding: 0.28rem 0.6rem; border-radius: 6px;
+  }
+  .card-warn { font-size: 0.8rem; color: #b45309; font-weight: 650; flex: 1 1 12rem; }
+  .panel {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
     padding: 0.85rem 1rem; margin-bottom: 0.65rem;
   }
-  .section h2 {
-    font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-    color: #64748b; margin-bottom: 0.45rem;
+  .panel h2 {
+    font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+    color: #0f172a; margin-bottom: 0.4rem;
   }
-  .section p, .bullets li { font-size: 0.84rem; color: #334155; }
-  .bullets { margin: 0; padding-left: 1rem; }
-  .bullets li { margin: 0.15rem 0; }
-  .deliverables { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .deliverable-item {
-    font-size: 0.78rem; font-weight: 600; padding: 0.35rem 0.55rem; border-radius: 6px;
-    background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4;
-  }
-  .concepts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
-  @media (max-width: 700px) { .concepts-grid { grid-template-columns: 1fr; } }
-  .concept-card {
-    border: 2px solid #0d9488; border-radius: 10px; padding: 0.75rem 0.85rem; background: #fff;
-  }
-  .concept-title { font-size: 0.88rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; padding-bottom: 0.35rem; border-bottom: 1px solid #e2e8f0; }
-  .concept-fields > div { margin-bottom: 0.4rem; }
-  .concept-fields dt { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.08rem; }
-  .concept-fields dd { font-size: 0.82rem; color: #1e293b; }
-  .field-headline dd { font-size: 0.95rem; font-weight: 800; color: #0f172a; }
-  .field-warn dd { color: #b45309; font-size: 0.78rem; font-weight: 600; }
-  .badge-cta { display: inline-block; background: #0d9488; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 5px; }
-  .compact-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.8rem; }
-  @media (max-width: 560px) { .compact-split { grid-template-columns: 1fr; } }
-  .use-box { background: #ecfdf5; border-radius: 6px; padding: 0.5rem 0.6rem; }
-  .avoid-box { background: #fef2f2; border-radius: 6px; padding: 0.5rem 0.6rem; }
-  .use-box strong, .avoid-box strong { font-size: 0.65rem; text-transform: uppercase; display: block; margin-bottom: 0.2rem; }
-  .warn-section { background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 0.65rem; }
-  .warn-section h2 { color: #b91c1c; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem; }
-  .warn-section li { color: #7f1d1d; font-size: 0.8rem; }
-  .ref-links a {
-    display: block; font-size: 0.82rem; font-weight: 700; color: #0d9488; text-decoration: none;
-    padding: 0.45rem 0; border-bottom: 1px solid #f1f5f9;
-  }
-  .ref-links a:last-child { border-bottom: none; }
-  .site-link-desc { display: block; font-size: 0.75rem; font-weight: 500; color: #64748b; margin-top: 0.15rem; }
-  .site-link-primary { border-left: 3px solid #0d9488; padding-left: 0.5rem !important; }
-  .qa-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; }
-  @media (max-width: 560px) { .qa-list { grid-template-columns: 1fr; } }
-  .qa-list li { font-size: 0.78rem; padding: 0.3rem 0.45rem; background: #f8fafc; border-radius: 5px; border: 1px solid #e2e8f0; }
-  .qa-list li::before { content: '☐ '; color: #0d9488; font-weight: 700; }
-  .monday-box {
-    background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 0.75rem 0.85rem;
-    font-family: ui-monospace, monospace; font-size: 0.72rem; white-space: pre-wrap; line-height: 1.4;
-  }
-  .copy-btn {
-    margin-top: 0.5rem; font-size: 0.72rem; font-weight: 650; color: #0f766e; background: #f0fdfa;
-    border: 1px solid #99f6e4; border-radius: 6px; padding: 0.3rem 0.6rem; cursor: pointer;
-  }
-  .copy-btn:hover { background: #ccfbf1; }
-  details.collapsed {
-    background: #fff; border: 1px dashed #cbd5e1; border-radius: 10px; margin-top: 0.75rem;
-  }
-  details.collapsed summary {
-    padding: 0.75rem 1rem; font-weight: 700; font-size: 0.82rem; color: #64748b; cursor: pointer; list-style: none;
-  }
-  details.collapsed summary::-webkit-details-marker { display: none; }
-  details.collapsed[open] summary { border-bottom: 1px dashed #e2e8f0; color: #b45309; }
-  .collapsed-body { padding: 0.85rem 1rem; font-size: 0.78rem; color: #64748b; }
-  .archived-item { padding: 0.45rem 0; border-bottom: 1px solid #f1f5f9; }
-  .archived-item:last-child { border-bottom: none; }
-  .archived-tag { font-size: 0.62rem; font-weight: 700; color: #b91c1c; text-transform: uppercase; }
-  .pill-row { display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0.35rem 0; }
-  .pill { font-size: 0.65rem; padding: 0.12rem 0.4rem; border-radius: 999px; background: #f1f5f9; border: 1px solid #e2e8f0; }
+  .panel ul { padding-left: 1.05rem; }
+  .panel li { font-size: 0.88rem; color: #334155; margin: 0.22rem 0; }
+  .panel.do-not { background: #fff7ed; border-color: #fed7aa; }
+  .panel.do-not h2 { color: #c2410c; }
+  .panel.do-not li { color: #9a3412; }
 </style>
 </head>
 <body>
@@ -224,250 +187,93 @@
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Graphic Request Brief</h2>
-          <p class="doc-header__page-sub">4 static ads · 1080×1350 only · designer/VA handoff</p>
+          <p class="doc-header__page-sub">4 static ads · 1080×1350 · designer handoff</p>
           
         </div>
 </header>
   <div class="wrap">
-    <p class="produce-banner">Produce exactly 4 static concepts · 1080×1350 only · no variations yet</p>
-
-    <header class="hero" id="summary">
-      <h2>MedVirtual Meta Ads — First Creative Batch</h2>
-      <p>Four static Meta feed ads. Practices hire <strong>full-time virtual staff</strong> through MedVirtual — staff become part of the practice team.</p>
-      <p style="margin-top:0.25rem"><strong>CTA:</strong> Book a Demo</p>
-      <div class="hero-meta">
-        <span class="hero-pill">4 static</span>
-        <span class="hero-pill">1080×1350</span>
-        <span class="hero-pill">No variations yet</span>
+    <header class="banner">
+      <h2>Produce these 4 static ads</h2>
+      <p>Full-time virtual staff through MedVirtual — part of the practice team. One design per concept.</p>
+      <div class="banner-meta">
+        <span>4 static</span>
+        <span>1080×1350</span>
+        <span>CTA: Book a Demo</span>
+        <span>No variations yet</span>
       </div>
     </header>
 
-    <section class="section" id="deliverables">
-      <h2>Deliverables</h2>
-      <div class="deliverables">
-        <span class="deliverable-item">Exactly 4 static concepts</span><span class="deliverable-item">1080 × 1350 feed only</span><span class="deliverable-item">One design per concept</span><span class="deliverable-item">No variations yet</span><span class="deliverable-item">No 1080 × 1920 resizes yet</span><span class="deliverable-item">No video yet</span>
+    <div class="cards"><article class="card">
+    <div class="card-num">1</div>
+    <div class="card-body">
+      <h3 class="card-headline">Medical Practice Owners</h3>
+      <p class="card-audience">Medical practice owners and practice managers</p>
+      <p class="card-support">Add full-time virtual support without adding office space.</p>
+      <p class="card-visual"><span>Visual</span>Professional medical office environment and a calm remote virtual staff member handling calls, scheduling, patient intake, or administrative work.</p>
+      <div class="card-foot">
+        <span class="cta">Book a Demo</span>
+        <p class="card-warn">Do not imply MedVirtual operates or replaces the clinic front desk.</p>
       </div>
-      <p style="margin-top:0.5rem;font-size:0.82rem;font-weight:600;color:#0f766e">Variations, resizes, and videos happen only after the first four designs are reviewed.</p>
-    </section>
-
-    <section class="section" id="audience">
-      <h2>Audience</h2>
-      <ul class="bullets"><li>Medical practice owners</li><li>Dental practice owners</li><li>Practice managers</li><li>Healthcare office managers</li></ul>
-      <p style="margin-top:0.35rem;font-size:0.8rem;color:#64748b">Use audience callouts on some ads only. Do not default to “Doctors.”</p>
-    </section>
-
-    <section class="section" id="core-message">
-      <h2>Core Message</h2>
-      <p>Practices hire <strong>full-time virtual staff</strong> through MedVirtual. Virtual staff support calls, scheduling, intake, insurance, billing, and admin — as <strong>part of your practice team</strong>. CTA: Book a Demo.</p>
-      <div class="compact-split" style="margin-top:0.5rem">
-        <div class="use-box"><strong>Use</strong>full-time virtual staff · virtual staff member · part of your practice team · hire through MedVirtual</div>
-        <div class="avoid-box"><strong>Avoid</strong>managed service · outsourced front desk · front desk replacement · we handle your front desk · MedVirtual.ai</div>
+    </div>
+  </article><article class="card">
+    <div class="card-num">2</div>
+    <div class="card-body">
+      <h3 class="card-headline">Dental Practice Owners</h3>
+      <p class="card-audience">Dental practice owners and dental practice managers</p>
+      <p class="card-support">Get help with scheduling, insurance, and patient follow-up.</p>
+      <p class="card-visual"><span>Visual</span>Professional dental office setting paired with a remote virtual staff member handling scheduling, reminders, insurance verification, or pre-authorizations.</p>
+      <div class="card-foot">
+        <span class="cta">Book a Demo</span>
+        <p class="card-warn">Keep the visual clearly dental-specific without using graphic clinical imagery.</p>
       </div>
-    </section>
-
-    <section class="section" id="concepts">
-      <h2>Four Ad Concepts — Produce These Only</h2>
-      <div class="concepts-grid"><article class="concept-card">
-    <h3 class="concept-title">General Medical Practice Callout</h3>
-    <dl class="concept-fields">
-      <div><dt>Audience</dt><dd>Medical practice owners and practice managers</dd></div>
-      <div class="field-headline"><dt>On-image headline</dt><dd>Medical Practice Owners</dd></div>
-      <div><dt>Supporting line</dt><dd>Add full-time virtual support without adding office space.</dd></div>
-      <div><dt>Visual direction</dt><dd>Professional medical office environment and a calm remote virtual staff member handling calls, scheduling, patient intake, or administrative work.</dd></div>
-      <div><dt>CTA</dt><dd><span class="badge-cta">Book a Demo</span></dd></div>
-      <div class="field-warn"><dt>Warning</dt><dd>Do not imply MedVirtual operates or replaces the clinic front desk.</dd></div>
-    </dl>
-  </article><article class="concept-card">
-    <h3 class="concept-title">Dental Practice Callout</h3>
-    <dl class="concept-fields">
-      <div><dt>Audience</dt><dd>Dental practice owners and dental practice managers</dd></div>
-      <div class="field-headline"><dt>On-image headline</dt><dd>Dental Practice Owners</dd></div>
-      <div><dt>Supporting line</dt><dd>Get help with scheduling, insurance, and patient follow-up.</dd></div>
-      <div><dt>Visual direction</dt><dd>Professional dental office setting paired with a remote virtual staff member handling scheduling, reminders, insurance verification, or pre-authorizations.</dd></div>
-      <div><dt>CTA</dt><dd><span class="badge-cta">Book a Demo</span></dd></div>
-      <div class="field-warn"><dt>Warning</dt><dd>Keep the visual clearly dental-specific without using graphic clinical imagery.</dd></div>
-    </dl>
-  </article><article class="concept-card">
-    <h3 class="concept-title">Role-Specific Offer</h3>
-    <dl class="concept-fields">
-      <div><dt>Audience</dt><dd>Medical practice decision-makers</dd></div>
-      <div class="field-headline"><dt>On-image headline</dt><dd>Hire a Full-Time Virtual Medical Admin</dd></div>
-      <div><dt>Supporting line</dt><dd>Hire trained virtual staff through MedVirtual.</dd></div>
-      <div><dt>Visual direction</dt><dd>Professional virtual medical administrative staff member using a laptop and headset in a clean remote workspace. Subtle medical office context without patient information.</dd></div>
-      <div><dt>CTA</dt><dd><span class="badge-cta">Book a Demo</span></dd></div>
-      <div class="field-warn"><dt>Warning</dt><dd>Do not make the person look like a generic call-center agent or a job-seeker ad.</dd></div>
-    </dl>
-  </article><article class="concept-card">
-    <h3 class="concept-title">Pain-First Offer</h3>
-    <dl class="concept-fields">
-      <div><dt>Audience</dt><dd>Medical and dental practice decision-makers</dd></div>
-      <div class="field-headline"><dt>On-image headline</dt><dd>Too Many Calls. Not Enough Staff.</dd></div>
-      <div><dt>Supporting line</dt><dd>Full-time virtual staff starting at $10/hour.</dd></div>
-      <div><dt>Visual direction</dt><dd>Strong split-screen or before/after: overloaded office on one side, calm remote virtual staff member supporting the team on the other.</dd></div>
-      <div><dt>CTA</dt><dd><span class="badge-cta">Book a Demo</span></dd></div>
-      <div class="field-warn"><dt>Warning</dt><dd>Keep the message simple. Do not add a long list of tasks.</dd></div>
-    </dl>
+    </div>
+  </article><article class="card">
+    <div class="card-num">3</div>
+    <div class="card-body">
+      <h3 class="card-headline">Hire a Full-Time Virtual Medical Admin</h3>
+      
+      <p class="card-support">Hire trained virtual staff through MedVirtual.</p>
+      <p class="card-visual"><span>Visual</span>Professional virtual medical administrative staff member using a laptop and headset in a clean remote workspace. Subtle medical office context without patient information.</p>
+      <div class="card-foot">
+        <span class="cta">Book a Demo</span>
+        <p class="card-warn">Do not make the person look like a generic call-center agent or a job-seeker ad.</p>
+      </div>
+    </div>
+  </article><article class="card">
+    <div class="card-num">4</div>
+    <div class="card-body">
+      <h3 class="card-headline">Too Many Calls. Not Enough Staff.</h3>
+      
+      <p class="card-support">Full-time virtual staff starting at $10/hour.</p>
+      <p class="card-visual"><span>Visual</span>Strong split-screen or before/after: overloaded office on one side, calm remote virtual staff member supporting the team on the other.</p>
+      <div class="card-foot">
+        <span class="cta">Book a Demo</span>
+        <p class="card-warn">Keep the message simple. Do not add a long list of tasks.</p>
+      </div>
+    </div>
   </article></div>
+
+    <section class="panel">
+      <h2>Design rules</h2>
+      <ul>
+        <li>MedVirtual only — never MedVirtual.ai on the ad</li>
+        <li>One clear hook · large headline · minimal support text</li>
+        <li>Clean healthcare visuals · show virtual staff working</li>
+        <li>Visible Book a Demo CTA · mobile-readable · no clutter</li>
+        <li>1080×1350 static feed only for this batch</li>
+      </ul>
     </section>
 
-    <section class="section" id="rules">
-      <h2>Design Rules</h2>
-      <ul class="bullets"><li>MedVirtual only — never MedVirtual.ai on the ad</li><li>One clear hook per ad · large headline · minimal support text</li><li>Clean healthcare visuals · show virtual staff working</li><li>Visible Book a Demo CTA · mobile-readable · no clutter</li><li>1080×1350 static feed only for this batch</li></ul>
+    <section class="panel do-not">
+      <h2>Do not</h2>
+      <ul>
+        <li>Look like a call center or managed service</li>
+        <li>Imply MedVirtual runs the clinic front desk</li>
+        <li>Use fake patient data or readable medical records</li>
+        <li>Use long on-image paragraphs, handshake stock, or icon overload</li>
+        <li>Create recruiting / job-seeker ads</li>
+      </ul>
     </section>
-
-    <section class="warn-section" id="avoid">
-      <h2>Do Not</h2>
-      <ul class="bullets"><li>Look like a call center or managed service</li><li>Imply MedVirtual runs the clinic front desk</li><li>Use fake patient data or readable medical records</li><li>Use long on-image paragraphs, handshake stock, or icon overload</li><li>Create recruiting / job-seeker ads</li></ul>
-    </section>
-
-    <section class="section" id="references">
-      <h2>Site Links — What Each Page Does</h2>
-      <p style="font-size:0.8rem;color:#64748b;margin-bottom:0.6rem">Use the header nav on every page. Start with <strong>Graphic Brief</strong>, then use other pages as reference.</p>
-      <div class="ref-links">
-        <a href="/graphic-request-brief.html" class="site-link-primary"><strong>Graphic Brief</strong><span class="site-link-desc">Start here. What to produce: 4 static 1080×1350 ads, on-image copy, visuals, QA, Monday request.</span></a><a href="/facebook-ad-copy.html" class="site-link-primary"><strong>Ad Copy</strong><span class="site-link-desc">Facebook primary text (caption above the ad) for the same 4 concepts. Copy-paste for Meta.</span></a><a href="/template-test-board.html" class="site-link-primary"><strong>Templates</strong><span class="site-link-desc">Layout and on-image text zone reference. Visual guide only — not a production checklist.</span></a><a href="/image-variation-review.html" class="site-link-primary"><strong>Image Review</strong><span class="site-link-desc">Approved image crops by ratio and face placement. Pick backgrounds for templates.</span></a><a href="/asset-hub.html" class="site-link-primary"><strong>Assets</strong><span class="site-link-desc">Download raw AI images and source files for editors.</span></a><a href="/meta-launch-build-pack.html" class="site-link-primary"><strong>Meta Launch</strong><span class="site-link-desc">Same-day Meta build pack: campaign shell, 4 ads, form draft, QA checklist.</span></a><a href="/real-people-creative.html" class="site-link-primary"><strong>Real People</strong><span class="site-link-desc">Named Talent Pool profiles for Meta static, Reels, and short video creative.</span></a><a href="/real-people-assets.html" class="site-link-primary"><strong>RP Assets</strong><span class="site-link-desc">Download Talent Pool originals, crops, Treatment C mocks, and AI video references.</span></a>
-        <p style="margin:0.75rem 0 0.35rem;font-size:0.72rem;font-weight:700;text-transform:uppercase;color:#94a3b8">Also useful (image crops)</p>
-        <a href="/contact-sheet-best-candidates.html"><strong>Approved Crops</strong><span class="site-link-desc">Shortlist of best image crops for production.</span></a><a href="/contact-sheet-all-4x5.html"><strong>4:5 Feed Crops</strong><span class="site-link-desc">All 1080×1350 feed crops in one contact sheet.</span></a><a href="/contact-sheet-all-9x16.html"><strong>9:16 Story Crops</strong><span class="site-link-desc">All story/reels crops — for later resize phase only.</span></a><a href="/contact-sheet-landing-page-images.html"><strong>Headshot Crops</strong><span class="site-link-desc">Landing-page headshot crops (phase 2 / trust ads).</span></a><a href="/contact-sheet-ai-images.html"><strong>AI Image Catalog</strong><span class="site-link-desc">Full catalog of AI-generated source images.</span></a>
-      </div>
-    </section>
-
-    <section class="section" id="monday">
-      <h2>Monday Graphic Request</h2>
-      <div class="monday">PROJECT: MedVirtual Meta Ads — First Creative Batch
-
-REFERENCE LINKS:
-• Graphic brief: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
-• Ad copy: https://medvirtual-ad-content-doc.vercel.app/facebook-ad-copy.html
-• Templates: https://medvirtual-ad-content-doc.vercel.app/template-test-board.html
-
-PRODUCE EXACTLY THESE 4 STATIC CONCEPTS
-
-1. Medical Practice Owners
-2. Dental Practice Owners
-3. Hire a Full-Time Virtual Medical Admin
-4. Too Many Calls. Not Enough Staff.
-
-DELIVERABLES:
-• Exactly 4 static concepts
-• 1080 × 1350 feed only
-• One design per concept
-• No variations yet
-• No 1080 × 1920 resizes yet
-• No video yet
-• Variations, resizes, and videos only after the first four are reviewed
-
-REQUIREMENTS:
-• CTA: Book a Demo
-• Brand: MedVirtual only
-• No MedVirtual.ai in ad copy or on-image text
-• No patient information
-• No overcrowded layouts
-• Do not imply MedVirtual runs the clinic front desk or is a managed service
-• Practices hire full-time virtual staff through MedVirtual — staff become part of the practice team</div>
-      <button type="button" class="copy-btn" data-copy="PROJECT: MedVirtual Meta Ads — First Creative Batch
-
-REFERENCE LINKS:
-• Graphic brief: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
-• Ad copy: https://medvirtual-ad-content-doc.vercel.app/facebook-ad-copy.html
-• Templates: https://medvirtual-ad-content-doc.vercel.app/template-test-board.html
-
-PRODUCE EXACTLY THESE 4 STATIC CONCEPTS
-
-1. Medical Practice Owners
-2. Dental Practice Owners
-3. Hire a Full-Time Virtual Medical Admin
-4. Too Many Calls. Not Enough Staff.
-
-DELIVERABLES:
-• Exactly 4 static concepts
-• 1080 × 1350 feed only
-• One design per concept
-• No variations yet
-• No 1080 × 1920 resizes yet
-• No video yet
-• Variations, resizes, and videos only after the first four are reviewed
-
-REQUIREMENTS:
-• CTA: Book a Demo
-• Brand: MedVirtual only
-• No MedVirtual.ai in ad copy or on-image text
-• No patient information
-• No overcrowded layouts
-• Do not imply MedVirtual runs the clinic front desk or is a managed service
-• Practices hire full-time virtual staff through MedVirtual — staff become part of the practice team">Copy Monday request</button>
-    </section>
-
-    <section class="section" id="qa">
-      <h2>QA Before Submit</h2>
-      <ul class="qa-list"><li>Correct brand name</li><li>Correct audience</li><li>Correct headline</li><li>CTA included</li><li>Mobile-readable</li><li>No patient info</li><li>No clutter</li><li>No managed-service language</li><li>1080×1350 static only</li><li>No variations in this batch</li><li>Source + PNG/JPG</li></ul>
-    </section>
-
-    <details class="collapsed">
-      <summary>Internal Notes</summary>
-      <div class="collapsed-body">
-        <ul class="bullets"><li>This first batch will run against a high-quality lookalike audience built from booked demos. Audience targeting stays broad while the creative tests medical, dental, role-specific, and pain-first messaging.</li><li>Confirm “Starting at $10/hour” with leadership before paid spend goes live. Use only on the Pain-First concept (concept 4).</li></ul>
-      </div>
-    </details>
-
-    <details class="collapsed">
-      <summary>Additional Concepts — Do Not Produce Yet</summary>
-      <div class="collapsed-body">
-        <p><strong>Internal reference only.</strong> These are not part of the first production batch.</p>
-        <div class="archived-item">
-    <strong>Missed Calls — Feed Static</strong> <span class="archived-tag">Do not produce</span>
-    <p>High-call-volume medical clinics and specialty practices · Stop missing patient calls.</p>
-  </div><div class="archived-item">
-    <strong>Front Desk Overload — Story/Reels</strong> <span class="archived-tag">Do not produce</span>
-    <p>Medical clinics with overloaded in-office staff · Hire virtual staff for your team.</p>
-  </div><div class="archived-item">
-    <strong>Scheduling Backup — Feed Static</strong> <span class="archived-tag">Do not produce</span>
-    <p>Primary care and specialty practices with scheduling bottlenecks · Scheduling handled remotely.</p>
-  </div><div class="archived-item">
-    <strong>Dental Admin — Scheduling &amp; Reminders</strong> <span class="archived-tag">Do not produce</span>
-    <p>Dental practices · Virtual dental admin support.</p>
-  </div><div class="archived-item">
-    <strong>Dental — Insurance &amp; Pre-Auth</strong> <span class="archived-tag">Do not produce</span>
-    <p>Dental practices handling insurance and pre-authorizations · Insurance &amp; pre-auth support.</p>
-  </div><div class="archived-item">
-    <strong>Dental — Compliance &amp; Documentation</strong> <span class="archived-tag">Do not produce</span>
-    <p>Dental practices needing HIPAA-trained documentation support · HIPAA-trained dental support.</p>
-  </div><div class="archived-item">
-    <strong>Insurance Verification — Before Appointments</strong> <span class="archived-tag">Do not produce</span>
-    <p>Medical clinics and specialty practices · Check coverage before visits.</p>
-  </div><div class="archived-item">
-    <strong>Medical Biller — Billing Admin</strong> <span class="archived-tag">Do not produce</span>
-    <p>Medical clinics with billing admin backlog · Virtual medical biller support.</p>
-  </div><div class="archived-item">
-    <strong>Virtual Medical Admin — Full Workflow</strong> <span class="archived-tag">Do not produce</span>
-    <p>Medical clinics and primary care practices · Your virtual medical admin.</p>
-  </div><div class="archived-item">
-    <strong>EMR Updates — Data Accuracy</strong> <span class="archived-tag">Do not produce</span>
-    <p>Medical clinics needing EMR and intake support · EMR updates handled remotely.</p>
-  </div><div class="archived-item">
-    <strong>Before/After — Practice Team Relief</strong> <span class="archived-tag">Do not produce</span>
-    <p>Overloaded practices comparing before vs. after hiring virtual staff · Before → After</p>
   </div>
-        <h3 style="margin:0.75rem 0 0.35rem;font-size:0.75rem;color:#334155">Roles</h3>
-        <div class="pill-row"><span class="pill">Virtual Medical Admin Assistant</span><span class="pill">Virtual Medical Biller</span><span class="pill">Virtual Dental Admin Assistant</span><span class="pill">Virtual Scheduler</span><span class="pill">Virtual Insurance Verification Assistant</span><span class="pill">Virtual Prior Authorization Assistant</span><span class="pill">Virtual Patient Support Assistant</span><span class="pill">Virtual Front Desk Assistant</span></div>
-        <h3 style="margin:0.75rem 0 0.35rem;font-size:0.75rem;color:#334155">Practice types</h3>
-        <div class="pill-row"><span class="pill">Dental practices</span><span class="pill">Medical clinics</span><span class="pill">Specialty practices</span><span class="pill">Primary care practices</span><span class="pill">Multi-location practices</span><span class="pill">High-call-volume practices</span></div>
-        <h3 style="margin:0.75rem 0 0.35rem;font-size:0.75rem;color:#334155">Use cases</h3>
-        <div class="pill-row"><span class="pill">Answering calls</span><span class="pill">Scheduling appointments</span><span class="pill">Confirming appointments</span><span class="pill">Patient reminders</span><span class="pill">Insurance verification</span><span class="pill">Prior authorizations</span><span class="pill">Billing support</span><span class="pill">EMR updates</span><span class="pill">Patient intake</span><span class="pill">Documentation support</span><span class="pill">Reducing missed calls</span><span class="pill">Reducing no-shows</span><span class="pill">Helping overloaded in-office staff</span></div>
-        <h3 style="margin:0.75rem 0 0.35rem;font-size:0.75rem;color:#334155">Extended positioning</h3>
-        <ul class="bullets"><li>Clinics and practices hire full-time virtual staff through MedVirtual.</li><li>The virtual staff member becomes part of their practice team.</li><li>The staff member works remotely but supports the clinic’s daily workflow.</li><li>Show the virtual staff member handling calls, scheduling, and admin work.</li><li>Use specific use-case copy — not only high-level brand messaging.</li></ul>
-      </div>
-    </details>
-  </div>
-  <script>
-    document.querySelectorAll('.copy-btn').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const t = btn.getAttribute('data-copy') || '';
-        try {
-          await navigator.clipboard.writeText(t);
-          btn.textContent = 'Copied';
-          setTimeout(() => { btn.textContent = 'Copy Monday request'; }, 1400);
-        } catch (e) { btn.textContent = 'Select text'; }
-      });
-    });
-  </script>
 </body>
 </html>
