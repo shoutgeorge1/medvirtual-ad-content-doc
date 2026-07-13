@@ -111,13 +111,14 @@ function main() {
   ${renderDocHeader({
     activeId: 'hub',
     pageTitle: 'Asset Hub',
-    pageSubtitle: 'Official brand downloads + raw AI masters. No strategy docs or font archives.',
+    pageSubtitle: 'Preview official brand assets and raw AI masters. No strategy docs or font archives.',
   })}
   <div class="wrap">
     <div class="note">
       <strong>Graphics:</strong> start with the <a href="/graphic-request-brief.html">Brief</a>.
       Brand rules: <a href="/medvirtual-brand-guide.html">Brand Guide</a>.
       Crops: <a href="/image-variation-review.html">Image Review</a>.
+      Links open for review first — right-click → Save if you need a download.
     </div>
     <div class="links">
       <a href="/medvirtual-brand-guide.html">Brand Guide</a>
@@ -126,7 +127,7 @@ function main() {
     </div>
 
     <h3>Official MedVirtual brand</h3>
-    <p class="hint">Folder: <span class="path">public/assets/brand/medvirtual/</span> — SVG preferred. Fonts load via CSS on pages; font files are not offered as downloads here.</p>
+    <p class="hint">Folder: <span class="path">public/assets/brand/medvirtual/</span> — SVG preferred. Click to preview; save from the browser only when needed. Fonts load via CSS — not offered as downloads here.</p>
     <div class="warn">Do not publish internal GTM, SDR intake, Word, Excel, Illustrator, or ZIP source archives from this hub.</div>
     <div class="tokens">
       ${[
@@ -149,7 +150,7 @@ function main() {
     <div class="grid">
       ${BRAND_DOWNLOADS.map(
         (b) =>
-          `<a class="file" href="${esc(b.href)}" download target="_blank" rel="noopener">
+          `<a class="file" href="${esc(b.href)}" target="_blank" rel="noopener">
             <div class="n">${esc(b.name)}</div>
             <div class="d">${esc(b.note)}</div>
           </a>`,
