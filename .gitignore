@@ -38,3 +38,6 @@ rejected_or_questionable_rows.csv
 .local-masters/
 .tmp-others-upload/
 .tmp-brand-upload/
+
+# Local browser/screenshot verification dumps
+.verify*.png
