@@ -110,6 +110,12 @@
     color: #b8d4e0;
     max-width: 820px;
   }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
   .doc-nav {
     display: flex;
     flex-wrap: wrap;
@@ -132,6 +138,22 @@
   .doc-nav a.active {
     color: #ffffff;
     background: var(--mv-primary);
+  }
+  .doc-nav--ref a {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #9fb9c6;
+    padding: 0.35rem 0.55rem;
+  }
+  .doc-nav--ref a.active {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
   }
   .doc-subnav {
     display: flex;
@@ -156,6 +178,7 @@
   @media (max-width: 640px) {
     .doc-header { padding: 1rem; }
     .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -256,15 +279,21 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Meta ads · brief · brand · assets</p>
+        <p class="doc-header__tagline">Graphics · templates · launch sequences</p>
       </div>
     </a>
-    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="active">Meta Launch</a><a href="/real-people-creative.html" class="">Real People</a><a href="/real-people-assets.html" class="">RP Assets</a></nav>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/meta-launch-1.html" class="active">Launch 1</a><a href="/meta-launch-2.html" class="">Launch 2</a><a href="/real-people-creative.html" class="">Real People</a></nav>
+      <span class="doc-nav-sep" aria-hidden="true"></span>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/asset-hub.html" class="">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
+    </div>
   </div>
   <div class="doc-header__page">
-          <h2 class="doc-header__page-title">Meta Launch Build Pack</h2>
-          <p class="doc-header__page-sub">NEW Real People launch · FirstBatch killed · draft / paused · 4 ads ready to upload</p>
-          
+          <h2 class="doc-header__page-title">Launch 1 · detailed Ads Manager pack</h2>
+          <p class="doc-header__page-sub">Optional deep ops. Graphics team: use Launch 1 page first.</p>
+          <nav class="doc-subnav" aria-label="Section">
+      <a href="/meta-launch-1.html" class="">Launch 1</a><a href="/meta-launch-2.html" class="">Launch 2</a><a href="/meta-launch-build-pack.html" class="active">Ads Manager details</a>
+    </nav>
         </div>
 </header>
   <div class="wrap">
@@ -290,7 +319,7 @@
         <a href="/exports/meta-upload-ready/ads-manager-build-order.md">Build order</a>
         <a class="file" href="/exports/meta-upload-ready/utm-parameters.txt">UTM parameters</a>
         <a class="file" href="/exports/meta-upload-ready/creative-map.csv">Creative map CSV</a>
-        <a href="/real-people-assets.html">RP Assets / designer notes</a>
+        <a href="/real-people-creative.html">Real People (Studio Profile + downloads)</a>
       </div>
       <div class="upload-creatives">
         <a href="/exports/meta-upload-ready/IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png" target="_blank" rel="noopener">
@@ -391,7 +420,7 @@
       <section class="panel">
         <h3>Still waiting on Haylie / CMO</h3>
         <ul class="waiting">
-          <li>Approve Real People creative direction (Treatment C drafts uploadable now)</li>
+          <li>Approve Real People Studio Profile direction (Treatment C/D rejected)</li>
           <li>Optional designer polish / re-export of final art</li>
           <li>HubSpot lead view confirmation for new IMB_MV form</li>
           <li>Final publish approval — keep paused until then</li>
@@ -425,8 +454,8 @@
       <img src="/exports/selected-creatives/IMB_MV_RP_Static_01_JessicaAdmin.png" alt="IMB_MV_RP_Static_01_JessicaAdmin" />
     </div>
     <dl class="fields">
-      <div><dt>On-image headline</dt><dd>THE ADMIN WORK DOESN’T STOP.</dd></div>
-      <div><dt>Supporting line</dt><dd>Meet Jessica · Jr. Medical Admin</dd></div>
+      <div><dt>On-image headline</dt><dd>Meet Jessica</dd></div>
+      <div><dt>Supporting line</dt><dd>Jr. Medical Admin · available to interview</dd></div>
       <div><dt>Primary text</dt><dd>Calls keep coming. Tasks keep stacking. Your team is already stretched.
 
 Meet Jessica — a Jr. Medical Admin available through MedVirtual. Hire a dedicated full-time virtual staff member who works as part of your practice team.
@@ -438,8 +467,8 @@ Book a demo to request an interview.</dd></div>
       <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
       <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_RealPeople</dd></div>
       <div><dt>Creative file</dt><dd class="mono">IMB_MV_RP_Static_01_JessicaAdmin.png</dd></div>
-      <div><dt>Source image</dt><dd class="mono">jessica/ad-treatment-c-4x5.png</dd></div>
-      <div class="warn"><dt>Notes</dt><dd>Lead creative. Closest to the only FirstBatch signal (TooManyCalls / overloaded staff). Treatment C is a production draft — designer may polish; still uploadable now at 1080×1350.</dd></div>
+      <div><dt>Source image</dt><dd class="mono">jessica/ad-treatment-e-4x5.png</dd></div>
+      <div class="warn"><dt>Notes</dt><dd>Lead creative. Studio Profile draft — designer may polish. Do not upload Treatment C/D.</dd></div>
     </dl>
   </div>
 </article>
@@ -455,21 +484,21 @@ Book a demo to request an interview.</dd></div>
       <img src="/exports/selected-creatives/IMB_MV_RP_Static_02_ChelseaScheduling.png" alt="IMB_MV_RP_Static_02_ChelseaScheduling" />
     </div>
     <dl class="fields">
-      <div><dt>On-image headline</dt><dd>YOUR FRONT DESK SHOULDN’T SPEND ALL DAY SCHEDULING.</dd></div>
-      <div><dt>Supporting line</dt><dd>Meet Chelsea · Dental Virtual Assistant</dd></div>
+      <div><dt>On-image headline</dt><dd>Meet Chelsea</dd></div>
+      <div><dt>Supporting line</dt><dd>Dental Virtual Assistant · available to interview</dd></div>
       <div><dt>Primary text</dt><dd>Scheduling should not consume your entire front desk.
 
 Meet Chelsea — a Dental Virtual Assistant available through MedVirtual. Add a dedicated full-time virtual teammate your practice can interview.
 
 Book a demo to get started.</dd></div>
       <div><dt>Backup primary</dt><dd>Scheduling taking over the front desk? Meet Chelsea and hire dedicated virtual scheduling support through MedVirtual.</dd></div>
-      <div><dt>Meta headline</dt><dd>Meet Chelsea for Scheduling Support</dd></div>
+      <div><dt>Meta headline</dt><dd>Scheduling Taking Over?</dd></div>
       <div><dt>Description</dt><dd>Interview real MedVirtual talent.</dd></div>
       <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
       <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_RealPeople</dd></div>
       <div><dt>Creative file</dt><dd class="mono">IMB_MV_RP_Static_02_ChelseaScheduling.png</dd></div>
-      <div><dt>Source image</dt><dd class="mono">chelsea/ad-treatment-c-4x5.png</dd></div>
-      <div class="warn"><dt>Notes</dt><dd>Skill-specific scheduling pain. No $10 claim.</dd></div>
+      <div><dt>Source image</dt><dd class="mono">chelsea/ad-treatment-e-4x5.png</dd></div>
+      <div class="warn"><dt>Notes</dt><dd>Skill-specific scheduling pain in copy. No Treatment C/D.</dd></div>
     </dl>
   </div>
 </article>
@@ -485,8 +514,8 @@ Book a demo to get started.</dd></div>
       <img src="/exports/selected-creatives/IMB_MV_RP_Static_03_AngelicaFrontDesk.png" alt="IMB_MV_RP_Static_03_AngelicaFrontDesk" />
     </div>
     <dl class="fields">
-      <div><dt>On-image headline</dt><dd>YOUR FRONT DESK CAN’T DO EVERYTHING.</dd></div>
-      <div><dt>Supporting line</dt><dd>Meet Angelica · Front Desk Assistant</dd></div>
+      <div><dt>On-image headline</dt><dd>Meet Angelica</dd></div>
+      <div><dt>Supporting line</dt><dd>Front Desk Assistant · available to interview</dd></div>
       <div><dt>Primary text</dt><dd>Patients are waiting. Phones are ringing. Follow-up is stacking up.
 
 Meet Angelica — a Front Desk Assistant available through MedVirtual. Hire dedicated virtual staff who support your front-desk workflow as part of your practice team.
@@ -498,8 +527,8 @@ Book a demo to request an interview.</dd></div>
       <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
       <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_RealPeople</dd></div>
       <div><dt>Creative file</dt><dd class="mono">IMB_MV_RP_Static_03_AngelicaFrontDesk.png</dd></div>
-      <div><dt>Source image</dt><dd class="mono">angelica/ad-treatment-c-4x5.png</dd></div>
-      <div class="warn"><dt>Notes</dt><dd>Pain-first front desk. Hire framing only.</dd></div>
+      <div><dt>Source image</dt><dd class="mono">angelica/ad-treatment-e-4x5.png</dd></div>
+      <div class="warn"><dt>Notes</dt><dd>Pain in primary text. Hire framing only.</dd></div>
     </dl>
   </div>
 </article>
@@ -515,21 +544,21 @@ Book a demo to request an interview.</dd></div>
       <img src="/exports/selected-creatives/IMB_MV_RP_Static_04_MarkVerification.png" alt="IMB_MV_RP_Static_04_MarkVerification" />
     </div>
     <dl class="fields">
-      <div><dt>On-image headline</dt><dd>HOW MUCH OF YOUR DAY GOES TO INSURANCE VERIFICATION?</dd></div>
-      <div><dt>Supporting line</dt><dd>Meet Mark · Insurance Verification Specialist</dd></div>
+      <div><dt>On-image headline</dt><dd>Meet Mark</dd></div>
+      <div><dt>Supporting line</dt><dd>Insurance Verification Specialist · available to interview</dd></div>
       <div><dt>Primary text</dt><dd>Insurance verification can pull your team away from patients.
 
 Meet Mark — an Insurance Verification Specialist available through MedVirtual. Hire a dedicated full-time virtual staff member for eligibility and verification support.
 
 Book a demo to request an interview.</dd></div>
       <div><dt>Backup primary</dt><dd>Verification work piling up? Meet Mark and hire dedicated insurance verification support through MedVirtual.</dd></div>
-      <div><dt>Meta headline</dt><dd>Meet Mark for Verification Support</dd></div>
+      <div><dt>Meta headline</dt><dd>Verification Work Piling Up?</dd></div>
       <div><dt>Description</dt><dd>Insurance verification talent from MedVirtual.</dd></div>
       <div><dt>CTA</dt><dd><span class="badge">Book a Demo</span></dd></div>
       <div><dt>Form name</dt><dd class="mono">IMB_MV_Form_BookDemo_RealPeople</dd></div>
       <div><dt>Creative file</dt><dd class="mono">IMB_MV_RP_Static_04_MarkVerification.png</dd></div>
-      <div><dt>Source image</dt><dd class="mono">mark/ad-treatment-c-4x5.png</dd></div>
-      <div class="warn"><dt>Notes</dt><dd>Skill-specific alternate. No outcome guarantees. No $10 on this batch.</dd></div>
+      <div><dt>Source image</dt><dd class="mono">mark/ad-treatment-e-4x5.png</dd></div>
+      <div class="warn"><dt>Notes</dt><dd>No outcome guarantees. No Treatment C/D.</dd></div>
     </dl>
   </div>
 </article>

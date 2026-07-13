@@ -47,18 +47,18 @@ DESTINATION / FORM:
 IMB_MV_Form_BookDemo_RealPeople
 
 ON-IMAGE HEADLINE (creative must show):
-THE ADMIN WORK DOESN’T STOP.
+Meet Jessica
 
 SUPPORTING LINE (creative must show):
-Meet Jessica · Jr. Medical Admin
+Jr. Medical Admin · available to interview
 
 CREATIVE FILE:
 IMB_MV_RP_Static_01_JessicaAdmin.png
 SOURCE IMAGE:
-jessica/ad-treatment-c-4x5.png
+jessica/ad-treatment-e-4x5.png
 
 NOTES:
-Lead creative. Closest to the only FirstBatch signal (TooManyCalls / overloaded staff). Treatment C is a production draft — designer may polish; still uploadable now at 1080×1350.
+Lead creative. Studio Profile draft — designer may polish. Do not upload Treatment C/D.
 
 ========================================
 IMB_MV_RP_Static_02_ChelseaScheduling
@@ -80,7 +80,7 @@ BACKUP PRIMARY TEXT:
 Scheduling taking over the front desk? Meet Chelsea and hire dedicated virtual scheduling support through MedVirtual.
 
 META HEADLINE:
-Meet Chelsea for Scheduling Support
+Scheduling Taking Over?
 
 DESCRIPTION:
 Interview real MedVirtual talent.
@@ -92,18 +92,18 @@ DESTINATION / FORM:
 IMB_MV_Form_BookDemo_RealPeople
 
 ON-IMAGE HEADLINE (creative must show):
-YOUR FRONT DESK SHOULDN’T SPEND ALL DAY SCHEDULING.
+Meet Chelsea
 
 SUPPORTING LINE (creative must show):
-Meet Chelsea · Dental Virtual Assistant
+Dental Virtual Assistant · available to interview
 
 CREATIVE FILE:
 IMB_MV_RP_Static_02_ChelseaScheduling.png
 SOURCE IMAGE:
-chelsea/ad-treatment-c-4x5.png
+chelsea/ad-treatment-e-4x5.png
 
 NOTES:
-Skill-specific scheduling pain. No $10 claim.
+Skill-specific scheduling pain in copy. No Treatment C/D.
 
 ========================================
 IMB_MV_RP_Static_03_AngelicaFrontDesk
@@ -137,18 +137,18 @@ DESTINATION / FORM:
 IMB_MV_Form_BookDemo_RealPeople
 
 ON-IMAGE HEADLINE (creative must show):
-YOUR FRONT DESK CAN’T DO EVERYTHING.
+Meet Angelica
 
 SUPPORTING LINE (creative must show):
-Meet Angelica · Front Desk Assistant
+Front Desk Assistant · available to interview
 
 CREATIVE FILE:
 IMB_MV_RP_Static_03_AngelicaFrontDesk.png
 SOURCE IMAGE:
-angelica/ad-treatment-c-4x5.png
+angelica/ad-treatment-e-4x5.png
 
 NOTES:
-Pain-first front desk. Hire framing only.
+Pain in primary text. Hire framing only.
 
 ========================================
 IMB_MV_RP_Static_04_MarkVerification
@@ -170,7 +170,7 @@ BACKUP PRIMARY TEXT:
 Verification work piling up? Meet Mark and hire dedicated insurance verification support through MedVirtual.
 
 META HEADLINE:
-Meet Mark for Verification Support
+Verification Work Piling Up?
 
 DESCRIPTION:
 Insurance verification talent from MedVirtual.
@@ -182,15 +182,15 @@ DESTINATION / FORM:
 IMB_MV_Form_BookDemo_RealPeople
 
 ON-IMAGE HEADLINE (creative must show):
-HOW MUCH OF YOUR DAY GOES TO INSURANCE VERIFICATION?
+Meet Mark
 
 SUPPORTING LINE (creative must show):
-Meet Mark · Insurance Verification Specialist
+Insurance Verification Specialist · available to interview
 
 CREATIVE FILE:
 IMB_MV_RP_Static_04_MarkVerification.png
 SOURCE IMAGE:
-mark/ad-treatment-c-4x5.png
+mark/ad-treatment-e-4x5.png
 
 NOTES:
-Skill-specific alternate. No outcome guarantees. No $10 on this batch.
+No outcome guarantees. No Treatment C/D.

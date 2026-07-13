@@ -33,3 +33,8 @@ _private/
 audience_audit_report.md
 cleaned_meta_upload.csv
 rejected_or_questionable_rows.csv
+
+# Local full-res marketing masters (too large for git / Vercel)
+.local-masters/
+.tmp-others-upload/
+.tmp-brand-upload/

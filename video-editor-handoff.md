@@ -37,20 +37,20 @@ Create short, mobile-first Meta ad videos from approved MedVirtual creative asse
 |--------------|------|-------|------|--------------|----------|-----|
 | IMG_AI_003_4X5_FACE_LEFT | `/exports/image-tests/feed-4x5/IMG_AI_003_4X5_FACE_LEFT.png` | Follow-Up | 4x5/face/left | Missed Calls | talking-head | high | high |
 | IMG_AI_009_4X5_FACE_LEFT | `/exports/image-tests/feed-4x5/IMG_AI_009_4X5_FACE_LEFT.png` | Scheduling | 4x5/face/left | Scheduling Bottleneck | voiceover | high | high |
-| IMG_AI_010_4X5_FACE_LEFT | `/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png` | Front Desk Backup | 4x5/face/left | Front Desk Backup | talking-head | high | high |
+| IMG_AI_010_4X5_FACE_LEFT | `/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png` | Front Desk | 4x5/face/left | Front Desk Backup | talking-head | high | high |
 | IMG_AI_003_1X1_FACE_CENTER | `/exports/image-tests/square-1x1/IMG_AI_003_1X1_FACE_CENTER.png` | Follow-Up | 1x1/face/center | Missed Calls | talking-head | high | high |
 | IMG_AI_009_9X16_SUBJECT_LEFT | `/exports/image-tests/story-9x16/IMG_AI_009_9X16_SUBJECT_LEFT.png` | Scheduling | 9x16/subject/left | Scheduling Bottleneck | voiceover | high | high |
 | IMG_AI_009_1X1_FACE_CENTER | `/exports/image-tests/square-1x1/IMG_AI_009_1X1_FACE_CENTER.png` | Scheduling | 1x1/face/center | Scheduling Bottleneck | voiceover | high | high |
-| IMG_AI_010_4X5_SUBJECT_LEFT | `/exports/image-tests/feed-4x5/IMG_AI_010_4X5_SUBJECT_LEFT.png` | Front Desk Backup | 4x5/subject/left | Front Desk Backup | talking-head | high | high |
+| IMG_AI_010_4X5_SUBJECT_LEFT | `/exports/image-tests/feed-4x5/IMG_AI_010_4X5_SUBJECT_LEFT.png` | Front Desk | 4x5/subject/left | Front Desk Backup | talking-head | high | high |
 | IMG_AI_006_1X1_SUBJECT_CENTER | `/exports/image-tests/square-1x1/IMG_AI_006_1X1_SUBJECT_CENTER.png` | Scheduling | 1x1/subject/center | Insurance Verification | voiceover | medium | medium |
-| IMG_AI_015_4X5_FACE_LEFT | `/exports/image-tests/feed-4x5/IMG_AI_015_4X5_FACE_LEFT.png` | Front Desk Backup | 4x5/face/left | Front Desk Backup | talking-head | high | high |
-| IMG_AI_015_9X16_SUBJECT_LEFT | `/exports/image-tests/story-9x16/IMG_AI_015_9X16_SUBJECT_LEFT.png` | Front Desk Backup | 9x16/subject/left | Front Desk Backup | talking-head | high | high |
+| IMG_AI_015_4X5_FACE_LEFT | `/exports/image-tests/feed-4x5/IMG_AI_015_4X5_FACE_LEFT.png` | Front Desk | 4x5/face/left | Front Desk Backup | talking-head | high | high |
+| IMG_AI_015_9X16_SUBJECT_LEFT | `/exports/image-tests/story-9x16/IMG_AI_015_9X16_SUBJECT_LEFT.png` | Front Desk | 9x16/subject/left | Front Desk Backup | talking-head | high | high |
 | IMG_AI_004_4X5_FACE_RIGHT | `/exports/image-tests/feed-4x5/IMG_AI_004_4X5_FACE_RIGHT.png` | Workflow | 4x5/face/right | Admin Backlog | office scenario | high | high |
 | IMG_AI_004_9X16_SUBJECT_RIGHT | `/exports/image-tests/story-9x16/IMG_AI_004_9X16_SUBJECT_RIGHT.png` | Workflow | 9x16/subject/right | Admin Backlog | office scenario | high | high |
 | IMG_AI_004_1X1_FACE_CENTER | `/exports/image-tests/square-1x1/IMG_AI_004_1X1_FACE_CENTER.png` | Workflow | 1x1/face/center | Admin Backlog | office scenario | high | high |
 | IMG_AI_007_1X1_FACE_CENTER | `/exports/image-tests/square-1x1/IMG_AI_007_1X1_FACE_CENTER.png` | Workflow | 1x1/face/center | Hiring Gap | talking-head | high | high |
-| IMG_AI_013_4X5_FACE_RIGHT | `/exports/image-tests/feed-4x5/IMG_AI_013_4X5_FACE_RIGHT.png` | Remote Medical Assistant | 4x5/face/right | Remote Medical Assistant | talking-head | high | high |
-| IMG_AI_013_9X16_SUBJECT_RIGHT | `/exports/image-tests/story-9x16/IMG_AI_013_9X16_SUBJECT_RIGHT.png` | Remote Medical Assistant | 9x16/subject/right | Remote Medical Assistant | talking-head | high | high |
+| IMG_AI_013_4X5_FACE_RIGHT | `/exports/image-tests/feed-4x5/IMG_AI_013_4X5_FACE_RIGHT.png` | Medical Assistant | 4x5/face/right | Remote Medical Assistant | talking-head | high | high |
+| IMG_AI_013_9X16_SUBJECT_RIGHT | `/exports/image-tests/story-9x16/IMG_AI_013_9X16_SUBJECT_RIGHT.png` | Medical Assistant | 9x16/subject/right | Remote Medical Assistant | talking-head | high | high |
 | IMG_AI_014_4X5_FACE_RIGHT | `/exports/image-tests/feed-4x5/IMG_AI_014_4X5_FACE_RIGHT.png` | Workflow | 4x5/face/right | Admin Backlog | office scenario | high | high |
 | IMG_AI_014_9X16_SUBJECT_RIGHT | `/exports/image-tests/story-9x16/IMG_AI_014_9X16_SUBJECT_RIGHT.png` | Workflow | 9x16/subject/right | Admin Backlog | office scenario | high | high |
 | IMG_AI_008_4X5_SUBJECT_CENTER | `/exports/image-tests/feed-4x5/IMG_AI_008_4X5_SUBJECT_CENTER.png` | Payroll Pressure | 4x5/subject/center | Payroll Pressure | background only | medium | low |
@@ -236,18 +236,3 @@ Create short, mobile-first Meta ad videos from approved MedVirtual creative asse
 6. Music/SFX preferences (optional)
 
 Regenerate this file: `npm run generate:handoff`
-
-
-## Template Implementation Pass
-
-See `template-test-board.html`, `template-system-notes.md`, `first-batch-template-map.md`.
-
-**First Ronald/Jin prototype:** T2-RMA-916 (AI_007 + Remote MA + PERSON_RIGHT_HOOK_LEFT).
-
-Static winners to animate:
-1. T1-MC-45 / T1-MC-916 — Missed Calls / AI_003  
-2. T1-FD2-45 / T1-FD2-916 — Front Desk / AI_015  
-3. T2-RMA-45 / T2-RMA-916 — Remote MA / AI_007  
-4. T2-RMA2-45 / T2-RMA2-916 — Remote MA / AI_013 (alternate)
-
-Motion notes: H1 first frame → support → bullets → CTA. Light Ken Burns. Face clear. VO practice-ops POV only.

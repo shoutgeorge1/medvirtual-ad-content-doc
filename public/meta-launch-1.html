@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Launch 1 · MedVirtual</title>
+  <style>
+  
+  
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --mv-deep-teal: #0D546B;
+  --mv-accent: #00C0D4;
+  --mv-bright-accent: #27E6FA;
+  --mv-neutral-blue: #F0F5FF;
+  --mv-neutral-warm: #EFEDE1;
+  --mv-ink: #161511;
+  --mv-white: #FFFFFF;
+  --mv-gradient-primary: linear-gradient(90deg, #077999 0%, #00B2E2 100%);
+  --mv-gradient-light: linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%);
+  --mv-gradient-bright: linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%);
+  --mv-gradient-deep: linear-gradient(90deg, #0D546B 0%, #00C0D4 100%);
+  --mv-font: "Be Vietnam", Inter, Arial, sans-serif;
+}
+
+  .doc-header {
+    background: var(--mv-deep-teal);
+    color: #ffffff;
+    border-bottom: 3px solid var(--mv-cyan);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    font-family: var(--mv-font);
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .doc-header__mark {
+    display: none;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #b8d4e0;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #b8d4e0;
+    max-width: 820px;
+  }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .doc-nav a {
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #d7e8f0;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+  }
+  .doc-nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: var(--mv-primary);
+  }
+  .doc-nav--ref a {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #9fb9c6;
+    padding: 0.35rem 0.55rem;
+  }
+  .doc-nav--ref a.active {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: var(--mv-bright-accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
+  .doc-subnav a.active {
+    background: rgba(0, 178, 226, 0.2);
+    border-color: var(--mv-cyan);
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Be Vietnam", Inter, Arial, sans-serif; color: #161511; background: #f4f7fa; }
+  main { max-width: 960px; margin: 0 auto; padding: 1.25rem 1.1rem 3rem; }
+  .lede { color: #475569; max-width: 42rem; margin: 0 0 1rem; }
+  .status {
+    display: inline-block; background: #dcfce7; color: #166534; font-size: 0.75rem; font-weight: 800;
+    padding: 0.25rem 0.6rem; border-radius: 999px; margin-bottom: 0.75rem;
+  }
+  .grid { display: grid; gap: 0.85rem; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+  .card {
+    background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 0.75rem; text-decoration: none; color: inherit;
+  }
+  .card img { width: 100%; height: auto; border-radius: 8px; display: block; }
+  .card h3 { margin: 0.55rem 0 0.15rem; font-size: 1rem; }
+  .card p { margin: 0; font-size: 0.82rem; color: #64748b; }
+  .card .hook { margin-top: 0.4rem; font-size: 0.78rem; color: #334155; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 1.1rem 0; }
+  .btn {
+    display: inline-flex; padding: 0.45rem 0.75rem; border-radius: 8px; border: 1px solid #cbd5e1;
+    background: #fff; color: #0D546B; font: inherit; font-size: 0.82rem; font-weight: 700; text-decoration: none;
+  }
+  .btn.primary { background: #077999; border-color: #077999; color: #fff; }
+  details { background: #fff; border: 1px solid #d7e2ea; border-radius: 10px; padding: 0.75rem 0.9rem; margin-top: 1rem; }
+  summary { cursor: pointer; font-weight: 800; color: #0D546B; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/graphic-request-brief.html">
+      <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
+      <div>
+        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
+        <p class="doc-header__tagline">Graphics · templates · launch sequences</p>
+      </div>
+    </a>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/meta-launch-1.html" class="active">Launch 1</a><a href="/meta-launch-2.html" class="">Launch 2</a><a href="/real-people-creative.html" class="">Real People</a></nav>
+      <span class="doc-nav-sep" aria-hidden="true"></span>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/asset-hub.html" class="">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
+    </div>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Launch 1 · Real People (4 feed ads)</h2>
+          <p class="doc-header__page-sub">Design / finalize these 4 Studio Profile feed ads (1080×1350). Pain stays in Meta copy — not on the image.</p>
+          <nav class="doc-subnav" aria-label="Section">
+      <a href="/meta-launch-1.html" class="active">Launch 1</a><a href="/meta-launch-2.html" class="">Launch 2</a>
+    </nav>
+        </div>
+</header>
+  <main>
+    <span class="status">ACTIVE · Studio Profile</span>
+    <p class="lede"><strong>Do this:</strong> finalize these 4 feed ads (1080×1350). Use Real People for source photos + layout rules. Pain copy stays in Meta text — not on the image.</p>
+    <div class="actions">
+      <a class="btn primary" href="/graphic-request-brief.html">Open Brief / form paste</a>
+      <a class="btn" href="/real-people-creative.html#batch">Real People downloads</a>
+      <a class="btn" href="/template-test-board.html">Templates (layout examples)</a>
+      <a class="btn" href="/exports/meta-upload-ready/">Upload-ready folder</a>
+    </div>
+    <div class="grid"><a class="card" href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
+    <img src="/assets/real-people/jessica/ad-treatment-e-4x5.png" alt="Meet Jessica" width="432" height="540" loading="lazy" />
+    <h3>1. Jessica</h3>
+    <p>Jr. Medical Admin</p>
+    <p class="hook">On-image: Meet Jessica · Available to interview</p>
+    <p class="hook">Meta headline: Admin Work Piling Up?</p>
+  </a><a class="card" href="/assets/real-people/chelsea/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
+    <img src="/assets/real-people/chelsea/ad-treatment-e-4x5.png" alt="Meet Chelsea" width="432" height="540" loading="lazy" />
+    <h3>2. Chelsea</h3>
+    <p>Dental Virtual Assistant</p>
+    <p class="hook">On-image: Meet Chelsea · Available to interview</p>
+    <p class="hook">Meta headline: Scheduling Taking Over?</p>
+  </a><a class="card" href="/assets/real-people/angelica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
+    <img src="/assets/real-people/angelica/ad-treatment-e-4x5.png" alt="Meet Angelica" width="432" height="540" loading="lazy" />
+    <h3>3. Angelica</h3>
+    <p>Dermatology Front Desk Assistant</p>
+    <p class="hook">On-image: Meet Angelica · Available to interview</p>
+    <p class="hook">Meta headline: Front Desk Stretched Thin?</p>
+  </a><a class="card" href="/assets/real-people/mark/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
+    <img src="/assets/real-people/mark/ad-treatment-e-4x5.png" alt="Meet Mark" width="432" height="540" loading="lazy" />
+    <h3>4. Mark</h3>
+    <p>Insurance Verification Specialist</p>
+    <p class="hook">On-image: Meet Mark · Available to interview</p>
+    <p class="hook">Meta headline: Verification Work Piling Up?</p>
+  </a></div>
+    <details>
+      <summary>Media Buyer / Ads Manager notes (optional)</summary>
+      <p class="lede" style="margin-top:0.65rem">Campaign shell, UTMs, form QA, and build order live on the detailed pack — not required for graphics.</p>
+      <a class="btn" href="/meta-launch-build-pack.html">Open Ads Manager build pack</a>
+    </details>
+  </main>
+</body>
+</html>

@@ -110,6 +110,12 @@
     color: #b8d4e0;
     max-width: 820px;
   }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
   .doc-nav {
     display: flex;
     flex-wrap: wrap;
@@ -132,6 +138,22 @@
   .doc-nav a.active {
     color: #ffffff;
     background: var(--mv-primary);
+  }
+  .doc-nav--ref a {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #9fb9c6;
+    padding: 0.35rem 0.55rem;
+  }
+  .doc-nav--ref a.active {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
   }
   .doc-subnav {
     display: flex;
@@ -156,6 +178,7 @@
   @media (max-width: 640px) {
     .doc-header { padding: 1rem; }
     .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -209,10 +232,14 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Meta ads · brief · brand · assets</p>
+        <p class="doc-header__tagline">Graphics · templates · launch sequences</p>
       </div>
     </a>
-    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="active">Assets</a><a href="/meta-launch-build-pack.html" class="">Meta Launch</a><a href="/real-people-creative.html" class="">Real People</a><a href="/real-people-assets.html" class="">RP Assets</a></nav>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/meta-launch-1.html" class="">Launch 1</a><a href="/meta-launch-2.html" class="">Launch 2</a><a href="/real-people-creative.html" class="">Real People</a></nav>
+      <span class="doc-nav-sep" aria-hidden="true"></span>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/asset-hub.html" class="active">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
+    </div>
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Asset Hub</h2>
@@ -222,14 +249,20 @@
 </header>
   <div class="wrap">
     <div class="note">
-      <strong>Graphics:</strong> start with the <a href="/graphic-request-brief.html">Brief</a>.
+      <strong>Graphics:</strong> start with the <a href="/graphic-request-brief.html">VA Graphics Queue (Brief)</a> — copy the form, don’t invent work.
       Brand rules: <a href="/medvirtual-brand-guide.html">Brand Guide</a>.
       Crops: <a href="/image-variation-review.html">Image Review</a>.
+      Channel assets: <a href="/marketing-library.html">Marketing Library</a> (blog, LinkedIn, newsletter, print, social).
       Links open for review first — right-click → Save if you need a download.
+    </div>
+    <div class="warn">
+      Do not publish GTM decks, SDR intake forms, Meta lead exports, Illustrator sources, font ZIP archives, or raw Intro Zoom / animated MOV masters from this hub.
+      Those live in private local folders for producers only.
     </div>
     <div class="links">
       <a href="/medvirtual-brand-guide.html">Brand Guide</a>
       <a class="secondary" href="/graphic-request-brief.html">Brief</a>
+      <a class="secondary" href="/marketing-library.html">Marketing Library</a>
       <a class="secondary" href="/image-variation-review.html">Image Review</a>
     </div>
 
@@ -273,6 +306,9 @@
           </a><a class="file" href="/assets/brand/medvirtual/logomark-white.svg" target="_blank" rel="noopener">
             <div class="n">logomark-white.svg</div>
             <div class="d">White mark</div>
+          </a><a class="file" href="/assets/brand/medvirtual/logomark-on-black.png" target="_blank" rel="noopener">
+            <div class="n">logomark-on-black.png</div>
+            <div class="d">Mark on black · display / social</div>
           </a><a class="file" href="/assets/brand/medvirtual/logo-colored.png" target="_blank" rel="noopener">
             <div class="n">logo-colored.png</div>
             <div class="d">PNG fallback (raster)</div>
@@ -287,7 +323,7 @@
             <div class="d">Brand Kit board reference</div>
           </a>
     </div>
-    <p class="hint" style="margin-top:0.75rem">Typography: Be Vietnam Bold / Medium / Regular + Inter, Arial fallbacks. See Brand Guide — do not ship font ZIP downloads.</p>
+    <p class="hint" style="margin-top:0.75rem">Typography: full Be Vietnam family installed under <span class="path">fonts/</span> (Regular / Medium / Bold used in CSS). Do not ship font ZIP downloads to vendors.</p>
 
     <h3 style="margin-top:1.75rem">Hero raw masters</h3>
     <p class="hint">Folder: <span class="path">public/assets/ai-images/</span> — full-res sources for Remotion / Premiere.</p>

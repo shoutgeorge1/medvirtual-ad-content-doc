@@ -1,0 +1,181 @@
+{
+  "generatedAt": "2026-07-13",
+  "source": "Brand dump 2026-07-13 (fonts, SVG/PNG logos, Approved.ai, Vector, Animated MOV, Intro Zoom MP4, GTM/SDR docs)",
+  "policy": [
+    "Public brand logos/fonts only under /assets/brand/medvirtual/",
+    "Video + Illustrator masters in .local-masters/ (gitignored)",
+    "GTM Strategy, Meta export xlsx, SDR intake, email signature SOP → _private/brand-uploads/",
+    "Duplicate Intro Zoom MP4 (1) was identical — imported once"
+  ],
+  "actions": [
+    {
+      "kind": "font",
+      "file": "BeVietnam-Bold.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf",
+      "status": "updated"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-BoldItalic.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-BoldItalic.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-ExtraBold.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-ExtraBold.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-ExtraBoldItalic.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-ExtraBoldItalic.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-Italic.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-Italic.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-Light.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-Light.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-LightItalic.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-LightItalic.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-Medium.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf",
+      "status": "updated"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-MediumItalic.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-MediumItalic.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-Regular.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf",
+      "status": "updated"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-SemiBold.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-SemiBold.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-SemiBoldItalic.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-SemiBoldItalic.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-Thin.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-Thin.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "font",
+      "file": "BeVietnam-ThinItalic.ttf",
+      "dest": "/assets/brand/medvirtual/fonts/BeVietnam-ThinItalic.ttf",
+      "status": "added"
+    },
+    {
+      "kind": "logo-svg",
+      "file": "Med Virtual Logo Colored.svg",
+      "dest": "/assets/brand/medvirtual/logo-colored.svg",
+      "status": "unchanged-match"
+    },
+    {
+      "kind": "logo-svg",
+      "file": "Med Virtual Logo White.svg",
+      "dest": "/assets/brand/medvirtual/logo-white.svg",
+      "status": "unchanged-match"
+    },
+    {
+      "kind": "logo-png",
+      "file": "MV 01.png",
+      "dest": "/assets/brand/medvirtual/logomark-on-black.png",
+      "status": "added"
+    },
+    {
+      "kind": "illustrator-master",
+      "file": "med-virtual-approved.ai",
+      "dest": ".local-masters/illustrator/med-virtual-approved.ai",
+      "status": "local-master-only",
+      "note": "Not linked publicly (.ai)"
+    },
+    {
+      "kind": "illustrator-master",
+      "file": "Med Virtual Logo.ai",
+      "dest": ".local-masters/illustrator/med-virtual-logo.ai",
+      "status": "local-master-only",
+      "note": "Not linked publicly (.ai)"
+    },
+    {
+      "kind": "video-master",
+      "file": "intro-zoom-medvirtual-001.mp4",
+      "dest": ".local-masters/video/intro-zoom-medvirtual-001.mp4",
+      "sizeMb": 118.9,
+      "status": "local-master-only",
+      "note": "Intro Zoom MP4 — keep local; do not commit"
+    },
+    {
+      "kind": "animated-master",
+      "file": "MV Anim 3.mov",
+      "dest": ".local-masters/animated/MV-Anim-3.mov",
+      "sizeMb": 188.1,
+      "status": "local-master-only",
+      "note": "Animation source — local only"
+    },
+    {
+      "kind": "private",
+      "file": "email-signature-process-steps-2024.docx",
+      "dest": "_private/brand-uploads/email-signature-process-steps-2024.docx",
+      "status": "private-gitignored",
+      "note": "Internal only — not exposed on Asset Hub / Marketing Library"
+    },
+    {
+      "kind": "private",
+      "file": "medvirtual-intake-for-sdr.docx",
+      "dest": "_private/brand-uploads/medvirtual-intake-for-sdr.docx",
+      "status": "private-gitignored",
+      "note": "Internal only — not exposed on Asset Hub / Marketing Library"
+    },
+    {
+      "kind": "private",
+      "file": "export-20260713-1409.xlsx",
+      "dest": "_private/brand-uploads/export-20260713-1409.xlsx",
+      "status": "private-gitignored",
+      "note": "Internal only — not exposed on Asset Hub / Marketing Library"
+    },
+    {
+      "kind": "private",
+      "file": "gtm-strategy-medvirtual.xlsx",
+      "dest": "_private/brand-uploads/gtm-strategy-medvirtual.xlsx",
+      "status": "private-gitignored",
+      "note": "Internal only — not exposed on Asset Hub / Marketing Library"
+    }
+  ],
+  "counts": {
+    "font": 14,
+    "logo-svg": 2,
+    "logo-png": 1,
+    "illustrator-master": 2,
+    "video-master": 1,
+    "animated-master": 1,
+    "private": 4
+  }
+}

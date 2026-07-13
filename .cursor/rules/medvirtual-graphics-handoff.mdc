@@ -1,0 +1,52 @@
+---
+description: MedVirtual graphics handoff priorities for Meta creative docs
+globs:
+  - public/**/*.html
+  - scripts/**/*.mjs
+alwaysApply: true
+---
+
+# MedVirtual Meta Creative Handoff
+
+Default priority: **graphics-handoff clarity** for the Filipino VA/graphics team — not strategy essays or Meta Ads Manager ops.
+
+## Goal
+Keep 15–30 ads in the hopper. Make “do this next” obvious.
+
+## Brand
+- Ad-facing: **MedVirtual** only (never MedVirtual.ai)
+- Tagline: Staffing Solutions for Every Practice
+- Font: Be Vietnam
+- Colors: `#077999`, `#00B2E2`, `#0D546B`
+- Official SVG logos; MedVirtual-only for Meta ads
+
+## Service model
+Hire dedicated full-time virtual staff who join the practice team.
+Not a call center / managed front desk / software / “we run your front desk.”
+
+## Files
+- Public: web-safe handoff assets
+- `.local-masters/`: huge video / .ai
+- `_private/`: internal docs, spreadsheets, exports — never expose to graphics
+
+## Real People
+Active: **Treatment E — Studio Profile**
+Full-bleed natural portrait · light white/cyan plate · Meet {Name} · exact public role · Available to interview · colored logo.
+Pain + CTA in Meta copy only.
+
+Never reintroduce Treatment C, checklist layouts, CTA strips, or dark muddy teal overlays.
+
+Launch 1: Jessica, Chelsea, Angelica, Mark.
+Next: Carmen, Jennifer, Stories resizes.
+
+## Site order
+1. Brief  2. Templates  3. Launch 1 / Launch 2  4. Real People (one page)
+Reference far right: Brand Guide · Assets · Images
+
+## Workflow
+copy form → attach refs → design Studio Profile
+
+No UTM / form QA / campaign shell / audience clutter on graphics pages.
+
+## Claims
+Do not invent HIPAA, $10/hour, savings %, performance, credentials, or availability.

@@ -34,7 +34,7 @@ Do **not** revive MedicalOwners / DentalOwners / VirtualMedAdmin stock statics.
 | 03 | `IMB_MV_RP_Static_03_AngelicaFrontDesk` | `IMB_MV_RP_Static_03_AngelicaFrontDesk_1080x1350.png` | Angelica · Front-desk pressure |
 | 04 | `IMB_MV_RP_Static_04_MarkVerification` | `IMB_MV_RP_Static_04_MarkVerification_1080x1350.png` | Mark · Insurance verification |
 
-All PNGs are **1080×1350 Real People drafts** (Treatment C). Designer polish welcome — still uploadable now.
+All PNGs are **1080×1350 Real People drafts** (Treatment E — Studio Profile). Designer polish welcome. Do not upload Treatment C/D.
 
 ## Language rules
 

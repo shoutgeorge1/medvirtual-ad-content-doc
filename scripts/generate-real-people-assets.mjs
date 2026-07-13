@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 import { spawnSync } from 'child_process';
 import sharp from 'sharp';
 import { TALENT, SOURCE_CHECKED_AT } from './real-people-data.mjs';
-import { renderTreatmentCAds } from './generate-real-people-treatment-c.mjs';
+import { renderTreatmentEAds } from './generate-real-people-treatment-e.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -235,8 +235,9 @@ export async function generateRealPeopleAssets() {
     catalog.people.push(row);
   }
 
-  console.log('Rendering Treatment C polished ad PNGs…');
-  catalog.treatmentCAds = await renderTreatmentCAds();
+  console.log('Rendering Treatment E (active). Skipping Treatment C regenerate…');
+  catalog.treatmentEAds = await renderTreatmentEAds();
+  catalog.treatmentCAds = []; // retired — do not regenerate into public
 
   console.log('Zipping per-person packs…');
   for (const t of TALENT) {

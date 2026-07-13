@@ -14,28 +14,52 @@ export const TALENT_POOL_URL = 'https://app.medvirtual.ai/talent-pool';
 
 export const STRATEGY = {
   intro:
-    'Most virtual medical staffing ads look identical. This direction replaces stock-style creative with actual MedVirtual talent, named profiles, role-specific skills, and natural workplace footage.',
+    'Named Talent Pool people beat stock headset ads. Strategy stays; the first graphic system did not.',
   whyMayWork: [
     {
       title: 'Real faces create credibility',
-      note: 'Hypothesis: a named profile photo feels less interchangeable than stock headset imagery.',
+      note: 'A named profile photo feels less interchangeable than stock headset imagery.',
     },
     {
-      title: 'Names make the service tangible',
-      note: 'Hypothesis: “Meet Jessica” is easier to imagine interviewing than “hire a VA.”',
+      title: 'Names make the hire tangible',
+      note: '“Meet Jessica” is easier to imagine interviewing than “hire a VA.”',
     },
     {
-      title: 'Specific skills help the buyer self-qualify',
-      note: 'Hypothesis: scheduling, intake, or billing language helps the right practices lean in.',
+      title: 'Harder for competitors to copy',
+      note: 'Real Talent Pool people are a brand asset stock packs cannot match.',
     },
-    {
-      title: 'Harder for competitors to imitate',
-      note: 'Hypothesis: real Talent Pool people are a brand asset stock packs cannot copy.',
-    },
-    {
-      title: 'One profile → many variations',
-      note: 'Hypothesis: each person can feed static, carousel, Reel cover, and short video tests.',
-    },
+  ],
+};
+
+/**
+ * Visual system status — C and D rejected; Treatment E is the forward concept.
+ * Do not upload Treatment C / muddy Portrait Lead D as final creative.
+ */
+export const CONCEPT_DIRECTION = {
+  rejectedId: 'C/D',
+  rejectedName: 'Old Real People layouts (checklist flyer + muddy teal scrim)',
+  rejectedWhy: [
+    'Treatment C looked like a stacked staffing flyer (pain yell + checklist + CTA bar)',
+    'Treatment D still felt like a cheap dark overlay on a headshot',
+    'Neither matched the official MedVirtual brand kit (light cyan + clean type)',
+  ],
+  activeId: 'E',
+  activeName: 'Treatment E — Studio Profile',
+  thesis:
+    'Full-bleed natural face on a light MedVirtual brand plate — Meet {Name} + exact role + colored logo. No teal mud overlay. No checklist. Pain/CTA only in Meta copy.',
+  rulesDo: [
+    'Full-bleed natural-color portrait (person owns the frame)',
+    'Light brand bottom plate (white / soft cyan) with cyan accent edge',
+    'Large Meet {Name} + exact public role in Be Vietnam',
+    'Official colored MedVirtual logo',
+    'Pain / CTA in Meta primary text + headline only',
+  ],
+  rulesDont: [
+    'No capability checklist stack',
+    'No on-image CTA strip',
+    'No dark teal mud overlay over the person',
+    'No Treatment C / D layouts',
+    'Do not invent skills, HIPAA, years, or outcomes',
   ],
 };
 
@@ -783,7 +807,7 @@ export const STRONGEST_FOUR = [
     id: 'jessica-admin',
     talentId: 'jessica',
     name: 'Jessica · Admin work piling up',
-    why: 'Simple medical-admin pain + named person; easy first Treatment C static.',
+    why: 'Simple medical-admin pain + named person; strongest Portrait Lead starter.',
   },
   {
     id: 'mark-verification',
@@ -799,7 +823,10 @@ export const STRONGEST_FOUR = [
   },
 ];
 
-/** Treatment C — Pain + Person + Capabilities (first production batch only) */
+/**
+ * Treatment C — REJECTED visual system.
+ * Kept for archive / do-not-use reference only. Do not ship as final Meta creative.
+ */
 export const TREATMENT_C = [
   {
     talentId: 'chelsea',
@@ -855,63 +882,101 @@ export const TREATMENT_C = [
   },
 ];
 
-/** Monday graphics request — first batch only (4 ads) */
+/** First batch — four people under Treatment E (Studio Profile) */
 export const MONDAY_REAL_PEOPLE_BATCH = [
-  { talentId: 'chelsea', angle: 'Scheduling pressure', treatmentC: true },
-  { talentId: 'mark', angle: 'Verification workload', treatmentC: true },
-  { talentId: 'jessica', angle: 'Administrative overload', treatmentC: true },
-  { talentId: 'angelica', angle: 'Front-desk pressure', treatmentC: true },
+  { talentId: 'chelsea', angle: 'Scheduling pressure', treatment: 'E' },
+  { talentId: 'mark', angle: 'Verification workload', treatment: 'E' },
+  { talentId: 'jessica', angle: 'Administrative overload', treatment: 'E' },
+  { talentId: 'angelica', angle: 'Front-desk pressure', treatment: 'E' },
 ];
 
-/** Meta copy packages for RP Assets ad examples (CMO-facing) */
+/**
+ * Treatment E — Studio Profile (active concept).
+ * On-image: circular natural portrait + Meet {Name} + role. Pain lives in Meta copy.
+ */
+export const TREATMENT_E = [
+  {
+    talentId: 'chelsea',
+    meetLine: 'Meet Chelsea',
+    role: 'Dental Virtual Assistant',
+    supportLine: 'Available to interview',
+    primaryRatio: '4x5',
+  },
+  {
+    talentId: 'mark',
+    meetLine: 'Meet Mark',
+    role: 'Insurance Verification Specialist',
+    supportLine: 'Available to interview',
+    primaryRatio: '4x5',
+  },
+  {
+    talentId: 'angelica',
+    meetLine: 'Meet Angelica',
+    role: 'Dermatology Front Desk Assistant',
+    supportLine: 'Available to interview',
+    primaryRatio: '4x5',
+  },
+  {
+    talentId: 'jessica',
+    meetLine: 'Meet Jessica',
+    role: 'Jr. Medical Admin',
+    supportLine: 'Available to interview',
+    primaryRatio: '4x5',
+  },
+];
+
+/** @deprecated use TREATMENT_E */
+export const TREATMENT_D = TREATMENT_E;
+
+/** Meta copy packages — on-image is Studio Profile; pain stays in primary / headline */
 export const META_AD_PACKAGES = [
   {
     talentId: 'chelsea',
     creativeAngle: 'Scheduling pressure',
-    onImageHook: 'YOUR FRONT DESK SHOULDN’T SPEND ALL DAY SCHEDULING.',
+    onImageHook: 'Meet Chelsea',
     primaryText:
-      'Scheduling should not consume your entire front desk.\n\nMeet Chelsea, a Dental Virtual Assistant whose MedVirtual profile lists appointment setting, customer service, and healthcare support.\n\nIntroduce your practice to a real person who may be able to help keep the calendar moving and the front desk focused.',
-    headline: 'Meet Chelsea for Scheduling Support',
+      'Scheduling should not consume your entire front desk.\n\nMeet Chelsea, a Dental Virtual Assistant whose MedVirtual profile lists appointment setting, customer service, and healthcare support.\n\nHire dedicated full-time virtual staff who work as part of your practice team. Book a demo to request an interview.',
+    headline: 'Scheduling Taking Over?',
     description: 'Interview real MedVirtual talent.',
     cta: 'Learn More',
-    alternateHook: 'SCHEDULING TAKING OVER THE FRONT DESK?',
-    supportingLine: 'Meet Chelsea · Dental Virtual Assistant',
+    alternateHook: 'Meet Chelsea · Dental Virtual Assistant',
+    supportingLine: 'Dental Virtual Assistant · available to interview',
   },
   {
     talentId: 'mark',
     creativeAngle: 'Insurance verification workload',
-    onImageHook: 'HOW MUCH OF YOUR DAY GOES TO INSURANCE VERIFICATION?',
+    onImageHook: 'Meet Mark',
     primaryText:
-      'Insurance verification can pull your team away from patients and everything else that needs attention.\n\nMeet Mark, an Insurance Verification Specialist whose MedVirtual profile also lists medical billing support.\n\nStart with a real person your team can interview—not another generic staffing promise.',
-    headline: 'Meet Mark for Verification Support',
+      'Insurance verification can pull your team away from patients.\n\nMeet Mark, an Insurance Verification Specialist whose MedVirtual profile also lists medical billing support.\n\nHire a dedicated full-time virtual teammate your practice can interview — not another generic staffing promise.',
+    headline: 'Verification Work Piling Up?',
     description: 'Insurance verification talent from MedVirtual.',
     cta: 'Learn More',
-    alternateHook: 'VERIFICATION WORK PILING UP?',
-    supportingLine: 'Meet Mark · Insurance Verification Specialist',
+    alternateHook: 'Meet Mark · Insurance Verification Specialist',
+    supportingLine: 'Insurance Verification Specialist · available to interview',
   },
   {
     talentId: 'jessica',
     creativeAngle: 'Administrative workload',
-    onImageHook: 'THE ADMIN WORK DOESN’T STOP.',
+    onImageHook: 'Meet Jessica',
     primaryText:
-      'Calls keep coming. Tasks keep stacking. Your team is already stretched.\n\nMeet Jessica, a Jr. Medical Admin whose MedVirtual profile lists customer-service and healthcare-support skills.\n\nSee whether a real remote team member could help keep the day-to-day work moving.',
+      'Calls keep coming. Tasks keep stacking. Your team is already stretched.\n\nMeet Jessica, a Jr. Medical Admin whose MedVirtual profile lists customer-service and healthcare-support skills.\n\nHire dedicated virtual staff who join your practice team. Book a demo to request an interview.',
     headline: 'Admin Work Piling Up?',
     description: 'Meet real MedVirtual medical admin talent.',
     cta: 'Learn More',
-    alternateHook: 'TOO MUCH ADMIN. NOT ENOUGH DAY.',
-    supportingLine: 'Meet Jessica · Jr. Medical Admin',
+    alternateHook: 'Meet Jessica · Jr. Medical Admin',
+    supportingLine: 'Jr. Medical Admin · available to interview',
   },
   {
     talentId: 'angelica',
     creativeAngle: 'Front-desk pressure',
-    onImageHook: 'YOUR FRONT DESK CAN’T DO EVERYTHING.',
+    onImageHook: 'Meet Angelica',
     primaryText:
-      'Patients are waiting. Phones are ringing. Follow-up tasks are stacking up.\n\nMeet Angelica, a Dermatology Front Desk Assistant whose MedVirtual profile shows medical-admin and healthcare-support experience.\n\nGive your team a real person to meet—not another anonymous stock image.',
+      'Patients are waiting. Phones are ringing. Follow-up is stacking up.\n\nMeet Angelica, a Dermatology Front Desk Assistant whose MedVirtual profile shows medical-admin and healthcare-support experience.\n\nHire dedicated virtual staff who support your front-desk workflow as part of your practice — not a call center.',
     headline: 'Front Desk Stretched Thin?',
     description: 'Meet a real front-desk support candidate.',
     cta: 'Learn More',
-    alternateHook: 'WHEN THE FRONT DESK IS DOING TOO MUCH.',
-    supportingLine: 'Meet Angelica · Front Desk Assistant',
+    alternateHook: 'Meet Angelica · Front Desk Assistant',
+    supportingLine: 'Front Desk Assistant · available to interview',
   },
 ];
 
@@ -1173,7 +1238,7 @@ export function metaAdPackageText(pkg) {
 export function treatmentCPackage(tc) {
   const t = talentById(tc.talentId);
   return [
-    `TREATMENT C — Pain + Person + Capabilities`,
+    `TREATMENT C — REJECTED · do not upload as final`,
     `PROFILE: ${t.fullPublicName}`,
     `SOURCE: ${t.profileUrl}`,
     `CANVAS: 1080×1350 (primary) · also 1:1 and 9:16`,
@@ -1188,11 +1253,34 @@ export function treatmentCPackage(tc) {
     ...tc.bullets.map((b) => `✓ ${b.text}  [${b.source}]`),
     '',
     `CTA STRIP: ${tc.ctaStrip}`,
-    `LOGO: MedVirtual — larger mark in high-contrast brand panel (not tiny corner watermark)`,
+  ].join('\n');
+}
+
+export function treatmentEPackage(te) {
+  const t = talentById(te.talentId);
+  return [
+    `TREATMENT E — Studio Profile (active concept)`,
+    `PROFILE: ${t.fullPublicName}`,
+    `SOURCE: ${t.profileUrl}`,
+    `CANVAS: 1080×1350 (primary) · also 1:1 and 9:16`,
+    '',
+    `ON-IMAGE:`,
+    te.meetLine,
+    te.role,
+    te.supportLine || 'Available to interview',
+    '',
+    `LAYOUT: Full-bleed natural portrait · light brand bottom plate · cyan accent edge · no checklist · no CTA strip · no dark overlay`,
+    `LOGO: Official MedVirtual colored mark, bottom-right`,
+    `META: Put pain + Book a Demo / Learn More in primary text + headline — not on the image`,
     '',
     `CLAIM RESTRICTIONS:`,
-    `- Do not invent HIPAA, years of experience, software expertise, availability, or outcomes`,
-    `- Bullets must match listed sources above`,
-    `- No fake Meta CTA button inside artwork — branded strip only`,
+    `- Role must match public Talent Pool title`,
+    `- Do not invent HIPAA, years of experience, software expertise, or outcomes`,
+    `- Hire dedicated staff / interview framing — not managed front desk`,
   ].join('\n');
+}
+
+/** @deprecated use treatmentEPackage */
+export function treatmentDPackage(td) {
+  return treatmentEPackage(td);
 }

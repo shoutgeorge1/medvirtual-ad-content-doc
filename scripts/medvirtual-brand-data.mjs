@@ -40,6 +40,7 @@ export const BRAND = {
     logoColoredPng: '/assets/brand/medvirtual/logo-colored.png',
     logomarkColoredSvg: '/assets/brand/medvirtual/logomark-colored.svg',
     logomarkWhiteSvg: '/assets/brand/medvirtual/logomark-white.svg',
+    logomarkOnBlackPng: '/assets/brand/medvirtual/logomark-on-black.png',
     linkedinBannerRef: '/assets/brand/medvirtual/linkedin-banner-reference.png',
     storyGradientRef: '/assets/brand/medvirtual/story-gradient-reference.png',
     brandKitRef: '/assets/brand/medvirtual/brand-kit-reference.png',

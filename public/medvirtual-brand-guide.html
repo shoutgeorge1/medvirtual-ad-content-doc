@@ -111,6 +111,12 @@
     color: #b8d4e0;
     max-width: 820px;
   }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
   .doc-nav {
     display: flex;
     flex-wrap: wrap;
@@ -133,6 +139,22 @@
   .doc-nav a.active {
     color: #ffffff;
     background: var(--mv-primary);
+  }
+  .doc-nav--ref a {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #9fb9c6;
+    padding: 0.35rem 0.55rem;
+  }
+  .doc-nav--ref a.active {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
   }
   .doc-subnav {
     display: flex;
@@ -157,6 +179,7 @@
   @media (max-width: 640px) {
     .doc-header { padding: 1rem; }
     .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -333,10 +356,14 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Meta ads · brief · brand · assets</p>
+        <p class="doc-header__tagline">Graphics · templates · launch sequences</p>
       </div>
     </a>
-    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/medvirtual-brand-guide.html" class="active">Brand Guide</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="">Meta Launch</a><a href="/real-people-creative.html" class="">Real People</a><a href="/real-people-assets.html" class="">RP Assets</a></nav>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/meta-launch-1.html" class="">Launch 1</a><a href="/meta-launch-2.html" class="">Launch 2</a><a href="/real-people-creative.html" class="">Real People</a></nav>
+      <span class="doc-nav-sep" aria-hidden="true"></span>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="active">Brand Guide</a><a href="/asset-hub.html" class="">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
+    </div>
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Brand Guide</h2>
@@ -666,12 +693,12 @@
       <h2>Document purposes</h2>
       <p class="lede">Keep these roles separate — no single page should carry strategy, brief, downloads, and Meta build together.</p>
       <div class="doc-map">
-        <a href="/graphic-request-brief.html"><strong>Brief</strong><span>Designer production request</span></a>
-        <a href="/real-people-creative.html"><strong>Real People</strong><span>Strategy &amp; copy exploration</span></a>
-        <a href="/real-people-assets.html"><strong>RP Assets</strong><span>Sources, ratios, downloads</span></a>
+        <a href="/graphic-request-brief.html"><strong>Brief</strong><span>VA queue + Graphics Request Form paste</span></a>
+        <a href="/real-people-creative.html"><strong>Real People</strong><span>Portrait Lead concept + source downloads</span></a>
         <a href="/medvirtual-brand-guide.html"><strong>Brand Guide</strong><span>Visual + verbal standards</span></a>
         <a href="/meta-launch-build-pack.html"><strong>Meta Launch</strong><span>Campaign implementation &amp; QA</span></a>
         <a href="/asset-hub.html"><strong>Assets</strong><span>Brand + raw creative downloads</span></a>
+        <a href="/marketing-library.html"><strong>Marketing Library</strong><span>Blog, LinkedIn, newsletter, print, social</span></a>
       </div>
     </section>
 

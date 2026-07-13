@@ -42,6 +42,7 @@ const BRAND_DOWNLOADS = [
   { href: BRAND.assets.logoWhiteSvg, name: 'logo-white.svg', note: 'White horizontal · dark backgrounds' },
   { href: BRAND.assets.logomarkColoredSvg, name: 'logomark-colored.svg', note: 'Colored mark' },
   { href: BRAND.assets.logomarkWhiteSvg, name: 'logomark-white.svg', note: 'White mark' },
+  { href: BRAND.assets.logomarkOnBlackPng, name: 'logomark-on-black.png', note: 'Mark on black · display / social' },
   { href: BRAND.assets.logoColoredPng, name: 'logo-colored.png', note: 'PNG fallback (raster)' },
   { href: BRAND.assets.linkedinBannerRef, name: 'linkedin-banner-reference.png', note: 'LinkedIn banner reference' },
   { href: BRAND.assets.storyGradientRef, name: 'story-gradient-reference.png', note: 'Stories gradient reference' },
@@ -115,14 +116,20 @@ function main() {
   })}
   <div class="wrap">
     <div class="note">
-      <strong>Graphics:</strong> start with the <a href="/graphic-request-brief.html">Brief</a>.
+      <strong>Graphics:</strong> start with the <a href="/graphic-request-brief.html">VA Graphics Queue (Brief)</a> — copy the form, don’t invent work.
       Brand rules: <a href="/medvirtual-brand-guide.html">Brand Guide</a>.
       Crops: <a href="/image-variation-review.html">Image Review</a>.
+      Channel assets: <a href="/marketing-library.html">Marketing Library</a> (blog, LinkedIn, newsletter, print, social).
       Links open for review first — right-click → Save if you need a download.
+    </div>
+    <div class="warn">
+      Do not publish GTM decks, SDR intake forms, Meta lead exports, Illustrator sources, font ZIP archives, or raw Intro Zoom / animated MOV masters from this hub.
+      Those live in private local folders for producers only.
     </div>
     <div class="links">
       <a href="/medvirtual-brand-guide.html">Brand Guide</a>
       <a class="secondary" href="/graphic-request-brief.html">Brief</a>
+      <a class="secondary" href="/marketing-library.html">Marketing Library</a>
       <a class="secondary" href="/image-variation-review.html">Image Review</a>
     </div>
 
@@ -156,7 +163,7 @@ function main() {
           </a>`,
       ).join('')}
     </div>
-    <p class="hint" style="margin-top:0.75rem">Typography: Be Vietnam Bold / Medium / Regular + Inter, Arial fallbacks. See Brand Guide — do not ship font ZIP downloads.</p>
+    <p class="hint" style="margin-top:0.75rem">Typography: full Be Vietnam family installed under <span class="path">fonts/</span> (Regular / Medium / Bold used in CSS). Do not ship font ZIP downloads to vendors.</p>
 
     <h3 style="margin-top:1.75rem">Hero raw masters</h3>
     <p class="hint">Folder: <span class="path">public/assets/ai-images/</span> — full-res sources for Remotion / Premiere.</p>

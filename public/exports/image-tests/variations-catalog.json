@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T22:44:38.198Z",
+  "generatedAt": "2026-07-13T23:20:20.514Z",
   "mode": "george-approved-by-subject-side",
   "kept": [
     {
@@ -11,6 +11,9 @@
       "boardSection": "person_left",
       "subjectSide": "left",
       "textZone": "Copy zone: Right side + top",
+      "copyZone": "Copy zone: Right side + top",
+      "displayName": "Image 03 — Follow-Up",
+      "status": "recommended",
       "aspectRatio": "4x5",
       "cropType": "FACE_LEFT",
       "cropLabel": "4x5/face/left",
@@ -39,10 +42,7 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "recommended",
-      "displayName": "Image 03 — Follow-Up",
-      "copyZone": "Copy zone: Right side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_009_4X5_FACE_LEFT",
@@ -53,6 +53,9 @@
       "boardSection": "person_left",
       "subjectSide": "left",
       "textZone": "Copy zone: Right side + top",
+      "copyZone": "Copy zone: Right side + top",
+      "displayName": "Image 09 — Scheduling",
+      "status": "recommended",
       "aspectRatio": "4x5",
       "cropType": "FACE_LEFT",
       "cropLabel": "4x5/face/left",
@@ -80,10 +83,7 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "recommended",
-      "displayName": "Image 09 — Scheduling",
-      "copyZone": "Copy zone: Right side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_010_4X5_FACE_LEFT",
@@ -94,6 +94,9 @@
       "boardSection": "person_left",
       "subjectSide": "left",
       "textZone": "Copy zone: Right side + top",
+      "copyZone": "Copy zone: Right side + top",
+      "displayName": "Image 10 — Front Desk",
+      "status": "recommended",
       "aspectRatio": "4x5",
       "cropType": "FACE_LEFT",
       "cropLabel": "4x5/face/left",
@@ -121,10 +124,7 @@
           "I'm a real clinic owner framing"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "recommended",
-      "displayName": "Image 10 — Front Desk",
-      "copyZone": "Copy zone: Right side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_003_1X1_FACE_CENTER",
@@ -135,6 +135,9 @@
       "boardSection": "person_left",
       "subjectSide": "left",
       "textZone": "Copy zone: Right side + top",
+      "copyZone": "Copy zone: Right side + top",
+      "displayName": "Image 03 — Follow-Up",
+      "status": "recommended",
       "aspectRatio": "1x1",
       "cropType": "FACE_CENTER",
       "cropLabel": "1x1/face/center",
@@ -163,10 +166,7 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "recommended",
-      "displayName": "Image 03 — Follow-Up",
-      "copyZone": "Copy zone: Right side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_009_9X16_SUBJECT_LEFT",
@@ -177,10 +177,13 @@
       "boardSection": "person_left",
       "subjectSide": "left",
       "textZone": "Copy zone: Right side + top",
+      "copyZone": "Copy zone: Right side + top",
+      "displayName": "Image 09 — Scheduling",
+      "status": "alternate",
       "aspectRatio": "9x16",
       "cropType": "SUBJECT_LEFT",
       "cropLabel": "9x16/subject/left",
-      "candidateRating": "A",
+      "candidateRating": "B",
       "placeholderLabel": "Scheduling",
       "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
@@ -204,10 +207,7 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "alternate",
-      "displayName": "Image 09 — Scheduling",
-      "copyZone": "Copy zone: Right side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_009_1X1_FACE_CENTER",
@@ -218,10 +218,13 @@
       "boardSection": "person_left",
       "subjectSide": "left",
       "textZone": "Copy zone: Right side + top",
+      "copyZone": "Copy zone: Right side + top",
+      "displayName": "Image 09 — Scheduling",
+      "status": "alternate",
       "aspectRatio": "1x1",
       "cropType": "FACE_CENTER",
       "cropLabel": "1x1/face/center",
-      "candidateRating": "A",
+      "candidateRating": "B",
       "placeholderLabel": "Scheduling",
       "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
@@ -245,10 +248,7 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "alternate",
-      "displayName": "Image 09 — Scheduling",
-      "copyZone": "Copy zone: Right side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_010_4X5_SUBJECT_LEFT",
@@ -259,10 +259,13 @@
       "boardSection": "person_left",
       "subjectSide": "left",
       "textZone": "Copy zone: Right side + top",
+      "copyZone": "Copy zone: Right side + top",
+      "displayName": "Image 10 — Front Desk",
+      "status": "alternate",
       "aspectRatio": "4x5",
       "cropType": "SUBJECT_LEFT",
       "cropLabel": "4x5/subject/left",
-      "candidateRating": "A",
+      "candidateRating": "B",
       "placeholderLabel": "Front Desk",
       "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
@@ -286,10 +289,7 @@
           "I'm a real clinic owner framing"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "alternate",
-      "displayName": "Image 10 — Front Desk",
-      "copyZone": "Copy zone: Right side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_006_1X1_SUBJECT_CENTER",
@@ -300,10 +300,13 @@
       "boardSection": "person_left",
       "subjectSide": "left",
       "textZone": "Copy zone: Right side + top",
+      "copyZone": "Copy zone: Right side + top",
+      "displayName": "Image 06 — Scheduling",
+      "status": "alternate",
       "aspectRatio": "1x1",
       "cropType": "SUBJECT_CENTER",
       "cropLabel": "1x1/subject/center",
-      "candidateRating": "A",
+      "candidateRating": "B",
       "placeholderLabel": "Scheduling",
       "recommendedUse": "Copy zone: Right side + top",
       "owned": false,
@@ -327,10 +330,7 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "alternate",
-      "displayName": "Image 06 — Scheduling",
-      "copyZone": "Copy zone: Right side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_015_4X5_FACE_LEFT",
@@ -341,6 +341,9 @@
       "boardSection": "person_left",
       "subjectSide": "left",
       "textZone": "Copy zone: Right side + top",
+      "copyZone": "Copy zone: Right side + top",
+      "displayName": "Image 15 — Front Desk",
+      "status": "recommended",
       "aspectRatio": "4x5",
       "cropType": "FACE_LEFT",
       "cropLabel": "4x5/face/left",
@@ -370,10 +373,7 @@
           "clinical care promises"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "recommended",
-      "displayName": "Image 15 — Front Desk",
-      "copyZone": "Copy zone: Right side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_015_9X16_SUBJECT_LEFT",
@@ -384,6 +384,9 @@
       "boardSection": "person_left",
       "subjectSide": "left",
       "textZone": "Copy zone: Right side + top",
+      "copyZone": "Copy zone: Right side + top",
+      "displayName": "Image 15 — Front Desk",
+      "status": "recommended",
       "aspectRatio": "9x16",
       "cropType": "SUBJECT_LEFT",
       "cropLabel": "9x16/subject/left",
@@ -413,10 +416,7 @@
           "clinical care promises"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "recommended",
-      "displayName": "Image 15 — Front Desk",
-      "copyZone": "Copy zone: Right side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_004_4X5_FACE_RIGHT",
@@ -427,6 +427,9 @@
       "boardSection": "person_right",
       "subjectSide": "right",
       "textZone": "Copy zone: Left side + top",
+      "copyZone": "Copy zone: Left side + top",
+      "displayName": "Image 04 — Workflow",
+      "status": "recommended",
       "aspectRatio": "4x5",
       "cropType": "FACE_RIGHT",
       "cropLabel": "4x5/face/right",
@@ -454,10 +457,7 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "recommended",
-      "displayName": "Image 04 — Workflow",
-      "copyZone": "Copy zone: Left side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_004_9X16_SUBJECT_RIGHT",
@@ -468,10 +468,13 @@
       "boardSection": "person_right",
       "subjectSide": "right",
       "textZone": "Copy zone: Left side + top",
+      "copyZone": "Copy zone: Left side + top",
+      "displayName": "Image 04 — Workflow",
+      "status": "alternate",
       "aspectRatio": "9x16",
       "cropType": "SUBJECT_RIGHT",
       "cropLabel": "9x16/subject/right",
-      "candidateRating": "A",
+      "candidateRating": "B",
       "placeholderLabel": "Workflow",
       "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
@@ -495,10 +498,7 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "alternate",
-      "displayName": "Image 04 — Workflow",
-      "copyZone": "Copy zone: Left side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_004_1X1_FACE_CENTER",
@@ -509,10 +509,13 @@
       "boardSection": "person_right",
       "subjectSide": "right",
       "textZone": "Copy zone: Left side + top",
+      "copyZone": "Copy zone: Left side + top",
+      "displayName": "Image 04 — Workflow",
+      "status": "alternate",
       "aspectRatio": "1x1",
       "cropType": "FACE_CENTER",
       "cropLabel": "1x1/face/center",
-      "candidateRating": "A",
+      "candidateRating": "B",
       "placeholderLabel": "Workflow",
       "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
@@ -536,10 +539,7 @@
           "fake testimonial"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "alternate",
-      "displayName": "Image 04 — Workflow",
-      "copyZone": "Copy zone: Left side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_007_1X1_FACE_CENTER",
@@ -550,10 +550,13 @@
       "boardSection": "person_right",
       "subjectSide": "right",
       "textZone": "Copy zone: Left side + top",
+      "copyZone": "Copy zone: Left side + top",
+      "displayName": "Image 07 — Workflow",
+      "status": "alternate",
       "aspectRatio": "1x1",
       "cropType": "FACE_CENTER",
       "cropLabel": "1x1/face/center",
-      "candidateRating": "A",
+      "candidateRating": "B",
       "placeholderLabel": "Workflow",
       "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
@@ -579,10 +582,7 @@
           "patient outcomes"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "alternate",
-      "displayName": "Image 07 — Workflow",
-      "copyZone": "Copy zone: Left side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_013_4X5_FACE_RIGHT",
@@ -593,6 +593,9 @@
       "boardSection": "person_right",
       "subjectSide": "right",
       "textZone": "Copy zone: Left side + top",
+      "copyZone": "Copy zone: Left side + top",
+      "displayName": "Image 13 — Medical Assistant",
+      "status": "recommended",
       "aspectRatio": "4x5",
       "cropType": "FACE_RIGHT",
       "cropLabel": "4x5/face/right",
@@ -622,10 +625,7 @@
           "patient outcomes"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "recommended",
-      "displayName": "Image 13 — Medical Assistant",
-      "copyZone": "Copy zone: Left side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_013_9X16_SUBJECT_RIGHT",
@@ -636,10 +636,13 @@
       "boardSection": "person_right",
       "subjectSide": "right",
       "textZone": "Copy zone: Left side + top",
+      "copyZone": "Copy zone: Left side + top",
+      "displayName": "Image 13 — Medical Assistant",
+      "status": "alternate",
       "aspectRatio": "9x16",
       "cropType": "SUBJECT_RIGHT",
       "cropLabel": "9x16/subject/right",
-      "candidateRating": "A",
+      "candidateRating": "B",
       "placeholderLabel": "Medical Assistant",
       "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
@@ -665,10 +668,7 @@
           "patient outcomes"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "alternate",
-      "displayName": "Image 13 — Medical Assistant",
-      "copyZone": "Copy zone: Left side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_014_4X5_FACE_RIGHT",
@@ -679,10 +679,13 @@
       "boardSection": "person_right",
       "subjectSide": "right",
       "textZone": "Copy zone: Left side + top",
+      "copyZone": "Copy zone: Left side + top",
+      "displayName": "Image 14 — Workflow",
+      "status": "hold",
       "aspectRatio": "4x5",
       "cropType": "FACE_RIGHT",
       "cropLabel": "4x5/face/right",
-      "candidateRating": "A",
+      "candidateRating": "C",
       "placeholderLabel": "Workflow",
       "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
@@ -707,10 +710,7 @@
           "clinical treatment claims"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "hold",
-      "displayName": "Image 14 — Workflow",
-      "copyZone": "Copy zone: Left side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_014_9X16_SUBJECT_RIGHT",
@@ -721,10 +721,13 @@
       "boardSection": "person_right",
       "subjectSide": "right",
       "textZone": "Copy zone: Left side + top",
+      "copyZone": "Copy zone: Left side + top",
+      "displayName": "Image 14 — Workflow",
+      "status": "hold",
       "aspectRatio": "9x16",
       "cropType": "SUBJECT_RIGHT",
       "cropLabel": "9x16/subject/right",
-      "candidateRating": "A",
+      "candidateRating": "C",
       "placeholderLabel": "Workflow",
       "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
@@ -749,10 +752,7 @@
           "clinical treatment claims"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "hold",
-      "displayName": "Image 14 — Workflow",
-      "copyZone": "Copy zone: Left side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_AI_008_4X5_SUBJECT_CENTER",
@@ -763,10 +763,13 @@
       "boardSection": "person_right",
       "subjectSide": "right",
       "textZone": "Copy zone: Left side + top",
+      "copyZone": "Copy zone: Left side + top",
+      "displayName": "Image 08 — Payroll Pressure",
+      "status": "alternate",
       "aspectRatio": "4x5",
       "cropType": "SUBJECT_CENTER",
       "cropLabel": "4x5/subject/center",
-      "candidateRating": "A",
+      "candidateRating": "B",
       "placeholderLabel": "Payroll Pressure",
       "recommendedUse": "Copy zone: Left side + top",
       "owned": false,
@@ -792,10 +795,7 @@
           "fake dashboard data"
         ]
       },
-      "sourceFolder": "ai-images",
-      "status": "alternate",
-      "displayName": "Image 08 — Payroll Pressure",
-      "copyZone": "Copy zone: Left side + top"
+      "sourceFolder": "ai-images"
     },
     {
       "variationId": "IMG_LP_001_4X5_WHITE_TEXT_TOP",
@@ -803,15 +803,15 @@
       "sourceFile": "assistant.avif",
       "sourceType": "Landing page image",
       "family": "landing_headshot",
-      "boardSection": "person_center",
+      "boardSection": "usable_later",
       "subjectSide": "center",
-      "textZone": "Copy zone: Open top band",
+      "textZone": "White band above head — do not cover face",
       "aspectRatio": "4x5",
       "cropType": "WHITE_TEXT_TOP",
       "cropLabel": "4x5/white/text-above",
       "candidateRating": "B",
       "placeholderLabel": "Front Desk Backup",
-      "recommendedUse": "Copy zone: Open top band",
+      "recommendedUse": "Flush bottom on white — put hook in top white band",
       "owned": true,
       "warnings": [
         "Usable later — text above head only"
@@ -837,10 +837,7 @@
           "first cold video batch"
         ]
       },
-      "sourceFolder": "landing-page-images",
-      "status": "alternate",
-      "displayName": "Image 01 — Front Desk Backup",
-      "copyZone": "Copy zone: Open top band"
+      "sourceFolder": "landing-page-images"
     },
     {
       "variationId": "IMG_LP_002_4X5_WHITE_TEXT_TOP",
@@ -848,15 +845,15 @@
       "sourceFile": "biller.avif",
       "sourceType": "Landing page image",
       "family": "landing_headshot",
-      "boardSection": "person_center",
+      "boardSection": "usable_later",
       "subjectSide": "center",
-      "textZone": "Copy zone: Open top band",
+      "textZone": "White band above head — do not cover face",
       "aspectRatio": "4x5",
       "cropType": "WHITE_TEXT_TOP",
       "cropLabel": "4x5/white/text-above",
       "candidateRating": "B",
       "placeholderLabel": "Payroll Pressure",
-      "recommendedUse": "Copy zone: Open top band",
+      "recommendedUse": "Flush bottom on white — put hook in top white band",
       "owned": true,
       "warnings": [
         "Usable later — text above head only"
@@ -881,10 +878,7 @@
           "Veo lip-sync"
         ]
       },
-      "sourceFolder": "landing-page-images",
-      "status": "alternate",
-      "displayName": "Image 02 — Payroll Pressure",
-      "copyZone": "Copy zone: Open top band"
+      "sourceFolder": "landing-page-images"
     },
     {
       "variationId": "IMG_LP_003_4X5_WHITE_TEXT_TOP",
@@ -892,15 +886,15 @@
       "sourceFile": "casecoord.avif",
       "sourceType": "Landing page image",
       "family": "landing_headshot",
-      "boardSection": "person_center",
+      "boardSection": "usable_later",
       "subjectSide": "center",
-      "textZone": "Copy zone: Open top band",
+      "textZone": "White band above head — do not cover face",
       "aspectRatio": "4x5",
       "cropType": "WHITE_TEXT_TOP",
       "cropLabel": "4x5/white/text-above",
       "candidateRating": "B",
       "placeholderLabel": "Follow-Up",
-      "recommendedUse": "Copy zone: Open top band",
+      "recommendedUse": "Flush bottom on white — put hook in top white band",
       "owned": true,
       "warnings": [
         "Usable later — text above head only"
@@ -926,10 +920,7 @@
           "first batch video"
         ]
       },
-      "sourceFolder": "landing-page-images",
-      "status": "alternate",
-      "displayName": "Image 03 — Follow-Up",
-      "copyZone": "Copy zone: Open top band"
+      "sourceFolder": "landing-page-images"
     },
     {
       "variationId": "IMG_LP_004_4X5_WHITE_TEXT_TOP",
@@ -937,15 +928,15 @@
       "sourceFile": "general.avif",
       "sourceType": "Landing page image",
       "family": "landing_headshot",
-      "boardSection": "person_center",
+      "boardSection": "usable_later",
       "subjectSide": "center",
-      "textZone": "Copy zone: Open top band",
+      "textZone": "White band above head — do not cover face",
       "aspectRatio": "4x5",
       "cropType": "WHITE_TEXT_TOP",
       "cropLabel": "4x5/white/text-above",
       "candidateRating": "B",
       "placeholderLabel": "Staffing Gap",
-      "recommendedUse": "Copy zone: Open top band",
+      "recommendedUse": "Flush bottom on white — put hook in top white band",
       "owned": true,
       "warnings": [
         "Usable later — text above head only"
@@ -970,10 +961,7 @@
           "first batch"
         ]
       },
-      "sourceFolder": "landing-page-images",
-      "status": "alternate",
-      "displayName": "Image 04 — Staffing Gap",
-      "copyZone": "Copy zone: Open top band"
+      "sourceFolder": "landing-page-images"
     },
     {
       "variationId": "IMG_LP_005_4X5_WHITE_TEXT_TOP",
@@ -981,15 +969,15 @@
       "sourceFile": "nurse.avif",
       "sourceType": "Landing page image",
       "family": "landing_headshot",
-      "boardSection": "person_center",
+      "boardSection": "usable_later",
       "subjectSide": "center",
-      "textZone": "Copy zone: Open top band",
+      "textZone": "White band above head — do not cover face",
       "aspectRatio": "4x5",
       "cropType": "WHITE_TEXT_TOP",
       "cropLabel": "4x5/white/text-above",
       "candidateRating": "B",
       "placeholderLabel": "Follow-Up",
-      "recommendedUse": "Copy zone: Open top band",
+      "recommendedUse": "Flush bottom on white — put hook in top white band",
       "owned": true,
       "warnings": [
         "Usable later — text above head only"
@@ -1015,10 +1003,7 @@
           "Veo lip-sync"
         ]
       },
-      "sourceFolder": "landing-page-images",
-      "status": "alternate",
-      "displayName": "Image 05 — Follow-Up",
-      "copyZone": "Copy zone: Open top band"
+      "sourceFolder": "landing-page-images"
     }
   ],
   "rejected": [],
@@ -1027,9 +1012,8 @@
     "personRight": 9,
     "personCenter": 0,
     "headshots": 5,
-    "totalVisible": 19,
     "total": 24,
-    "textRule": "Choose the image first. Place copy opposite the person."
+    "textRule": "Most images: put hook on top line. Person-left → text right. Person-right → text left. Center → text in top blank band."
   },
   "videoProductionReady": true
 }

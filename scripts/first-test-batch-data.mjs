@@ -402,7 +402,7 @@ export const PRODUCTION_DELIVERABLES = [
 export const PRODUCTION_DELIVERABLES_NOTE =
   'Variations, resizes, and videos happen only after the first four designs are reviewed.';
 
-/** Exactly four concepts for the first production batch — designer produces only these */
+/** Historic FirstBatch — KILLED. Do not feed VA queue. See creative-hopper-data.mjs. */
 export const PRODUCTION_CONCEPTS = [
   {
     id: '1',

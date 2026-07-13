@@ -1,70 +1,75 @@
 /**
  * Shared MedVirtual Content Doc header — identical across all surfaces.
- * Home = Graphic Brief (designer/VA start). Nav follows production workflow left → right.
+ * Graphics team workflow left → right. Brand / Assets sit far right as reference.
  */
 import { brandCssVariables, BRAND } from './medvirtual-brand-data.mjs';
+import { LAUNCH_SUBNAV } from './launch-sequences-data.mjs';
 
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Creative Handoff',
-  tagline: 'Meta ads · brief · brand · assets',
+  tagline: 'Graphics · templates · launch sequences',
   homeHref: '/graphic-request-brief.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };
 
-/** Primary nav — Graphic Brief is the only production handoff */
+/**
+ * Primary left nav — what the graphics team opens every day.
+ * Keep this short. Brand / Assets live in REFERENCE_NAV.
+ */
 export const PRIMARY_NAV = [
   {
     href: '/graphic-request-brief.html',
     label: 'Brief',
     id: 'brief',
-    description: 'Start here. 4 static ads with on-image copy, visual direction, and Meta paste fields.',
-  },
-  {
-    href: '/medvirtual-brand-guide.html',
-    label: 'Brand Guide',
-    id: 'brand-guide',
-    description: 'Official logos, colors, type, voice, and claims guardrails.',
+    description: 'Do now queue + Graphics Request Form paste.',
   },
   {
     href: '/template-test-board.html',
     label: 'Templates',
     id: 'templates',
-    description: 'Optional layout reference only — not a second brief.',
+    description: 'Layout examples to visualize ads — not final art.',
   },
   {
-    href: '/image-variation-review.html',
-    label: 'Image Review',
-    id: 'images',
-    description: 'Designer image selection by subject position and copy space.',
+    href: '/meta-launch-1.html',
+    label: 'Launch 1',
+    id: 'launch-1',
+    description: 'Current Real People feed ads to design / upload.',
   },
   {
-    href: '/asset-hub.html',
-    label: 'Assets',
-    id: 'hub',
-    description: 'Download brand logos and raw AI images for editors.',
-  },
-  {
-    href: '/meta-launch-build-pack.html',
-    label: 'Meta Launch',
-    id: 'launch',
-    description: 'Same-day Meta build pack: campaign shell, ads, form draft, QA.',
+    href: '/meta-launch-2.html',
+    label: 'Launch 2',
+    id: 'launch-2',
+    description: 'Next sequence: expand talent + Stories sizes.',
   },
   {
     href: '/real-people-creative.html',
     label: 'Real People',
     id: 'real-people',
-    description: 'Named Talent Pool profiles for Meta static, Reels, and short video.',
-  },
-  {
-    href: '/real-people-assets.html',
-    label: 'RP Assets',
-    id: 'real-people-assets',
-    description: 'Talent Pool originals, crops, design drafts, AI video refs.',
+    description: 'Studio Profile system + Talent Pool downloads (one page).',
   },
 ];
 
-/** Image/crop sub-pages — linked from Image Review header */
+/** Far-right reference — producer / brand, not daily VA workflow */
+export const REFERENCE_NAV = [
+  {
+    href: '/medvirtual-brand-guide.html',
+    label: 'Brand Guide',
+    id: 'brand-guide',
+  },
+  {
+    href: '/asset-hub.html',
+    label: 'Assets',
+    id: 'hub',
+  },
+  {
+    href: '/image-variation-review.html',
+    label: 'Images',
+    id: 'images',
+  },
+];
+
+/** @deprecated use PRIMARY_NAV + REFERENCE_NAV */
 export const IMAGE_SUBNAV = [
   { href: '/image-variation-review.html', label: 'Selection Board' },
   { href: '/contact-sheet-best-candidates.html', label: 'Approved Only' },
@@ -72,8 +77,15 @@ export const IMAGE_SUBNAV = [
   { href: '/contact-sheet-all-9x16.html', label: '9:16 Stories' },
 ];
 
+export { LAUNCH_SUBNAV };
+
 /** Secondary reference pages — not in main nav */
 export const SECONDARY_PAGES = [
+  {
+    href: '/marketing-library.html',
+    label: 'Marketing Library',
+    description: 'Blog, LinkedIn, newsletter, print, social, and web channel assets.',
+  },
   {
     href: '/contact-sheet-best-candidates.html',
     label: 'Approved Crops',
@@ -163,6 +175,12 @@ export const HEADER_CSS = `
     color: #b8d4e0;
     max-width: 820px;
   }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
   .doc-nav {
     display: flex;
     flex-wrap: wrap;
@@ -185,6 +203,22 @@ export const HEADER_CSS = `
   .doc-nav a.active {
     color: #ffffff;
     background: var(--mv-primary);
+  }
+  .doc-nav--ref a {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #9fb9c6;
+    padding: 0.35rem 0.55rem;
+  }
+  .doc-nav--ref a.active {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
   }
   .doc-subnav {
     display: flex;
@@ -209,6 +243,7 @@ export const HEADER_CSS = `
   @media (max-width: 640px) {
     .doc-header { padding: 1rem; }
     .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
   }
 `;
 
@@ -216,15 +251,22 @@ function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+function linkList(items, activeId) {
+  return items
+    .map((l) => {
+      const cls = l.id === activeId ? 'active' : '';
+      return `<a href="${esc(l.href)}" class="${cls}">${esc(l.label)}</a>`;
+    })
+    .join('');
+}
+
 /**
  * @param {{ activeId?: string, pageTitle?: string, pageSubtitle?: string, subnav?: Array<{href:string,label:string}>, activeSubHref?: string }} opts
  */
 export function renderDocHeader(opts = {}) {
   const { activeId, pageTitle, pageSubtitle, subnav, activeSubHref } = opts;
-  const nav = PRIMARY_NAV.map((l) => {
-    const cls = l.id === activeId ? 'active' : '';
-    return `<a href="${esc(l.href)}" class="${cls}">${esc(l.label)}</a>`;
-  }).join('');
+  const primary = linkList(PRIMARY_NAV, activeId);
+  const reference = linkList(REFERENCE_NAV, activeId);
 
   let sub = '';
   if (subnav?.length) {
@@ -258,7 +300,11 @@ export function renderDocHeader(opts = {}) {
         <p class="doc-header__tagline">${esc(DOC_BRAND.tagline)}</p>
       </div>
     </a>
-    <nav class="doc-nav" aria-label="Primary">${nav}</nav>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary">${primary}</nav>
+      <span class="doc-nav-sep" aria-hidden="true"></span>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference">${reference}</nav>
+    </div>
   </div>
   ${pageBlock}
 </header>`;

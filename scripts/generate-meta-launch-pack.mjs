@@ -80,16 +80,17 @@ const FORM = {
 };
 
 /**
- * Real People relaunch — named talent, pain-first.
- * Order: Jessica (closest to winning TooManyCalls angle) → Chelsea → Angelica → Mark.
+ * Real People relaunch — Treatment E Studio Profile.
+ * Order: Jessica → Chelsea → Angelica → Mark.
+ * Treatment C/D graphics are rejected — do not upload.
  */
 const ADS = [
   {
     id: '01',
     concept: 'Jessica · Admin / calls overload',
     adName: 'IMB_MV_RP_Static_01_JessicaAdmin',
-    onImageHeadline: 'THE ADMIN WORK DOESN’T STOP.',
-    supportingLine: 'Meet Jessica · Jr. Medical Admin',
+    onImageHeadline: 'Meet Jessica',
+    supportingLine: 'Jr. Medical Admin · available to interview',
     primaryRecommended:
       'Calls keep coming. Tasks keep stacking. Your team is already stretched.\n\nMeet Jessica — a Jr. Medical Admin available through MedVirtual. Hire a dedicated full-time virtual staff member who works as part of your practice team.\n\nBook a demo to request an interview.',
     primaryBackup:
@@ -97,74 +98,73 @@ const ADS = [
     metaHeadline: 'Admin Work Piling Up?',
     description: 'Meet real MedVirtual medical admin talent.',
     creativeDirection:
-      'Named Talent Pool person. Pain-first admin/calls angle (learned from TooManyCalls). Hire dedicated staff framing — not managed service.',
-    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'jessica', 'ad-treatment-c-4x5.png'),
-    sourceFile: 'jessica/ad-treatment-c-4x5.png',
+      'Treatment E Studio Profile. Circular natural portrait + Meet Jessica + role on light brand wash. Pain stays in Meta primary / headline.',
+    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'jessica', 'ad-treatment-e-4x5.png'),
+    sourceFile: 'jessica/ad-treatment-e-4x5.png',
     selectedFile: 'IMB_MV_RP_Static_01_JessicaAdmin.png',
     uploadFile: 'IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png',
     notes:
-      'Lead creative. Closest to the only FirstBatch signal (TooManyCalls / overloaded staff). Treatment C is a production draft — designer may polish; still uploadable now at 1080×1350.',
+      'Lead creative. Studio Profile draft — designer may polish. Do not upload Treatment C/D.',
     publishBlock: false,
   },
   {
     id: '02',
     concept: 'Chelsea · Scheduling pressure',
     adName: 'IMB_MV_RP_Static_02_ChelseaScheduling',
-    onImageHeadline: 'YOUR FRONT DESK SHOULDN’T SPEND ALL DAY SCHEDULING.',
-    supportingLine: 'Meet Chelsea · Dental Virtual Assistant',
+    onImageHeadline: 'Meet Chelsea',
+    supportingLine: 'Dental Virtual Assistant · available to interview',
     primaryRecommended:
       'Scheduling should not consume your entire front desk.\n\nMeet Chelsea — a Dental Virtual Assistant available through MedVirtual. Add a dedicated full-time virtual teammate your practice can interview.\n\nBook a demo to get started.',
     primaryBackup:
       'Scheduling taking over the front desk? Meet Chelsea and hire dedicated virtual scheduling support through MedVirtual.',
-    metaHeadline: 'Meet Chelsea for Scheduling Support',
+    metaHeadline: 'Scheduling Taking Over?',
     description: 'Interview real MedVirtual talent.',
-    creativeDirection: 'Named person + scheduling pain. Soft dental relevance without clinical imagery.',
-    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'chelsea', 'ad-treatment-c-4x5.png'),
-    sourceFile: 'chelsea/ad-treatment-c-4x5.png',
+    creativeDirection: 'Studio Profile + scheduling pain in Meta copy.',
+    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'chelsea', 'ad-treatment-e-4x5.png'),
+    sourceFile: 'chelsea/ad-treatment-e-4x5.png',
     selectedFile: 'IMB_MV_RP_Static_02_ChelseaScheduling.png',
     uploadFile: 'IMB_MV_RP_Static_02_ChelseaScheduling_1080x1350.png',
-    notes: 'Skill-specific scheduling pain. No $10 claim.',
+    notes: 'Skill-specific scheduling pain in copy. No Treatment C/D.',
     publishBlock: false,
   },
   {
     id: '03',
     concept: 'Angelica · Front-desk pressure',
     adName: 'IMB_MV_RP_Static_03_AngelicaFrontDesk',
-    onImageHeadline: 'YOUR FRONT DESK CAN’T DO EVERYTHING.',
-    supportingLine: 'Meet Angelica · Front Desk Assistant',
+    onImageHeadline: 'Meet Angelica',
+    supportingLine: 'Front Desk Assistant · available to interview',
     primaryRecommended:
       'Patients are waiting. Phones are ringing. Follow-up is stacking up.\n\nMeet Angelica — a Front Desk Assistant available through MedVirtual. Hire dedicated virtual staff who support your front-desk workflow as part of your practice team.\n\nBook a demo to request an interview.',
     primaryBackup:
       'When the front desk is doing too much, meet Angelica and hire dedicated virtual support through MedVirtual — not a call center.',
     metaHeadline: 'Front Desk Stretched Thin?',
     description: 'Meet a real front-desk support candidate.',
-    creativeDirection:
-      'Front-desk overload without “we run your front desk” or managed-service language.',
-    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'angelica', 'ad-treatment-c-4x5.png'),
-    sourceFile: 'angelica/ad-treatment-c-4x5.png',
+    creativeDirection: 'Studio Profile. Front-desk overload in Meta copy without “we run your front desk.”',
+    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'angelica', 'ad-treatment-e-4x5.png'),
+    sourceFile: 'angelica/ad-treatment-e-4x5.png',
     selectedFile: 'IMB_MV_RP_Static_03_AngelicaFrontDesk.png',
     uploadFile: 'IMB_MV_RP_Static_03_AngelicaFrontDesk_1080x1350.png',
-    notes: 'Pain-first front desk. Hire framing only.',
+    notes: 'Pain in primary text. Hire framing only.',
     publishBlock: false,
   },
   {
     id: '04',
     concept: 'Mark · Insurance verification',
     adName: 'IMB_MV_RP_Static_04_MarkVerification',
-    onImageHeadline: 'HOW MUCH OF YOUR DAY GOES TO INSURANCE VERIFICATION?',
-    supportingLine: 'Meet Mark · Insurance Verification Specialist',
+    onImageHeadline: 'Meet Mark',
+    supportingLine: 'Insurance Verification Specialist · available to interview',
     primaryRecommended:
       'Insurance verification can pull your team away from patients.\n\nMeet Mark — an Insurance Verification Specialist available through MedVirtual. Hire a dedicated full-time virtual staff member for eligibility and verification support.\n\nBook a demo to request an interview.',
     primaryBackup:
       'Verification work piling up? Meet Mark and hire dedicated insurance verification support through MedVirtual.',
-    metaHeadline: 'Meet Mark for Verification Support',
+    metaHeadline: 'Verification Work Piling Up?',
     description: 'Insurance verification talent from MedVirtual.',
-    creativeDirection: 'Named specialist. No reimbursement or denial-rate promises.',
-    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'mark', 'ad-treatment-c-4x5.png'),
-    sourceFile: 'mark/ad-treatment-c-4x5.png',
+    creativeDirection: 'Studio Profile named specialist. No reimbursement promises.',
+    sourcePath: path.join(PUBLIC, 'assets', 'real-people', 'mark', 'ad-treatment-e-4x5.png'),
+    sourceFile: 'mark/ad-treatment-e-4x5.png',
     selectedFile: 'IMB_MV_RP_Static_04_MarkVerification.png',
     uploadFile: 'IMB_MV_RP_Static_04_MarkVerification_1080x1350.png',
-    notes: 'Skill-specific alternate. No outcome guarantees. No $10 on this batch.',
+    notes: 'No outcome guarantees. No Treatment C/D.',
     publishBlock: false,
   },
 ];
@@ -207,7 +207,7 @@ async function generatePreviewCrops() {
       console.warn(`Missing Real People creative: ${ad.sourceFile}`);
       continue;
     }
-    // Treatment C is already 1080×1350 — copy into upload package
+    // Treatment E is already 1080×1350 — copy into upload package
     fs.copyFileSync(input, path.join(SELECTED_DIR, ad.selectedFile));
     fs.copyFileSync(input, path.join(UPLOAD_DIR, ad.uploadFile));
   }
@@ -247,7 +247,7 @@ Do **not** revive MedicalOwners / DentalOwners / VirtualMedAdmin stock statics.
 | --- | --- | --- | --- |
 ${ADS.map((ad) => `| ${ad.id} | \`${ad.adName}\` | \`${ad.uploadFile}\` | ${ad.concept} |`).join('\n')}
 
-All PNGs are **1080×1350 Real People drafts** (Treatment C). Designer polish welcome — still uploadable now.
+All PNGs are **1080×1350 Real People drafts** (Treatment E — Studio Profile). Designer polish welcome. Do not upload Treatment C/D.
 
 ## Language rules
 
@@ -1469,9 +1469,15 @@ function writeLaunchPackHtml() {
 </head>
 <body>
   ${renderDocHeader({
-    activeId: 'launch',
-    pageTitle: 'Meta Launch Build Pack',
-    pageSubtitle: 'NEW Real People launch · FirstBatch killed · draft / paused · 4 ads ready to upload',
+    activeId: 'launch-1',
+    pageTitle: 'Launch 1 · detailed Ads Manager pack',
+    pageSubtitle: 'Optional deep ops. Graphics team: use Launch 1 page first.',
+    subnav: [
+      { href: '/meta-launch-1.html', label: 'Launch 1' },
+      { href: '/meta-launch-2.html', label: 'Launch 2' },
+      { href: '/meta-launch-build-pack.html', label: 'Ads Manager details' },
+    ],
+    activeSubHref: '/meta-launch-build-pack.html',
   })}
   <div class="wrap">
     <div class="banner">NEW LAUNCH — FirstBatch killed. Upload Real People ads. Keep DRAFT / PAUSED until Haylie / CMO approval.</div>
@@ -1496,7 +1502,7 @@ function writeLaunchPackHtml() {
         <a href="/exports/meta-upload-ready/ads-manager-build-order.md">Build order</a>
         <a class="file" href="/exports/meta-upload-ready/utm-parameters.txt">UTM parameters</a>
         <a class="file" href="/exports/meta-upload-ready/creative-map.csv">Creative map CSV</a>
-        <a href="/real-people-assets.html">RP Assets / designer notes</a>
+        <a href="/real-people-creative.html">Real People (Studio Profile + downloads)</a>
       </div>
       <div class="upload-creatives">
         ${ADS.map(
@@ -1587,7 +1593,7 @@ function writeLaunchPackHtml() {
       <section class="panel">
         <h3>Still waiting on Haylie / CMO</h3>
         <ul class="waiting">
-          <li>Approve Real People creative direction (Treatment C drafts uploadable now)</li>
+          <li>Approve Real People Studio Profile direction (Treatment C/D rejected)</li>
           <li>Optional designer polish / re-export of final art</li>
           <li>HubSpot lead view confirmation for new IMB_MV form</li>
           <li>Final publish approval — keep paused until then</li>
