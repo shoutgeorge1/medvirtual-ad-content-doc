@@ -16,8 +16,9 @@
     "generate:brief": "node scripts/generate-graphic-request-brief.mjs",
     "generate:meta-launch": "node scripts/generate-meta-launch-pack.mjs",
     "generate:real-people": "node scripts/generate-real-people-creative.mjs",
+    "generate:cmo-review": "node scripts/generate-cmo-review.mjs",
     "generate:real-people-assets": "node scripts/generate-real-people-assets.mjs && node scripts/generate-real-people-assets-page.mjs",
-    "generate:docs": "node scripts/generate-graphic-request-brief.mjs && node scripts/generate-ad-copy.mjs && node scripts/generate-template-board.mjs && node scripts/generate-meta-launch-pack.mjs && node scripts/generate-real-people-creative.mjs && node scripts/generate-real-people-assets-page.mjs"
+    "generate:docs": "node scripts/generate-graphic-request-brief.mjs && node scripts/generate-ad-copy.mjs && node scripts/generate-template-board.mjs && node scripts/generate-meta-launch-pack.mjs && node scripts/generate-real-people-creative.mjs && node scripts/generate-cmo-review.mjs && node scripts/generate-real-people-assets-page.mjs"
   },
   "dependencies": {
     "html-to-image": "^1.11.13",

@@ -55,6 +55,12 @@ export const PRIMARY_NAV = [
     description: 'Named Talent Pool profiles for Meta static, Reels, and short video creative.',
   },
   {
+    href: '/real-people-cmo-review.html',
+    label: 'CMO Review',
+    id: 'cmo-review',
+    description: 'Executive review of Real People creative direction — short presentation for approval.',
+  },
+  {
     href: '/real-people-assets.html',
     label: 'RP Assets',
     id: 'real-people-assets',

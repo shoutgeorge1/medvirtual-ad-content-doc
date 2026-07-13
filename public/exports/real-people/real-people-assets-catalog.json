@@ -11,7 +11,6 @@
       "profileUrl": "https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4",
       "sourceCheckedAt": "2026-07-13",
       "sourceMeta": {
-        "path": "/assets/real-people/jessica/original.png",
         "width": 1024,
         "height": 1024,
         "format": "png",
@@ -69,9 +68,10 @@
         }
       },
       "limitations": [
-        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (source smaller than target)."
       ],
       "personZip": "/exports/real-people/jessica-real-people-assets.zip",
+      "zipError": null,
       "notes": {
         "recommendedUsage": "Medical admin / front-desk backlog statics and DTC video reference",
         "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs — do not aggressive-upscale further.",
@@ -97,7 +97,6 @@
       "profileUrl": "https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3",
       "sourceCheckedAt": "2026-07-13",
       "sourceMeta": {
-        "path": "/assets/real-people/angelica/original.png",
         "width": 1024,
         "height": 1024,
         "format": "png",
@@ -155,9 +154,10 @@
         }
       },
       "limitations": [
-        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (source smaller than target)."
       ],
       "personZip": "/exports/real-people/angelica-real-people-assets.zip",
+      "zipError": null,
       "notes": {
         "recommendedUsage": "Front-desk pressure statics; primary 4:5 pain-first",
         "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs.",
@@ -183,7 +183,6 @@
       "profileUrl": "https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4",
       "sourceCheckedAt": "2026-07-13",
       "sourceMeta": {
-        "path": "/assets/real-people/chelsea/original.png",
         "width": 1024,
         "height": 1024,
         "format": "png",
@@ -241,9 +240,10 @@
         }
       },
       "limitations": [
-        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (source smaller than target)."
       ],
       "personZip": "/exports/real-people/chelsea-real-people-assets.zip",
+      "zipError": null,
       "notes": {
         "recommendedUsage": "Primary first-batch pain-first scheduling creative",
         "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs.",
@@ -269,7 +269,6 @@
       "profileUrl": "https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8",
       "sourceCheckedAt": "2026-07-13",
       "sourceMeta": {
-        "path": "/assets/real-people/mark/original.png",
         "width": 1024,
         "height": 1024,
         "format": "png",
@@ -327,9 +326,10 @@
         }
       },
       "limitations": [
-        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (source smaller than target)."
       ],
       "personZip": "/exports/real-people/mark-real-people-assets.zip",
+      "zipError": null,
       "notes": {
         "recommendedUsage": "Insurance verification pain-first statics",
         "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs.",
@@ -355,7 +355,6 @@
       "profileUrl": "https://app.medvirtual.ai/talent-pool/6b08ff4a-33c7-496e-94f2-f11026c4079b",
       "sourceCheckedAt": "2026-07-13",
       "sourceMeta": {
-        "path": "/assets/real-people/carmen/original.png",
         "width": 1024,
         "height": 1024,
         "format": "png",
@@ -413,9 +412,10 @@
         }
       },
       "limitations": [
-        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (source smaller than target)."
       ],
       "personZip": "/exports/real-people/carmen-real-people-assets.zip",
+      "zipError": null,
       "notes": {
         "recommendedUsage": "Billing support static / video alternate",
         "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs.",
@@ -441,7 +441,6 @@
       "profileUrl": "https://app.medvirtual.ai/talent-pool/f72257a8-15ce-4a6f-92d7-f05a637bd741",
       "sourceCheckedAt": "2026-07-13",
       "sourceMeta": {
-        "path": "/assets/real-people/jennifer/original.png",
         "width": 1024,
         "height": 1024,
         "format": "png",
@@ -499,9 +498,10 @@
         }
       },
       "limitations": [
-        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (source smaller than target)."
       ],
       "personZip": "/exports/real-people/jennifer-real-people-assets.zip",
+      "zipError": null,
       "notes": {
         "recommendedUsage": "Intake alternate; limited skill tags on public profile",
         "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs.",
@@ -521,76 +521,88 @@
   ],
   "treatmentCAds": [
     {
-      "talentId": "jessica",
-      "slug": "jessica",
-      "ratio": "4x5",
-      "path": "/assets/real-people/jessica/ad-treatment-c-4x5.png"
-    },
-    {
-      "talentId": "jessica",
-      "slug": "jessica",
-      "ratio": "1x1",
-      "path": "/assets/real-people/jessica/ad-treatment-c-1x1.png"
-    },
-    {
-      "talentId": "jessica",
-      "slug": "jessica",
-      "ratio": "9x16",
-      "path": "/assets/real-people/jessica/ad-treatment-c-9x16.png"
-    },
-    {
-      "talentId": "angelica",
-      "slug": "angelica",
-      "ratio": "4x5",
-      "path": "/assets/real-people/angelica/ad-treatment-c-4x5.png"
-    },
-    {
-      "talentId": "angelica",
-      "slug": "angelica",
-      "ratio": "1x1",
-      "path": "/assets/real-people/angelica/ad-treatment-c-1x1.png"
-    },
-    {
-      "talentId": "angelica",
-      "slug": "angelica",
-      "ratio": "9x16",
-      "path": "/assets/real-people/angelica/ad-treatment-c-9x16.png"
-    },
-    {
       "talentId": "chelsea",
       "slug": "chelsea",
       "ratio": "4x5",
-      "path": "/assets/real-people/chelsea/ad-treatment-c-4x5.png"
+      "path": "/assets/real-people/chelsea/ad-treatment-c-4x5.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\chelsea\\ad-treatment-c-4x5.png"
     },
     {
       "talentId": "chelsea",
       "slug": "chelsea",
       "ratio": "1x1",
-      "path": "/assets/real-people/chelsea/ad-treatment-c-1x1.png"
+      "path": "/assets/real-people/chelsea/ad-treatment-c-1x1.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\chelsea\\ad-treatment-c-1x1.png"
     },
     {
       "talentId": "chelsea",
       "slug": "chelsea",
       "ratio": "9x16",
-      "path": "/assets/real-people/chelsea/ad-treatment-c-9x16.png"
+      "path": "/assets/real-people/chelsea/ad-treatment-c-9x16.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\chelsea\\ad-treatment-c-9x16.png"
     },
     {
       "talentId": "mark",
       "slug": "mark",
       "ratio": "4x5",
-      "path": "/assets/real-people/mark/ad-treatment-c-4x5.png"
+      "path": "/assets/real-people/mark/ad-treatment-c-4x5.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\mark\\ad-treatment-c-4x5.png"
     },
     {
       "talentId": "mark",
       "slug": "mark",
       "ratio": "1x1",
-      "path": "/assets/real-people/mark/ad-treatment-c-1x1.png"
+      "path": "/assets/real-people/mark/ad-treatment-c-1x1.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\mark\\ad-treatment-c-1x1.png"
     },
     {
       "talentId": "mark",
       "slug": "mark",
       "ratio": "9x16",
-      "path": "/assets/real-people/mark/ad-treatment-c-9x16.png"
+      "path": "/assets/real-people/mark/ad-treatment-c-9x16.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\mark\\ad-treatment-c-9x16.png"
+    },
+    {
+      "talentId": "angelica",
+      "slug": "angelica",
+      "ratio": "4x5",
+      "path": "/assets/real-people/angelica/ad-treatment-c-4x5.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\angelica\\ad-treatment-c-4x5.png"
+    },
+    {
+      "talentId": "angelica",
+      "slug": "angelica",
+      "ratio": "1x1",
+      "path": "/assets/real-people/angelica/ad-treatment-c-1x1.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\angelica\\ad-treatment-c-1x1.png"
+    },
+    {
+      "talentId": "angelica",
+      "slug": "angelica",
+      "ratio": "9x16",
+      "path": "/assets/real-people/angelica/ad-treatment-c-9x16.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\angelica\\ad-treatment-c-9x16.png"
+    },
+    {
+      "talentId": "jessica",
+      "slug": "jessica",
+      "ratio": "4x5",
+      "path": "/assets/real-people/jessica/ad-treatment-c-4x5.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\jessica\\ad-treatment-c-4x5.png"
+    },
+    {
+      "talentId": "jessica",
+      "slug": "jessica",
+      "ratio": "1x1",
+      "path": "/assets/real-people/jessica/ad-treatment-c-1x1.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\jessica\\ad-treatment-c-1x1.png"
+    },
+    {
+      "talentId": "jessica",
+      "slug": "jessica",
+      "ratio": "9x16",
+      "path": "/assets/real-people/jessica/ad-treatment-c-9x16.png",
+      "file": "C:\\Users\\Legal Soft\\Projects\\medvirtual-meta-content-doc\\public\\assets\\real-people\\jessica\\ad-treatment-c-9x16.png"
     }
   ],
   "masterZip": "/exports/real-people/all-real-people-assets.zip",
