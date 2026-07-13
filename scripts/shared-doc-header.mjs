@@ -54,6 +54,12 @@ export const PRIMARY_NAV = [
     id: 'real-people',
     description: 'Named Talent Pool profiles for Meta static, Reels, and short video creative.',
   },
+  {
+    href: '/real-people-assets.html',
+    label: 'RP Assets',
+    id: 'real-people-assets',
+    description: 'Download Talent Pool originals, crops, Treatment C mocks, and AI video references.',
+  },
 ];
 
 /** Image/crop sub-pages — linked from Image Review header */

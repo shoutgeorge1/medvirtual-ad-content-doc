@@ -269,6 +269,52 @@
   .strong-list { display: grid; gap: 0.4rem; }
   .strong-item { padding: 0.5rem 0.6rem; border-radius: 8px; border: 1px solid #e2e8f0; background: #f8fafc; }
   .strong-item strong { display: block; font-size: 0.84rem; margin-bottom: 0.15rem; }
+  .tc-grid { display: grid; gap: 0.85rem; }
+  .tc-panel {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.85rem;
+    border: 2px solid #0d9488; border-radius: 12px; padding: 0.75rem; background: #f8fffd;
+  }
+  @media (max-width: 800px) { .tc-panel { grid-template-columns: 1fr; } }
+  .tc-panel__meta h3 { font-size: 1rem; margin-bottom: 0.2rem; }
+  .tc-headline { font-size: 0.9rem; font-weight: 800; color: #0f172a; margin: 0.35rem 0; }
+  .tc-bullets { padding-left: 1.1rem; margin: 0.35rem 0; }
+  .tc-bullets li { font-size: 0.8rem; margin: 0.12rem 0; color: #334155; }
+  .tc-src { font-size: 0.68rem; color: #94a3b8; font-weight: 600; }
+  .tc-hierarchy { font-size: 0.76rem; color: #64748b; margin-top: 0.45rem; }
+  .tc-controls { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.5rem; }
+  .tc-controls button, .tc-controls .tc-dl, .tc-controls .copy-btn {
+    font-size: 0.72rem; font-weight: 650; color: #0f766e; background: #f0fdfa;
+    border: 1px solid #99f6e4; border-radius: 6px; padding: 0.3rem 0.55rem; cursor: pointer; text-decoration: none;
+  }
+  .tc-controls button:hover, .tc-controls .tc-dl:hover { background: #ccfbf1; }
+  .tc-controls .tc-ratio-btn.is-active { background: #0d9488; color: #fff; border-color: #0d9488; }
+  .tc-stage {
+    position: relative; width: 100%; max-width: 320px; border-radius: 10px; overflow: hidden;
+    background: #0f172a; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  }
+  .tc-stage[data-ratio="4x5"] { aspect-ratio: 4 / 5; }
+  .tc-stage[data-ratio="1x1"] { aspect-ratio: 1 / 1; }
+  .tc-stage[data-ratio="9x16"] { aspect-ratio: 9 / 16; }
+  .tc-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tc-stage.safe-zone[data-ratio="9x16"]::before,
+  .tc-stage.safe-zone[data-ratio="9x16"]::after {
+    content: ''; position: absolute; left: 0; right: 0; height: 8%;
+    background: rgba(248, 113, 113, 0.4); z-index: 2; pointer-events: none;
+  }
+  .tc-stage.safe-zone[data-ratio="9x16"]::before { top: 0; }
+  .tc-stage.safe-zone[data-ratio="9x16"]::after { bottom: 0; }
+  .tc-safe-note { font-size: 0.7rem; color: #94a3b8; margin-top: 0.35rem; max-width: 320px; }
+  .tc-profile-block { margin: 0.75rem 0; }
+  .tc-profile-heading { font-size: 0.88rem; margin-bottom: 0.25rem; color: #0f766e; }
+  .tc-profile-note { font-size: 0.76rem; color: #64748b; margin-bottom: 0.45rem; }
+  .mock-alt-label {
+    font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em;
+    color: #64748b; margin: 0.85rem 0 0.35rem;
+  }
+  .monday-compact li, .synth-compact li { font-size: 0.82rem; margin: 0.18rem 0; color: #334155; }
+  .monday-compact { padding-left: 1.1rem; margin: 0.4rem 0; }
+  .synth-compact { padding-left: 1.1rem; columns: 2; gap: 1rem; }
+  @media (max-width: 700px) { .synth-compact { columns: 1; } }
   .is-hidden { display: none !important; }
   .toast {
     position: fixed; bottom: 1rem; right: 1rem; background: #0f172a; color: #fff;
@@ -287,7 +333,7 @@
         <p class="doc-header__tagline">Meta ads · production brief · copy · templates · assets</p>
       </div>
     </a>
-    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Graphic Brief</a><a href="/facebook-ad-copy.html" class="">Ad Copy</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="">Meta Launch</a><a href="/real-people-creative.html" class="active">Real People</a></nav>
+    <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Graphic Brief</a><a href="/facebook-ad-copy.html" class="">Ad Copy</a><a href="/template-test-board.html" class="">Templates</a><a href="/image-variation-review.html" class="">Image Review</a><a href="/asset-hub.html" class="">Assets</a><a href="/meta-launch-build-pack.html" class="">Meta Launch</a><a href="/real-people-creative.html" class="active">Real People</a><a href="/real-people-assets.html" class="">RP Assets</a></nav>
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Real People Creative</h2>
@@ -315,8 +361,11 @@
     </section>
 
     <nav class="toc" aria-label="On this page">
+      <a href="#treatment-c">Treatment C</a>
       <a href="#first-test">First test</a>
       <a href="#profiles">Profile cards</a>
+      <a href="#monday-graphics">Monday graphics</a>
+      <a href="#synthetic-handoff">Synthetic video</a>
       <a href="#mockups-note">Mockups</a>
       <a href="#broll">B-roll plan</a>
       <a href="#test-plan">Test plan</a>
@@ -367,13 +416,193 @@
       <p class="filter-note">Filters profile cards + concept sections below.</p>
     </div>
 
+    <section class="section" id="treatment-c">
+      <h2>Treatment C — Pain + Person + Capabilities</h2>
+      <p style="margin-bottom:0.65rem">Primary polished mockups for the Monday first batch. Pre-generated PNGs with larger MedVirtual logo already in file — no fake Meta CTA. Hierarchy: pain headline → person → name+role → 3 bullets → CTA strip → larger logo.</p>
+      <div class="tc-grid">
+        <article class="tc-panel" data-talent="chelsea" data-slug="chelsea">
+    <div class="tc-panel__meta">
+      <h3>Meet Chelsea <span class="full-name">Chelsea Rose Santos</span></h3>
+      <p class="title-line">Dental Virtual Assistant</p>
+      <p class="tc-headline">SCHEDULING TAKING OVER / YOUR FRONT DESK?</p>
+      <ul class="tc-bullets"><li>Appointment Setting <span class="tc-src">[listed skill]</span></li><li>Customer Service <span class="tc-src">[listed skill]</span></li><li>Healthcare Support <span class="tc-src">[listed skill]</span></li></ul>
+      <p class="tc-hierarchy"><strong>Hierarchy:</strong> pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA in artwork.</p>
+    </div>
+    <div class="tc-panel__preview">
+      <div class="tc-controls">
+        <button type="button" class="tc-ratio-btn is-active" data-set-ratio="4x5">Preview 4:5</button><button type="button" class="tc-ratio-btn" data-set-ratio="1x1">Preview 1:1</button><button type="button" class="tc-ratio-btn" data-set-ratio="9x16">Preview 9:16</button>
+        <button type="button" class="tc-safe-btn" data-toggle-safe>Toggle safe-zone guides</button>
+        <a class="tc-dl" data-dl-preview href="/assets/real-people/chelsea/ad-treatment-c-4x5.png" download>Download preview PNG</a>
+        <button type="button" class="copy-btn" data-copy="TREATMENT C — Pain + Person + Capabilities
+PROFILE: Chelsea Rose Santos
+SOURCE: https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4
+CANVAS: 1080×1350 (primary) · also 1:1 and 9:16
+
+ON-IMAGE HEADLINE:
+SCHEDULING TAKING OVER
+YOUR FRONT DESK?
+
+NAME: Meet Chelsea
+ROLE: Dental Virtual Assistant
+
+BULLETS:
+✓ Appointment Setting  [listed skill]
+✓ Customer Service  [listed skill]
+✓ Healthcare Support  [listed skill]
+
+CTA STRIP: REQUEST AN INTERVIEW →
+LOGO: MedVirtual — larger mark in high-contrast brand panel (not tiny corner watermark)
+
+CLAIM RESTRICTIONS:
+- Do not invent HIPAA, years of experience, software expertise, availability, or outcomes
+- Bullets must match listed sources above
+- No fake Meta CTA button inside artwork — branded strip only">Copy final ad package</button>
+      </div>
+      <div class="tc-stage" data-ratio="4x5">
+        <img src="/assets/real-people/chelsea/ad-treatment-c-4x5.png" alt="Meet Chelsea Treatment C 4x5 preview" width="1080" height="1350" loading="lazy" decoding="async" />
+      </div>
+      <p class="tc-safe-note">Safe-zone bars are review-only on 9:16 preview — they are not baked into the downloaded PNGs.</p>
+    </div>
+  </article><article class="tc-panel" data-talent="mark" data-slug="mark">
+    <div class="tc-panel__meta">
+      <h3>Meet Mark <span class="full-name">Mark Robert Seno</span></h3>
+      <p class="title-line">Insurance Verification Specialist</p>
+      <p class="tc-headline">INSURANCE VERIFICATION / SLOWING YOUR TEAM DOWN?</p>
+      <ul class="tc-bullets"><li>Insurance Verification <span class="tc-src">[public experience title]</span></li><li>Medical Billing Support <span class="tc-src">[listed skill]</span></li><li>Full-Time Talent <span class="tc-src">[employment type shown on profile]</span></li></ul>
+      <p class="tc-hierarchy"><strong>Hierarchy:</strong> pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA in artwork.</p>
+    </div>
+    <div class="tc-panel__preview">
+      <div class="tc-controls">
+        <button type="button" class="tc-ratio-btn is-active" data-set-ratio="4x5">Preview 4:5</button><button type="button" class="tc-ratio-btn" data-set-ratio="1x1">Preview 1:1</button><button type="button" class="tc-ratio-btn" data-set-ratio="9x16">Preview 9:16</button>
+        <button type="button" class="tc-safe-btn" data-toggle-safe>Toggle safe-zone guides</button>
+        <a class="tc-dl" data-dl-preview href="/assets/real-people/mark/ad-treatment-c-4x5.png" download>Download preview PNG</a>
+        <button type="button" class="copy-btn" data-copy="TREATMENT C — Pain + Person + Capabilities
+PROFILE: Mark Robert Seno
+SOURCE: https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8
+CANVAS: 1080×1350 (primary) · also 1:1 and 9:16
+
+ON-IMAGE HEADLINE:
+INSURANCE VERIFICATION
+SLOWING YOUR TEAM DOWN?
+
+NAME: Meet Mark
+ROLE: Insurance Verification Specialist
+
+BULLETS:
+✓ Insurance Verification  [public experience title]
+✓ Medical Billing Support  [listed skill]
+✓ Full-Time Talent  [employment type shown on profile]
+
+CTA STRIP: REQUEST AN INTERVIEW →
+LOGO: MedVirtual — larger mark in high-contrast brand panel (not tiny corner watermark)
+
+CLAIM RESTRICTIONS:
+- Do not invent HIPAA, years of experience, software expertise, availability, or outcomes
+- Bullets must match listed sources above
+- No fake Meta CTA button inside artwork — branded strip only">Copy final ad package</button>
+      </div>
+      <div class="tc-stage" data-ratio="4x5">
+        <img src="/assets/real-people/mark/ad-treatment-c-4x5.png" alt="Meet Mark Treatment C 4x5 preview" width="1080" height="1350" loading="lazy" decoding="async" />
+      </div>
+      <p class="tc-safe-note">Safe-zone bars are review-only on 9:16 preview — they are not baked into the downloaded PNGs.</p>
+    </div>
+  </article><article class="tc-panel" data-talent="angelica" data-slug="angelica">
+    <div class="tc-panel__meta">
+      <h3>Meet Angelica <span class="full-name">Angelica Aljas</span></h3>
+      <p class="title-line">Dermatology Front Desk Assistant</p>
+      <p class="tc-headline">FRONT DESK / STRETCHED THIN?</p>
+      <ul class="tc-bullets"><li>Medical Admin Support <span class="tc-src">[listed skill / public position]</span></li><li>Healthcare Support <span class="tc-src">[listed skill]</span></li><li>Front-Desk Experience <span class="tc-src">[public experience title]</span></li></ul>
+      <p class="tc-hierarchy"><strong>Hierarchy:</strong> pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA in artwork.</p>
+    </div>
+    <div class="tc-panel__preview">
+      <div class="tc-controls">
+        <button type="button" class="tc-ratio-btn is-active" data-set-ratio="4x5">Preview 4:5</button><button type="button" class="tc-ratio-btn" data-set-ratio="1x1">Preview 1:1</button><button type="button" class="tc-ratio-btn" data-set-ratio="9x16">Preview 9:16</button>
+        <button type="button" class="tc-safe-btn" data-toggle-safe>Toggle safe-zone guides</button>
+        <a class="tc-dl" data-dl-preview href="/assets/real-people/angelica/ad-treatment-c-4x5.png" download>Download preview PNG</a>
+        <button type="button" class="copy-btn" data-copy="TREATMENT C — Pain + Person + Capabilities
+PROFILE: Angelica Aljas
+SOURCE: https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3
+CANVAS: 1080×1350 (primary) · also 1:1 and 9:16
+
+ON-IMAGE HEADLINE:
+FRONT DESK
+STRETCHED THIN?
+
+NAME: Meet Angelica
+ROLE: Dermatology Front Desk Assistant
+
+BULLETS:
+✓ Medical Admin Support  [listed skill / public position]
+✓ Healthcare Support  [listed skill]
+✓ Front-Desk Experience  [public experience title]
+
+CTA STRIP: REQUEST AN INTERVIEW →
+LOGO: MedVirtual — larger mark in high-contrast brand panel (not tiny corner watermark)
+
+CLAIM RESTRICTIONS:
+- Do not invent HIPAA, years of experience, software expertise, availability, or outcomes
+- Bullets must match listed sources above
+- No fake Meta CTA button inside artwork — branded strip only">Copy final ad package</button>
+      </div>
+      <div class="tc-stage" data-ratio="4x5">
+        <img src="/assets/real-people/angelica/ad-treatment-c-4x5.png" alt="Meet Angelica Treatment C 4x5 preview" width="1080" height="1350" loading="lazy" decoding="async" />
+      </div>
+      <p class="tc-safe-note">Safe-zone bars are review-only on 9:16 preview — they are not baked into the downloaded PNGs.</p>
+    </div>
+  </article><article class="tc-panel" data-talent="jessica" data-slug="jessica">
+    <div class="tc-panel__meta">
+      <h3>Meet Jessica <span class="full-name">Jessica Valles</span></h3>
+      <p class="title-line">Jr. Medical Admin</p>
+      <p class="tc-headline">ADMIN WORK / PILING UP?</p>
+      <ul class="tc-bullets"><li>Customer Service <span class="tc-src">[listed skill]</span></li><li>Healthcare Support <span class="tc-src">[listed skill]</span></li><li>Full-Time Talent <span class="tc-src">[employment type shown on profile]</span></li></ul>
+      <p class="tc-hierarchy"><strong>Hierarchy:</strong> pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA in artwork.</p>
+    </div>
+    <div class="tc-panel__preview">
+      <div class="tc-controls">
+        <button type="button" class="tc-ratio-btn is-active" data-set-ratio="4x5">Preview 4:5</button><button type="button" class="tc-ratio-btn" data-set-ratio="1x1">Preview 1:1</button><button type="button" class="tc-ratio-btn" data-set-ratio="9x16">Preview 9:16</button>
+        <button type="button" class="tc-safe-btn" data-toggle-safe>Toggle safe-zone guides</button>
+        <a class="tc-dl" data-dl-preview href="/assets/real-people/jessica/ad-treatment-c-4x5.png" download>Download preview PNG</a>
+        <button type="button" class="copy-btn" data-copy="TREATMENT C — Pain + Person + Capabilities
+PROFILE: Jessica Valles
+SOURCE: https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4
+CANVAS: 1080×1350 (primary) · also 1:1 and 9:16
+
+ON-IMAGE HEADLINE:
+ADMIN WORK
+PILING UP?
+
+NAME: Meet Jessica
+ROLE: Jr. Medical Admin
+
+BULLETS:
+✓ Customer Service  [listed skill]
+✓ Healthcare Support  [listed skill]
+✓ Full-Time Talent  [employment type shown on profile]
+
+CTA STRIP: REQUEST AN INTERVIEW →
+LOGO: MedVirtual — larger mark in high-contrast brand panel (not tiny corner watermark)
+
+CLAIM RESTRICTIONS:
+- Do not invent HIPAA, years of experience, software expertise, availability, or outcomes
+- Bullets must match listed sources above
+- No fake Meta CTA button inside artwork — branded strip only">Copy final ad package</button>
+      </div>
+      <div class="tc-stage" data-ratio="4x5">
+        <img src="/assets/real-people/jessica/ad-treatment-c-4x5.png" alt="Meet Jessica Treatment C 4x5 preview" width="1080" height="1350" loading="lazy" decoding="async" />
+      </div>
+      <p class="tc-safe-note">Safe-zone bars are review-only on 9:16 preview — they are not baked into the downloaded PNGs.</p>
+    </div>
+  </article>
+      </div>
+    </section>
+
     <section class="section" id="first-test">
       <h2>Recommended first test · 6 profiles</h2>
       <p style="margin-bottom:0.65rem">Selected for complete public profiles, usable headshots, role relevance to medical practices, and operational variety — not appearance.</p>
       <div class="talent-grid">
         <article class="talent-card" data-talent="jessica" data-role="medical-admin front-office patient-calls" data-pain="admin-backlog patient-calls front-desk" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
     <div class="talent-card__media">
-      <img src="/assets/real-people/jessica.jpg" alt="Jessica Valles profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <img src="/assets/real-people/jessica/feed-1080x1350.jpg" alt="Jessica Valles profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
       <span class="badge-rec">Recommended first batch</span>
     </div>
     <div class="talent-card__body">
@@ -388,7 +617,7 @@
     </div>
   </article><article class="talent-card" data-talent="angelica" data-role="front-office medical-admin practice-coordination" data-pain="front-desk patient-calls admin-backlog" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
     <div class="talent-card__media">
-      <img src="/assets/real-people/angelica.jpg" alt="Angelica Aljas profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <img src="/assets/real-people/angelica/feed-1080x1350.jpg" alt="Angelica Aljas profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
       <span class="badge-rec">Recommended first batch</span>
     </div>
     <div class="talent-card__body">
@@ -401,9 +630,9 @@
       <p class="why"><strong>Recommended format:</strong> 4:5 static · optional 9:16 cover</p>
       <p class="source"><a href="https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3" target="_blank" rel="noopener noreferrer">Open Talent Pool profile</a></p>
     </div>
-  </article><article class="talent-card" data-talent="chelsea-rose" data-role="patient-scheduling front-office medical-admin" data-pain="scheduling patient-calls front-desk" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+  </article><article class="talent-card" data-talent="chelsea" data-role="patient-scheduling front-office medical-admin" data-pain="scheduling patient-calls front-desk" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
     <div class="talent-card__media">
-      <img src="/assets/real-people/chelsea-rose.jpg" alt="Chelsea Rose Santos profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <img src="/assets/real-people/chelsea/feed-1080x1350.jpg" alt="Chelsea Rose Santos profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
       <span class="badge-rec">Recommended first batch</span>
     </div>
     <div class="talent-card__body">
@@ -418,7 +647,7 @@
     </div>
   </article><article class="talent-card" data-talent="mark" data-role="insurance-verification billing-support" data-pain="insurance-verification billing-support" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
     <div class="talent-card__media">
-      <img src="/assets/real-people/mark.jpg" alt="Mark Robert Seno profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <img src="/assets/real-people/mark/feed-1080x1350.jpg" alt="Mark Robert Seno profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
       <span class="badge-rec">Recommended first batch</span>
     </div>
     <div class="talent-card__body">
@@ -433,7 +662,7 @@
     </div>
   </article><article class="talent-card" data-talent="carmen" data-role="billing-support medical-admin" data-pain="billing-support admin-backlog" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
     <div class="talent-card__media">
-      <img src="/assets/real-people/carmen.jpg" alt="Carmen De Leon profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <img src="/assets/real-people/carmen/feed-1080x1350.jpg" alt="Carmen De Leon profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
       <span class="badge-rec">Recommended first batch</span>
     </div>
     <div class="talent-card__body">
@@ -448,7 +677,7 @@
     </div>
   </article><article class="talent-card" data-talent="jennifer" data-role="patient-intake medical-admin front-office" data-pain="patient-intake admin-backlog patient-calls" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="no">
     <div class="talent-card__media">
-      <img src="/assets/real-people/jennifer.jpg" alt="Jennifer Villarubia profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
+      <img src="/assets/real-people/jennifer/feed-1080x1350.jpg" alt="Jennifer Villarubia profile photo from MedVirtual Talent Pool" width="320" height="320" loading="lazy" decoding="async" />
       <span class="badge-alt">Strong alternate</span>
     </div>
     <div class="talent-card__body">
@@ -467,7 +696,7 @@
 
     <section class="section" id="strongest">
       <h2>Strongest four recommended ad concepts</h2>
-      <div class="strong-list"><div class="strong-item"><strong>Chelsea · Scheduling pain → named person</strong><span>Clearest operational skill tag (Appointment Setting) + acute clinic pain. Best pain-first static.</span></div><div class="strong-item"><strong>Jessica · Meet the person</strong><span>Simple medical-admin introduction; easy first editorial static for the named-profile hypothesis.</span></div><div class="strong-item"><strong>Mark · Insurance verification</strong><span>Specific revenue-cycle pain with a literal public experience title.</span></div><div class="strong-item"><strong>Angelica · Front desk</strong><span>Front-desk experience title reads immediately for practice owners scanning the feed.</span></div></div>
+      <div class="strong-list"><div class="strong-item"><strong>Chelsea · Scheduling pain → named person</strong><span>Clearest operational skill tag (Appointment Setting) + acute clinic pain. Best pain-first static.</span></div><div class="strong-item"><strong>Jessica · Admin work piling up</strong><span>Simple medical-admin pain + named person; easy first Treatment C static.</span></div><div class="strong-item"><strong>Mark · Insurance verification</strong><span>Specific revenue-cycle pain with a literal public experience title.</span></div><div class="strong-item"><strong>Angelica · Front desk stretched thin</strong><span>Front-desk experience title reads immediately for practice owners scanning the feed.</span></div></div>
     </section>
 
     <div id="profiles">
@@ -477,7 +706,7 @@
       </section>
       <section class="profile-section" id="profile-jessica" data-talent="jessica" data-role="medical-admin front-office patient-calls" data-pain="admin-backlog patient-calls front-desk" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
     <header class="profile-head">
-      <img class="profile-avatar" src="/assets/real-people/jessica.jpg" alt="Jessica Valles" width="96" height="96" loading="lazy" />
+      <img class="profile-avatar" src="/assets/real-people/jessica/feed-1080x1350.jpg" alt="Jessica Valles" width="96" height="96" loading="lazy" />
       <div>
         <h3>Jessica <span class="full-name">Jessica Valles</span>
           <span class="badge-rec">Recommended first batch</span>
@@ -719,11 +948,61 @@ CTA: Learn More">Copy full package</button>
     </div>
   </div>
 
+    <div class="tc-profile-block">
+      <h4 class="tc-profile-heading">Treatment C — Pain + Person + Capabilities</h4>
+      <p class="tc-profile-note">Primary polished mockup for this profile. Pre-generated PNGs · larger logo already in file · no fake Meta CTA.</p>
+      <article class="tc-panel" data-talent="jessica" data-slug="jessica">
+    <div class="tc-panel__meta">
+      <h3>Meet Jessica <span class="full-name">Jessica Valles</span></h3>
+      <p class="title-line">Jr. Medical Admin</p>
+      <p class="tc-headline">ADMIN WORK / PILING UP?</p>
+      <ul class="tc-bullets"><li>Customer Service <span class="tc-src">[listed skill]</span></li><li>Healthcare Support <span class="tc-src">[listed skill]</span></li><li>Full-Time Talent <span class="tc-src">[employment type shown on profile]</span></li></ul>
+      <p class="tc-hierarchy"><strong>Hierarchy:</strong> pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA in artwork.</p>
+    </div>
+    <div class="tc-panel__preview">
+      <div class="tc-controls">
+        <button type="button" class="tc-ratio-btn is-active" data-set-ratio="4x5">Preview 4:5</button><button type="button" class="tc-ratio-btn" data-set-ratio="1x1">Preview 1:1</button><button type="button" class="tc-ratio-btn" data-set-ratio="9x16">Preview 9:16</button>
+        <button type="button" class="tc-safe-btn" data-toggle-safe>Toggle safe-zone guides</button>
+        <a class="tc-dl" data-dl-preview href="/assets/real-people/jessica/ad-treatment-c-4x5.png" download>Download preview PNG</a>
+        <button type="button" class="copy-btn" data-copy="TREATMENT C — Pain + Person + Capabilities
+PROFILE: Jessica Valles
+SOURCE: https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4
+CANVAS: 1080×1350 (primary) · also 1:1 and 9:16
+
+ON-IMAGE HEADLINE:
+ADMIN WORK
+PILING UP?
+
+NAME: Meet Jessica
+ROLE: Jr. Medical Admin
+
+BULLETS:
+✓ Customer Service  [listed skill]
+✓ Healthcare Support  [listed skill]
+✓ Full-Time Talent  [employment type shown on profile]
+
+CTA STRIP: REQUEST AN INTERVIEW →
+LOGO: MedVirtual — larger mark in high-contrast brand panel (not tiny corner watermark)
+
+CLAIM RESTRICTIONS:
+- Do not invent HIPAA, years of experience, software expertise, availability, or outcomes
+- Bullets must match listed sources above
+- No fake Meta CTA button inside artwork — branded strip only">Copy final ad package</button>
+      </div>
+      <div class="tc-stage" data-ratio="4x5">
+        <img src="/assets/real-people/jessica/ad-treatment-c-4x5.png" alt="Meet Jessica Treatment C 4x5 preview" width="1080" height="1350" loading="lazy" decoding="async" />
+      </div>
+      <p class="tc-safe-note">Safe-zone bars are review-only on 9:16 preview — they are not baked into the downloaded PNGs.</p>
+    </div>
+  </article>
+    </div>
+
+    <p class="mock-alt-label">Alternate treatments (HTML/CSS editorial mocks)</p>
     <div class="mock-grid">
       <div>
         <p class="mock-label">Treatment A · Editorial · 1:1</p>
         <div class="mock mock-1x1 mock-editorial" data-talent="jessica" data-format="1x1" data-pain="admin-backlog" data-role="medical-admin">
-    <img class="mock-photo" src="/assets/real-people/jessica.jpg" alt="Jessica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/jessica/feed-1080x1350.jpg" alt="Jessica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET JESSICA</p>
@@ -736,7 +1015,7 @@ CTA: Learn More">Copy full package</button>
       <div>
         <p class="mock-label">Treatment A · Editorial · 4:5</p>
         <div class="mock mock-4x5 mock-editorial" data-talent="jessica" data-format="4x5" data-pain="admin-backlog" data-role="medical-admin">
-    <img class="mock-photo" src="/assets/real-people/jessica.jpg" alt="Jessica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/jessica/feed-1080x1350.jpg" alt="Jessica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET JESSICA</p>
@@ -749,7 +1028,7 @@ CTA: Learn More">Copy full package</button>
       <div>
         <p class="mock-label">Treatment B · Pain-first · 9:16</p>
         <div class="mock mock-9x16 mock-pain" data-talent="jessica" data-format="9x16" data-pain="admin-backlog" data-role="medical-admin">
-    <img class="mock-photo" src="/assets/real-people/jessica.jpg" alt="Jessica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/jessica/feed-1080x1350.jpg" alt="Jessica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim mock-scrim-strong"></div>
     <div class="mock-copy mock-copy-pain">
       <p class="mock-pain-line">Admin work piling up?</p>
@@ -777,7 +1056,7 @@ CTA: Learn More">Copy full package</button>
     </div>
   </section><section class="profile-section" id="profile-angelica" data-talent="angelica" data-role="front-office medical-admin practice-coordination" data-pain="front-desk patient-calls admin-backlog" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
     <header class="profile-head">
-      <img class="profile-avatar" src="/assets/real-people/angelica.jpg" alt="Angelica Aljas" width="96" height="96" loading="lazy" />
+      <img class="profile-avatar" src="/assets/real-people/angelica/feed-1080x1350.jpg" alt="Angelica Aljas" width="96" height="96" loading="lazy" />
       <div>
         <h3>Angelica <span class="full-name">Angelica Aljas</span>
           <span class="badge-rec">Recommended first batch</span>
@@ -1019,11 +1298,61 @@ CTA: Learn More">Copy full package</button>
     </div>
   </div>
 
+    <div class="tc-profile-block">
+      <h4 class="tc-profile-heading">Treatment C — Pain + Person + Capabilities</h4>
+      <p class="tc-profile-note">Primary polished mockup for this profile. Pre-generated PNGs · larger logo already in file · no fake Meta CTA.</p>
+      <article class="tc-panel" data-talent="angelica" data-slug="angelica">
+    <div class="tc-panel__meta">
+      <h3>Meet Angelica <span class="full-name">Angelica Aljas</span></h3>
+      <p class="title-line">Dermatology Front Desk Assistant</p>
+      <p class="tc-headline">FRONT DESK / STRETCHED THIN?</p>
+      <ul class="tc-bullets"><li>Medical Admin Support <span class="tc-src">[listed skill / public position]</span></li><li>Healthcare Support <span class="tc-src">[listed skill]</span></li><li>Front-Desk Experience <span class="tc-src">[public experience title]</span></li></ul>
+      <p class="tc-hierarchy"><strong>Hierarchy:</strong> pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA in artwork.</p>
+    </div>
+    <div class="tc-panel__preview">
+      <div class="tc-controls">
+        <button type="button" class="tc-ratio-btn is-active" data-set-ratio="4x5">Preview 4:5</button><button type="button" class="tc-ratio-btn" data-set-ratio="1x1">Preview 1:1</button><button type="button" class="tc-ratio-btn" data-set-ratio="9x16">Preview 9:16</button>
+        <button type="button" class="tc-safe-btn" data-toggle-safe>Toggle safe-zone guides</button>
+        <a class="tc-dl" data-dl-preview href="/assets/real-people/angelica/ad-treatment-c-4x5.png" download>Download preview PNG</a>
+        <button type="button" class="copy-btn" data-copy="TREATMENT C — Pain + Person + Capabilities
+PROFILE: Angelica Aljas
+SOURCE: https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3
+CANVAS: 1080×1350 (primary) · also 1:1 and 9:16
+
+ON-IMAGE HEADLINE:
+FRONT DESK
+STRETCHED THIN?
+
+NAME: Meet Angelica
+ROLE: Dermatology Front Desk Assistant
+
+BULLETS:
+✓ Medical Admin Support  [listed skill / public position]
+✓ Healthcare Support  [listed skill]
+✓ Front-Desk Experience  [public experience title]
+
+CTA STRIP: REQUEST AN INTERVIEW →
+LOGO: MedVirtual — larger mark in high-contrast brand panel (not tiny corner watermark)
+
+CLAIM RESTRICTIONS:
+- Do not invent HIPAA, years of experience, software expertise, availability, or outcomes
+- Bullets must match listed sources above
+- No fake Meta CTA button inside artwork — branded strip only">Copy final ad package</button>
+      </div>
+      <div class="tc-stage" data-ratio="4x5">
+        <img src="/assets/real-people/angelica/ad-treatment-c-4x5.png" alt="Meet Angelica Treatment C 4x5 preview" width="1080" height="1350" loading="lazy" decoding="async" />
+      </div>
+      <p class="tc-safe-note">Safe-zone bars are review-only on 9:16 preview — they are not baked into the downloaded PNGs.</p>
+    </div>
+  </article>
+    </div>
+
+    <p class="mock-alt-label">Alternate treatments (HTML/CSS editorial mocks)</p>
     <div class="mock-grid">
       <div>
         <p class="mock-label">Treatment A · Editorial · 1:1</p>
         <div class="mock mock-1x1 mock-editorial" data-talent="angelica" data-format="1x1" data-pain="front-desk" data-role="front-office">
-    <img class="mock-photo" src="/assets/real-people/angelica.jpg" alt="Angelica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/angelica/feed-1080x1350.jpg" alt="Angelica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET ANGELICA</p>
@@ -1036,7 +1365,7 @@ CTA: Learn More">Copy full package</button>
       <div>
         <p class="mock-label">Treatment A · Editorial · 4:5</p>
         <div class="mock mock-4x5 mock-editorial" data-talent="angelica" data-format="4x5" data-pain="front-desk" data-role="front-office">
-    <img class="mock-photo" src="/assets/real-people/angelica.jpg" alt="Angelica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/angelica/feed-1080x1350.jpg" alt="Angelica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET ANGELICA</p>
@@ -1049,7 +1378,7 @@ CTA: Learn More">Copy full package</button>
       <div>
         <p class="mock-label">Treatment B · Pain-first · 9:16</p>
         <div class="mock mock-9x16 mock-pain" data-talent="angelica" data-format="9x16" data-pain="front-desk" data-role="front-office">
-    <img class="mock-photo" src="/assets/real-people/angelica.jpg" alt="Angelica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/angelica/feed-1080x1350.jpg" alt="Angelica — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim mock-scrim-strong"></div>
     <div class="mock-copy mock-copy-pain">
       <p class="mock-pain-line">Front desk stretched thin?</p>
@@ -1075,9 +1404,9 @@ CTA: Learn More">Copy full package</button>
       </dl>
       <button type="button" class="copy-btn" data-copy="Hi, I'm Angelica. I've supported medical front-desk work, and my profile highlights medical general and healthcare support. If your practice needs help keeping the desk moving, I'm happy to introduce myself.">Copy spoken script</button>
     </div>
-  </section><section class="profile-section" id="profile-chelsea-rose" data-talent="chelsea-rose" data-role="patient-scheduling front-office medical-admin" data-pain="scheduling patient-calls front-desk" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
+  </section><section class="profile-section" id="profile-chelsea" data-talent="chelsea" data-role="patient-scheduling front-office medical-admin" data-pain="scheduling patient-calls front-desk" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
     <header class="profile-head">
-      <img class="profile-avatar" src="/assets/real-people/chelsea-rose.jpg" alt="Chelsea Rose Santos" width="96" height="96" loading="lazy" />
+      <img class="profile-avatar" src="/assets/real-people/chelsea/feed-1080x1350.jpg" alt="Chelsea Rose Santos" width="96" height="96" loading="lazy" />
       <div>
         <h3>Chelsea <span class="full-name">Chelsea Rose Santos</span>
           <span class="badge-rec">Recommended first batch</span>
@@ -1098,7 +1427,7 @@ CTA: Learn More">Copy full package</button>
       </div>
     </div>
 
-    <div class="concept-block suggested" data-talent="chelsea-rose" data-format="static-4x5" data-pain="scheduling" data-role="patient-scheduling">
+    <div class="concept-block suggested" data-talent="chelsea" data-format="static-4x5" data-pain="scheduling" data-role="patient-scheduling">
       <div class="concept-head">
         <h4>Best recommended static</h4>
         <span class="tag-suggested">Suggested ad copy</span>
@@ -1142,7 +1471,7 @@ DESCRIPTION: Real talent. Appointment-setting skills listed.
 CTA: Learn More">Copy full package</button>
       </div>
     </div>
-    <div class="concept-block suggested" data-talent="chelsea-rose" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
+    <div class="concept-block suggested" data-talent="chelsea" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
     <div class="concept-head">
       <h4>Concept A — Meet the person</h4>
       <span class="tag-suggested">Suggested ad copy</span>
@@ -1186,7 +1515,7 @@ DESCRIPTION: Named talent with appointment-setting skills.
 CTA: Learn More">Copy full package</button>
     </div>
   </div>
-    <div class="concept-block suggested" data-talent="chelsea-rose" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
+    <div class="concept-block suggested" data-talent="chelsea" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
     <div class="concept-head">
       <h4>Concept B — Operational pain</h4>
       <span class="tag-suggested">Suggested ad copy</span>
@@ -1230,7 +1559,7 @@ DESCRIPTION: Appointment-setting focused Talent Pool profile.
 CTA: Learn More">Copy full package</button>
     </div>
   </div>
-    <div class="concept-block suggested" data-talent="chelsea-rose" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
+    <div class="concept-block suggested" data-talent="chelsea" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
     <div class="concept-head">
       <h4>Concept C — Not another app</h4>
       <span class="tag-suggested">Suggested ad copy</span>
@@ -1268,7 +1597,7 @@ DESCRIPTION: Human scheduling support — named talent.
 CTA: Learn More">Copy full package</button>
     </div>
   </div>
-    <div class="concept-block suggested" data-talent="chelsea-rose" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
+    <div class="concept-block suggested" data-talent="chelsea" data-format="static" data-pain="scheduling" data-role="patient-scheduling">
     <div class="concept-head">
       <h4>Concept D — Ready to meet</h4>
       <span class="tag-suggested">Suggested ad copy</span>
@@ -1313,11 +1642,61 @@ CTA: Learn More">Copy full package</button>
     </div>
   </div>
 
+    <div class="tc-profile-block">
+      <h4 class="tc-profile-heading">Treatment C — Pain + Person + Capabilities</h4>
+      <p class="tc-profile-note">Primary polished mockup for this profile. Pre-generated PNGs · larger logo already in file · no fake Meta CTA.</p>
+      <article class="tc-panel" data-talent="chelsea" data-slug="chelsea">
+    <div class="tc-panel__meta">
+      <h3>Meet Chelsea <span class="full-name">Chelsea Rose Santos</span></h3>
+      <p class="title-line">Dental Virtual Assistant</p>
+      <p class="tc-headline">SCHEDULING TAKING OVER / YOUR FRONT DESK?</p>
+      <ul class="tc-bullets"><li>Appointment Setting <span class="tc-src">[listed skill]</span></li><li>Customer Service <span class="tc-src">[listed skill]</span></li><li>Healthcare Support <span class="tc-src">[listed skill]</span></li></ul>
+      <p class="tc-hierarchy"><strong>Hierarchy:</strong> pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA in artwork.</p>
+    </div>
+    <div class="tc-panel__preview">
+      <div class="tc-controls">
+        <button type="button" class="tc-ratio-btn is-active" data-set-ratio="4x5">Preview 4:5</button><button type="button" class="tc-ratio-btn" data-set-ratio="1x1">Preview 1:1</button><button type="button" class="tc-ratio-btn" data-set-ratio="9x16">Preview 9:16</button>
+        <button type="button" class="tc-safe-btn" data-toggle-safe>Toggle safe-zone guides</button>
+        <a class="tc-dl" data-dl-preview href="/assets/real-people/chelsea/ad-treatment-c-4x5.png" download>Download preview PNG</a>
+        <button type="button" class="copy-btn" data-copy="TREATMENT C — Pain + Person + Capabilities
+PROFILE: Chelsea Rose Santos
+SOURCE: https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4
+CANVAS: 1080×1350 (primary) · also 1:1 and 9:16
+
+ON-IMAGE HEADLINE:
+SCHEDULING TAKING OVER
+YOUR FRONT DESK?
+
+NAME: Meet Chelsea
+ROLE: Dental Virtual Assistant
+
+BULLETS:
+✓ Appointment Setting  [listed skill]
+✓ Customer Service  [listed skill]
+✓ Healthcare Support  [listed skill]
+
+CTA STRIP: REQUEST AN INTERVIEW →
+LOGO: MedVirtual — larger mark in high-contrast brand panel (not tiny corner watermark)
+
+CLAIM RESTRICTIONS:
+- Do not invent HIPAA, years of experience, software expertise, availability, or outcomes
+- Bullets must match listed sources above
+- No fake Meta CTA button inside artwork — branded strip only">Copy final ad package</button>
+      </div>
+      <div class="tc-stage" data-ratio="4x5">
+        <img src="/assets/real-people/chelsea/ad-treatment-c-4x5.png" alt="Meet Chelsea Treatment C 4x5 preview" width="1080" height="1350" loading="lazy" decoding="async" />
+      </div>
+      <p class="tc-safe-note">Safe-zone bars are review-only on 9:16 preview — they are not baked into the downloaded PNGs.</p>
+    </div>
+  </article>
+    </div>
+
+    <p class="mock-alt-label">Alternate treatments (HTML/CSS editorial mocks)</p>
     <div class="mock-grid">
       <div>
         <p class="mock-label">Treatment A · Editorial · 1:1</p>
-        <div class="mock mock-1x1 mock-editorial" data-talent="chelsea-rose" data-format="1x1" data-pain="scheduling" data-role="patient-scheduling">
-    <img class="mock-photo" src="/assets/real-people/chelsea-rose.jpg" alt="Chelsea — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+        <div class="mock mock-1x1 mock-editorial" data-talent="chelsea" data-format="1x1" data-pain="scheduling" data-role="patient-scheduling">
+    <img class="mock-photo" src="/assets/real-people/chelsea/feed-1080x1350.jpg" alt="Chelsea — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET CHELSEA</p>
@@ -1329,8 +1708,8 @@ CTA: Learn More">Copy full package</button>
       </div>
       <div>
         <p class="mock-label">Treatment A · Editorial · 4:5</p>
-        <div class="mock mock-4x5 mock-editorial" data-talent="chelsea-rose" data-format="4x5" data-pain="scheduling" data-role="patient-scheduling">
-    <img class="mock-photo" src="/assets/real-people/chelsea-rose.jpg" alt="Chelsea — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+        <div class="mock mock-4x5 mock-editorial" data-talent="chelsea" data-format="4x5" data-pain="scheduling" data-role="patient-scheduling">
+    <img class="mock-photo" src="/assets/real-people/chelsea/feed-1080x1350.jpg" alt="Chelsea — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET CHELSEA</p>
@@ -1342,8 +1721,8 @@ CTA: Learn More">Copy full package</button>
       </div>
       <div>
         <p class="mock-label">Treatment B · Pain-first · 9:16</p>
-        <div class="mock mock-9x16 mock-pain" data-talent="chelsea-rose" data-format="9x16" data-pain="scheduling" data-role="patient-scheduling">
-    <img class="mock-photo" src="/assets/real-people/chelsea-rose.jpg" alt="Chelsea — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+        <div class="mock mock-9x16 mock-pain" data-talent="chelsea" data-format="9x16" data-pain="scheduling" data-role="patient-scheduling">
+    <img class="mock-photo" src="/assets/real-people/chelsea/feed-1080x1350.jpg" alt="Chelsea — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim mock-scrim-strong"></div>
     <div class="mock-copy mock-copy-pain">
       <p class="mock-pain-line">Scheduling taking over the front desk?</p>
@@ -1355,7 +1734,7 @@ CTA: Learn More">Copy full package</button>
       </div>
     </div>
 
-    <div class="video-block suggested" data-talent="chelsea-rose" data-format="iphone-video" data-pain="scheduling" data-role="patient-scheduling">
+    <div class="video-block suggested" data-talent="chelsea" data-format="iphone-video" data-pain="scheduling" data-role="patient-scheduling">
       <div class="concept-head">
         <h4>iPhone video script · 12–14 seconds</h4>
         <span class="tag-suggested">Suggested script</span>
@@ -1371,7 +1750,7 @@ CTA: Learn More">Copy full package</button>
     </div>
   </section><section class="profile-section" id="profile-mark" data-talent="mark" data-role="insurance-verification billing-support" data-pain="insurance-verification billing-support" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
     <header class="profile-head">
-      <img class="profile-avatar" src="/assets/real-people/mark.jpg" alt="Mark Robert Seno" width="96" height="96" loading="lazy" />
+      <img class="profile-avatar" src="/assets/real-people/mark/feed-1080x1350.jpg" alt="Mark Robert Seno" width="96" height="96" loading="lazy" />
       <div>
         <h3>Mark <span class="full-name">Mark Robert Seno</span>
           <span class="badge-rec">Recommended first batch</span>
@@ -1613,11 +1992,61 @@ CTA: Learn More">Copy full package</button>
     </div>
   </div>
 
+    <div class="tc-profile-block">
+      <h4 class="tc-profile-heading">Treatment C — Pain + Person + Capabilities</h4>
+      <p class="tc-profile-note">Primary polished mockup for this profile. Pre-generated PNGs · larger logo already in file · no fake Meta CTA.</p>
+      <article class="tc-panel" data-talent="mark" data-slug="mark">
+    <div class="tc-panel__meta">
+      <h3>Meet Mark <span class="full-name">Mark Robert Seno</span></h3>
+      <p class="title-line">Insurance Verification Specialist</p>
+      <p class="tc-headline">INSURANCE VERIFICATION / SLOWING YOUR TEAM DOWN?</p>
+      <ul class="tc-bullets"><li>Insurance Verification <span class="tc-src">[public experience title]</span></li><li>Medical Billing Support <span class="tc-src">[listed skill]</span></li><li>Full-Time Talent <span class="tc-src">[employment type shown on profile]</span></li></ul>
+      <p class="tc-hierarchy"><strong>Hierarchy:</strong> pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA in artwork.</p>
+    </div>
+    <div class="tc-panel__preview">
+      <div class="tc-controls">
+        <button type="button" class="tc-ratio-btn is-active" data-set-ratio="4x5">Preview 4:5</button><button type="button" class="tc-ratio-btn" data-set-ratio="1x1">Preview 1:1</button><button type="button" class="tc-ratio-btn" data-set-ratio="9x16">Preview 9:16</button>
+        <button type="button" class="tc-safe-btn" data-toggle-safe>Toggle safe-zone guides</button>
+        <a class="tc-dl" data-dl-preview href="/assets/real-people/mark/ad-treatment-c-4x5.png" download>Download preview PNG</a>
+        <button type="button" class="copy-btn" data-copy="TREATMENT C — Pain + Person + Capabilities
+PROFILE: Mark Robert Seno
+SOURCE: https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8
+CANVAS: 1080×1350 (primary) · also 1:1 and 9:16
+
+ON-IMAGE HEADLINE:
+INSURANCE VERIFICATION
+SLOWING YOUR TEAM DOWN?
+
+NAME: Meet Mark
+ROLE: Insurance Verification Specialist
+
+BULLETS:
+✓ Insurance Verification  [public experience title]
+✓ Medical Billing Support  [listed skill]
+✓ Full-Time Talent  [employment type shown on profile]
+
+CTA STRIP: REQUEST AN INTERVIEW →
+LOGO: MedVirtual — larger mark in high-contrast brand panel (not tiny corner watermark)
+
+CLAIM RESTRICTIONS:
+- Do not invent HIPAA, years of experience, software expertise, availability, or outcomes
+- Bullets must match listed sources above
+- No fake Meta CTA button inside artwork — branded strip only">Copy final ad package</button>
+      </div>
+      <div class="tc-stage" data-ratio="4x5">
+        <img src="/assets/real-people/mark/ad-treatment-c-4x5.png" alt="Meet Mark Treatment C 4x5 preview" width="1080" height="1350" loading="lazy" decoding="async" />
+      </div>
+      <p class="tc-safe-note">Safe-zone bars are review-only on 9:16 preview — they are not baked into the downloaded PNGs.</p>
+    </div>
+  </article>
+    </div>
+
+    <p class="mock-alt-label">Alternate treatments (HTML/CSS editorial mocks)</p>
     <div class="mock-grid">
       <div>
         <p class="mock-label">Treatment A · Editorial · 1:1</p>
         <div class="mock mock-1x1 mock-editorial" data-talent="mark" data-format="1x1" data-pain="insurance-verification" data-role="insurance-verification">
-    <img class="mock-photo" src="/assets/real-people/mark.jpg" alt="Mark — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/mark/feed-1080x1350.jpg" alt="Mark — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET MARK</p>
@@ -1630,7 +2059,7 @@ CTA: Learn More">Copy full package</button>
       <div>
         <p class="mock-label">Treatment A · Editorial · 4:5</p>
         <div class="mock mock-4x5 mock-editorial" data-talent="mark" data-format="4x5" data-pain="insurance-verification" data-role="insurance-verification">
-    <img class="mock-photo" src="/assets/real-people/mark.jpg" alt="Mark — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/mark/feed-1080x1350.jpg" alt="Mark — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET MARK</p>
@@ -1643,7 +2072,7 @@ CTA: Learn More">Copy full package</button>
       <div>
         <p class="mock-label">Treatment B · Pain-first · 9:16</p>
         <div class="mock mock-9x16 mock-pain" data-talent="mark" data-format="9x16" data-pain="insurance-verification" data-role="insurance-verification">
-    <img class="mock-photo" src="/assets/real-people/mark.jpg" alt="Mark — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/mark/feed-1080x1350.jpg" alt="Mark — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim mock-scrim-strong"></div>
     <div class="mock-copy mock-copy-pain">
       <p class="mock-pain-line">Insurance verification slowing the day?</p>
@@ -1671,7 +2100,7 @@ CTA: Learn More">Copy full package</button>
     </div>
   </section><section class="profile-section" id="profile-carmen" data-talent="carmen" data-role="billing-support medical-admin" data-pain="billing-support admin-backlog" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="yes">
     <header class="profile-head">
-      <img class="profile-avatar" src="/assets/real-people/carmen.jpg" alt="Carmen De Leon" width="96" height="96" loading="lazy" />
+      <img class="profile-avatar" src="/assets/real-people/carmen/feed-1080x1350.jpg" alt="Carmen De Leon" width="96" height="96" loading="lazy" />
       <div>
         <h3>Carmen <span class="full-name">Carmen De Leon</span>
           <span class="badge-rec">Recommended first batch</span>
@@ -1913,11 +2342,14 @@ CTA: Learn More">Copy full package</button>
     </div>
   </div>
 
+    
+
+    <p class="mock-alt-label">Alternate treatments (HTML/CSS editorial mocks)</p>
     <div class="mock-grid">
       <div>
         <p class="mock-label">Treatment A · Editorial · 1:1</p>
         <div class="mock mock-1x1 mock-editorial" data-talent="carmen" data-format="1x1" data-pain="billing-support" data-role="billing-support">
-    <img class="mock-photo" src="/assets/real-people/carmen.jpg" alt="Carmen — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/carmen/feed-1080x1350.jpg" alt="Carmen — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET CARMEN</p>
@@ -1930,7 +2362,7 @@ CTA: Learn More">Copy full package</button>
       <div>
         <p class="mock-label">Treatment A · Editorial · 4:5</p>
         <div class="mock mock-4x5 mock-editorial" data-talent="carmen" data-format="4x5" data-pain="billing-support" data-role="billing-support">
-    <img class="mock-photo" src="/assets/real-people/carmen.jpg" alt="Carmen — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/carmen/feed-1080x1350.jpg" alt="Carmen — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET CARMEN</p>
@@ -1943,7 +2375,7 @@ CTA: Learn More">Copy full package</button>
       <div>
         <p class="mock-label">Treatment B · Pain-first · 9:16</p>
         <div class="mock mock-9x16 mock-pain" data-talent="carmen" data-format="9x16" data-pain="billing-support" data-role="billing-support">
-    <img class="mock-photo" src="/assets/real-people/carmen.jpg" alt="Carmen — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/carmen/feed-1080x1350.jpg" alt="Carmen — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim mock-scrim-strong"></div>
     <div class="mock-copy mock-copy-pain">
       <p class="mock-pain-line">Billing follow-up falling behind?</p>
@@ -1971,7 +2403,7 @@ CTA: Learn More">Copy full package</button>
     </div>
   </section><section class="profile-section" id="profile-jennifer" data-talent="jennifer" data-role="patient-intake medical-admin front-office" data-pain="patient-intake admin-backlog patient-calls" data-format="static-1x1 static-4x5 story-9x16 reel iphone-video" data-batch="no">
     <header class="profile-head">
-      <img class="profile-avatar" src="/assets/real-people/jennifer.jpg" alt="Jennifer Villarubia" width="96" height="96" loading="lazy" />
+      <img class="profile-avatar" src="/assets/real-people/jennifer/feed-1080x1350.jpg" alt="Jennifer Villarubia" width="96" height="96" loading="lazy" />
       <div>
         <h3>Jennifer <span class="full-name">Jennifer Villarubia</span>
           
@@ -2213,11 +2645,14 @@ CTA: Learn More">Copy full package</button>
     </div>
   </div>
 
+    
+
+    <p class="mock-alt-label">Alternate treatments (HTML/CSS editorial mocks)</p>
     <div class="mock-grid">
       <div>
         <p class="mock-label">Treatment A · Editorial · 1:1</p>
         <div class="mock mock-1x1 mock-editorial" data-talent="jennifer" data-format="1x1" data-pain="patient-intake" data-role="patient-intake">
-    <img class="mock-photo" src="/assets/real-people/jennifer.jpg" alt="Jennifer — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/jennifer/feed-1080x1350.jpg" alt="Jennifer — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET JENNIFER</p>
@@ -2230,7 +2665,7 @@ CTA: Learn More">Copy full package</button>
       <div>
         <p class="mock-label">Treatment A · Editorial · 4:5</p>
         <div class="mock mock-4x5 mock-editorial" data-talent="jennifer" data-format="4x5" data-pain="patient-intake" data-role="patient-intake">
-    <img class="mock-photo" src="/assets/real-people/jennifer.jpg" alt="Jennifer — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/jennifer/feed-1080x1350.jpg" alt="Jennifer — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim"></div>
     <div class="mock-copy">
       <p class="mock-kicker">MEET JENNIFER</p>
@@ -2243,7 +2678,7 @@ CTA: Learn More">Copy full package</button>
       <div>
         <p class="mock-label">Treatment B · Pain-first · 9:16</p>
         <div class="mock mock-9x16 mock-pain" data-talent="jennifer" data-format="9x16" data-pain="patient-intake" data-role="patient-intake">
-    <img class="mock-photo" src="/assets/real-people/jennifer.jpg" alt="Jennifer — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
+    <img class="mock-photo" src="/assets/real-people/jennifer/feed-1080x1350.jpg" alt="Jennifer — MedVirtual Talent Pool profile photo" width="1080" height="1080" loading="lazy" decoding="async" />
     <div class="mock-scrim mock-scrim-strong"></div>
     <div class="mock-copy mock-copy-pain">
       <p class="mock-pain-line">Intake forms slowing new patients?</p>
@@ -2272,9 +2707,23 @@ CTA: Learn More">Copy full package</button>
   </section>
     </div>
 
+    <section class="section" id="monday-graphics">
+      <h2>Monday Graphics Request</h2>
+      <p style="margin-bottom:0.4rem">First production batch only — four Treatment C ads (1080×1350 primary). Raw crops and downloads: <a href="/real-people-assets.html" style="color:#0d9488;font-weight:700;text-decoration:none">Real People Assets</a>.</p>
+      <ul class="monday-compact">
+        <li><strong>Chelsea</strong> — 4:5 pain-first · scheduling · Treatment C</li><li><strong>Mark</strong> — 4:5 pain-first · insurance verification · Treatment C</li><li><strong>Jessica</strong> — 4:5 pain-first · admin backlog · Treatment C</li><li><strong>Angelica</strong> — 4:5 pain-first · front desk · Treatment C</li>
+      </ul>
+    </section>
+
+    <section class="section" id="synthetic-handoff">
+      <h2>Synthetic Video Handoff</h2>
+      <p style="margin-bottom:0.4rem;font-size:0.8rem;color:#64748b">Rules for any AI-animated draft. Still-image approval does not auto-approve synthetic animation.</p>
+      <ul class="synth-compact"><li>Use only approved Talent Pool images</li><li>Do not change the person’s identity</li><li>Do not invent credentials or experience</li><li>Do not clone or imitate a person’s voice without approval</li><li>Do not create dialogue implying the person personally performed unverified work</li><li>Scripts must remain limited to public profile facts</li><li>Label synthetic drafts internally</li><li>Obtain explicit internal approval before publishing</li><li>Prefer real direct-to-camera footage when available</li><li>Never show patient information, real medical records, or confidential systems</li><li>Keep original source files archived separately</li><li>Still-image approval does NOT auto-approve synthetic animation</li></ul>
+    </section>
+
     <section class="section" id="mockups-note">
       <h2>Visual mockups</h2>
-      <p>Responsive HTML/CSS mockups live inside each profile section: editorial 1:1 + 4:5, and a pain-first 9:16 cover. Hierarchy: photo → name → role → hook/skills → small MedVirtual mark. No fake Meta CTA inside artwork.</p>
+      <p>Treatment C PNGs above are the primary polished mockups. Inside each profile: Treatment C (when in first batch) plus alternate HTML/CSS editorial A/B mocks (1:1, 4:5, pain-first 9:16). Hierarchy for Treatment C: pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA inside artwork.</p>
     </section>
 
     <section class="section" id="broll">
@@ -2328,7 +2777,7 @@ CTA: Learn More">Copy full package</button>
     <td>Approved still crop</td>
   </tr><tr data-rec="true">
     <td>Operational pain · ★</td>
-    <td>chelsea-rose</td>
+    <td>chelsea</td>
     <td>4:5 static</td>
     <td>Scheduling taking over the front desk?</td>
     <td>Patient scheduling</td>
@@ -2419,6 +2868,34 @@ CTA: Learn More">Copy full package</button>
         });
       }
       [role, format, pain, batch].forEach((el) => el.addEventListener('change', applyFilters));
+
+      document.querySelectorAll('.tc-panel').forEach((panel) => {
+        const stage = panel.querySelector('.tc-stage');
+        const img = panel.querySelector('.tc-stage img');
+        const dl = panel.querySelector('[data-dl-preview]');
+        const slug = panel.dataset.slug;
+        if (!stage || !img || !slug) return;
+
+        panel.querySelectorAll('[data-set-ratio]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const ratio = btn.getAttribute('data-set-ratio') || '4x5';
+            stage.dataset.ratio = ratio;
+            const src = '/assets/real-people/' + slug + '/ad-treatment-c-' + ratio + '.png';
+            img.src = src;
+            if (dl) dl.href = src;
+            panel.querySelectorAll('[data-set-ratio]').forEach((b) => b.classList.toggle('is-active', b === btn));
+            if (ratio !== '9x16') stage.classList.remove('safe-zone');
+          });
+        });
+
+        panel.querySelector('[data-toggle-safe]')?.addEventListener('click', () => {
+          if (stage.dataset.ratio !== '9x16') {
+            flash('Safe-zone guides are for 9:16 only');
+            return;
+          }
+          stage.classList.toggle('safe-zone');
+        });
+      });
     })();
   </script>
 </body>

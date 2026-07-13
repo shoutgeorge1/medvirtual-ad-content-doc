@@ -44,7 +44,7 @@ export const FIRST_BATCH = [
   { concept: 'Meet the person', talentId: 'jessica', format: '4:5 static', hook: 'Meet Jessica', operationalProblem: 'Admin / front-desk backlog', mainVariation: 'Named profile card', status: 'Ready to produce', assetNeeded: 'Approved still crop', recommended: true },
   { concept: 'Meet the person', talentId: 'angelica', format: '4:5 static', hook: 'Meet Angelica', operationalProblem: 'Front-desk coverage', mainVariation: 'Named profile card', status: 'Ready to produce', assetNeeded: 'Approved still crop', recommended: true },
   { concept: 'Meet the person', talentId: 'mark', format: '1:1 static', hook: 'Meet Mark', operationalProblem: 'Insurance verification', mainVariation: 'Named profile card', status: 'Ready to produce', assetNeeded: 'Approved still crop', recommended: true },
-  { concept: 'Operational pain', talentId: 'chelsea-rose', format: '4:5 static', hook: 'Scheduling taking over the front desk?', operationalProblem: 'Patient scheduling', mainVariation: 'Pain → named person', status: 'Ready to produce', assetNeeded: 'Approved still crop', recommended: true },
+  { concept: 'Operational pain', talentId: 'chelsea', format: '4:5 static', hook: 'Scheduling taking over the front desk?', operationalProblem: 'Patient scheduling', mainVariation: 'Pain → named person', status: 'Ready to produce', assetNeeded: 'Approved still crop', recommended: true },
   { concept: 'Direct-to-camera', talentId: 'jessica', format: '9:16 video 8–15s', hook: 'Hi, I’m Jessica…', operationalProblem: 'Admin support', mainVariation: 'Phone intro + role skills', status: 'Needs filming', assetNeeded: 'iPhone vertical clip', recommended: true },
   { concept: 'Direct-to-camera', talentId: 'carmen', format: '9:16 video 8–15s', hook: 'Hi, I’m Carmen…', operationalProblem: 'Billing support', mainVariation: 'Phone intro + role skills', status: 'Needs filming', assetNeeded: 'iPhone vertical clip', recommended: true },
   { concept: 'Office montage', talentId: 'office', format: '9:16 video 10–20s', hook: 'Real work, real people', operationalProblem: 'Credibility / atmosphere', mainVariation: 'Headset · typing · team call', status: 'Needs filming', assetNeeded: 'B-roll pack', recommended: true },
@@ -87,13 +87,29 @@ export const BROLL_PLAN = {
 export const TALENT = [
   {
     id: 'jessica',
+    assetSlug: 'jessica',
     firstName: 'Jessica',
     fullPublicName: 'Jessica Valles',
     title: 'Jr. Medical Admin',
     publicPosition: 'Medical Admin Jr',
     profileUrl: 'https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4',
-    imagePath: '/assets/real-people/jessica.jpg',
+    imagePath: '/assets/real-people/jessica/feed-1080x1350.jpg',
     listedSkills: ['BPO - Customer Service', 'BPO - Healthcare'],
+    approvalStatus: {
+      publicStillApproved: true,
+      staticAdApproved: false,
+      syntheticAnimationApprovalNeeded: true,
+      realVideoRequested: false,
+      finalCreativeApproved: false,
+    },
+    assetNotes: {
+      recommendedUsage: 'Medical admin / front-desk backlog statics and DTC video reference',
+      cropQuality: 'Public avatar source is 1024×1024. Mild resize to 1080 outputs — do not aggressive-upscale further.',
+      backgroundNotes: 'Soft studio-style backdrop; no clinic environment invented.',
+      faceVisibility: 'Face clear, eyes and mouth visible',
+      shouldersVisible: true,
+      aiSpeakingSuitable: true,
+    },
     exactPublicFacts: {
       employmentType: 'Full Time',
       shiftBlock: 'Full Time',
@@ -183,13 +199,29 @@ export const TALENT = [
   },
   {
     id: 'angelica',
+    assetSlug: 'angelica',
     firstName: 'Angelica',
     fullPublicName: 'Angelica Aljas',
     title: 'Dermatology Front Desk Assistant',
     publicPosition: 'Medical Admin Sr',
     profileUrl: 'https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3',
-    imagePath: '/assets/real-people/angelica.jpg',
+    imagePath: '/assets/real-people/angelica/feed-1080x1350.jpg',
     listedSkills: ['VA - Medical General', 'BPO - Healthcare'],
+    approvalStatus: {
+      publicStillApproved: true,
+      staticAdApproved: false,
+      syntheticAnimationApprovalNeeded: true,
+      realVideoRequested: false,
+      finalCreativeApproved: false,
+    },
+    assetNotes: {
+      recommendedUsage: 'Front-desk pressure statics; primary 4:5 pain-first',
+      cropQuality: 'Public avatar source is 1024×1024. Mild resize to 1080 outputs.',
+      backgroundNotes: 'Neutral portrait backdrop.',
+      faceVisibility: 'Face clear, eyes and mouth visible',
+      shouldersVisible: true,
+      aiSpeakingSuitable: true,
+    },
     exactPublicFacts: {
       employmentType: 'Full Time',
       specializationShown: ['Dermatology'],
@@ -277,13 +309,14 @@ export const TALENT = [
     ],
   },
   {
-    id: 'chelsea-rose',
+    id: 'chelsea',
+    assetSlug: 'chelsea',
     firstName: 'Chelsea',
     fullPublicName: 'Chelsea Rose Santos',
     title: 'Dental Virtual Assistant',
     publicPosition: 'Dental Admin Jr',
     profileUrl: 'https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4',
-    imagePath: '/assets/real-people/chelsea-rose.jpg',
+    imagePath: '/assets/real-people/chelsea/feed-1080x1350.jpg',
     listedSkills: [
       'Appointment Setting',
       'Medical - Healthcare',
@@ -291,6 +324,21 @@ export const TALENT = [
       'VA - Medical General',
       'BPO - Healthcare',
     ],
+    approvalStatus: {
+      publicStillApproved: true,
+      staticAdApproved: false,
+      syntheticAnimationApprovalNeeded: true,
+      realVideoRequested: false,
+      finalCreativeApproved: false,
+    },
+    assetNotes: {
+      recommendedUsage: 'Primary first-batch pain-first scheduling creative',
+      cropQuality: 'Public avatar source is 1024×1024. Mild resize to 1080 outputs.',
+      backgroundNotes: 'Neutral portrait backdrop.',
+      faceVisibility: 'Face clear, eyes and mouth visible',
+      shouldersVisible: true,
+      aiSpeakingSuitable: true,
+    },
     exactPublicFacts: {
       employmentType: 'Full Time',
       shiftBlock: 'Full Time',
@@ -385,13 +433,29 @@ export const TALENT = [
   },
   {
     id: 'mark',
+    assetSlug: 'mark',
     firstName: 'Mark',
     fullPublicName: 'Mark Robert Seno',
     title: 'Insurance Verification Specialist',
     publicPosition: 'Medical Biller Sr',
     profileUrl: 'https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8',
-    imagePath: '/assets/real-people/mark.jpg',
+    imagePath: '/assets/real-people/mark/feed-1080x1350.jpg',
     listedSkills: ['VA - Medical Biller'],
+    approvalStatus: {
+      publicStillApproved: true,
+      staticAdApproved: false,
+      syntheticAnimationApprovalNeeded: true,
+      realVideoRequested: false,
+      finalCreativeApproved: false,
+    },
+    assetNotes: {
+      recommendedUsage: 'Insurance verification pain-first statics',
+      cropQuality: 'Public avatar source is 1024×1024. Mild resize to 1080 outputs.',
+      backgroundNotes: 'Neutral portrait backdrop.',
+      faceVisibility: 'Face clear, eyes and mouth visible',
+      shouldersVisible: true,
+      aiSpeakingSuitable: true,
+    },
     exactPublicFacts: {
       employmentType: 'Full Time',
       shiftBlock: 'Full Time',
@@ -481,13 +545,29 @@ export const TALENT = [
   },
   {
     id: 'carmen',
+    assetSlug: 'carmen',
     firstName: 'Carmen',
     fullPublicName: 'Carmen De Leon',
     title: 'Medical Biller',
     publicPosition: 'Medical Biller Sr',
     profileUrl: 'https://app.medvirtual.ai/talent-pool/6b08ff4a-33c7-496e-94f2-f11026c4079b',
-    imagePath: '/assets/real-people/carmen.jpg',
+    imagePath: '/assets/real-people/carmen/feed-1080x1350.jpg',
     listedSkills: ['BPO - Customer Service', 'VA - Medical Biller', 'VA - Medical General'],
+    approvalStatus: {
+      publicStillApproved: true,
+      staticAdApproved: false,
+      syntheticAnimationApprovalNeeded: true,
+      realVideoRequested: false,
+      finalCreativeApproved: false,
+    },
+    assetNotes: {
+      recommendedUsage: 'Billing support static / video alternate',
+      cropQuality: 'Public avatar source is 1024×1024. Mild resize to 1080 outputs.',
+      backgroundNotes: 'Neutral portrait backdrop.',
+      faceVisibility: 'Face clear, eyes and mouth visible',
+      shouldersVisible: true,
+      aiSpeakingSuitable: true,
+    },
     exactPublicFacts: {
       employmentType: 'Full Time',
       shiftBlock: 'Full Time',
@@ -578,13 +658,29 @@ export const TALENT = [
   },
   {
     id: 'jennifer',
+    assetSlug: 'jennifer',
     firstName: 'Jennifer',
     fullPublicName: 'Jennifer Villarubia',
     title: 'Patient Intake Coordinator',
     publicPosition: 'Medical Admin Jr',
     profileUrl: 'https://app.medvirtual.ai/talent-pool/f72257a8-15ce-4a6f-92d7-f05a637bd741',
-    imagePath: '/assets/real-people/jennifer.jpg',
+    imagePath: '/assets/real-people/jennifer/feed-1080x1350.jpg',
     listedSkills: [],
+    approvalStatus: {
+      publicStillApproved: true,
+      staticAdApproved: false,
+      syntheticAnimationApprovalNeeded: true,
+      realVideoRequested: false,
+      finalCreativeApproved: false,
+    },
+    assetNotes: {
+      recommendedUsage: 'Intake alternate; limited skill tags on public profile',
+      cropQuality: 'Public avatar source is 1024×1024. Mild resize to 1080 outputs.',
+      backgroundNotes: 'Neutral portrait backdrop.',
+      faceVisibility: 'Face clear, eyes and mouth visible',
+      shouldersVisible: true,
+      aiSpeakingSuitable: true,
+    },
     exactPublicFacts: {
       employmentType: 'Full Time',
       shiftBlock: 'Full Time',
@@ -679,15 +775,15 @@ export const TALENT = [
 export const STRONGEST_FOUR = [
   {
     id: 'chelsea-pain-scheduling',
-    talentId: 'chelsea-rose',
+    talentId: 'chelsea',
     name: 'Chelsea · Scheduling pain → named person',
     why: 'Clearest operational skill tag (Appointment Setting) + acute clinic pain. Best pain-first static.',
   },
   {
-    id: 'jessica-meet',
+    id: 'jessica-admin',
     talentId: 'jessica',
-    name: 'Jessica · Meet the person',
-    why: 'Simple medical-admin introduction; easy first editorial static for the named-profile hypothesis.',
+    name: 'Jessica · Admin work piling up',
+    why: 'Simple medical-admin pain + named person; easy first Treatment C static.',
   },
   {
     id: 'mark-verification',
@@ -698,7 +794,117 @@ export const STRONGEST_FOUR = [
   {
     id: 'angelica-frontdesk',
     talentId: 'angelica',
-    name: 'Angelica · Front desk',
+    name: 'Angelica · Front desk stretched thin',
     why: 'Front-desk experience title reads immediately for practice owners scanning the feed.',
   },
 ];
+
+/** Treatment C — Pain + Person + Capabilities (first production batch only) */
+export const TREATMENT_C = [
+  {
+    talentId: 'chelsea',
+    headlineLines: ['SCHEDULING TAKING OVER', 'YOUR FRONT DESK?'],
+    meetLine: 'Meet Chelsea',
+    role: 'Dental Virtual Assistant',
+    bullets: [
+      { text: 'Appointment Setting', source: 'listed skill' },
+      { text: 'Customer Service', source: 'listed skill' },
+      { text: 'Healthcare Support', source: 'listed skill' },
+    ],
+    ctaStrip: 'REQUEST AN INTERVIEW →',
+    primaryRatio: '4x5',
+  },
+  {
+    talentId: 'mark',
+    headlineLines: ['INSURANCE VERIFICATION', 'SLOWING YOUR TEAM DOWN?'],
+    meetLine: 'Meet Mark',
+    role: 'Insurance Verification Specialist',
+    bullets: [
+      { text: 'Insurance Verification', source: 'public experience title' },
+      { text: 'Medical Billing Support', source: 'listed skill' },
+      { text: 'Full-Time Talent', source: 'employment type shown on profile' },
+    ],
+    ctaStrip: 'REQUEST AN INTERVIEW →',
+    primaryRatio: '4x5',
+  },
+  {
+    talentId: 'angelica',
+    headlineLines: ['FRONT DESK', 'STRETCHED THIN?'],
+    meetLine: 'Meet Angelica',
+    role: 'Dermatology Front Desk Assistant',
+    bullets: [
+      { text: 'Medical Admin Support', source: 'listed skill / public position' },
+      { text: 'Healthcare Support', source: 'listed skill' },
+      { text: 'Front-Desk Experience', source: 'public experience title' },
+    ],
+    ctaStrip: 'REQUEST AN INTERVIEW →',
+    primaryRatio: '4x5',
+  },
+  {
+    talentId: 'jessica',
+    headlineLines: ['ADMIN WORK', 'PILING UP?'],
+    meetLine: 'Meet Jessica',
+    role: 'Jr. Medical Admin',
+    bullets: [
+      { text: 'Customer Service', source: 'listed skill' },
+      { text: 'Healthcare Support', source: 'listed skill' },
+      { text: 'Full-Time Talent', source: 'employment type shown on profile' },
+    ],
+    ctaStrip: 'REQUEST AN INTERVIEW →',
+    primaryRatio: '4x5',
+  },
+];
+
+/** Monday graphics request — first batch only (4 ads) */
+export const MONDAY_REAL_PEOPLE_BATCH = [
+  { talentId: 'chelsea', angle: '4:5 pain-first · scheduling', treatmentC: true },
+  { talentId: 'mark', angle: '4:5 pain-first · insurance verification', treatmentC: true },
+  { talentId: 'jessica', angle: '4:5 pain-first · admin backlog', treatmentC: true },
+  { talentId: 'angelica', angle: '4:5 pain-first · front desk', treatmentC: true },
+];
+
+export const SYNTHETIC_VIDEO_HANDOFF = [
+  'Use only approved Talent Pool images',
+  'Do not change the person’s identity',
+  'Do not invent credentials or experience',
+  'Do not clone or imitate a person’s voice without approval',
+  'Do not create dialogue implying the person personally performed unverified work',
+  'Scripts must remain limited to public profile facts',
+  'Label synthetic drafts internally',
+  'Obtain explicit internal approval before publishing',
+  'Prefer real direct-to-camera footage when available',
+  'Never show patient information, real medical records, or confidential systems',
+  'Keep original source files archived separately',
+  'Still-image approval does NOT auto-approve synthetic animation',
+];
+
+export function talentById(id) {
+  return TALENT.find((t) => t.id === id);
+}
+
+export function treatmentCPackage(tc) {
+  const t = talentById(tc.talentId);
+  return [
+    `TREATMENT C — Pain + Person + Capabilities`,
+    `PROFILE: ${t.fullPublicName}`,
+    `SOURCE: ${t.profileUrl}`,
+    `CANVAS: 1080×1350 (primary) · also 1:1 and 9:16`,
+    '',
+    `ON-IMAGE HEADLINE:`,
+    tc.headlineLines.join('\n'),
+    '',
+    `NAME: ${tc.meetLine}`,
+    `ROLE: ${tc.role}`,
+    '',
+    `BULLETS:`,
+    ...tc.bullets.map((b) => `✓ ${b.text}  [${b.source}]`),
+    '',
+    `CTA STRIP: ${tc.ctaStrip}`,
+    `LOGO: MedVirtual — larger mark in high-contrast brand panel (not tiny corner watermark)`,
+    '',
+    `CLAIM RESTRICTIONS:`,
+    `- Do not invent HIPAA, years of experience, software expertise, availability, or outcomes`,
+    `- Bullets must match listed sources above`,
+    `- No fake Meta CTA button inside artwork — branded strip only`,
+  ].join('\n');
+}

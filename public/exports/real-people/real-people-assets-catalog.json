@@ -1,0 +1,598 @@
+{
+  "generatedAt": "2026-07-13",
+  "sourceCheckedAt": "2026-07-13",
+  "people": [
+    {
+      "slug": "jessica",
+      "id": "jessica",
+      "firstName": "Jessica",
+      "fullPublicName": "Jessica Valles",
+      "title": "Jr. Medical Admin",
+      "profileUrl": "https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4",
+      "sourceCheckedAt": "2026-07-13",
+      "sourceMeta": {
+        "path": "/assets/real-people/jessica/original.png",
+        "width": 1024,
+        "height": 1024,
+        "format": "png",
+        "size": 1410520,
+        "sizeLabel": "1.35 MB"
+      },
+      "files": {
+        "original": {
+          "path": "/assets/real-people/jessica/original.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "png",
+          "size": 1410520,
+          "sizeLabel": "1.35 MB"
+        },
+        "cleanMaster": {
+          "path": "/assets/real-people/jessica/clean-master.jpg",
+          "width": 1024,
+          "height": 1024,
+          "format": "jpeg",
+          "size": 141881,
+          "sizeLabel": "138.6 KB"
+        },
+        "profile11": {
+          "path": "/assets/real-people/jessica/profile-1080x1080.jpg",
+          "width": 1080,
+          "height": 1080,
+          "format": "jpeg",
+          "size": 114897,
+          "sizeLabel": "112.2 KB"
+        },
+        "feed45": {
+          "path": "/assets/real-people/jessica/feed-1080x1350.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 154546,
+          "sizeLabel": "150.9 KB"
+        },
+        "vertical": {
+          "path": "/assets/real-people/jessica/vertical-reference-1080x1920.jpg",
+          "width": 1080,
+          "height": 1920,
+          "format": "jpeg",
+          "size": 124097,
+          "sizeLabel": "121.2 KB"
+        },
+        "aiReference": {
+          "path": "/assets/real-people/jessica/ai-speaking-reference.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 184487,
+          "sizeLabel": "180.2 KB"
+        }
+      },
+      "limitations": [
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+      ],
+      "personZip": "/exports/real-people/jessica-real-people-assets.zip",
+      "notes": {
+        "recommendedUsage": "Medical admin / front-desk backlog statics and DTC video reference",
+        "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs — do not aggressive-upscale further.",
+        "backgroundNotes": "Soft studio-style backdrop; no clinic environment invented.",
+        "faceVisibility": "Face clear, eyes and mouth visible",
+        "shouldersVisible": true,
+        "aiSpeakingSuitable": true
+      },
+      "approvalStatus": {
+        "publicStillApproved": true,
+        "staticAdApproved": false,
+        "syntheticAnimationApprovalNeeded": true,
+        "realVideoRequested": false,
+        "finalCreativeApproved": false
+      }
+    },
+    {
+      "slug": "angelica",
+      "id": "angelica",
+      "firstName": "Angelica",
+      "fullPublicName": "Angelica Aljas",
+      "title": "Dermatology Front Desk Assistant",
+      "profileUrl": "https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3",
+      "sourceCheckedAt": "2026-07-13",
+      "sourceMeta": {
+        "path": "/assets/real-people/angelica/original.png",
+        "width": 1024,
+        "height": 1024,
+        "format": "png",
+        "size": 1460599,
+        "sizeLabel": "1.39 MB"
+      },
+      "files": {
+        "original": {
+          "path": "/assets/real-people/angelica/original.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "png",
+          "size": 1460599,
+          "sizeLabel": "1.39 MB"
+        },
+        "cleanMaster": {
+          "path": "/assets/real-people/angelica/clean-master.jpg",
+          "width": 1024,
+          "height": 1024,
+          "format": "jpeg",
+          "size": 146437,
+          "sizeLabel": "143.0 KB"
+        },
+        "profile11": {
+          "path": "/assets/real-people/angelica/profile-1080x1080.jpg",
+          "width": 1080,
+          "height": 1080,
+          "format": "jpeg",
+          "size": 113634,
+          "sizeLabel": "111.0 KB"
+        },
+        "feed45": {
+          "path": "/assets/real-people/angelica/feed-1080x1350.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 153104,
+          "sizeLabel": "149.5 KB"
+        },
+        "vertical": {
+          "path": "/assets/real-people/angelica/vertical-reference-1080x1920.jpg",
+          "width": 1080,
+          "height": 1920,
+          "format": "jpeg",
+          "size": 123554,
+          "sizeLabel": "120.7 KB"
+        },
+        "aiReference": {
+          "path": "/assets/real-people/angelica/ai-speaking-reference.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 185488,
+          "sizeLabel": "181.1 KB"
+        }
+      },
+      "limitations": [
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+      ],
+      "personZip": "/exports/real-people/angelica-real-people-assets.zip",
+      "notes": {
+        "recommendedUsage": "Front-desk pressure statics; primary 4:5 pain-first",
+        "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs.",
+        "backgroundNotes": "Neutral portrait backdrop.",
+        "faceVisibility": "Face clear, eyes and mouth visible",
+        "shouldersVisible": true,
+        "aiSpeakingSuitable": true
+      },
+      "approvalStatus": {
+        "publicStillApproved": true,
+        "staticAdApproved": false,
+        "syntheticAnimationApprovalNeeded": true,
+        "realVideoRequested": false,
+        "finalCreativeApproved": false
+      }
+    },
+    {
+      "slug": "chelsea",
+      "id": "chelsea",
+      "firstName": "Chelsea",
+      "fullPublicName": "Chelsea Rose Santos",
+      "title": "Dental Virtual Assistant",
+      "profileUrl": "https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4",
+      "sourceCheckedAt": "2026-07-13",
+      "sourceMeta": {
+        "path": "/assets/real-people/chelsea/original.png",
+        "width": 1024,
+        "height": 1024,
+        "format": "png",
+        "size": 1455719,
+        "sizeLabel": "1.39 MB"
+      },
+      "files": {
+        "original": {
+          "path": "/assets/real-people/chelsea/original.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "png",
+          "size": 1455719,
+          "sizeLabel": "1.39 MB"
+        },
+        "cleanMaster": {
+          "path": "/assets/real-people/chelsea/clean-master.jpg",
+          "width": 1024,
+          "height": 1024,
+          "format": "jpeg",
+          "size": 151378,
+          "sizeLabel": "147.8 KB"
+        },
+        "profile11": {
+          "path": "/assets/real-people/chelsea/profile-1080x1080.jpg",
+          "width": 1080,
+          "height": 1080,
+          "format": "jpeg",
+          "size": 116833,
+          "sizeLabel": "114.1 KB"
+        },
+        "feed45": {
+          "path": "/assets/real-people/chelsea/feed-1080x1350.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 158252,
+          "sizeLabel": "154.5 KB"
+        },
+        "vertical": {
+          "path": "/assets/real-people/chelsea/vertical-reference-1080x1920.jpg",
+          "width": 1080,
+          "height": 1920,
+          "format": "jpeg",
+          "size": 126724,
+          "sizeLabel": "123.8 KB"
+        },
+        "aiReference": {
+          "path": "/assets/real-people/chelsea/ai-speaking-reference.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 191026,
+          "sizeLabel": "186.5 KB"
+        }
+      },
+      "limitations": [
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+      ],
+      "personZip": "/exports/real-people/chelsea-real-people-assets.zip",
+      "notes": {
+        "recommendedUsage": "Primary first-batch pain-first scheduling creative",
+        "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs.",
+        "backgroundNotes": "Neutral portrait backdrop.",
+        "faceVisibility": "Face clear, eyes and mouth visible",
+        "shouldersVisible": true,
+        "aiSpeakingSuitable": true
+      },
+      "approvalStatus": {
+        "publicStillApproved": true,
+        "staticAdApproved": false,
+        "syntheticAnimationApprovalNeeded": true,
+        "realVideoRequested": false,
+        "finalCreativeApproved": false
+      }
+    },
+    {
+      "slug": "mark",
+      "id": "mark",
+      "firstName": "Mark",
+      "fullPublicName": "Mark Robert Seno",
+      "title": "Insurance Verification Specialist",
+      "profileUrl": "https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8",
+      "sourceCheckedAt": "2026-07-13",
+      "sourceMeta": {
+        "path": "/assets/real-people/mark/original.png",
+        "width": 1024,
+        "height": 1024,
+        "format": "png",
+        "size": 1405581,
+        "sizeLabel": "1.34 MB"
+      },
+      "files": {
+        "original": {
+          "path": "/assets/real-people/mark/original.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "png",
+          "size": 1405581,
+          "sizeLabel": "1.34 MB"
+        },
+        "cleanMaster": {
+          "path": "/assets/real-people/mark/clean-master.jpg",
+          "width": 1024,
+          "height": 1024,
+          "format": "jpeg",
+          "size": 133083,
+          "sizeLabel": "130.0 KB"
+        },
+        "profile11": {
+          "path": "/assets/real-people/mark/profile-1080x1080.jpg",
+          "width": 1080,
+          "height": 1080,
+          "format": "jpeg",
+          "size": 102457,
+          "sizeLabel": "100.1 KB"
+        },
+        "feed45": {
+          "path": "/assets/real-people/mark/feed-1080x1350.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 139689,
+          "sizeLabel": "136.4 KB"
+        },
+        "vertical": {
+          "path": "/assets/real-people/mark/vertical-reference-1080x1920.jpg",
+          "width": 1080,
+          "height": 1920,
+          "format": "jpeg",
+          "size": 112197,
+          "sizeLabel": "109.6 KB"
+        },
+        "aiReference": {
+          "path": "/assets/real-people/mark/ai-speaking-reference.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 170556,
+          "sizeLabel": "166.6 KB"
+        }
+      },
+      "limitations": [
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+      ],
+      "personZip": "/exports/real-people/mark-real-people-assets.zip",
+      "notes": {
+        "recommendedUsage": "Insurance verification pain-first statics",
+        "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs.",
+        "backgroundNotes": "Neutral portrait backdrop.",
+        "faceVisibility": "Face clear, eyes and mouth visible",
+        "shouldersVisible": true,
+        "aiSpeakingSuitable": true
+      },
+      "approvalStatus": {
+        "publicStillApproved": true,
+        "staticAdApproved": false,
+        "syntheticAnimationApprovalNeeded": true,
+        "realVideoRequested": false,
+        "finalCreativeApproved": false
+      }
+    },
+    {
+      "slug": "carmen",
+      "id": "carmen",
+      "firstName": "Carmen",
+      "fullPublicName": "Carmen De Leon",
+      "title": "Medical Biller",
+      "profileUrl": "https://app.medvirtual.ai/talent-pool/6b08ff4a-33c7-496e-94f2-f11026c4079b",
+      "sourceCheckedAt": "2026-07-13",
+      "sourceMeta": {
+        "path": "/assets/real-people/carmen/original.png",
+        "width": 1024,
+        "height": 1024,
+        "format": "png",
+        "size": 1532713,
+        "sizeLabel": "1.46 MB"
+      },
+      "files": {
+        "original": {
+          "path": "/assets/real-people/carmen/original.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "png",
+          "size": 1532713,
+          "sizeLabel": "1.46 MB"
+        },
+        "cleanMaster": {
+          "path": "/assets/real-people/carmen/clean-master.jpg",
+          "width": 1024,
+          "height": 1024,
+          "format": "jpeg",
+          "size": 174470,
+          "sizeLabel": "170.4 KB"
+        },
+        "profile11": {
+          "path": "/assets/real-people/carmen/profile-1080x1080.jpg",
+          "width": 1080,
+          "height": 1080,
+          "format": "jpeg",
+          "size": 136991,
+          "sizeLabel": "133.8 KB"
+        },
+        "feed45": {
+          "path": "/assets/real-people/carmen/feed-1080x1350.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 187573,
+          "sizeLabel": "183.2 KB"
+        },
+        "vertical": {
+          "path": "/assets/real-people/carmen/vertical-reference-1080x1920.jpg",
+          "width": 1080,
+          "height": 1920,
+          "format": "jpeg",
+          "size": 146840,
+          "sizeLabel": "143.4 KB"
+        },
+        "aiReference": {
+          "path": "/assets/real-people/carmen/ai-speaking-reference.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 223010,
+          "sizeLabel": "217.8 KB"
+        }
+      },
+      "limitations": [
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+      ],
+      "personZip": "/exports/real-people/carmen-real-people-assets.zip",
+      "notes": {
+        "recommendedUsage": "Billing support static / video alternate",
+        "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs.",
+        "backgroundNotes": "Neutral portrait backdrop.",
+        "faceVisibility": "Face clear, eyes and mouth visible",
+        "shouldersVisible": true,
+        "aiSpeakingSuitable": true
+      },
+      "approvalStatus": {
+        "publicStillApproved": true,
+        "staticAdApproved": false,
+        "syntheticAnimationApprovalNeeded": true,
+        "realVideoRequested": false,
+        "finalCreativeApproved": false
+      }
+    },
+    {
+      "slug": "jennifer",
+      "id": "jennifer",
+      "firstName": "Jennifer",
+      "fullPublicName": "Jennifer Villarubia",
+      "title": "Patient Intake Coordinator",
+      "profileUrl": "https://app.medvirtual.ai/talent-pool/f72257a8-15ce-4a6f-92d7-f05a637bd741",
+      "sourceCheckedAt": "2026-07-13",
+      "sourceMeta": {
+        "path": "/assets/real-people/jennifer/original.png",
+        "width": 1024,
+        "height": 1024,
+        "format": "png",
+        "size": 1457100,
+        "sizeLabel": "1.39 MB"
+      },
+      "files": {
+        "original": {
+          "path": "/assets/real-people/jennifer/original.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "png",
+          "size": 1457100,
+          "sizeLabel": "1.39 MB"
+        },
+        "cleanMaster": {
+          "path": "/assets/real-people/jennifer/clean-master.jpg",
+          "width": 1024,
+          "height": 1024,
+          "format": "jpeg",
+          "size": 152164,
+          "sizeLabel": "148.6 KB"
+        },
+        "profile11": {
+          "path": "/assets/real-people/jennifer/profile-1080x1080.jpg",
+          "width": 1080,
+          "height": 1080,
+          "format": "jpeg",
+          "size": 118345,
+          "sizeLabel": "115.6 KB"
+        },
+        "feed45": {
+          "path": "/assets/real-people/jennifer/feed-1080x1350.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 162713,
+          "sizeLabel": "158.9 KB"
+        },
+        "vertical": {
+          "path": "/assets/real-people/jennifer/vertical-reference-1080x1920.jpg",
+          "width": 1080,
+          "height": 1920,
+          "format": "jpeg",
+          "size": 127072,
+          "sizeLabel": "124.1 KB"
+        },
+        "aiReference": {
+          "path": "/assets/real-people/jennifer/ai-speaking-reference.jpg",
+          "width": 1080,
+          "height": 1350,
+          "format": "jpeg",
+          "size": 196036,
+          "sizeLabel": "191.4 KB"
+        }
+      },
+      "limitations": [
+        "SOURCE LIMITATION — MANUAL REVIEW REQUIRED for crisp 1080 output (public avatar source is 1024×1024; mild resize applied)."
+      ],
+      "personZip": "/exports/real-people/jennifer-real-people-assets.zip",
+      "notes": {
+        "recommendedUsage": "Intake alternate; limited skill tags on public profile",
+        "cropQuality": "Public avatar source is 1024×1024. Mild resize to 1080 outputs.",
+        "backgroundNotes": "Neutral portrait backdrop.",
+        "faceVisibility": "Face clear, eyes and mouth visible",
+        "shouldersVisible": true,
+        "aiSpeakingSuitable": true
+      },
+      "approvalStatus": {
+        "publicStillApproved": true,
+        "staticAdApproved": false,
+        "syntheticAnimationApprovalNeeded": true,
+        "realVideoRequested": false,
+        "finalCreativeApproved": false
+      }
+    }
+  ],
+  "treatmentCAds": [
+    {
+      "talentId": "jessica",
+      "slug": "jessica",
+      "ratio": "4x5",
+      "path": "/assets/real-people/jessica/ad-treatment-c-4x5.png"
+    },
+    {
+      "talentId": "jessica",
+      "slug": "jessica",
+      "ratio": "1x1",
+      "path": "/assets/real-people/jessica/ad-treatment-c-1x1.png"
+    },
+    {
+      "talentId": "jessica",
+      "slug": "jessica",
+      "ratio": "9x16",
+      "path": "/assets/real-people/jessica/ad-treatment-c-9x16.png"
+    },
+    {
+      "talentId": "angelica",
+      "slug": "angelica",
+      "ratio": "4x5",
+      "path": "/assets/real-people/angelica/ad-treatment-c-4x5.png"
+    },
+    {
+      "talentId": "angelica",
+      "slug": "angelica",
+      "ratio": "1x1",
+      "path": "/assets/real-people/angelica/ad-treatment-c-1x1.png"
+    },
+    {
+      "talentId": "angelica",
+      "slug": "angelica",
+      "ratio": "9x16",
+      "path": "/assets/real-people/angelica/ad-treatment-c-9x16.png"
+    },
+    {
+      "talentId": "chelsea",
+      "slug": "chelsea",
+      "ratio": "4x5",
+      "path": "/assets/real-people/chelsea/ad-treatment-c-4x5.png"
+    },
+    {
+      "talentId": "chelsea",
+      "slug": "chelsea",
+      "ratio": "1x1",
+      "path": "/assets/real-people/chelsea/ad-treatment-c-1x1.png"
+    },
+    {
+      "talentId": "chelsea",
+      "slug": "chelsea",
+      "ratio": "9x16",
+      "path": "/assets/real-people/chelsea/ad-treatment-c-9x16.png"
+    },
+    {
+      "talentId": "mark",
+      "slug": "mark",
+      "ratio": "4x5",
+      "path": "/assets/real-people/mark/ad-treatment-c-4x5.png"
+    },
+    {
+      "talentId": "mark",
+      "slug": "mark",
+      "ratio": "1x1",
+      "path": "/assets/real-people/mark/ad-treatment-c-1x1.png"
+    },
+    {
+      "talentId": "mark",
+      "slug": "mark",
+      "ratio": "9x16",
+      "path": "/assets/real-people/mark/ad-treatment-c-9x16.png"
+    }
+  ],
+  "masterZip": "/exports/real-people/all-real-people-assets.zip",
+  "masterZipError": null
+}

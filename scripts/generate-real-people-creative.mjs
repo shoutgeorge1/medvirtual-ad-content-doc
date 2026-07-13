@@ -8,11 +8,16 @@ import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
 import {
   BROLL_PLAN,
   FIRST_BATCH,
+  MONDAY_REAL_PEOPLE_BATCH,
   SOURCE_CHECKED_AT,
   STRATEGY,
   STRONGEST_FOUR,
+  SYNTHETIC_VIDEO_HANDOFF,
   TALENT,
   TALENT_POOL_URL,
+  TREATMENT_C,
+  talentById,
+  treatmentCPackage,
 } from './real-people-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -121,6 +126,49 @@ function mockupPain(t, ratio) {
     </div>
     <img class="mock-logo" src="/assets/logo/medvirtual-logo.svg" alt="MedVirtual" width="96" height="28" />
   </div>`;
+}
+
+function treatmentCAssetPath(slug, ratio) {
+  return `/assets/real-people/${slug}/ad-treatment-c-${ratio}.png`;
+}
+
+function renderTreatmentCPanel(tc) {
+  const t = talentById(tc.talentId);
+  if (!t) return '';
+  const slug = t.assetSlug || t.id;
+  const pkg = treatmentCPackage(tc);
+  const defaultRatio = tc.primaryRatio || '4x5';
+  const ratios = [
+    { id: '4x5', label: '4:5' },
+    { id: '1x1', label: '1:1' },
+    { id: '9x16', label: '9:16' },
+  ];
+  return `<article class="tc-panel" data-talent="${esc(t.id)}" data-slug="${esc(slug)}">
+    <div class="tc-panel__meta">
+      <h3>${esc(tc.meetLine)} <span class="full-name">${esc(t.fullPublicName)}</span></h3>
+      <p class="title-line">${esc(tc.role)}</p>
+      <p class="tc-headline">${esc(tc.headlineLines.join(' / '))}</p>
+      <ul class="tc-bullets">${tc.bullets.map((b) => `<li>${esc(b.text)} <span class="tc-src">[${esc(b.source)}]</span></li>`).join('')}</ul>
+      <p class="tc-hierarchy"><strong>Hierarchy:</strong> pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA in artwork.</p>
+    </div>
+    <div class="tc-panel__preview">
+      <div class="tc-controls">
+        ${ratios
+          .map(
+            (r) =>
+              `<button type="button" class="tc-ratio-btn${r.id === defaultRatio ? ' is-active' : ''}" data-set-ratio="${r.id}">Preview ${esc(r.label)}</button>`,
+          )
+          .join('')}
+        <button type="button" class="tc-safe-btn" data-toggle-safe>Toggle safe-zone guides</button>
+        <a class="tc-dl" data-dl-preview href="${esc(treatmentCAssetPath(slug, defaultRatio))}" download>Download preview PNG</a>
+        ${copyBtn('Copy final ad package', pkg)}
+      </div>
+      <div class="tc-stage" data-ratio="${esc(defaultRatio)}">
+        <img src="${esc(treatmentCAssetPath(slug, defaultRatio))}" alt="${esc(tc.meetLine)} Treatment C ${esc(defaultRatio)} preview" width="1080" height="1350" loading="lazy" decoding="async" />
+      </div>
+      <p class="tc-safe-note">Safe-zone bars are review-only on 9:16 preview — they are not baked into the downloaded PNGs.</p>
+    </div>
+  </article>`;
 }
 
 function renderRecommendCard(t) {
@@ -250,6 +298,17 @@ function renderProfileCreative(t) {
     ${renderConceptBlock(t, 'C')}
     ${renderConceptBlock(t, 'D')}
 
+    ${(() => {
+      const tc = TREATMENT_C.find((x) => x.talentId === t.id);
+      if (!tc) return '';
+      return `<div class="tc-profile-block">
+      <h4 class="tc-profile-heading">Treatment C — Pain + Person + Capabilities</h4>
+      <p class="tc-profile-note">Primary polished mockup for this profile. Pre-generated PNGs · larger logo already in file · no fake Meta CTA.</p>
+      ${renderTreatmentCPanel(tc)}
+    </div>`;
+    })()}
+
+    <p class="mock-alt-label">Alternate treatments (HTML/CSS editorial mocks)</p>
     <div class="mock-grid">
       <div>
         <p class="mock-label">Treatment A · Editorial · 1:1</p>
@@ -440,6 +499,52 @@ const CSS = `
   .strong-list { display: grid; gap: 0.4rem; }
   .strong-item { padding: 0.5rem 0.6rem; border-radius: 8px; border: 1px solid #e2e8f0; background: #f8fafc; }
   .strong-item strong { display: block; font-size: 0.84rem; margin-bottom: 0.15rem; }
+  .tc-grid { display: grid; gap: 0.85rem; }
+  .tc-panel {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.85rem;
+    border: 2px solid #0d9488; border-radius: 12px; padding: 0.75rem; background: #f8fffd;
+  }
+  @media (max-width: 800px) { .tc-panel { grid-template-columns: 1fr; } }
+  .tc-panel__meta h3 { font-size: 1rem; margin-bottom: 0.2rem; }
+  .tc-headline { font-size: 0.9rem; font-weight: 800; color: #0f172a; margin: 0.35rem 0; }
+  .tc-bullets { padding-left: 1.1rem; margin: 0.35rem 0; }
+  .tc-bullets li { font-size: 0.8rem; margin: 0.12rem 0; color: #334155; }
+  .tc-src { font-size: 0.68rem; color: #94a3b8; font-weight: 600; }
+  .tc-hierarchy { font-size: 0.76rem; color: #64748b; margin-top: 0.45rem; }
+  .tc-controls { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.5rem; }
+  .tc-controls button, .tc-controls .tc-dl, .tc-controls .copy-btn {
+    font-size: 0.72rem; font-weight: 650; color: #0f766e; background: #f0fdfa;
+    border: 1px solid #99f6e4; border-radius: 6px; padding: 0.3rem 0.55rem; cursor: pointer; text-decoration: none;
+  }
+  .tc-controls button:hover, .tc-controls .tc-dl:hover { background: #ccfbf1; }
+  .tc-controls .tc-ratio-btn.is-active { background: #0d9488; color: #fff; border-color: #0d9488; }
+  .tc-stage {
+    position: relative; width: 100%; max-width: 320px; border-radius: 10px; overflow: hidden;
+    background: #0f172a; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  }
+  .tc-stage[data-ratio="4x5"] { aspect-ratio: 4 / 5; }
+  .tc-stage[data-ratio="1x1"] { aspect-ratio: 1 / 1; }
+  .tc-stage[data-ratio="9x16"] { aspect-ratio: 9 / 16; }
+  .tc-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tc-stage.safe-zone[data-ratio="9x16"]::before,
+  .tc-stage.safe-zone[data-ratio="9x16"]::after {
+    content: ''; position: absolute; left: 0; right: 0; height: 8%;
+    background: rgba(248, 113, 113, 0.4); z-index: 2; pointer-events: none;
+  }
+  .tc-stage.safe-zone[data-ratio="9x16"]::before { top: 0; }
+  .tc-stage.safe-zone[data-ratio="9x16"]::after { bottom: 0; }
+  .tc-safe-note { font-size: 0.7rem; color: #94a3b8; margin-top: 0.35rem; max-width: 320px; }
+  .tc-profile-block { margin: 0.75rem 0; }
+  .tc-profile-heading { font-size: 0.88rem; margin-bottom: 0.25rem; color: #0f766e; }
+  .tc-profile-note { font-size: 0.76rem; color: #64748b; margin-bottom: 0.45rem; }
+  .mock-alt-label {
+    font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em;
+    color: #64748b; margin: 0.85rem 0 0.35rem;
+  }
+  .monday-compact li, .synth-compact li { font-size: 0.82rem; margin: 0.18rem 0; color: #334155; }
+  .monday-compact { padding-left: 1.1rem; margin: 0.4rem 0; }
+  .synth-compact { padding-left: 1.1rem; columns: 2; gap: 1rem; }
+  @media (max-width: 700px) { .synth-compact { columns: 1; } }
   .is-hidden { display: none !important; }
   .toast {
     position: fixed; bottom: 1rem; right: 1rem; background: #0f172a; color: #fff;
@@ -505,8 +610,11 @@ const html = `<!DOCTYPE html>
     </section>
 
     <nav class="toc" aria-label="On this page">
+      <a href="#treatment-c">Treatment C</a>
       <a href="#first-test">First test</a>
       <a href="#profiles">Profile cards</a>
+      <a href="#monday-graphics">Monday graphics</a>
+      <a href="#synthetic-handoff">Synthetic video</a>
       <a href="#mockups-note">Mockups</a>
       <a href="#broll">B-roll plan</a>
       <a href="#test-plan">Test plan</a>
@@ -557,6 +665,14 @@ const html = `<!DOCTYPE html>
       <p class="filter-note">Filters profile cards + concept sections below.</p>
     </div>
 
+    <section class="section" id="treatment-c">
+      <h2>Treatment C — Pain + Person + Capabilities</h2>
+      <p style="margin-bottom:0.65rem">Primary polished mockups for the Monday first batch. Pre-generated PNGs with larger MedVirtual logo already in file — no fake Meta CTA. Hierarchy: pain headline → person → name+role → 3 bullets → CTA strip → larger logo.</p>
+      <div class="tc-grid">
+        ${TREATMENT_C.map(renderTreatmentCPanel).join('')}
+      </div>
+    </section>
+
     <section class="section" id="first-test">
       <h2>Recommended first test · ${TALENT.length} profiles</h2>
       <p style="margin-bottom:0.65rem">Selected for complete public profiles, usable headshots, role relevance to medical practices, and operational variety — not appearance.</p>
@@ -578,9 +694,26 @@ const html = `<!DOCTYPE html>
       ${TALENT.map(renderProfileCreative).join('')}
     </div>
 
+    <section class="section" id="monday-graphics">
+      <h2>Monday Graphics Request</h2>
+      <p style="margin-bottom:0.4rem">First production batch only — four Treatment C ads (1080×1350 primary). Raw crops and downloads: <a href="/real-people-assets.html" style="color:#0d9488;font-weight:700;text-decoration:none">Real People Assets</a>.</p>
+      <ul class="monday-compact">
+        ${MONDAY_REAL_PEOPLE_BATCH.map((row) => {
+          const t = talentById(row.talentId);
+          return `<li><strong>${esc(t?.firstName || row.talentId)}</strong> — ${esc(row.angle)}${row.treatmentC ? ' · Treatment C' : ''}</li>`;
+        }).join('')}
+      </ul>
+    </section>
+
+    <section class="section" id="synthetic-handoff">
+      <h2>Synthetic Video Handoff</h2>
+      <p style="margin-bottom:0.4rem;font-size:0.8rem;color:#64748b">Rules for any AI-animated draft. Still-image approval does not auto-approve synthetic animation.</p>
+      <ul class="synth-compact">${SYNTHETIC_VIDEO_HANDOFF.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+    </section>
+
     <section class="section" id="mockups-note">
       <h2>Visual mockups</h2>
-      <p>Responsive HTML/CSS mockups live inside each profile section: editorial 1:1 + 4:5, and a pain-first 9:16 cover. Hierarchy: photo → name → role → hook/skills → small MedVirtual mark. No fake Meta CTA inside artwork.</p>
+      <p>Treatment C PNGs above are the primary polished mockups. Inside each profile: Treatment C (when in first batch) plus alternate HTML/CSS editorial A/B mocks (1:1, 4:5, pain-first 9:16). Hierarchy for Treatment C: pain headline → person → name+role → 3 bullets → CTA strip → larger logo. No fake Meta CTA inside artwork.</p>
     </section>
 
     <section class="section" id="broll">
@@ -653,6 +786,34 @@ const html = `<!DOCTYPE html>
         });
       }
       [role, format, pain, batch].forEach((el) => el.addEventListener('change', applyFilters));
+
+      document.querySelectorAll('.tc-panel').forEach((panel) => {
+        const stage = panel.querySelector('.tc-stage');
+        const img = panel.querySelector('.tc-stage img');
+        const dl = panel.querySelector('[data-dl-preview]');
+        const slug = panel.dataset.slug;
+        if (!stage || !img || !slug) return;
+
+        panel.querySelectorAll('[data-set-ratio]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const ratio = btn.getAttribute('data-set-ratio') || '4x5';
+            stage.dataset.ratio = ratio;
+            const src = '/assets/real-people/' + slug + '/ad-treatment-c-' + ratio + '.png';
+            img.src = src;
+            if (dl) dl.href = src;
+            panel.querySelectorAll('[data-set-ratio]').forEach((b) => b.classList.toggle('is-active', b === btn));
+            if (ratio !== '9x16') stage.classList.remove('safe-zone');
+          });
+        });
+
+        panel.querySelector('[data-toggle-safe]')?.addEventListener('click', () => {
+          if (stage.dataset.ratio !== '9x16') {
+            flash('Safe-zone guides are for 9:16 only');
+            return;
+          }
+          stage.classList.toggle('safe-zone');
+        });
+      });
     })();
   </script>
 </body>
