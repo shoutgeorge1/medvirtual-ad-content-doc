@@ -24,36 +24,28 @@ Keep 15–30 ads in the hopper. Make “do this next” obvious.
 Hire dedicated full-time virtual staff who join the practice team.
 Not a call center / managed front desk / software / “we run your front desk.”
 
+## Visual DNA (one look — Hailey)
+Same system for **Role-Offer** (stock roles) and **Real People** (named talent):
+light cyan grid plate · Hire a Virtual / Meet {Name} · teal role pill · short checklist · CTA · colored logo · person on light plate.
+
+- Stock Role-Offer: may include approved price stamp / Hire language — `role-offer-templates.html`
+- Named Real People: Meet {Name} · exact public role · public skills only · interview CTA — **no invented rates/credentials**
+
+Never dark muddy teal overlays.
+
 ## Files
 - Public: web-safe handoff assets
 - `.local-masters/`: huge video / .ai
-- `_private/`: internal docs, spreadsheets, exports — never expose to graphics
-
-## Real People
-Active: **Treatment E — Studio Profile**
-Full-bleed natural portrait · light white/cyan plate · Meet {Name} · exact public role · Available to interview · colored logo.
-Pain + CTA in Meta copy only.
-
-Never reintroduce Treatment C, checklist layouts, CTA strips, or dark muddy teal overlays **onto named Talent Pool people**.
-
-## Role-Offer (separate — team favorites)
-Checklist + role-pill + price/CTA layouts on **stock/AI** people live under Templates → Role-Offer.
-See `.cursor/rules/medvirtual-role-offer-loved.mdc` and `public/role-offer-templates.html`.
-Do not mix those comps onto Real People Studio Profile cards.
-
-Launch 1: Jessica, Chelsea, Angelica, Mark.
-Next: Carmen, Jennifer, Stories resizes.
+- `_private/`: internal docs — never expose to graphics
 
 ## Site order
-1. Brief  2. Templates (layout refs + Role-Offer)  3. Launch 1 / Launch 2  4. Real People (one page)
+1. Brief  2. Templates (Hailey favorites + Role-Offer)  3. Launch 1 / Launch 2  4. Real People
 Reference far right: Brand Guide · Assets · Images
 
 ## Workflow
-Real People: copy form → attach refs → design Studio Profile  
-Role-Offer: edit data / in-page fields → design from loved layouts
+copy form → attach refs (Hailey / Role-Offer + talent photo + logo) → design
 
 No UTM / form QA / campaign shell / audience clutter on graphics pages.
 
 ## Claims
 Do not invent HIPAA, new rates, savings %, performance, credentials, or availability.
-Role-Offer price fields may keep the approved default from those comps until ops changes them.

@@ -36,30 +36,28 @@ export const STRATEGY = {
  * Do not upload Treatment C / muddy Portrait Lead D as final creative.
  */
 export const CONCEPT_DIRECTION = {
-  rejectedId: 'C/D',
-  rejectedName: 'Old Real People layouts (checklist flyer + muddy teal scrim)',
+  rejectedId: 'C/D-old',
+  rejectedName: 'Old dark flyer + muddy teal scrim',
   rejectedWhy: [
-    'Treatment C looked like a stacked staffing flyer (pain yell + checklist + CTA bar)',
-    'Treatment D still felt like a cheap dark overlay on a headshot',
-    'Neither matched the official MedVirtual brand kit (light cyan + clean type)',
+    'Dark teal mud overlay on headshots',
+    'Stacked pain-yell flyer look that felt off-brand',
   ],
   activeId: 'E',
-  activeName: 'Treatment E — Studio Profile',
+  activeName: 'Treatment E — Hailey / Role-Offer Meet',
   thesis:
-    'Full-bleed natural face on a light MedVirtual brand plate — Meet {Name} + exact role + colored logo. No teal mud overlay. No checklist. Pain/CTA only in Meta copy.',
+    'Same Visual DNA as Role-Offer: light cyan grid plate, Meet {Name}, teal role pill, short public-skill checklist, interview CTA, colored logo, talent photo on the right. Pain stays in Meta copy. No invented claims.',
   rulesDo: [
-    'Full-bleed natural-color portrait (person owns the frame)',
-    'Light brand bottom plate (white / soft cyan) with cyan accent edge',
-    'Large Meet {Name} + exact public role in Be Vietnam',
+    'Light grid plate (white → soft cyan) + Be Vietnam + brand teal',
+    'Meet {Name} + exact public role as a teal pill',
+    '2–3 short checklist lines from public Talent Pool skills only',
+    'Interview CTA chip (REQUEST AN INTERVIEW / Available to interview)',
     'Official colored MedVirtual logo',
-    'Pain / CTA in Meta primary text + headline only',
+    'Named talent photo on the right (or top on Stories)',
   ],
   rulesDont: [
-    'No capability checklist stack',
-    'No on-image CTA strip',
     'No dark teal mud overlay over the person',
-    'No Treatment C / D layouts',
-    'Do not invent skills, HIPAA, years, or outcomes',
+    'No inventing skills, HIPAA, years, rates, or outcomes',
+    'Do not paste stock Role-Offer copy onto a named person',
   ],
 };
 
@@ -891,36 +889,44 @@ export const MONDAY_REAL_PEOPLE_BATCH = [
 ];
 
 /**
- * Treatment E — Studio Profile (active concept).
- * On-image: circular natural portrait + Meet {Name} + role. Pain lives in Meta copy.
+ * Treatment E — Hailey / Role-Offer Meet (active).
+ * On-image: Meet {Name} · role pill · public skills · interview CTA · logo · photo right.
  */
 export const TREATMENT_E = [
   {
     talentId: 'chelsea',
     meetLine: 'Meet Chelsea',
+    hirePrefix: 'Hire a Virtual',
     role: 'Dental Virtual Assistant',
     supportLine: 'Available to interview',
+    cta: 'REQUEST AN INTERVIEW',
     primaryRatio: '4x5',
   },
   {
     talentId: 'mark',
     meetLine: 'Meet Mark',
+    hirePrefix: 'Hire a Virtual',
     role: 'Insurance Verification Specialist',
     supportLine: 'Available to interview',
+    cta: 'REQUEST AN INTERVIEW',
     primaryRatio: '4x5',
   },
   {
     talentId: 'angelica',
     meetLine: 'Meet Angelica',
+    hirePrefix: 'Hire a Virtual',
     role: 'Dermatology Front Desk Assistant',
     supportLine: 'Available to interview',
+    cta: 'REQUEST AN INTERVIEW',
     primaryRatio: '4x5',
   },
   {
     talentId: 'jessica',
     meetLine: 'Meet Jessica',
+    hirePrefix: 'Hire a Virtual',
     role: 'Jr. Medical Admin',
     supportLine: 'Available to interview',
+    cta: 'REQUEST AN INTERVIEW',
     primaryRatio: '4x5',
   },
 ];

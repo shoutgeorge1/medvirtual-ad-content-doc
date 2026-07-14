@@ -1501,11 +1501,19 @@ function renderProductionCard(concept, baseTest, index) {
 }
 
 function renderHaileyFavorites() {
-  const cards = ROLE_OFFER_TEMPLATES.map(
-    (t) => `
+  const refById = {
+    'RO-ADMIN-COLLAGE': '/assets/role-offer-refs/ro-admin-collage.png',
+    'RO-BILLER-SPLIT': '/assets/role-offer-refs/ro-biller-split.png',
+    'RO-DENTAL-ADMIN': '/assets/role-offer-refs/ro-dental-admin.png',
+    'RO-NURSE-SPLIT': '/assets/role-offer-refs/ro-nurse-split.png',
+    'RO-ADMIN-BURNOUT': '/assets/role-offer-refs/ro-admin-burnout.png',
+  };
+  const cards = ROLE_OFFER_TEMPLATES.map((t) => {
+    const thumb = refById[t.id] || t.photos[0];
+    return `
     <a class="hailey-card" href="/role-offer-templates.html#${esc(t.id)}">
       <div class="hailey-card__thumb">
-        <img src="${esc(t.photos[0])}" alt="" />
+        <img src="${esc(thumb)}" alt="" />
         <span class="hailey-card__role">${esc(t.role)}</span>
       </div>
       <div class="hailey-card__body">
@@ -1513,15 +1521,15 @@ function renderHaileyFavorites() {
         <p class="hailey-card__hook">${esc(t.headline)}</p>
         <p class="hailey-card__meta">${esc(t.layout.replaceAll('_', ' '))}</p>
       </div>
-    </a>`,
-  ).join('');
+    </a>`;
+  }).join('');
 
   return `
     <section class="hailey" id="hailey-likes">
       <div class="hailey__head">
         <p class="hailey__eyebrow">Priority · open this first</p>
         <h2>What Hailey likes</h2>
-        <p>These five Role-Offer checklist comps are the current favorite look. Match this DNA — not the old all-caps audience callouts. <a href="/role-offer-templates.html">Open editable Role-Offer Templates →</a></p>
+        <p>One Visual DNA for Role-Offer <em>and</em> Real People. Match these comps. Named talent uses Meet {Name} + role pill + public skills — same grid / teal / logo system. <a href="/role-offer-templates.html">Editable Role-Offer →</a> · <a href="/real-people-creative.html">Real People →</a></p>
       </div>
       <div class="hailey__grid">${cards}</div>
     </section>`;
