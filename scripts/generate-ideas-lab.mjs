@@ -1,6 +1,6 @@
 /**
- * Ideas Lab — experiments beyond commodity static Meet ads.
- * Remotion · ElevenLabs · human shoots · SaaS props.
+ * Ideas Lab — playful experiments beyond Meet statics.
+ * Remotion · Veo · human shoots · SaaS props · competitor remixes.
  * Regenerate: npm run generate:ideas
  */
 import fs from 'fs';
@@ -24,7 +24,7 @@ function esc(s) {
 const ideaMailto = `mailto:${GRAPHICS_REQUEST_EMAIL}?subject=${encodeURIComponent(
   'Ideas Lab pitch — MedVirtual',
 )}&body=${encodeURIComponent(
-  'Hi team,\n\nIdeas Lab pitch:\n\nLane: (Remotion / ElevenLabs / Human shoot / SaaS / Other)\nConcept:\nWhy it might help practices book:\nRough needs from us:\n\nThanks!',
+  'Hey George!\n\nIdeas Lab pitch:\n\nLane: (Remotion / Veo / Human shoot / SaaS / Competitor remix / Other)\nConcept:\nWhy it might help practices book:\nMock or rough notes:\n\nThanks!\n',
 )}`;
 
 const REMOTION = [
@@ -36,7 +36,7 @@ const REMOTION = [
   {
     id: 'PROBLEM_SOLUTION',
     title: 'Problem → solution',
-    detail: 'Hook the ops pain, then reveal dedicated virtual support. No fear tactics.',
+    detail: 'Hook the ops pain, then reveal dedicated virtual support — warm, not scary.',
   },
   {
     id: 'CHECKLIST_REVEAL',
@@ -46,12 +46,12 @@ const REMOTION = [
   {
     id: 'TEXT_ON_IMAGE_NATIVE',
     title: 'Native text-on-image',
-    detail: 'Big hook on frame one — feels like Meta-native creative, not corporate.',
+    detail: 'Big hook on frame one — feels Meta-native and scrolled-past-proof.',
   },
   {
     id: 'TALKING_HEAD_FRAME',
-    title: 'Headset hold + VO',
-    detail: 'Face clear, voiceover only. Never fake a customer testimonial.',
+    title: 'Headset hold + narration',
+    detail: 'Face clear, voiceover track only — keep it honest, never fake a testimonial.',
   },
   {
     id: 'DEMO_OFFER',
@@ -64,7 +64,7 @@ const VIDEO_HOOKS = [
   {
     title: 'Headset medical admin',
     hook: 'When patient calls keep coming in…',
-    note: 'VO explainer · approved still as frame 1',
+    note: 'Great Veo / Remotion seed · approved still as frame 1',
   },
   {
     title: 'Busy schedule review',
@@ -74,7 +74,7 @@ const VIDEO_HOOKS = [
   {
     title: 'Front desk ringing',
     hook: 'Your front desk is buried…',
-    note: 'Scenario B-roll + narrator',
+    note: 'Scenario B-roll + friendly narrator',
   },
   {
     title: 'Remote assistant calm',
@@ -210,20 +210,20 @@ const html = `<!doctype html>
   ${renderDocHeader({
     activeId: 'ideas',
     pageTitle: 'Ideas Lab',
-    pageSubtitle: 'Where we evolve past commodity statics — with your creative judgment',
+    pageSubtitle: 'Hey — toss ideas around, mock cool stuff, pitch George anything that sparks',
   })}
   <main>
     <header class="hero">
-      <h1>Same mission. Fresh creative systems.</h1>
-      <p>Meet-[Name] statics still matter under marketing’s current guidance — but ads that all look the same stop working. This lab is for motion, voice, human film, and software-style props that help practices actually book.</p>
+      <h1>Just thinking of some cool stuff…</h1>
+      <p>Meet-[Name] statics are a great foundation — and there’s room to dream bigger: Remotion motion, Google Veo clips, human shoots, SaaS props, competitor remixes. If you’ve got a “what if we tried this?” energy, you’re in the right place.</p>
     </header>
 
-    <p class="banner">Locked lane vs experiment lane: if it’s on the <a href="/graphic-request-brief.html">Brief</a>, match the brief. If it’s here, you’re invited to explore and pitch.</p>
+    <p class="banner">Quick map: the <a href="/graphic-request-brief.html">Brief</a> is today’s assigned work. Everything here is invitation — explore, mock, and pitch.</p>
 
     <div class="lanes">
       <a class="lane" href="/competitors.html">
         <h3>Competitor Wall</h3>
-        <p>Steal structures, reject commodity, remix for MedVirtual — with Ad Library links.</p>
+        <p>See real ads in market, then mock your own take and email George.</p>
       </a>
       <a class="lane" href="/mockup-sandbox.html">
         <h3>Mock-up Sandbox</h3>
@@ -240,19 +240,19 @@ const html = `<!doctype html>
         <h3>Remotion + slides</h3>
         <p>Template IDs we can build into motion once stills are strong.</p>
       </a>
-      <a class="lane" href="#voice">
-        <h3>ElevenLabs / VO</h3>
-        <p>Practice-ops narration over approved frames — never fake testimonials.</p>
+      <a class="lane" href="#veo">
+        <h3>Veo video concepts</h3>
+        <p>Short generative-video directions seeded from approved stills.</p>
       </a>
       <a class="lane" href="#human">
         <h3>Human-shot concepts</h3>
-        <p>When cameras are ready — consent, no PHI, no invented credentials.</p>
+        <p>Real cameras when we’re ready — warm, consented, no PHI.</p>
       </a>
     </div>
 
     <section id="remotion">
       <h2>Remotion motion templates</h2>
-      <p class="lede">Planning inventory — no code to ship yet. Great for designers who think in sequences and beats.</p>
+      <p class="lede">Planning inventory — no code to ship yet. Fun for designers who think in sequences and beats.</p>
       <div class="cards">
         ${REMOTION.map(
           (t) => `<article class="card"><span class="tag">${esc(t.id)}</span><h3>${esc(t.title)}</h3><p>${esc(t.detail)}</p></article>`,
@@ -260,9 +260,9 @@ const html = `<!doctype html>
       </div>
     </section>
 
-    <section id="voice" class="hooks">
-      <h2>Video / VO story hooks</h2>
-      <p class="lede">Safe drafts for short video. Prefer operations POV. First frame should still work as a static.</p>
+    <section id="veo" class="hooks">
+      <h2>Veo story hooks</h2>
+      <p class="lede">Draft starting points for short Veo / motion clips. Prefer operations POV. First frame should still work as a static.</p>
       <div class="cards">
         ${VIDEO_HOOKS.map(
           (h) =>
@@ -273,29 +273,29 @@ const html = `<!doctype html>
 
     <section id="human">
       <h2>Human-shot concepts</h2>
-      <p class="lede">When we’re ready for real cameras — still need consent, no PHI, no invented credentials.</p>
+      <p class="lede">When we bring cameras in — consent first, keep it real, keep it kind.</p>
       <div class="cards">
         ${HUMAN.map((h) => `<article class="card"><h3>${esc(h.title)}</h3><p>${esc(h.detail)}</p></article>`).join('')}
       </div>
     </section>
 
     <section>
-      <h2>Tools you’ll want nearby</h2>
-      <p class="lede">Grab masters and crops while you sketch. Producer upload packs stay optional.</p>
+      <h2>Tools nearby</h2>
+      <p class="lede">Grab masters while you sketch. Pitch George anything you love.</p>
       <div class="cards">
-        <article class="card"><h3><a href="/competitors.html">Competitor Wall</a></h3><p>Live-in-market intel + steal / reject / remix.</p></article>
-        <article class="card"><h3><a href="/mockup-sandbox.html">Mock-up Sandbox</a></h3><p>Editable forks with PNG export for idea rounds.</p></article>
+        <article class="card"><h3><a href="/competitors.html">Competitor Wall</a></h3><p>Live-in-market ads → mock → pitch.</p></article>
+        <article class="card"><h3><a href="/mockup-sandbox.html">Mock-up Sandbox</a></h3><p>Editable forks with PNG export.</p></article>
         <article class="card"><h3><a href="/asset-hub.html">Asset Hub</a></h3><p>Logos + AI masters for stills and video seeds.</p></article>
-        <article class="card"><h3><a href="/image-variation-review.html">Image board</a></h3><p>Approved crops and families to start motion from.</p></article>
-        <article class="card"><h3><a href="/saas-prop-templates.html">SaaS Prop templates</a></h3><p>Editable no-people comps — another visual system to stress-test.</p></article>
-        <article class="card"><h3><a href="/medvirtual-brand-guide.html">Brand Guide</a></h3><p>Color, logo, and claims guardrails so experiments stay shippable.</p></article>
+        <article class="card"><h3><a href="/image-variation-review.html">Image board</a></h3><p>Approved crops to start motion from.</p></article>
+        <article class="card"><h3><a href="/saas-prop-templates.html">SaaS Prop templates</a></h3><p>Editable no-people comps.</p></article>
+        <article class="card"><h3><a href="/medvirtual-brand-guide.html">Brand Guide</a></h3><p>Color, logo, and soft claims guardrails.</p></article>
       </div>
     </section>
 
     <section class="cta">
       <h2>Pitch something from the lab</h2>
-      <p>Tell us the lane, the concept, and why a practice owner might book. Short is fine — we’ll follow up.</p>
-      <a class="btn" href="${esc(ideaMailto)}">Email your pitch</a>
+      <p>Hey George would love this — tell him the lane, the concept, and why a practice owner might book. Rough is perfect.</p>
+      <a class="btn" href="${esc(ideaMailto)}">Email George your pitch</a>
       <a class="btn ghost" href="/studio.html">Back to Studio</a>
     </section>
   </main>

@@ -6,9 +6,9 @@ Live workbench for **graphics partners**, marketing, and production.
 
 ## Mission
 
-1. Help graphics ship clearly (less Slack archaeology)
-2. Stimulate ideas beyond commodity statics
-3. Stay organized (locked Brief vs Ideas Lab)
+1. Help graphics create clearly and confidently
+2. Stimulate ideas beyond the usual statics
+3. Stay organized (Brief vs Ideas Lab)
 4. Produce ads that help practices book demos
 
 ## Where to start

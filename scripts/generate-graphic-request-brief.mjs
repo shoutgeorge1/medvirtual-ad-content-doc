@@ -245,15 +245,15 @@ const html = `<!doctype html>
   ${renderDocHeader({
     activeId: 'brief',
     pageTitle: 'Graphics brief',
-    pageSubtitle: 'Current ads to design — clear asks, helpful files, your craft welcome',
+    pageSubtitle: 'Four ads to play with — thanks for helping make them great',
   })}
   <main>
     <header class="hero">
       <h1>Four ads to design</h1>
-      <p>Thanks for helping with these. Each card is one ad. Open the example, then use the photo and logo linked on the card. Prefer <a href="/studio.html">Studio</a> as home — and use <a href="/ideas.html">Ideas Lab</a> when you want to pitch something new.</p>
+      <p>Hey team — each card is one ad. Grab the examples and photos, make something you’re proud of, and send PNGs to George. Want to invent something cooler? Jump into <a href="/ideas.html">Ideas Lab</a> or the <a href="/mockup-sandbox.html">sandbox</a>.</p>
     </header>
 
-    <p class="hint">Ad 1–4 are ready whenever you are. Following the example layout keeps this batch consistent — we really appreciate your care.</p>
+    <p class="hint">Ads 1–4 whenever you’re ready. Matching the example keeps this batch consistent — and your craft still shines.</p>
 
     <ol class="steps">
       ${HOPPER_POLICY.howItWorks.map((s) => `<li>${esc(s)}</li>`).join('')}
@@ -281,9 +281,9 @@ const html = `<!doctype html>
     </section>
 
     <section class="idea-box" id="share-idea">
-      <h2>Want to suggest a better way?</h2>
-      <p class="lede">If a card feels unclear, or you see a stronger layout / hook that still fits the brand, tell us. We’d rather improve the brief with you than force busywork on Slack.</p>
-      <p><a class="btn primary" href="mailto:${esc(GRAPHICS_REQUEST_EMAIL)}?subject=${encodeURIComponent('Brief feedback / idea')}&body=${encodeURIComponent('Hi — feedback or idea on the Brief:\\n\\n')}">Share feedback or an idea</a>
+      <h2>Want to suggest something cooler?</h2>
+      <p class="lede">If a card’s unclear, or you’ve got a stronger layout or hook that still feels on-brand, tell George — he’d rather riff with you than guess.</p>
+      <p><a class="btn primary" href="mailto:${esc(GRAPHICS_REQUEST_EMAIL)}?subject=${encodeURIComponent('Brief idea')}&body=${encodeURIComponent('Hey George!\n\nIdea / note on the Brief:\n\n')}">Email George an idea</a>
       <a class="btn" href="/ideas.html">Open Ideas Lab</a>
       <a class="btn" href="/studio.html">Studio home</a></p>
     </section>

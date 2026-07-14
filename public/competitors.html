@@ -279,8 +279,14 @@
     background: #fff; border: 1px solid #d5e2ea; border-radius: 14px; overflow: hidden;
   }
   @media (max-width: 720px) { .card { grid-template-columns: 1fr; } }
-  .shot { display: block; background: #0D546B; min-height: 220px; text-decoration: none; color: #fff; }
-  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 220px; }
+  .shot { display: block; background: #0D546B; min-height: 220px; text-decoration: none; color: #fff; position: relative; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 260px; }
+  .snap-badge {
+    position: absolute; left: 0.55rem; bottom: 0.55rem;
+    background: rgba(13,84,107,0.92); color: #fff; font-size: 0.68rem; font-weight: 700;
+    padding: 0.25rem 0.45rem; border-radius: 6px;
+  }
+  .snap-badge.soft { background: rgba(15,23,42,0.75); }
   .shot.placeholder {
     display: flex; flex-direction: column; justify-content: flex-end; gap: 0.4rem;
     padding: 1rem; background:
@@ -343,7 +349,7 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Built with our graphics partners · ads that get practices to book</p>
+        <p class="doc-header__tagline">Ideas welcome · ads that help practices book</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
@@ -360,7 +366,7 @@
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Competitor Wall</h2>
-          <p class="doc-header__page-sub">Steal structures · reject commodity · remix for MedVirtual</p>
+          <p class="doc-header__page-sub">Get inspired · mock something cool · pitch George</p>
           
         </div>
 </header>
@@ -383,12 +389,12 @@
   <main>
     <header class="hero">
       <h1>Competitor Wall</h1>
-      <p>See what others are running so we don’t copy commodity Meet-ads blindly — and so you can steal structures, reject clutter, and remix for MedVirtual.</p>
+      <p>Hey — peek at what’s running out there, get inspired, then mock your own MedVirtual take and pitch it to George. Cool ideas welcome.</p>
     </header>
 
     <div class="howto">
-      <strong>How we keep this fresh</strong>
-      <ol><li>Open each Meta Ad Library link (US · Active).</li><li>Screenshot 1–2 feed ads (1080×1350-ish is ideal).</li><li>Drop as public/assets/competitors/{id}.jpg and set image: `/assets/competitors/{id}.jpg` here.</li><li>Run npm run generate:competitors</li></ol>
+      <strong>How we keep snapshots fresh</strong>
+      <ol><li>Open a Meta Ad Library link below.</li><li>Screenshot a feed ad you like (or don’t like!).</li><li>Drop it as public/assets/competitors/{id}.jpg — or just email George the shot + your mock.</li><li>Run npm run generate:competitors so everyone sees the new snapshot.</li></ol>
     </div>
 
     <div class="filters" role="group" aria-label="Filter by category">
@@ -401,36 +407,31 @@
 
     <div class="wall">
       <article class="card" id="hello-rache" data-category="virtual-staffing">
-    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Hello%20Rache" target="_blank" rel="noopener">
-         <span class="ph-name">Hello Rache</span>
-         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/hello-rache.jpg</span>
-       </a>
+    <a class="shot" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Hello%20Rache" target="_blank" rel="noopener"><img src="true" alt="Hello Rache ad snapshot" /><span class="snap-badge">Live Meta Ad Library creative</span></a>
     <div class="body">
       <div class="top">
         <h3>Hello Rache</h3>
         <span class="cat">virtual-staffing</span>
       </div>
-      <p class="why">Closest category rival — virtual medical assistants pitched to US practices.</p>
+      <p class="why">Closest category neighbor — virtual medical help pitched to US practices.</p>
       <dl class="fp">
-        <div><dt>Hook</dt><dd>Staffing relief · “hire VAs” language</dd></div>
-        <div><dt>Look</dt><dd>Smiling headset talent, soft clinical colors</dd></div>
-        <div><dt>Weakness</dt><dd>Can feel interchangeable with every other VA ad</dd></div>
+        <div><dt>Hook</dt><dd>Staffing relief · leave-on-time / scribe framing</dd></div>
+        <div><dt>Look</dt><dd>Clinical talent, purple brand, conversational hooks</dd></div>
+        <div><dt>Weakness</dt><dd>Can blur into other VA brands if we copy too closely</dd></div>
       </dl>
       <div class="tri">
-        <div><span class="lab steal">Steal</span><p>Clear role framing in one glance — title + three tasks max.</p></div>
+        <div><span class="lab steal">Steal</span><p>Clear role framing in one glance — title + a simple patient story.</p></div>
         <div><span class="lab reject">Reject</span><p>Generic stock smiles with no practice-owner POV.</p></div>
-        <div><span class="lab remix">Remix for MV</span><p>MedVirtual Meet-[Name] with public skills + Interview CTA — human, not call-center.</p></div>
+        <div><span class="lab remix">Remix for MV</span><p>MedVirtual Meet-[Name] with public skills + Interview CTA — human and distinct.</p></div>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Hello%20Rache" target="_blank" rel="noopener">Meta Ad Library</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=hello-rache">Try a mock-up</a>
+          <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Hello%20Rache" target="_blank" rel="noopener">See in Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=hello-rache">Mock my own take</a>
+        <a class="btn" href="mailto:george@a.legalsoft.com?subject=Pitch%3A%20Hello%20Rache%20remix&body=Hey%20George!%0A%0ACompetitor%20I%20looked%20at%3A%20Hello%20Rache%0A%0AMy%20remix%20idea%3A%0A%0A(attached%20mock%20or%20describe%20it)%0A%0AThanks!%0A">Pitch George</a>
       </div>
     </div>
   </article><article class="card" id="time-doc" data-category="practice-saas">
-    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=TimeDoc" target="_blank" rel="noopener">
-         <span class="ph-name">TimeDoc Health</span>
-         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/time-doc.jpg</span>
-       </a>
+    <a class="shot" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=TimeDoc" target="_blank" rel="noopener"><img src="/assets/competitors/time-doc.jpg" alt="TimeDoc Health ad snapshot" /><span class="snap-badge soft">Reference frame — swap in live Ad Library shot</span></a>
     <div class="body">
       <div class="top">
         <h3>TimeDoc Health</h3>
@@ -447,15 +448,16 @@
         <div><span class="lab reject">Reject</span><p>Tiny UI screenshots nobody can read on mobile.</p></div>
         <div><span class="lab remix">Remix for MV</span><p>SaaS Prop lane — glass UI metaphor, no fake PHI, Book a Demo.</p></div>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=TimeDoc" target="_blank" rel="noopener">Meta Ad Library</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=time-doc">Try a mock-up</a>
+          <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=TimeDoc" target="_blank" rel="noopener">See in Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=time-doc">Mock my own take</a>
+        <a class="btn" href="mailto:george@a.legalsoft.com?subject=Pitch%3A%20TimeDoc%20Health%20remix&body=Hey%20George!%0A%0ACompetitor%20I%20looked%20at%3A%20TimeDoc%20Health%0A%0AMy%20remix%20idea%3A%0A%0A(attached%20mock%20or%20describe%20it)%0A%0AThanks!%0A">Pitch George</a>
       </div>
     </div>
   </article><article class="card" id="weave" data-category="practice-saas">
     <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Weave" target="_blank" rel="noopener">
          <span class="ph-name">Weave</span>
-         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/weave.jpg</span>
+         <span class="ph-hint">Open Ad Library → grab a screenshot → drop into assets/competitors/weave.jpg (or email George)</span>
        </a>
     <div class="body">
       <div class="top">
@@ -473,15 +475,16 @@
         <div><span class="lab reject">Reject</span><p>“We run your front desk” positioning for MedVirtual.</p></div>
         <div><span class="lab remix">Remix for MV</span><p>Keep the pain in Meta primary text; on-image stays Meet + interview.</p></div>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Weave" target="_blank" rel="noopener">Meta Ad Library</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=weave">Try a mock-up</a>
+          <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Weave" target="_blank" rel="noopener">See in Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=weave">Mock my own take</a>
+        <a class="btn" href="mailto:george@a.legalsoft.com?subject=Pitch%3A%20Weave%20remix&body=Hey%20George!%0A%0ACompetitor%20I%20looked%20at%3A%20Weave%0A%0AMy%20remix%20idea%3A%0A%0A(attached%20mock%20or%20describe%20it)%0A%0AThanks!%0A">Pitch George</a>
       </div>
     </div>
   </article><article class="card" id="nexhealth" data-category="practice-saas">
     <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=NexHealth" target="_blank" rel="noopener">
          <span class="ph-name">NexHealth</span>
-         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/nexhealth.jpg</span>
+         <span class="ph-hint">Open Ad Library → grab a screenshot → drop into assets/competitors/nexhealth.jpg (or email George)</span>
        </a>
     <div class="body">
       <div class="top">
@@ -499,15 +502,16 @@
         <div><span class="lab reject">Reject</span><p>Over-design that hides the offer.</p></div>
         <div><span class="lab remix">Remix for MV</span><p>Borrow calm modern layout; keep MedVirtual teal + Be Vietnam.</p></div>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=NexHealth" target="_blank" rel="noopener">Meta Ad Library</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=nexhealth">Try a mock-up</a>
+          <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=NexHealth" target="_blank" rel="noopener">See in Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=nexhealth">Mock my own take</a>
+        <a class="btn" href="mailto:george@a.legalsoft.com?subject=Pitch%3A%20NexHealth%20remix&body=Hey%20George!%0A%0ACompetitor%20I%20looked%20at%3A%20NexHealth%0A%0AMy%20remix%20idea%3A%0A%0A(attached%20mock%20or%20describe%20it)%0A%0AThanks!%0A">Pitch George</a>
       </div>
     </div>
   </article><article class="card" id="zocdoc" data-category="other">
     <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Zocdoc" target="_blank" rel="noopener">
          <span class="ph-name">Zocdoc</span>
-         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/zocdoc.jpg</span>
+         <span class="ph-hint">Open Ad Library → grab a screenshot → drop into assets/competitors/zocdoc.jpg (or email George)</span>
        </a>
     <div class="body">
       <div class="top">
@@ -525,16 +529,14 @@
         <div><span class="lab reject">Reject</span><p>Trying to explain our whole company on the image.</p></div>
         <div><span class="lab remix">Remix for MV</span><p>One proof line + Meet name + CTA — stop packing five claims.</p></div>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Zocdoc" target="_blank" rel="noopener">Meta Ad Library</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=zocdoc">Try a mock-up</a>
+          <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Zocdoc" target="_blank" rel="noopener">See in Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=zocdoc">Mock my own take</a>
+        <a class="btn" href="mailto:george@a.legalsoft.com?subject=Pitch%3A%20Zocdoc%20remix&body=Hey%20George!%0A%0ACompetitor%20I%20looked%20at%3A%20Zocdoc%0A%0AMy%20remix%20idea%3A%0A%0A(attached%20mock%20or%20describe%20it)%0A%0AThanks!%0A">Pitch George</a>
       </div>
     </div>
   </article><article class="card" id="carerev" data-category="job-marketplace">
-    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=CareRev" target="_blank" rel="noopener">
-         <span class="ph-name">CareRev</span>
-         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/carerev.jpg</span>
-       </a>
+    <a class="shot" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=CareRev" target="_blank" rel="noopener"><img src="/assets/competitors/carerev.jpg" alt="CareRev ad snapshot" /><span class="snap-badge soft">Reference frame — swap in live Ad Library shot</span></a>
     <div class="body">
       <div class="top">
         <h3>CareRev</h3>
@@ -551,16 +553,14 @@
         <div><span class="lab reject">Reject</span><p>Anything that makes MedVirtual look like gig staffing.</p></div>
         <div><span class="lab remix">Remix for MV</span><p>Owner POV: hire into your team — not “pick up shifts.”</p></div>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=CareRev" target="_blank" rel="noopener">Meta Ad Library</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=carerev">Try a mock-up</a>
+          <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=CareRev" target="_blank" rel="noopener">See in Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=carerev">Mock my own take</a>
+        <a class="btn" href="mailto:george@a.legalsoft.com?subject=Pitch%3A%20CareRev%20remix&body=Hey%20George!%0A%0ACompetitor%20I%20looked%20at%3A%20CareRev%0A%0AMy%20remix%20idea%3A%0A%0A(attached%20mock%20or%20describe%20it)%0A%0AThanks!%0A">Pitch George</a>
       </div>
     </div>
   </article><article class="card" id="patientpop" data-category="practice-saas">
-    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=PatientPop" target="_blank" rel="noopener">
-         <span class="ph-name">PatientPop / Tebra</span>
-         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/patientpop.jpg</span>
-       </a>
+    <a class="shot" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=PatientPop" target="_blank" rel="noopener"><img src="/assets/competitors/patientpop.jpg" alt="PatientPop / Tebra ad snapshot" /><span class="snap-badge soft">Reference frame — swap in live Ad Library shot</span></a>
     <div class="body">
       <div class="top">
         <h3>PatientPop / Tebra</h3>
@@ -577,35 +577,34 @@
         <div><span class="lab reject">Reject</span><p>Agency collage fluff with no single subject.</p></div>
         <div><span class="lab remix">Remix for MV</span><p>One talent + one role = the upgrade story.</p></div>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=PatientPop" target="_blank" rel="noopener">Meta Ad Library</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=patientpop">Try a mock-up</a>
+          <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=PatientPop" target="_blank" rel="noopener">See in Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=patientpop">Mock my own take</a>
+        <a class="btn" href="mailto:george@a.legalsoft.com?subject=Pitch%3A%20PatientPop%20%2F%20Tebra%20remix&body=Hey%20George!%0A%0ACompetitor%20I%20looked%20at%3A%20PatientPop%20%2F%20Tebra%0A%0AMy%20remix%20idea%3A%0A%0A(attached%20mock%20or%20describe%20it)%0A%0AThanks!%0A">Pitch George</a>
       </div>
     </div>
   </article><article class="card" id="generic-va-commodity" data-category="virtual-staffing">
-    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=virtual%20medical%20assistant" target="_blank" rel="noopener">
-         <span class="ph-name">Generic “Hire VAs” cluster</span>
-         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/generic-va-commodity.jpg</span>
-       </a>
+    <a class="shot" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=virtual%20medical%20assistant" target="_blank" rel="noopener"><img src="/assets/competitors/generic-va-commodity.jpg" alt="Generic “Hire VAs” cluster ad snapshot" /><span class="snap-badge soft">Reference frame — swap in live Ad Library shot</span></a>
     <div class="body">
       <div class="top">
         <h3>Generic “Hire VAs” cluster</h3>
         <span class="cat">virtual-staffing</span>
       </div>
-      <p class="why">The cul-de-sac — endless identical teal headset ads drowning the category.</p>
+      <p class="why">A crowded “hire VAs” look we can happily do better than — lots of room for fresh MedVirtual ideas.</p>
       <dl class="fp">
         <div><dt>Hook</dt><dd>Cheap / fast / 24-7 staffing spam</dd></div>
         <div><dt>Look</dt><dd>Same headset crop everywhere</dd></div>
-        <div><dt>Weakness</dt><dd>Zero differentiation — this is why we need Ideas Lab</dd></div>
+        <div><dt>Weakness</dt><dd>Hard to tell brands apart — perfect invitation to invent</dd></div>
       </dl>
       <div class="tri">
-        <div><span class="lab steal">Steal</span><p>Nothing. Study it so you know what to avoid.</p></div>
-        <div><span class="lab reject">Reject</span><p>Copying the commodity look because it’s “safe.”</p></div>
-        <div><span class="lab remix">Remix for MV</span><p>Ideas Lab: motion, VO, human shoots, SaaS Prop — break the pattern.</p></div>
+        <div><span class="lab steal">Steal</span><p>Nothing required — use it as fuel to go different.</p></div>
+        <div><span class="lab reject">Reject</span><p>Blending in with the pack just because it’s familiar.</p></div>
+        <div><span class="lab remix">Remix for MV</span><p>Ideas Lab: Veo, motion, human shoots, SaaS Prop — have fun standing out.</p></div>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=virtual%20medical%20assistant" target="_blank" rel="noopener">Meta Ad Library</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Try a mock-up</a>
+          <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=virtual%20medical%20assistant" target="_blank" rel="noopener">See in Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
+        <a class="btn" href="mailto:george@a.legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%20I%20looked%20at%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0A%0AMy%20remix%20idea%3A%0A%0A(attached%20mock%20or%20describe%20it)%0A%0AThanks!%0A">Pitch George</a>
       </div>
     </div>
   </article>
@@ -634,9 +633,9 @@
     </section>
 
     <section class="cta">
-      <h2>Built a better remix?</h2>
-      <p>Drop a note with the competitor + your mock angle. We’ll review with marketing and may promote winners into the Brief.</p>
-      <a class="btn primary" href="mailto:UPDATE_ME@medvirtual.ai?subject=Competitor%20insight%20%2B%20mock%20idea&amp;body=Competitor%20I%20studied%3A%5CnSteal%20%2F%20Reject%20%2F%20Remix%3A%5CnMock%20idea%3A%5Cn">Share your remix</a>
+      <h2>Mock it · pitch George</h2>
+      <p>Saw something interesting? Remix it in the sandbox and email George — he’s excited to see what you cook up.</p>
+      <a class="btn primary" href="mailto:george@a.legalsoft.com?subject=Competitor%20remix%20pitch&amp;body=Hey%20George!%0A%0ACompetitor%20I%20studied%3A%0AMy%20remix%20%2F%20mock%20idea%3A%0A(Optional%3A%20attached%20PNG%20from%20the%20sandbox)%0A%0AThanks!%0A">Email George a remix</a>
       <a class="btn" href="/mockup-sandbox.html">Open mock-up sandbox</a>
       <a class="btn" href="/ideas.html">Ideas Lab</a>
     </section>

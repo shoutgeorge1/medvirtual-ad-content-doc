@@ -51,11 +51,16 @@ function hasImage(ad) {
 function renderCard(ad) {
   const img = hasImage(ad) || ad.image || null;
   const lib = adLibraryUrl(ad.adLibraryQuery);
+  const badge = ad.snapshotNote
+    ? `<span class="snap-badge">${esc(ad.snapshotNote)}</span>`
+    : img
+      ? `<span class="snap-badge soft">Reference frame — swap in live Ad Library shot</span>`
+      : '';
   const visual = img
-    ? `<a class="shot" href="${esc(lib)}" target="_blank" rel="noopener"><img src="${esc(img)}" alt="${esc(ad.name)} ad screenshot" /></a>`
+    ? `<a class="shot" href="${esc(lib)}" target="_blank" rel="noopener"><img src="${esc(img)}" alt="${esc(ad.name)} ad snapshot" />${badge}</a>`
     : `<a class="shot placeholder" href="${esc(lib)}" target="_blank" rel="noopener">
          <span class="ph-name">${esc(ad.name)}</span>
-         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/${esc(ad.id)}.jpg</span>
+         <span class="ph-hint">Open Ad Library → grab a screenshot → drop into assets/competitors/${esc(ad.id)}.jpg (or email George)</span>
        </a>`;
 
   return `<article class="card" id="${esc(ad.id)}" data-category="${esc(ad.category)}">
@@ -76,9 +81,10 @@ function renderCard(ad) {
         <div><span class="lab reject">Reject</span><p>${esc(ad.reject)}</p></div>
         <div><span class="lab remix">Remix for MV</span><p>${esc(ad.remix)}</p></div>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="${esc(lib)}" target="_blank" rel="noopener">Meta Ad Library</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=${esc(ad.id)}">Try a mock-up</a>
+          <div class="actions">
+        <a class="btn primary" href="${esc(lib)}" target="_blank" rel="noopener">See in Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=${esc(ad.id)}">Mock my own take</a>
+        <a class="btn" href="mailto:${esc(GRAPHICS_REQUEST_EMAIL)}?subject=${encodeURIComponent('Pitch: ' + ad.name + ' remix')}&body=${encodeURIComponent('Hey George!\n\nCompetitor I looked at: ' + ad.name + '\n\nMy remix idea:\n\n(attached mock or describe it)\n\nThanks!\n')}">Pitch George</a>
       </div>
     </div>
   </article>`;
@@ -130,8 +136,14 @@ const css = `
     background: #fff; border: 1px solid #d5e2ea; border-radius: 14px; overflow: hidden;
   }
   @media (max-width: 720px) { .card { grid-template-columns: 1fr; } }
-  .shot { display: block; background: #0D546B; min-height: 220px; text-decoration: none; color: #fff; }
-  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 220px; }
+  .shot { display: block; background: #0D546B; min-height: 220px; text-decoration: none; color: #fff; position: relative; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 260px; }
+  .snap-badge {
+    position: absolute; left: 0.55rem; bottom: 0.55rem;
+    background: rgba(13,84,107,0.92); color: #fff; font-size: 0.68rem; font-weight: 700;
+    padding: 0.25rem 0.45rem; border-radius: 6px;
+  }
+  .snap-badge.soft { background: rgba(15,23,42,0.75); }
   .shot.placeholder {
     display: flex; flex-direction: column; justify-content: flex-end; gap: 0.4rem;
     padding: 1rem; background:
@@ -188,8 +200,10 @@ const css = `
 `;
 
 const mailto = `mailto:${GRAPHICS_REQUEST_EMAIL}?subject=${encodeURIComponent(
-  'Competitor insight + mock idea',
-)}&body=${encodeURIComponent('Competitor I studied:\\nSteal / Reject / Remix:\\nMock idea:\\n')}`;
+  'Competitor remix pitch',
+)}&body=${encodeURIComponent(
+  'Hey George!\n\nCompetitor I studied:\nMy remix / mock idea:\n(Optional: attached PNG from the sandbox)\n\nThanks!\n',
+)}`;
 
 const html = `<!doctype html>
 <html lang="en">
@@ -203,7 +217,7 @@ const html = `<!doctype html>
   ${renderDocHeader({
     activeId: 'competitors',
     pageTitle: 'Competitor Wall',
-    pageSubtitle: 'Steal structures · reject commodity · remix for MedVirtual',
+    pageSubtitle: 'Get inspired · mock something cool · pitch George',
   })}
   <main>
     <header class="hero">
@@ -212,7 +226,7 @@ const html = `<!doctype html>
     </header>
 
     <div class="howto">
-      <strong>How we keep this fresh</strong>
+      <strong>How we keep snapshots fresh</strong>
       <ol>${COMPETITOR_META.howToRefresh.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>
     </div>
 
@@ -235,9 +249,9 @@ const html = `<!doctype html>
     </section>
 
     <section class="cta">
-      <h2>Built a better remix?</h2>
-      <p>Drop a note with the competitor + your mock angle. We’ll review with marketing and may promote winners into the Brief.</p>
-      <a class="btn primary" href="${esc(mailto)}">Share your remix</a>
+      <h2>Mock it · pitch George</h2>
+      <p>Saw something interesting? Remix it in the sandbox and email George — he’s excited to see what you cook up.</p>
+      <a class="btn primary" href="${esc(mailto)}">Email George a remix</a>
       <a class="btn" href="/mockup-sandbox.html">Open mock-up sandbox</a>
       <a class="btn" href="/ideas.html">Ideas Lab</a>
     </section>

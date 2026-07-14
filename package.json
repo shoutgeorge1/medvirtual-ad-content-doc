@@ -20,6 +20,7 @@
     "generate:studio": "node scripts/generate-studio-home.mjs",
     "generate:ideas": "node scripts/generate-ideas-lab.mjs",
     "generate:competitors": "node scripts/generate-competitor-wall.mjs",
+    "generate:competitor-snaps": "node scripts/generate-competitor-snapshots.mjs",
     "generate:mockups": "node scripts/generate-mockup-sandbox.mjs",
     "generate:marketing-library": "node scripts/generate-marketing-library.mjs",
     "import:marketing-library": "node scripts/import-marketing-library.mjs && node scripts/generate-marketing-library.mjs",

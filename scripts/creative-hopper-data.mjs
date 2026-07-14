@@ -18,8 +18,8 @@
 
 import { BRAND } from './medvirtual-brand-data.mjs';
 
-/** Default requester email — update when VA / producer inbox changes */
-export const GRAPHICS_REQUEST_EMAIL = 'UPDATE_ME@medvirtual.ai';
+/** George’s inbox for briefs, pitches, and sandbox exports */
+export const GRAPHICS_REQUEST_EMAIL = 'george@a.legalsoft.com';
 
 export const HOPPER_POLICY = {
   targetReadyMin: 15,
@@ -33,16 +33,16 @@ export const HOPPER_POLICY = {
   brandGuideUrl: 'https://medvirtual-ad-content-doc.vercel.app/medvirtual-brand-guide.html',
   metaLaunchUrl: 'https://medvirtual-ad-content-doc.vercel.app/meta-launch-build-pack.html',
   howItWorks: [
-    'Pick one of the four ads below — whichever you’re ready for.',
-    'Download the photo, logo, and example linked on that card.',
-    'Use the example as your guide, then follow the card for the person or size.',
-    'When you’re happy with it, send the PNG to your MedVirtual contact. Thank you!',
+    'Pick any of the four ads below — whatever you’re feeling.',
+    'Grab the photo, logo, and example linked on the card.',
+    'Use the example as a friendly guide, then make it yours within the look.',
+    'When you’re happy, send the PNG to George — he’d love to see it.',
   ],
   languageRules: [
-    'Please use MedVirtual on the ad (not MedVirtual.ai)',
-    'Frame it as hiring dedicated full-time virtual staff for the practice team',
-    'Please avoid “call center,” “we run your front desk,” or managed-service wording',
-    'Please stick to what’s on the profile — no invented HIPAA, savings $, or credentials',
+    'Brand on ads: MedVirtual (not MedVirtual.ai)',
+    'We’re about hiring dedicated full-time virtual staff for the practice team',
+    'Skip call-center / “we run your front desk” / managed-service vibes',
+    'Stick to real profile titles and skills — keep claims light and true',
   ],
 };
 

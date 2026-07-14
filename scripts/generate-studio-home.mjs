@@ -24,7 +24,7 @@ const doNow = hopperByStatus('do_now');
 const ideaMailto = `mailto:${GRAPHICS_REQUEST_EMAIL}?subject=${encodeURIComponent(
   'Creative idea — MedVirtual',
 )}&body=${encodeURIComponent(
-  'Hi team,\n\nHere is a creative idea / direction I would love to try:\n\n1. What the ad is\n2. Why it might help practices book\n3. Style notes or rough sketch link\n\nThanks!',
+  'Hey George!\n\nJust had an idea I wanted to share:\n\n1. What it is\n2. Why it could help practices book\n3. Any rough notes or a mock link\n\nThanks!\n',
 )}`;
 
 const css = `
@@ -164,26 +164,26 @@ const html = `<!doctype html>
   ${renderDocHeader({
     activeId: 'studio',
     pageTitle: 'Studio',
-    pageSubtitle: 'Welcome — this site is for you. Clear asks, good references, room for your ideas.',
+    pageSubtitle: 'Hey team — this is our creative playground. Ideas welcome.',
   })}
   <main>
     <header class="hero">
-      <h1>You’re part of how MedVirtual grows.</h1>
-      <p>Static Meet ads got us here. They also got crowded. We need great craft, fresh ideas, and less Slack back-and-forth — this Studio is meant to make your work clearer and give your voice a seat.</p>
+      <h1>Let’s make some cool ads together.</h1>
+      <p>Hey folks — we’ve got a solid Meet-[Name] look that marketing likes, and we’re also dreaming up fresh directions: motion, Veo clips, human shoots, wild mock-ups. This Studio is here so you’ve got tools, examples, and an easy way to pitch George something fun.</p>
     </header>
 
     <div class="mission">
       <article>
-        <h2>Help you ship</h2>
-        <p>Files, sizes, examples, and brand rules in one place — so you’re not chasing answers in chat.</p>
+        <h2>Make life easier</h2>
+        <p>Sizes, logos, photos, and examples live in one place so you can jump in and create.</p>
       </article>
       <article>
-        <h2>Stay organized</h2>
-        <p>Brief = what’s needed now. Lookbook = layout guides. People = talent ads. Ideas = where we experiment next.</p>
+        <h2>Stay in sync</h2>
+        <p>Brief = what’s needed now. Lookbook = today’s layout guides. Ideas = where we play and invent.</p>
       </article>
       <article>
-        <h2>Win customers</h2>
-        <p>Everything here exists so practices book demos. Beautiful work that feels human and trustworthy.</p>
+        <h2>Help practices book</h2>
+        <p>Beautiful, human creative that makes a practice owner want to say yes to a demo.</p>
       </article>
     </div>
 
@@ -197,31 +197,31 @@ const html = `<!doctype html>
       <a class="tile" href="/template-test-board.html">
         <span class="eyebrow">Guides</span>
         <h3>Lookbook</h3>
-        <p>Approved layout language for today’s static Real People ads. Use as a guide — your polish still matters.</p>
+        <p>Layout language for today’s Real People ads — a springboard, not a ceiling.</p>
         <span class="meta">Layout guides + Role-Offer board →</span>
       </a>
       <a class="tile" href="/real-people-creative.html">
         <span class="eyebrow">Talent</span>
         <h3>People</h3>
-        <p>Named team members, finished comps, downloads, and Meta copy packages.</p>
+        <p>Named teammates, finished comps, downloads, and Meta copy packages.</p>
         <span class="meta">Ready ads + source photos →</span>
       </a>
       <a class="tile" href="/ideas.html">
-        <span class="eyebrow">Next</span>
+        <span class="eyebrow">Dream</span>
         <h3>Ideas Lab</h3>
-        <p>Remotion, VO, human shoots — plus Competitor Wall and Mock-up Sandbox to get ideas moving.</p>
+        <p>Remotion, Veo, human shoots — plus competitors and a mock-up sandbox to jam in.</p>
         <span class="meta">Explore experiments →</span>
       </a>
       <a class="tile" href="/competitors.html">
-        <span class="eyebrow">Intel</span>
+        <span class="eyebrow">Spark</span>
         <h3>Competitor Wall</h3>
-        <p>What rivals run on Meta. Steal / reject / remix prompts for each card.</p>
-        <span class="meta">Open Ad Library links →</span>
+        <p>Peek at what’s running out there, then mock your own take and pitch it to George.</p>
+        <span class="meta">See ads + remix →</span>
       </a>
       <a class="tile" href="/mockup-sandbox.html">
         <span class="eyebrow">Play</span>
         <h3>Mock-up Sandbox</h3>
-        <p>Three editable forks. Click text, hit Surprise me, export PNGs.</p>
+        <p>Three editable forks. Click text, hit Surprise me, export PNGs, email George.</p>
         <span class="meta">Start mocking →</span>
       </a>
     </div>
@@ -229,26 +229,26 @@ const html = `<!doctype html>
     <section class="panel">
       <h2>Open on the Brief</h2>
       <p class="lede">Quick list of what’s currently requested. Full details live on the Brief page.</p>
-      <ul class="jobs">${jobList || '<li>Nothing open — check with your MedVirtual contact.</li>'}</ul>
+      <ul class="jobs">${jobList || '<li>Nothing open right now — feel free to explore Ideas Lab or email George a spark.</li>'}</ul>
     </section>
 
     <section class="panel">
-      <h2>How we like to work together</h2>
+      <h2>How we like to roll</h2>
       <ol class="steps">
-        <li><strong>Brief first</strong> for assigned static ads — keeps quality consistent while we still learn what converts.</li>
-        <li><strong>Lookbook</strong> shows the layout DNA that marketing trusts right now. It’s guidance, not a cage — if something’s unclear, ask.</li>
-        <li><strong>Ideas Lab</strong> is where you help us get unstuck: motion, voice, human film, new visual systems.</li>
-        <li><strong>Share ideas anytime</strong> — we want your instinct. Better one thoughtful note than 20 Slack threads.</li>
+        <li><strong>Brief</strong> for assigned statics — keeps the current campaign tight and consistent.</li>
+        <li><strong>Lookbook</strong> for the layout vibe marketing is into right now — bring your polish.</li>
+        <li><strong>Ideas Lab + Sandbox</strong> when you want to try something cooler — George is all ears.</li>
+        <li><strong>Pitch anytime</strong> — rough ideas welcome. “What if we tried…” emails make his day.</li>
       </ol>
     </section>
 
     <section class="panel ideas">
-      <h2>Got a direction you want to try?</h2>
-      <p class="lede">Sketch, spark, or “what if we…” notes are welcome. Send a short idea — we’ll review with marketing and get back to you.</p>
+      <h2>Got a fun idea floating around?</h2>
+      <p class="lede">Seriously — shoot George a note. Sketches, “what ifs,” competitor remixes. We’re building this with you.</p>
       <div class="actions">
-        <a class="btn light" href="${esc(ideaMailto)}">Share an idea by email</a>
+        <a class="btn light" href="${esc(ideaMailto)}">Email George an idea</a>
         <a class="btn ghost" href="/ideas.html">Browse Ideas Lab</a>
-        <a class="btn ghost" href="/asset-hub.html">Grab logos &amp; image masters</a>
+        <a class="btn ghost" href="/mockup-sandbox.html">Open the sandbox</a>
       </div>
     </section>
   </main>

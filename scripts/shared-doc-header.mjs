@@ -9,7 +9,7 @@ import { LAUNCH_SUBNAV } from './launch-sequences-data.mjs';
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Creative Handoff',
-  tagline: 'Built with our graphics partners · ads that get practices to book',
+  tagline: 'Ideas welcome · ads that help practices book',
   homeHref: '/studio.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };

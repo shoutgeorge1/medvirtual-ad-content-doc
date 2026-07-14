@@ -247,12 +247,12 @@ const html = `<!doctype html>
   ${renderDocHeader({
     activeId: 'mockups',
     pageTitle: 'Mock-up Sandbox',
-    pageSubtitle: 'Play — three forks, editable type, export PNGs for Slack or the Brief',
+    pageSubtitle: 'Play around — three forks, editable type, export PNGs for George',
   })}
   <main>
     <header class="hero">
       <h1>Try ideas before they hit the Brief.</h1>
-      <p>Click any text to edit. Use <strong>Surprise me</strong> for a fresh seed, or open a weekly fork. This is a sandbox — experiments welcome.</p>
+      <p>Click any text to edit. Hit <strong>Surprise me</strong> for a fresh seed. Export a PNG and email George — he’d love to see what you’re dreaming up.</p>
     </header>
 
     <div class="toolbar">
@@ -266,7 +266,7 @@ const html = `<!doctype html>
       <a class="btn" href="/competitors.html">Competitor Wall</a>
       <a class="btn" href="/ideas.html">Ideas Lab</a>
     </div>
-    <p class="note">Tip: export PNGs and email them to your MedVirtual contact — winners can graduate into the real Brief.</p>
+    <p class="note">Tip: export PNGs and email them to George — favorites can graduate into the real Brief.</p>
 
     <div class="board">
       <div class="col">
@@ -332,12 +332,12 @@ const html = `<!doctype html>
     <section class="tips">
       <h2>How to use this with the team</h2>
       <ul>
-        <li>Study a card on the <a href="/competitors.html">Competitor Wall</a>, then remix here.</li>
-        <li>Lookbook fork = safe for today’s Brief language.</li>
-        <li>Bold / SaaS forks = Ideas Lab material — pitch them even if they’re not Brief-ready.</li>
-        <li>Keep claims modest: no invented HIPAA, savings $, or “we run your front desk.”</li>
+        <li>Browse the <a href="/competitors.html">Competitor Wall</a>, then remix here.</li>
+        <li>Lookbook fork = great for today’s Brief language.</li>
+        <li>Bold / SaaS forks = Ideas Lab energy — pitch George even if they’re not Brief-ready yet.</li>
+        <li>Keep claims light and true — profile titles/skills only.</li>
       </ul>
-      <p style="margin:0.85rem 0 0"><a class="btn primary" style="display:inline-flex;padding:0.5rem 0.85rem;border-radius:8px;background:#077999;color:#fff;font-weight:700;text-decoration:none" href="mailto:${esc(GRAPHICS_REQUEST_EMAIL)}?subject=${encodeURIComponent('Sandbox mock-ups for review')}">Email your exports</a></p>
+      <p style="margin:0.85rem 0 0"><a class="btn primary" style="display:inline-flex;padding:0.5rem 0.85rem;border-radius:8px;background:#077999;color:#fff;font-weight:700;text-decoration:none" href="mailto:${esc(GRAPHICS_REQUEST_EMAIL)}?subject=${encodeURIComponent('Sandbox mock-ups for George')}&body=${encodeURIComponent('Hey George!\n\nHere are some sandbox mock-ups I was playing with:\n\n')}">Email George your exports</a></p>
     </section>
   </main>
   <div class="toast" id="toast">Saved</div>
