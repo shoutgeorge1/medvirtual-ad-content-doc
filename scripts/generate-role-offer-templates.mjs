@@ -621,15 +621,9 @@ const html = `<!DOCTYPE html>
 </head>
 <body>
   ${renderDocHeader({
-    activeId: 'templates',
+    activeId: 'role-offer',
     pageTitle: 'Role-Offer · Hailey likes these',
     pageSubtitle: 'Editable checklist layouts — open these first',
-    subnav: [
-      { href: '/template-test-board.html', label: 'Layout refs' },
-      { href: '/role-offer-templates.html', label: 'Role-Offer' },
-      { href: '/saas-prop-templates.html', label: 'SaaS Prop' },
-    ],
-    activeSubHref: '/role-offer-templates.html',
   })}
   <div class="intro">
     <h1>${esc(ROLE_OFFER_META.title)}</h1>

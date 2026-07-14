@@ -119,9 +119,11 @@
   .doc-nav {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.35rem;
   }
-  .doc-nav a {
+  .doc-nav a,
+  .doc-nav-dd > summary {
     padding: 0.45rem 0.75rem;
     border-radius: 8px;
     font-size: 0.8rem;
@@ -130,22 +132,63 @@
     text-decoration: none;
     border: 1px solid transparent;
     transition: background 0.15s, color 0.15s;
+    list-style: none;
+    cursor: pointer;
   }
-  .doc-nav a:hover {
+  .doc-nav-dd > summary::-webkit-details-marker { display: none; }
+  .doc-nav-dd > summary::after {
+    content: '▾';
+    margin-left: 0.35em;
+    font-size: 0.7em;
+    opacity: 0.75;
+  }
+  .doc-nav a:hover,
+  .doc-nav-dd > summary:hover {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.08);
   }
-  .doc-nav a.active {
+  .doc-nav a.active,
+  .doc-nav-dd.active > summary,
+  .doc-nav-dd[open] > summary {
     color: #ffffff;
     background: var(--mv-primary);
   }
-  .doc-nav--ref a {
+  .doc-nav-dd {
+    position: relative;
+  }
+  .doc-nav-dd__menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    min-width: 11rem;
+    background: #0a4558;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    padding: 0.35rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .doc-nav-dd__menu a {
+    display: block;
+    white-space: nowrap;
+    border-radius: 7px;
+  }
+  .doc-nav-dd__menu a.active {
+    background: rgba(0, 178, 226, 0.28);
+  }
+  .doc-nav--ref a,
+  .doc-nav--ref .doc-nav-dd > summary {
     font-size: 0.72rem;
     font-weight: 400;
     color: #9fb9c6;
     padding: 0.35rem 0.55rem;
   }
-  .doc-nav--ref a.active {
+  .doc-nav--ref a.active,
+  .doc-nav--ref .doc-nav-dd.active > summary,
+  .doc-nav--ref .doc-nav-dd[open] > summary {
     background: rgba(255,255,255,0.12);
     color: #fff;
   }
@@ -179,6 +222,7 @@
     .doc-header { padding: 1rem; }
     .doc-header__logo { height: 30px; max-width: 130px; }
     .doc-nav-sep { display: none; }
+    .doc-nav-dd__menu { min-width: 9.5rem; }
   }
 
   * { box-sizing: border-box; }
@@ -286,11 +330,14 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Graphics · templates · Real People</p>
+        <p class="doc-header__tagline">Graphics · templates · Real People · SaaS</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="active">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/real-people-creative.html" class="">Real People</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="active">Brief</a><details class="doc-nav-dd ">
+      <summary>Templates</summary>
+      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout refs</a><a href="/role-offer-templates.html" class="">Role-Offer</a></div>
+    </details><a href="/real-people-creative.html" class="">Real People</a><a href="/saas-prop-templates.html" class="">SaaS Prop</a></nav>
       <span class="doc-nav-sep" aria-hidden="true"></span>
       <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/asset-hub.html" class="">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
     </div>
@@ -301,6 +348,22 @@
           
         </div>
 </header>
+<script>
+(function () {
+  document.querySelectorAll('.doc-nav-dd').forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (!dd.open) return;
+      document.querySelectorAll('.doc-nav-dd').forEach((other) => {
+        if (other !== dd) other.open = false;
+      });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.doc-nav-dd')) return;
+    document.querySelectorAll('.doc-nav-dd[open]').forEach((dd) => { dd.open = false; });
+  });
+})();
+</script>
   <main>
     <header class="hero">
       <h1>Do these next. Ignore the rest.</h1>

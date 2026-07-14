@@ -228,15 +228,9 @@ const html = `<!DOCTYPE html>
 </head>
 <body>
   ${renderDocHeader({
-    activeId: 'templates',
+    activeId: 'saas-prop',
     pageTitle: 'SaaS Prop Templates',
     pageSubtitle: 'Classy medical-software look · no people · fancy words',
-    subnav: [
-      { href: '/template-test-board.html', label: 'Layout refs' },
-      { href: '/role-offer-templates.html', label: 'Role-Offer' },
-      { href: '/saas-prop-templates.html', label: 'SaaS Prop' },
-    ],
-    activeSubHref: '/saas-prop-templates.html',
   })}
   <div class="intro">
     <h1>${esc(SAAS_PROP_META.title)}</h1>

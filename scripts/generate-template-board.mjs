@@ -1840,19 +1840,13 @@ async function main() {
   ${renderDocHeader({
     activeId: 'templates',
     pageTitle: 'Templates',
-    pageSubtitle: 'Hailey favorites · Role-Offer · layout refs',
-    subnav: [
-      { href: '/template-test-board.html', label: 'Layout refs' },
-      { href: '/role-offer-templates.html', label: 'Role-Offer' },
-      { href: '/saas-prop-templates.html', label: 'SaaS Prop' },
-    ],
-    activeSubHref: '/template-test-board.html',
+    pageSubtitle: 'Hailey layout refs · Role-Offer boards under Templates ▾',
   })}
   <div class="wrap">
     <header class="banner">
       <h2>Templates — Hailey examples</h2>
       <p>All four layout refs are polished to Hailey’s Role-Offer DNA (Be Vietnam · Hire + role pill · checks · price · CTA). Use these as the bar — not the old all-caps stacks.</p>
-      <p class="clarify"><strong>Also:</strong> <a href="/role-offer-templates.html">Role-Offer</a> · <a href="/saas-prop-templates.html">SaaS Prop</a> · <a href="/real-people-creative.html">Real People</a></p>
+      <p class="clarify"><strong>Also:</strong> <a href="/role-offer-templates.html">Role-Offer</a> · <a href="/real-people-creative.html">Real People</a> · <a href="/saas-prop-templates.html">SaaS Prop</a></p>
       <div class="banner-meta">
         <span><a href="#hailey-likes">5 Hailey favorites</a></span>
         <span><a href="/role-offer-templates.html">Editable Role-Offer</a></span>

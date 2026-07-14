@@ -1,6 +1,7 @@
 /**
  * Shared MedVirtual Content Doc header — identical across all surfaces.
- * Graphics team workflow left → right. Brand / Assets sit far right as reference.
+ * Graphics workflow left → right. Concepts keep stacking right of Real People.
+ * Use dropdowns (`children`) when a lane has multiple boards.
  */
 import { brandCssVariables, BRAND } from './medvirtual-brand-data.mjs';
 import { LAUNCH_SUBNAV } from './launch-sequences-data.mjs';
@@ -8,14 +9,14 @@ import { LAUNCH_SUBNAV } from './launch-sequences-data.mjs';
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Creative Handoff',
-  tagline: 'Graphics · templates · Real People',
+  tagline: 'Graphics · templates · Real People · SaaS',
   homeHref: '/graphic-request-brief.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };
 
 /**
- * Primary left nav — what the graphics team opens every day.
- * Keep this short. Brand / Assets live in REFERENCE_NAV.
+ * Primary nav — left → right. New concept lanes append after Real People.
+ * Use `children` for a dropdown when a lane has 2+ boards.
  */
 export const PRIMARY_NAV = [
   {
@@ -28,13 +29,31 @@ export const PRIMARY_NAV = [
     href: '/template-test-board.html',
     label: 'Templates',
     id: 'templates',
-    description: 'Hailey favorites + Role-Offer checklist templates.',
+    description: 'Hailey layout refs + Role-Offer boards.',
+    children: [
+      {
+        href: '/template-test-board.html',
+        label: 'Layout refs',
+        id: 'templates',
+      },
+      {
+        href: '/role-offer-templates.html',
+        label: 'Role-Offer',
+        id: 'role-offer',
+      },
+    ],
   },
   {
     href: '/real-people-creative.html',
     label: 'Real People',
     id: 'real-people',
     description: 'Ready ads · next up · Hailey Meet look · Talent Pool downloads.',
+  },
+  {
+    href: '/saas-prop-templates.html',
+    label: 'SaaS Prop',
+    id: 'saas-prop',
+    description: 'Classy medical-software look · no people · fancy words.',
   },
 ];
 
@@ -172,9 +191,11 @@ export const HEADER_CSS = `
   .doc-nav {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.35rem;
   }
-  .doc-nav a {
+  .doc-nav a,
+  .doc-nav-dd > summary {
     padding: 0.45rem 0.75rem;
     border-radius: 8px;
     font-size: 0.8rem;
@@ -183,22 +204,63 @@ export const HEADER_CSS = `
     text-decoration: none;
     border: 1px solid transparent;
     transition: background 0.15s, color 0.15s;
+    list-style: none;
+    cursor: pointer;
   }
-  .doc-nav a:hover {
+  .doc-nav-dd > summary::-webkit-details-marker { display: none; }
+  .doc-nav-dd > summary::after {
+    content: '▾';
+    margin-left: 0.35em;
+    font-size: 0.7em;
+    opacity: 0.75;
+  }
+  .doc-nav a:hover,
+  .doc-nav-dd > summary:hover {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.08);
   }
-  .doc-nav a.active {
+  .doc-nav a.active,
+  .doc-nav-dd.active > summary,
+  .doc-nav-dd[open] > summary {
     color: #ffffff;
     background: var(--mv-primary);
   }
-  .doc-nav--ref a {
+  .doc-nav-dd {
+    position: relative;
+  }
+  .doc-nav-dd__menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    min-width: 11rem;
+    background: #0a4558;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    padding: 0.35rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .doc-nav-dd__menu a {
+    display: block;
+    white-space: nowrap;
+    border-radius: 7px;
+  }
+  .doc-nav-dd__menu a.active {
+    background: rgba(0, 178, 226, 0.28);
+  }
+  .doc-nav--ref a,
+  .doc-nav--ref .doc-nav-dd > summary {
     font-size: 0.72rem;
     font-weight: 400;
     color: #9fb9c6;
     padding: 0.35rem 0.55rem;
   }
-  .doc-nav--ref a.active {
+  .doc-nav--ref a.active,
+  .doc-nav--ref .doc-nav-dd.active > summary,
+  .doc-nav--ref .doc-nav-dd[open] > summary {
     background: rgba(255,255,255,0.12);
     color: #fff;
   }
@@ -232,6 +294,7 @@ export const HEADER_CSS = `
     .doc-header { padding: 1rem; }
     .doc-header__logo { height: 30px; max-width: 130px; }
     .doc-nav-sep { display: none; }
+    .doc-nav-dd__menu { min-width: 9.5rem; }
   }
 `;
 
@@ -239,13 +302,38 @@ function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+function itemActive(item, activeId) {
+  if (!activeId) return false;
+  if (item.id === activeId) return true;
+  return (item.children || []).some((c) => c.id === activeId);
+}
+
+function renderNavItem(item, activeId) {
+  if (item.children?.length) {
+    const openCls = itemActive(item, activeId) ? 'active' : '';
+    const links = item.children
+      .map((c) => {
+        const cls = c.id === activeId || (c.id === item.id && activeId === item.id) ? 'active' : '';
+        // Prefer child-specific active; Layout refs shares id with parent
+        const childActive =
+          c.id === activeId ||
+          (activeId === item.id && c.href === item.href)
+            ? 'active'
+            : '';
+        return `<a href="${esc(c.href)}" class="${childActive || cls}">${esc(c.label)}</a>`;
+      })
+      .join('');
+    return `<details class="doc-nav-dd ${openCls}">
+      <summary>${esc(item.label)}</summary>
+      <div class="doc-nav-dd__menu">${links}</div>
+    </details>`;
+  }
+  const cls = item.id === activeId ? 'active' : '';
+  return `<a href="${esc(item.href)}" class="${cls}">${esc(item.label)}</a>`;
+}
+
 function linkList(items, activeId) {
-  return items
-    .map((l) => {
-      const cls = l.id === activeId ? 'active' : '';
-      return `<a href="${esc(l.href)}" class="${cls}">${esc(l.label)}</a>`;
-    })
-    .join('');
+  return items.map((item) => renderNavItem(item, activeId)).join('');
 }
 
 /**
@@ -295,5 +383,21 @@ export function renderDocHeader(opts = {}) {
     </div>
   </div>
   ${pageBlock}
-</header>`;
+</header>
+<script>
+(function () {
+  document.querySelectorAll('.doc-nav-dd').forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (!dd.open) return;
+      document.querySelectorAll('.doc-nav-dd').forEach((other) => {
+        if (other !== dd) other.open = false;
+      });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.doc-nav-dd')) return;
+    document.querySelectorAll('.doc-nav-dd[open]').forEach((dd) => { dd.open = false; });
+  });
+})();
+</script>`;
 }

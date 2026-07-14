@@ -36,7 +36,10 @@ Never dark muddy teal overlays.
 - `_private/`: internal docs — never expose to graphics
 
 ## Site order
-1. Brief  2. Templates (Hailey · Role-Offer · SaaS Prop)  3. Real People (Ready · Next · downloads)
+1. Brief
+2. Templates ▾ (Layout refs · Role-Offer)
+3. Real People
+4. SaaS Prop  ← keep stacking new concept lanes to the right; use dropdowns when a lane has 2+ boards
 Reference far right: Brand Guide · Assets · Images
 
 Launch 1 / Launch 2 are sections on Real People (`#ready` / `#next`), not separate nav.
