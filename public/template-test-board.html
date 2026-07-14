@@ -729,26 +729,62 @@
   .lr-person-left .price-overlay { bottom: 14%; right: var(--lr-pad); }
   .lr-person-left .price-circle { bottom: 13%; left: 38%; }
 
-  /* C1 Medical — soft right wash for copy readability */
+  /* C1 Medical — logo left · hire higher/bigger · price + CTA far left */
   .lr-c1::before {
     content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
     background: linear-gradient(90deg, transparent 40%, rgba(247,251,255,0.88) 58%, rgba(247,251,255,0.97) 100%);
   }
   .lr-c1 img.bg { object-position: 18% 28%; width: 56%; }
-  .lr-c1 .copy { left: 50%; }
+  .lr-c1 .logo-wrap { left: var(--lr-pad); right: auto; }
+  .lr-c1 .copy { top: 7.5%; left: 50%; }
+  .lr-c1 .hire { font-size: clamp(13px, 2.7vw, 16px); }
+  .lr-c1 .role-pill { font-size: clamp(12px, 2.5vw, 15px); padding: 0.38em 0.8em; }
+  .lr-c1 .price-box {
+    left: var(--lr-pad); right: auto; bottom: 15%;
+  }
+  .lr-c1 .cta {
+    left: var(--lr-pad); right: auto; bottom: var(--lr-pad);
+  }
 
-  /* C2 Dental — face hard-left, wash late */
+  /* C2 Dental — DENTISTS! + Hire top-center high/big · hook right · price/CTA far left */
   .lr-c2 img.bg { object-position: 8% 22%; width: 54%; }
   .lr-c2::before {
     content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
     background: linear-gradient(90deg, transparent 48%, rgba(247,251,255,0.9) 62%, rgba(247,251,255,0.98) 100%);
   }
-  .lr-c2 .copy { top: 10%; left: 52%; }
-  .lr-c2 .aud-pill { right: var(--lr-pad); top: var(--lr-pad); }
-  .lr-c2 .logo-wrap { left: var(--lr-pad); right: auto; }
-  .lr-c2 .price-circle { left: 36%; bottom: 12%; }
+  .lr-c2 .logo-wrap { left: var(--lr-pad); right: auto; top: calc(var(--lr-pad) + 2.35rem); }
+  .lr-c2 .aud-pill {
+    left: 50%; right: auto; top: 2.2%;
+    transform: translateX(-50%);
+    font-size: clamp(11px, 2.3vw, 14px);
+    padding: 0.35em 0.9em;
+  }
+  .lr-c2 > .hire-row {
+    position: absolute; z-index: 7;
+    left: 50%; top: 7.2%;
+    transform: translateX(-50%);
+    width: max-content; max-width: 94%;
+    justify-content: center;
+  }
+  .lr-c2 .copy {
+    top: 15%; left: 52%; right: var(--lr-pad);
+    align-items: flex-start;
+  }
+  .lr-c2 .hire { font-size: clamp(13px, 2.8vw, 16px); }
+  .lr-c2 .role-pill { font-size: clamp(12px, 2.6vw, 15px); padding: 0.38em 0.85em; }
+  .lr-c2 .text-panel,
+  .lr-c2 .rule,
+  .lr-c2 .bullets { margin-left: 0; width: 100%; }
+  .lr-c2 .hook { text-align: left; }
+  .lr-c2 .price-circle {
+    left: var(--lr-pad); right: auto; bottom: 14%;
+    transform: rotate(-6deg);
+  }
+  .lr-c2 .cta {
+    left: var(--lr-pad); right: auto; bottom: var(--lr-pad);
+  }
 
-  /* C3 — person right (flagship) */
+  /* C3 — person right · CTA centered · price far right · room at bottom */
   .lr-person-right img.bg {
     left: auto; right: 0; width: 54%; object-fit: cover;
   }
@@ -762,18 +798,38 @@
   .lr-c3 img.bg { object-position: 78% 28%; }
   .lr-c3 .aud-pill { left: var(--lr-pad); right: auto; }
   .lr-c3 .logo-wrap { left: auto; right: var(--lr-pad); }
-  .lr-c3 .copy { top: 12%; left: var(--lr-pad); right: 48%; }
-  .lr-c3 .cta { bottom: var(--lr-pad); left: var(--lr-pad); right: auto; }
-  .lr-c3 .price-overlay { left: 48%; bottom: 9%; }
+  .lr-c3 .copy {
+    top: 10%; left: var(--lr-pad); right: 48%;
+    gap: 0.32em;
+  }
+  .lr-c3 .bullets { gap: 0.22em; margin-top: 0.05em; }
+  .lr-c3 .bullets li { font-size: clamp(10px, 2vw, 12px); }
+  .lr-c3 .cta {
+    left: 50% !important; right: auto !important; bottom: 5.5% !important;
+    transform: translateX(-50%) !important;
+  }
+  .lr-c3 .price-overlay {
+    left: auto !important; right: var(--lr-pad) !important; bottom: 5.5% !important;
+  }
 
-  /* C4 Calls — person left, punchier headline */
+  /* C4 Calls — logo far left · hire higher/bigger · price + CTA far left */
   .lr-c4 img.bg { object-position: 14% 28%; width: 55%; }
   .lr-c4::before {
     content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
     background: linear-gradient(90deg, transparent 42%, rgba(247,251,255,0.9) 58%, rgba(247,251,255,0.98) 100%);
   }
-  .lr-c4 .copy { top: 11%; left: 52%; }
+  .lr-c4 .logo-wrap { left: 3%; right: auto; }
+  .lr-c4 .copy { top: 7.5%; left: 50%; }
+  .lr-c4 .hire-row { justify-content: center; }
+  .lr-c4 .hire { font-size: clamp(13px, 2.8vw, 16px); }
+  .lr-c4 .role-pill { font-size: clamp(12px, 2.55vw, 15px); padding: 0.38em 0.8em; }
   .lr-c4 .hook { font-size: clamp(16px, 3.7vw, 22px) !important; }
+  .lr-c4 .price-box {
+    left: var(--lr-pad); right: auto; bottom: 15%;
+  }
+  .lr-c4 .cta {
+    left: var(--lr-pad); right: auto; bottom: var(--lr-pad);
+  }
 
   body { background: var(--mv-neutral-blue) !important; color: var(--mv-ink) !important; }
   .wrap { max-width: 1040px; margin: 0 auto; padding: 1rem 1.15rem 2.75rem; overflow-x: hidden; }
@@ -1007,6 +1063,7 @@
         
         <div class="logo-wrap"><img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" /></div>
         <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png" alt="" style="object-position:18% 28%" />
+        
         <div class="copy">
           <div class="hire-row">
             <span class="hire">Hire a Virtual</span>
@@ -1034,7 +1091,7 @@
         <p class="field-label">On-image headline</p>
         <p class="field-headline">Add full-time virtual support without adding office space.</p>
         <p class="field-label">Structure</p>
-        <p class="field-val">Person left · Hire a Virtual + Medical Admin · checklist · price box · CTA — Hailey DNA</p>
+        <p class="field-val">Logo left · Hire higher/bigger · checklist right · $10 + Book a Demo far left</p>
         <p class="field-label">Visual</p>
         <p class="field-val muted">Person left on light plate. Right: Hire a Virtual + Medical Admin pill, checklist, STARTING AT $10/hour box, Book a Demo. Match Hailey Role-Offer type.</p>
         <p class="field-label">Layout</p>
@@ -1049,11 +1106,12 @@
         <span class="aud-pill">DENTISTS!</span>
         <div class="logo-wrap"><img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" /></div>
         <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_015_4X5_FACE_LEFT.png" alt="" style="object-position:8% 22%" />
-        <div class="copy">
-          <div class="hire-row">
+        <div class="hire-row">
             <span class="hire">Hire a Virtual</span>
             <span class="role-pill">Dental Admin</span>
           </div>
+        <div class="copy">
+          
           <div class="text-panel">
             <div class="hook">Fewer missed calls.<br />Fewer empty chairs.</div>
           </div>
@@ -1077,7 +1135,7 @@
         <p class="field-label">On-image headline</p>
         <p class="field-headline">Fewer missed calls. Fewer empty chairs.</p>
         <p class="field-label">Structure</p>
-        <p class="field-val">Person hard-left (face clear) · DENTISTS! · Hire + Dental Admin · checks · price circle · CTA</p>
+        <p class="field-val">DENTISTS! + Hire top-center · hook/checks right · $10 + CTA far left — face clear left</p>
         <p class="field-label">Visual</p>
         <p class="field-val muted">Person hard-left (face clear of type). Right: DENTISTS! · Hire a Virtual + Dental Admin · checklist · $10 circle · Get Started. Hailey type + setup.</p>
         <p class="field-label">Layout</p>
@@ -1092,6 +1150,7 @@
         <span class="aud-pill">DOCTORS!</span>
         <div class="logo-wrap"><img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" /></div>
         <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_007_4X5_FACE_RIGHT.png" alt="" style="object-position:78% 28%" />
+        
         <div class="copy">
           <div class="hire-row">
             <span class="hire">Hire a Virtual</span>
@@ -1119,7 +1178,7 @@
         <p class="field-label">On-image headline</p>
         <p class="field-headline">Give your front office backup, not burnout.</p>
         <p class="field-label">Structure</p>
-        <p class="field-val">Person right · DOCTORS! · Hire + Medical Admin · checks · $10 overlay · CTA — flagship Hailey</p>
+        <p class="field-val">Person right · CTA centered bottom · $10 far right · breathing room under checks</p>
         <p class="field-label">Visual</p>
         <p class="field-val muted">Light grid plate. Person right in scrubs (stock/AI). Left: Hire a Virtual + Medical Admin pill, checklist with check icons, Book a Consultation CTA, STARTING AT $10/hour overlay on photo. Match Role-Offer RO-ADMIN-BURNOUT — not the old all-caps HIRE A FULL-TIME stack.</p>
         <p class="field-label">Layout</p>
@@ -1134,6 +1193,7 @@
         
         <div class="logo-wrap"><img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" /></div>
         <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_003_4X5_FACE_LEFT.png" alt="" style="object-position:14% 28%" />
+        
         <div class="copy">
           <div class="hire-row">
             <span class="hire">Hire a Virtual</span>
@@ -1161,7 +1221,7 @@
         <p class="field-label">On-image headline</p>
         <p class="field-headline">Too many calls. Not enough staff.</p>
         <p class="field-label">Structure</p>
-        <p class="field-val">Person left · Hire + Front Desk Support · checks · price · CTA — pain headline, Hailey type</p>
+        <p class="field-val">Logo far left · Hire higher/bigger · $10 + Book a Demo far left</p>
         <p class="field-label">Visual</p>
         <p class="field-val muted">Person left. Right: Hire a Virtual + Front Desk Support pill, checklist, $10 box, Book a Demo. Pain headline in Hailey Be Vietnam hierarchy — not old all-caps stack.</p>
         <p class="field-label">Layout</p>

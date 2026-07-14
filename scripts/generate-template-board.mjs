@@ -1217,7 +1217,7 @@ const LAYOUT_REF_PROFILES = {
     priceStyle: 'box',
     cta: 'Book a Demo',
     structureNote:
-      'Person left · Hire a Virtual + Medical Admin · checklist · price box · CTA — Hailey DNA',
+      'Logo left · Hire higher/bigger · checklist right · $10 + Book a Demo far left',
   },
   '2': {
     className: 'lr lr-c2 lr-hailey lr-person-left',
@@ -1226,6 +1226,7 @@ const LAYOUT_REF_PROFILES = {
     hirePrefix: 'Hire a Virtual',
     role: 'Dental Admin',
     audiencePill: 'DENTISTS!',
+    topHireCenter: true,
     hookHtml: 'Fewer missed calls.<br />Fewer empty chairs.',
     support: '',
     bullets: [
@@ -1240,7 +1241,7 @@ const LAYOUT_REF_PROFILES = {
     priceStyle: 'circle',
     cta: 'Get Started',
     structureNote:
-      'Person hard-left (face clear) · DENTISTS! · Hire + Dental Admin · checks · price circle · CTA',
+      'DENTISTS! + Hire top-center · hook/checks right · $10 + CTA far left — face clear left',
   },
   '3': {
     className: 'lr lr-c3 lr-hailey lr-person-right',
@@ -1262,7 +1263,7 @@ const LAYOUT_REF_PROFILES = {
     priceStyle: 'overlay',
     cta: 'Book a Consultation',
     structureNote:
-      'Person right · DOCTORS! · Hire + Medical Admin · checks · $10 overlay · CTA — flagship Hailey',
+      'Person right · CTA centered bottom · $10 far right · breathing room under checks',
   },
   '4': {
     className: 'lr lr-c4 lr-hailey lr-person-left',
@@ -1284,7 +1285,7 @@ const LAYOUT_REF_PROFILES = {
     priceStyle: 'box',
     cta: 'Book a Demo',
     structureNote:
-      'Person left · Hire + Front Desk Support · checks · price · CTA — pain headline, Hailey type',
+      'Logo far left · Hire higher/bigger · $10 + Book a Demo far left',
   },
 };
 
@@ -1445,26 +1446,62 @@ const LAYOUT_REF_CSS = `
   .lr-person-left .price-overlay { bottom: 14%; right: var(--lr-pad); }
   .lr-person-left .price-circle { bottom: 13%; left: 38%; }
 
-  /* C1 Medical — soft right wash for copy readability */
+  /* C1 Medical — logo left · hire higher/bigger · price + CTA far left */
   .lr-c1::before {
     content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
     background: linear-gradient(90deg, transparent 40%, rgba(247,251,255,0.88) 58%, rgba(247,251,255,0.97) 100%);
   }
   .lr-c1 img.bg { object-position: 18% 28%; width: 56%; }
-  .lr-c1 .copy { left: 50%; }
+  .lr-c1 .logo-wrap { left: var(--lr-pad); right: auto; }
+  .lr-c1 .copy { top: 7.5%; left: 50%; }
+  .lr-c1 .hire { font-size: clamp(13px, 2.7vw, 16px); }
+  .lr-c1 .role-pill { font-size: clamp(12px, 2.5vw, 15px); padding: 0.38em 0.8em; }
+  .lr-c1 .price-box {
+    left: var(--lr-pad); right: auto; bottom: 15%;
+  }
+  .lr-c1 .cta {
+    left: var(--lr-pad); right: auto; bottom: var(--lr-pad);
+  }
 
-  /* C2 Dental — face hard-left, wash late */
+  /* C2 Dental — DENTISTS! + Hire top-center high/big · hook right · price/CTA far left */
   .lr-c2 img.bg { object-position: 8% 22%; width: 54%; }
   .lr-c2::before {
     content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
     background: linear-gradient(90deg, transparent 48%, rgba(247,251,255,0.9) 62%, rgba(247,251,255,0.98) 100%);
   }
-  .lr-c2 .copy { top: 10%; left: 52%; }
-  .lr-c2 .aud-pill { right: var(--lr-pad); top: var(--lr-pad); }
-  .lr-c2 .logo-wrap { left: var(--lr-pad); right: auto; }
-  .lr-c2 .price-circle { left: 36%; bottom: 12%; }
+  .lr-c2 .logo-wrap { left: var(--lr-pad); right: auto; top: calc(var(--lr-pad) + 2.35rem); }
+  .lr-c2 .aud-pill {
+    left: 50%; right: auto; top: 2.2%;
+    transform: translateX(-50%);
+    font-size: clamp(11px, 2.3vw, 14px);
+    padding: 0.35em 0.9em;
+  }
+  .lr-c2 > .hire-row {
+    position: absolute; z-index: 7;
+    left: 50%; top: 7.2%;
+    transform: translateX(-50%);
+    width: max-content; max-width: 94%;
+    justify-content: center;
+  }
+  .lr-c2 .copy {
+    top: 15%; left: 52%; right: var(--lr-pad);
+    align-items: flex-start;
+  }
+  .lr-c2 .hire { font-size: clamp(13px, 2.8vw, 16px); }
+  .lr-c2 .role-pill { font-size: clamp(12px, 2.6vw, 15px); padding: 0.38em 0.85em; }
+  .lr-c2 .text-panel,
+  .lr-c2 .rule,
+  .lr-c2 .bullets { margin-left: 0; width: 100%; }
+  .lr-c2 .hook { text-align: left; }
+  .lr-c2 .price-circle {
+    left: var(--lr-pad); right: auto; bottom: 14%;
+    transform: rotate(-6deg);
+  }
+  .lr-c2 .cta {
+    left: var(--lr-pad); right: auto; bottom: var(--lr-pad);
+  }
 
-  /* C3 — person right (flagship) */
+  /* C3 — person right · CTA centered · price far right · room at bottom */
   .lr-person-right img.bg {
     left: auto; right: 0; width: 54%; object-fit: cover;
   }
@@ -1478,18 +1515,38 @@ const LAYOUT_REF_CSS = `
   .lr-c3 img.bg { object-position: 78% 28%; }
   .lr-c3 .aud-pill { left: var(--lr-pad); right: auto; }
   .lr-c3 .logo-wrap { left: auto; right: var(--lr-pad); }
-  .lr-c3 .copy { top: 12%; left: var(--lr-pad); right: 48%; }
-  .lr-c3 .cta { bottom: var(--lr-pad); left: var(--lr-pad); right: auto; }
-  .lr-c3 .price-overlay { left: 48%; bottom: 9%; }
+  .lr-c3 .copy {
+    top: 10%; left: var(--lr-pad); right: 48%;
+    gap: 0.32em;
+  }
+  .lr-c3 .bullets { gap: 0.22em; margin-top: 0.05em; }
+  .lr-c3 .bullets li { font-size: clamp(10px, 2vw, 12px); }
+  .lr-c3 .cta {
+    left: 50% !important; right: auto !important; bottom: 5.5% !important;
+    transform: translateX(-50%) !important;
+  }
+  .lr-c3 .price-overlay {
+    left: auto !important; right: var(--lr-pad) !important; bottom: 5.5% !important;
+  }
 
-  /* C4 Calls — person left, punchier headline */
+  /* C4 Calls — logo far left · hire higher/bigger · price + CTA far left */
   .lr-c4 img.bg { object-position: 14% 28%; width: 55%; }
   .lr-c4::before {
     content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
     background: linear-gradient(90deg, transparent 42%, rgba(247,251,255,0.9) 58%, rgba(247,251,255,0.98) 100%);
   }
-  .lr-c4 .copy { top: 11%; left: 52%; }
+  .lr-c4 .logo-wrap { left: 3%; right: auto; }
+  .lr-c4 .copy { top: 7.5%; left: 50%; }
+  .lr-c4 .hire-row { justify-content: center; }
+  .lr-c4 .hire { font-size: clamp(13px, 2.8vw, 16px); }
+  .lr-c4 .role-pill { font-size: clamp(12px, 2.55vw, 15px); padding: 0.38em 0.8em; }
   .lr-c4 .hook { font-size: clamp(16px, 3.7vw, 22px) !important; }
+  .lr-c4 .price-box {
+    left: var(--lr-pad); right: auto; bottom: 15%;
+  }
+  .lr-c4 .cta {
+    left: var(--lr-pad); right: auto; bottom: var(--lr-pad);
+  }
 `;
 
 function renderPriceBlock(profile) {
@@ -1528,15 +1585,18 @@ function renderProductionCard(concept, baseTest, index) {
     ? `<span class="aud-pill">${esc(profile.audiencePill)}</span>`
     : '';
 
+  const hireRow = `<div class="hire-row">
+            <span class="hire">${esc(profile.hirePrefix || 'Hire a Virtual')}</span>
+            <span class="role-pill">${esc(profile.role || 'Medical Admin')}</span>
+          </div>`;
+
   const mockInner = `
         ${aud}
         <div class="logo-wrap"><img class="logo" src="${LOGO}" alt="MedVirtual" /></div>
         <img class="bg" src="${esc(baseTest.image)}" alt="" style="object-position:${esc(profile.objectPosition)}" />
+        ${profile.topHireCenter ? hireRow : ''}
         <div class="copy">
-          <div class="hire-row">
-            <span class="hire">${esc(profile.hirePrefix || 'Hire a Virtual')}</span>
-            <span class="role-pill">${esc(profile.role || 'Medical Admin')}</span>
-          </div>
+          ${profile.topHireCenter ? '' : hireRow}
           <div class="text-panel">
             <div class="hook">${profile.hookHtml}</div>
           </div>
