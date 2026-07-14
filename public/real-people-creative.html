@@ -206,15 +206,15 @@
     margin: 0 0 0.55rem;
     letter-spacing: -0.02em;
   }
-  .hero .lede { max-width: 42rem; font-size: 1.05rem; line-height: 1.5; margin: 0 0 1rem; color: #334155; }
+  .hero .lede { max-width: 44rem; font-size: 1.05rem; line-height: 1.5; margin: 0 0 1rem; color: #334155; }
   .status-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
   .status {
     display: inline-flex; align-items: center; gap: 0.35rem;
     padding: 0.35rem 0.7rem; border-radius: 999px; font-size: 0.78rem; font-weight: 700;
   }
   .status.go { background: #dcfce7; color: #166534; }
-  .status.no { background: #fee2e2; color: #991b1b; }
-  .status.soft { background: #e0f2fe; color: #0c4a6e; }
+  .status.next { background: #e0f2fe; color: #0c4a6e; }
+  .status.soft { background: #f1f5f9; color: #475569; }
   .jump { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.75rem; }
   .jump a {
     color: var(--teal); font-weight: 700; text-decoration: none;
@@ -222,8 +222,28 @@
   }
   section { margin-bottom: 2.25rem; }
   section > h2 {
-    font-size: 1.15rem; margin: 0 0 0.65rem; letter-spacing: -0.01em;
+    font-size: 1.15rem; margin: 0 0 0.45rem; letter-spacing: -0.01em;
   }
+  section > .sec-lede { margin: 0 0 0.85rem; color: #475569; max-width: 44rem; font-size: 0.95rem; }
+  .ready-grid {
+    display: grid; gap: 0.85rem;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  }
+  .ready-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.75rem;
+    text-decoration: none; color: inherit;
+  }
+  .ready-card img { width: 100%; height: auto; border-radius: 8px; display: block; }
+  .ready-card h3 { margin: 0.55rem 0 0.15rem; font-size: 1rem; }
+  .ready-card p { margin: 0; font-size: 0.82rem; color: #64748b; }
+  .ready-card .hook { margin-top: 0.35rem; color: #334155; }
+  .ready-card .file { margin-top: 0.35rem; font-size: 0.7rem; font-family: ui-monospace, monospace; word-break: break-all; }
+  .next-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem 1rem; margin-bottom: 0.75rem;
+  }
+  .next-card h3 { margin: 0 0 0.35rem; font-size: 1.02rem; }
+  .next-card .meta { font-size: 0.82rem; color: #64748b; margin: 0 0 0.45rem; }
+  .next-card .note { margin: 0 0 0.55rem; font-size: 0.9rem; color: #334155; }
   .concept {
     display: grid; gap: 1rem;
     grid-template-columns: 1.2fr 1fr;
@@ -236,13 +256,6 @@
   @media (max-width: 700px) { .rules { grid-template-columns: 1fr; } }
   .rules ul { margin: 0; padding-left: 1.1rem; color: #334155; }
   .rules li { margin: 0.25rem 0; }
-  .why { display: grid; gap: 0.65rem; grid-template-columns: repeat(3, 1fr); }
-  @media (max-width: 800px) { .why { grid-template-columns: 1fr; } }
-  .why article {
-    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.85rem 0.95rem;
-  }
-  .why h3 { margin: 0 0 0.3rem; font-size: 0.95rem; }
-  .why p { margin: 0; font-size: 0.88rem; color: #475569; line-height: 1.4; }
   .person {
     display: grid; gap: 1rem; grid-template-columns: 280px 1fr;
     background: #fff; border: 1px solid var(--line); border-radius: 14px;
@@ -286,11 +299,6 @@
     margin: 0.75rem 0; padding: 0.65rem 0.8rem; border-radius: 10px;
     background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; font-size: 0.9rem;
   }
-  .reject-grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(4, 1fr); margin-top: 0.85rem; }
-  @media (max-width: 800px) { .reject-grid { grid-template-columns: repeat(2, 1fr); } }
-  .reject-card { margin: 0; }
-  .reject-card img { width: 100%; border-radius: 8px; opacity: 0.72; filter: grayscale(0.35); }
-  .reject-card figcaption { font-size: 0.78rem; color: #7f1d1d; margin-top: 0.3rem; font-weight: 700; }
   .library-grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(2, 1fr); margin-top: 0.85rem; }
   @media (max-width: 800px) { .library-grid { grid-template-columns: 1fr; } }
   .lib-card {
@@ -326,74 +334,136 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Graphics · templates · launch sequences</p>
+        <p class="doc-header__tagline">Graphics · templates · Real People</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/meta-launch-1.html" class="">Launch 1</a><a href="/meta-launch-2.html" class="">Launch 2</a><a href="/real-people-creative.html" class="active">Real People</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/real-people-creative.html" class="active">Real People</a></nav>
       <span class="doc-nav-sep" aria-hidden="true"></span>
       <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/asset-hub.html" class="">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
     </div>
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Real People</h2>
-          <p class="doc-header__page-sub">Named Talent Pool creative — Portrait Lead concept + source downloads in one place.</p>
-          
+          <p class="doc-header__page-sub">Ready ads · next wave · Hailey Meet look · Talent Pool downloads — one page.</p>
+          <nav class="doc-subnav" aria-label="Section">
+      <a href="/real-people-creative.html#ready" class="active">Ready</a><a href="/real-people-creative.html#next" class="">Next</a><a href="/real-people-creative.html#downloads" class="">Downloads</a>
+    </nav>
         </div>
 </header>
   <main>
     <header class="hero">
-      <h1>Real people. One concept.</h1>
-      <p class="lede">Named Talent Pool people beat stock headset ads. Strategy stays; the first graphic system did not. Source: <a href="https://app.medvirtual.ai/talent-pool" target="_blank" rel="noopener noreferrer">Talent Pool</a>.</p>
+      <h1>Real People</h1>
+      <p class="lede">Named Talent Pool people beat stock headset ads. Strategy stays; the first graphic system did not. Same Hailey / Role-Offer look that launched today. Source: <a href="https://app.medvirtual.ai/talent-pool" target="_blank" rel="noopener noreferrer">Talent Pool</a>.</p>
       <div class="status-row">
-        <span class="status go">Now → Treatment E — Hailey / Role-Offer Meet</span>
-        <span class="status no">Rejected → Treatment C</span>
-        <span class="status soft">Draft mocks · not final approved art</span>
+        <span class="status go">Ready · Jessica · Chelsea · Angelica · Mark</span>
+        <span class="status next">Next · Carmen · Jennifer · Jessica 9:16 · Chelsea 9:16</span>
+        <span class="status soft">Treatment E — Hailey / Role-Offer Meet</span>
       </div>
       <nav class="jump" aria-label="On this page">
-        <a href="#concept">Concept</a>
-        <a href="#batch">Four people</a>
+        <a href="#ready">Ready to load</a>
+        <a href="#next">Next up</a>
+        <a href="#batch">Four people + copy</a>
+        <a href="#concept">Look / rules</a>
         <a href="#downloads">Downloads</a>
-        <a href="#archive">Retired layouts</a>
+        <a href="/role-offer-templates.html">Role-Offer templates</a>
+        <a href="/graphic-request-brief.html">Brief</a>
       </nav>
     </header>
 
-    <section id="concept">
-      <h2>Treatment D — Portrait Lead</h2>
-      <div class="concept">
-        <div>
-          <strong class="kicker">Forward concept</strong>
-          <p>Same Visual DNA as Role-Offer: light cyan grid plate, Meet {Name}, teal role pill, short public-skill checklist, interview CTA, colored logo, talent photo on the right. Pain stays in Meta copy. No invented claims.</p>
-          <div class="rules">
-            <div>
-              <strong class="kicker">Do</strong>
-              <ul><li>Light grid plate (white → soft cyan) + Be Vietnam + brand teal</li><li>Meet {Name} + exact public role as a teal pill</li><li>2–3 short checklist lines from public Talent Pool skills only</li><li>Interview CTA chip (REQUEST AN INTERVIEW / Available to interview)</li><li>Official colored MedVirtual logo</li><li>Named talent photo on the right (or top on Stories)</li></ul>
-            </div>
-            <div>
-              <strong class="kicker">Don’t</strong>
-              <ul><li>No dark teal mud overlay over the person</li><li>No inventing skills, HIPAA, years, rates, or outcomes</li><li>Do not paste stock Role-Offer copy onto a named person</li></ul>
-            </div>
-          </div>
-        </div>
-        <div>
-          <strong class="kicker">Why C died</strong>
-          <ul><li>Dark teal mud overlay on headshots</li><li>Stacked pain-yell flyer look that felt off-brand</li></ul>
-        </div>
+    <section id="ready">
+      <h2>Ready to load · 4 feed ads</h2>
+      <p class="sec-lede">These 4 Hailey / Role-Offer Meet feed ads (1080×1350) are the live look. Finalize / upload. Pain stays in Meta copy.</p>
+      <div class="actions" style="margin:0 0 0.85rem">
+        <a class="btn primary" href="/graphic-request-brief.html">Brief / form paste</a>
+        <a class="btn" href="/exports/meta-upload-ready/">Upload-ready folder</a>
+        <a class="btn" href="/template-test-board.html#hailey-likes">Hailey refs</a>
+        <a class="btn" href="/meta-launch-build-pack.html">Ads Manager pack</a>
       </div>
+      <div class="ready-grid"><a class="ready-card" href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
+      <img src="/assets/real-people/jessica/ad-treatment-e-4x5.png" alt="Meet Jessica" width="432" height="540" loading="lazy" />
+      <h3>1. Jessica</h3>
+      <p>Jr. Medical Admin</p>
+      <p class="hook">Meta: Admin Work Piling Up?</p>
+      <p class="file">IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png</p>
+    </a><a class="ready-card" href="/assets/real-people/chelsea/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
+      <img src="/assets/real-people/chelsea/ad-treatment-e-4x5.png" alt="Meet Chelsea" width="432" height="540" loading="lazy" />
+      <h3>2. Chelsea</h3>
+      <p>Dental Virtual Assistant</p>
+      <p class="hook">Meta: Scheduling Taking Over?</p>
+      <p class="file">IMB_MV_RP_Static_02_ChelseaScheduling_1080x1350.png</p>
+    </a><a class="ready-card" href="/assets/real-people/angelica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
+      <img src="/assets/real-people/angelica/ad-treatment-e-4x5.png" alt="Meet Angelica" width="432" height="540" loading="lazy" />
+      <h3>3. Angelica</h3>
+      <p>Dermatology Front Desk Assistant</p>
+      <p class="hook">Meta: Front Desk Stretched Thin?</p>
+      <p class="file">IMB_MV_RP_Static_03_AngelicaFrontDesk_1080x1350.png</p>
+    </a><a class="ready-card" href="/assets/real-people/mark/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
+      <img src="/assets/real-people/mark/ad-treatment-e-4x5.png" alt="Meet Mark" width="432" height="540" loading="lazy" />
+      <h3>4. Mark</h3>
+      <p>Insurance Verification Specialist</p>
+      <p class="hook">Meta: Verification Work Piling Up?</p>
+      <p class="file">IMB_MV_RP_Static_04_MarkVerification_1080x1350.png</p>
+    </a></div>
     </section>
 
-    <section>
-      <h2>Why named talent still matters</h2>
-      <div class="why"><article><h3>Real faces create credibility</h3><p>A named profile photo feels less interchangeable than stock headset imagery.</p></article><article><h3>Names make the hire tangible</h3><p>“Meet Jessica” is easier to imagine interviewing than “hire a VA.”</p></article><article><h3>Harder for competitors to copy</h3><p>Real Talent Pool people are a brand asset stock packs cannot match.</p></article></div>
+    <section id="next">
+      <h2>Next up · expand + Stories</h2>
+      <p class="sec-lede">After Ready ships: Carmen + Jennifer 4:5, then Jessica + Chelsea 9:16. Same Hailey DNA as today’s launch. Work cards also live in Brief DO NOW.</p>
+      <article class="next-card">
+      <h3>1. Meet Carmen · 4:5</h3>
+      <p class="meta">Medical Biller · 1080×1350</p>
+      <p class="note"><strong>On-image:</strong> Hire a Virtual · Meet Carmen · role pill · public skills · REQUEST AN INTERVIEW</p>
+      <p class="note">New Hailey / Role-Offer Meet feed ad. Carmen Talent Pool title + public skills only.</p>
+      <div class="actions">
+        <a class="btn primary" href="/assets/real-people/carmen/clean-master.jpg" download>Source photo</a>
+        <a class="btn" href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">Layout ref</a>
+        <a class="btn" href="/assets/brand/medvirtual/logo-colored.svg" download>Logo SVG</a>
+        <a class="btn" href="/graphic-request-brief.html#do-now">Brief card</a>
+      </div>
+    </article><article class="next-card">
+      <h3>2. Meet Jennifer · 4:5</h3>
+      <p class="meta">Patient Intake Coordinator · 1080×1350</p>
+      <p class="note"><strong>On-image:</strong> Hire a Virtual · Meet Jennifer · role pill · public skills · REQUEST AN INTERVIEW</p>
+      <p class="note">New Hailey / Role-Offer Meet feed ad. Jennifer Talent Pool title only — no invented skills.</p>
+      <div class="actions">
+        <a class="btn primary" href="/assets/real-people/jennifer/clean-master.jpg" download>Source photo</a>
+        <a class="btn" href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">Layout ref</a>
+        <a class="btn" href="/assets/brand/medvirtual/logo-colored.svg" download>Logo SVG</a>
+        <a class="btn" href="/graphic-request-brief.html#do-now">Brief card</a>
+      </div>
+    </article><article class="next-card">
+      <h3>3. Jessica · 9:16 Stories resize</h3>
+      <p class="meta">Jr. Medical Admin · 1080×1920</p>
+      <p class="note"><strong>On-image:</strong> Same Jessica Hailey Meet card → tall crop</p>
+      <p class="note">Resize only. Keep Meet + role pill + checks + CTA + logo. Stories safe margins.</p>
+      <div class="actions">
+        <a class="btn primary" href="/assets/real-people/jessica/clean-master.jpg" download>Source photo</a>
+        <a class="btn" href="/assets/real-people/jessica/ad-treatment-e-9x16.png" target="_blank" rel="noopener">Layout ref</a>
+        <a class="btn" href="/assets/brand/medvirtual/logo-colored.svg" download>Logo SVG</a>
+        <a class="btn" href="/graphic-request-brief.html#do-now">Brief card</a>
+      </div>
+    </article><article class="next-card">
+      <h3>4. Chelsea · 9:16 Stories resize</h3>
+      <p class="meta">Dental Virtual Assistant · 1080×1920</p>
+      <p class="note"><strong>On-image:</strong> Same Chelsea Hailey Meet card → tall crop</p>
+      <p class="note">Resize only. Same DNA as Jessica Stories.</p>
+      <div class="actions">
+        <a class="btn primary" href="/assets/real-people/chelsea/clean-master.jpg" download>Source photo</a>
+        <a class="btn" href="/assets/real-people/chelsea/ad-treatment-e-9x16.png" target="_blank" rel="noopener">Layout ref</a>
+        <a class="btn" href="/assets/brand/medvirtual/logo-colored.svg" download>Logo SVG</a>
+        <a class="btn" href="/graphic-request-brief.html#do-now">Brief card</a>
+      </div>
+    </article>
     </section>
 
     <section id="batch">
-      <h2>First batch · four people</h2>
-      <p style="margin:0 0 0.85rem;color:#475569;max-width:40rem">Jessica, Chelsea, Mark, Angelica. Studio Profile PNGs are concept drafts for design — Meta paste fields are ready. Pain lives in primary text / headline, not on the face.</p>
+      <h2>Four people · Meta copy + downloads</h2>
+      <p class="sec-lede">Jessica, Chelsea, Mark, Angelica — full packages for the Ready set. Pain stays in Meta text.</p>
       <article class="person" id="person-chelsea">
       <div class="person__art">
-        <button type="button" class="preview-hit" data-preview="/assets/real-people/chelsea/ad-treatment-e-4x5.png" aria-label="Preview Chelsea Studio Profile">
-          <img src="/assets/real-people/chelsea/ad-treatment-e-4x5.png" alt="Meet Chelsea — Studio Profile 4:5" width="432" height="540" loading="lazy" />
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/chelsea/ad-treatment-e-4x5.png" aria-label="Preview Chelsea">
+          <img src="/assets/real-people/chelsea/ad-treatment-e-4x5.png" alt="Meet Chelsea — Hailey Meet 4:5" width="432" height="540" loading="lazy" />
         </button>
         <div class="ratio-row">
           <a href="/assets/real-people/chelsea/ad-treatment-e-4x5.png" download>4:5</a>
@@ -409,7 +479,7 @@
           <p class="meta"><a href="https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4" target="_blank" rel="noopener noreferrer">Talent Pool</a> · source 2026-07-13</p>
         </header>
         <dl class="facts">
-          <div><dt>On-image</dt><dd>Meet Chelsea · Dental Virtual Assistant · available to interview</dd></div>
+          <div><dt>On-image</dt><dd>Meet Chelsea · Dental Virtual Assistant · interview CTA</dd></div>
           <div><dt>Meta headline</dt><dd>Scheduling Taking Over?</dd></div>
           <div><dt>CTA</dt><dd>Learn More</dd></div>
         </dl>
@@ -417,11 +487,10 @@
           <span class="label">Primary text</span>
           <p>Scheduling should not consume your entire front desk.</p><p>Meet Chelsea, a Dental Virtual Assistant whose MedVirtual profile lists appointment setting, customer service, and healthcare support.</p><p>Hire dedicated full-time virtual staff who work as part of your practice team. Book a demo to request an interview.</p>
         </div>
-        <p class="note"><strong>Designer:</strong> Scheduling pain stays in Meta primary text. Studio Profile owns the frame. No checklist.</p>
+        <p class="note"><strong>Designer:</strong> Match today’s Hailey Meet look. Scheduling pain stays in Meta primary — not on the image.</p>
         <div class="actions">
           <a class="btn primary" href="/assets/real-people/chelsea/clean-master.jpg" download>Source photo</a>
           <a class="btn" href="/assets/brand/medvirtual/logo-colored.svg" download>Logo SVG</a>
-          <a class="btn" href="/assets/brand/medvirtual/logo-white.svg" download>Logo white</a>
           <button type="button" class="btn" data-copy="ON-IMAGE HOOK:
 Meet Chelsea
 
@@ -460,8 +529,8 @@ CLAIM RESTRICTIONS:
       </div>
     </article><article class="person" id="person-mark">
       <div class="person__art">
-        <button type="button" class="preview-hit" data-preview="/assets/real-people/mark/ad-treatment-e-4x5.png" aria-label="Preview Mark Studio Profile">
-          <img src="/assets/real-people/mark/ad-treatment-e-4x5.png" alt="Meet Mark — Studio Profile 4:5" width="432" height="540" loading="lazy" />
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/mark/ad-treatment-e-4x5.png" aria-label="Preview Mark">
+          <img src="/assets/real-people/mark/ad-treatment-e-4x5.png" alt="Meet Mark — Hailey Meet 4:5" width="432" height="540" loading="lazy" />
         </button>
         <div class="ratio-row">
           <a href="/assets/real-people/mark/ad-treatment-e-4x5.png" download>4:5</a>
@@ -477,7 +546,7 @@ CLAIM RESTRICTIONS:
           <p class="meta"><a href="https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8" target="_blank" rel="noopener noreferrer">Talent Pool</a> · source 2026-07-13</p>
         </header>
         <dl class="facts">
-          <div><dt>On-image</dt><dd>Meet Mark · Insurance Verification Specialist · available to interview</dd></div>
+          <div><dt>On-image</dt><dd>Meet Mark · Insurance Verification Specialist · interview CTA</dd></div>
           <div><dt>Meta headline</dt><dd>Verification Work Piling Up?</dd></div>
           <div><dt>CTA</dt><dd>Learn More</dd></div>
         </dl>
@@ -485,11 +554,10 @@ CLAIM RESTRICTIONS:
           <span class="label">Primary text</span>
           <p>Insurance verification can pull your team away from patients.</p><p>Meet Mark, an Insurance Verification Specialist whose MedVirtual profile also lists medical billing support.</p><p>Hire a dedicated full-time virtual teammate your practice can interview — not another generic staffing promise.</p>
         </div>
-        <p class="note"><strong>Designer:</strong> Verification angle in copy only. Candidate interview framing. No reimbursement promises.</p>
+        <p class="note"><strong>Designer:</strong> Verification angle in Meta copy only. Public skills checklist OK. No reimbursement promises.</p>
         <div class="actions">
           <a class="btn primary" href="/assets/real-people/mark/clean-master.jpg" download>Source photo</a>
           <a class="btn" href="/assets/brand/medvirtual/logo-colored.svg" download>Logo SVG</a>
-          <a class="btn" href="/assets/brand/medvirtual/logo-white.svg" download>Logo white</a>
           <button type="button" class="btn" data-copy="ON-IMAGE HOOK:
 Meet Mark
 
@@ -528,8 +596,8 @@ CLAIM RESTRICTIONS:
       </div>
     </article><article class="person" id="person-jessica">
       <div class="person__art">
-        <button type="button" class="preview-hit" data-preview="/assets/real-people/jessica/ad-treatment-e-4x5.png" aria-label="Preview Jessica Studio Profile">
-          <img src="/assets/real-people/jessica/ad-treatment-e-4x5.png" alt="Meet Jessica — Studio Profile 4:5" width="432" height="540" loading="lazy" />
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/jessica/ad-treatment-e-4x5.png" aria-label="Preview Jessica">
+          <img src="/assets/real-people/jessica/ad-treatment-e-4x5.png" alt="Meet Jessica — Hailey Meet 4:5" width="432" height="540" loading="lazy" />
         </button>
         <div class="ratio-row">
           <a href="/assets/real-people/jessica/ad-treatment-e-4x5.png" download>4:5</a>
@@ -545,7 +613,7 @@ CLAIM RESTRICTIONS:
           <p class="meta"><a href="https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4" target="_blank" rel="noopener noreferrer">Talent Pool</a> · source 2026-07-13</p>
         </header>
         <dl class="facts">
-          <div><dt>On-image</dt><dd>Meet Jessica · Jr. Medical Admin · available to interview</dd></div>
+          <div><dt>On-image</dt><dd>Meet Jessica · Jr. Medical Admin · interview CTA</dd></div>
           <div><dt>Meta headline</dt><dd>Admin Work Piling Up?</dd></div>
           <div><dt>CTA</dt><dd>Learn More</dd></div>
         </dl>
@@ -553,11 +621,10 @@ CLAIM RESTRICTIONS:
           <span class="label">Primary text</span>
           <p>Calls keep coming. Tasks keep stacking. Your team is already stretched.</p><p>Meet Jessica, a Jr. Medical Admin whose MedVirtual profile lists customer-service and healthcare-support skills.</p><p>Hire dedicated virtual staff who join your practice team. Book a demo to request an interview.</p>
         </div>
-        <p class="note"><strong>Designer:</strong> Admin / calls pain in Meta copy. Dedicated staff joining the practice — not a call center.</p>
+        <p class="note"><strong>Designer:</strong> Admin / calls pain in Meta copy. Same DNA as Role-Offer Templates.</p>
         <div class="actions">
           <a class="btn primary" href="/assets/real-people/jessica/clean-master.jpg" download>Source photo</a>
           <a class="btn" href="/assets/brand/medvirtual/logo-colored.svg" download>Logo SVG</a>
-          <a class="btn" href="/assets/brand/medvirtual/logo-white.svg" download>Logo white</a>
           <button type="button" class="btn" data-copy="ON-IMAGE HOOK:
 Meet Jessica
 
@@ -596,8 +663,8 @@ CLAIM RESTRICTIONS:
       </div>
     </article><article class="person" id="person-angelica">
       <div class="person__art">
-        <button type="button" class="preview-hit" data-preview="/assets/real-people/angelica/ad-treatment-e-4x5.png" aria-label="Preview Angelica Studio Profile">
-          <img src="/assets/real-people/angelica/ad-treatment-e-4x5.png" alt="Meet Angelica — Studio Profile 4:5" width="432" height="540" loading="lazy" />
+        <button type="button" class="preview-hit" data-preview="/assets/real-people/angelica/ad-treatment-e-4x5.png" aria-label="Preview Angelica">
+          <img src="/assets/real-people/angelica/ad-treatment-e-4x5.png" alt="Meet Angelica — Hailey Meet 4:5" width="432" height="540" loading="lazy" />
         </button>
         <div class="ratio-row">
           <a href="/assets/real-people/angelica/ad-treatment-e-4x5.png" download>4:5</a>
@@ -613,7 +680,7 @@ CLAIM RESTRICTIONS:
           <p class="meta"><a href="https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3" target="_blank" rel="noopener noreferrer">Talent Pool</a> · source 2026-07-13</p>
         </header>
         <dl class="facts">
-          <div><dt>On-image</dt><dd>Meet Angelica · Front Desk Assistant · available to interview</dd></div>
+          <div><dt>On-image</dt><dd>Meet Angelica · Dermatology Front Desk Assistant · interview CTA</dd></div>
           <div><dt>Meta headline</dt><dd>Front Desk Stretched Thin?</dd></div>
           <div><dt>CTA</dt><dd>Learn More</dd></div>
         </dl>
@@ -621,11 +688,10 @@ CLAIM RESTRICTIONS:
           <span class="label">Primary text</span>
           <p>Patients are waiting. Phones are ringing. Follow-up is stacking up.</p><p>Meet Angelica, a Dermatology Front Desk Assistant whose MedVirtual profile shows medical-admin and healthcare-support experience.</p><p>Hire dedicated virtual staff who support your front-desk workflow as part of your practice — not a call center.</p>
         </div>
-        <p class="note"><strong>Designer:</strong> Front-desk pressure without “we run your front desk.” Offer a real person to interview.</p>
+        <p class="note"><strong>Designer:</strong> Front-desk pressure without “we run your front desk.” Interview framing.</p>
         <div class="actions">
           <a class="btn primary" href="/assets/real-people/angelica/clean-master.jpg" download>Source photo</a>
           <a class="btn" href="/assets/brand/medvirtual/logo-colored.svg" download>Logo SVG</a>
-          <a class="btn" href="/assets/brand/medvirtual/logo-white.svg" download>Logo white</a>
           <button type="button" class="btn" data-copy="ON-IMAGE HOOK:
 Meet Angelica
 
@@ -665,17 +731,42 @@ CLAIM RESTRICTIONS:
     </article>
     </section>
 
+    <section id="concept">
+      <h2>Treatment E — Hailey / Role-Offer Meet</h2>
+      <div class="concept">
+        <div>
+          <strong class="kicker">Look</strong>
+          <p>Same Visual DNA as Role-Offer: light cyan grid plate, Meet {Name}, teal role pill, short public-skill checklist, interview CTA, colored logo, talent photo on the right. Pain stays in Meta copy. No invented claims.</p>
+          <div class="rules">
+            <div>
+              <strong class="kicker">Do</strong>
+              <ul><li>Light grid plate (white → soft cyan) + Be Vietnam + brand teal</li><li>Meet {Name} + exact public role as a teal pill</li><li>2–3 short checklist lines from public Talent Pool skills only</li><li>Interview CTA chip (REQUEST AN INTERVIEW / Available to interview)</li><li>Official colored MedVirtual logo</li><li>Named talent photo on the right (or top on Stories)</li></ul>
+            </div>
+            <div>
+              <strong class="kicker">Don’t</strong>
+              <ul><li>No dark teal mud overlay over the person</li><li>No inventing skills, HIPAA, years, rates, or outcomes</li><li>Do not paste stock Role-Offer copy onto a named person</li></ul>
+            </div>
+          </div>
+        </div>
+        <div>
+          <strong class="kicker">Retired</strong>
+          <ul><li>Dark teal mud overlay on headshots</li><li>Stacked pain-yell flyer look that felt off-brand</li></ul>
+          <p style="margin-top:0.75rem"><a class="btn" href="/role-offer-templates.html">Match Role-Offer comps →</a></p>
+        </div>
+      </div>
+    </section>
+
     <section id="downloads">
       <h2>Downloads</h2>
       <details open>
-        <summary>Source photos &amp; crops (all six profiles)</summary>
+        <summary>Source photos &amp; crops (all Talent Pool profiles)</summary>
         <p style="margin:0.65rem 0"><a class="btn primary" href="/exports/real-people/all-real-people-assets.zip" download>Download all Real People assets</a></p>
         <div class="library-grid"><article class="lib-card">
       <button type="button" class="preview-hit" data-preview="/assets/real-people/jessica/profile-1080x1080.jpg" aria-label="Preview Jessica">
         <img src="/assets/real-people/jessica/profile-1080x1080.jpg" alt="" width="160" height="160" loading="lazy" />
       </button>
       <div>
-        <h4>Jessica <span class="pill">Batch</span></h4>
+        <h4>Jessica <span class="pill">Ready</span></h4>
         <p>Jr. Medical Admin</p>
         <div class="actions tight">
           <a class="btn" href="/assets/real-people/jessica/clean-master.jpg" download>Master</a>
@@ -690,7 +781,7 @@ CLAIM RESTRICTIONS:
         <img src="/assets/real-people/angelica/profile-1080x1080.jpg" alt="" width="160" height="160" loading="lazy" />
       </button>
       <div>
-        <h4>Angelica <span class="pill">Batch</span></h4>
+        <h4>Angelica <span class="pill">Ready</span></h4>
         <p>Dermatology Front Desk Assistant</p>
         <div class="actions tight">
           <a class="btn" href="/assets/real-people/angelica/clean-master.jpg" download>Master</a>
@@ -705,7 +796,7 @@ CLAIM RESTRICTIONS:
         <img src="/assets/real-people/chelsea/profile-1080x1080.jpg" alt="" width="160" height="160" loading="lazy" />
       </button>
       <div>
-        <h4>Chelsea <span class="pill">Batch</span></h4>
+        <h4>Chelsea <span class="pill">Ready</span></h4>
         <p>Dental Virtual Assistant</p>
         <div class="actions tight">
           <a class="btn" href="/assets/real-people/chelsea/clean-master.jpg" download>Master</a>
@@ -720,7 +811,7 @@ CLAIM RESTRICTIONS:
         <img src="/assets/real-people/mark/profile-1080x1080.jpg" alt="" width="160" height="160" loading="lazy" />
       </button>
       <div>
-        <h4>Mark <span class="pill">Batch</span></h4>
+        <h4>Mark <span class="pill">Ready</span></h4>
         <p>Insurance Verification Specialist</p>
         <div class="actions tight">
           <a class="btn" href="/assets/real-people/mark/clean-master.jpg" download>Master</a>
@@ -768,14 +859,13 @@ CLAIM RESTRICTIONS:
           <a class="btn" href="/assets/brand/medvirtual/logo-colored.svg" download>Logo colored SVG</a>
           <a class="btn" href="/assets/brand/medvirtual/logo-white.svg" download>Logo white SVG</a>
           <a class="btn" href="/medvirtual-brand-guide.html">Brand Guide</a>
-          <a class="btn" href="/meta-launch-build-pack.html">Meta Launch pack</a>
         </div>
       </details>
     </section>
 
     <section id="archive">
-      <h2>Retired layouts</h2>
-      <p class="reject-banner" style="margin-top:0.75rem"><strong>Old layouts removed from this page.</strong> Treatment C (checklist flyer) and Treatment D (dark teal scrim) are retired. Do not rebuild them. Active system is Studio Profile only.</p>
+      <h2>Retired</h2>
+      <p class="reject-banner"><strong>Dark mud + old flyer layouts are dead.</strong> Do not rebuild Treatment C/D. Use Hailey / Role-Offer Meet only.</p>
     </section>
   </main>
 

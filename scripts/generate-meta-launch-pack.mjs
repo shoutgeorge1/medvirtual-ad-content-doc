@@ -1469,12 +1469,12 @@ function writeLaunchPackHtml() {
 </head>
 <body>
   ${renderDocHeader({
-    activeId: 'launch-1',
-    pageTitle: 'Launch 1 · detailed Ads Manager pack',
-    pageSubtitle: 'Optional deep ops. Graphics team: use Launch 1 page first.',
+    activeId: 'real-people',
+    pageTitle: 'Ads Manager pack · Real People',
+    pageSubtitle: 'Optional deep ops. Graphics: use Real People page first.',
     subnav: [
-      { href: '/meta-launch-1.html', label: 'Launch 1' },
-      { href: '/meta-launch-2.html', label: 'Launch 2' },
+      { href: '/real-people-creative.html#ready', label: 'Ready' },
+      { href: '/real-people-creative.html#next', label: 'Next' },
       { href: '/meta-launch-build-pack.html', label: 'Ads Manager details' },
     ],
     activeSubHref: '/meta-launch-build-pack.html',

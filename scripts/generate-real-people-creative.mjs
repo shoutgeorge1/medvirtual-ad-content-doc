@@ -1,12 +1,18 @@
 /**
- * Real People — one combined strategy + designer page.
- * Active concept: Treatment E (Studio Profile). C/D retired.
+ * Real People — one page: Ready (was Launch 1) · Next (was Launch 2) · concept · downloads.
+ * Active look: Hailey / Role-Offer Meet (Treatment E).
  */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
 import { BRAND } from './medvirtual-brand-data.mjs';
+import {
+  LAUNCHES,
+  LAUNCH_SUBNAV,
+  LAUNCH_1_CARDS,
+  LAUNCH_2_ITEMS,
+} from './launch-sequences-data.mjs';
 import {
   CONCEPT_DIRECTION,
   META_AD_PACKAGES,
@@ -40,10 +46,11 @@ function loadCatalog() {
 }
 
 const DESIGNER_NOTES = {
-  chelsea: 'Scheduling pain stays in Meta primary text. Studio Profile owns the frame. No checklist.',
-  mark: 'Verification angle in copy only. Candidate interview framing. No reimbursement promises.',
-  jessica: 'Admin / calls pain in Meta copy. Dedicated staff joining the practice — not a call center.',
-  angelica: 'Front-desk pressure without “we run your front desk.” Offer a real person to interview.',
+  chelsea:
+    'Match today’s Hailey Meet look. Scheduling pain stays in Meta primary — not on the image.',
+  mark: 'Verification angle in Meta copy only. Public skills checklist OK. No reimbursement promises.',
+  jessica: 'Admin / calls pain in Meta copy. Same DNA as Role-Offer Templates.',
+  angelica: 'Front-desk pressure without “we run your front desk.” Interview framing.',
 };
 
 function primaryParagraphs(text) {
@@ -55,6 +62,39 @@ function primaryParagraphs(text) {
 
 function tePath(slug, ratio) {
   return `/assets/real-people/${slug}/ad-treatment-e-${ratio}.png`;
+}
+
+function renderReadyGrid() {
+  return LAUNCH_1_CARDS.map((c, i) => {
+    const t = talentById(c.talentId);
+    const te = TREATMENT_E.find((x) => x.talentId === c.talentId);
+    const pkg = META_AD_PACKAGES.find((x) => x.talentId === c.talentId);
+    return `<a class="ready-card" href="${esc(c.preview)}" target="_blank" rel="noopener">
+      <img src="${esc(c.preview)}" alt="${esc(te.meetLine)}" width="432" height="540" loading="lazy" />
+      <h3>${i + 1}. ${esc(t.firstName)}</h3>
+      <p>${esc(te.role)}</p>
+      <p class="hook">Meta: ${esc(pkg.headline)}</p>
+      <p class="file">${esc(c.file)}</p>
+    </a>`;
+  }).join('');
+}
+
+function renderNextCards() {
+  return LAUNCH_2_ITEMS.map((item, i) => {
+    const t = talentById(item.talentId);
+    return `<article class="next-card">
+      <h3>${i + 1}. ${esc(item.title)}</h3>
+      <p class="meta">${esc(t?.title || '')} · ${esc(item.ratio)}</p>
+      <p class="note"><strong>On-image:</strong> ${esc(item.onImage)}</p>
+      <p class="note">${esc(item.note)}</p>
+      <div class="actions">
+        <a class="btn primary" href="${esc(item.source)}" download>Source photo</a>
+        <a class="btn" href="${esc(item.ref)}" target="_blank" rel="noopener">Layout ref</a>
+        <a class="btn" href="${esc(BRAND.assets.logoColoredSvg)}" download>Logo SVG</a>
+        <a class="btn" href="/graphic-request-brief.html#do-now">Brief card</a>
+      </div>
+    </article>`;
+  }).join('');
 }
 
 function renderPersonCards(cat) {
@@ -71,8 +111,8 @@ function renderPersonCards(cat) {
 
     return `<article class="person" id="person-${esc(slug)}">
       <div class="person__art">
-        <button type="button" class="preview-hit" data-preview="${esc(tePath(slug, '4x5'))}" aria-label="Preview ${esc(t.firstName)} Studio Profile">
-          <img src="${esc(tePath(slug, '4x5'))}" alt="${esc(te.meetLine)} — Studio Profile 4:5" width="432" height="540" loading="lazy" />
+        <button type="button" class="preview-hit" data-preview="${esc(tePath(slug, '4x5'))}" aria-label="Preview ${esc(t.firstName)}">
+          <img src="${esc(tePath(slug, '4x5'))}" alt="${esc(te.meetLine)} — Hailey Meet 4:5" width="432" height="540" loading="lazy" />
         </button>
         <div class="ratio-row">
           <a href="${esc(tePath(slug, '4x5'))}" download>4:5</a>
@@ -88,7 +128,7 @@ function renderPersonCards(cat) {
           <p class="meta"><a href="${esc(t.profileUrl)}" target="_blank" rel="noopener noreferrer">Talent Pool</a> · source ${esc(SOURCE_CHECKED_AT)}</p>
         </header>
         <dl class="facts">
-          <div><dt>On-image</dt><dd>${esc(pkg.onImageHook)} · ${esc(pkg.supportingLine)}</dd></div>
+          <div><dt>On-image</dt><dd>${esc(te.meetLine)} · ${esc(te.role)} · interview CTA</dd></div>
           <div><dt>Meta headline</dt><dd>${esc(pkg.headline)}</dd></div>
           <div><dt>CTA</dt><dd>${esc(pkg.cta)}</dd></div>
         </dl>
@@ -96,11 +136,10 @@ function renderPersonCards(cat) {
           <span class="label">Primary text</span>
           ${primaryParagraphs(pkg.primaryText)}
         </div>
-        <p class="note"><strong>Designer:</strong> ${esc(DESIGNER_NOTES[t.id] || 'Studio Profile only. Official colored logo.')}</p>
+        <p class="note"><strong>Designer:</strong> ${esc(DESIGNER_NOTES[t.id] || 'Match Hailey / Role-Offer Meet DNA.')}</p>
         <div class="actions">
           <a class="btn primary" href="${esc(raw)}" download>Source photo</a>
           <a class="btn" href="${esc(BRAND.assets.logoColoredSvg)}" download>Logo SVG</a>
-          <a class="btn" href="${esc(BRAND.assets.logoWhiteSvg)}" download>Logo white</a>
           <button type="button" class="btn" data-copy="${esc(copyText)}">Copy Meta package</button>
           <button type="button" class="btn" data-copy="${esc(briefText)}">Copy layout brief</button>
           ${person?.personZip ? `<a class="btn" href="${esc(person.personZip)}" download>All crops ZIP</a>` : ''}
@@ -123,7 +162,7 @@ function renderLibrary(cat) {
         <img src="${esc(thumb)}" alt="" width="160" height="160" loading="lazy" />
       </button>
       <div>
-        <h4>${esc(t.firstName)}${inBatch ? ' <span class="pill">Batch</span>' : ''}</h4>
+        <h4>${esc(t.firstName)}${inBatch ? ' <span class="pill">Ready</span>' : ''}</h4>
         <p>${esc(t.title)}</p>
         <div class="actions tight">
           ${files.cleanMaster ? `<a class="btn" href="${esc(files.cleanMaster.path)}" download>Master</a>` : ''}
@@ -137,11 +176,10 @@ function renderLibrary(cat) {
   }).join('')}</div>`;
 }
 
-function renderRetiredNote() {
-  return `<p class="reject-banner" style="margin-top:0.75rem"><strong>Old layouts removed from this page.</strong> Treatment C (checklist flyer) and Treatment D (dark teal scrim) are retired. Do not rebuild them. Active system is Studio Profile only.</p>`;
-}
-
+const launch1 = LAUNCHES.find((l) => l.id === '1');
+const launch2 = LAUNCHES.find((l) => l.id === '2');
 const cat = loadCatalog();
+
 const css = `
   ${HEADER_CSS}
   :root {
@@ -169,15 +207,15 @@ const css = `
     margin: 0 0 0.55rem;
     letter-spacing: -0.02em;
   }
-  .hero .lede { max-width: 42rem; font-size: 1.05rem; line-height: 1.5; margin: 0 0 1rem; color: #334155; }
+  .hero .lede { max-width: 44rem; font-size: 1.05rem; line-height: 1.5; margin: 0 0 1rem; color: #334155; }
   .status-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
   .status {
     display: inline-flex; align-items: center; gap: 0.35rem;
     padding: 0.35rem 0.7rem; border-radius: 999px; font-size: 0.78rem; font-weight: 700;
   }
   .status.go { background: #dcfce7; color: #166534; }
-  .status.no { background: #fee2e2; color: #991b1b; }
-  .status.soft { background: #e0f2fe; color: #0c4a6e; }
+  .status.next { background: #e0f2fe; color: #0c4a6e; }
+  .status.soft { background: #f1f5f9; color: #475569; }
   .jump { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.75rem; }
   .jump a {
     color: var(--teal); font-weight: 700; text-decoration: none;
@@ -185,8 +223,28 @@ const css = `
   }
   section { margin-bottom: 2.25rem; }
   section > h2 {
-    font-size: 1.15rem; margin: 0 0 0.65rem; letter-spacing: -0.01em;
+    font-size: 1.15rem; margin: 0 0 0.45rem; letter-spacing: -0.01em;
   }
+  section > .sec-lede { margin: 0 0 0.85rem; color: #475569; max-width: 44rem; font-size: 0.95rem; }
+  .ready-grid {
+    display: grid; gap: 0.85rem;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  }
+  .ready-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.75rem;
+    text-decoration: none; color: inherit;
+  }
+  .ready-card img { width: 100%; height: auto; border-radius: 8px; display: block; }
+  .ready-card h3 { margin: 0.55rem 0 0.15rem; font-size: 1rem; }
+  .ready-card p { margin: 0; font-size: 0.82rem; color: #64748b; }
+  .ready-card .hook { margin-top: 0.35rem; color: #334155; }
+  .ready-card .file { margin-top: 0.35rem; font-size: 0.7rem; font-family: ui-monospace, monospace; word-break: break-all; }
+  .next-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem 1rem; margin-bottom: 0.75rem;
+  }
+  .next-card h3 { margin: 0 0 0.35rem; font-size: 1.02rem; }
+  .next-card .meta { font-size: 0.82rem; color: #64748b; margin: 0 0 0.45rem; }
+  .next-card .note { margin: 0 0 0.55rem; font-size: 0.9rem; color: #334155; }
   .concept {
     display: grid; gap: 1rem;
     grid-template-columns: 1.2fr 1fr;
@@ -199,13 +257,6 @@ const css = `
   @media (max-width: 700px) { .rules { grid-template-columns: 1fr; } }
   .rules ul { margin: 0; padding-left: 1.1rem; color: #334155; }
   .rules li { margin: 0.25rem 0; }
-  .why { display: grid; gap: 0.65rem; grid-template-columns: repeat(3, 1fr); }
-  @media (max-width: 800px) { .why { grid-template-columns: 1fr; } }
-  .why article {
-    background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.85rem 0.95rem;
-  }
-  .why h3 { margin: 0 0 0.3rem; font-size: 0.95rem; }
-  .why p { margin: 0; font-size: 0.88rem; color: #475569; line-height: 1.4; }
   .person {
     display: grid; gap: 1rem; grid-template-columns: 280px 1fr;
     background: #fff; border: 1px solid var(--line); border-radius: 14px;
@@ -249,11 +300,6 @@ const css = `
     margin: 0.75rem 0; padding: 0.65rem 0.8rem; border-radius: 10px;
     background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; font-size: 0.9rem;
   }
-  .reject-grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(4, 1fr); margin-top: 0.85rem; }
-  @media (max-width: 800px) { .reject-grid { grid-template-columns: repeat(2, 1fr); } }
-  .reject-card { margin: 0; }
-  .reject-card img { width: 100%; border-radius: 8px; opacity: 0.72; filter: grayscale(0.35); }
-  .reject-card figcaption { font-size: 0.78rem; color: #7f1d1d; margin-top: 0.3rem; font-weight: 700; }
   .library-grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(2, 1fr); margin-top: 0.85rem; }
   @media (max-width: 800px) { .library-grid { grid-template-columns: 1fr; } }
   .lib-card {
@@ -294,30 +340,59 @@ const html = `<!doctype html>
   ${renderDocHeader({
     activeId: 'real-people',
     pageTitle: 'Real People',
-    pageSubtitle: 'Named Talent Pool creative — Portrait Lead concept + source downloads in one place.',
+    pageSubtitle: 'Ready ads · next wave · Hailey Meet look · Talent Pool downloads — one page.',
+    subnav: LAUNCH_SUBNAV,
+    activeSubHref: '/real-people-creative.html#ready',
   })}
   <main>
     <header class="hero">
-      <h1>Real people. One concept.</h1>
-      <p class="lede">${esc(STRATEGY.intro)} Source: <a href="${esc(TALENT_POOL_URL)}" target="_blank" rel="noopener noreferrer">Talent Pool</a>.</p>
+      <h1>Real People</h1>
+      <p class="lede">${esc(STRATEGY.intro)} Same Hailey / Role-Offer look that launched today. Source: <a href="${esc(TALENT_POOL_URL)}" target="_blank" rel="noopener noreferrer">Talent Pool</a>.</p>
       <div class="status-row">
-        <span class="status go">Now → ${esc(CONCEPT_DIRECTION.activeName)}</span>
-        <span class="status no">Rejected → Treatment C</span>
-        <span class="status soft">Draft mocks · not final approved art</span>
+        <span class="status go">Ready · ${esc(launch1.people.join(' · '))}</span>
+        <span class="status next">Next · ${esc(launch2.people.join(' · '))}</span>
+        <span class="status soft">${esc(CONCEPT_DIRECTION.activeName)}</span>
       </div>
       <nav class="jump" aria-label="On this page">
-        <a href="#concept">Concept</a>
-        <a href="#batch">Four people</a>
+        <a href="#ready">Ready to load</a>
+        <a href="#next">Next up</a>
+        <a href="#batch">Four people + copy</a>
+        <a href="#concept">Look / rules</a>
         <a href="#downloads">Downloads</a>
-        <a href="#archive">Retired layouts</a>
+        <a href="/role-offer-templates.html">Role-Offer templates</a>
+        <a href="/graphic-request-brief.html">Brief</a>
       </nav>
     </header>
 
+    <section id="ready">
+      <h2>${esc(launch1.title)}</h2>
+      <p class="sec-lede">${esc(launch1.forGraphics)}</p>
+      <div class="actions" style="margin:0 0 0.85rem">
+        <a class="btn primary" href="/graphic-request-brief.html">Brief / form paste</a>
+        <a class="btn" href="/exports/meta-upload-ready/">Upload-ready folder</a>
+        <a class="btn" href="/template-test-board.html#hailey-likes">Hailey refs</a>
+        <a class="btn" href="/meta-launch-build-pack.html">Ads Manager pack</a>
+      </div>
+      <div class="ready-grid">${renderReadyGrid()}</div>
+    </section>
+
+    <section id="next">
+      <h2>${esc(launch2.title)}</h2>
+      <p class="sec-lede">${esc(launch2.forGraphics)} Work cards also live in Brief DO NOW.</p>
+      ${renderNextCards()}
+    </section>
+
+    <section id="batch">
+      <h2>Four people · Meta copy + downloads</h2>
+      <p class="sec-lede">Jessica, Chelsea, Mark, Angelica — full packages for the Ready set. Pain stays in Meta text.</p>
+      ${renderPersonCards(cat)}
+    </section>
+
     <section id="concept">
-      <h2>Treatment D — Portrait Lead</h2>
+      <h2>${esc(CONCEPT_DIRECTION.activeName)}</h2>
       <div class="concept">
         <div>
-          <strong class="kicker">Forward concept</strong>
+          <strong class="kicker">Look</strong>
           <p>${esc(CONCEPT_DIRECTION.thesis)}</p>
           <div class="rules">
             <div>
@@ -331,31 +406,17 @@ const html = `<!doctype html>
           </div>
         </div>
         <div>
-          <strong class="kicker">Why C died</strong>
+          <strong class="kicker">Retired</strong>
           <ul>${CONCEPT_DIRECTION.rejectedWhy.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+          <p style="margin-top:0.75rem"><a class="btn" href="/role-offer-templates.html">Match Role-Offer comps →</a></p>
         </div>
       </div>
-    </section>
-
-    <section>
-      <h2>Why named talent still matters</h2>
-      <div class="why">${STRATEGY.whyMayWork
-        .map(
-          (w) => `<article><h3>${esc(w.title)}</h3><p>${esc(w.note)}</p></article>`,
-        )
-        .join('')}</div>
-    </section>
-
-    <section id="batch">
-      <h2>First batch · four people</h2>
-      <p style="margin:0 0 0.85rem;color:#475569;max-width:40rem">Jessica, Chelsea, Mark, Angelica. Studio Profile PNGs are concept drafts for design — Meta paste fields are ready. Pain lives in primary text / headline, not on the face.</p>
-      ${renderPersonCards(cat)}
     </section>
 
     <section id="downloads">
       <h2>Downloads</h2>
       <details open>
-        <summary>Source photos &amp; crops (all six profiles)</summary>
+        <summary>Source photos &amp; crops (all Talent Pool profiles)</summary>
         ${cat.masterZip ? `<p style="margin:0.65rem 0"><a class="btn primary" href="${esc(cat.masterZip)}" download>Download all Real People assets</a></p>` : ''}
         ${renderLibrary(cat)}
       </details>
@@ -365,14 +426,13 @@ const html = `<!doctype html>
           <a class="btn" href="${esc(BRAND.assets.logoColoredSvg)}" download>Logo colored SVG</a>
           <a class="btn" href="${esc(BRAND.assets.logoWhiteSvg)}" download>Logo white SVG</a>
           <a class="btn" href="/medvirtual-brand-guide.html">Brand Guide</a>
-          <a class="btn" href="/meta-launch-build-pack.html">Meta Launch pack</a>
         </div>
       </details>
     </section>
 
     <section id="archive">
-      <h2>Retired layouts</h2>
-      ${renderRetiredNote()}
+      <h2>Retired</h2>
+      <p class="reject-banner"><strong>Dark mud + old flyer layouts are dead.</strong> Do not rebuild Treatment C/D. Use Hailey / Role-Offer Meet only.</p>
     </section>
   </main>
 

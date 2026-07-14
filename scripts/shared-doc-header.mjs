@@ -8,7 +8,7 @@ import { LAUNCH_SUBNAV } from './launch-sequences-data.mjs';
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Creative Handoff',
-  tagline: 'Graphics · templates · launch sequences',
+  tagline: 'Graphics · templates · Real People',
   homeHref: '/graphic-request-brief.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };
@@ -28,25 +28,13 @@ export const PRIMARY_NAV = [
     href: '/template-test-board.html',
     label: 'Templates',
     id: 'templates',
-    description: 'Layout refs + Role-Offer checklist templates (editable).',
-  },
-  {
-    href: '/meta-launch-1.html',
-    label: 'Launch 1',
-    id: 'launch-1',
-    description: 'Current Real People feed ads to design / upload.',
-  },
-  {
-    href: '/meta-launch-2.html',
-    label: 'Launch 2',
-    id: 'launch-2',
-    description: 'Next sequence: expand talent + Stories sizes.',
+    description: 'Hailey favorites + Role-Offer checklist templates.',
   },
   {
     href: '/real-people-creative.html',
     label: 'Real People',
     id: 'real-people',
-    description: 'Studio Profile system + Talent Pool downloads (one page).',
+    description: 'Ready ads · next up · Hailey Meet look · Talent Pool downloads.',
   },
 ];
 
