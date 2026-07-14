@@ -230,7 +230,7 @@ const html = `<!DOCTYPE html>
   ${renderDocHeader({
     activeId: 'saas-prop',
     pageTitle: 'SaaS Prop Templates',
-    pageSubtitle: 'Classy medical-software look · no people · fancy words',
+    pageSubtitle: 'Software-style lane · no people · part of Ideas Lab',
   })}
   <div class="intro">
     <h1>${esc(SAAS_PROP_META.title)}</h1>

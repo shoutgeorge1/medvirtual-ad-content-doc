@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ideas Lab · MedVirtual</title>
+  <style>
+  
+  
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --mv-deep-teal: #0D546B;
+  --mv-accent: #00C0D4;
+  --mv-bright-accent: #27E6FA;
+  --mv-neutral-blue: #F0F5FF;
+  --mv-neutral-warm: #EFEDE1;
+  --mv-ink: #161511;
+  --mv-white: #FFFFFF;
+  --mv-gradient-primary: linear-gradient(90deg, #077999 0%, #00B2E2 100%);
+  --mv-gradient-light: linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%);
+  --mv-gradient-bright: linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%);
+  --mv-gradient-deep: linear-gradient(90deg, #0D546B 0%, #00C0D4 100%);
+  --mv-font: "Be Vietnam", Inter, Arial, sans-serif;
+}
+
+  .doc-header {
+    background: var(--mv-deep-teal);
+    color: #ffffff;
+    border-bottom: 3px solid var(--mv-cyan);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    font-family: var(--mv-font);
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .doc-header__mark {
+    display: none;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #b8d4e0;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #b8d4e0;
+    max-width: 820px;
+  }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .doc-nav a,
+  .doc-nav-dd > summary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #d7e8f0;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+    list-style: none;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+  }
+  /* Kill page-level details/summary styles that bleed into the header */
+  .doc-header details.doc-nav-dd {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
+  .doc-header details.doc-nav-dd > summary {
+    background: transparent !important;
+    color: #d7e8f0 !important;
+    font-weight: 500 !important;
+    border: 1px solid transparent !important;
+    padding: 0.45rem 0.75rem !important;
+  }
+  .doc-nav-dd > summary::-webkit-details-marker { display: none; }
+  .doc-nav-dd > summary::after {
+    content: '▾';
+    margin-left: 0.35em;
+    font-size: 0.7em;
+    opacity: 0.75;
+  }
+  .doc-nav a:hover,
+  .doc-header details.doc-nav-dd > summary:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: var(--mv-primary);
+  }
+  .doc-header details.doc-nav-dd.active > summary,
+  .doc-header details.doc-nav-dd[open] > summary {
+    color: #ffffff !important;
+    background: var(--mv-primary) !important;
+  }
+  .doc-nav-dd {
+    position: relative;
+  }
+  .doc-nav-dd__menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    min-width: 11rem;
+    background: #0a4558;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    padding: 0.35rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .doc-nav-dd__menu a {
+    display: block;
+    white-space: nowrap;
+    border-radius: 7px;
+  }
+  .doc-nav-dd__menu a.active {
+    background: rgba(0, 178, 226, 0.28);
+  }
+  .doc-nav--ref a,
+  .doc-nav--ref .doc-nav-dd > summary {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #9fb9c6;
+    padding: 0.35rem 0.55rem;
+  }
+  .doc-nav--ref a.active,
+  .doc-nav--ref .doc-nav-dd.active > summary,
+  .doc-nav--ref .doc-nav-dd[open] > summary {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: var(--mv-bright-accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
+  .doc-subnav a.active {
+    background: rgba(0, 178, 226, 0.2);
+    border-color: var(--mv-cyan);
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
+    .doc-nav-dd__menu { min-width: 9.5rem; }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Be Vietnam", Inter, Arial, sans-serif;
+    color: #161511;
+    background:
+      radial-gradient(ellipse 70% 45% at 100% 0%, rgba(39,230,250,0.12), transparent 55%),
+      #f3f7fa;
+    line-height: 1.5;
+  }
+  main { max-width: 960px; margin: 0 auto; padding: 1.4rem 1.1rem 4rem; }
+  .hero h1 {
+    margin: 0 0 0.45rem;
+    font-size: clamp(1.75rem, 3.8vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+  .hero p { margin: 0 0 1.2rem; max-width: 42rem; color: #405766; font-size: 1.02rem; }
+  .banner {
+    background: #ecfeff;
+    border: 1px solid #a5f3fc;
+    color: #155e75;
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.4rem;
+    font-size: 0.94rem;
+  }
+  section { margin-bottom: 1.75rem; }
+  section > h2 { margin: 0 0 0.35rem; font-size: 1.2rem; }
+  section > .lede { margin: 0 0 0.85rem; color: #64748b; font-size: 0.94rem; max-width: 44rem; }
+  .cards {
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 700px) { .cards { grid-template-columns: 1fr; } }
+  .card {
+    background: #fff;
+    border: 1px solid #d5e2ea;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+  }
+  .card h3 { margin: 0 0 0.3rem; font-size: 1rem; }
+  .card p { margin: 0; font-size: 0.88rem; color: #516472; }
+  .card .tag {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #077999;
+  }
+  .lanes {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 800px) { .lanes { grid-template-columns: 1fr; } }
+  .lane {
+    background: #fff;
+    border: 1px solid #d5e2ea;
+    border-radius: 14px;
+    padding: 1rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .lane:hover { border-color: #00B2E2; }
+  .lane h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+  .lane p { margin: 0; font-size: 0.88rem; color: #516472; }
+  .cta {
+    background: linear-gradient(120deg, #0D546B, #077999);
+    color: #fff;
+    border-radius: 14px;
+    padding: 1.15rem 1.2rem;
+  }
+  .cta h2 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+  .cta p { margin: 0 0 0.85rem; color: rgba(255,255,255,0.88); font-size: 0.94rem; }
+  .btn {
+    display: inline-flex;
+    padding: 0.55rem 0.9rem;
+    border-radius: 9px;
+    background: #fff;
+    color: #0D546B;
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 0.4rem;
+  }
+  .btn.ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+  .hooks .card strong { display: block; margin-bottom: 0.25rem; color: #0D546B; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/studio.html">
+      <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
+      <div>
+        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
+        <p class="doc-header__tagline">Built with our graphics partners · ads that get practices to book</p>
+      </div>
+    </a>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Studio</a><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
+      <summary>Lookbook</summary>
+      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer board</a></div>
+    </details><a href="/real-people-creative.html" class="">People</a><details class="doc-nav-dd active">
+      <summary>Ideas</summary>
+      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="active">Ideas Lab</a><a href="/saas-prop-templates.html" class="">SaaS Prop</a></div>
+    </details></nav>
+      <span class="doc-nav-sep" aria-hidden="true"></span>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/asset-hub.html" class="">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
+    </div>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Ideas Lab</h2>
+          <p class="doc-header__page-sub">Where we evolve past commodity statics — with your creative judgment</p>
+          
+        </div>
+</header>
+<script>
+(function () {
+  document.querySelectorAll('.doc-nav-dd').forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (!dd.open) return;
+      document.querySelectorAll('.doc-nav-dd').forEach((other) => {
+        if (other !== dd) other.open = false;
+      });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.doc-nav-dd')) return;
+    document.querySelectorAll('.doc-nav-dd[open]').forEach((dd) => { dd.open = false; });
+  });
+})();
+</script>
+  <main>
+    <header class="hero">
+      <h1>Same mission. Fresh creative systems.</h1>
+      <p>Meet-[Name] statics still matter under marketing’s current guidance — but ads that all look the same stop working. This lab is for motion, voice, human film, and software-style props that help practices actually book.</p>
+    </header>
+
+    <p class="banner">Locked lane vs experiment lane: if it’s on the <a href="/graphic-request-brief.html">Brief</a>, match the brief. If it’s here, you’re invited to explore and pitch.</p>
+
+    <div class="lanes">
+      <a class="lane" href="#remotion">
+        <h3>Remotion + slides</h3>
+        <p>Template IDs we can build into motion once stills are strong.</p>
+      </a>
+      <a class="lane" href="#voice">
+        <h3>ElevenLabs / VO</h3>
+        <p>Practice-ops narration over approved frames — never fake testimonials.</p>
+      </a>
+      <a class="lane" href="/saas-prop-templates.html">
+        <h3>SaaS Prop lane</h3>
+        <p>Glass / software aesthetic, no faces — editable headline comps.</p>
+      </a>
+    </div>
+
+    <section id="remotion">
+      <h2>Remotion motion templates</h2>
+      <p class="lede">Planning inventory — no code to ship yet. Great for designers who think in sequences and beats.</p>
+      <div class="cards">
+        <article class="card"><span class="tag">STATIC_TO_SHORT</span><h3>Static → short motion</h3><p>Hold a strong still, gentle Ken Burns, text stagger, CTA pulse. 15–20s.</p></article><article class="card"><span class="tag">PROBLEM_SOLUTION</span><h3>Problem → solution</h3><p>Hook the ops pain, then reveal dedicated virtual support. No fear tactics.</p></article><article class="card"><span class="tag">CHECKLIST_REVEAL</span><h3>Checklist reveal</h3><p>3 skills or benefits tick in over B-roll. Clean and readable on mobile.</p></article><article class="card"><span class="tag">TEXT_ON_IMAGE_NATIVE</span><h3>Native text-on-image</h3><p>Big hook on frame one — feels like Meta-native creative, not corporate.</p></article><article class="card"><span class="tag">TALKING_HEAD_FRAME</span><h3>Headset hold + VO</h3><p>Face clear, voiceover only. Never fake a customer testimonial.</p></article><article class="card"><span class="tag">DEMO_OFFER</span><h3>Demo offer</h3><p>Interface or offer end-card. CTA visible early. No PHI on screen.</p></article>
+      </div>
+    </section>
+
+    <section id="voice" class="hooks">
+      <h2>Video / VO story hooks</h2>
+      <p class="lede">Safe drafts for short video. Prefer operations POV. First frame should still work as a static.</p>
+      <div class="cards">
+        <article class="card"><strong>When patient calls keep coming in…</strong><h3>Headset medical admin</h3><p>VO explainer · approved still as frame 1</p></article><article class="card"><strong>When scheduling becomes the bottleneck…</strong><h3>Busy schedule review</h3><p>Office POV · calm solution beat</p></article><article class="card"><strong>Your front desk is buried…</strong><h3>Front desk ringing</h3><p>Scenario B-roll + narrator</p></article><article class="card"><strong>Remote medical support for busy practices</strong><h3>Remote assistant calm</h3><p>Keep claims modest · hire dedicated staff</p></article>
+      </div>
+    </section>
+
+    <section id="human">
+      <h2>Human-shot concepts</h2>
+      <p class="lede">When we’re ready for real cameras — still need consent, no PHI, no invented credentials.</p>
+      <div class="cards">
+        <article class="card"><h3>Practice staff day-in-the-life</h3><p>Real ops friction (phones, charts, scheduling) — then how virtual support fits. Consent + no PHI.</p></article><article class="card"><h3>Talent Pool intros (approved talent only)</h3><p>Short, warm Meet clips when talent opts in — never invent credentials on camera.</p></article><article class="card"><h3>Founder / ops truth cuts</h3><p>Simple human honesty over stock polish. Works as hooks above product statics.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tools you’ll want nearby</h2>
+      <p class="lede">Grab masters and crops while you sketch. Producer upload packs stay optional.</p>
+      <div class="cards">
+        <article class="card"><h3><a href="/asset-hub.html">Asset Hub</a></h3><p>Logos + AI masters for stills and video seeds.</p></article>
+        <article class="card"><h3><a href="/image-variation-review.html">Image board</a></h3><p>Approved crops and families to start motion from.</p></article>
+        <article class="card"><h3><a href="/saas-prop-templates.html">SaaS Prop templates</a></h3><p>Editable no-people comps — another visual system to stress-test.</p></article>
+        <article class="card"><h3><a href="/medvirtual-brand-guide.html">Brand Guide</a></h3><p>Color, logo, and claims guardrails so experiments stay shippable.</p></article>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Pitch something from the lab</h2>
+      <p>Tell us the lane, the concept, and why a practice owner might book. Short is fine — we’ll follow up.</p>
+      <a class="btn" href="mailto:UPDATE_ME@medvirtual.ai?subject=Ideas%20Lab%20pitch%20%E2%80%94%20MedVirtual&amp;body=Hi%20team%2C%0A%0AIdeas%20Lab%20pitch%3A%0A%0ALane%3A%20(Remotion%20%2F%20ElevenLabs%20%2F%20Human%20shoot%20%2F%20SaaS%20%2F%20Other)%0AConcept%3A%0AWhy%20it%20might%20help%20practices%20book%3A%0ARough%20needs%20from%20us%3A%0A%0AThanks!">Email your pitch</a>
+      <a class="btn ghost" href="/studio.html">Back to Studio</a>
+    </section>
+  </main>
+</body>
+</html>

@@ -392,22 +392,22 @@ const html = `<!doctype html>
 <body>
   ${renderDocHeader({
     activeId: 'real-people',
-    pageTitle: 'Real People',
-    pageSubtitle: 'Hailey Role-Offer variations · Ready ads · next wave · Talent Pool downloads.',
+    pageTitle: 'People',
+    pageSubtitle: 'Named talent ads · finished comps · downloads · Meta copy packages',
     subnav: LAUNCH_SUBNAV,
     activeSubHref: '/real-people-creative.html#ready',
   })}
   <main>
     <header class="hero">
-      <h1>Real People</h1>
-      <p class="lede">${esc(STRATEGY.intro)} Layouts = what Hailey likes — Meet {Name} on her Role-Offer comps. Source: <a href="${esc(TALENT_POOL_URL)}" target="_blank" rel="noopener noreferrer">Talent Pool</a>.</p>
+      <h1>People ads</h1>
+      <p class="lede">${esc(STRATEGY.intro)} These Meet-[Name] layouts follow the lookbook guides marketing trusts today — your polish still counts. Source photos: <a href="${esc(TALENT_POOL_URL)}" target="_blank" rel="noopener noreferrer">Talent Pool</a>.</p>
       <div class="status-row">
         <span class="status go">Ready · ${esc(launch1.people.join(' · '))}</span>
         <span class="status next">Next · ${esc(launch2.people.join(' · '))}</span>
         <span class="status soft">${esc(CONCEPT_DIRECTION.activeName)}</span>
       </div>
       <nav class="jump" aria-label="On this page">
-        <a href="#hailey">Hailey refs</a>
+        <a href="#look-guides">Look guides</a>
         <a href="#ready">Ready variations</a>
         <a href="#next">Next up</a>
         <a href="#batch">Four people + copy</a>
@@ -415,12 +415,13 @@ const html = `<!doctype html>
         <a href="#downloads">Downloads</a>
         <a href="/role-offer-templates.html">Role-Offer templates</a>
         <a href="/graphic-request-brief.html">Brief</a>
+        <a href="/ideas.html">Ideas Lab</a>
       </nav>
     </header>
 
-    <section id="hailey">
-      <h2>Hailey’s refs — build variations of these</h2>
-      <p class="sec-lede">These are the comps she likes. Real People = same layouts with Meet {Name} + public role/skills.</p>
+    <section id="look-guides">
+      <h2>Look guides — start from these comps</h2>
+      <p class="sec-lede">These are the approved layout references for the current static lane. Build Meet-[Name] variations with public role/skills — bring your craft within this system.</p>
       ${renderHaileyRefs()}
     </section>
 
@@ -428,17 +429,17 @@ const html = `<!doctype html>
       <h2>${esc(launch1.title)} · 4 layout variations each</h2>
       <p class="sec-lede">${esc(launch1.forGraphics)} Each person has burnout / biller / nurse / dental DNA.</p>
       <div class="actions" style="margin:0 0 0.85rem">
-        <a class="btn primary" href="/graphic-request-brief.html">Brief / form paste</a>
+        <a class="btn primary" href="/graphic-request-brief.html">Open Brief</a>
         <a class="btn" href="/exports/meta-upload-ready/">Upload-ready folder</a>
         <a class="btn" href="/role-offer-templates.html">Editable Role-Offer board</a>
-        <a class="btn" href="/meta-launch-build-pack.html">Ads Manager pack</a>
+        <a class="btn" href="/studio.html">Studio home</a>
       </div>
       <div class="ready-grid">${renderReadyGrid()}</div>
     </section>
 
     <section id="next">
       <h2>${esc(launch2.title)}</h2>
-      <p class="sec-lede">${esc(launch2.forGraphics)} Work cards also live in Brief DO NOW.</p>
+      <p class="sec-lede">${esc(launch2.forGraphics)} Active work cards also live on the Brief.</p>
       ${renderNextCards()}
     </section>
 
@@ -491,8 +492,8 @@ const html = `<!doctype html>
     </section>
 
     <section id="archive">
-      <h2>Retired</h2>
-      <p class="reject-banner"><strong>Dark mud + old flyer layouts are dead.</strong> Do not rebuild Treatment C/D. Use Hailey / Role-Offer Meet only.</p>
+      <h2>Retired looks</h2>
+      <p class="reject-banner"><strong>Dark mud + old flyer layouts are retired.</strong> Please build from the current lookbook / Role-Offer Meet system — and use Ideas Lab when you want to propose something new.</p>
     </section>
   </main>
 

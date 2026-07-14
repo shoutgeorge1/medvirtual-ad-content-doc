@@ -1668,10 +1668,10 @@ function renderHaileyFavorites() {
   return `
     <section class="hailey" id="hailey-likes">
       <div class="hailey__head">
-        <p class="hailey__eyebrow">Priority · open this first</p>
-        <h2>What Hailey likes</h2>
-        <p>One Visual DNA for Role-Offer <em>and</em> Real People. Match these comps. Named talent uses Meet {Name} + role pill + public skills — same grid / teal / logo system. <a href="/role-offer-templates.html">Editable Role-Offer →</a> · <a href="/real-people-creative.html">Real People →</a></p>
-        <p style="margin:0.55rem 0 0;font-size:0.88rem;color:#b8d4e0"><strong>New lane:</strong> classy SaaS props, no people, fancy words → <a href="/saas-prop-templates.html">SaaS Prop Templates</a></p>
+        <p class="hailey__eyebrow">Start with these comps</p>
+        <h2>Approved look guides</h2>
+        <p>One visual system currently trusted for Role-Offer <em>and</em> People ads. Match the structure — Meet-[Name], role pill, public skills, same grid / teal / logo. Bring your polish within it. <a href="/role-offer-templates.html">Editable Role-Offer →</a> · <a href="/real-people-creative.html">People →</a></p>
+        <p style="margin:0.55rem 0 0;font-size:0.88rem;color:#b8d4e0"><strong>Other lanes:</strong> <a href="/saas-prop-templates.html">SaaS Prop</a> · <a href="/ideas.html">Ideas Lab</a> (motion, VO, human shoots)</p>
       </div>
       <div class="hailey__grid">${cards}</div>
     </section>`;
@@ -1839,24 +1839,24 @@ async function main() {
 <body>
   ${renderDocHeader({
     activeId: 'templates',
-    pageTitle: 'Templates',
-    pageSubtitle: 'Hailey layout refs · Role-Offer boards',
+    pageTitle: 'Lookbook',
+    pageSubtitle: 'Approved layout guides for today’s static ads — polish welcome',
   })}
   <div class="wrap">
     <header class="banner">
-      <h2>Templates — Hailey examples</h2>
-      <p>All four layout refs are polished to Hailey’s Role-Offer DNA (Be Vietnam · Hire + role pill · checks · price · CTA). Use these as the bar — not the old all-caps stacks.</p>
-      <p class="clarify"><strong>Also:</strong> <a href="/role-offer-templates.html">Role-Offer</a> · <a href="/real-people-creative.html">Real People</a> · <a href="/saas-prop-templates.html">SaaS Prop</a></p>
+      <h2>Lookbook — layout guides</h2>
+      <p>These comps set the bar for current Meet-[Name] statics (Be Vietnam · Hire + role · checks · CTA). Use them as guides — your craft still matters. Want a new system? Pitch it in <a href="/ideas.html">Ideas Lab</a>.</p>
+      <p class="clarify"><strong>Also:</strong> <a href="/role-offer-templates.html">Role-Offer board</a> · <a href="/real-people-creative.html">People</a> · <a href="/ideas.html">Ideas Lab</a> · <a href="/studio.html">Studio</a></p>
       <div class="banner-meta">
-        <span><a href="#hailey-likes">5 Hailey favorites</a></span>
+        <span><a href="#hailey-likes">Favorite comps</a></span>
         <span><a href="/role-offer-templates.html">Editable Role-Offer</a></span>
         <span>${FIRST_BATCH_COUNT} layout refs · 1080×1350</span>
       </div>
     </header>
     ${renderHaileyFavorites()}
-    <p class="section-label">Polished Hailey layout examples · 1080×1350</p>
+    <p class="section-label">Polished layout examples · 1080×1350</p>
     <div class="prod-list">${cards}</div>
-    <p class="note">Brief owns Meta copy. For Role-Offer art direction, stay on the Hailey strip / Role-Offer page — not Treatment E Real People.</p>
+    <p class="note">Meta ad copy lives on the Brief. For editable Role-Offer art direction, use the Role-Offer board. Experiments and new lanes live in Ideas Lab.</p>
   </div>
 </body>
 </html>`,

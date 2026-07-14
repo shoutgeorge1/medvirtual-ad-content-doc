@@ -9,50 +9,64 @@ import { LAUNCH_SUBNAV } from './launch-sequences-data.mjs';
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Creative Handoff',
-  tagline: 'Graphics · templates · Real People · SaaS',
-  homeHref: '/graphic-request-brief.html',
+  tagline: 'Built with our graphics partners · ads that get practices to book',
+  homeHref: '/studio.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };
 
 /**
- * Primary nav — left → right. New concept lanes append after Real People.
- * Prefer flat links so every page looks identical. Use `children` only when a
- * lane needs a dropdown (CSS is scoped so page `details` rules cannot bleach it).
+ * Primary nav — left → right for designers.
+ * Studio (home) → Brief → Lookbook → People → Ideas.
+ * Prefer flat links; use `children` for related boards in one lane.
  */
 export const PRIMARY_NAV = [
+  {
+    href: '/studio.html',
+    label: 'Studio',
+    id: 'studio',
+    description: 'Home for graphics — how we work, tools, share ideas.',
+  },
   {
     href: '/graphic-request-brief.html',
     label: 'Brief',
     id: 'brief',
-    description: 'Do now queue + Graphics Request Form paste.',
+    description: 'Current ads to design.',
   },
   {
     href: '/template-test-board.html',
-    label: 'Templates',
-    id: 'templates',
-    description: 'Hailey layout refs · Role-Offer boards.',
+    label: 'Lookbook',
+    id: 'lookbook',
+    description: 'Approved layout guides and editable comps.',
+    children: [
+      { href: '/template-test-board.html', label: 'Layout guides', id: 'templates' },
+      { href: '/role-offer-templates.html', label: 'Role-Offer board', id: 'role-offer' },
+    ],
   },
   {
     href: '/real-people-creative.html',
-    label: 'Real People',
+    label: 'People',
     id: 'real-people',
-    description: 'Ready ads · next up · Hailey Meet look · Talent Pool downloads.',
+    description: 'Named talent ads, downloads, and copy packages.',
   },
   {
-    href: '/saas-prop-templates.html',
-    label: 'SaaS Prop',
-    id: 'saas-prop',
-    description: 'Classy medical-software look · no people · fancy words.',
+    href: '/ideas.html',
+    label: 'Ideas',
+    id: 'ideas',
+    description: 'Video, Remotion, human shoots, SaaS experiments.',
+    children: [
+      { href: '/ideas.html', label: 'Ideas Lab', id: 'ideas' },
+      { href: '/saas-prop-templates.html', label: 'SaaS Prop', id: 'saas-prop' },
+    ],
   },
 ];
 
-/** Related boards reached from Templates pages / banners — not primary nav clones */
+/** Related boards reached from Lookbook / banners */
 export const TEMPLATE_LANES = [
-  { href: '/template-test-board.html', label: 'Layout refs', id: 'templates' },
+  { href: '/template-test-board.html', label: 'Layout guides', id: 'templates' },
   { href: '/role-offer-templates.html', label: 'Role-Offer', id: 'role-offer' },
 ];
 
-/** Far-right reference — producer / brand, not daily VA workflow */
+/** Far-right reference shelf */
 export const REFERENCE_NAV = [
   {
     href: '/medvirtual-brand-guide.html',

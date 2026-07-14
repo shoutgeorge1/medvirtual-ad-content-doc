@@ -116,7 +116,7 @@ function main() {
   })}
   <div class="wrap">
     <div class="note">
-      <strong>Graphics:</strong> start with the <a href="/graphic-request-brief.html">VA Graphics Queue (Brief)</a> — copy the form, don’t invent work.
+      <strong>Graphics:</strong> start at <a href="/studio.html">Studio</a>, then the <a href="/graphic-request-brief.html">Brief</a> for current ads.
       Brand rules: <a href="/medvirtual-brand-guide.html">Brand Guide</a>.
       Crops: <a href="/image-variation-review.html">Image Review</a>.
       Channel assets: <a href="/marketing-library.html">Marketing Library</a> (blog, LinkedIn, newsletter, print, social).
@@ -128,6 +128,7 @@ function main() {
     </div>
     <div class="links">
       <a href="/medvirtual-brand-guide.html">Brand Guide</a>
+      <a class="secondary" href="/studio.html">Studio</a>
       <a class="secondary" href="/graphic-request-brief.html">Brief</a>
       <a class="secondary" href="/marketing-library.html">Marketing Library</a>
       <a class="secondary" href="/image-variation-review.html">Image Review</a>

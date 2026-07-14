@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
-/** Old React Content Doc / Export are parked — work happens on the HTML boards. */
+/** Old React Content Doc is parked — Studio is home for the HTML handoff. */
 export default function App() {
   useEffect(() => {
-    window.location.replace('/graphic-request-brief.html');
+    window.location.replace('/studio.html');
   }, []);
 
   return (
@@ -20,16 +20,16 @@ export default function App() {
       }}
     >
       <div>
-        <p style={{ marginBottom: '1rem', color: '#b8d4e0' }}>Redirecting to Creative Brief…</p>
+        <p style={{ marginBottom: '1rem', color: '#b8d4e0' }}>Opening Studio…</p>
         <p style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
+          <a href="/studio.html" style={{ color: '#27E6FA' }}>
+            Studio
+          </a>
           <a href="/graphic-request-brief.html" style={{ color: '#27E6FA' }}>
-            Creative Brief
+            Brief
           </a>
-          <a href="/medvirtual-brand-guide.html" style={{ color: '#27E6FA' }}>
-            Brand Guide
-          </a>
-          <a href="/real-people-assets.html" style={{ color: '#27E6FA' }}>
-            RP Assets
+          <a href="/ideas.html" style={{ color: '#27E6FA' }}>
+            Ideas Lab
           </a>
         </p>
       </div>

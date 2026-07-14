@@ -326,6 +326,18 @@
   }
   main details.archive summary { cursor: pointer; font-weight: 800; color: #64748b; }
   .rules { margin: 0.65rem 0 0; padding-left: 1.1rem; color: #475569; font-size: 0.88rem; }
+  .idea-box {
+    background: linear-gradient(135deg, #0D546B 0%, #077999 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 1.1rem 1.15rem;
+    margin-bottom: 1.75rem;
+  }
+  .idea-box h2 { margin: 0 0 0.35rem; color: #fff; font-size: 1.1rem; }
+  .idea-box .lede { color: rgba(255,255,255,0.9); margin: 0 0 0.85rem; }
+  .idea-box .btn { margin: 0 0.35rem 0.35rem 0; }
+  .idea-box .btn.primary { background: #fff; color: #0D546B; border-color: #fff; }
+  .idea-box .btn:not(.primary) { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
   .toast {
     position: fixed; bottom: 1rem; right: 1rem; background: #0D546B; color: #fff;
     padding: 0.55rem 0.85rem; border-radius: 8px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity 0.2s;
@@ -336,22 +348,28 @@
 <body>
   <header class="doc-header">
   <div class="doc-header__row">
-    <a class="doc-header__brand" href="/graphic-request-brief.html">
+    <a class="doc-header__brand" href="/studio.html">
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Graphics · templates · Real People · SaaS</p>
+        <p class="doc-header__tagline">Built with our graphics partners · ads that get practices to book</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="active">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/real-people-creative.html" class="">Real People</a><a href="/saas-prop-templates.html" class="">SaaS Prop</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Studio</a><a href="/graphic-request-brief.html" class="active">Brief</a><details class="doc-nav-dd ">
+      <summary>Lookbook</summary>
+      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer board</a></div>
+    </details><a href="/real-people-creative.html" class="">People</a><details class="doc-nav-dd ">
+      <summary>Ideas</summary>
+      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Ideas Lab</a><a href="/saas-prop-templates.html" class="">SaaS Prop</a></div>
+    </details></nav>
       <span class="doc-nav-sep" aria-hidden="true"></span>
       <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/asset-hub.html" class="">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
     </div>
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Graphics brief</h2>
-          <p class="doc-header__page-sub">Four ads we need help with — thank you for taking these on</p>
+          <p class="doc-header__page-sub">Current ads to design — clear asks, helpful files, your craft welcome</p>
           
         </div>
 </header>
@@ -374,10 +392,10 @@
   <main>
     <header class="hero">
       <h1>Four ads to design</h1>
-      <p>Thanks for helping with these. Each card is one ad. Open the example, then use the photo and logo linked on the card. The folder at the bottom is just for the producer team if you need it later.</p>
+      <p>Thanks for helping with these. Each card is one ad. Open the example, then use the photo and logo linked on the card. Prefer <a href="/studio.html">Studio</a> as home — and use <a href="/ideas.html">Ideas Lab</a> when you want to pitch something new.</p>
     </header>
 
-    <p class="hint">Ad 1–4 are ready whenever you are. Following the example layout keeps everything consistent — we really appreciate that.</p>
+    <p class="hint">Ad 1–4 are ready whenever you are. Following the example layout keeps this batch consistent — we really appreciate your care.</p>
 
     <ol class="steps">
       <li>Pick one of the four ads below — whichever you’re ready for.</li><li>Download the photo, logo, and example linked on that card.</li><li>Use the example as your guide, then follow the card for the person or size.</li><li>When you’re happy with it, send the PNG to your MedVirtual contact. Thank you!</li>
@@ -719,6 +737,14 @@ No need to rewrite the copy or add new claims — matching the feed ad is perfec
     <section>
       <h2>Brand notes (short)</h2>
       <ul class="rules"><li>Please use MedVirtual on the ad (not MedVirtual.ai)</li><li>Frame it as hiring dedicated full-time virtual staff for the practice team</li><li>Please avoid “call center,” “we run your front desk,” or managed-service wording</li><li>Please stick to what’s on the profile — no invented HIPAA, savings $, or credentials</li></ul>
+    </section>
+
+    <section class="idea-box" id="share-idea">
+      <h2>Want to suggest a better way?</h2>
+      <p class="lede">If a card feels unclear, or you see a stronger layout / hook that still fits the brand, tell us. We’d rather improve the brief with you than force busywork on Slack.</p>
+      <p><a class="btn primary" href="mailto:UPDATE_ME@medvirtual.ai?subject=Brief%20feedback%20%2F%20idea&body=Hi%20%E2%80%94%20feedback%20or%20idea%20on%20the%20Brief%3A%5Cn%5Cn">Share feedback or an idea</a>
+      <a class="btn" href="/ideas.html">Open Ideas Lab</a>
+      <a class="btn" href="/studio.html">Studio home</a></p>
     </section>
 
     <section id="archive">

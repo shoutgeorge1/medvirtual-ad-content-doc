@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
 import { BRAND } from './medvirtual-brand-data.mjs';
 import {
+  GRAPHICS_REQUEST_EMAIL,
   HOPPER_POLICY,
   hopperByStatus,
   hopperCounts,
@@ -213,6 +214,18 @@ const css = `
   }
   main details.archive summary { cursor: pointer; font-weight: 800; color: #64748b; }
   .rules { margin: 0.65rem 0 0; padding-left: 1.1rem; color: #475569; font-size: 0.88rem; }
+  .idea-box {
+    background: linear-gradient(135deg, #0D546B 0%, #077999 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 1.1rem 1.15rem;
+    margin-bottom: 1.75rem;
+  }
+  .idea-box h2 { margin: 0 0 0.35rem; color: #fff; font-size: 1.1rem; }
+  .idea-box .lede { color: rgba(255,255,255,0.9); margin: 0 0 0.85rem; }
+  .idea-box .btn { margin: 0 0.35rem 0.35rem 0; }
+  .idea-box .btn.primary { background: #fff; color: #0D546B; border-color: #fff; }
+  .idea-box .btn:not(.primary) { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
   .toast {
     position: fixed; bottom: 1rem; right: 1rem; background: ${BRAND.colors.main03}; color: #fff;
     padding: 0.55rem 0.85rem; border-radius: 8px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity 0.2s;
@@ -232,15 +245,15 @@ const html = `<!doctype html>
   ${renderDocHeader({
     activeId: 'brief',
     pageTitle: 'Graphics brief',
-    pageSubtitle: 'Four ads we need help with — thank you for taking these on',
+    pageSubtitle: 'Current ads to design — clear asks, helpful files, your craft welcome',
   })}
   <main>
     <header class="hero">
       <h1>Four ads to design</h1>
-      <p>Thanks for helping with these. Each card is one ad. Open the example, then use the photo and logo linked on the card. The folder at the bottom is just for the producer team if you need it later.</p>
+      <p>Thanks for helping with these. Each card is one ad. Open the example, then use the photo and logo linked on the card. Prefer <a href="/studio.html">Studio</a> as home — and use <a href="/ideas.html">Ideas Lab</a> when you want to pitch something new.</p>
     </header>
 
-    <p class="hint">Ad 1–4 are ready whenever you are. Following the example layout keeps everything consistent — we really appreciate that.</p>
+    <p class="hint">Ad 1–4 are ready whenever you are. Following the example layout keeps this batch consistent — we really appreciate your care.</p>
 
     <ol class="steps">
       ${HOPPER_POLICY.howItWorks.map((s) => `<li>${esc(s)}</li>`).join('')}
@@ -265,6 +278,14 @@ const html = `<!doctype html>
     <section>
       <h2>Brand notes (short)</h2>
       <ul class="rules">${HOPPER_POLICY.languageRules.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
+    </section>
+
+    <section class="idea-box" id="share-idea">
+      <h2>Want to suggest a better way?</h2>
+      <p class="lede">If a card feels unclear, or you see a stronger layout / hook that still fits the brand, tell us. We’d rather improve the brief with you than force busywork on Slack.</p>
+      <p><a class="btn primary" href="mailto:${esc(GRAPHICS_REQUEST_EMAIL)}?subject=${encodeURIComponent('Brief feedback / idea')}&body=${encodeURIComponent('Hi — feedback or idea on the Brief:\\n\\n')}">Share feedback or an idea</a>
+      <a class="btn" href="/ideas.html">Open Ideas Lab</a>
+      <a class="btn" href="/studio.html">Studio home</a></p>
     </section>
 
     <section id="archive">

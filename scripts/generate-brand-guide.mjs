@@ -398,7 +398,9 @@ const html = `<!DOCTYPE html>
       <h2>Document purposes</h2>
       <p class="lede">Keep these roles separate — no single page should carry strategy, brief, downloads, and Meta build together.</p>
       <div class="doc-map">
-        <a href="/graphic-request-brief.html"><strong>Brief</strong><span>VA queue + Graphics Request Form paste</span></a>
+        <a href="/studio.html"><strong>Studio</strong><span>Home for graphics partners</span></a>
+        <a href="/graphic-request-brief.html"><strong>Brief</strong><span>Current ads to design</span></a>
+        <a href="/ideas.html"><strong>Ideas Lab</strong><span>Motion · VO · human shoots · SaaS</span></a>
         <a href="/real-people-creative.html"><strong>Real People</strong><span>Portrait Lead concept + source downloads</span></a>
         <a href="/medvirtual-brand-guide.html"><strong>Brand Guide</strong><span>Visual + verbal standards</span></a>
         <a href="/meta-launch-build-pack.html"><strong>Meta Launch</strong><span>Campaign implementation &amp; QA</span></a>
