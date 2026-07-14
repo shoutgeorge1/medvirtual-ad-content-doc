@@ -85,10 +85,10 @@ function renderVariantStrip(slug, firstName) {
   return `<div class="var-strip">
     ${HAILEY_VARIANTS.map((v) => {
       const src = tePath(slug, '4x5', v.id);
-      return `<a class="var-card" href="${esc(src)}" target="_blank" rel="noopener" download>
+      return `<button type="button" class="var-card preview-hit" data-preview="${esc(src)}" aria-label="Preview ${esc(firstName)} · ${esc(v.label)}">
         <img src="${esc(src)}" alt="${esc(firstName)} · ${esc(v.label)}" width="216" height="270" loading="lazy" />
         <span>${esc(v.label)}</span>
-      </a>`;
+      </button>`;
     }).join('')}
   </div>`;
 }
@@ -277,8 +277,9 @@ const css = `
   }
   @media (max-width: 900px) { .var-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   .var-card {
-    display: block; text-decoration: none; color: inherit;
+    display: block; width: 100%; text-align: left; text-decoration: none; color: inherit;
     background: #f8fafc; border: 1px solid var(--line); border-radius: 10px; padding: 0.4rem;
+    cursor: zoom-in; font: inherit;
   }
   .var-card img { width: 100%; height: auto; border-radius: 6px; display: block; }
   .var-card span { display: block; margin-top: 0.35rem; font-size: 0.7rem; font-weight: 700; color: #475569; line-height: 1.25; }

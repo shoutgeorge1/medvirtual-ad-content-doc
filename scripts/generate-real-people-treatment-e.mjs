@@ -139,7 +139,7 @@ function buildFeedOverlay(L, te, bullets, variantId) {
   const meetSize = L.h > 1200 ? 54 : 48;
   const roleSize = 24;
   const bulletSize = 23;
-  const copyMax = variantId === 'photo-left' ? L.w - 520 - pad : 500;
+  const copyMax = variantId === 'photo-left' ? L.w - 520 - pad : 480;
 
   const styles = `${fontFaceCss()}
     .meet{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:700;fill:#0D546B}
@@ -161,38 +161,41 @@ function buildFeedOverlay(L, te, bullets, variantId) {
 
   const priceBox = (x, y) => `
     <g transform="translate(${x}, ${y})">
-      <rect width="210" height="78" rx="14" fill="#FFFFFF" stroke="#00B2E2" stroke-width="3"/>
-      <text class="plabel" x="105" y="28" text-anchor="middle" font-size="13">STARTING AT</text>
-      <text class="price" x="105" y="60" text-anchor="middle" font-size="28">$10/hour</text>
+      <rect width="240" height="90" rx="16" fill="#FFFFFF" stroke="#00B2E2" stroke-width="3.5"/>
+      <text class="plabel" x="120" y="30" text-anchor="middle" font-size="14">STARTING AT</text>
+      <text class="price" x="120" y="68" text-anchor="middle" font-size="32">$10/hour</text>
     </g>`;
 
   const priceBar = (x, y) => `
     <g transform="translate(${x}, ${y})">
-      <text class="plabel" x="0" y="0" font-size="12">STARTING AT</text>
-      <rect y="10" width="250" height="56" rx="12" fill="url(#bar)"/>
-      <text class="pricew" x="22" y="48" font-size="28">$10/hour</text>
+      <text class="plabel" x="0" y="0" font-size="13">STARTING AT</text>
+      <rect y="12" width="280" height="64" rx="14" fill="url(#bar)"/>
+      <text class="pricew" x="24" y="55" font-size="30">$10/hour</text>
     </g>`;
 
+  // Hailey burnout: frosted plate on torso — roomy, readable
   const priceOverlay = (x, y) => `
     <g transform="translate(${x}, ${y})">
-      <rect width="200" height="72" rx="12" fill="rgba(240,248,255,0.94)"/>
-      <text class="plabel" x="100" y="26" text-anchor="middle" font-size="12">STARTING AT</text>
-      <text class="price" x="100" y="54" text-anchor="middle" font-size="26">$10/hour</text>
+      <rect width="260" height="100" rx="18" fill="rgba(247,251,255,0.96)" stroke="rgba(0,178,226,0.35)" stroke-width="1.5"/>
+      <text class="plabel" x="130" y="34" text-anchor="middle" font-size="14">STARTING AT</text>
+      <text class="price" x="130" y="76" text-anchor="middle" font-size="34">$10/hour</text>
     </g>`;
 
+  // Hailey dental: thick cyan ring + deep teal disc + big $10
   const priceCircle = (cx, cy) => `
     <g transform="translate(${cx}, ${cy})">
-      <circle r="78" fill="#00B2E2"/>
-      <circle r="70" fill="#077999"/>
-      <text class="pricew" x="0" y="-28" text-anchor="middle" font-size="12" letter-spacing="0.08em">STARTING AT</text>
-      <text class="pricew" x="0" y="18" text-anchor="middle" font-size="42">$10</text>
-      <text class="pricew" x="0" y="42" text-anchor="middle" font-size="14" letter-spacing="0.06em">PER HOUR</text>
+      <circle r="92" fill="#FFFFFF"/>
+      <circle r="86" fill="#00B2E2"/>
+      <circle r="76" fill="#0D546B"/>
+      <text class="pricew" x="0" y="-34" text-anchor="middle" font-size="13" letter-spacing="0.1em">STARTING AT</text>
+      <text class="pricew" x="0" y="18" text-anchor="middle" font-size="48" fill="#FFFFFF">$10</text>
+      <text class="pricew" x="0" y="48" text-anchor="middle" font-size="14" letter-spacing="0.08em">PER HOUR</text>
     </g>`;
 
-  const ctaBtn = (x, y, w = 320) => `
+  const ctaBtn = (x, y, w = 300) => `
     <g transform="translate(${x}, ${y})">
-      <rect width="${w}" height="56" rx="14" fill="#0D546B"/>
-      <text class="cta" x="24" y="36" font-size="18">${escXml(cta)}</text>
+      <rect width="${w}" height="50" rx="12" fill="#0D546B"/>
+      <text class="cta" x="20" y="33" font-size="16">${escXml(cta)}</text>
     </g>`;
 
   const copyBlock = (ox) => `
@@ -217,30 +220,30 @@ function buildFeedOverlay(L, te, bullets, variantId) {
   } else if (variantId === 'photo-right-cta') {
     // Hailey nurse — price bar left, CTA on person
     body = `
-      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#bg)"/>
-      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#grid)"/>
-      <rect x="440" y="0" width="80" height="${L.h}" fill="url(#wash)"/>
+      <rect x="0" y="0" width="500" height="${L.h}" fill="url(#bg)"/>
+      <rect x="0" y="0" width="500" height="${L.h}" fill="url(#grid)"/>
+      <rect x="420" y="0" width="80" height="${L.h}" fill="url(#wash)"/>
       ${copyBlock(0)}
       ${priceBar(pad, afterBullets)}
-      ${ctaBtn(560, L.h - 120, 340)}`;
+      ${ctaBtn(560, L.h - 110, 300)}`;
   } else if (variantId === 'photo-right-circle') {
-    // Hailey dental — CTA left + $10 circle on person
+    // Hailey dental — CTA left + $10 circle on torso
     body = `
-      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#bg)"/>
-      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#grid)"/>
-      <rect x="440" y="0" width="80" height="${L.h}" fill="url(#wash)"/>
+      <rect x="0" y="0" width="500" height="${L.h}" fill="url(#bg)"/>
+      <rect x="0" y="0" width="500" height="${L.h}" fill="url(#grid)"/>
+      <rect x="420" y="0" width="80" height="${L.h}" fill="url(#wash)"/>
+      ${copyBlock(0)}
+      ${ctaBtn(pad, afterBullets, 280)}
+      ${priceCircle(790, L.h - 210)}`;
+  } else {
+    // Hailey burnout flagship — CTA left + frosted price on torso
+    body = `
+      <rect x="0" y="0" width="500" height="${L.h}" fill="url(#bg)"/>
+      <rect x="0" y="0" width="500" height="${L.h}" fill="url(#grid)"/>
+      <rect x="420" y="0" width="80" height="${L.h}" fill="url(#wash)"/>
       ${copyBlock(0)}
       ${ctaBtn(pad, afterBullets, 300)}
-      ${priceCircle(820, L.h - 160)}`;
-  } else {
-    // Hailey burnout flagship — CTA left + price overlay on person
-    body = `
-      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#bg)"/>
-      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#grid)"/>
-      <rect x="440" y="0" width="80" height="${L.h}" fill="url(#wash)"/>
-      ${copyBlock(0)}
-      ${ctaBtn(pad, afterBullets, 340)}
-      ${priceOverlay(560, L.h - 140)}`;
+      ${priceOverlay(620, L.h - 220)}`;
   }
 
   return Buffer.from(`<?xml version="1.0" encoding="UTF-8"?>
@@ -301,17 +304,17 @@ function buildStoryOverlay(L, te, bullets) {
 </svg>`);
 }
 
-async function preparePhoto(srcPath, w, h) {
+async function preparePhoto(srcPath, w, h, position = 'attention') {
   return sharp(srcPath)
     .rotate()
-    .resize(w, h, { fit: 'cover', position: 'attention' })
+    .resize(w, h, { fit: 'cover', position })
     .png()
     .toBuffer();
 }
 
 export async function renderTreatmentEAds() {
   const logoBuf = fs.existsSync(LOGO)
-    ? await sharp(LOGO).resize({ width: 200, fit: 'inside' }).png().toBuffer()
+    ? await sharp(LOGO).resize({ width: 220, fit: 'inside' }).png().toBuffer()
     : null;
 
   const outputs = [];
@@ -347,33 +350,37 @@ export async function renderTreatmentEAds() {
 
         if (isStory) {
           const photoH = Math.round(L.h * 0.56);
-          const photo = await preparePhoto(src, L.w, photoH);
+          const photo = await preparePhoto(src, L.w, photoH, 'attention');
           composites.push({ input: photo, top: L.safePad, left: 0 });
           overlay = buildStoryOverlay(L, te, bullets);
           composites.push({ input: overlay, top: 0, left: 0 });
         } else if (variant.id === 'photo-left') {
           const photoW = 520;
-          const photo = await preparePhoto(src, photoW, L.h);
+          const photo = await preparePhoto(src, photoW, L.h, 'attention');
           overlay = buildFeedOverlay(L, te, bullets, variant.id);
           composites.push({ input: overlay, top: 0, left: 0 });
           composites.push({ input: photo, top: 0, left: 0 });
         } else {
-          // Photo under, then plate + price/CTA badges on top (Hailey DNA)
-          const photoW = L.w - 500;
-          const photo = await preparePhoto(src, photoW + 40, L.h);
+          // Photo under, then plate + price/CTA on top — more torso for Hailey price treatments
+          const photoLeft = 480;
+          const photoW = L.w - photoLeft + 20;
+          const cropPos =
+            variant.id === 'photo-right' || variant.id === 'photo-right-circle'
+              ? 'centre'
+              : 'attention';
+          const photo = await preparePhoto(src, photoW, L.h, cropPos);
           overlay = buildFeedOverlay(L, te, bullets, variant.id);
-          composites.push({ input: photo, top: 0, left: 500 });
+          composites.push({ input: photo, top: 0, left: photoLeft });
           composites.push({ input: overlay, top: 0, left: 0 });
         }
 
         if (logoBuf) {
           const meta = await sharp(logoBuf).metadata();
           const lw = meta.width || 200;
-          // Biller/dental DNA: logo top-left on photo; burnout: logo on photo top-right
           const left =
             variant.id === 'photo-left' || variant.id === 'photo-right-circle'
               ? 36
-              : L.w - 48 - lw;
+              : Math.max(36, L.w - 36 - lw);
           composites.push({
             input: logoBuf,
             top: (isStory ? L.safePad : 0) + 36,

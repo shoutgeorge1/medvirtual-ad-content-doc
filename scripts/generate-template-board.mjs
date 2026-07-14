@@ -1200,10 +1200,11 @@ const LAYOUT_REF_PROFILES = {
   '1': {
     className: 'lr lr-c1 lr-hailey lr-person-left',
     template: 'ROLE_SPLIT_PHOTO_LEFT',
-    objectPosition: '18% 28%',
+    objectPosition: '12% 28%',
     hirePrefix: 'Hire a Virtual',
     role: 'Medical Admin',
     audiencePill: '',
+    topHireFarRight: true,
     hookHtml: 'Add full-time virtual support<br />without adding office space.',
     support: '',
     bullets: [
@@ -1217,16 +1218,16 @@ const LAYOUT_REF_PROFILES = {
     priceStyle: 'box',
     cta: 'Book a Demo',
     structureNote:
-      'Logo left · Hire higher/bigger · checklist right · $10 + Book a Demo far left',
+      'Person hard-left · Hire far-right · hook clear of face · $10 + Book a Demo far left',
   },
   '2': {
     className: 'lr lr-c2 lr-hailey lr-person-left',
     template: 'ROLE_SPLIT_COPY_LEFT',
-    objectPosition: '8% 22%',
+    objectPosition: '0% 24%',
     hirePrefix: 'Hire a Virtual',
     role: 'Dental Admin',
-    audiencePill: 'DENTISTS!',
-    topHireCenter: true,
+    audiencePill: '',
+    topHireFarRight: true,
     hookHtml: 'Fewer missed calls.<br />Fewer empty chairs.',
     support: '',
     bullets: [
@@ -1241,7 +1242,7 @@ const LAYOUT_REF_PROFILES = {
     priceStyle: 'circle',
     cta: 'Get Started',
     structureNote:
-      'DENTISTS! + Hire top-center · hook/checks right · $10 + CTA far left — face clear left',
+      'No DENTISTS! · Hire far-right · person hard-left · hook/checks clear of face · $10 + CTA far left',
   },
   '3': {
     className: 'lr lr-c3 lr-hailey lr-person-right',
@@ -1446,16 +1447,24 @@ const LAYOUT_REF_CSS = `
   .lr-person-left .price-overlay { bottom: 14%; right: var(--lr-pad); }
   .lr-person-left .price-circle { bottom: 13%; left: 38%; }
 
-  /* C1 Medical — logo left · hire higher/bigger · price + CTA far left */
+  /* C1 Medical — person hard-left · Hire far-right · $10 + CTA far left */
   .lr-c1::before {
     content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-    background: linear-gradient(90deg, transparent 40%, rgba(247,251,255,0.88) 58%, rgba(247,251,255,0.97) 100%);
+    background: linear-gradient(90deg, transparent 38%, rgba(247,251,255,0.88) 52%, rgba(247,251,255,0.97) 68%);
   }
-  .lr-c1 img.bg { object-position: 18% 28%; width: 56%; }
+  .lr-c1 img.bg { object-position: 12% 28%; width: 48%; }
   .lr-c1 .logo-wrap { left: var(--lr-pad); right: auto; }
-  .lr-c1 .copy { top: 7.5%; left: 50%; }
+  .lr-c1 > .hire-row {
+    position: absolute; z-index: 7;
+    left: auto; right: var(--lr-pad); top: 8.5%;
+    transform: none;
+    width: max-content; max-width: 48%;
+    justify-content: flex-end;
+  }
+  .lr-c1 .copy { top: 18%; left: 54%; right: var(--lr-pad); }
   .lr-c1 .hire { font-size: clamp(13px, 2.7vw, 16px); }
   .lr-c1 .role-pill { font-size: clamp(12px, 2.5vw, 15px); padding: 0.38em 0.8em; }
+  .lr-c1 .hook { font-size: clamp(14px, 3.2vw, 19px) !important; }
   .lr-c1 .price-box {
     left: var(--lr-pad); right: auto; bottom: 15%;
   }
@@ -1463,45 +1472,36 @@ const LAYOUT_REF_CSS = `
     left: var(--lr-pad); right: auto; bottom: var(--lr-pad);
   }
 
-  /* C2 Dental — DENTISTS! + Hire top-center high/big · hook right · price/CTA far left */
-  .lr-c2 img.bg { object-position: 8% 22%; width: 54%; }
+  /* C2 Dental — no audience bubble · Hire far-right · face hard-left · copy clear */
+  .lr-c2 img.bg { object-position: 0% 24%; width: 46%; }
   .lr-c2::before {
     content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-    background: linear-gradient(90deg, transparent 48%, rgba(247,251,255,0.9) 62%, rgba(247,251,255,0.98) 100%);
+    background: linear-gradient(90deg, transparent 40%, rgba(247,251,255,0.88) 54%, rgba(247,251,255,0.98) 70%);
   }
-  .lr-c2 .logo-wrap { left: var(--lr-pad); right: auto; top: calc(var(--lr-pad) + 2.35rem); }
-  .lr-c2 .aud-pill {
-    left: 50%; right: auto; top: 2.2%;
-    transform: translateX(-50%);
-    font-size: clamp(11px, 2.3vw, 14px);
-    padding: 0.35em 0.9em;
-  }
+  .lr-c2 .logo-wrap { left: var(--lr-pad); right: auto; top: var(--lr-pad); }
   .lr-c2 > .hire-row {
     position: absolute; z-index: 7;
-    left: 50%; top: 7.2%;
-    transform: translateX(-50%);
-    width: max-content; max-width: 94%;
-    justify-content: center;
+    left: auto; right: var(--lr-pad); top: 9.5%;
+    transform: none;
+    width: max-content; max-width: 46%;
+    justify-content: flex-end;
   }
   .lr-c2 .copy {
-    top: 15%; left: 52%; right: var(--lr-pad);
+    top: 20%; left: 56%; right: var(--lr-pad);
     align-items: flex-start;
   }
   .lr-c2 .hire { font-size: clamp(13px, 2.8vw, 16px); }
   .lr-c2 .role-pill { font-size: clamp(12px, 2.6vw, 15px); padding: 0.38em 0.85em; }
-  .lr-c2 .text-panel,
-  .lr-c2 .rule,
-  .lr-c2 .bullets { margin-left: 0; width: 100%; }
-  .lr-c2 .hook { text-align: left; }
+  .lr-c2 .hook { text-align: left; font-size: clamp(14px, 3.2vw, 19px) !important; }
   .lr-c2 .price-circle {
-    left: var(--lr-pad); right: auto; bottom: 14%;
+    left: var(--lr-pad); right: auto; bottom: 7.5%;
     transform: rotate(-6deg);
   }
   .lr-c2 .cta {
     left: var(--lr-pad); right: auto; bottom: var(--lr-pad);
   }
 
-  /* C3 — person right · CTA centered · price far right · room at bottom */
+  /* C3 — person right · smaller CTA · price far right · room at bottom */
   .lr-person-right img.bg {
     left: auto; right: 0; width: 54%; object-fit: cover;
   }
@@ -1524,6 +1524,10 @@ const LAYOUT_REF_CSS = `
   .lr-c3 .cta {
     left: 50% !important; right: auto !important; bottom: 5.5% !important;
     transform: translateX(-50%) !important;
+    font-size: clamp(9px, 1.7vw, 11px) !important;
+    padding: 0.4em 0.75em !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(13, 84, 107, 0.18);
   }
   .lr-c3 .price-overlay {
     left: auto !important; right: var(--lr-pad) !important; bottom: 5.5% !important;
@@ -1594,9 +1598,9 @@ function renderProductionCard(concept, baseTest, index) {
         ${aud}
         <div class="logo-wrap"><img class="logo" src="${LOGO}" alt="MedVirtual" /></div>
         <img class="bg" src="${esc(baseTest.image)}" alt="" style="object-position:${esc(profile.objectPosition)}" />
-        ${profile.topHireCenter ? hireRow : ''}
+        ${profile.topHireCenter || profile.topHireFarRight ? hireRow : ''}
         <div class="copy">
-          ${profile.topHireCenter ? '' : hireRow}
+          ${profile.topHireCenter || profile.topHireFarRight ? '' : hireRow}
           <div class="text-panel">
             <div class="hook">${profile.hookHtml}</div>
           </div>
