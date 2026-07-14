@@ -1,9 +1,11 @@
 # MedVirtual AI Asset Foundry — Setup (v1)
 
-Private internal tool for generating raw advertising imagery in controlled batches of four.
+Private internal tool for generating **raw design ingredients** (faces, people, icons, callout badges) in controlled batches of four — not finished Meta ads.
 
 **Page:** `/ai-asset-foundry.html`  
-**Loop:** Generate four → review → learn preference → approve → save to project → reuse in mockups
+**Loop:** Generate raw kit → click to enlarge → **Download = keep + make 4 more like it** → approve/save as needed
+
+Default lane: **Raw parts kit** (rotates face · talent · icons · callout). Never pink.
 
 Honest labels: Preference-guided generation · Approval-informed prompting · MedVirtual taste profile. Votes do **not** fine-tune OpenAI models.
 

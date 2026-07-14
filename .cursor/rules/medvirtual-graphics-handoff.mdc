@@ -11,12 +11,12 @@ alwaysApply: true
 Default priority: **Virtual Medical Admin direct-response ads + animated video** production clarity.
 
 ## Goal
-Keep bold VMA static + video ads in the hopper. Make “do this next” obvious.
+Keep bold VMA static + video ads in the hopper. Make “do this next” obvious for graphics in under two minutes.
 
 ## Brand
 - Ad-facing: **MedVirtual** only (never MedVirtual.ai)
 - Font: Be Vietnam
-- Active Meta colors: lime / yellow / cobalt / cyan / vivid green / commercial red / black / white
+- Active Meta colors: lime / yellow / cobalt / cyan / vivid green / commercial red / black / white / deep navy / MedVirtual teal
 - **No pink** (other buyer territory)
 
 ## Service model
@@ -29,7 +29,7 @@ Animated: Remotion + CapCut templates from the same concept data.
 
 ## Removed from active site (July 2026)
 Named Real People / Talent Pool profile ads · Role-Offer hire boards · SaaS glassmorphism / no-people primary.
-Archive only: `_archive/july-2026-removed/`. One history note on `/vma-history.html`.
+Archive only: `_archive/july-2026-removed/`. History notes collapsed on Approved Creative / Dashboard.
 
 ## Files
 - Public: web-safe handoff assets
@@ -38,9 +38,9 @@ Archive only: `_archive/july-2026-removed/`. One history note on `/vma-history.h
 - `_archive/`: removed historical directions
 
 ## Site order
-Graphics Job → Size Checklist → Rules → Video (later) → Competitors (optional) → ChatGPT Notes (optional) → Overview → History
+Dashboard → Approved Creative → New Ad Ideas → Aspect Ratios → Competitor Wall → Animated Video → Prompts & Copy → Production Handoff
 
-Current focus for designers: **resize 4 approved masters into Meta sizes**. Video later. Do not ask them to remake ChatGPT plates for this request.
+Current focus for designers: **see the four approved masters · generate 15–20 concepts · rebuild winners in Meta sizes**. Video after statics. Do not invent fake format previews.
 
 Same header via `scripts/shared-doc-header.mjs`. Never style bare `details`/`summary` globally — scope to `main`.
 

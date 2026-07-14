@@ -1,261 +1,175 @@
 /**
- * Competitor creative intel — seed for the Competitor Wall.
- * Swap in real screenshots under public/assets/competitors/{id}.jpg when you grab them
- * from Meta Ad Library. Until then, cards use style fingerprints + Library links.
+ * Competitor Wall seed + rules.
  *
- * Regenerate: npm run generate:competitors
+ * The rendered wall prefers live Ad Library stills from
+ * public/assets/competitors/live-snapshots.json — only creatives with
+ * real image files on disk are shown. Empty / research-only cards stay off the wall.
+ *
+ * Regenerate primary wall: npm run generate:vma
+ * Refresh live stills periodically: npm run generate:competitor-snaps (or the refresh agent)
  */
 
 export const COMPETITOR_META = {
   title: 'Competitor Wall',
   intro:
-    'Real Meta Ad Library creatives — the actual frames competitors are running, plus their hooks and copy. Browse, get inspired, mock a MedVirtual take, pitch George. No fake placeholders.',
+    'Study medical VA and virtual staffing Meta creatives — hierarchy, offer clarity, and mobile readability. Do not copy layouts, color systems, badges, typography, or talent.',
   howToRefresh: [
-    'An automated Cursor agent refreshes this wall every couple of weeks from Meta Ad Library.',
-    'We only publish brands when we have real creative stills + primary text / headline / description.',
-    'Your job: skim the ads, steal the energy (not the look), mock something cooler for MedVirtual, pitch George.',
-    'Spotted a wild new competitor running ads? Email george.a@legalsoft.com and we’ll pull them in.',
+    'Wall shows every verified screenshot we have — more is better.',
+    'No image = not on the wall. Capture a new Ad Library still, then regenerate.',
+    'Refresh live scrapes from time to time so new VA creatives show up.',
+    'Spotted a useful medical VA ad? Email george.a@legalsoft.com.',
   ],
   libraryBase:
     'https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&media_type=all&search_type=keyword_unordered&q=',
 };
 
 /**
- * @typedef {{
- *   id: string,
- *   name: string,
- *   category: 'virtual-staffing'|'practice-saas'|'telehealth'|'job-marketplace'|'other',
- *   whyWatch: string,
- *   adLibraryQuery: string,
- *   image?: string,
- *   fingerprint: { hookStyle: string, visual: string, weakness: string },
- *   steal: string,
- *   reject: string,
- *   remix: string,
- * }} CompetitorAd
+ * Live snapshot source keys allowed onto the wall.
+ * Skip off-category / wrong scrapes (pet meds, consumer derm, shoe ads).
  */
+export const WALL_LIVE_SOURCE_IDS = [
+  'hello-rache',
+  'generic-va-commodity',
+  'weave',
+];
 
-/** @type {CompetitorAd[]} */
+/** Extra static creatives with verified on-disk images (not wrong scrapes). */
+export const WALL_STATIC_CREATIVES = [
+  {
+    id: 'quadrant-health-ai-receptionist',
+    name: 'Quadrant Health',
+    category: 'practice-saas',
+    whyWatch: 'AI receptionist / missed-inquiry claims — adjacent front-desk pain, not staffing.',
+    adLibraryQuery: 'Quadrant Health',
+    image: '/assets/competitors/commure-scribe.jpg',
+    fingerprint: {
+      hookStyle: '1 AI agent = 10 receptionists · hours saved stats',
+      visual: 'White + blue claim cards + EHR logos',
+      weakness: 'AI automation — opposite of dedicated human staff',
+    },
+    steal: 'Front-desk failure modes and stats read fast.',
+    reject: 'AI-agent replacement positioning for MedVirtual.',
+    remix: 'Same pain → dedicated Virtual Medical Admin human.',
+  },
+  {
+    id: 'hello-rache-hero',
+    name: 'Hello Rache',
+    category: 'virtual-staffing',
+    whyWatch: 'Medical VA comparison creative — closest category neighbor.',
+    adLibraryQuery: 'Hello Rache',
+    image: '/assets/competitors/hello-rache.jpg',
+    fingerprint: {
+      hookStyle: 'Not all medical VAs are equal',
+      visual: 'Purple comparison layout · clinical talent',
+      weakness: 'Purple / pink-leaning system — reference only',
+    },
+    steal: 'Clear medical VA vs generic VA framing.',
+    reject: 'Purple / pink palette or copy-cat comparison layout.',
+    remix: 'MedVirtual bold VMA hire message — no pink.',
+  },
+  {
+    id: 'weave-schedule-hero',
+    name: 'Weave',
+    category: 'practice-saas',
+    whyWatch: 'Front-desk / scheduling pain — software, not a dedicated hire.',
+    adLibraryQuery: 'Weave',
+    image: '/assets/competitors/weave.jpg',
+    fingerprint: {
+      hookStyle: 'Schedule appointments 24/7',
+      visual: 'Phone UI + one clear benefit',
+      weakness: 'Software product',
+    },
+    steal: 'One pain, one benefit, high mobile clarity.',
+    reject: '“We run your front desk” language for MedVirtual.',
+    remix: 'Pain in copy; on-image stays Hire a Virtual Medical Admin.',
+  },
+];
+
+/**
+ * Known bad / off-category image paths — never show these.
+ * (Wrong Ad Library matches: shoes, pet meds, etc.)
+ */
+export const BLOCKED_COMPETITOR_IMAGES = new Set([
+  '/assets/competitors/quadrant-health.jpg',
+  '/assets/competitors/live/quadrant-health-1.jpg',
+  '/assets/competitors/nexhealth.jpg',
+  '/assets/competitors/live/nexhealth-1.jpg',
+  '/assets/competitors/zocdoc.jpg',
+  '/assets/competitors/live/zocdoc-1.jpg',
+  '/assets/competitors/live/zocdoc-2.jpg',
+  '/assets/competitors/live/zocdoc-3.jpg',
+  '/assets/competitors/live/zocdoc-4.jpg',
+]);
+
+/**
+ * Seed records kept for Ad Library links / other tools.
+ * The wall itself is built from live snapshots + WALL_STATIC_CREATIVES.
+ */
+/** @type {Array<Record<string, unknown>>} */
 export const COMPETITOR_ADS = [
   {
     id: 'hello-rache',
     name: 'Hello Rache',
     category: 'virtual-staffing',
-    whyWatch: 'Closest category neighbor — virtual medical help pitched to US practices.',
+    whyWatch: 'Closest category neighbor — medical virtual assistants.',
     adLibraryQuery: 'Hello Rache',
     image: '/assets/competitors/hello-rache.jpg',
-    snapshotNote: 'Live Meta Ad Library creative',
     fingerprint: {
-      hookStyle: 'Staffing relief · leave-on-time / scribe framing',
-      visual: 'Clinical talent, purple brand, conversational hooks',
-      weakness: 'Can blur into other VA brands if we copy too closely',
+      hookStyle: 'Medical VA comparison · price transparency',
+      visual: 'Purple brand · clinical talent',
+      weakness: 'Purple / pink-leaning — reference only',
     },
-    steal: 'Clear role framing in one glance — title + a simple patient story.',
-    reject: 'Generic stock smiles with no practice-owner POV.',
-    remix: 'MedVirtual Meet-[Name] with public skills + Interview CTA — human and distinct.',
-  },
-  {
-    id: 'time-doc',
-    name: 'TimeDoc Health',
-    category: 'practice-saas',
-    whyWatch: 'Care-management / RPM adjacent — often more software than staffing.',
-    adLibraryQuery: 'TimeDoc Health',
-    fingerprint: {
-      hookStyle: 'Outcomes / efficiency claims',
-      visual: 'Dashboard + clinician UI screenshots',
-      weakness: 'Heavy product UI; can feel cold for hiring messages',
-    },
-    steal: 'Problem → system → CTA pacing that feels premium.',
-    reject: 'Tiny UI screenshots nobody can read on mobile.',
-    remix: 'SaaS Prop lane — glass UI metaphor, no fake PHI, Book a Demo.',
-  },
-  {
-    id: 'commure-scribe',
-    name: 'Commure Scribe',
-    category: 'practice-saas',
-    whyWatch: 'AI scribe competitor adjacent to “virtual help in the exam room” — live Meta ads right now.',
-    adLibraryQuery: 'Commure Scribe',
-    image: '/assets/competitors/commure-scribe.jpg',
-    snapshotNote: 'Live Meta Ad Library creative',
-    fingerprint: {
-      hookStyle: 'EHR integration · one-click notes · free trial',
-      visual: 'Product / software simplicity',
-      weakness: 'Software, not a dedicated teammate',
-    },
-    steal: 'Crystal-clear product promise in one line.',
-    reject: 'Sounding like another AI tool, not MedVirtual humans.',
-    remix: 'Meet-[Name] who works the note + patient flow — Interview CTA.',
-  },
-  {
-    id: 'quadrant-health',
-    name: 'Quadrant Health',
-    category: 'practice-saas',
-    whyWatch: 'Front-desk / phone pain — live Meta ads competing for practice-owner attention.',
-    adLibraryQuery: 'Quadrant Health',
-    image: '/assets/competitors/quadrant-health.jpg',
-    snapshotNote: 'Live Meta Ad Library creative',
-    fingerprint: {
-      hookStyle: 'Missed calls · temp turnover · revenue jump',
-      visual: 'Problem list → solution narrative',
-      weakness: 'Can read as fear-heavy ops tooling',
-    },
-    steal: 'Named failed alternatives (“call center”, “temp receptionist”).',
-    reject: 'Doom-scroll scare tactics for MedVirtual talent ads.',
-    remix: 'Same pain, human hire answer — Meet front-desk / admin talent.',
-  },
-  {
-    id: 'weave',
-    name: 'Weave',
-    category: 'practice-saas',
-    whyWatch: 'Dental/medical practice platform — strong paid social craft.',
-    adLibraryQuery: 'Weave',
-    image: '/assets/competitors/weave.jpg',
-    snapshotNote: 'Live Meta Ad Library creative',
-    fingerprint: {
-      hookStyle: 'Front-desk pain · missed calls · growth',
-      visual: 'Bright product moments, strong type hierarchy',
-      weakness: 'Software, not hiring dedicated people',
-    },
-    steal: 'Tight hooks about phones / schedules without fear-mongering.',
-    reject: '“We run your front desk” positioning for MedVirtual.',
-    remix: 'Keep the pain in Meta primary text; on-image stays Meet + interview.',
-  },
-  {
-    id: 'nexhealth',
-    name: 'NexHealth',
-    category: 'practice-saas',
-    whyWatch: 'Patient experience / scheduling — polished B2B healthcare creative.',
-    adLibraryQuery: 'NexHealth',
-    image: '/assets/competitors/nexhealth.jpg',
-    snapshotNote: 'Live Meta Ad Library creative',
-    fingerprint: {
-      hookStyle: 'Modern clinic ops / patient access',
-      visual: 'Clean sans, lots of whitespace, product moments',
-      weakness: 'Rarely celebrates individual talent',
-    },
-    steal: 'Whitespace + hierarchy — don’t crowd the 4:5.',
-    reject: 'Over-design that hides the offer.',
-    remix: 'Borrow calm modern layout; keep MedVirtual teal + Be Vietnam.',
-  },
-  {
-    id: 'zocdoc',
-    name: 'Zocdoc',
-    category: 'other',
-    whyWatch: 'Consumer brand in healthcare — their paid often out-crafts staffing competitors.',
-    adLibraryQuery: 'Zocdoc',
-    image: '/assets/competitors/zocdoc.jpg',
-    snapshotNote: 'Live Meta Ad Library creative',
-    fingerprint: {
-      hookStyle: 'Simple benefit lines, high recognition',
-      visual: 'Bold brand color blocks, minimal clutter',
-      weakness: 'Patient marketplace — different buyer',
-    },
-    steal: 'Ruthless simplicity — one idea per frame.',
-    reject: 'Trying to explain our whole company on the image.',
-    remix: 'One proof line + Meet name + CTA — stop packing five claims.',
-  },
-  {
-    id: 'carerev',
-    name: 'CareRev',
-    category: 'job-marketplace',
-    whyWatch: 'Clinician marketplace — shows how staffing brands swing job-seeker vs buyer ads.',
-    adLibraryQuery: 'CareRev',
-    fingerprint: {
-      hookStyle: 'Flexibility / shifts / earning',
-      visual: 'Clinicians in scrubs, energetic crops',
-      weakness: 'Often job-seeker facing — wrong for our practice owner funnel',
-    },
-    steal: 'Strong human photography direction.',
-    reject: 'Anything that makes MedVirtual look like gig staffing.',
-    remix: 'Owner POV: hire into your team — not “pick up shifts.”',
-  },
-  {
-    id: 'patientpop',
-    name: 'PatientPop / Tebra',
-    category: 'practice-saas',
-    whyWatch: 'Practice growth marketing stack — lots of Meta history.',
-    adLibraryQuery: 'PatientPop',
-    fingerprint: {
-      hookStyle: 'Grow your practice / get found',
-      visual: 'Marketing montage, office exteriors',
-      weakness: 'Growth-agency energy vs dedicated staff hire',
-    },
-    steal: 'Aspirational “practice leveling up” emotion.',
-    reject: 'Agency collage fluff with no single subject.',
-    remix: 'One talent + one role = the upgrade story.',
+    steal: 'Clear role framing in one glance.',
+    reject: 'Purple / pink palette or exact badge shapes.',
+    remix: 'Original MedVirtual VMA layout — no pink.',
   },
   {
     id: 'generic-va-commodity',
-    name: 'Generic “Hire VAs” cluster',
+    name: 'Medical VA commodity ads',
     category: 'virtual-staffing',
-    whyWatch: 'A crowded “hire VAs” look we can happily do better than — lots of room for fresh MedVirtual ideas.',
+    whyWatch: 'Crowded medical VA / receptionist hiring ads.',
     adLibraryQuery: 'hire a medical virtual assistant',
-    /** Extra keyword variants for Ad Library refresh (generic VA cluster). */
     adLibraryQueries: [
       'hire a medical virtual assistant',
       'medical virtual assistant',
       'hire medical VA',
       'healthcare virtual assistant',
       'virtual medical receptionist',
-      'hire a virtual medical assistant',
     ],
-    image: '/assets/competitors/generic-va-commodity.jpg',
-    snapshotNote: 'Live Meta Ad Library creative',
+    image: '/assets/competitors/live/generic-va-1.jpg',
     fingerprint: {
-      hookStyle: 'Cheap / fast / 24-7 staffing spam',
-      visual: 'Same headset crop everywhere',
-      weakness: 'Hard to tell brands apart — perfect invitation to invent',
+      hookStyle: 'Price / trained VA / front-desk staffing',
+      visual: 'Mixed commodity VA plates',
+      weakness: 'Easy to blend into the pack',
     },
-    steal: 'Nothing required — use it as fuel to go different.',
-    reject: 'Blending in with the pack just because it’s familiar.',
-    remix: 'Ideas Lab: VMA static + animated video — bold medical admin offers, not commodity VA spam.',
+    steal: 'Simple role + price + human face can stop the scroll.',
+    reject: 'Blending into cheap-VA commodity look.',
+    remix: 'Bold MedVirtual masters with clearer hierarchy.',
   },
   {
-    id: 'medva',
-    name: 'MedVA',
-    category: 'virtual-staffing',
-    whyWatch: 'Medical virtual assistant competitor — Research Needed for live Meta creative pack.',
-    adLibraryQuery: 'MedVA',
+    id: 'weave',
+    name: 'Weave',
+    category: 'practice-saas',
+    whyWatch: 'Front-desk missed-call / scheduling pain.',
+    adLibraryQuery: 'Weave',
+    image: '/assets/competitors/weave.jpg',
     fingerprint: {
-      hookStyle: 'Research Needed',
-      visual: 'Research Needed',
-      weakness: 'Research Needed',
+      hookStyle: 'Missed calls · scheduling',
+      visual: 'Bright product moments',
+      weakness: 'Software, not staffing',
     },
-    steal: 'Research Needed — capture Ad Library before adapting.',
-    reject: 'Do not invent competitor claims.',
-    remix: 'MedVirtual VMA hire offer with dedicated-staff truth.',
-  },
-  {
-    id: 'my-mountain-mover',
-    name: 'My Mountain Mover',
-    category: 'virtual-staffing',
-    whyWatch: 'Healthcare VA staffing — Research Needed for current Meta creatives.',
-    adLibraryQuery: 'My Mountain Mover',
-    fingerprint: {
-      hookStyle: 'Research Needed',
-      visual: 'Research Needed',
-      weakness: 'Research Needed',
-    },
-    steal: 'Research Needed',
-    reject: 'Do not copy trade dress or unverified offers.',
-    remix: 'Original MedVirtual VMA static + 15s motion.',
-  },
-  {
-    id: 'virtual-latinos',
-    name: 'Virtual Latinos',
-    category: 'virtual-staffing',
-    whyWatch: 'Spanish / bilingual virtual staffing benchmark — Research Needed.',
-    adLibraryQuery: 'Virtual Latinos',
-    fingerprint: {
-      hookStyle: 'Research Needed — bilingual positioning',
-      visual: 'Research Needed',
-      weakness: 'Research Needed',
-    },
-    steal: 'Research Needed',
-    reject: 'Do not imply nationality of MedVirtual staff.',
-    remix: 'Spanish / Se Habla Español VMA treatments — original layouts, no pink.',
+    steal: 'Tight front-office hooks.',
+    reject: 'Managed front-desk positioning.',
+    remix: 'Human VMA hire answer.',
   },
 ];
+
+export const FEATURED_COMPETITOR_IDS = COMPETITOR_ADS.map((a) => a.id);
+
+/** @deprecated empty research wall — no image = not shown */
+export const RESEARCH_COMPETITOR_IDS = [];
+
+export const PINK_REFERENCE_COMPETITOR_IDS = new Set(['hello-rache']);
 
 export const WEEKLY_FORK_PROMPTS = [
   {

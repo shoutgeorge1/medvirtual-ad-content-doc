@@ -1,14 +1,14 @@
 /**
  * Shared MedVirtual Content Doc header.
- * VMA production machine — Virtual Medical Admin static + animated video.
+ * Creative handoff + idea generation — Virtual Medical Admin Meta ads.
  */
 import { brandCssVariables, BRAND } from './medvirtual-brand-data.mjs';
 
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Ad Production',
-  tagline: '4 approved masters → Meta sizes now · video later',
-  homeHref: '/vma-handoff.html',
+  tagline: 'Approved VMA creative · 15–20 concepts · required Meta sizes',
+  homeHref: '/studio.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };
 
@@ -16,56 +16,57 @@ export const DOC_BRAND = {
 export const LAUNCH_SUBNAV = [];
 
 /**
- * Primary nav — creative handoff (8 items). Secondary tools live as page tabs / redirects.
+ * Primary nav — eight creative-handoff pages.
+ * Ops tools (claims, QA, queue, forms, campaign) live as page sections / redirects.
  */
 export const PRIMARY_NAV = [
   {
-    href: '/vma-handoff.html',
-    label: 'Graphics Job',
-    id: 'vma-handoff',
-    description: 'Current request — 16 Meta sizes.',
+    href: '/studio.html',
+    label: 'Dashboard',
+    id: 'studio',
+    description: 'Approved ads, checklist, formats, quick links.',
+  },
+  {
+    href: '/vma-approved.html',
+    label: 'Approved Creative',
+    id: 'vma-approved',
+    description: 'Four approved masters — image-first analysis.',
+  },
+  {
+    href: '/ideas.html',
+    label: 'New Ad Ideas',
+    id: 'ideas',
+    description: '15–20 concept batch builder.',
   },
   {
     href: '/vma-static.html',
-    label: 'Size Checklist',
+    label: 'Aspect Ratios',
     id: 'vma-static',
-    description: 'What exists vs still needed.',
-  },
-  {
-    href: '/direct-response.html',
-    label: 'Rules',
-    id: 'vma-direction',
-    description: 'No pink, brand, claim notes.',
-  },
-  {
-    href: '/vma-video.html',
-    label: 'Video (Later)',
-    id: 'vma-video',
-    description: 'After static sizes are done.',
+    description: '1:1 · 4:5 · 9:16 · 1.91:1.',
   },
   {
     href: '/competitors.html',
-    label: 'Competitors',
+    label: 'Competitor Wall',
     id: 'competitors',
-    description: 'Optional reference only.',
+    description: 'Image-first references — do not copy.',
+  },
+  {
+    href: '/vma-video.html',
+    label: 'Animated Video',
+    id: 'vma-video',
+    description: 'Motion from approved statics.',
   },
   {
     href: '/vma-chatgpt.html',
-    label: 'ChatGPT Notes',
+    label: 'Prompts & Copy',
     id: 'vma-chatgpt',
-    description: 'How the masters were made — not a new design job.',
+    description: 'ChatGPT, video prompts, EN/ES copy.',
   },
   {
-    href: '/studio.html',
-    label: 'Overview',
-    id: 'studio',
-    description: 'Short overview.',
-  },
-  {
-    href: '/vma-history.html',
-    label: 'History',
-    id: 'vma-history',
-    description: 'Minimal direction history.',
+    href: '/vma-handoff.html',
+    label: 'Production Handoff',
+    id: 'vma-handoff',
+    description: 'Next wave, pace, and done line.',
   },
 ];
 

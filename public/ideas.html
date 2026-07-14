@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ideas / Site Map · MedVirtual</title>
+  <title>New Ad Ideas · MedVirtual</title>
   <style>
   
 @font-face {
@@ -267,6 +267,17 @@
     color: #0D546B;
     font-size: 0.86rem;
   }
+  .callout-rule {
+    margin: 1rem 0 1.5rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 10px;
+    background: #FDEDED;
+    border: 2px solid #B42318;
+    color: #7F1D1D;
+    font-weight: 800;
+    font-size: 0.92rem;
+    letter-spacing: 0.01em;
+  }
   .pill {
     display: inline-block;
     padding: 0.14rem 0.55rem;
@@ -277,7 +288,7 @@
     border: 1px solid transparent;
     vertical-align: middle;
   }
-  .s-approved, .s-approved-creative-baseline {
+  .s-approved, .s-approved-creative-baseline, .s-primary-feed-format {
     background: #E6F7F4; color: #0F766E; border-color: #99D5CD;
   }
   .s-awaiting-design {
@@ -367,20 +378,212 @@
     font-size: 0.72rem;
     line-height: 1.35;
   }
-  .format-placeholder strong { display: block; color: #A16207; margin-bottom: 0.25rem; }
+  .format-placeholder strong { display: block; color: #A16207; margin-bottom: 0.25rem; font-size: 0.76rem; letter-spacing: 0.03em; }
   .format-card__body { padding: 0.55rem 0.65rem 0.7rem; }
   .format-card__body b { display: block; color: #0B1F3A; }
+  .format-explain {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-left: 4px solid #077999;
+    border-radius: 12px;
+    padding: 1.1rem 1.3rem;
+    margin: 1rem 0;
+  }
+  .format-explain h3 { margin-top: 0.3rem; font-size: 1.15rem; }
+  .size-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: center;
+    gap: 1.1rem 1.4rem;
+    padding: 1.25rem 1rem 1.4rem;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    margin: 0.85rem 0 1.25rem;
+  }
+  .size-strip__item { text-align: center; max-width: 9.5rem; }
+  .size-strip__frame {
+    margin: 0 auto 0.55rem;
+    border: 2px solid #077999;
+    border-radius: 8px;
+    background: linear-gradient(160deg, #EEF6FA 0%, #D6E4EC 100%);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.65);
+  }
+  .size-strip__item[data-id="1x1"] .size-strip__frame { width: 84px; height: 84px; }
+  .size-strip__item[data-id="4x5"] .size-strip__frame { width: 84px; height: 105px; }
+  .size-strip__item[data-id="9x16"] .size-strip__frame { width: 68px; height: 120px; }
+  .size-strip__item[data-id="1.91x1"] .size-strip__frame { width: 120px; height: 63px; }
+  .size-strip__item strong { display: block; font-size: 0.9rem; color: #0B1F3A; }
+  .size-strip__item span { display: block; font-size: 0.72rem; color: #4A6275; margin-top: 0.15rem; }
+  .size-strip__item .chip { margin-top: 0.35rem; }
+  .example-hero {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: minmax(220px, 340px) 1fr;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    padding: 1.15rem;
+    margin: 0.85rem 0 1.5rem;
+  }
+  .example-hero__media {
+    background: #E8EEF2;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+  }
+  .example-hero__media img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .example-hero__points { display: grid; gap: 0.55rem; }
+  .example-hero__points .soft-card { padding: 0.7rem 0.85rem; }
+  .example-hero__points h3 { margin: 0 0 0.2rem; font-size: 0.95rem; }
+  .ratio-guide {
+    display: grid;
+    gap: 1.15rem;
+    grid-template-columns: minmax(150px, 210px) 1fr;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+    margin: 0.9rem 0;
+  }
+  .ratio-guide__visual { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; }
+  .wire {
+    position: relative;
+    width: 100%;
+    max-width: 180px;
+    background: #F0F5F8;
+    border: 2px solid #077999;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .wire[data-ratio="1x1"] { aspect-ratio: 1 / 1; }
+  .wire[data-ratio="4x5"] { aspect-ratio: 4 / 5; }
+  .wire[data-ratio="9x16"] { aspect-ratio: 9 / 16; max-width: 140px; }
+  .wire[data-ratio="1.91x1"] { aspect-ratio: 1.91 / 1; max-width: 220px; }
+  .wire-zone {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.15rem;
+    border-radius: 5px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #0B1F3A;
+    background: rgba(0, 178, 226, 0.22);
+    border: 1px dashed #077999;
+  }
+  .wire-zone[data-id="talent"] { background: rgba(11, 31, 58, 0.12); border-color: #0B1F3A; }
+  .wire-zone[data-id="badge"] { background: rgba(184, 240, 0, 0.28); border-color: #077999; color: #0B1F3A; }
+  .wire-zone[data-id="safe-top"],
+  .wire-zone[data-id="safe-bottom"] {
+    background: repeating-linear-gradient(-45deg, #FEECEC, #FEECEC 4px, #fff 4px, #fff 8px);
+    border-color: #B42318;
+    color: #7F1D1D;
+    font-size: 0.58rem;
+  }
+  .ratio-guide__copy h3 { margin: 0 0 0.2rem; }
+  .ratio-guide__copy .dims { font-size: 0.78rem; color: #4A6275; margin: 0 0 0.55rem; }
+  .ratio-guide__thumb {
+    width: 100%;
+    max-width: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #D6E4EC;
+    background: #EEF2F6;
+  }
+  .ratio-guide__thumb img { width: 100%; height: auto; display: block; }
+  .await-board {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .await-board .soft-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    background: #EEF2F6;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 0.55rem;
+  }
+  .spark-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    margin-top: 0.85rem;
+  }
+  .spark-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .spark-card__media {
+    background: #0B1F3A;
+    aspect-ratio: 1 / 1;
+  }
+  .spark-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .spark-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+  .spark-card__body h3 { margin: 0; font-size: 1.02rem; }
+  .spark-card__body p { margin: 0; font-size: 0.82rem; color: #4A6275; }
+  .spark-card__spark {
+    margin-top: auto;
+    padding: 0.55rem 0.65rem;
+    border-radius: 8px;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    color: #0D546B;
+    font-size: 0.8rem;
+    font-weight: 650;
+  }
+  @media (max-width: 720px) {
+    .example-hero, .ratio-guide { grid-template-columns: 1fr; }
+    .ratio-guide__visual { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  }
+  .approved-detail {
+    display: grid;
+    grid-template-columns: minmax(260px, 380px) 1fr;
+    gap: 1.5rem;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .approved-detail__media {
+    background: #E8EEF2;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+  }
+  .approved-detail__media img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .approved-detail__grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
   .quick-links {
     display: grid;
     gap: 0.75rem;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
   .quick-links a {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 3.4rem;
+    min-height: 3.6rem;
     padding: 0.75rem 1rem;
     border-radius: 10px;
     background: #077999;
@@ -390,7 +593,7 @@
     font-size: 0.92rem;
   }
   .quick-links a:hover { background: #0D546B; }
-  .queue-grid, .claim-grid, .comp-grid, .copy-grid, .prompt-grid {
+  .queue-grid, .claim-grid, .comp-grid, .copy-grid, .prompt-grid, .cat-grid {
     display: grid;
     gap: 0.85rem;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -402,7 +605,6 @@
     padding: 0.9rem 1rem;
   }
   .soft-card p { margin: 0.25rem 0; font-size: 0.86rem; color: #4A6275; }
-  .queue-card .value { font-size: 1.6rem; font-weight: 800; color: #077999; line-height: 1.1; }
   .checklist { list-style: none; margin: 0.5rem 0 0; padding: 0; }
   .checklist li {
     display: flex;
@@ -435,7 +637,7 @@
     display: flex;
     flex-direction: column;
   }
-  .comp-card.incomplete { opacity: 0.72; border-style: dashed; }
+  .comp-card.incomplete { opacity: 0.7; border-style: dashed; }
   .comp-card__media {
     background: #EEF2F6;
     aspect-ratio: 4 / 5;
@@ -477,37 +679,6 @@
     background: #EEF2F6;
   }
   .thumb-row img { width: 100%; height: 100%; object-fit: contain; display: block; }
-  .masters-strip {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.75rem;
-    margin: 0.75rem 0 0;
-  }
-  .masters-strip a {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    text-decoration: none;
-    color: inherit;
-    background: #fff;
-    border: 1px solid #D6E4EC;
-    border-radius: 10px;
-    padding: 0.55rem;
-  }
-  .masters-strip img {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: contain;
-    border-radius: 6px;
-    background: #EEF2F6;
-    display: block;
-  }
-  .masters-strip span {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #0B1F3A;
-    text-align: center;
-  }
   .job-box {
     background: #fff;
     border: 2px solid #077999;
@@ -542,9 +713,6 @@
   .two-cols { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
   .do-list li::marker { color: #077999; }
   .dont-list li::marker { color: #B42318; }
-  @media (max-width: 700px) {
-    .masters-strip { grid-template-columns: 1fr 1fr; }
-  }
   .matrix { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-top: 0.5rem; }
   .matrix th, .matrix td { border: 1px solid #D6E4EC; padding: 0.45rem 0.5rem; text-align: center; background: #fff; }
   .matrix th { background: #F0F5F8; color: #4A6275; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
@@ -584,21 +752,21 @@
   }
   .tab-panels .tab-panel { display: none; }
   .tab-panels .tab-panel.active { display: block; }
-  details.block {
+  main details.block, .block details.block {
     margin: 0.65rem 0;
     background: #fff;
     border: 1px solid #D6E4EC;
     border-radius: 10px;
     padding: 0.65rem 0.9rem;
   }
-  details.block > summary {
+  main details.block > summary {
     cursor: pointer;
     font-weight: 700;
     color: #0B1F3A;
     list-style: none;
   }
-  details.block > summary::-webkit-details-marker { display: none; }
-  details.block[open] > summary { margin-bottom: 0.55rem; }
+  main details.block > summary::-webkit-details-marker { display: none; }
+  main details.block[open] > summary { margin-bottom: 0.55rem; }
   .copytext {
     display: block;
     background: #F0F5F8;
@@ -632,23 +800,50 @@
     background: #fff;
     border: 1px solid #D6E4EC;
   }
-  .delivery-row {
+  .concept-form {
     display: grid;
-    gap: 0.75rem;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    margin-top: 0.75rem;
-  }
-  .delivery-row select {
-    font: inherit;
-    font-size: 0.82rem;
-    margin-top: 0.35rem;
-    width: 100%;
-    padding: 0.3rem 0.4rem;
-    border: 1px solid #D6E4EC;
-    border-radius: 6px;
+    gap: 0.85rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+  }
+  .concept-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0D546B;
+  }
+  .concept-form input,
+  .concept-form select,
+  .concept-form textarea {
+    font: inherit;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.55rem;
+    border: 1px solid #D6E4EC;
+    border-radius: 7px;
+    background: #F7FAFC;
     color: #0B1F3A;
   }
+  .concept-form textarea { resize: vertical; min-height: 3rem; }
+  .concept-form .full { grid-column: 1 / -1; }
+  .concept-form button[type="submit"] {
+    grid-column: 1 / -1;
+    justify-self: start;
+    font: inherit;
+    font-weight: 800;
+    font-size: 0.88rem;
+    padding: 0.6rem 1.3rem;
+    border: none;
+    border-radius: 999px;
+    background: #077999;
+    color: #fff;
+    cursor: pointer;
+  }
+  .concept-form button[type="submit"]:hover { background: #0D546B; }
   .foot {
     margin-top: 3rem;
     padding-top: 1rem;
@@ -656,34 +851,31 @@
     color: #64748B;
     font-size: 0.76rem;
   }
-  .ideas-list { list-style: none; margin: 0; padding: 0; }
-  .ideas-list li { margin: 0.45rem 0; }
-  .ideas-list a { font-weight: 700; text-decoration: none; }
-  .ideas-list span { display: block; color: #4A6275; font-size: 0.82rem; }
   @media (max-width: 640px) {
     main { padding: 1.1rem 0.85rem 3.5rem; }
     .masters-grid { grid-template-columns: 1fr 1fr; }
     .master-card--lg .master-card__media { min-height: 140px; }
+    .approved-detail { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
   <header class="doc-header">
   <div class="doc-header__row">
-    <a class="doc-header__brand" href="/vma-handoff.html">
+    <a class="doc-header__brand" href="/studio.html">
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Ad Production</h1>
-        <p class="doc-header__tagline">4 approved masters → Meta sizes now · video later</p>
+        <p class="doc-header__tagline">Approved VMA creative · 15–20 concepts · required Meta sizes</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/vma-handoff.html" class="">Graphics Job</a><a href="/vma-static.html" class="">Size Checklist</a><a href="/direct-response.html" class="">Rules</a><a href="/vma-video.html" class="">Video (Later)</a><a href="/competitors.html" class="">Competitors</a><a href="/vma-chatgpt.html" class="">ChatGPT Notes</a><a href="/studio.html" class="">Overview</a><a href="/vma-history.html" class="">History</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Dashboard</a><a href="/vma-approved.html" class="">Approved Creative</a><a href="/ideas.html" class="active">New Ad Ideas</a><a href="/vma-static.html" class="">Aspect Ratios</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-video.html" class="">Animated Video</a><a href="/vma-chatgpt.html" class="">Prompts &amp; Copy</a><a href="/vma-handoff.html" class="">Production Handoff</a></nav>
     </div>
   </div>
   <div class="doc-header__page">
-          <h2 class="doc-header__page-title">Site Map</h2>
-          <p class="doc-header__page-sub">Quick links to every board.</p>
+          <h2 class="doc-header__page-title">New Ad Ideas</h2>
+          <p class="doc-header__page-sub">Visual sparks · 15–20 concept workflow.</p>
           
         </div>
 </header>
@@ -704,14 +896,316 @@
 })();
 </script>
   <main>
-    <div class="banner"><strong>GRAPHICS JOB — RESIZE 4 APPROVED MASTERS</strong><span class="sub">The square masters are already approved (made with ChatGPT + design polish). Current job: rebuild each into Meta sizes. Video comes later.</span></div>
+    <div class="banner"><strong>BOLD VIRTUAL MEDICAL ADMIN DIRECT-RESPONSE ADS</strong><span class="sub">Primary headline: HIRE A VIRTUAL MEDICAL ADMIN. Request 15–20 concepts per batch. Match the four approved masters for clarity, contrast, and mobile readability — then rebuild winners in every required Meta size.</span></div>
     
     <div class="hero">
-      <h1>Site Map</h1>
-      <p>Primary boards for the Virtual Medical Admin creative handoff.</p>
+      <h1>New Ad Ideas</h1>
+      <p><b>Standard creative request: 15–20 concepts.</b> Scroll the spark gallery first — steal energy, invent original MedVirtual layouts. AI plates are for thinking and testing, not automatic launch.</p>
     </div>
-    <ul class="ideas-list"><li><a href="/vma-handoff.html">Graphics Job</a><span>Current request — 16 Meta sizes.</span></li><li><a href="/vma-static.html">Size Checklist</a><span>What exists vs still needed.</span></li><li><a href="/direct-response.html">Rules</a><span>No pink, brand, claim notes.</span></li><li><a href="/vma-video.html">Video (Later)</a><span>After static sizes are done.</span></li><li><a href="/competitors.html">Competitors</a><span>Optional reference only.</span></li><li><a href="/vma-chatgpt.html">ChatGPT Notes</a><span>How masters were made — not a new design job.</span></li><li><a href="/studio.html">Overview</a><span>Short overview.</span></li><li><a href="/vma-history.html">History</a><span>Minimal direction history.</span></li></ul>
-    <p class="foot">MedVirtual Ad Production · Virtual Medical Admin · Reviewed July 14, 2026 · No pink · Ad-facing brand: MedVirtual.</p>
+
+    <section id="spark-gallery">
+      <h2>Visual spark gallery</h2>
+      <p class="note">These are AI spark concepts to get the team thinking — not approved masters. Remix freely. Check spelling, claims, hands, Spanish, logos, and pink before anything goes live.</p>
+      <p class="note"><a class="dl" href="/ai-asset-foundry.html">Open AI Asset Foundry</a> — generate raw faces, people, icons, and callouts. Click to enlarge. Download saves the file and creates four more like it.</p>
+      <div class="spark-grid"><article class="spark-card" id="spark-01">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-01-core-hire-lime.png" alt="Core Hire — Lime Punch spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="master-card__meta">Spark 01 · Core Offer</div>
+    <h3>Core Hire — Lime Punch</h3>
+    <p><b>Hire a Virtual Medical Admin</b></p>
+    <p>Role-first hire message with huge type and lime energy</p>
+    <p><span class="chip">Electric lime · black · cyan</span></p>
+    <div class="spark-card__spark">Can we make the role even louder than the approved masters?</div>
+  </div>
+</article><article class="spark-card" id="spark-02">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-02-missed-calls.png" alt="Missed Calls Panic spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="master-card__meta">Spark 02 · Pain Point</div>
+    <h3>Missed Calls Panic</h3>
+    <p><b>Stop Missing Patient Calls</b></p>
+    <p>Overloaded phones / front-office chaos as the hook</p>
+    <p><span class="chip">Commercial red · signal yellow · navy</span></p>
+    <div class="spark-card__spark">Lead with pain — then snap to the Virtual Medical Admin solution.</div>
+  </div>
+</article><article class="spark-card" id="spark-03">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-03-dental-admin.png" alt="Dental Admin Lane spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="master-card__meta">Spark 03 · Role Specific</div>
+    <h3>Dental Admin Lane</h3>
+    <p><b>Hire a Virtual Dental Admin</b></p>
+    <p>Same hire model, dental practice language</p>
+    <p><span class="chip">Vivid green · white · yellow accent</span></p>
+    <div class="spark-card__spark">Specialty lane without inventing a new brand system.</div>
+  </div>
+</article><article class="spark-card" id="spark-04">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-04-spanish-admin.png" alt="Spanish / Bilingual spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="master-card__meta">Spark 04 · Language &amp; Audience</div>
+    <h3>Spanish / Bilingual</h3>
+    <p><b>Contrata a un Asistente Médico Virtual</b></p>
+    <p>Full Spanish cold-audience treatment</p>
+    <p><span class="chip">Lime · cyan · black</span></p>
+    <div class="spark-card__spark">Keep Spanish native-reviewed — steal energy, not Hello Rache purple.</div>
+  </div>
+</article><article class="spark-card" id="spark-05">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-05-insurance.png" alt="Insurance Verification spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="master-card__meta">Spark 05 · Role Specific</div>
+    <h3>Insurance Verification</h3>
+    <p><b>Support Insurance Verification</b></p>
+    <p>Eligibility / prior-auth backlog help</p>
+    <p><span class="chip">High-voltage cyan · deep navy</span></p>
+    <div class="spark-card__spark">Role-specific without looking like billing software.</div>
+  </div>
+</article><article class="spark-card" id="spark-06">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-06-front-desk.png" alt="Front Desk Needs Backup spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="master-card__meta">Spark 06 · Pain Point</div>
+    <h3>Front Desk Needs Backup</h3>
+    <p><b>Your Front Desk Needs Backup</b></p>
+    <p>Problem → calm Virtual Admin solution split</p>
+    <p><span class="chip">Signal yellow · deep navy</span></p>
+    <div class="spark-card__spark">Before/after energy without copying competitor comparison layouts.</div>
+  </div>
+</article><article class="spark-card" id="spark-07">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-07-billing.png" alt="Medical Biller Support spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="master-card__meta">Spark 07 · Role Specific</div>
+    <h3>Medical Biller Support</h3>
+    <p><b>Hire a Virtual Medical Biller</b></p>
+    <p>Billing-adjacent admin capacity</p>
+    <p><span class="chip">Cobalt blue · black · cyan</span></p>
+    <div class="spark-card__spark">Stay admin/staffing — never claim to replace a billing company.</div>
+  </div>
+</article><article class="spark-card" id="spark-08">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-08-scheduling.png" alt="Scheduling Support spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="master-card__meta">Spark 08 · Role Specific</div>
+    <h3>Scheduling Support</h3>
+    <p><b>Add Virtual Scheduling Support</b></p>
+    <p>Book / confirm / reschedule help</p>
+    <p><span class="chip">Bright white · cobalt · yellow CTA</span></p>
+    <div class="spark-card__spark">Cleaner whitespace test against our denser masters.</div>
+  </div>
+</article><article class="spark-card" id="spark-09">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-09-dedicated-not-callcenter.png" alt="Dedicated — Not a Call Center spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="master-card__meta">Spark 09 · Offer &amp; CTA</div>
+    <h3>Dedicated — Not a Call Center</h3>
+    <p><b>Dedicated Staff — Not a Call Center</b></p>
+    <p>Differentiator as the hero line</p>
+    <p><span class="chip">Deep navy · vivid green</span></p>
+    <div class="spark-card__spark">Make the model crystal clear in one glance.</div>
+  </div>
+</article><article class="spark-card" id="spark-10">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-10-patient-intake.png" alt="Patient Intake Remote spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="master-card__meta">Spark 10 · Role Specific</div>
+    <h3>Patient Intake Remote</h3>
+    <p><b>Handle Patient Intake Remotely</b></p>
+    <p>New-patient forms and chart-prep support</p>
+    <p><span class="chip">Electric lime · white · cobalt</span></p>
+    <div class="spark-card__spark">Abstract UI only — never readable patient data.</div>
+  </div>
+</article></div>
+    </section>
+
+    <section id="categories">
+      <h2>Idea Categories — fill a 15–20 batch</h2>
+      <div class="cat-grid"><div class="soft-card">
+  <h3>Category 1 — Core Offer</h3>
+  <div><span class="chip">Hire a Virtual Medical Admin</span><span class="chip">Add a Virtual Medical Admin</span><span class="chip">Build Your Medical Admin Team</span><span class="chip">Add Dedicated Front-Office Support</span></div>
+</div><div class="soft-card">
+  <h3>Category 2 — Pain Point</h3>
+  <div><span class="chip">Too Many Patient Calls?</span><span class="chip">Stop Missing Patient Calls</span><span class="chip">Your Front Desk Needs Backup</span><span class="chip">Is Administrative Work Piling Up?</span><span class="chip">Too Much Insurance Work?</span><span class="chip">Your Staff Is Stretched Too Thin</span></div>
+</div><div class="soft-card">
+  <h3>Category 3 — Role Specific</h3>
+  <div><span class="chip">Virtual Medical Receptionist</span><span class="chip">Virtual Medical Biller</span><span class="chip">Insurance Verification Support</span><span class="chip">Preauthorization Support</span><span class="chip">Appointment Scheduling Support</span><span class="chip">Patient Intake Support</span><span class="chip">Dental Virtual Assistant</span><span class="chip">Claims Follow-Up Support</span></div>
+</div><div class="soft-card">
+  <h3>Category 4 — Language and Audience</h3>
+  <div><span class="chip">Spanish-Speaking Medical Admin</span><span class="chip">Fully Spanish Creative</span><span class="chip">Dental Practices</span><span class="chip">Medical Billing Teams</span><span class="chip">Growing Practices</span><span class="chip">Practice Managers</span><span class="chip">Specialty Practices</span></div>
+</div><div class="soft-card">
+  <h3>Category 5 — Offer and CTA</h3>
+  <div><span class="chip">Starting at $10/Hour</span><span class="chip">Request an Interview</span><span class="chip">Find Your Virtual Admin</span><span class="chip">Book a Demo</span><span class="chip">Add Full-Time Support</span><span class="chip">Get More Front-Office Help</span></div>
+</div></div>
+    </section>
+
+    <section id="batch">
+      <h2>Build a 15–20 Concept Batch</h2>
+      <p class="lede">Recommended mix (totals 20 concepts):</p>
+      <div class="queue-grid"><div class="soft-card"><h3>4 — Core Offer Concepts</h3></div><div class="soft-card"><h3>4 — Pain-Point Concepts</h3></div><div class="soft-card"><h3>4 — Role-Specific Concepts</h3></div><div class="soft-card"><h3>3 — Spanish or Bilingual Concepts</h3></div><div class="soft-card"><h3>3 — Offer or CTA Concepts</h3></div><div class="soft-card"><h3>2 — Experimental Concepts</h3></div></div>
+      <h3 style="margin-top:1.25rem">Copy-paste batch request</h3>
+      <span class="copytext">Please create 15–20 original MedVirtual Meta ad concepts. Use bold Virtual Medical Admin messaging, large mobile-readable headlines, a prominent professional person, three or four service benefits, and bright high-contrast colors. Use teal, deep navy, blue, cyan, lime, green, yellow, white, black, or limited red. Do not use pink. Do not copy competitor layouts. Provide initial square concepts first, then build approved concepts in all required aspect ratios.</span><button type="button" class="copy-btn" data-copy="Please create 15–20 original MedVirtual Meta ad concepts. Use bold Virtual Medical Admin messaging, large mobile-readable headlines, a prominent professional person, three or four service benefits, and bright high-contrast colors. Use teal, deep navy, blue, cyan, lime, green, yellow, white, black, or limited red. Do not use pink. Do not copy competitor layouts. Provide initial square concepts first, then build approved concepts in all required aspect ratios.">Copy</button>
+    </section>
+
+    <details class="block" id="concept-builder">
+      <summary>Concept Builder — turn a spark into a brief + prompt</summary>
+      <form id="concept-builder-form" class="concept-form">
+        <label>Concept number<input type="text" id="c-number" placeholder="VMA-25" /></label>
+        <label>Role<input type="text" id="c-role" placeholder="Virtual Medical Admin" /></label>
+        <label>Audience<input type="text" id="c-audience" placeholder="Dental practices" /></label>
+        <label class="full">Headline<input type="text" id="c-headline" placeholder="HIRE A VIRTUAL MEDICAL ADMIN" /></label>
+        <label class="full">Supporting line<input type="text" id="c-supporting" placeholder="Dedicated full-time virtual staff who join your team." /></label>
+        <label>Benefit 1<input type="text" id="c-benefit1" /></label>
+        <label>Benefit 2<input type="text" id="c-benefit2" /></label>
+        <label>Benefit 3<input type="text" id="c-benefit3" /></label>
+        <label>Benefit 4<input type="text" id="c-benefit4" /></label>
+        <label>Offer<input type="text" id="c-offer" placeholder="No published offer" /></label>
+        <label>CTA<input type="text" id="c-cta" placeholder="Learn More" /></label>
+        <label class="full">Talent direction<textarea id="c-talent" placeholder="Credible, warm virtual medical administrator..."></textarea></label>
+        <label>Scrub color<input type="text" id="c-scrub" placeholder="Cobalt blue" /></label>
+        <label>Background color<input type="text" id="c-bg" placeholder="Deep navy" /></label>
+        <label>Accent color<input type="text" id="c-accent" placeholder="Cyan" /></label>
+        <label>Language
+          <select id="c-language">
+            <option>English</option>
+            <option>Spanish</option>
+            <option>Bilingual</option>
+          </select>
+        </label>
+        <label>Format
+          <select id="c-format">
+            <option>1:1, 4:5, 9:16, 1.91:1</option>
+            <option>1:1</option>
+            <option>4:5</option>
+            <option>9:16</option>
+            <option>1.91:1</option>
+          </select>
+        </label>
+        <label>Animation potential
+          <select id="c-animation">
+            <option>Static first</option>
+            <option>Strong 6s candidate</option>
+            <option>Strong 15s candidate</option>
+            <option>Low priority</option>
+          </select>
+        </label>
+        <label>Claim status
+          <select id="c-claim">
+            <option>No new claims</option>
+            <option>Pending leadership</option>
+            <option>Pending compliance</option>
+            <option>Approved</option>
+          </select>
+        </label>
+        <button type="submit">Generate Concept</button>
+      </form>
+
+      <div class="queue-grid" style="margin-top:1rem">
+        <div class="soft-card" style="grid-column:1/-1">
+          <h3>Complete concept brief</h3>
+          <span class="copytext" id="output-brief">Fill out the form above and click Generate Concept.</span>
+          <button type="button" class="copy-btn" id="copy-brief" data-copy="">Copy</button>
+        </div>
+        <div class="soft-card" style="grid-column:1/-1">
+          <h3>ChatGPT image prompt</h3>
+          <span class="copytext" id="output-prompt">—</span>
+          <button type="button" class="copy-btn" id="copy-prompt" data-copy="">Copy</button>
+        </div>
+        <div class="soft-card" style="grid-column:1/-1">
+          <h3>Designer instructions</h3>
+          <span class="copytext" id="output-designer">—</span>
+          <button type="button" class="copy-btn" id="copy-designer" data-copy="">Copy</button>
+        </div>
+        <div class="soft-card" style="grid-column:1/-1">
+          <h3>Suggested aspect ratios</h3>
+          <span class="copytext" id="output-ratios">—</span>
+          <button type="button" class="copy-btn" id="copy-ratios" data-copy="">Copy</button>
+        </div>
+      </div>
+    </details>
+<script>
+(function(){
+  var form = document.getElementById('concept-builder-form');
+  if(!form) return;
+  var outIds = { brief: 'output-brief', prompt: 'output-prompt', designer: 'output-designer', ratios: 'output-ratios' };
+  var copyIds = { brief: 'copy-brief', prompt: 'copy-prompt', designer: 'copy-designer', ratios: 'copy-ratios' };
+  function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+  function setOut(key, text){
+    var out = document.getElementById(outIds[key]);
+    var btn = document.getElementById(copyIds[key]);
+    if(out) out.textContent = text;
+    if(btn) btn.setAttribute('data-copy', text);
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var number = val('c-number') || 'VMA-NEW';
+    var role = val('c-role') || 'Virtual Medical Admin';
+    var audience = val('c-audience');
+    var headline = val('c-headline') || 'HIRE A VIRTUAL MEDICAL ADMIN';
+    var supporting = val('c-supporting');
+    var benefits = [val('c-benefit1'), val('c-benefit2'), val('c-benefit3'), val('c-benefit4')].filter(Boolean);
+    var offer = val('c-offer');
+    var cta = val('c-cta') || 'Learn More';
+    var talent = val('c-talent');
+    var scrub = val('c-scrub');
+    var bg = val('c-bg');
+    var accent = val('c-accent');
+    var language = val('c-language') || 'English';
+    var format = val('c-format') || '1:1, 4:5, 9:16, 1.91:1';
+    var animation = val('c-animation') || 'Static first';
+    var claim = val('c-claim') || 'No new claims';
+
+    var brief = [
+      'Concept: ' + number,
+      'Role: ' + role,
+      'Audience: ' + (audience || '—'),
+      'Headline: ' + headline,
+      'Supporting line: ' + (supporting || '—'),
+      'Benefits: ' + (benefits.join(' · ') || '—'),
+      'Offer: ' + (offer || '—'),
+      'CTA: ' + cta,
+      'Talent direction: ' + (talent || '—'),
+      'Colors: scrub ' + (scrub || '—') + ' · background ' + (bg || '—') + ' · accent ' + (accent || '—'),
+      'Language: ' + language,
+      'Format(s): ' + format,
+      'Animation potential: ' + animation,
+      'Claim status: ' + claim,
+      'Rules: No pink. MedVirtual only (never MedVirtual.ai). Dedicated full-time staff — not a call center.'
+    ].join('\n');
+
+    var prompt = 'Full-image Meta ad plate for a healthcare staffing ad. Bold, high-contrast, mobile-first direct response. Color story: background ' + (bg || 'approved family') + ', accent ' + (accent || 'approved accent') + '. Subject: a credible, warm virtual medical administrator, ' + (scrub || 'approved color') + ' scrub top, framed to one side, clean studio lighting, high contrast. Leave clean negative space for the headline "' + headline + '" and the benefits ' + (benefits.join(', ') || 'TBD') + ' to be added by a designer. NO pink, magenta, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos or compliance badges, no call-center headset, no physician white coat, no patient data.';
+
+    var designer = [
+      'Build in: ' + format,
+      'Rebuild the layout per canvas — do not stretch or simply crop the square.',
+      'Keep the headline large and mobile-readable.',
+      'Keep 3–4 benefits scannable.',
+      'Offer / claim: ' + (claim.toLowerCase().indexOf('approved') === 0 ? (offer || 'per brief') : 'Do not publish until this claim is approved'),
+      'Animation potential: ' + animation,
+      'File naming: MV_VMA_[NUMBER]_[NAME]_[RATIO].png'
+    ].join('\n');
+
+    var ratios = 'Suggested aspect ratios: 1:1 (1080×1080) · 4:5 (1080×1350, primary feed) · 9:16 (1080×1920, Stories/Reels) · 1.91:1 (1200×628, link ads / form covers).';
+
+    setOut('brief', brief);
+    setOut('prompt', prompt);
+    setOut('designer', designer);
+    setOut('ratios', ratios);
+  });
+})();
+</script>
+    <p class="foot">MedVirtual Ad Production · No pink · Reviewed July 14, 2026.</p>
   </main>
   
 <script>

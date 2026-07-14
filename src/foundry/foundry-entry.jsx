@@ -87,23 +87,72 @@ const MORE_CHANGES = [
 ];
 
 const DEFAULT_FORM = {
-  lane: 'real-va-workplace',
+  lane: 'raw-parts',
   vertical: 'none',
-  concept: 'Real person behind the work',
-  sceneType: 'Real workplace',
-  subjectPosition: 'right',
-  copySpace: 'left',
-  cameraTreatment: 'Natural documentary',
-  lighting: 'Natural window light',
-  realism: 'Natural',
-  format: 'portrait',
+  concept: 'Face / headshot cutout',
+  sceneType: 'Isolated portrait cutout',
+  subjectPosition: 'center',
+  copySpace: 'wide-negative-space',
+  cameraTreatment: 'Eye-level editorial',
+  lighting: 'Soft studio daylight',
+  realism: 'Premium commercial',
+  format: 'square',
   quality: 'draft',
   explorationLevel: 'balanced',
-  additionalDirection: '',
+  additionalDirection:
+    'Raw design ingredients for the graphics team — face, person, icons, callout badges. Never pink. Not a finished Meta ad.',
   promptOverride: '',
   consentAdvertising: false,
   consentImageEdit: false,
 };
+
+/** Matches server RAW_PART_ROTATION — four ingredients per Generate Four. */
+const RAW_PART_ROTATION = [
+  {
+    concept: 'Face / headshot cutout',
+    sceneType: 'Isolated portrait cutout',
+    subjectPosition: 'center',
+    copySpace: 'wide-negative-space',
+    cameraTreatment: 'Eye-level editorial',
+    lighting: 'Soft studio daylight',
+    realism: 'Premium commercial',
+    additionalDirection:
+      'Tight head-and-shoulders of a credible female virtual medical administrator, clean solid or soft gradient background, sharp face detail, usable as a cutout plate. No long marketing copy.',
+  },
+  {
+    concept: 'Person / talent plate',
+    sceneType: 'Desk-based work scene',
+    subjectPosition: 'right',
+    copySpace: 'left',
+    cameraTreatment: 'Natural documentary',
+    lighting: 'Natural window light',
+    realism: 'Natural',
+    additionalDirection:
+      'Upper-body or mid shot of a professional virtual medical admin at a clean desk with laptop, open left side for compositing. Scrubs lime/cobalt/cyan/yellow/navy — never pink.',
+  },
+  {
+    concept: 'Icon / symbol pack',
+    sceneType: 'Dimensional prop',
+    subjectPosition: 'no-person',
+    copySpace: 'wide-negative-space',
+    cameraTreatment: 'Isolated object photography',
+    lighting: 'Clean high-key',
+    realism: 'Dimensional 3D',
+    additionalDirection:
+      'Isolated premium icon set on a clean background: phone, calendar, insurance shield, checkmark. Easy to extract. No long paragraphs.',
+  },
+  {
+    concept: 'Callout / badge / text chip',
+    sceneType: 'Graphic element plate',
+    subjectPosition: 'no-person',
+    copySpace: 'wide-negative-space',
+    cameraTreatment: 'Isolated object photography',
+    lighting: 'Clean high-key',
+    realism: 'Dimensional 3D',
+    additionalDirection:
+      'Raw graphic badge / benefit-chip / callout ribbon plate with simple placeholder lettering. Lime, yellow, cobalt, cyan, navy, black, white — never pink. Not a finished ad.',
+  },
+];
 
 async function api(path, { method = 'GET', body } = {}) {
   const opts = { method, credentials: 'include', headers: {} };
@@ -137,7 +186,7 @@ function useObjectUrl(blob) {
   return url;
 }
 
-function AssetImage({ asset, full = false, className }) {
+function AssetImage({ asset, full = false, className, onClick }) {
   const blob = full ? asset.imageBlob || asset.thumbBlob : asset.thumbBlob || asset.imageBlob;
   const url = useObjectUrl(blob);
   if (!url) return <div className="af-img-placeholder" aria-hidden="true" />;
@@ -145,8 +194,21 @@ function AssetImage({ asset, full = false, className }) {
     <img
       className={className}
       src={url}
-      alt={`AI-generated ${asset.concept || asset.lane} visual — raw asset, no ad copy`}
+      alt={`AI-generated ${asset.concept || asset.lane} — raw design ingredient`}
       loading="lazy"
+      onClick={onClick}
+      role={onClick ? 'button' : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={
+        onClick
+          ? (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onClick();
+              }
+            }
+          : undefined
+      }
     />
   );
 }
@@ -171,6 +233,7 @@ function FoundryApp() {
   const [voteModal, setVoteModal] = useState(null);
   const [moreModal, setMoreModal] = useState(null);
   const [reviseModal, setReviseModal] = useState(null);
+  const [lightbox, setLightbox] = useState(null);
   const [folderReady, setFolderReady] = useState(false);
   const [libFilter, setLibFilter] = useState({ lane: '', person: '', saved: '' });
   const dirHandleRef = useRef(null);
@@ -209,6 +272,15 @@ function FoundryApp() {
       setLoadingSession(false);
     }
   }, [identity]);
+
+  useEffect(() => {
+    if (!lightbox) return undefined;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setLightbox(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightbox]);
 
   useEffect(() => {
     (async () => {
@@ -349,11 +421,19 @@ function FoundryApp() {
       for (let i = 0; i < 4; i++) {
         setProgress(`Generating ${i + 1} of 4`);
         try {
+          const part =
+            form.lane === 'raw-parts' ? RAW_PART_ROTATION[i % RAW_PART_ROTATION.length] : null;
           const record = await runOneGeneration({
             ...form,
+            ...(part || {}),
+            // Keep a short kit note; override clears once composing begins
+            additionalDirection: [form.additionalDirection, part?.additionalDirection]
+              .filter(Boolean)
+              .join(' '),
+            // For raw kit, each part gets its own composed prompt (ignore override after first)
+            promptOverride: form.lane === 'raw-parts' ? undefined : form.promptOverride || undefined,
             batchId,
             variantIndex: i,
-            promptOverride: form.promptOverride || undefined,
             quality: form.quality === 'draft' ? 'draft' : 'review',
           });
           results.push(record);
@@ -527,14 +607,12 @@ function FoundryApp() {
     }
   }
 
-  async function runMoreLikeThis() {
-    if (!moreModal || generateLock.current) return;
+  async function generateMoreLikeParent(parent, { changes = [], note = '', reason = 'more-like-this' } = {}) {
+    if (!parent || generateLock.current) return;
     generateLock.current = true;
     setGenerating(true);
     setTab('review');
-    const parent = moreModal.asset;
     const batchId = `batch_${Date.now().toString(36)}_mlt`;
-    const changes = moreModal.changes || [];
     setProgress('More like this · preparing');
 
     const nextPrefs = applyFeedback(prefs, {
@@ -545,7 +623,7 @@ function FoundryApp() {
     await persistPrefs(nextPrefs);
 
     const base = {
-      lane: parent.lane,
+      lane: parent.lane || 'raw-parts',
       vertical: parent.vertical,
       concept: parent.concept,
       sceneType: parent.sceneType,
@@ -554,18 +632,25 @@ function FoundryApp() {
       cameraTreatment: parent.cameraTreatment,
       lighting: parent.lighting,
       realism: parent.realism,
-      format: parent.format === '1:1' ? 'square' : parent.format === '4:5' || parent.format === '9:16' ? 'portrait' : parent.format || 'portrait',
+      format:
+        parent.format === '1:1'
+          ? 'square'
+          : parent.format === '4:5' || parent.format === '9:16'
+            ? 'portrait'
+            : parent.format || 'square',
       quality: 'review',
       parentAssetId: parent.id,
       rootAssetId: parent.rootAssetId || parent.id,
       additionalDirection: [
-        'Related visual direction to the approved parent — not the same employee if synthetic.',
+        'Create closely related RAW design ingredients — same kind of asset the team downloaded.',
+        'Keep it a usable part (face, person, icon, callout, etc.), not a finished Meta ad.',
+        'Never pink. Never MedVirtual.ai logos.',
         changes.length ? `Adjustments: ${changes.join('; ')}.` : '',
-        'Prompt-guided derivative (reference-image edit not required for this first version).',
+        note ? `Producer note: ${String(note).slice(0, 400)}` : '',
       ]
         .filter(Boolean)
         .join(' '),
-      generationReason: 'more-like-this',
+      generationReason: reason,
     };
 
     try {
@@ -578,13 +663,36 @@ function FoundryApp() {
           setGenError(err.message);
         }
       }
-      flash('More-like-this batch done');
+      flash('Generated 4 more like the downloaded asset');
     } finally {
       setMoreModal(null);
       setGenerating(false);
       generateLock.current = false;
       setProgress('');
     }
+  }
+
+  async function runMoreLikeThis() {
+    if (!moreModal) return;
+    await generateMoreLikeParent(moreModal.asset, {
+      changes: moreModal.changes || [],
+      note: moreModal.note || '',
+    });
+  }
+
+  /** Download = “I want more like this” — save file, then generate four related raw parts. */
+  async function downloadAndMoreLike(asset) {
+    if (!asset?.imageBlob) {
+      flash('No image file yet');
+      return;
+    }
+    downloadBlob(asset.imageBlob, suggestFilename(asset));
+    flash('Downloaded · generating 4 more like this…');
+    setLightbox(null);
+    await generateMoreLikeParent(asset, {
+      reason: 'download-more-like-this',
+      note: 'Triggered because the producer downloaded this raw asset.',
+    });
   }
 
   async function runRevise() {
@@ -644,7 +752,9 @@ function FoundryApp() {
         <div className="af-login-card">
           <p className="af-eyebrow">Producer access</p>
           <h1>AI Asset Foundry</h1>
-          <p className="af-lede">Generate four raw plates. Review quickly. Keep components for designers — not finished ads with text baked in.</p>
+          <p className="af-lede">
+            Raw design ingredients — people, faces, icons, callouts. Click to enlarge. Download keeps the file and generates four more like it.
+          </p>
           {needsProdLogin || !health?.hasOpenAI ? (
             <div className="af-warn" role="status">
               Asset Foundry generation is not configured for this environment.
@@ -690,7 +800,9 @@ function FoundryApp() {
         <div>
           <p className="af-eyebrow">Private · Creative Lab</p>
           <h1>AI Asset Foundry</h1>
-          <p className="af-lede">Generate four raw plates. Review quickly. Keep components for designers — not finished ads with text baked in.</p>
+          <p className="af-lede">
+            Raw design ingredients — people, faces, icons, callouts. Click to enlarge. Download keeps the file and generates four more like it.
+          </p>
         </div>
         <div className="af-toolbar-meta">
           <label className="af-inline">
@@ -753,6 +865,7 @@ function FoundryApp() {
           <div className="af-grid-form">
             <Field label="Creative lane">
               <select value={form.lane} onChange={(e) => setForm({ ...form, lane: e.target.value })}>
+                <option value="raw-parts">Raw parts kit (default)</option>
                 <option value="real-va-workplace">Real VA Workplace</option>
                 <option value="healthcare-operations">Healthcare Operations</option>
                 <option value="saas-props">Premium Props</option>
@@ -770,38 +883,41 @@ function FoundryApp() {
                 <option value="billing-rcm">Billing / RCM</option>
               </select>
             </Field>
-            <Field label="Advertising concept">
+            <Field label="Asset / concept">
               <select value={form.concept} onChange={(e) => setForm({ ...form, concept: e.target.value })}>
                 {[
+                  'Face / headshot cutout',
+                  'Person / talent plate',
+                  'Icon / symbol pack',
+                  'Callout / badge / text chip',
+                  'Background / color plate',
                   'Too many calls',
                   'Scheduling overload',
                   'Patient intake backlog',
-                  'Follow-up support',
                   'Insurance verification',
                   'Billing support',
-                  'Added administrative capacity',
                   'Real person behind the work',
                   'Dedicated team member',
                   'Front-office pressure',
-                  'Practice growth support',
                   'Organized workflow',
                 ].map((c) => (
                   <option key={c}>{c}</option>
                 ))}
               </select>
             </Field>
-            <Field label="Scene type">
+            <Field label="Scene / part type">
               <select value={form.sceneType} onChange={(e) => setForm({ ...form, sceneType: e.target.value })}>
                 {[
+                  'Isolated portrait cutout',
+                  'Desk-based work scene',
+                  'Dimensional prop',
+                  'Graphic element plate',
+                  'Background plate',
                   'Real workplace',
                   'Editorial portrait',
                   'Environmental portrait',
-                  'Desk-based work scene',
                   'Abstract operational scene',
-                  'Dimensional prop',
-                  'Background plate',
                   'Human plus workflow',
-                  'Before-to-after visual metaphor',
                 ].map((c) => (
                   <option key={c}>{c}</option>
                 ))}
@@ -925,14 +1041,22 @@ function FoundryApp() {
               maxLength={600}
               value={form.additionalDirection}
               onChange={(e) => setForm({ ...form, additionalDirection: e.target.value })}
-              placeholder="Short visual direction only — no ad copy"
+              placeholder="Optional note — raw ingredient direction"
             />
           </Field>
 
           <div className="af-guardrails">
-            <strong>Guardrails</strong>
-            <span>No text · logos · readable screens · PII · fake dashboards · hospital cliché</span>
+            <strong>Raw parts</strong>
+            <span>
+              Face · person · icons · callout badges · never pink · not finished ads · click image to enlarge ·
+              Download = keep file + make 4 more like it
+            </span>
           </div>
+          {form.lane === 'raw-parts' && (
+            <p className="af-fine">
+              Generate Four rotates: 1 face cutout · 2 talent plate · 3 icon pack · 4 callout/badge chip.
+            </p>
+          )}
 
           {hints.length > 0 && (
             <p className="af-fine">Taste hints (n≥3): {hints.join(', ')}</p>
@@ -972,7 +1096,11 @@ function FoundryApp() {
               onClick={generateFour}
               disabled={generating || !health?.generationEnabled}
             >
-              {generating ? 'Generating…' : 'Generate Four'}
+              {generating
+                ? 'Generating…'
+                : form.lane === 'raw-parts'
+                  ? 'Generate raw kit (4)'
+                  : 'Generate Four'}
             </button>
             <button type="button" className="af-btn" onClick={testConnection} disabled={generating}>
               Test connection (1× Draft)
@@ -984,27 +1112,39 @@ function FoundryApp() {
       {tab === 'review' && (
         <section className="af-panel" aria-label="Review queue">
           {!queue.length && <p className="af-empty">No pending assets. Generate a batch to start.</p>}
+          <p className="af-fine" style={{ marginBottom: '0.85rem' }}>
+            Click any image to enlarge. <b>Download</b> saves the PNG and automatically generates four more like it.
+          </p>
           <div className="af-review-grid">
             {queue.map((asset) => (
               <article key={asset.id} className="af-card">
-                <div className="af-card-media" style={{ aspectRatio: `${asset.width || 2} / ${asset.height || 3}` }}>
+                <button
+                  type="button"
+                  className="af-card-media af-card-media-btn"
+                  style={{ aspectRatio: `${asset.width || 1} / ${asset.height || 1}` }}
+                  onClick={() => setLightbox(asset)}
+                  aria-label={`Enlarge ${asset.concept || asset.lane}`}
+                >
                   <AssetImage asset={asset} />
-                </div>
+                </button>
                 <div className="af-card-body">
                   <div className="af-status">{asset.status}</div>
                   <h3>{asset.concept || asset.lane}</h3>
                   <p className="af-meta">
-                    {asset.id} · batch {asset.batchId} · {asset.format} · {asset.quality}
+                    {asset.id} · {asset.format} · {asset.quality}
                   </p>
-                  <p className="af-meta">
-                    {asset.personType} · {asset.aiDisclosure} · est ${asset.estimatedCostUsd}
-                  </p>
-                  {asset.parentAssetId && <p className="af-meta">Parent {asset.parentAssetId}</p>}
-                  <details>
-                    <summary>Prompt</summary>
-                    <pre>{asset.promptFinal || asset.promptSystem}</pre>
-                  </details>
                   <div className="af-actions">
+                    <button
+                      type="button"
+                      className="af-approve"
+                      onClick={() => downloadAndMoreLike(asset)}
+                      disabled={generating}
+                    >
+                      Download (+ 4 more)
+                    </button>
+                    <button type="button" onClick={() => setLightbox(asset)}>
+                      Enlarge
+                    </button>
                     <button type="button" onClick={() => setVoteModal({ asset, direction: 'up', tags: [], note: '' })}>
                       Thumbs Up
                     </button>
@@ -1017,7 +1157,7 @@ function FoundryApp() {
                     <button type="button" onClick={() => setReviseModal({ asset, instruction: '' })}>
                       Revise
                     </button>
-                    <button type="button" className="af-approve" onClick={() => approveAndSave(asset)}>
+                    <button type="button" onClick={() => approveAndSave(asset)}>
                       Approve & Save
                     </button>
                     <button
@@ -1060,6 +1200,7 @@ function FoundryApp() {
             )}
             <select aria-label="Filter lane" value={libFilter.lane} onChange={(e) => setLibFilter({ ...libFilter, lane: e.target.value })}>
               <option value="">All lanes</option>
+              <option value="raw-parts">Raw parts</option>
               <option value="real-va-workplace">Real VA</option>
               <option value="healthcare-operations">Operations</option>
               <option value="saas-props">Props</option>
@@ -1088,18 +1229,27 @@ function FoundryApp() {
           <div className="af-lib-grid">
             {filteredLibrary.map((asset) => (
               <article key={asset.id} className="af-lib-card">
-                <AssetImage asset={asset} />
+                <button
+                  type="button"
+                  className="af-lib-media-btn"
+                  onClick={() => setLightbox(asset)}
+                  aria-label={`Enlarge ${asset.concept || asset.lane}`}
+                >
+                  <AssetImage asset={asset} />
+                </button>
                 <div>
                   <strong>{asset.concept || asset.lane}</strong>
                   <p className="af-meta">
-                    {asset.id} · {asset.projectSaveStatus || 'unsaved'} · use copy {asset.copySpace}
+                    {asset.id} · {asset.projectSaveStatus || 'unsaved'}
                   </p>
                   <div className="af-actions">
                     <button
                       type="button"
-                      onClick={() => asset.imageBlob && downloadBlob(asset.imageBlob, suggestFilename(asset))}
+                      className="af-approve"
+                      onClick={() => downloadAndMoreLike(asset)}
+                      disabled={generating}
                     >
-                      Download
+                      Download (+ 4 more)
                     </button>
                     <button type="button" onClick={() => approveAndSave(asset)}>
                       Save to project
@@ -1107,11 +1257,8 @@ function FoundryApp() {
                     <button type="button" onClick={() => setMoreModal({ asset, changes: [], note: '' })}>
                       More Like This
                     </button>
-                    <a className="af-btn" href="/creative-concept-lab.html">
-                      Static mockup
-                    </a>
-                    <a className="af-btn" href="/motion-concept-lab.html">
-                      Motion
+                    <a className="af-btn" href="/ideas.html">
+                      New Ad Ideas
                     </a>
                   </div>
                 </div>
@@ -1234,6 +1381,39 @@ function FoundryApp() {
             />
           </label>
         </Modal>
+      )}
+
+      {lightbox && (
+        <div
+          className="af-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Enlarged raw asset"
+          onClick={() => setLightbox(null)}
+        >
+          <div className="af-lightbox-inner" onClick={(e) => e.stopPropagation()}>
+            <AssetImage asset={lightbox} full className="af-lightbox-img" />
+            <div className="af-lightbox-bar">
+              <div>
+                <strong>{lightbox.concept || lightbox.lane}</strong>
+                <p className="af-meta">{lightbox.id}</p>
+              </div>
+              <div className="af-actions">
+                <button
+                  type="button"
+                  className="af-approve"
+                  onClick={() => downloadAndMoreLike(lightbox)}
+                  disabled={generating}
+                >
+                  Download (+ 4 more)
+                </button>
+                <button type="button" onClick={() => setLightbox(null)}>
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

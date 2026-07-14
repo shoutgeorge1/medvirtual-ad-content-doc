@@ -5,17 +5,34 @@
 import crypto from 'crypto';
 import { PREFERENCE_ATTRIBUTES } from './config.js';
 
+/** Default exclusions for photographic / talent / prop plates (no baked ad layout). */
 export const UNIVERSAL_EXCLUSIONS = [
-  'No text, letters, numbers, logos, watermarks, signatures, captions, CTA buttons, or labels',
-  'No readable screens, medical records, patient information, pricing, certificates, or credentials',
-  'No fake testimonials, brand names, or MedVirtual logos inside the image',
+  'No finished Meta ad layouts with multiple stacked marketing panels',
+  'No readable medical records, patient information, certificates, or credentials',
+  'No fake testimonials, competitor brand names, or MedVirtual / MedVirtual.ai logos',
   'No distorted hands, extra fingers, duplicate people, malformed devices, or impossible reflections',
-  'No exaggerated headset, overdone cyan glow, giant medical symbols, or sterile hospital cliché',
-  'No call-center rows, crowded offices, outsourcing stereotypes, or recruitment-job-board language',
+  'No exaggerated call-center headset farms, overcrowded offices, or outsourcing stereotypes',
+  'No pink, magenta, rose, or fuchsia anywhere',
   'No visible ChatGPT or OpenAI branding',
 ];
 
+/** Extra exclusions when the part is a photo/talent plate (not a graphic badge). */
+export const PHOTO_EXCLUSIONS = [
+  'No baked-in marketing headlines, CTAs, or long paragraphs on the photo',
+  'Leave the asset usable as a cutout or scene plate for designers',
+];
+
+/** Allowed only for graphic callout / badge / chip plates. */
+export const GRAPHIC_PART_ALLOWANCE =
+  'Graphic part mode: simple placeholder badge or chip lettering is allowed (short words only). Keep it a raw UI/graphic element on a clean background — not a finished advertisement.';
+
 const LANE_COPY = {
+  'raw-parts': {
+    purpose:
+      'Generate RAW design ingredients for Meta ads — faces, people, icons, callout badges, benefit chips, textures — that graphics can download, composite, and rebuild. Not finished ads.',
+    subject: 'One clear isolated design part with generous empty space and easy extraction',
+    exclude: 'Avoid full composed ads; avoid pink; avoid competitor lookalikes',
+  },
   'real-va-workplace': {
     purpose:
       'Believable documentary-inspired commercial photography of a professional Filipino virtual assistant working from a clean contemporary home office. Representative synthetic person only — never portray as a named MedVirtual employee.',
@@ -54,6 +71,11 @@ const LANE_COPY = {
 };
 
 const CONCEPT_MAP = {
+  'Face / headshot cutout': 'isolated head-and-shoulders cutout plate of a virtual medical administrator',
+  'Person / talent plate': 'usable mid-shot talent plate with room to composite headlines later',
+  'Icon / symbol pack': 'isolated icon or symbol set for calls, scheduling, insurance, billing',
+  'Callout / badge / text chip': 'raw badge, ribbon, or benefit-chip graphic element for designers',
+  'Background / color plate': 'clean high-contrast background or texture plate',
   'Too many calls': 'visual sense of phone and communication load transitioning toward organized support',
   'Scheduling overload': 'calendar and appointment administration under pressure with room for calm control',
   'Patient intake backlog': 'intake and paperwork administration theme without readable forms',
@@ -84,8 +106,8 @@ function sanitizeDirection(text, max = 600) {
 }
 
 export function composePrompt(input, preferenceHints = []) {
-  const lane = LANE_COPY[input.lane] || LANE_COPY['healthcare-operations'];
-  const concept = CONCEPT_MAP[input.concept] || input.concept || 'healthcare administrative support';
+  const lane = LANE_COPY[input.lane] || LANE_COPY['raw-parts'] || LANE_COPY['healthcare-operations'];
+  const concept = CONCEPT_MAP[input.concept] || input.concept || 'raw MedVirtual design ingredient';
   const placement = input.subjectPosition || 'right';
   const copySpace = input.copySpace || 'left';
   const camera = input.cameraTreatment || 'Natural documentary';
@@ -95,6 +117,9 @@ export function composePrompt(input, preferenceHints = []) {
   const vertical = input.vertical && input.vertical !== 'none' ? input.vertical.replace(/-/g, ' ') : 'general practice administration';
   const extra = sanitizeDirection(input.additionalDirection);
   const variant = VARIANT_HINTS[input.variantIndex ?? 0] || VARIANT_HINTS[0];
+  const isGraphicPart =
+    /graphic element|callout|badge|text chip|icon \/ symbol/i.test(`${sceneType} ${input.concept || ''}`) ||
+    /callout|badge|icon \/ symbol/i.test(input.concept || '');
 
   const refLines = (input.referenceRoles || [])
     .map((r, i) => {
@@ -111,24 +136,32 @@ export function composePrompt(input, preferenceHints = []) {
   const subjectTypeNote =
     input.lane === 'real-talent-reference'
       ? 'Subject type: real-person-reference-edit. Preserve identity faithfully.'
-      : input.lane === 'saas-props' || placement === 'no-person' || input.sceneType === 'Dimensional prop'
-        ? 'Subject type: no person / prop-led.'
+      : input.lane === 'saas-props' ||
+          input.lane === 'raw-parts' ||
+          placement === 'no-person' ||
+          /prop|graphic|icon/i.test(sceneType)
+        ? 'Subject type: raw design part / prop-led (or graphic element).'
         : 'Subject type: synthetic-representative-person. Never present as a named MedVirtual employee.';
+
+  const outputLine = isGraphicPart
+    ? `Output: RAW graphic design ingredient. ${GRAPHIC_PART_ALLOWANCE}`
+    : `Output: RAW photographic or prop ingredient for designers to composite. ${PHOTO_EXCLUSIONS.join(' ')}`;
 
   const layers = [
     `Strategic purpose: ${lane.purpose}`,
-    `Advertising idea: ${concept}. Practice vertical cue: ${vertical}.`,
-    `Scene type: ${sceneType}. Action: professional administrative work without readable content.`,
+    `Raw asset idea: ${concept}. Practice vertical cue: ${vertical}.`,
+    `Scene / part type: ${sceneType}. Keep it a single useful ingredient, not a finished ad.`,
     `Subject: ${lane.subject}. ${subjectTypeNote}`,
-    `Camera and framing: ${camera}. Subject placement: ${placement}. Copy-space location: ${copySpace} — leave deliberate empty area for later HTML headlines.`,
-    `Lighting: ${lighting}. Realism: ${realism}. Color direction: subtle cyan/teal compatibility with neutrals; avoid muddy teal overlays and neon cyan glow.`,
+    `Camera and framing: ${camera}. Subject placement: ${placement}. Negative space: ${copySpace}.`,
+    `Lighting: ${lighting}. Realism: ${realism}. Colors: teal, navy, lime, yellow, cobalt, cyan, white, black — never pink.`,
     `Batch variety role (${variant.key}): ${variant.note}`,
     prefLine,
     refLines,
     lane.exclude,
     `Universal exclusions: ${UNIVERSAL_EXCLUSIONS.join('; ')}.`,
+    isGraphicPart ? '' : `Photo exclusions: ${PHOTO_EXCLUSIONS.join('; ')}.`,
     extra ? `Additional producer direction: ${extra}` : '',
-    'Output: raw photographic or 3D prop imagery only. No typography of any kind.',
+    outputLine,
   ].filter(Boolean);
 
   const systemComposed = layers.join('\n\n');
@@ -180,6 +213,24 @@ export function deriveAttributes(input) {
 }
 
 export const PRESETS = {
+  'raw-kit': {
+    id: 'raw-kit',
+    label: 'Raw kit — face · person · icons · callout',
+    lane: 'raw-parts',
+    vertical: 'none',
+    concept: 'Face / headshot cutout',
+    sceneType: 'Isolated portrait cutout',
+    subjectPosition: 'center',
+    copySpace: 'wide-negative-space',
+    cameraTreatment: 'Eye-level editorial',
+    lighting: 'Soft studio daylight',
+    realism: 'Premium commercial',
+    format: 'square',
+    quality: 'review',
+    explorationLevel: 'balanced',
+    additionalDirection:
+      'Generate raw design ingredients the graphics team can click, download, and remix. Four-batch rotates face, talent, icons, and callout badges. Never pink. Not a finished Meta ad.',
+  },
   'va-copy-left': {
     id: 'va-copy-left',
     label: 'Believable VA — Copy Left',

@@ -1,0 +1,8 @@
+utm_source=IMB_MV
+utm_medium=Meta
+utm_campaign=IMB_MV_Meta_Leads_VMA_202607
+utm_term={{adset.name}}
+utm_content={{ad.name}}
+
+Suggested combined:
+utm_source=IMB_MV&utm_medium=Meta&utm_campaign=IMB_MV_Meta_Leads_VMA_202607&utm_term={{adset.name}}&utm_content={{ad.name}}

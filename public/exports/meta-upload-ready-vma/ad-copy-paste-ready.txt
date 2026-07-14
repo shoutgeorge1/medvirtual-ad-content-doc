@@ -1,0 +1,110 @@
+========================================
+AD 01 - IMB_MV_ADV_01_CobaltBlue_HireAdmin_v1.0_1x1
+========================================
+
+AD NAME:
+IMB_MV_ADV_01_CobaltBlue_HireAdmin_v1.0_1x1
+
+PRIMARY TEXT:
+Hire a Virtual Medical Admin for patient calls, scheduling, insurance verification, and billing support.
+
+Dedicated full-time virtual staff who join your practice team — not a call center.
+
+HEADLINE:
+Hire a Virtual Medical Admin
+
+DESCRIPTION:
+Help with calls, scheduling, insurance, and billing.
+
+CTA:
+Learn More
+
+FORM:
+Current Instant Form (Stop the Front-Office Chaos) — low friction
+
+CREATIVE:
+MV_VMA_02_CobaltBlue_1x1.png
+
+
+========================================
+AD 02 - IMB_MV_ADV_02_SignalYellow_FrontOffice_v1.0_1x1
+========================================
+
+AD NAME:
+IMB_MV_ADV_02_SignalYellow_FrontOffice_v1.0_1x1
+
+PRIMARY TEXT:
+Hire a Virtual Medical Admin for dedicated front-office support.
+
+Answer patient calls, schedule appointments, verify insurance, and support billing — with full-time virtual staff who join your practice team.
+
+HEADLINE:
+Hire a Virtual Medical Admin
+
+DESCRIPTION:
+Dedicated support for your front office.
+
+CTA:
+Learn More
+
+FORM:
+Current Instant Form (Stop the Front-Office Chaos) — low friction
+
+CREATIVE:
+MV_VMA_03_SignalYellow_1x1.png
+
+
+========================================
+AD 03 - IMB_MV_ADV_03_SpanishGreen_SpanishSpeaking_v1.0_1x1
+========================================
+
+AD NAME:
+IMB_MV_ADV_03_SpanishGreen_SpanishSpeaking_v1.0_1x1
+
+PRIMARY TEXT:
+Hire a Virtual Medical Admin for reception, preauthorization, medical billing, and insurance verification.
+
+Spanish-speaking staff available. Dedicated full-time virtual staff who join your practice team — not a call center.
+
+HEADLINE:
+Hire a Virtual Medical Admin
+
+DESCRIPTION:
+Spanish-speaking virtual medical admin support.
+
+CTA:
+Learn More
+
+FORM:
+Current Instant Form (Stop the Front-Office Chaos) — low friction
+
+CREATIVE:
+MV_VMA_01_SpanishGreen_1x1.png
+
+
+========================================
+AD 04 - IMB_MV_ADV_04_HIPAAGreen_HIPAA_v1.0_1x1
+========================================
+
+AD NAME:
+IMB_MV_ADV_04_HIPAAGreen_HIPAA_v1.0_1x1
+
+PRIMARY TEXT:
+Hire a Virtual Medical Admin for reception, insurance verification, appointment scheduling, and billing support.
+
+Dedicated full-time virtual staff who join your practice team — not a call center.
+
+HEADLINE:
+Hire a Virtual Medical Admin
+
+DESCRIPTION:
+Reception, insurance, scheduling, and billing support.
+
+CTA:
+Learn More
+
+FORM:
+Current Instant Form (Stop the Front-Office Chaos) — low friction
+
+CREATIVE:
+MV_VMA_04_HIPAAGreen_1x1.png

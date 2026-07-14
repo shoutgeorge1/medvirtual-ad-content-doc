@@ -1,6 +1,7 @@
 /**
  * Producer Lab hub — George / Hailey tools (demoted for graphics team).
- * Regenerate: npm run generate:ideas
+ * Writes producer-lab.html — do NOT overwrite ideas.html (VMA New Ad Ideas).
+ * Regenerate: node scripts/generate-ideas-lab.mjs
  */
 import fs from 'fs';
 import path from 'path';
@@ -71,7 +72,7 @@ const html = `<!doctype html>
 </head>
 <body>
   ${renderDocHeader({
-    activeId: 'ideas',
+    activeId: 'foundry',
     pageTitle: 'Producer Lab',
     pageSubtitle: 'George / Hailey tools — raw materials and art-direction references, not designer editors',
   })}
@@ -80,10 +81,11 @@ const html = `<!doctype html>
       <h1>Producer Lab</h1>
       <p>Generate raw images, approve taste, and build rough mock references. The graphics team rebuilds finals in their own tools from the Brief.</p>
     </header>
-    <p class="banner">Designers: if you have an open Brief assignment, finish that first. You do not need this lab to produce assigned work.</p>
+    <p class="banner">Designers: if you have an open Brief assignment, finish that first. You do not need this lab to produce assigned work. For concepts use <a href="/ideas.html">New Ad Ideas</a>.</p>
     <div class="lanes">
+      <a class="lane" href="/ideas.html"><h3>New Ad Ideas</h3><p>15–20 concept batches and visual sparks for Meta VMA ads.</p><span class="tag">Primary</span></a>
       <a class="lane" href="/direct-response.html"><h3>Direct Response</h3><p>Current Meta strategy — bold medical admin ads, color tests, form, campaign plan.</p><span class="tag">Current</span></a>
-      <a class="lane" href="/ai-asset-foundry.html"><h3>AI Asset Foundry</h3><p>Generate four raw images · review · approve · save plates with no ad text.</p><span class="tag">Producer</span></a>
+      <a class="lane" href="/ai-asset-foundry.html"><h3>AI Asset Foundry</h3><p>Raw faces, people, icons, callouts. Click to enlarge. Download = keep + make 4 more like it.</p><span class="tag">Producer</span></a>
       <a class="lane" href="/competitors.html"><h3>Competitors</h3><p>Steal energy as principles — never copy trade dress.</p><span class="tag">Producer</span></a>
       <a class="lane" href="/creative-concept-lab.html"><h3>Static References</h3><p>Art-direction mockups for composition and copy length — not final production artwork.</p><span class="tag">Reference</span></a>
       <a class="lane" href="/motion-concept-lab.html"><h3>Motion References</h3><p>Remotion previews for motion intent — not CapCut/Premiere.</p><span class="tag">Reference</span></a>
@@ -96,5 +98,5 @@ const html = `<!doctype html>
 </body>
 </html>`;
 
-fs.writeFileSync(path.join(PUBLIC, 'ideas.html'), html);
-console.log('Producer Lab hub written');
+fs.writeFileSync(path.join(PUBLIC, 'producer-lab.html'), html);
+console.log('Producer Lab hub written → producer-lab.html');

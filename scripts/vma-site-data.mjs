@@ -20,9 +20,9 @@
 // ─── Meta ────────────────────────────────────────────────────────────────────
 
 export const VMA_META = {
-  banner: 'GRAPHICS JOB — RESIZE 4 APPROVED MASTERS',
+  banner: 'BOLD VIRTUAL MEDICAL ADMIN DIRECT-RESPONSE ADS',
   bannerSub:
-    'The square masters are already approved (made with ChatGPT + design polish). Current job: rebuild each into Meta sizes. Video comes later.',
+    'Primary headline: HIRE A VIRTUAL MEDICAL ADMIN. Request 15–20 concepts per batch. Match the four approved masters for clarity, contrast, and mobile readability — then rebuild winners in every required Meta size.',
   coreHeadline: 'HIRE A VIRTUAL MEDICAL ADMIN',
   coreHeadlineEs: 'CONTRATA A UN ASISTENTE MÉDICO VIRTUAL',
   reviewDate: '2026-07-14',
@@ -39,9 +39,25 @@ export const VMA_META = {
     'NO PINK — never use pink, magenta, hot pink, rose, or fuchsia in any creative.',
     'Ad-facing brand is MedVirtual — never MedVirtual.ai.',
     'MedVirtual supplies dedicated full-time virtual staff who join the practice team — not a call center, not AI, not a SaaS product, not a managed front desk.',
-    'Keep claims already printed on the approved masters ($10, HIPAA on Concept 04, Spanish on Concept 01). Do not invent new claims.',
+    'Keep claims already printed on the approved masters ($10, HIPAA on Concept 04, Spanish on Concept 01). Do not invent new claims for resize work.',
     'Rebuild each layout for the canvas — do not stretch or simply crop.',
     'No medical outcome claims, guaranteed savings, guaranteed staffing results, or invented credentials.',
+  ],
+  conceptBatchRequest:
+    'Please create 15–20 original MedVirtual Meta ad concepts. Use bold Virtual Medical Admin messaging, large mobile-readable headlines, a prominent professional person, three or four service benefits, and bright high-contrast colors. Use teal, deep navy, blue, cyan, lime, green, yellow, white, black, or limited red. Do not use pink. Do not copy competitor layouts. Provide initial square concepts first, then build approved concepts in all required aspect ratios.',
+  chatgptQaChecks: [
+    'Misspelled words',
+    'Incorrect price',
+    'Incorrect services',
+    'Fake logos',
+    'Fake compliance claims',
+    'Broken hands',
+    'Broken laptops',
+    'Incorrect headset',
+    'Incorrect Spanish',
+    'Incorrect flag',
+    'Accidental pink',
+    'Unreadable text',
   ],
   approvedCreativeHexes: [
     '#B8F000',
@@ -74,17 +90,92 @@ export const VMA_META = {
   ],
 };
 
-// ─── Navigation — 17 pages ───────────────────────────────────────────────────
+// ─── Navigation — 8 primary pages ────────────────────────────────────────────
 
 export const VMA_NAV = [
-  { href: '/vma-handoff.html', label: 'Graphics Job', id: 'vma-handoff', description: 'Current request — 16 Meta sizes.' },
-  { href: '/vma-static.html', label: 'Size Checklist', id: 'vma-static', description: 'What exists vs still needed.' },
-  { href: '/direct-response.html', label: 'Rules', id: 'vma-direction', description: 'No pink, brand, claim notes.' },
-  { href: '/vma-video.html', label: 'Video (Later)', id: 'vma-video', description: 'After static sizes are done.' },
-  { href: '/competitors.html', label: 'Competitors', id: 'competitors', description: 'Optional reference only.' },
-  { href: '/vma-chatgpt.html', label: 'ChatGPT Notes', id: 'vma-chatgpt', description: 'How masters were made — not a new design job.' },
-  { href: '/studio.html', label: 'Overview', id: 'studio', description: 'Short overview.' },
-  { href: '/vma-history.html', label: 'History', id: 'vma-history', description: 'Minimal direction history.' },
+  { href: '/studio.html', label: 'Dashboard', id: 'studio', description: 'Approved ads, checklist, formats, quick links.' },
+  { href: '/vma-approved.html', label: 'Approved Creative', id: 'vma-approved', description: 'Four approved masters — image-first.' },
+  { href: '/ideas.html', label: 'New Ad Ideas', id: 'ideas', description: '15–20 concept batch builder.' },
+  { href: '/vma-static.html', label: 'Aspect Ratios', id: 'vma-static', description: '1:1 · 4:5 · 9:16 · 1.91:1.' },
+  { href: '/competitors.html', label: 'Competitor Wall', id: 'competitors', description: 'Image-first references — do not copy.' },
+  { href: '/vma-video.html', label: 'Animated Video', id: 'vma-video', description: 'Motion from approved statics.' },
+  { href: '/vma-chatgpt.html', label: 'Prompts & Copy', id: 'vma-chatgpt', description: 'ChatGPT, video prompts, EN/ES copy.' },
+  { href: '/vma-handoff.html', label: 'Production Handoff', id: 'vma-handoff', description: 'Next wave, pace, and done line.' },
+];
+
+// ─── Idea categories + batch structure ───────────────────────────────────────
+
+export const IDEA_CATEGORIES = [
+  {
+    id: 'core',
+    title: 'Category 1 — Core Offer',
+    examples: [
+      'Hire a Virtual Medical Admin',
+      'Add a Virtual Medical Admin',
+      'Build Your Medical Admin Team',
+      'Add Dedicated Front-Office Support',
+    ],
+  },
+  {
+    id: 'pain',
+    title: 'Category 2 — Pain Point',
+    examples: [
+      'Too Many Patient Calls?',
+      'Stop Missing Patient Calls',
+      'Your Front Desk Needs Backup',
+      'Is Administrative Work Piling Up?',
+      'Too Much Insurance Work?',
+      'Your Staff Is Stretched Too Thin',
+    ],
+  },
+  {
+    id: 'role',
+    title: 'Category 3 — Role Specific',
+    examples: [
+      'Virtual Medical Receptionist',
+      'Virtual Medical Biller',
+      'Insurance Verification Support',
+      'Preauthorization Support',
+      'Appointment Scheduling Support',
+      'Patient Intake Support',
+      'Dental Virtual Assistant',
+      'Claims Follow-Up Support',
+    ],
+  },
+  {
+    id: 'audience',
+    title: 'Category 4 — Language and Audience',
+    examples: [
+      'Spanish-Speaking Medical Admin',
+      'Fully Spanish Creative',
+      'Dental Practices',
+      'Medical Billing Teams',
+      'Growing Practices',
+      'Practice Managers',
+      'Specialty Practices',
+    ],
+  },
+  {
+    id: 'offer',
+    title: 'Category 5 — Offer and CTA',
+    examples: [
+      'Starting at $10/Hour',
+      'Request an Interview',
+      'Find Your Virtual Admin',
+      'Book a Demo',
+      'Add Full-Time Support',
+      'Get More Front-Office Help',
+    ],
+  },
+];
+
+export const CONCEPT_BATCH_STRUCTURE = [
+  { count: 4, label: 'Core Offer Concepts' },
+  { count: 4, label: 'Pain-Point Concepts' },
+  { count: 4, label: 'Role-Specific Concepts' },
+  { count: 3, label: 'Spanish or Bilingual Concepts' },
+  { count: 3, label: 'Offer or CTA Concepts' },
+  { count: 2, label: 'Experimental Concepts' },
 ];
 
 // ─── Color families — 7 (NO PINK) ────────────────────────────────────────────
@@ -1075,12 +1166,14 @@ export const CAPCUT_TEMPLATES = [
 // ─── ChatGPT image workflow + prompts ────────────────────────────────────────
 
 export const CHATGPT_WORKFLOW = [
-  { step: 1, title: 'Pick a concept', instruction: 'Choose a VMA static concept and its color family. Copy its headline, benefits, offer, and talent direction from the Static Ad Concepts board.' },
-  { step: 2, title: 'Generate the plate', instruction: 'Paste the matching production prompt into ChatGPT (image mode). Ask for a full-image ad plate in the approved color family. Explicitly say NO PINK and no baked-in text.' },
-  { step: 3, title: 'Check the guardrails', instruction: 'Reject any output with pink/rose scrubs, call-center headsets, white coats, fake badges, fake UI, or illegible text. Regenerate if needed.' },
-  { step: 4, title: 'Overlay copy in design tools', instruction: 'Never rely on AI-rendered headline text. Add the approved headline, benefits, CTA, and MedVirtual logo yourself in Photoshop/Illustrator/Canva.' },
-  { step: 5, title: 'Add badges only if approved', instruction: 'Add price/HIPAA badges only when the linked claim is Approved for Launch. Otherwise omit.' },
-  { step: 6, title: 'Export all ratios', instruction: 'Produce 1:1, 4:5, and 9:16. Verify mobile readability and Meta safe zones, then submit to the Approval Board.' },
+  { step: 1, title: 'Upload the approved examples', instruction: 'Upload one or more approved 1:1 masters so ChatGPT can see the MedVirtual baseline.' },
+  { step: 2, title: 'Tell ChatGPT to analyze only', instruction: 'Ask for hierarchy, contrast, and role clarity notes — do not invent claims.' },
+  { step: 3, title: 'Request original concepts', instruction: 'Ask for 15–20 original concepts in the approved direct-response style. Explicitly say NO PINK and do not copy competitors.' },
+  { step: 4, title: 'Select one direction', instruction: 'Pick the strongest concepts for design or AI plate testing.' },
+  { step: 5, title: 'Confirm exact copy', instruction: 'Lock headline, benefits, offer, and CTA before final art.' },
+  { step: 6, title: 'Generate or brief the designer', instruction: 'AI-generated ads may be used for testing. Designers may also build from the brief directly.' },
+  { step: 7, title: 'Check every word', instruction: 'Verify spelling, price, services, Spanish, badges, logos, hands, and accidental pink.' },
+  { step: 8, title: 'Build required aspect ratios', instruction: 'Rebuild approved concepts for 1:1, 4:5, 9:16, and 1.91:1 — not a crop.' },
 ];
 
 const CHATGPT_BASE_NEGATIVE =

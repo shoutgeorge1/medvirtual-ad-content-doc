@@ -251,7 +251,7 @@ const html = `<!doctype html>
       <summary>Producer only — tomorrow review (not for graphics team)</summary>
       <p class="note">Scores stay in this browser (localStorage). Mark each area after you walk the site.</p>
       ${reviewRows}
-      <p class="note"><a href="/ai-asset-foundry.html">Foundry</a> · <a href="/creative-concept-lab.html">Static refs</a> · <a href="/motion-concept-lab.html">Motion refs</a> · Audit doc lives in repo root as <code>PROJECT-AUDIT-RAW-MATERIALS.md</code></p>
+      <p class="note"><a href="/ai-asset-foundry.html">AI Asset Foundry</a> (raw faces · people · icons · callouts — download makes 4 more) · <a href="/creative-concept-lab.html">Static refs</a> · <a href="/motion-concept-lab.html">Motion refs</a></p>
     </details>
   </main>
   <script>

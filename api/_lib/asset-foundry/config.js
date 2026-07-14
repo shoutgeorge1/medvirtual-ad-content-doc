@@ -30,11 +30,60 @@ export const QUALITY_MODES = {
 };
 
 export const LANES = [
+  'raw-parts',
   'real-va-workplace',
   'healthcare-operations',
   'saas-props',
   'vertical-specific',
   'real-talent-reference',
+];
+
+/** Rotating kit used when lane = raw-parts (four sequential images). */
+export const RAW_PART_ROTATION = [
+  {
+    concept: 'Face / headshot cutout',
+    sceneType: 'Isolated portrait cutout',
+    subjectPosition: 'center',
+    copySpace: 'wide-negative-space',
+    cameraTreatment: 'Eye-level editorial',
+    lighting: 'Soft studio daylight',
+    realism: 'Premium commercial',
+    additionalDirection:
+      'Tight head-and-shoulders of a credible female virtual medical administrator, clean solid or soft gradient background, sharp face detail, natural skin texture, usable as a cutout plate. No text.',
+  },
+  {
+    concept: 'Person / talent plate',
+    sceneType: 'Desk-based work scene',
+    subjectPosition: 'right',
+    copySpace: 'left',
+    cameraTreatment: 'Natural documentary',
+    lighting: 'Natural window light',
+    realism: 'Natural',
+    additionalDirection:
+      'Upper-body or mid shot of a professional virtual medical admin at a clean desk with laptop, open left side for copy compositing later. Scrubs in lime, cobalt, cyan, yellow, or navy — never pink.',
+  },
+  {
+    concept: 'Icon / symbol pack',
+    sceneType: 'Dimensional prop',
+    subjectPosition: 'no-person',
+    copySpace: 'wide-negative-space',
+    cameraTreatment: 'Isolated object photography',
+    lighting: 'Clean high-key',
+    realism: 'Dimensional 3D',
+    additionalDirection:
+      'Isolated premium icon set on a clean uniform background: phone, calendar, insurance shield, checkmark. No readable words. High contrast, easy to extract for designers.',
+  },
+  {
+    concept: 'Callout / badge / text chip',
+    sceneType: 'Graphic element plate',
+    subjectPosition: 'no-person',
+    copySpace: 'wide-negative-space',
+    cameraTreatment: 'Isolated object photography',
+    lighting: 'Clean high-key',
+    realism: 'Dimensional 3D',
+    additionalDirection:
+      'Raw graphic design element plate: price/offer badge shapes, benefit chips, or bold callout ribbons with simple placeholder graphic lettering designers can rebuild. Colors: lime, yellow, cobalt, cyan, navy, black, white. Never pink. Not a finished Meta ad.',
+  },
 ];
 
 export const VERTICALS = ['general-medical', 'dental', 'veterinary', 'behavioral-health', 'billing-rcm', 'none'];
