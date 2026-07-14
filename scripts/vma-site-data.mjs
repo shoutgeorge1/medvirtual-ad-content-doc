@@ -20,9 +20,9 @@
 // ─── Meta ────────────────────────────────────────────────────────────────────
 
 export const VMA_META = {
-  banner: 'CURRENT DIRECTION — BOLD VIRTUAL MEDICAL ADMIN ADS + ANIMATED VIDEO',
+  banner: 'GRAPHICS JOB — RESIZE 4 APPROVED MASTERS',
   bannerSub:
-    'Human-led, offer-first, mobile-readable static ads + short animated video. Hire a Virtual Medical Admin.',
+    'The square masters are already approved (made with ChatGPT + design polish). Current job: rebuild each into Meta sizes. Video comes later.',
   coreHeadline: 'HIRE A VIRTUAL MEDICAL ADMIN',
   coreHeadlineEs: 'CONTRATA A UN ASISTENTE MÉDICO VIRTUAL',
   reviewDate: '2026-07-14',
@@ -32,18 +32,16 @@ export const VMA_META = {
   alternateCta: 'Get Started',
   privacyPolicyUrl: 'https://www.medvirtual.ai/privacy-policy',
   completionUrl: 'https://www.medvirtual.ai',
-  status: 'Current Direction',
+  status: 'Approved Creative Baseline',
   hundredDollarRule:
     '$100 NO-LEAD RULE: If an individual ad spends $100 with zero qualified leads, pause it and iterate the creative (new color, headline, or offer). Do not keep paying to lose. Judge each ad on cost-per-lead, not impressions.',
   rules: [
-    'NO PINK — never use pink, magenta, hot pink, rose, or fuchsia in any background, scrub, badge, CTA, icon, Spanish variant, mockup, or content-doc accent. Approved creative colors only.',
+    'NO PINK — never use pink, magenta, hot pink, rose, or fuchsia in any creative.',
     'Ad-facing brand is MedVirtual — never MedVirtual.ai.',
     'MedVirtual supplies dedicated full-time virtual staff who join the practice team — not a call center, not AI, not a SaaS product, not a managed front desk.',
-    'Every price, HIPAA, savings, or availability claim requires confirmation before launch. Never treat competitor/reference claims as approved.',
-    '$100 no-lead rule governs every ad — pause and iterate any ad that spends $100 with zero qualified leads.',
+    'Keep claims already printed on the approved masters ($10, HIPAA on Concept 04, Spanish on Concept 01). Do not invent new claims.',
+    'Rebuild each layout for the canvas — do not stretch or simply crop.',
     'No medical outcome claims, guaranteed savings, guaranteed staffing results, or invented credentials.',
-    'Legal / compliance approval required before publishing Instant Forms.',
-    'Do not invent a free offer — label every offer concept pending leadership approval until confirmed.',
   ],
   approvedCreativeHexes: [
     '#B8F000',
@@ -79,23 +77,14 @@ export const VMA_META = {
 // ─── Navigation — 17 pages ───────────────────────────────────────────────────
 
 export const VMA_NAV = [
-  { href: '/studio.html', label: 'Dashboard', id: 'studio', description: 'Production control center.' },
-  { href: '/direct-response.html', label: 'Current Direction', id: 'vma-direction', description: 'Bold Virtual Medical Admin ads + animated video.' },
-  { href: '/competitors.html', label: 'Competitor Wall', id: 'competitors', description: 'External Meta benchmarks — research only.' },
-  { href: '/vma-static.html', label: 'Static Ad Concepts', id: 'vma-static', description: '24 Virtual Medical Admin static concepts.' },
-  { href: '/vma-video.html', label: 'Animated Video Concepts', id: 'vma-video', description: 'Short animated video system.' },
-  { href: '/vma-chatgpt.html', label: 'ChatGPT Image Prompts', id: 'vma-chatgpt', description: 'Generate complete ad plates with ChatGPT.' },
-  { href: '/vma-remotion.html', label: 'Remotion Playbook', id: 'vma-remotion', description: 'Code-driven animated compositions.' },
-  { href: '/vma-capcut.html', label: 'CapCut Templates', id: 'vma-capcut', description: 'No-code video templates.' },
-  { href: '/vma-copy-en.html', label: 'English Copy Matrix', id: 'vma-copy-en', description: 'Primary text, headlines, descriptions.' },
-  { href: '/vma-copy-es.html', label: 'Spanish Copy Matrix', id: 'vma-copy-es', description: 'Native-review Spanish copy.' },
-  { href: '/vma-form.html', label: 'Instant Form Playbook', id: 'vma-form', description: 'Low-friction lead forms.' },
-  { href: '/vma-campaign.html', label: 'Campaign Tests', id: 'vma-campaign', description: 'Ad sets + $100 rule.' },
-  { href: '/vma-claims.html', label: 'Claims Tracker', id: 'vma-claims', description: 'Price, HIPAA, offer approval status.' },
-  { href: '/vma-qa.html', label: 'Launch QA', id: 'vma-qa', description: 'Pre-flight launch checklist.' },
-  { href: '/vma-queue.html', label: 'Production Queue', id: 'vma-queue', description: '24 static + video build items.' },
-  { href: '/vma-approval.html', label: 'Approval Board', id: 'vma-approval', description: 'Sign-off tracking.' },
-  { href: '/vma-history.html', label: 'Project History', id: 'vma-history', description: 'Removed directions archive.' },
+  { href: '/vma-handoff.html', label: 'Graphics Job', id: 'vma-handoff', description: 'Current request — 16 Meta sizes.' },
+  { href: '/vma-static.html', label: 'Size Checklist', id: 'vma-static', description: 'What exists vs still needed.' },
+  { href: '/direct-response.html', label: 'Rules', id: 'vma-direction', description: 'No pink, brand, claim notes.' },
+  { href: '/vma-video.html', label: 'Video (Later)', id: 'vma-video', description: 'After static sizes are done.' },
+  { href: '/competitors.html', label: 'Competitors', id: 'competitors', description: 'Optional reference only.' },
+  { href: '/vma-chatgpt.html', label: 'ChatGPT Notes', id: 'vma-chatgpt', description: 'How masters were made — not a new design job.' },
+  { href: '/studio.html', label: 'Overview', id: 'studio', description: 'Short overview.' },
+  { href: '/vma-history.html', label: 'History', id: 'vma-history', description: 'Minimal direction history.' },
 ];
 
 // ─── Color families — 7 (NO PINK) ────────────────────────────────────────────

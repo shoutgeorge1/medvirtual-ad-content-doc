@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ideas · MedVirtual</title>
+  <title>Ideas / Site Map · MedVirtual</title>
   <style>
-  
   
 @font-face {
   font-family: 'Be Vietnam';
@@ -46,9 +45,9 @@
 }
 
   .doc-header {
-    background: #0a0a0a;
+    background: #0B1F3A;
     color: #ffffff;
-    border-bottom: 3px solid #B8F000;
+    border-bottom: 2px solid #077999;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -158,17 +157,17 @@
   .doc-nav a:hover,
   .doc-header details.doc-nav-dd > summary:hover {
     color: #ffffff !important;
-    background: rgba(184, 240, 0, 0.12) !important;
+    background: rgba(0, 178, 226, 0.18) !important;
   }
   .doc-nav a.active {
-    color: #0a0a0a;
-    background: #B8F000;
+    color: #ffffff;
+    background: #077999;
     font-weight: 700;
   }
   .doc-header details.doc-nav-dd.active > summary,
   .doc-header details.doc-nav-dd[open] > summary {
-    color: #0a0a0a !important;
-    background: #B8F000 !important;
+    color: #ffffff !important;
+    background: #077999 !important;
     font-weight: 700 !important;
   }
   .doc-nav-dd { position: relative; }
@@ -193,8 +192,8 @@
     border-radius: 7px;
   }
   .doc-nav-dd__menu a.active {
-    background: rgba(184, 240, 0, 0.25);
-    color: #B8F000;
+    background: rgba(0, 178, 226, 0.22);
+    color: #7dd3fc;
   }
   .doc-nav-sep {
     width: 1px;
@@ -209,17 +208,17 @@
     margin-top: 0.75rem;
   }
   .doc-subnav a {
-    color: #B8F000;
+    color: #7dd3fc;
     text-decoration: none;
     font-size: 0.75rem;
     padding: 0.25rem 0.6rem;
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 6px;
   }
-  .doc-subnav a:hover { border-color: #B8F000; color: #fff; }
+  .doc-subnav a:hover { border-color: #00B2E2; color: #fff; }
   .doc-subnav a.active {
-    background: rgba(184, 240, 0, 0.2);
-    border-color: #B8F000;
+    background: rgba(0, 178, 226, 0.22);
+    border-color: #00B2E2;
     color: #fff;
   }
   @media (max-width: 640px) {
@@ -232,154 +231,459 @@
   body {
     margin: 0;
     font-family: "Be Vietnam", Inter, Arial, sans-serif;
-    color: #e5e7eb;
-    background:
-      radial-gradient(ellipse 80% 50% at 15% -10%, rgba(184,240,0,0.10), transparent 55%),
-      radial-gradient(ellipse 70% 50% at 90% 0%, rgba(0,229,255,0.08), transparent 55%),
-      #06080d;
+    color: #0B1F3A;
+    background: #F7FAFC;
     line-height: 1.5;
   }
-  a { color: #B8F000; }
-  main { max-width: 1120px; margin: 0 auto; padding: 1.5rem 1.15rem 5rem; }
-  h1, h2, h3 { color: #f8fafc; }
+  a { color: #077999; }
+  a:hover { color: #00B2E2; }
+  main { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1.15rem 4.5rem; }
+  h1, h2, h3 { color: #0B1F3A; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(1.55rem, 3.5vw, 2.1rem); margin: 0 0 0.35rem; }
+  h2 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+  h3 { font-size: 1rem; margin: 0 0 0.35rem; }
   .banner {
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.35rem;
     padding: 0.85rem 1rem;
-    border-radius: 12px;
-    background: linear-gradient(120deg, rgba(184,240,0,0.14), rgba(0,229,255,0.10));
-    border: 1px solid rgba(184,240,0,0.45);
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #D6E4EC;
+    border-left: 4px solid #077999;
     font-size: 0.9rem;
+    color: #0B1F3A;
   }
-  .banner strong { color: #B8F000; }
-  .banner .sub { display:block; color:#cbd5e1; margin-top:0.25rem; font-weight:400; }
-  .rule-100 {
-    margin: 0 0 1.25rem;
-    padding: 0.85rem 1rem;
-    border-radius: 12px;
-    background: rgba(225,6,0,0.10);
-    border: 1px solid rgba(225,6,0,0.45);
-    color: #fecaca;
-    font-size: 0.88rem;
-  }
-  .rule-100 strong { color: #ff6b6b; }
-  .hero h1 { margin: 0 0 0.4rem; font-size: clamp(1.6rem, 4vw, 2.3rem); letter-spacing: -0.03em; }
-  .hero p { margin: 0; max-width: 52rem; color: #94a3b8; }
-  .lede { color: #94a3b8; max-width: 52rem; }
-  section { margin-top: 1.75rem; }
-  section > h2 { font-size: 1.2rem; margin: 0 0 0.35rem; }
-  .grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-  .grid-2 { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
-  .card {
-    background: #0d111a;
-    border: 1px solid #1f2937;
-    border-radius: 14px;
-    padding: 1rem 1.05rem;
-  }
-  .card h3 { margin: 0 0 0.3rem; font-size: 1.02rem; }
-  .card p { margin: 0.25rem 0; font-size: 0.88rem; color: #b4becb; }
-  .eyebrow {
-    display: inline-block; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.08em;
-    text-transform: uppercase; color: #B8F000; margin-bottom: 0.25rem;
+  .banner strong { color: #077999; }
+  .banner .sub { display: block; color: #4A6275; margin-top: 0.25rem; font-weight: 400; }
+  .hero { margin-bottom: 1.5rem; }
+  .hero p, .lede { margin: 0; max-width: 46rem; color: #4A6275; }
+  section { margin-top: 2rem; }
+  section > h2 { padding-bottom: 0.35rem; border-bottom: 1px solid #E2EBF1; }
+  .note {
+    margin: 0.75rem 0 1rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: 8px;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    color: #0D546B;
+    font-size: 0.86rem;
   }
   .pill {
-    display: inline-block; padding: 0.12rem 0.55rem; border-radius: 999px;
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em; border: 1px solid transparent;
+    display: inline-block;
+    padding: 0.14rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    border: 1px solid transparent;
+    vertical-align: middle;
   }
-  .badge-status { background: rgba(148,163,184,0.15); color:#cbd5e1; border-color: rgba(148,163,184,0.3); }
-  .s-confirmed, .s-approved-for-launch { background: rgba(34,197,94,0.16); color:#86efac; border-color: rgba(34,197,94,0.4); }
-  .s-approved-for-test { background: rgba(0,229,255,0.14); color:#67e8f9; border-color: rgba(0,229,255,0.4); }
-  .s-pending-leadership, .s-pending-compliance, .s-on-hold { background: rgba(255,230,0,0.14); color:#fde047; border-color: rgba(255,230,0,0.4); }
-  .s-rejected, .s-do-not-use { background: rgba(225,6,0,0.16); color:#fca5a5; border-color: rgba(225,6,0,0.45); }
-  .s-queued, .s-ready-for-design, .s-ready-for-animation { background: rgba(184,240,0,0.14); color:#cbe96a; border-color: rgba(184,240,0,0.4); }
-  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-  th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1f2937; vertical-align: top; }
-  th { color: #94a3b8; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
-  td.ref { font-weight: 700; color: #f8fafc; white-space: nowrap; }
-  ul.clean { margin: 0.4rem 0 0; padding-left: 1.1rem; color: #b4becb; font-size: 0.86rem; }
-  ul.clean li { margin: 0.15rem 0; }
-  .copy-btn {
-    font: inherit; font-size: 0.72rem; font-weight: 700; cursor: pointer;
-    background: #B8F000; color: #06080d; border: none; border-radius: 7px;
-    padding: 0.28rem 0.6rem; margin-top: 0.4rem;
+  .s-approved, .s-approved-creative-baseline {
+    background: #E6F7F4; color: #0F766E; border-color: #99D5CD;
   }
-  .copy-btn:hover { background: #cbff33; }
-  .copy-btn.copied { background: #22C55E; color:#04120a; }
+  .s-awaiting-design {
+    background: #FFF8E8; color: #A16207; border-color: #F0D78C;
+  }
+  .s-image-needed, .s-pending {
+    background: #EEF2F6; color: #475569; border-color: #CBD5E1;
+  }
+  .s-rejected, .s-do-not-use {
+    background: #FEECEC; color: #B91C1C; border-color: #FECACA;
+  }
+  .masters-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  .master-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .master-card__media {
+    background: #E8EEF2;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .master-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .master-card--lg .master-card__media { min-height: 220px; }
+  .master-card--md .master-card__media { min-height: 160px; }
+  .master-card__body { padding: 0.85rem 0.95rem 1rem; flex: 1; display: flex; flex-direction: column; gap: 0.35rem; }
+  .master-card__meta { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #077999; }
+  .master-card h3 { margin: 0; font-size: 1.02rem; }
+  .master-card p { margin: 0; font-size: 0.82rem; color: #4A6275; }
+  .master-card .dl {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .format-row {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    margin: 0.75rem 0 1.5rem;
+  }
+  .format-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.8rem;
+  }
+  .format-card__preview {
+    background: #EEF2F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+    padding: 0.4rem;
+  }
+  .format-card__preview img {
+    max-width: 100%;
+    max-height: 160px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .format-card__preview[data-ratio="1x1"] { aspect-ratio: 1 / 1; }
+  .format-card__preview[data-ratio="4x5"] { aspect-ratio: 4 / 5; }
+  .format-card__preview[data-ratio="9x16"] { aspect-ratio: 9 / 16; max-height: 200px; }
+  .format-card__preview[data-ratio="1\.91x1"] { aspect-ratio: 1.91 / 1; }
+  .format-placeholder {
+    text-align: center;
+    padding: 0.6rem;
+    color: #64748B;
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+  .format-placeholder strong { display: block; color: #A16207; margin-bottom: 0.25rem; }
+  .format-card__body { padding: 0.55rem 0.65rem 0.7rem; }
+  .format-card__body b { display: block; color: #0B1F3A; }
+  .quick-links {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+  .quick-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 3.4rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: #077999;
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+  .quick-links a:hover { background: #0D546B; }
+  .queue-grid, .claim-grid, .comp-grid, .copy-grid, .prompt-grid {
+    display: grid;
+    gap: 0.85rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  .soft-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+  }
+  .soft-card p { margin: 0.25rem 0; font-size: 0.86rem; color: #4A6275; }
+  .queue-card .value { font-size: 1.6rem; font-weight: 800; color: #077999; line-height: 1.1; }
+  .checklist { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  .checklist li {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #E8EEF2;
+    font-size: 0.9rem;
+  }
+  .checklist li:last-child { border-bottom: 0; }
+  .checklist input { margin-top: 0.2rem; }
+  ul.clean { margin: 0.4rem 0 0; padding-left: 1.15rem; color: #4A6275; font-size: 0.88rem; }
+  ul.clean li { margin: 0.2rem 0; }
+  .chip {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.12rem 0.45rem;
+    border-radius: 6px;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    color: #0D546B;
+    margin: 0.1rem 0.15rem 0 0;
+  }
+  .comp-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .comp-card.incomplete { opacity: 0.72; border-style: dashed; }
+  .comp-card__media {
+    background: #EEF2F6;
+    aspect-ratio: 4 / 5;
+    max-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .comp-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.84rem; }
+  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
+  .comp-card__body .why { font-weight: 700; color: #0B1F3A; margin: 0.2rem 0; }
+  .comp-card__body .mini { margin: 0.35rem 0 0; color: #4A6275; font-size: 0.8rem; }
+  .comp-card__body .mini b { color: #0B1F3A; }
+  .pink-ref {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #0D546B;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 6px;
+    padding: 0.2rem 0.45rem;
+  }
+  .thumb-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.75rem 0; }
+  .thumb-row a, .thumb-row span {
+    display: block;
+    width: 88px;
+    height: 88px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #D6E4EC;
+    background: #EEF2F6;
+  }
+  .thumb-row img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .masters-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0.75rem 0 0;
+  }
+  .masters-strip a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    padding: 0.55rem;
+  }
+  .masters-strip img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #EEF2F6;
+    display: block;
+  }
+  .masters-strip span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0B1F3A;
+    text-align: center;
+  }
+  .job-box {
+    background: #fff;
+    border: 2px solid #077999;
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+  }
+  .job-box h2 { margin-top: 0; }
+  .job-steps { counter-reset: step; list-style: none; margin: 0.75rem 0 0; padding: 0; }
+  .job-steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0.55rem 0.55rem 0.55rem 2.4rem;
+    border-bottom: 1px solid #E8EEF2;
+    font-size: 0.92rem;
+  }
+  .job-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    background: #077999;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .two-cols { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .do-list li::marker { color: #077999; }
+  .dont-list li::marker { color: #B42318; }
+  @media (max-width: 700px) {
+    .masters-strip { grid-template-columns: 1fr 1fr; }
+  }
+  .matrix { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-top: 0.5rem; }
+  .matrix th, .matrix td { border: 1px solid #D6E4EC; padding: 0.45rem 0.5rem; text-align: center; background: #fff; }
+  .matrix th { background: #F0F5F8; color: #4A6275; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .matrix td.rowhead { text-align: left; font-weight: 700; color: #0B1F3A; }
+  .storyboard {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    margin: 0.75rem 0;
+  }
+  .storyboard .beat {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-top: 3px solid #077999;
+    border-radius: 8px;
+    padding: 0.55rem 0.65rem;
+    font-size: 0.8rem;
+  }
+  .storyboard .beat b { display: block; color: #0B1F3A; font-size: 0.78rem; }
+  .storyboard .beat span { color: #4A6275; font-size: 0.72rem; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.85rem 0 0.5rem; }
+  .tabs label, .tabs button {
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #0B1F3A;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+  }
+  .tabs label:hover, .tabs button:hover, .tabs button.active, .tabs input:checked + label {
+    background: #077999;
+    color: #fff;
+    border-color: #077999;
+  }
+  .tab-panels .tab-panel { display: none; }
+  .tab-panels .tab-panel.active { display: block; }
+  details.block {
+    margin: 0.65rem 0;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+  }
+  details.block > summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: #0B1F3A;
+    list-style: none;
+  }
+  details.block > summary::-webkit-details-marker { display: none; }
+  details.block[open] > summary { margin-bottom: 0.55rem; }
   .copytext {
-    display: block; background: #05070b; border: 1px solid #1f2937; border-radius: 8px;
-    padding: 0.6rem 0.7rem; font-size: 0.82rem; color: #d1d9e2; white-space: pre-wrap; margin-top: 0.4rem;
+    display: block;
+    background: #F0F5F8;
+    border: 1px solid #D6E4EC;
+    border-radius: 8px;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.82rem;
+    color: #0B1F3A;
+    white-space: pre-wrap;
+    margin-top: 0.35rem;
   }
-  .warn {
-    margin-top: 0.5rem; padding: 0.5rem 0.65rem; border-radius: 8px; font-size: 0.78rem;
-    background: rgba(255,230,0,0.10); border: 1px solid rgba(255,230,0,0.4); color: #fde047;
+  .copy-btn {
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: #077999;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 0.28rem 0.6rem;
+    margin-top: 0.4rem;
   }
-  .warn.danger { background: rgba(225,6,0,0.12); border-color: rgba(225,6,0,0.45); color:#fca5a5; }
-  .filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 0.25rem; }
-  .filters button {
-    font: inherit; font-size: 0.76rem; font-weight: 600; cursor: pointer; color:#cbd5e1;
-    background: #0d111a; border: 1px solid #1f2937; border-radius: 999px; padding: 0.3rem 0.75rem;
+  .copy-btn:hover { background: #0D546B; }
+  .copy-btn.copied { background: #0F766E; }
+  .swatch-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+  .swatch-chip {
+    font-size: 0.78rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #D6E4EC;
   }
-  .filters button.active { background: #B8F000; color:#06080d; border-color:#B8F000; }
-  /* Mock ad comp */
-  .adcomp {
-    position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 5;
-    display: flex; flex-direction: column; justify-content: space-between; padding: 0.9rem;
-    border: 1px solid rgba(255,255,255,0.14);
+  .delivery-row {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 0.75rem;
   }
-  .adcomp .ac-head { font-weight: 800; font-size: 1.05rem; line-height: 1.05; letter-spacing:-0.02em; text-transform: uppercase; max-width: 78%; }
-  .adcomp .ac-bullets { list-style: none; margin: 0.5rem 0 0; padding: 0; font-size: 0.72rem; font-weight:600; max-width: 78%; }
-  .adcomp .ac-bullets li { display:flex; gap:0.35rem; align-items:center; margin:0.18rem 0; }
-  .adcomp .ac-bullets li::before { content:'✓'; font-weight:900; }
-  .adcomp .ac-person {
-    position: absolute; right: -6%; bottom: 0; width: 42%; height: 72%; border-radius: 50% 50% 0 0;
-    opacity: 0.9;
+  .delivery-row select {
+    font: inherit;
+    font-size: 0.82rem;
+    margin-top: 0.35rem;
+    width: 100%;
+    padding: 0.3rem 0.4rem;
+    border: 1px solid #D6E4EC;
+    border-radius: 6px;
+    background: #fff;
+    color: #0B1F3A;
   }
-  .adcomp .ac-cta { align-self: flex-start; padding: 0.35rem 0.8rem; border-radius: 999px; font-weight:800; font-size:0.75rem; z-index:2; }
-  .adcomp .ac-badge {
-    position:absolute; top:0.7rem; right:0.7rem; z-index:3; font-size:0.6rem; font-weight:800;
-    padding:0.2rem 0.45rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.03em;
+  .foot {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #D6E4EC;
+    color: #64748B;
+    font-size: 0.76rem;
   }
-  .adcomp .ac-note { font-size:0.6rem; opacity:0.8; z-index:2; }
-  .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px,1fr)); gap: 0.4rem; margin-top: 0.6rem; }
-  .timeline .beat { background:#05070b; border:1px solid #1f2937; border-top:3px solid #00E5FF; border-radius:8px; padding:0.45rem 0.5rem; }
-  .timeline .beat b { display:block; font-size:0.72rem; color:#67e8f9; }
-  .timeline .beat span { font-size:0.68rem; color:#94a3b8; }
-  .chip { display:inline-block; font-size:0.66rem; font-weight:700; padding:0.14rem 0.5rem; border-radius:6px; background:#111827; border:1px solid #263041; color:#cbd5e1; margin:0.12rem 0.12rem 0 0; }
-  .swatch { display:inline-block; width:0.85rem; height:0.85rem; border-radius:3px; vertical-align:-2px; margin-right:0.3rem; border:1px solid rgba(255,255,255,0.25); }
-  .metricgrid { display:grid; gap:0.7rem; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
-  .metric { background:#0d111a; border:1px solid #1f2937; border-radius:12px; padding:0.75rem 0.85rem; }
-  .metric label { display:block; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8; }
-  .metric input { width:100%; margin-top:0.3rem; background:#05070b; border:1px solid #263041; border-radius:7px; color:#f8fafc; font:inherit; padding:0.3rem 0.4rem; }
-  .checkline { display:flex; gap:0.5rem; align-items:flex-start; padding:0.35rem 0; border-bottom:1px solid #131a26; font-size:0.86rem; color:#cbd5e1; }
-  .checkline input { margin-top:0.2rem; }
-  .foot { margin-top:3rem; padding-top:1rem; border-top:1px solid #1f2937; color:#64748b; font-size:0.76rem; }
+  .ideas-list { list-style: none; margin: 0; padding: 0; }
+  .ideas-list li { margin: 0.45rem 0; }
+  .ideas-list a { font-weight: 700; text-decoration: none; }
+  .ideas-list span { display: block; color: #4A6275; font-size: 0.82rem; }
+  @media (max-width: 640px) {
+    main { padding: 1.1rem 0.85rem 3.5rem; }
+    .masters-grid { grid-template-columns: 1fr 1fr; }
+    .master-card--lg .master-card__media { min-height: 140px; }
+  }
 </style>
 </head>
 <body>
   <header class="doc-header">
   <div class="doc-header__row">
-    <a class="doc-header__brand" href="/studio.html">
+    <a class="doc-header__brand" href="/vma-handoff.html">
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Ad Production</h1>
-        <p class="doc-header__tagline">Bold Virtual Medical Admin ads · static + animated video</p>
+        <p class="doc-header__tagline">4 approved masters → Meta sizes now · video later</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="active">Dashboard</a><a href="/direct-response.html" class="">Current Direction</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-static.html" class="">Static Ads</a><details class="doc-nav-dd ">
-      <summary>Animated Video</summary>
-      <div class="doc-nav-dd__menu"><a href="/vma-video.html" class="">Video Concepts</a><a href="/vma-remotion.html" class="">Remotion Playbook</a><a href="/vma-capcut.html" class="">CapCut Templates</a></div>
-    </details><a href="/vma-chatgpt.html" class="">ChatGPT Prompts</a><details class="doc-nav-dd ">
-      <summary>Copy</summary>
-      <div class="doc-nav-dd__menu"><a href="/vma-copy-en.html" class="">English Matrix</a><a href="/vma-copy-es.html" class="">Spanish Matrix</a></div>
-    </details><details class="doc-nav-dd ">
-      <summary>Forms &amp; Launch</summary>
-      <div class="doc-nav-dd__menu"><a href="/vma-form.html" class="">Instant Form</a><a href="/vma-campaign.html" class="">Campaign Tests</a><a href="/vma-claims.html" class="">Claims Tracker</a><a href="/vma-qa.html" class="">Launch QA</a><a href="/vma-queue.html" class="">Production Queue</a><a href="/vma-approval.html" class="">Approval Board</a></div>
-    </details><a href="/vma-history.html" class="">History</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/vma-handoff.html" class="">Graphics Job</a><a href="/vma-static.html" class="">Size Checklist</a><a href="/direct-response.html" class="">Rules</a><a href="/vma-video.html" class="">Video (Later)</a><a href="/competitors.html" class="">Competitors</a><a href="/vma-chatgpt.html" class="">ChatGPT Notes</a><a href="/studio.html" class="">Overview</a><a href="/vma-history.html" class="">History</a></nav>
     </div>
   </div>
   <div class="doc-header__page">
-          <h2 class="doc-header__page-title">Ideas</h2>
-          <p class="doc-header__page-sub">Jump into any VMA section.</p>
+          <h2 class="doc-header__page-title">Site Map</h2>
+          <p class="doc-header__page-sub">Quick links to every board.</p>
           
         </div>
 </header>
@@ -400,13 +704,14 @@
 })();
 </script>
   <main>
-    <div class="banner"><strong>CURRENT DIRECTION — BOLD VIRTUAL MEDICAL ADMIN ADS + ANIMATED VIDEO</strong><span class="sub">Human-led, offer-first, mobile-readable static ads + short animated video. Hire a Virtual Medical Admin.</span></div>
+    <div class="banner"><strong>GRAPHICS JOB — RESIZE 4 APPROVED MASTERS</strong><span class="sub">The square masters are already approved (made with ChatGPT + design polish). Current job: rebuild each into Meta sizes. Video comes later.</span></div>
     
-    
-    <div class="hero"><h1>Ideas — VMA Sections</h1><p>Quick links into the current Virtual Medical Admin production system.</p></div>
-    <section><div class="grid"><a class="card" href="/direct-response.html"><span class="eyebrow">Section</span><h3>Current Direction</h3><p>Bold Virtual Medical Admin ads + animated video.</p></a><a class="card" href="/competitors.html"><span class="eyebrow">Section</span><h3>Competitor Wall</h3><p>External Meta benchmarks — research only.</p></a><a class="card" href="/vma-static.html"><span class="eyebrow">Section</span><h3>Static Ad Concepts</h3><p>24 Virtual Medical Admin static concepts.</p></a><a class="card" href="/vma-video.html"><span class="eyebrow">Section</span><h3>Animated Video Concepts</h3><p>Short animated video system.</p></a><a class="card" href="/vma-chatgpt.html"><span class="eyebrow">Section</span><h3>ChatGPT Image Prompts</h3><p>Generate complete ad plates with ChatGPT.</p></a><a class="card" href="/vma-remotion.html"><span class="eyebrow">Section</span><h3>Remotion Playbook</h3><p>Code-driven animated compositions.</p></a><a class="card" href="/vma-capcut.html"><span class="eyebrow">Section</span><h3>CapCut Templates</h3><p>No-code video templates.</p></a><a class="card" href="/vma-copy-en.html"><span class="eyebrow">Section</span><h3>English Copy Matrix</h3><p>Primary text, headlines, descriptions.</p></a><a class="card" href="/vma-copy-es.html"><span class="eyebrow">Section</span><h3>Spanish Copy Matrix</h3><p>Native-review Spanish copy.</p></a><a class="card" href="/vma-form.html"><span class="eyebrow">Section</span><h3>Instant Form Playbook</h3><p>Low-friction lead forms.</p></a><a class="card" href="/vma-campaign.html"><span class="eyebrow">Section</span><h3>Campaign Tests</h3><p>Ad sets + $100 rule.</p></a><a class="card" href="/vma-claims.html"><span class="eyebrow">Section</span><h3>Claims Tracker</h3><p>Price, HIPAA, offer approval status.</p></a><a class="card" href="/vma-qa.html"><span class="eyebrow">Section</span><h3>Launch QA</h3><p>Pre-flight launch checklist.</p></a><a class="card" href="/vma-queue.html"><span class="eyebrow">Section</span><h3>Production Queue</h3><p>24 static + video build items.</p></a><a class="card" href="/vma-approval.html"><span class="eyebrow">Section</span><h3>Approval Board</h3><p>Sign-off tracking.</p></a><a class="card" href="/vma-history.html"><span class="eyebrow">Section</span><h3>Project History</h3><p>Removed directions archive.</p></a></div></section>
-  
-    <p class="foot">MedVirtual Ad Production · Virtual Medical Admin · Reviewed July 14, 2026 · Approved creative colors only (no pink) · Ad-facing brand: MedVirtual.</p>
+    <div class="hero">
+      <h1>Site Map</h1>
+      <p>Primary boards for the Virtual Medical Admin creative handoff.</p>
+    </div>
+    <ul class="ideas-list"><li><a href="/vma-handoff.html">Graphics Job</a><span>Current request — 16 Meta sizes.</span></li><li><a href="/vma-static.html">Size Checklist</a><span>What exists vs still needed.</span></li><li><a href="/direct-response.html">Rules</a><span>No pink, brand, claim notes.</span></li><li><a href="/vma-video.html">Video (Later)</a><span>After static sizes are done.</span></li><li><a href="/competitors.html">Competitors</a><span>Optional reference only.</span></li><li><a href="/vma-chatgpt.html">ChatGPT Notes</a><span>How masters were made — not a new design job.</span></li><li><a href="/studio.html">Overview</a><span>Short overview.</span></li><li><a href="/vma-history.html">History</a><span>Minimal direction history.</span></li></ul>
+    <p class="foot">MedVirtual Ad Production · Virtual Medical Admin · Reviewed July 14, 2026 · No pink · Ad-facing brand: MedVirtual.</p>
   </main>
   
 <script>
@@ -422,30 +727,40 @@
       setTimeout(function(){ btn.textContent = old; btn.classList.remove('copied'); }, 1400);
     });
   });
-  // Generic data-filter groups
-  document.querySelectorAll('[data-filter-group]').forEach(function(group){
-    var key = group.getAttribute('data-filter-group');
-    group.querySelectorAll('button[data-filter]').forEach(function(b){
-      b.addEventListener('click', function(){
-        group.querySelectorAll('button[data-filter]').forEach(function(x){ x.classList.remove('active'); });
-        b.classList.add('active');
-        var val = b.getAttribute('data-filter');
-        document.querySelectorAll('[data-'+key+']').forEach(function(item){
-          var show = (val === 'all') || item.getAttribute('data-'+key) === val;
-          item.style.display = show ? '' : 'none';
-        });
-      });
+  document.querySelectorAll('[data-tabs]').forEach(function(root){
+    var buttons = root.querySelectorAll('[data-tab]');
+    var panels = root.querySelectorAll('.tab-panel');
+    function activate(id){
+      buttons.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+      panels.forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-panel') === id); });
+    }
+    buttons.forEach(function(b){
+      b.addEventListener('click', function(){ activate(b.getAttribute('data-tab')); });
+    });
+    var hash = (location.hash || '').replace(/^#/, '');
+    if(hash && root.querySelector('[data-panel="'+hash+'"]')) activate(hash);
+    else {
+      var first = buttons[0];
+      if(first) activate(first.getAttribute('data-tab'));
+    }
+    window.addEventListener('hashchange', function(){
+      var h = (location.hash || '').replace(/^#/, '');
+      if(h && root.querySelector('[data-panel="'+h+'"]')) activate(h);
     });
   });
-  // Persist checkboxes + text inputs with data-persist
   document.querySelectorAll('[data-persist]').forEach(function(el){
     var k = 'vma-'+el.getAttribute('data-persist');
     try {
       var saved = localStorage.getItem(k);
-      if(saved !== null){ if(el.type==='checkbox'){ el.checked = saved==='1'; } else { el.value = saved; } }
+      if(saved !== null){
+        if(el.type === 'checkbox') el.checked = saved === '1';
+        else el.value = saved;
+      }
     } catch(e){}
-    el.addEventListener(el.type==='checkbox'?'change':'input', function(){
-      try { localStorage.setItem(k, el.type==='checkbox' ? (el.checked?'1':'0') : el.value); } catch(e){}
+    el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', function(){
+      try {
+        localStorage.setItem(k, el.type === 'checkbox' ? (el.checked ? '1' : '0') : el.value);
+      } catch(e){}
     });
   });
 })();

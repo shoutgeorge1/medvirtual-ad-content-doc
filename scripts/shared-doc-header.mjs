@@ -7,8 +7,8 @@ import { brandCssVariables, BRAND } from './medvirtual-brand-data.mjs';
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Ad Production',
-  tagline: 'Bold Virtual Medical Admin ads · static + animated video',
-  homeHref: '/studio.html',
+  tagline: '4 approved masters → Meta sizes now · video later',
+  homeHref: '/vma-handoff.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };
 
@@ -16,79 +16,56 @@ export const DOC_BRAND = {
 export const LAUNCH_SUBNAV = [];
 
 /**
- * Primary nav — VMA production only (no Real People / SaaS / Role-Offer).
+ * Primary nav — creative handoff (8 items). Secondary tools live as page tabs / redirects.
  */
 export const PRIMARY_NAV = [
   {
-    href: '/studio.html',
-    label: 'Dashboard',
-    id: 'studio',
-    description: 'Production control center.',
-  },
-  {
-    href: '/direct-response.html',
-    label: 'Current Direction',
-    id: 'vma-direction',
-    description: 'Hire a Virtual Medical Admin — static + video.',
-  },
-  {
-    href: '/competitors.html',
-    label: 'Competitor Wall',
-    id: 'competitors',
-    description: 'External Meta benchmarks — research only.',
+    href: '/vma-handoff.html',
+    label: 'Graphics Job',
+    id: 'vma-handoff',
+    description: 'Current request — 16 Meta sizes.',
   },
   {
     href: '/vma-static.html',
-    label: 'Static Ads',
+    label: 'Size Checklist',
     id: 'vma-static',
-    description: '24 Virtual Medical Admin static concepts.',
+    description: 'What exists vs still needed.',
+  },
+  {
+    href: '/direct-response.html',
+    label: 'Rules',
+    id: 'vma-direction',
+    description: 'No pink, brand, claim notes.',
   },
   {
     href: '/vma-video.html',
-    label: 'Animated Video',
+    label: 'Video (Later)',
     id: 'vma-video',
-    description: 'Remotion + CapCut video system.',
-    children: [
-      { href: '/vma-video.html', label: 'Video Concepts', id: 'vma-video' },
-      { href: '/vma-remotion.html', label: 'Remotion Playbook', id: 'vma-remotion' },
-      { href: '/vma-capcut.html', label: 'CapCut Templates', id: 'vma-capcut' },
-    ],
+    description: 'After static sizes are done.',
+  },
+  {
+    href: '/competitors.html',
+    label: 'Competitors',
+    id: 'competitors',
+    description: 'Optional reference only.',
   },
   {
     href: '/vma-chatgpt.html',
-    label: 'ChatGPT Prompts',
+    label: 'ChatGPT Notes',
     id: 'vma-chatgpt',
-    description: 'Generate complete Meta ads with ChatGPT.',
+    description: 'How the masters were made — not a new design job.',
   },
   {
-    href: '/vma-copy-en.html',
-    label: 'Copy',
-    id: 'vma-copy-en',
-    description: 'English and Spanish Meta copy.',
-    children: [
-      { href: '/vma-copy-en.html', label: 'English Matrix', id: 'vma-copy-en' },
-      { href: '/vma-copy-es.html', label: 'Spanish Matrix', id: 'vma-copy-es' },
-    ],
-  },
-  {
-    href: '/vma-form.html',
-    label: 'Forms & Launch',
-    id: 'vma-form',
-    description: 'Instant forms, campaigns, claims, QA.',
-    children: [
-      { href: '/vma-form.html', label: 'Instant Form', id: 'vma-form' },
-      { href: '/vma-campaign.html', label: 'Campaign Tests', id: 'vma-campaign' },
-      { href: '/vma-claims.html', label: 'Claims Tracker', id: 'vma-claims' },
-      { href: '/vma-qa.html', label: 'Launch QA', id: 'vma-qa' },
-      { href: '/vma-queue.html', label: 'Production Queue', id: 'vma-queue' },
-      { href: '/vma-approval.html', label: 'Approval Board', id: 'vma-approval' },
-    ],
+    href: '/studio.html',
+    label: 'Overview',
+    id: 'studio',
+    description: 'Short overview.',
   },
   {
     href: '/vma-history.html',
     label: 'History',
     id: 'vma-history',
-    description: 'One-note archive of removed directions.',
+    description: 'Minimal direction history.',
   },
 ];
 
@@ -104,9 +81,9 @@ export const SECONDARY_PAGES = [
 export const HEADER_CSS = `
   ${brandCssVariables()}
   .doc-header {
-    background: #0a0a0a;
+    background: #0B1F3A;
     color: #ffffff;
-    border-bottom: 3px solid #B8F000;
+    border-bottom: 2px solid #077999;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -216,17 +193,17 @@ export const HEADER_CSS = `
   .doc-nav a:hover,
   .doc-header details.doc-nav-dd > summary:hover {
     color: #ffffff !important;
-    background: rgba(184, 240, 0, 0.12) !important;
+    background: rgba(0, 178, 226, 0.18) !important;
   }
   .doc-nav a.active {
-    color: #0a0a0a;
-    background: #B8F000;
+    color: #ffffff;
+    background: #077999;
     font-weight: 700;
   }
   .doc-header details.doc-nav-dd.active > summary,
   .doc-header details.doc-nav-dd[open] > summary {
-    color: #0a0a0a !important;
-    background: #B8F000 !important;
+    color: #ffffff !important;
+    background: #077999 !important;
     font-weight: 700 !important;
   }
   .doc-nav-dd { position: relative; }
@@ -251,8 +228,8 @@ export const HEADER_CSS = `
     border-radius: 7px;
   }
   .doc-nav-dd__menu a.active {
-    background: rgba(184, 240, 0, 0.25);
-    color: #B8F000;
+    background: rgba(0, 178, 226, 0.22);
+    color: #7dd3fc;
   }
   .doc-nav-sep {
     width: 1px;
@@ -267,17 +244,17 @@ export const HEADER_CSS = `
     margin-top: 0.75rem;
   }
   .doc-subnav a {
-    color: #B8F000;
+    color: #7dd3fc;
     text-decoration: none;
     font-size: 0.75rem;
     padding: 0.25rem 0.6rem;
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 6px;
   }
-  .doc-subnav a:hover { border-color: #B8F000; color: #fff; }
+  .doc-subnav a:hover { border-color: #00B2E2; color: #fff; }
   .doc-subnav a.active {
-    background: rgba(184, 240, 0, 0.2);
-    border-color: #B8F000;
+    background: rgba(0, 178, 226, 0.22);
+    border-color: #00B2E2;
     color: #fff;
   }
   @media (max-width: 640px) {

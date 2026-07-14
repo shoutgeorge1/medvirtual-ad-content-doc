@@ -30,7 +30,7 @@
     "generate:foundry": "node scripts/generate-foundry-page.mjs",
     "generate:video": "node scripts/generate-video-production.mjs",
     "generate:video-data": "node scripts/generate-video-production-data.mjs",
-    "generate:docs": "node scripts/generate-vma-site.mjs && node scripts/generate-raw-assets.mjs && node scripts/generate-competitor-wall.mjs && node scripts/generate-asset-hub.mjs && node scripts/generate-brand-guide.mjs && node scripts/generate-graphic-request-brief.mjs && node scripts/generate-foundry-page.mjs",
+    "generate:docs": "node scripts/generate-raw-assets.mjs && node scripts/generate-competitor-wall.mjs && node scripts/generate-vma-site.mjs && node scripts/generate-asset-hub.mjs && node scripts/generate-brand-guide.mjs && node scripts/generate-graphic-request-brief.mjs && node scripts/generate-foundry-page.mjs",
     "remotion:studio": "remotion studio src/remotion/index.js",
     "assets:foundry-api": "node --env-file=.env.local scripts/asset-foundry/local-api.mjs",
     "assets:pull-approved": "node --env-file=.env.local scripts/asset-foundry/pull-approved.mjs"

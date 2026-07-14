@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ChatGPT Image Prompts · MedVirtual</title>
+  <title>ChatGPT Notes · MedVirtual</title>
   <style>
-  
   
 @font-face {
   font-family: 'Be Vietnam';
@@ -46,9 +45,9 @@
 }
 
   .doc-header {
-    background: #0a0a0a;
+    background: #0B1F3A;
     color: #ffffff;
-    border-bottom: 3px solid #B8F000;
+    border-bottom: 2px solid #077999;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -158,17 +157,17 @@
   .doc-nav a:hover,
   .doc-header details.doc-nav-dd > summary:hover {
     color: #ffffff !important;
-    background: rgba(184, 240, 0, 0.12) !important;
+    background: rgba(0, 178, 226, 0.18) !important;
   }
   .doc-nav a.active {
-    color: #0a0a0a;
-    background: #B8F000;
+    color: #ffffff;
+    background: #077999;
     font-weight: 700;
   }
   .doc-header details.doc-nav-dd.active > summary,
   .doc-header details.doc-nav-dd[open] > summary {
-    color: #0a0a0a !important;
-    background: #B8F000 !important;
+    color: #ffffff !important;
+    background: #077999 !important;
     font-weight: 700 !important;
   }
   .doc-nav-dd { position: relative; }
@@ -193,8 +192,8 @@
     border-radius: 7px;
   }
   .doc-nav-dd__menu a.active {
-    background: rgba(184, 240, 0, 0.25);
-    color: #B8F000;
+    background: rgba(0, 178, 226, 0.22);
+    color: #7dd3fc;
   }
   .doc-nav-sep {
     width: 1px;
@@ -209,17 +208,17 @@
     margin-top: 0.75rem;
   }
   .doc-subnav a {
-    color: #B8F000;
+    color: #7dd3fc;
     text-decoration: none;
     font-size: 0.75rem;
     padding: 0.25rem 0.6rem;
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 6px;
   }
-  .doc-subnav a:hover { border-color: #B8F000; color: #fff; }
+  .doc-subnav a:hover { border-color: #00B2E2; color: #fff; }
   .doc-subnav a.active {
-    background: rgba(184, 240, 0, 0.2);
-    border-color: #B8F000;
+    background: rgba(0, 178, 226, 0.22);
+    border-color: #00B2E2;
     color: #fff;
   }
   @media (max-width: 640px) {
@@ -232,154 +231,459 @@
   body {
     margin: 0;
     font-family: "Be Vietnam", Inter, Arial, sans-serif;
-    color: #e5e7eb;
-    background:
-      radial-gradient(ellipse 80% 50% at 15% -10%, rgba(184,240,0,0.10), transparent 55%),
-      radial-gradient(ellipse 70% 50% at 90% 0%, rgba(0,229,255,0.08), transparent 55%),
-      #06080d;
+    color: #0B1F3A;
+    background: #F7FAFC;
     line-height: 1.5;
   }
-  a { color: #B8F000; }
-  main { max-width: 1120px; margin: 0 auto; padding: 1.5rem 1.15rem 5rem; }
-  h1, h2, h3 { color: #f8fafc; }
+  a { color: #077999; }
+  a:hover { color: #00B2E2; }
+  main { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1.15rem 4.5rem; }
+  h1, h2, h3 { color: #0B1F3A; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(1.55rem, 3.5vw, 2.1rem); margin: 0 0 0.35rem; }
+  h2 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+  h3 { font-size: 1rem; margin: 0 0 0.35rem; }
   .banner {
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.35rem;
     padding: 0.85rem 1rem;
-    border-radius: 12px;
-    background: linear-gradient(120deg, rgba(184,240,0,0.14), rgba(0,229,255,0.10));
-    border: 1px solid rgba(184,240,0,0.45);
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #D6E4EC;
+    border-left: 4px solid #077999;
     font-size: 0.9rem;
+    color: #0B1F3A;
   }
-  .banner strong { color: #B8F000; }
-  .banner .sub { display:block; color:#cbd5e1; margin-top:0.25rem; font-weight:400; }
-  .rule-100 {
-    margin: 0 0 1.25rem;
-    padding: 0.85rem 1rem;
-    border-radius: 12px;
-    background: rgba(225,6,0,0.10);
-    border: 1px solid rgba(225,6,0,0.45);
-    color: #fecaca;
-    font-size: 0.88rem;
-  }
-  .rule-100 strong { color: #ff6b6b; }
-  .hero h1 { margin: 0 0 0.4rem; font-size: clamp(1.6rem, 4vw, 2.3rem); letter-spacing: -0.03em; }
-  .hero p { margin: 0; max-width: 52rem; color: #94a3b8; }
-  .lede { color: #94a3b8; max-width: 52rem; }
-  section { margin-top: 1.75rem; }
-  section > h2 { font-size: 1.2rem; margin: 0 0 0.35rem; }
-  .grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-  .grid-2 { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
-  .card {
-    background: #0d111a;
-    border: 1px solid #1f2937;
-    border-radius: 14px;
-    padding: 1rem 1.05rem;
-  }
-  .card h3 { margin: 0 0 0.3rem; font-size: 1.02rem; }
-  .card p { margin: 0.25rem 0; font-size: 0.88rem; color: #b4becb; }
-  .eyebrow {
-    display: inline-block; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.08em;
-    text-transform: uppercase; color: #B8F000; margin-bottom: 0.25rem;
+  .banner strong { color: #077999; }
+  .banner .sub { display: block; color: #4A6275; margin-top: 0.25rem; font-weight: 400; }
+  .hero { margin-bottom: 1.5rem; }
+  .hero p, .lede { margin: 0; max-width: 46rem; color: #4A6275; }
+  section { margin-top: 2rem; }
+  section > h2 { padding-bottom: 0.35rem; border-bottom: 1px solid #E2EBF1; }
+  .note {
+    margin: 0.75rem 0 1rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: 8px;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    color: #0D546B;
+    font-size: 0.86rem;
   }
   .pill {
-    display: inline-block; padding: 0.12rem 0.55rem; border-radius: 999px;
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em; border: 1px solid transparent;
+    display: inline-block;
+    padding: 0.14rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    border: 1px solid transparent;
+    vertical-align: middle;
   }
-  .badge-status { background: rgba(148,163,184,0.15); color:#cbd5e1; border-color: rgba(148,163,184,0.3); }
-  .s-confirmed, .s-approved-for-launch { background: rgba(34,197,94,0.16); color:#86efac; border-color: rgba(34,197,94,0.4); }
-  .s-approved-for-test { background: rgba(0,229,255,0.14); color:#67e8f9; border-color: rgba(0,229,255,0.4); }
-  .s-pending-leadership, .s-pending-compliance, .s-on-hold { background: rgba(255,230,0,0.14); color:#fde047; border-color: rgba(255,230,0,0.4); }
-  .s-rejected, .s-do-not-use { background: rgba(225,6,0,0.16); color:#fca5a5; border-color: rgba(225,6,0,0.45); }
-  .s-queued, .s-ready-for-design, .s-ready-for-animation { background: rgba(184,240,0,0.14); color:#cbe96a; border-color: rgba(184,240,0,0.4); }
-  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-  th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1f2937; vertical-align: top; }
-  th { color: #94a3b8; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
-  td.ref { font-weight: 700; color: #f8fafc; white-space: nowrap; }
-  ul.clean { margin: 0.4rem 0 0; padding-left: 1.1rem; color: #b4becb; font-size: 0.86rem; }
-  ul.clean li { margin: 0.15rem 0; }
-  .copy-btn {
-    font: inherit; font-size: 0.72rem; font-weight: 700; cursor: pointer;
-    background: #B8F000; color: #06080d; border: none; border-radius: 7px;
-    padding: 0.28rem 0.6rem; margin-top: 0.4rem;
+  .s-approved, .s-approved-creative-baseline {
+    background: #E6F7F4; color: #0F766E; border-color: #99D5CD;
   }
-  .copy-btn:hover { background: #cbff33; }
-  .copy-btn.copied { background: #22C55E; color:#04120a; }
+  .s-awaiting-design {
+    background: #FFF8E8; color: #A16207; border-color: #F0D78C;
+  }
+  .s-image-needed, .s-pending {
+    background: #EEF2F6; color: #475569; border-color: #CBD5E1;
+  }
+  .s-rejected, .s-do-not-use {
+    background: #FEECEC; color: #B91C1C; border-color: #FECACA;
+  }
+  .masters-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  .master-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .master-card__media {
+    background: #E8EEF2;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .master-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .master-card--lg .master-card__media { min-height: 220px; }
+  .master-card--md .master-card__media { min-height: 160px; }
+  .master-card__body { padding: 0.85rem 0.95rem 1rem; flex: 1; display: flex; flex-direction: column; gap: 0.35rem; }
+  .master-card__meta { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #077999; }
+  .master-card h3 { margin: 0; font-size: 1.02rem; }
+  .master-card p { margin: 0; font-size: 0.82rem; color: #4A6275; }
+  .master-card .dl {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .format-row {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    margin: 0.75rem 0 1.5rem;
+  }
+  .format-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.8rem;
+  }
+  .format-card__preview {
+    background: #EEF2F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+    padding: 0.4rem;
+  }
+  .format-card__preview img {
+    max-width: 100%;
+    max-height: 160px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .format-card__preview[data-ratio="1x1"] { aspect-ratio: 1 / 1; }
+  .format-card__preview[data-ratio="4x5"] { aspect-ratio: 4 / 5; }
+  .format-card__preview[data-ratio="9x16"] { aspect-ratio: 9 / 16; max-height: 200px; }
+  .format-card__preview[data-ratio="1\.91x1"] { aspect-ratio: 1.91 / 1; }
+  .format-placeholder {
+    text-align: center;
+    padding: 0.6rem;
+    color: #64748B;
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+  .format-placeholder strong { display: block; color: #A16207; margin-bottom: 0.25rem; }
+  .format-card__body { padding: 0.55rem 0.65rem 0.7rem; }
+  .format-card__body b { display: block; color: #0B1F3A; }
+  .quick-links {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+  .quick-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 3.4rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: #077999;
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+  .quick-links a:hover { background: #0D546B; }
+  .queue-grid, .claim-grid, .comp-grid, .copy-grid, .prompt-grid {
+    display: grid;
+    gap: 0.85rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  .soft-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+  }
+  .soft-card p { margin: 0.25rem 0; font-size: 0.86rem; color: #4A6275; }
+  .queue-card .value { font-size: 1.6rem; font-weight: 800; color: #077999; line-height: 1.1; }
+  .checklist { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  .checklist li {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #E8EEF2;
+    font-size: 0.9rem;
+  }
+  .checklist li:last-child { border-bottom: 0; }
+  .checklist input { margin-top: 0.2rem; }
+  ul.clean { margin: 0.4rem 0 0; padding-left: 1.15rem; color: #4A6275; font-size: 0.88rem; }
+  ul.clean li { margin: 0.2rem 0; }
+  .chip {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.12rem 0.45rem;
+    border-radius: 6px;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    color: #0D546B;
+    margin: 0.1rem 0.15rem 0 0;
+  }
+  .comp-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .comp-card.incomplete { opacity: 0.72; border-style: dashed; }
+  .comp-card__media {
+    background: #EEF2F6;
+    aspect-ratio: 4 / 5;
+    max-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .comp-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.84rem; }
+  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
+  .comp-card__body .why { font-weight: 700; color: #0B1F3A; margin: 0.2rem 0; }
+  .comp-card__body .mini { margin: 0.35rem 0 0; color: #4A6275; font-size: 0.8rem; }
+  .comp-card__body .mini b { color: #0B1F3A; }
+  .pink-ref {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #0D546B;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 6px;
+    padding: 0.2rem 0.45rem;
+  }
+  .thumb-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.75rem 0; }
+  .thumb-row a, .thumb-row span {
+    display: block;
+    width: 88px;
+    height: 88px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #D6E4EC;
+    background: #EEF2F6;
+  }
+  .thumb-row img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .masters-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0.75rem 0 0;
+  }
+  .masters-strip a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    padding: 0.55rem;
+  }
+  .masters-strip img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #EEF2F6;
+    display: block;
+  }
+  .masters-strip span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0B1F3A;
+    text-align: center;
+  }
+  .job-box {
+    background: #fff;
+    border: 2px solid #077999;
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+  }
+  .job-box h2 { margin-top: 0; }
+  .job-steps { counter-reset: step; list-style: none; margin: 0.75rem 0 0; padding: 0; }
+  .job-steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0.55rem 0.55rem 0.55rem 2.4rem;
+    border-bottom: 1px solid #E8EEF2;
+    font-size: 0.92rem;
+  }
+  .job-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    background: #077999;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .two-cols { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .do-list li::marker { color: #077999; }
+  .dont-list li::marker { color: #B42318; }
+  @media (max-width: 700px) {
+    .masters-strip { grid-template-columns: 1fr 1fr; }
+  }
+  .matrix { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-top: 0.5rem; }
+  .matrix th, .matrix td { border: 1px solid #D6E4EC; padding: 0.45rem 0.5rem; text-align: center; background: #fff; }
+  .matrix th { background: #F0F5F8; color: #4A6275; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .matrix td.rowhead { text-align: left; font-weight: 700; color: #0B1F3A; }
+  .storyboard {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    margin: 0.75rem 0;
+  }
+  .storyboard .beat {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-top: 3px solid #077999;
+    border-radius: 8px;
+    padding: 0.55rem 0.65rem;
+    font-size: 0.8rem;
+  }
+  .storyboard .beat b { display: block; color: #0B1F3A; font-size: 0.78rem; }
+  .storyboard .beat span { color: #4A6275; font-size: 0.72rem; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.85rem 0 0.5rem; }
+  .tabs label, .tabs button {
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #0B1F3A;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+  }
+  .tabs label:hover, .tabs button:hover, .tabs button.active, .tabs input:checked + label {
+    background: #077999;
+    color: #fff;
+    border-color: #077999;
+  }
+  .tab-panels .tab-panel { display: none; }
+  .tab-panels .tab-panel.active { display: block; }
+  details.block {
+    margin: 0.65rem 0;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+  }
+  details.block > summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: #0B1F3A;
+    list-style: none;
+  }
+  details.block > summary::-webkit-details-marker { display: none; }
+  details.block[open] > summary { margin-bottom: 0.55rem; }
   .copytext {
-    display: block; background: #05070b; border: 1px solid #1f2937; border-radius: 8px;
-    padding: 0.6rem 0.7rem; font-size: 0.82rem; color: #d1d9e2; white-space: pre-wrap; margin-top: 0.4rem;
+    display: block;
+    background: #F0F5F8;
+    border: 1px solid #D6E4EC;
+    border-radius: 8px;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.82rem;
+    color: #0B1F3A;
+    white-space: pre-wrap;
+    margin-top: 0.35rem;
   }
-  .warn {
-    margin-top: 0.5rem; padding: 0.5rem 0.65rem; border-radius: 8px; font-size: 0.78rem;
-    background: rgba(255,230,0,0.10); border: 1px solid rgba(255,230,0,0.4); color: #fde047;
+  .copy-btn {
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: #077999;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 0.28rem 0.6rem;
+    margin-top: 0.4rem;
   }
-  .warn.danger { background: rgba(225,6,0,0.12); border-color: rgba(225,6,0,0.45); color:#fca5a5; }
-  .filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 0.25rem; }
-  .filters button {
-    font: inherit; font-size: 0.76rem; font-weight: 600; cursor: pointer; color:#cbd5e1;
-    background: #0d111a; border: 1px solid #1f2937; border-radius: 999px; padding: 0.3rem 0.75rem;
+  .copy-btn:hover { background: #0D546B; }
+  .copy-btn.copied { background: #0F766E; }
+  .swatch-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+  .swatch-chip {
+    font-size: 0.78rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #D6E4EC;
   }
-  .filters button.active { background: #B8F000; color:#06080d; border-color:#B8F000; }
-  /* Mock ad comp */
-  .adcomp {
-    position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 5;
-    display: flex; flex-direction: column; justify-content: space-between; padding: 0.9rem;
-    border: 1px solid rgba(255,255,255,0.14);
+  .delivery-row {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 0.75rem;
   }
-  .adcomp .ac-head { font-weight: 800; font-size: 1.05rem; line-height: 1.05; letter-spacing:-0.02em; text-transform: uppercase; max-width: 78%; }
-  .adcomp .ac-bullets { list-style: none; margin: 0.5rem 0 0; padding: 0; font-size: 0.72rem; font-weight:600; max-width: 78%; }
-  .adcomp .ac-bullets li { display:flex; gap:0.35rem; align-items:center; margin:0.18rem 0; }
-  .adcomp .ac-bullets li::before { content:'✓'; font-weight:900; }
-  .adcomp .ac-person {
-    position: absolute; right: -6%; bottom: 0; width: 42%; height: 72%; border-radius: 50% 50% 0 0;
-    opacity: 0.9;
+  .delivery-row select {
+    font: inherit;
+    font-size: 0.82rem;
+    margin-top: 0.35rem;
+    width: 100%;
+    padding: 0.3rem 0.4rem;
+    border: 1px solid #D6E4EC;
+    border-radius: 6px;
+    background: #fff;
+    color: #0B1F3A;
   }
-  .adcomp .ac-cta { align-self: flex-start; padding: 0.35rem 0.8rem; border-radius: 999px; font-weight:800; font-size:0.75rem; z-index:2; }
-  .adcomp .ac-badge {
-    position:absolute; top:0.7rem; right:0.7rem; z-index:3; font-size:0.6rem; font-weight:800;
-    padding:0.2rem 0.45rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.03em;
+  .foot {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #D6E4EC;
+    color: #64748B;
+    font-size: 0.76rem;
   }
-  .adcomp .ac-note { font-size:0.6rem; opacity:0.8; z-index:2; }
-  .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px,1fr)); gap: 0.4rem; margin-top: 0.6rem; }
-  .timeline .beat { background:#05070b; border:1px solid #1f2937; border-top:3px solid #00E5FF; border-radius:8px; padding:0.45rem 0.5rem; }
-  .timeline .beat b { display:block; font-size:0.72rem; color:#67e8f9; }
-  .timeline .beat span { font-size:0.68rem; color:#94a3b8; }
-  .chip { display:inline-block; font-size:0.66rem; font-weight:700; padding:0.14rem 0.5rem; border-radius:6px; background:#111827; border:1px solid #263041; color:#cbd5e1; margin:0.12rem 0.12rem 0 0; }
-  .swatch { display:inline-block; width:0.85rem; height:0.85rem; border-radius:3px; vertical-align:-2px; margin-right:0.3rem; border:1px solid rgba(255,255,255,0.25); }
-  .metricgrid { display:grid; gap:0.7rem; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
-  .metric { background:#0d111a; border:1px solid #1f2937; border-radius:12px; padding:0.75rem 0.85rem; }
-  .metric label { display:block; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8; }
-  .metric input { width:100%; margin-top:0.3rem; background:#05070b; border:1px solid #263041; border-radius:7px; color:#f8fafc; font:inherit; padding:0.3rem 0.4rem; }
-  .checkline { display:flex; gap:0.5rem; align-items:flex-start; padding:0.35rem 0; border-bottom:1px solid #131a26; font-size:0.86rem; color:#cbd5e1; }
-  .checkline input { margin-top:0.2rem; }
-  .foot { margin-top:3rem; padding-top:1rem; border-top:1px solid #1f2937; color:#64748b; font-size:0.76rem; }
+  .ideas-list { list-style: none; margin: 0; padding: 0; }
+  .ideas-list li { margin: 0.45rem 0; }
+  .ideas-list a { font-weight: 700; text-decoration: none; }
+  .ideas-list span { display: block; color: #4A6275; font-size: 0.82rem; }
+  @media (max-width: 640px) {
+    main { padding: 1.1rem 0.85rem 3.5rem; }
+    .masters-grid { grid-template-columns: 1fr 1fr; }
+    .master-card--lg .master-card__media { min-height: 140px; }
+  }
 </style>
 </head>
 <body>
   <header class="doc-header">
   <div class="doc-header__row">
-    <a class="doc-header__brand" href="/studio.html">
+    <a class="doc-header__brand" href="/vma-handoff.html">
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Ad Production</h1>
-        <p class="doc-header__tagline">Bold Virtual Medical Admin ads · static + animated video</p>
+        <p class="doc-header__tagline">4 approved masters → Meta sizes now · video later</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Dashboard</a><a href="/direct-response.html" class="">Current Direction</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-static.html" class="">Static Ads</a><details class="doc-nav-dd ">
-      <summary>Animated Video</summary>
-      <div class="doc-nav-dd__menu"><a href="/vma-video.html" class="">Video Concepts</a><a href="/vma-remotion.html" class="">Remotion Playbook</a><a href="/vma-capcut.html" class="">CapCut Templates</a></div>
-    </details><a href="/vma-chatgpt.html" class="active">ChatGPT Prompts</a><details class="doc-nav-dd ">
-      <summary>Copy</summary>
-      <div class="doc-nav-dd__menu"><a href="/vma-copy-en.html" class="">English Matrix</a><a href="/vma-copy-es.html" class="">Spanish Matrix</a></div>
-    </details><details class="doc-nav-dd ">
-      <summary>Forms &amp; Launch</summary>
-      <div class="doc-nav-dd__menu"><a href="/vma-form.html" class="">Instant Form</a><a href="/vma-campaign.html" class="">Campaign Tests</a><a href="/vma-claims.html" class="">Claims Tracker</a><a href="/vma-qa.html" class="">Launch QA</a><a href="/vma-queue.html" class="">Production Queue</a><a href="/vma-approval.html" class="">Approval Board</a></div>
-    </details><a href="/vma-history.html" class="">History</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/vma-handoff.html" class="">Graphics Job</a><a href="/vma-static.html" class="">Size Checklist</a><a href="/direct-response.html" class="">Rules</a><a href="/vma-video.html" class="">Video (Later)</a><a href="/competitors.html" class="">Competitors</a><a href="/vma-chatgpt.html" class="active">ChatGPT Notes</a><a href="/studio.html" class="">Overview</a><a href="/vma-history.html" class="">History</a></nav>
     </div>
   </div>
   <div class="doc-header__page">
-          <h2 class="doc-header__page-title">ChatGPT Image Prompts</h2>
-          <p class="doc-header__page-sub">Generate ad plates — overlay approved copy in design tools.</p>
+          <h2 class="doc-header__page-title">ChatGPT Notes</h2>
+          <p class="doc-header__page-sub">Background only — not the current resize job.</p>
           
         </div>
 </header>
@@ -400,117 +704,252 @@
 })();
 </script>
   <main>
-    <div class="banner"><strong>CURRENT DIRECTION — BOLD VIRTUAL MEDICAL ADMIN ADS + ANIMATED VIDEO</strong><span class="sub">Human-led, offer-first, mobile-readable static ads + short animated video. Hire a Virtual Medical Admin.</span></div>
-    
+    <div class="banner"><strong>GRAPHICS JOB — RESIZE 4 APPROVED MASTERS</strong><span class="sub">The square masters are already approved (made with ChatGPT + design polish). Current job: rebuild each into Meta sizes. Video comes later.</span></div>
     
     <div class="hero">
-      <h1>ChatGPT Image Prompts</h1>
-      <p>Generate full-image ad plates with ChatGPT, then overlay approved copy yourself. 15 production prompts for static concepts. AI makes the plate — the designer makes the ad.</p>
+      <h1>ChatGPT notes</h1>
+      <p><b>You do not need to remake the ads in ChatGPT for this request.</b> The four square masters are already approved. This page is background for how they were created, plus copy banks for later.</p>
     </div>
-
-    <div class="warn danger"><b>Known AI risks:</b><ul class="clean" style="color:inherit"><li>ChatGPT / DALL·E image models frequently render illegible or misspelled text — never ship AI-baked headline text; overlay all copy in design tools.</li><li>AI images drift toward pink/rose scrub tones — explicitly negative-prompt pink and verify every export.</li><li>AI can invent fake badges, logos, or UI chrome — remove anything implying software, awards, or credentials.</li><li>AI faces can look like generic stock or influencers — direct toward a credible medical admin, not a model.</li><li>AI may add call-center headsets or physician white coats — both are off-model; negative-prompt them.</li><li>Never let AI generate patient data, real names, or readable EHR screens.</li><li>Treat AI output as a raw plate only — the designer composes the final ad.</li></ul></div>
-
+    <div class="job-box">
+      <p>Current job = resize the approved masters → <a href="/vma-handoff.html">Graphics Job</a></p>
+    </div>
+    <details class="block">
+      <summary>Reference only — prompts &amp; copy banks</summary>
     <section>
-      <h2>Workflow</h2>
-      <div class="grid"><div class="card"><span class="eyebrow">Step 1</span><h3>Pick a concept</h3><p>Choose a VMA static concept and its color family. Copy its headline, benefits, offer, and talent direction from the Static Ad Concepts board.</p></div><div class="card"><span class="eyebrow">Step 2</span><h3>Generate the plate</h3><p>Paste the matching production prompt into ChatGPT (image mode). Ask for a full-image ad plate in the approved color family. Explicitly say NO PINK and no baked-in text.</p></div><div class="card"><span class="eyebrow">Step 3</span><h3>Check the guardrails</h3><p>Reject any output with pink/rose scrubs, call-center headsets, white coats, fake badges, fake UI, or illegible text. Regenerate if needed.</p></div><div class="card"><span class="eyebrow">Step 4</span><h3>Overlay copy in design tools</h3><p>Never rely on AI-rendered headline text. Add the approved headline, benefits, CTA, and MedVirtual logo yourself in Photoshop/Illustrator/Canva.</p></div><div class="card"><span class="eyebrow">Step 5</span><h3>Add badges only if approved</h3><p>Add price/HIPAA badges only when the linked claim is Approved for Launch. Otherwise omit.</p></div><div class="card"><span class="eyebrow">Step 6</span><h3>Export all ratios</h3><p>Produce 1:1, 4:5, and 9:16. Verify mobile readability and Meta safe zones, then submit to the Approval Board.</p></div></div>
+      <h2>If leadership asks for a new ChatGPT plate later</h2>
+      <div class="queue-grid"><div class="soft-card"><div class="master-card__meta">Step 1</div><h3>Upload master</h3><p>Upload one approved 1:1 master as the baseline.</p></div><div class="soft-card"><div class="master-card__meta">Step 2</div><h3>Analyze</h3><p>Describe hierarchy and colors — do not invent claims.</p></div><div class="soft-card"><div class="master-card__meta">Step 3</div><h3>Variation (only if asked)</h3><p>Keep clarity; never pink; never copy competitors.</p></div><div class="soft-card"><div class="master-card__meta">Step 4</div><h3>Confirm copy</h3><p>Use approved EN/ES lines before any new design.</p></div><div class="soft-card"><div class="master-card__meta">Step 5</div><h3>Brief designer</h3><p>Hand off master + ratios. Rebuild for each canvas.</p></div><div class="soft-card"><div class="master-card__meta">Step 6</div><h3>QA</h3><p>Spelling, MedVirtual brand, dimensions.</p></div></div>
     </section>
-
-    <section>
-      <h2>Production prompts</h2>
-      <div class="grid-2"><div class="card">
-      <span class="eyebrow">CGP-01 · VMA-C01 · Electric Lime</span>
-      <h3>Electric Lime — Hire a Virtual Medical Admin</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: HIRE A VIRTUAL MEDICAL ADMIN</li><li>Benefits: Reception &amp; Admin Support, Insurance Verification, Preauthorization Support, Medical Billing Support</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-02 · VMA-C02 · Signal Yellow</span>
-      <h3>Signal Yellow — Hire a Virtual Medical Admin</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Signal Yellow — background #FFE600, accent #FFE600. Subject: a credible, warm professional female virtual medical administrator, Signal Yellow scrub top (#FFE600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Signal Yellow — background #FFE600, accent #FFE600. Subject: a credible, warm professional female virtual medical administrator, Signal Yellow scrub top (#FFE600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: HIRE A VIRTUAL MEDICAL ADMIN</li><li>Benefits: Reception &amp; Admin Support, Insurance Verification, Preauthorization Support, Medical Billing Support</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-03 · VMA-C03 · Cobalt Blue</span>
-      <h3>Cobalt Blue — Hire a Virtual Medical Admin</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Subject: a credible, warm professional female virtual medical administrator, Cobalt Blue scrub top (#1D4ED8), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Subject: a credible, warm professional female virtual medical administrator, Cobalt Blue scrub top (#1D4ED8), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: HIRE A VIRTUAL MEDICAL ADMIN</li><li>Benefits: Reception &amp; Admin Support, Insurance Verification, Preauthorization Support, Medical Billing Support</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-04 · VMA-C04 · High-Voltage Cyan</span>
-      <h3>High-Voltage Cyan — Hire a Virtual Medical Admin</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: High-Voltage Cyan — background #020617, accent #00E5FF. Subject: a credible, warm professional female virtual medical administrator, High-Voltage Cyan scrub top (#00E5FF), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: High-Voltage Cyan — background #020617, accent #00E5FF. Subject: a credible, warm professional female virtual medical administrator, High-Voltage Cyan scrub top (#00E5FF), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: HIRE A VIRTUAL MEDICAL ADMIN</li><li>Benefits: Reception &amp; Admin Support, Insurance Verification, Preauthorization Support, Medical Billing Support</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-05 · VMA-C05 · Vivid Green</span>
-      <h3>Vivid Green — Hire a Virtual Medical Admin</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: HIRE A VIRTUAL MEDICAL ADMIN</li><li>Benefits: Reception &amp; Admin Support, Insurance Verification, Preauthorization Support, Medical Billing Support</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-06 · VMA-C06 · Commercial Red</span>
-      <h3>Commercial Red — Hire a Virtual Medical Admin</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: HIRE A VIRTUAL MEDICAL ADMIN</li><li>Benefits: Reception &amp; Admin Support, Insurance Verification, Preauthorization Support, Medical Billing Support</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-07 · VMA-05 · Commercial Red</span>
-      <h3>Too Many Patient Calls?</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: TOO MANY PATIENT CALLS?</li><li>Benefits: Answer Patient Calls, Schedule Appointments, Follow Up With Patients, Manage Front-Desk Tasks</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-08 · VMA-07 · Electric Lime</span>
-      <h3>Stop Missing Patient Calls</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: STOP MISSING PATIENT CALLS</li><li>Benefits: Answer Patient Calls, Schedule Appointments, Follow Up With Patients, Manage Front-Desk Tasks</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-09 · VMA-09 · Vivid Green</span>
-      <h3>Hire a Virtual Dental Admin</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: HIRE A VIRTUAL DENTAL ADMIN</li><li>Benefits: Answer Patient Calls, Schedule Appointments, Insurance Verification, Treatment Follow-Up</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-10 · VMA-10 · Cobalt Blue</span>
-      <h3>Hire a Virtual Medical Biller</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Subject: a credible, warm professional female virtual medical administrator, Cobalt Blue scrub top (#1D4ED8), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Subject: a credible, warm professional female virtual medical administrator, Cobalt Blue scrub top (#1D4ED8), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: HIRE A VIRTUAL MEDICAL BILLER</li><li>Benefits: Medical Billing Support, Claims Follow-Up, Patient Balance Outreach, Insurance Admin Tasks</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-11 · VMA-12 · High-Voltage Cyan</span>
-      <h3>Support Insurance Verification</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: High-Voltage Cyan — background #020617, accent #00E5FF. Subject: a credible, warm professional female virtual medical administrator, High-Voltage Cyan scrub top (#00E5FF), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: High-Voltage Cyan — background #020617, accent #00E5FF. Subject: a credible, warm professional female virtual medical administrator, High-Voltage Cyan scrub top (#00E5FF), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: SUPPORT INSURANCE VERIFICATION</li><li>Benefits: Insurance Verification, Eligibility Checks, Preauthorization Support, Prior-Auth Follow-Up</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-12 · VMA-13 · Electric Lime</span>
-      <h3>Handle Patient Intake Remotely</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: HANDLE PATIENT INTAKE REMOTELY</li><li>Benefits: Patient Intake Forms, Collect Patient Details, Prep Charts for Visits, Registration Support</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-13 · VMA-17 · Vivid Green</span>
-      <h3>Contrata a un Asistente Médico Virtual</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: CONTRATA A UN ASISTENTE MÉDICO VIRTUAL</li><li>Benefits: Recepción y Apoyo Administrativo, Verificación de Seguros, Apoyo de Preautorización, Apoyo de Facturación</li><li>CTA: Más Información</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-14 · VMA-19 · Signal Yellow</span>
-      <h3>Spanish-Speaking Medical Admin Available</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Signal Yellow — background #FFE600, accent #FFE600. Subject: a credible, warm professional female virtual medical administrator, Signal Yellow scrub top (#FFE600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Signal Yellow — background #FFE600, accent #FFE600. Subject: a credible, warm professional female virtual medical administrator, Signal Yellow scrub top (#FFE600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: SPANISH-SPEAKING MEDICAL ADMIN AVAILABLE</li><li>Benefits: Reception &amp; Admin Support, Insurance Verification, Preauthorization Support, Medical Billing Support</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div><div class="card">
-      <span class="eyebrow">CGP-15 · VMA-22 · Commercial Red</span>
-      <h3>Dedicated Staff — Not a Call Center</h3>
-      <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: DEDICATED STAFF — NOT A CALL CENTER</li><li>Benefits: Join Your Practice Team, Answer Calls &amp; Schedule, Verify Insurance, Support Intake &amp; Follow-Up</li><li>CTA: Learn More</li><li>MedVirtual white logo, small, optional.</li></ul>
-    </div></div>
+    <section data-tabs>
+      <div class="tabs">
+        <button type="button" class="active" data-tab="images">Image prompts</button>
+        <button type="button" data-tab="video">Video prompts</button>
+        <button type="button" data-tab="english">English copy</button>
+        <button type="button" data-tab="spanish">Spanish copy</button>
+        <button type="button" data-tab="builder">Copy builder</button>
+      </div>
+      <div class="tab-panels">
+        <div class="tab-panel active" data-panel="images" id="images">
+          <div class="prompt-grid"><div class="soft-card">
+  <h3>CGP-01 · Electric Lime — Hire a Virtual Medical Admin</h3>
+  <p>VMA-C01 · Electric Lime</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-02 · Signal Yellow — Hire a Virtual Medical Admin</h3>
+  <p>VMA-C02 · Signal Yellow</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Signal Yellow — background #FFE600, accent #FFE600. Subject: a credible, warm professional female virtual medical administrator, Signal Yellow scrub top (#FFE600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Signal Yellow — background #FFE600, accent #FFE600. Subject: a credible, warm professional female virtual medical administrator, Signal Yellow scrub top (#FFE600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-03 · Cobalt Blue — Hire a Virtual Medical Admin</h3>
+  <p>VMA-C03 · Cobalt Blue</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Subject: a credible, warm professional female virtual medical administrator, Cobalt Blue scrub top (#1D4ED8), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Subject: a credible, warm professional female virtual medical administrator, Cobalt Blue scrub top (#1D4ED8), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-04 · High-Voltage Cyan — Hire a Virtual Medical Admin</h3>
+  <p>VMA-C04 · High-Voltage Cyan</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: High-Voltage Cyan — background #020617, accent #00E5FF. Subject: a credible, warm professional female virtual medical administrator, High-Voltage Cyan scrub top (#00E5FF), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: High-Voltage Cyan — background #020617, accent #00E5FF. Subject: a credible, warm professional female virtual medical administrator, High-Voltage Cyan scrub top (#00E5FF), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-05 · Vivid Green — Hire a Virtual Medical Admin</h3>
+  <p>VMA-C05 · Vivid Green</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-06 · Commercial Red — Hire a Virtual Medical Admin</h3>
+  <p>VMA-C06 · Commercial Red</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-07 · Too Many Patient Calls?</h3>
+  <p>VMA-05 · Commercial Red</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-08 · Stop Missing Patient Calls</h3>
+  <p>VMA-07 · Electric Lime</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-09 · Hire a Virtual Dental Admin</h3>
+  <p>VMA-09 · Vivid Green</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-10 · Hire a Virtual Medical Biller</h3>
+  <p>VMA-10 · Cobalt Blue</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Subject: a credible, warm professional female virtual medical administrator, Cobalt Blue scrub top (#1D4ED8), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Subject: a credible, warm professional female virtual medical administrator, Cobalt Blue scrub top (#1D4ED8), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-11 · Support Insurance Verification</h3>
+  <p>VMA-12 · High-Voltage Cyan</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: High-Voltage Cyan — background #020617, accent #00E5FF. Subject: a credible, warm professional female virtual medical administrator, High-Voltage Cyan scrub top (#00E5FF), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: High-Voltage Cyan — background #020617, accent #00E5FF. Subject: a credible, warm professional female virtual medical administrator, High-Voltage Cyan scrub top (#00E5FF), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-12 · Handle Patient Intake Remotely</h3>
+  <p>VMA-13 · Electric Lime</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Electric Lime — background #0A0A0A, accent #B8F000. Subject: a credible, warm professional female virtual medical administrator, Electric Lime scrub top (#B8F000), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-13 · Contrata a un Asistente Médico Virtual</h3>
+  <p>VMA-17 · Vivid Green</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Subject: a credible, warm professional female virtual medical administrator, Vivid Green scrub top (#22C55E), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-14 · Spanish-Speaking Medical Admin Available</h3>
+  <p>VMA-19 · Signal Yellow</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Signal Yellow — background #FFE600, accent #FFE600. Subject: a credible, warm professional female virtual medical administrator, Signal Yellow scrub top (#FFE600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Signal Yellow — background #FFE600, accent #FFE600. Subject: a credible, warm professional female virtual medical administrator, Signal Yellow scrub top (#FFE600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div><div class="soft-card">
+  <h3>CGP-15 · Dedicated Staff — Not a Call Center</h3>
+  <p>VMA-22 · Commercial Red</p>
+  <span class="copytext">Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</span><button type="button" class="copy-btn" data-copy="Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: Commercial Red — background #0A0A0A, accent #E10600. Subject: a credible, warm professional female virtual medical administrator, Commercial Red scrub top (#E10600), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.">Copy</button>
+</div></div>
+        </div>
+        <div class="tab-panel" data-panel="video" id="video">
+          <div class="prompt-grid"><div class="soft-card">
+  <h3>VP-01 · Electric Lime — Hire a Virtual Medical Admin (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Electric Lime (background #0A0A0A, accent #B8F000). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Electric Lime (background #0A0A0A, accent #B8F000). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-02 · Signal Yellow — Hire a Virtual Medical Admin (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Signal Yellow (background #FFE600, accent #FFE600). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Signal Yellow (background #FFE600, accent #FFE600). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-03 · Cobalt Blue — Hire a Virtual Medical Admin (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Cobalt Blue (background #1D4ED8, accent #1D4ED8). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Cobalt Blue (background #1D4ED8, accent #1D4ED8). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-04 · High-Voltage Cyan — Hire a Virtual Medical Admin (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: High-Voltage Cyan (background #020617, accent #00E5FF). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: High-Voltage Cyan (background #020617, accent #00E5FF). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-05 · Vivid Green — Hire a Virtual Medical Admin (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Vivid Green (background #22C55E, accent #22C55E). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Vivid Green (background #22C55E, accent #22C55E). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-06 · Commercial Red — Hire a Virtual Medical Admin (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Commercial Red (background #0A0A0A, accent #E10600). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Commercial Red (background #0A0A0A, accent #E10600). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-07 · Missed Calls (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Electric Lime (background #0A0A0A, accent #B8F000). Open on the headline &quot;STOP MISSING PATIENT CALLS&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Electric Lime (background #0A0A0A, accent #B8F000). Open on the headline &quot;STOP MISSING PATIENT CALLS&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-08 · Dental Admin (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Vivid Green (background #22C55E, accent #22C55E). Open on the headline &quot;HIRE A VIRTUAL DENTAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Vivid Green (background #22C55E, accent #22C55E). Open on the headline &quot;HIRE A VIRTUAL DENTAL ADMIN&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-09 · Medical Biller (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Cobalt Blue (background #1D4ED8, accent #1D4ED8). Open on the headline &quot;HIRE A VIRTUAL MEDICAL BILLER&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Cobalt Blue (background #1D4ED8, accent #1D4ED8). Open on the headline &quot;HIRE A VIRTUAL MEDICAL BILLER&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-10 · Insurance Verification (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: High-Voltage Cyan (background #020617, accent #00E5FF). Open on the headline &quot;SUPPORT INSURANCE VERIFICATION&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: High-Voltage Cyan (background #020617, accent #00E5FF). Open on the headline &quot;SUPPORT INSURANCE VERIFICATION&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-11 · Spanish Core (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Vivid Green (background #22C55E, accent #22C55E). Open on the headline &quot;CONTRATA A UN ASISTENTE MÉDICO VIRTUAL&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Vivid Green (background #22C55E, accent #22C55E). Open on the headline &quot;CONTRATA A UN ASISTENTE MÉDICO VIRTUAL&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-12 · Front Desk Overloaded — Pain/Solution (15s)</h3>
+  <p>15s</p>
+  <span class="copytext">Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Signal Yellow (background #FFE600, accent #FFE600). Open on the headline &quot;YOUR FRONT DESK IS OVERLOADED&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 15s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Signal Yellow (background #FFE600, accent #FFE600). Open on the headline &quot;YOUR FRONT DESK IS OVERLOADED&quot; in bold mobile-first type. Beats: Hook → Problem → Solution → Proof / Trust → CTA. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-13 · Offer Anchor (10s)</h3>
+  <p>10s</p>
+  <span class="copytext">Animated 10s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: High-Voltage Cyan (background #020617, accent #00E5FF). Open on the headline &quot;MEDICAL ADMIN SUPPORT STARTING AT $10/HR&quot; in bold mobile-first type. Beats: Hook (0–3s) → Offer + Benefits (3–7s) → CTA + Logo (7–10s). Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 10s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: High-Voltage Cyan (background #020617, accent #00E5FF). Open on the headline &quot;MEDICAL ADMIN SUPPORT STARTING AT $10/HR&quot; in bold mobile-first type. Beats: Hook (0–3s) → Offer + Benefits (3–7s) → CTA + Logo (7–10s). Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-14 · Static Motion Loop (6s)</h3>
+  <p>6s</p>
+  <span class="copytext">Animated 6s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Electric Lime (background #0A0A0A, accent #B8F000). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Static plate reveal (0–2s) → Benefit checks stagger (2–4s) → CTA + logo (4–6s). Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 6s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Electric Lime (background #0A0A0A, accent #B8F000). Open on the headline &quot;HIRE A VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Static plate reveal (0–2s) → Benefit checks stagger (2–4s) → CTA + logo (4–6s). Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div><div class="soft-card">
+  <h3>VP-15 · Story — Meet Your Virtual Admin (20s)</h3>
+  <p>20s</p>
+  <span class="copytext">Animated 20s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Cobalt Blue (background #1D4ED8, accent #1D4ED8). Open on the headline &quot;MEET YOUR DEDICATED VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook (0–4s) → Problem story (4–8s) → Meet the admin (8–12s) → Benefits (12–16s) → Trust + CTA (16–20s). Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.</span><button type="button" class="copy-btn" data-copy="Animated 20s vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: Cobalt Blue (background #1D4ED8, accent #1D4ED8). Open on the headline &quot;MEET YOUR DEDICATED VIRTUAL MEDICAL ADMIN&quot; in bold mobile-first type. Beats: Hook (0–4s) → Problem story (4–8s) → Meet the admin (8–12s) → Benefits (12–16s) → Trust + CTA (16–20s). Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate. No unapproved price/HIPAA badge on screen.">Copy</button>
+</div></div>
+        </div>
+        <div class="tab-panel" data-panel="english" id="english">
+          <div class="copy-grid"><div class="soft-card" style="grid-column:1/-1">
+  <h3>Core Medical Admin · EN</h3>
+  <p>Matching form: Form A</p>
+  <details class="block"><summary>Primary texts (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Hire a virtual medical admin for reception, insurance verification, preauthorization, and billing support.</span><button type="button" class="copy-btn" data-copy="Hire a virtual medical admin for reception, insurance verification, preauthorization, and billing support.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Add dedicated full-time virtual staff who join your practice team — not a call center.</span><button type="button" class="copy-btn" data-copy="Add dedicated full-time virtual staff who join your practice team — not a call center.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Need reliable administrative help? Hire a virtual medical admin dedicated to your practice.</span><button type="button" class="copy-btn" data-copy="Need reliable administrative help? Hire a virtual medical admin dedicated to your practice.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Get trained medical administrative support without adding another local desk.</span><button type="button" class="copy-btn" data-copy="Get trained medical administrative support without adding another local desk.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">MedVirtual helps practices hire dedicated virtual staff for calls, scheduling, and patient follow-up.</span><button type="button" class="copy-btn" data-copy="MedVirtual helps practices hire dedicated virtual staff for calls, scheduling, and patient follow-up.">Copy</button></div>
+</details><details class="block"><summary>Headlines (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">HIRE A VIRTUAL MEDICAL ADMIN</span><button type="button" class="copy-btn" data-copy="HIRE A VIRTUAL MEDICAL ADMIN">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Add a Virtual Medical Admin</span><button type="button" class="copy-btn" data-copy="Add a Virtual Medical Admin">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Dedicated Medical Admin Support</span><button type="button" class="copy-btn" data-copy="Dedicated Medical Admin Support">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Virtual Medical Admin for Your Practice</span><button type="button" class="copy-btn" data-copy="Virtual Medical Admin for Your Practice">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Get a Dedicated Medical Admin</span><button type="button" class="copy-btn" data-copy="Get a Dedicated Medical Admin">Copy</button></div>
+</details><details class="block"><summary>Descriptions (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Dedicated full-time virtual staff on your team.</span><button type="button" class="copy-btn" data-copy="Dedicated full-time virtual staff on your team.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Reception, insurance, preauth, and billing.</span><button type="button" class="copy-btn" data-copy="Reception, insurance, preauth, and billing.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Not a call center — hire into your practice.</span><button type="button" class="copy-btn" data-copy="Not a call center — hire into your practice.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Tell us what your front office needs.</span><button type="button" class="copy-btn" data-copy="Tell us what your front office needs.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Staffing solutions for medical practices.</span><button type="button" class="copy-btn" data-copy="Staffing solutions for medical practices.">Copy</button></div>
+</details>
+</div><div class="soft-card" style="grid-column:1/-1">
+  <h3>Missed Calls / Overload · EN</h3>
+  <p>Matching form: Form A</p>
+  <details class="block"><summary>Primary texts (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Stop letting patient calls go unanswered. Hire a virtual medical admin for your practice.</span><button type="button" class="copy-btn" data-copy="Stop letting patient calls go unanswered. Hire a virtual medical admin for your practice.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">When the front desk is slammed, patient calls slip. Add dedicated virtual call and scheduling support.</span><button type="button" class="copy-btn" data-copy="When the front desk is slammed, patient calls slip. Add dedicated virtual call and scheduling support.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Overloaded front desk? Hire full-time virtual staff to help answer calls and manage appointments.</span><button type="button" class="copy-btn" data-copy="Overloaded front desk? Hire full-time virtual staff to help answer calls and manage appointments.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Missed calls cost appointments. Get help with patient calls, scheduling, and follow-up.</span><button type="button" class="copy-btn" data-copy="Missed calls cost appointments. Get help with patient calls, scheduling, and follow-up.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Your team should not choose between patients in the lobby and phones that keep ringing.</span><button type="button" class="copy-btn" data-copy="Your team should not choose between patients in the lobby and phones that keep ringing.">Copy</button></div>
+</details><details class="block"><summary>Headlines (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">STOP MISSING PATIENT CALLS</span><button type="button" class="copy-btn" data-copy="STOP MISSING PATIENT CALLS">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">YOUR FRONT DESK IS OVERLOADED</span><button type="button" class="copy-btn" data-copy="YOUR FRONT DESK IS OVERLOADED">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">TOO MANY PATIENT CALLS?</span><button type="button" class="copy-btn" data-copy="TOO MANY PATIENT CALLS?">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Keep Patient Calls Answered</span><button type="button" class="copy-btn" data-copy="Keep Patient Calls Answered">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Get Help With Patient Calls</span><button type="button" class="copy-btn" data-copy="Get Help With Patient Calls">Copy</button></div>
+</details><details class="block"><summary>Descriptions (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Dedicated virtual support for busy front offices.</span><button type="button" class="copy-btn" data-copy="Dedicated virtual support for busy front offices.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Help with calls, scheduling, and follow-up.</span><button type="button" class="copy-btn" data-copy="Help with calls, scheduling, and follow-up.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Full-time staff who join your practice team.</span><button type="button" class="copy-btn" data-copy="Full-time staff who join your practice team.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Support when your desk cannot keep up.</span><button type="button" class="copy-btn" data-copy="Support when your desk cannot keep up.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Staffing help for missed-call pressure.</span><button type="button" class="copy-btn" data-copy="Staffing help for missed-call pressure.">Copy</button></div>
+</details>
+</div><div class="soft-card" style="grid-column:1/-1">
+  <h3>Dental · EN</h3>
+  <p>Matching form: Form A</p>
+  <details class="block"><summary>Primary texts (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Hire a virtual dental admin for calls, scheduling, insurance verification, and treatment follow-up.</span><button type="button" class="copy-btn" data-copy="Hire a virtual dental admin for calls, scheduling, insurance verification, and treatment follow-up.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Dental front desk overloaded? Add dedicated full-time virtual staff to your practice.</span><button type="button" class="copy-btn" data-copy="Dental front desk overloaded? Add dedicated full-time virtual staff to your practice.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Get help answering patient calls and keeping the dental schedule full.</span><button type="button" class="copy-btn" data-copy="Get help answering patient calls and keeping the dental schedule full.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">MedVirtual helps dental practices hire dedicated virtual administrative staff.</span><button type="button" class="copy-btn" data-copy="MedVirtual helps dental practices hire dedicated virtual administrative staff.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Support treatment follow-up and insurance checks with a virtual admin on your team.</span><button type="button" class="copy-btn" data-copy="Support treatment follow-up and insurance checks with a virtual admin on your team.">Copy</button></div>
+</details><details class="block"><summary>Headlines (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">HIRE A VIRTUAL DENTAL ADMIN</span><button type="button" class="copy-btn" data-copy="HIRE A VIRTUAL DENTAL ADMIN">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Dental Front-Desk Support</span><button type="button" class="copy-btn" data-copy="Dental Front-Desk Support">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Virtual Staff for Dental Practices</span><button type="button" class="copy-btn" data-copy="Virtual Staff for Dental Practices">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Help With Calls and Scheduling</span><button type="button" class="copy-btn" data-copy="Help With Calls and Scheduling">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Add Dental Admin Capacity</span><button type="button" class="copy-btn" data-copy="Add Dental Admin Capacity">Copy</button></div>
+</details><details class="block"><summary>Descriptions (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Dedicated virtual staff for dental practices.</span><button type="button" class="copy-btn" data-copy="Dedicated virtual staff for dental practices.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Calls, scheduling, insurance, and follow-up.</span><button type="button" class="copy-btn" data-copy="Calls, scheduling, insurance, and follow-up.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Full-time hire into your dental team.</span><button type="button" class="copy-btn" data-copy="Full-time hire into your dental team.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Not a call center model.</span><button type="button" class="copy-btn" data-copy="Not a call center model.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Tell us what your office needs.</span><button type="button" class="copy-btn" data-copy="Tell us what your office needs.">Copy</button></div>
+</details>
+</div><div class="soft-card" style="grid-column:1/-1">
+  <h3>Billing / Insurance · EN</h3>
+  <p>Matching form: Form B</p>
+  <details class="block"><summary>Primary texts (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Support your billing and insurance team with dedicated full-time virtual staff.</span><button type="button" class="copy-btn" data-copy="Support your billing and insurance team with dedicated full-time virtual staff.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Hire virtual medical admin help for claim follow-up support and patient balance outreach.</span><button type="button" class="copy-btn" data-copy="Hire virtual medical admin help for claim follow-up support and patient balance outreach.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Give billing room to breathe — add administrative capacity without another local desk.</span><button type="button" class="copy-btn" data-copy="Give billing room to breathe — add administrative capacity without another local desk.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Need help supporting billing workflows? Hire trained virtual medical administrative staff.</span><button type="button" class="copy-btn" data-copy="Need help supporting billing workflows? Hire trained virtual medical administrative staff.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">MedVirtual helps practices hire dedicated staff who support billing-adjacent admin work.</span><button type="button" class="copy-btn" data-copy="MedVirtual helps practices hire dedicated staff who support billing-adjacent admin work.">Copy</button></div>
+</details><details class="block"><summary>Headlines (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">SUPPORT YOUR BILLING TEAM</span><button type="button" class="copy-btn" data-copy="SUPPORT YOUR BILLING TEAM">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">HIRE A VIRTUAL MEDICAL BILLER</span><button type="button" class="copy-btn" data-copy="HIRE A VIRTUAL MEDICAL BILLER">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Virtual Staff for Claims Follow-Up</span><button type="button" class="copy-btn" data-copy="Virtual Staff for Claims Follow-Up">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Add Billing Admin Capacity</span><button type="button" class="copy-btn" data-copy="Add Billing Admin Capacity">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Hire Support for Insurance Work</span><button type="button" class="copy-btn" data-copy="Hire Support for Insurance Work">Copy</button></div>
+</details><details class="block"><summary>Descriptions (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Admin support next to your billing team.</span><button type="button" class="copy-btn" data-copy="Admin support next to your billing team.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Dedicated full-time virtual staff.</span><button type="button" class="copy-btn" data-copy="Dedicated full-time virtual staff.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Help with follow-up and patient balances.</span><button type="button" class="copy-btn" data-copy="Help with follow-up and patient balances.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Staffing — not billing software.</span><button type="button" class="copy-btn" data-copy="Staffing — not billing software.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Join your practice team remotely.</span><button type="button" class="copy-btn" data-copy="Join your practice team remotely.">Copy</button></div>
+</details>
+</div><div class="soft-card" style="grid-column:1/-1">
+  <h3>Dedicated — Not a Call Center · EN</h3>
+  <p>Matching form: Form A</p>
+  <details class="block"><summary>Primary texts (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Hire dedicated full-time virtual staff who join your practice team — not a shared call center.</span><button type="button" class="copy-btn" data-copy="Hire dedicated full-time virtual staff who join your practice team — not a shared call center.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Looking for someone who works as part of your office, not a rotating agent pool?</span><button type="button" class="copy-btn" data-copy="Looking for someone who works as part of your office, not a rotating agent pool?">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">MedVirtual helps practices hire dedicated full-time virtual medical administrators.</span><button type="button" class="copy-btn" data-copy="MedVirtual helps practices hire dedicated full-time virtual medical administrators.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Get a dedicated teammate for calls, scheduling, insurance verification, and intake.</span><button type="button" class="copy-btn" data-copy="Get a dedicated teammate for calls, scheduling, insurance verification, and intake.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Full-time. Dedicated. Part of your practice — that is the staffing model.</span><button type="button" class="copy-btn" data-copy="Full-time. Dedicated. Part of your practice — that is the staffing model.">Copy</button></div>
+</details><details class="block"><summary>Headlines (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">DEDICATED STAFF — NOT A CALL CENTER</span><button type="button" class="copy-btn" data-copy="DEDICATED STAFF — NOT A CALL CENTER">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">HIRE DEDICATED FULL-TIME VIRTUAL STAFF</span><button type="button" class="copy-btn" data-copy="HIRE DEDICATED FULL-TIME VIRTUAL STAFF">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Add Front-Office Capacity Virtually</span><button type="button" class="copy-btn" data-copy="Add Front-Office Capacity Virtually">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Grow Without Another Local Hire</span><button type="button" class="copy-btn" data-copy="Grow Without Another Local Hire">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Full-Time Virtual Staff on Your Team</span><button type="button" class="copy-btn" data-copy="Full-Time Virtual Staff on Your Team">Copy</button></div>
+</details><details class="block"><summary>Descriptions (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Dedicated full-time — join your team.</span><button type="button" class="copy-btn" data-copy="Dedicated full-time — join your team.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Not a managed front-desk service.</span><button type="button" class="copy-btn" data-copy="Not a managed front-desk service.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Not AI, not software — real staff.</span><button type="button" class="copy-btn" data-copy="Not AI, not software — real staff.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Hire into your practice workflow.</span><button type="button" class="copy-btn" data-copy="Hire into your practice workflow.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Tell us your staffing needs.</span><button type="button" class="copy-btn" data-copy="Tell us your staffing needs.">Copy</button></div>
+</details>
+</div></div>
+        </div>
+        <div class="tab-panel" data-panel="spanish" id="spanish">
+          <div class="copy-grid"><div class="soft-card" style="grid-column:1/-1">
+  <h3>Rol Principal · ES</h3>
+  <p>Matching form: Form A</p>
+  <details class="block"><summary>Primary texts (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Contrata a un asistente médico virtual para recepción, seguros, preautorización y facturación.</span><button type="button" class="copy-btn" data-copy="Contrata a un asistente médico virtual para recepción, seguros, preautorización y facturación.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Agrega personal virtual de tiempo completo que se une a tu equipo — no un call center.</span><button type="button" class="copy-btn" data-copy="Agrega personal virtual de tiempo completo que se une a tu equipo — no un call center.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">¿Necesitas apoyo administrativo confiable? Contrata un asistente médico virtual dedicado.</span><button type="button" class="copy-btn" data-copy="¿Necesitas apoyo administrativo confiable? Contrata un asistente médico virtual dedicado.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Personal administrativo entrenado para tu consulta — dedicado y de tiempo completo.</span><button type="button" class="copy-btn" data-copy="Personal administrativo entrenado para tu consulta — dedicado y de tiempo completo.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">MedVirtual ayuda a consultorios a contratar personal virtual dedicado para el área administrativa.</span><button type="button" class="copy-btn" data-copy="MedVirtual ayuda a consultorios a contratar personal virtual dedicado para el área administrativa.">Copy</button></div>
+</details><details class="block"><summary>Headlines (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">CONTRATA A UN ASISTENTE MÉDICO VIRTUAL</span><button type="button" class="copy-btn" data-copy="CONTRATA A UN ASISTENTE MÉDICO VIRTUAL">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Contrata un Asistente Médico Virtual</span><button type="button" class="copy-btn" data-copy="Contrata un Asistente Médico Virtual">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Apoyo Administrativo Médico Virtual</span><button type="button" class="copy-btn" data-copy="Apoyo Administrativo Médico Virtual">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Agrega Apoyo a Tu Consulta</span><button type="button" class="copy-btn" data-copy="Agrega Apoyo a Tu Consulta">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Asistente Médico Virtual Dedicado</span><button type="button" class="copy-btn" data-copy="Asistente Médico Virtual Dedicado">Copy</button></div>
+</details><details class="block"><summary>Descriptions (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Personal de tiempo completo en tu equipo.</span><button type="button" class="copy-btn" data-copy="Personal de tiempo completo en tu equipo.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Recepción, seguros y facturación.</span><button type="button" class="copy-btn" data-copy="Recepción, seguros y facturación.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">No es un call center.</span><button type="button" class="copy-btn" data-copy="No es un call center.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Cuéntanos qué necesita tu consulta.</span><button type="button" class="copy-btn" data-copy="Cuéntanos qué necesita tu consulta.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Soluciones de personal para consultorios.</span><button type="button" class="copy-btn" data-copy="Soluciones de personal para consultorios.">Copy</button></div>
+</details>
+</div><div class="soft-card" style="grid-column:1/-1">
+  <h3>Llamadas / Saturación · ES</h3>
+  <p>Matching form: Form A</p>
+  <details class="block"><summary>Primary texts (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">No dejes llamadas de pacientes sin contestar. Contrata a un asistente médico virtual.</span><button type="button" class="copy-btn" data-copy="No dejes llamadas de pacientes sin contestar. Contrata a un asistente médico virtual.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Cuando el mostrador está saturado, se pierden llamadas. Agrega apoyo virtual dedicado.</span><button type="button" class="copy-btn" data-copy="Cuando el mostrador está saturado, se pierden llamadas. Agrega apoyo virtual dedicado.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">¿Tu equipo no da abasto? Contrata personal virtual de tiempo completo para llamadas y citas.</span><button type="button" class="copy-btn" data-copy="¿Tu equipo no da abasto? Contrata personal virtual de tiempo completo para llamadas y citas.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Las llamadas perdidas cuestan citas. Obtén ayuda con llamadas, agenda y seguimiento.</span><button type="button" class="copy-btn" data-copy="Las llamadas perdidas cuestan citas. Obtén ayuda con llamadas, agenda y seguimiento.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Tu equipo no debería elegir entre pacientes en sala y un teléfono que no para.</span><button type="button" class="copy-btn" data-copy="Tu equipo no debería elegir entre pacientes en sala y un teléfono que no para.">Copy</button></div>
+</details><details class="block"><summary>Headlines (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">NO DEJES LLAMADAS SIN CONTESTAR</span><button type="button" class="copy-btn" data-copy="NO DEJES LLAMADAS SIN CONTESTAR">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">¿TU MOSTRADOR ESTÁ SATURADO?</span><button type="button" class="copy-btn" data-copy="¿TU MOSTRADOR ESTÁ SATURADO?">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Ayuda para Contestar Llamadas</span><button type="button" class="copy-btn" data-copy="Ayuda para Contestar Llamadas">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Mantén las Llamadas Atendidas</span><button type="button" class="copy-btn" data-copy="Mantén las Llamadas Atendidas">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Apoyo Virtual para Tu Consulta</span><button type="button" class="copy-btn" data-copy="Apoyo Virtual para Tu Consulta">Copy</button></div>
+</details><details class="block"><summary>Descriptions (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Apoyo dedicado para oficinas ocupadas.</span><button type="button" class="copy-btn" data-copy="Apoyo dedicado para oficinas ocupadas.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Llamadas, citas y seguimiento.</span><button type="button" class="copy-btn" data-copy="Llamadas, citas y seguimiento.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Personal de tiempo completo en tu equipo.</span><button type="button" class="copy-btn" data-copy="Personal de tiempo completo en tu equipo.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Ayuda cuando el mostrador no da más.</span><button type="button" class="copy-btn" data-copy="Ayuda cuando el mostrador no da más.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Contratación para presión de llamadas.</span><button type="button" class="copy-btn" data-copy="Contratación para presión de llamadas.">Copy</button></div>
+</details>
+</div><div class="soft-card" style="grid-column:1/-1">
+  <h3>Bilingual Cue · ES</h3>
+  <p>Matching form: Form A</p>
+  <details class="block"><summary>Primary texts (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Personal administrativo médico virtual que habla español, dedicado a tu consulta.</span><button type="button" class="copy-btn" data-copy="Personal administrativo médico virtual que habla español, dedicado a tu consulta.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Spanish-speaking virtual medical admin available — dedicated full-time staff.</span><button type="button" class="copy-btn" data-copy="Spanish-speaking virtual medical admin available — dedicated full-time staff.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Apoyo administrativo en español para consultorios bilingües.</span><button type="button" class="copy-btn" data-copy="Apoyo administrativo en español para consultorios bilingües.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Agrega personal virtual bilingüe para llamadas, citas y seguros.</span><button type="button" class="copy-btn" data-copy="Agrega personal virtual bilingüe para llamadas, citas y seguros.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">MedVirtual conecta consultorios con personal virtual dedicado que habla español.</span><button type="button" class="copy-btn" data-copy="MedVirtual conecta consultorios con personal virtual dedicado que habla español.">Copy</button></div>
+</details><details class="block"><summary>Headlines (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">SPANISH-SPEAKING MEDICAL ADMIN AVAILABLE</span><button type="button" class="copy-btn" data-copy="SPANISH-SPEAKING MEDICAL ADMIN AVAILABLE">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Apoyo Administrativo en Español</span><button type="button" class="copy-btn" data-copy="Apoyo Administrativo en Español">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Personal Virtual Bilingüe</span><button type="button" class="copy-btn" data-copy="Personal Virtual Bilingüe">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Asistente Médico Virtual en Español</span><button type="button" class="copy-btn" data-copy="Asistente Médico Virtual en Español">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Se Habla Español — Apoyo Administrativo</span><button type="button" class="copy-btn" data-copy="Se Habla Español — Apoyo Administrativo">Copy</button></div>
+</details><details class="block"><summary>Descriptions (5)</summary>
+  <div style="margin:0.45rem 0"><span class="copytext">Personal bilingüe dedicado.</span><button type="button" class="copy-btn" data-copy="Personal bilingüe dedicado.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Recepción, seguros y facturación.</span><button type="button" class="copy-btn" data-copy="Recepción, seguros y facturación.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">No es un call center.</span><button type="button" class="copy-btn" data-copy="No es un call center.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Tiempo completo en tu equipo.</span><button type="button" class="copy-btn" data-copy="Tiempo completo en tu equipo.">Copy</button></div><div style="margin:0.45rem 0"><span class="copytext">Cuéntanos qué necesitas.</span><button type="button" class="copy-btn" data-copy="Cuéntanos qué necesitas.">Copy</button></div>
+</details>
+</div></div>
+        </div>
+        <div class="tab-panel" data-panel="builder" id="builder">
+          <div class="soft-card">
+            <h3>Simple Copy Builder</h3>
+            <p>Pick one primary text, one headline, and one description. Pair with Learn More. Keep claims already on the approved masters.</p>
+          </div>
+        </div>
+      </div>
     </section>
-  
-    <p class="foot">MedVirtual Ad Production · Virtual Medical Admin · Reviewed July 14, 2026 · Approved creative colors only (no pink) · Ad-facing brand: MedVirtual.</p>
+    </details>
+    <p class="foot">MedVirtual Ad Production · Virtual Medical Admin · Reviewed July 14, 2026 · No pink · Ad-facing brand: MedVirtual.</p>
   </main>
   
 <script>
@@ -526,30 +965,40 @@
       setTimeout(function(){ btn.textContent = old; btn.classList.remove('copied'); }, 1400);
     });
   });
-  // Generic data-filter groups
-  document.querySelectorAll('[data-filter-group]').forEach(function(group){
-    var key = group.getAttribute('data-filter-group');
-    group.querySelectorAll('button[data-filter]').forEach(function(b){
-      b.addEventListener('click', function(){
-        group.querySelectorAll('button[data-filter]').forEach(function(x){ x.classList.remove('active'); });
-        b.classList.add('active');
-        var val = b.getAttribute('data-filter');
-        document.querySelectorAll('[data-'+key+']').forEach(function(item){
-          var show = (val === 'all') || item.getAttribute('data-'+key) === val;
-          item.style.display = show ? '' : 'none';
-        });
-      });
+  document.querySelectorAll('[data-tabs]').forEach(function(root){
+    var buttons = root.querySelectorAll('[data-tab]');
+    var panels = root.querySelectorAll('.tab-panel');
+    function activate(id){
+      buttons.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+      panels.forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-panel') === id); });
+    }
+    buttons.forEach(function(b){
+      b.addEventListener('click', function(){ activate(b.getAttribute('data-tab')); });
+    });
+    var hash = (location.hash || '').replace(/^#/, '');
+    if(hash && root.querySelector('[data-panel="'+hash+'"]')) activate(hash);
+    else {
+      var first = buttons[0];
+      if(first) activate(first.getAttribute('data-tab'));
+    }
+    window.addEventListener('hashchange', function(){
+      var h = (location.hash || '').replace(/^#/, '');
+      if(h && root.querySelector('[data-panel="'+h+'"]')) activate(h);
     });
   });
-  // Persist checkboxes + text inputs with data-persist
   document.querySelectorAll('[data-persist]').forEach(function(el){
     var k = 'vma-'+el.getAttribute('data-persist');
     try {
       var saved = localStorage.getItem(k);
-      if(saved !== null){ if(el.type==='checkbox'){ el.checked = saved==='1'; } else { el.value = saved; } }
+      if(saved !== null){
+        if(el.type === 'checkbox') el.checked = saved === '1';
+        else el.value = saved;
+      }
     } catch(e){}
-    el.addEventListener(el.type==='checkbox'?'change':'input', function(){
-      try { localStorage.setItem(k, el.type==='checkbox' ? (el.checked?'1':'0') : el.value); } catch(e){}
+    el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', function(){
+      try {
+        localStorage.setItem(k, el.type === 'checkbox' ? (el.checked ? '1' : '0') : el.value);
+      } catch(e){}
     });
   });
 })();

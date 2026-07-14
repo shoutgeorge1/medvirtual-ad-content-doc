@@ -1,9 +1,10 @@
 /**
- * VMA site generator — writes all 17 Virtual Medical Admin production pages
- * plus thin meta-refresh redirects from old dr-* routes.
+ * VMA creative-handoff site generator.
+ * Writes Dashboard, Approved Creative, Competitors, Static, Video, Prompts,
+ * Production Handoff, History, ideas.html, plus thin meta-refresh redirects.
  *
- * Design: black / navy energetic UI, lime accents, NO PINK.
- * Text / HTML / CSS only — this script never generates image files.
+ * Light, calm site chrome. Large master previews. No CSS ad mockups.
+ * Text / HTML / CSS only — never generates image files.
  *
  * Run: node scripts/generate-vma-site.mjs
  */
@@ -16,39 +17,42 @@ import { BRAND } from './medvirtual-brand-data.mjs';
 import {
   VMA_META,
   VMA_NAV,
-  COLOR_FAMILIES,
-  CONCEPTS,
-  COLOR_TEST_SET,
-  VIDEO_CONCEPTS,
   VIDEO_SCENES_15S,
   REMOTION_COMPONENTS,
   REMOTION_COMPOSITIONS,
   REMOTION_PLAYBOOK,
   CAPCUT_TEMPLATES,
-  CHATGPT_WORKFLOW,
   CHATGPT_PROMPTS,
   VIDEO_PROMPTS,
-  FORMS,
-  COMPLETION_SCREENS,
-  OFFER_CONCEPTS,
-  CLAIMS,
-  CLAIM_STATUSES,
-  CAMPAIGN,
-  QA_CHECKLIST,
-  PRODUCTION_QUEUE,
-  PRODUCTION_STATUSES,
   COPY_EN,
   COPY_ES,
-  COMPETITOR_RESEARCH_SEED,
-  getColorFamily,
-  getClaimsForConcept,
-  getClaim,
+  CLAIMS,
 } from './vma-site-data.mjs';
+import {
+  APPROVED_MASTERS,
+  COLOR_DIRECTION,
+  FORMAT_SPECS,
+  VIDEO_OUTPUTS_PER_MASTER,
+  VIDEO_STORYBOARD,
+  DASHBOARD_CLAIMS,
+  HANDOFF_QA,
+  CURRENT_META_FORM,
+  FEATURED_COMPETITOR_IDS,
+  PINK_REFERENCE_COMPETITOR_IDS,
+  HISTORY_NOTES,
+  presentFormatsSummary,
+  formatMatrixCells,
+  GRAPHICS_BUILD_ORDER,
+  GRAPHICS_DO,
+  GRAPHICS_DONT,
+} from './vma-approved-masters.mjs';
+import { COMPETITOR_ADS, COMPETITOR_META, adLibraryUrl } from './competitor-ads-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.join(__dirname, '..', 'public');
 
 let filesWritten = 0;
+
 function write(name, html) {
   fs.writeFileSync(path.join(PUBLIC, name), html);
   filesWritten += 1;
@@ -62,137 +66,448 @@ function esc(s) {
     .replace(/"/g, '&quot;');
 }
 
-// ─── Shared CSS ──────────────────────────────────────────────────────────────
+// ─── Design system (calm site chrome) ────────────────────────────────────────
 
 const PAGE_CSS = `
-  ${HEADER_CSS}
   * { box-sizing: border-box; }
   body {
     margin: 0;
     font-family: ${BRAND.fonts.family};
-    color: #e5e7eb;
-    background:
-      radial-gradient(ellipse 80% 50% at 15% -10%, rgba(184,240,0,0.10), transparent 55%),
-      radial-gradient(ellipse 70% 50% at 90% 0%, rgba(0,229,255,0.08), transparent 55%),
-      #06080d;
+    color: #0B1F3A;
+    background: #F7FAFC;
     line-height: 1.5;
   }
-  a { color: #B8F000; }
-  main { max-width: 1120px; margin: 0 auto; padding: 1.5rem 1.15rem 5rem; }
-  h1, h2, h3 { color: #f8fafc; }
+  a { color: #077999; }
+  a:hover { color: #00B2E2; }
+  main { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1.15rem 4.5rem; }
+  h1, h2, h3 { color: #0B1F3A; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(1.55rem, 3.5vw, 2.1rem); margin: 0 0 0.35rem; }
+  h2 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+  h3 { font-size: 1rem; margin: 0 0 0.35rem; }
   .banner {
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.35rem;
     padding: 0.85rem 1rem;
-    border-radius: 12px;
-    background: linear-gradient(120deg, rgba(184,240,0,0.14), rgba(0,229,255,0.10));
-    border: 1px solid rgba(184,240,0,0.45);
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #D6E4EC;
+    border-left: 4px solid #077999;
     font-size: 0.9rem;
+    color: #0B1F3A;
   }
-  .banner strong { color: #B8F000; }
-  .banner .sub { display:block; color:#cbd5e1; margin-top:0.25rem; font-weight:400; }
-  .rule-100 {
-    margin: 0 0 1.25rem;
-    padding: 0.85rem 1rem;
-    border-radius: 12px;
-    background: rgba(225,6,0,0.10);
-    border: 1px solid rgba(225,6,0,0.45);
-    color: #fecaca;
-    font-size: 0.88rem;
-  }
-  .rule-100 strong { color: #ff6b6b; }
-  .hero h1 { margin: 0 0 0.4rem; font-size: clamp(1.6rem, 4vw, 2.3rem); letter-spacing: -0.03em; }
-  .hero p { margin: 0; max-width: 52rem; color: #94a3b8; }
-  .lede { color: #94a3b8; max-width: 52rem; }
-  section { margin-top: 1.75rem; }
-  section > h2 { font-size: 1.2rem; margin: 0 0 0.35rem; }
-  .grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-  .grid-2 { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
-  .card {
-    background: #0d111a;
-    border: 1px solid #1f2937;
-    border-radius: 14px;
-    padding: 1rem 1.05rem;
-  }
-  .card h3 { margin: 0 0 0.3rem; font-size: 1.02rem; }
-  .card p { margin: 0.25rem 0; font-size: 0.88rem; color: #b4becb; }
-  .eyebrow {
-    display: inline-block; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.08em;
-    text-transform: uppercase; color: #B8F000; margin-bottom: 0.25rem;
+  .banner strong { color: #077999; }
+  .banner .sub { display: block; color: #4A6275; margin-top: 0.25rem; font-weight: 400; }
+  .hero { margin-bottom: 1.5rem; }
+  .hero p, .lede { margin: 0; max-width: 46rem; color: #4A6275; }
+  section { margin-top: 2rem; }
+  section > h2 { padding-bottom: 0.35rem; border-bottom: 1px solid #E2EBF1; }
+  .note {
+    margin: 0.75rem 0 1rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: 8px;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    color: #0D546B;
+    font-size: 0.86rem;
   }
   .pill {
-    display: inline-block; padding: 0.12rem 0.55rem; border-radius: 999px;
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em; border: 1px solid transparent;
+    display: inline-block;
+    padding: 0.14rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    border: 1px solid transparent;
+    vertical-align: middle;
   }
-  .badge-status { background: rgba(148,163,184,0.15); color:#cbd5e1; border-color: rgba(148,163,184,0.3); }
-  .s-confirmed, .s-approved-for-launch { background: rgba(34,197,94,0.16); color:#86efac; border-color: rgba(34,197,94,0.4); }
-  .s-approved-for-test { background: rgba(0,229,255,0.14); color:#67e8f9; border-color: rgba(0,229,255,0.4); }
-  .s-pending-leadership, .s-pending-compliance, .s-on-hold { background: rgba(255,230,0,0.14); color:#fde047; border-color: rgba(255,230,0,0.4); }
-  .s-rejected, .s-do-not-use { background: rgba(225,6,0,0.16); color:#fca5a5; border-color: rgba(225,6,0,0.45); }
-  .s-queued, .s-ready-for-design, .s-ready-for-animation { background: rgba(184,240,0,0.14); color:#cbe96a; border-color: rgba(184,240,0,0.4); }
-  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-  th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1f2937; vertical-align: top; }
-  th { color: #94a3b8; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
-  td.ref { font-weight: 700; color: #f8fafc; white-space: nowrap; }
-  ul.clean { margin: 0.4rem 0 0; padding-left: 1.1rem; color: #b4becb; font-size: 0.86rem; }
-  ul.clean li { margin: 0.15rem 0; }
-  .copy-btn {
-    font: inherit; font-size: 0.72rem; font-weight: 700; cursor: pointer;
-    background: #B8F000; color: #06080d; border: none; border-radius: 7px;
-    padding: 0.28rem 0.6rem; margin-top: 0.4rem;
+  .s-approved, .s-approved-creative-baseline {
+    background: #E6F7F4; color: #0F766E; border-color: #99D5CD;
   }
-  .copy-btn:hover { background: #cbff33; }
-  .copy-btn.copied { background: #22C55E; color:#04120a; }
+  .s-awaiting-design {
+    background: #FFF8E8; color: #A16207; border-color: #F0D78C;
+  }
+  .s-image-needed, .s-pending {
+    background: #EEF2F6; color: #475569; border-color: #CBD5E1;
+  }
+  .s-rejected, .s-do-not-use {
+    background: #FEECEC; color: #B91C1C; border-color: #FECACA;
+  }
+  .masters-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  .master-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .master-card__media {
+    background: #E8EEF2;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .master-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .master-card--lg .master-card__media { min-height: 220px; }
+  .master-card--md .master-card__media { min-height: 160px; }
+  .master-card__body { padding: 0.85rem 0.95rem 1rem; flex: 1; display: flex; flex-direction: column; gap: 0.35rem; }
+  .master-card__meta { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #077999; }
+  .master-card h3 { margin: 0; font-size: 1.02rem; }
+  .master-card p { margin: 0; font-size: 0.82rem; color: #4A6275; }
+  .master-card .dl {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .format-row {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    margin: 0.75rem 0 1.5rem;
+  }
+  .format-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.8rem;
+  }
+  .format-card__preview {
+    background: #EEF2F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+    padding: 0.4rem;
+  }
+  .format-card__preview img {
+    max-width: 100%;
+    max-height: 160px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .format-card__preview[data-ratio="1x1"] { aspect-ratio: 1 / 1; }
+  .format-card__preview[data-ratio="4x5"] { aspect-ratio: 4 / 5; }
+  .format-card__preview[data-ratio="9x16"] { aspect-ratio: 9 / 16; max-height: 200px; }
+  .format-card__preview[data-ratio="1\\.91x1"] { aspect-ratio: 1.91 / 1; }
+  .format-placeholder {
+    text-align: center;
+    padding: 0.6rem;
+    color: #64748B;
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+  .format-placeholder strong { display: block; color: #A16207; margin-bottom: 0.25rem; }
+  .format-card__body { padding: 0.55rem 0.65rem 0.7rem; }
+  .format-card__body b { display: block; color: #0B1F3A; }
+  .quick-links {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+  .quick-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 3.4rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: #077999;
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+  .quick-links a:hover { background: #0D546B; }
+  .queue-grid, .claim-grid, .comp-grid, .copy-grid, .prompt-grid {
+    display: grid;
+    gap: 0.85rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  .soft-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+  }
+  .soft-card p { margin: 0.25rem 0; font-size: 0.86rem; color: #4A6275; }
+  .queue-card .value { font-size: 1.6rem; font-weight: 800; color: #077999; line-height: 1.1; }
+  .checklist { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+  .checklist li {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #E8EEF2;
+    font-size: 0.9rem;
+  }
+  .checklist li:last-child { border-bottom: 0; }
+  .checklist input { margin-top: 0.2rem; }
+  ul.clean { margin: 0.4rem 0 0; padding-left: 1.15rem; color: #4A6275; font-size: 0.88rem; }
+  ul.clean li { margin: 0.2rem 0; }
+  .chip {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.12rem 0.45rem;
+    border-radius: 6px;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    color: #0D546B;
+    margin: 0.1rem 0.15rem 0 0;
+  }
+  .comp-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .comp-card.incomplete { opacity: 0.72; border-style: dashed; }
+  .comp-card__media {
+    background: #EEF2F6;
+    aspect-ratio: 4 / 5;
+    max-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .comp-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.84rem; }
+  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
+  .comp-card__body .why { font-weight: 700; color: #0B1F3A; margin: 0.2rem 0; }
+  .comp-card__body .mini { margin: 0.35rem 0 0; color: #4A6275; font-size: 0.8rem; }
+  .comp-card__body .mini b { color: #0B1F3A; }
+  .pink-ref {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #0D546B;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 6px;
+    padding: 0.2rem 0.45rem;
+  }
+  .thumb-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.75rem 0; }
+  .thumb-row a, .thumb-row span {
+    display: block;
+    width: 88px;
+    height: 88px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #D6E4EC;
+    background: #EEF2F6;
+  }
+  .thumb-row img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .masters-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0.75rem 0 0;
+  }
+  .masters-strip a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    padding: 0.55rem;
+  }
+  .masters-strip img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #EEF2F6;
+    display: block;
+  }
+  .masters-strip span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0B1F3A;
+    text-align: center;
+  }
+  .job-box {
+    background: #fff;
+    border: 2px solid #077999;
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+  }
+  .job-box h2 { margin-top: 0; }
+  .job-steps { counter-reset: step; list-style: none; margin: 0.75rem 0 0; padding: 0; }
+  .job-steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0.55rem 0.55rem 0.55rem 2.4rem;
+    border-bottom: 1px solid #E8EEF2;
+    font-size: 0.92rem;
+  }
+  .job-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    background: #077999;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .two-cols { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .do-list li::marker { color: #077999; }
+  .dont-list li::marker { color: #B42318; }
+  @media (max-width: 700px) {
+    .masters-strip { grid-template-columns: 1fr 1fr; }
+  }
+  .matrix { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-top: 0.5rem; }
+  .matrix th, .matrix td { border: 1px solid #D6E4EC; padding: 0.45rem 0.5rem; text-align: center; background: #fff; }
+  .matrix th { background: #F0F5F8; color: #4A6275; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .matrix td.rowhead { text-align: left; font-weight: 700; color: #0B1F3A; }
+  .storyboard {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    margin: 0.75rem 0;
+  }
+  .storyboard .beat {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-top: 3px solid #077999;
+    border-radius: 8px;
+    padding: 0.55rem 0.65rem;
+    font-size: 0.8rem;
+  }
+  .storyboard .beat b { display: block; color: #0B1F3A; font-size: 0.78rem; }
+  .storyboard .beat span { color: #4A6275; font-size: 0.72rem; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.85rem 0 0.5rem; }
+  .tabs label, .tabs button {
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #0B1F3A;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+  }
+  .tabs label:hover, .tabs button:hover, .tabs button.active, .tabs input:checked + label {
+    background: #077999;
+    color: #fff;
+    border-color: #077999;
+  }
+  .tab-panels .tab-panel { display: none; }
+  .tab-panels .tab-panel.active { display: block; }
+  details.block {
+    margin: 0.65rem 0;
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+  }
+  details.block > summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: #0B1F3A;
+    list-style: none;
+  }
+  details.block > summary::-webkit-details-marker { display: none; }
+  details.block[open] > summary { margin-bottom: 0.55rem; }
   .copytext {
-    display: block; background: #05070b; border: 1px solid #1f2937; border-radius: 8px;
-    padding: 0.6rem 0.7rem; font-size: 0.82rem; color: #d1d9e2; white-space: pre-wrap; margin-top: 0.4rem;
+    display: block;
+    background: #F0F5F8;
+    border: 1px solid #D6E4EC;
+    border-radius: 8px;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.82rem;
+    color: #0B1F3A;
+    white-space: pre-wrap;
+    margin-top: 0.35rem;
   }
-  .warn {
-    margin-top: 0.5rem; padding: 0.5rem 0.65rem; border-radius: 8px; font-size: 0.78rem;
-    background: rgba(255,230,0,0.10); border: 1px solid rgba(255,230,0,0.4); color: #fde047;
+  .copy-btn {
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: #077999;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 0.28rem 0.6rem;
+    margin-top: 0.4rem;
   }
-  .warn.danger { background: rgba(225,6,0,0.12); border-color: rgba(225,6,0,0.45); color:#fca5a5; }
-  .filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 0.25rem; }
-  .filters button {
-    font: inherit; font-size: 0.76rem; font-weight: 600; cursor: pointer; color:#cbd5e1;
-    background: #0d111a; border: 1px solid #1f2937; border-radius: 999px; padding: 0.3rem 0.75rem;
+  .copy-btn:hover { background: #0D546B; }
+  .copy-btn.copied { background: #0F766E; }
+  .swatch-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+  .swatch-chip {
+    font-size: 0.78rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #D6E4EC;
   }
-  .filters button.active { background: #B8F000; color:#06080d; border-color:#B8F000; }
-  /* Mock ad comp */
-  .adcomp {
-    position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 5;
-    display: flex; flex-direction: column; justify-content: space-between; padding: 0.9rem;
-    border: 1px solid rgba(255,255,255,0.14);
+  .delivery-row {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 0.75rem;
   }
-  .adcomp .ac-head { font-weight: 800; font-size: 1.05rem; line-height: 1.05; letter-spacing:-0.02em; text-transform: uppercase; max-width: 78%; }
-  .adcomp .ac-bullets { list-style: none; margin: 0.5rem 0 0; padding: 0; font-size: 0.72rem; font-weight:600; max-width: 78%; }
-  .adcomp .ac-bullets li { display:flex; gap:0.35rem; align-items:center; margin:0.18rem 0; }
-  .adcomp .ac-bullets li::before { content:'✓'; font-weight:900; }
-  .adcomp .ac-person {
-    position: absolute; right: -6%; bottom: 0; width: 42%; height: 72%; border-radius: 50% 50% 0 0;
-    opacity: 0.9;
+  .delivery-row select {
+    font: inherit;
+    font-size: 0.82rem;
+    margin-top: 0.35rem;
+    width: 100%;
+    padding: 0.3rem 0.4rem;
+    border: 1px solid #D6E4EC;
+    border-radius: 6px;
+    background: #fff;
+    color: #0B1F3A;
   }
-  .adcomp .ac-cta { align-self: flex-start; padding: 0.35rem 0.8rem; border-radius: 999px; font-weight:800; font-size:0.75rem; z-index:2; }
-  .adcomp .ac-badge {
-    position:absolute; top:0.7rem; right:0.7rem; z-index:3; font-size:0.6rem; font-weight:800;
-    padding:0.2rem 0.45rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.03em;
+  .foot {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #D6E4EC;
+    color: #64748B;
+    font-size: 0.76rem;
   }
-  .adcomp .ac-note { font-size:0.6rem; opacity:0.8; z-index:2; }
-  .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px,1fr)); gap: 0.4rem; margin-top: 0.6rem; }
-  .timeline .beat { background:#05070b; border:1px solid #1f2937; border-top:3px solid #00E5FF; border-radius:8px; padding:0.45rem 0.5rem; }
-  .timeline .beat b { display:block; font-size:0.72rem; color:#67e8f9; }
-  .timeline .beat span { font-size:0.68rem; color:#94a3b8; }
-  .chip { display:inline-block; font-size:0.66rem; font-weight:700; padding:0.14rem 0.5rem; border-radius:6px; background:#111827; border:1px solid #263041; color:#cbd5e1; margin:0.12rem 0.12rem 0 0; }
-  .swatch { display:inline-block; width:0.85rem; height:0.85rem; border-radius:3px; vertical-align:-2px; margin-right:0.3rem; border:1px solid rgba(255,255,255,0.25); }
-  .metricgrid { display:grid; gap:0.7rem; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
-  .metric { background:#0d111a; border:1px solid #1f2937; border-radius:12px; padding:0.75rem 0.85rem; }
-  .metric label { display:block; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8; }
-  .metric input { width:100%; margin-top:0.3rem; background:#05070b; border:1px solid #263041; border-radius:7px; color:#f8fafc; font:inherit; padding:0.3rem 0.4rem; }
-  .checkline { display:flex; gap:0.5rem; align-items:flex-start; padding:0.35rem 0; border-bottom:1px solid #131a26; font-size:0.86rem; color:#cbd5e1; }
-  .checkline input { margin-top:0.2rem; }
-  .foot { margin-top:3rem; padding-top:1rem; border-top:1px solid #1f2937; color:#64748b; font-size:0.76rem; }
+  .ideas-list { list-style: none; margin: 0; padding: 0; }
+  .ideas-list li { margin: 0.45rem 0; }
+  .ideas-list a { font-weight: 700; text-decoration: none; }
+  .ideas-list span { display: block; color: #4A6275; font-size: 0.82rem; }
+  @media (max-width: 640px) {
+    main { padding: 1.1rem 0.85rem 3.5rem; }
+    .masters-grid { grid-template-columns: 1fr 1fr; }
+    .master-card--lg .master-card__media { min-height: 140px; }
+  }
 `;
-
-// ─── Shared bottom script (copy buttons + filters + local persistence) ────────
 
 const PAGE_SCRIPT = `
 <script>
@@ -208,794 +523,785 @@ const PAGE_SCRIPT = `
       setTimeout(function(){ btn.textContent = old; btn.classList.remove('copied'); }, 1400);
     });
   });
-  // Generic data-filter groups
-  document.querySelectorAll('[data-filter-group]').forEach(function(group){
-    var key = group.getAttribute('data-filter-group');
-    group.querySelectorAll('button[data-filter]').forEach(function(b){
-      b.addEventListener('click', function(){
-        group.querySelectorAll('button[data-filter]').forEach(function(x){ x.classList.remove('active'); });
-        b.classList.add('active');
-        var val = b.getAttribute('data-filter');
-        document.querySelectorAll('[data-'+key+']').forEach(function(item){
-          var show = (val === 'all') || item.getAttribute('data-'+key) === val;
-          item.style.display = show ? '' : 'none';
-        });
-      });
+  document.querySelectorAll('[data-tabs]').forEach(function(root){
+    var buttons = root.querySelectorAll('[data-tab]');
+    var panels = root.querySelectorAll('.tab-panel');
+    function activate(id){
+      buttons.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+      panels.forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-panel') === id); });
+    }
+    buttons.forEach(function(b){
+      b.addEventListener('click', function(){ activate(b.getAttribute('data-tab')); });
+    });
+    var hash = (location.hash || '').replace(/^#/, '');
+    if(hash && root.querySelector('[data-panel="'+hash+'"]')) activate(hash);
+    else {
+      var first = buttons[0];
+      if(first) activate(first.getAttribute('data-tab'));
+    }
+    window.addEventListener('hashchange', function(){
+      var h = (location.hash || '').replace(/^#/, '');
+      if(h && root.querySelector('[data-panel="'+h+'"]')) activate(h);
     });
   });
-  // Persist checkboxes + text inputs with data-persist
   document.querySelectorAll('[data-persist]').forEach(function(el){
     var k = 'vma-'+el.getAttribute('data-persist');
     try {
       var saved = localStorage.getItem(k);
-      if(saved !== null){ if(el.type==='checkbox'){ el.checked = saved==='1'; } else { el.value = saved; } }
+      if(saved !== null){
+        if(el.type === 'checkbox') el.checked = saved === '1';
+        else el.value = saved;
+      }
     } catch(e){}
-    el.addEventListener(el.type==='checkbox'?'change':'input', function(){
-      try { localStorage.setItem(k, el.type==='checkbox' ? (el.checked?'1':'0') : el.value); } catch(e){}
+    el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', function(){
+      try {
+        localStorage.setItem(k, el.type === 'checkbox' ? (el.checked ? '1' : '0') : el.value);
+      } catch(e){}
     });
   });
 })();
 </script>`;
 
-// ─── Shared component helpers ────────────────────────────────────────────────
+// ─── Shared helpers ──────────────────────────────────────────────────────────
 
-function statusClass(status) {
-  return 's-' + String(status).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
 function statusBadge(status) {
-  return `<span class="pill ${statusClass(status)}">${esc(status)}</span>`;
+  const raw = String(status ?? '');
+  const cls =
+    's-' +
+    raw
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+  return `<span class="pill ${cls}">${esc(raw)}</span>`;
 }
+
 function copyBlock(text) {
-  return `<span class="copytext">${esc(text)}</span><button class="copy-btn" data-copy="${esc(text)}">Copy</button>`;
-}
-function swatch(hex) {
-  return `<span class="swatch" style="background:${esc(hex)}"></span>`;
+  return `<span class="copytext">${esc(text)}</span><button type="button" class="copy-btn" data-copy="${esc(text)}">Copy</button>`;
 }
 
-/** Mock CSS ad comp — abstract person + benefits, no image generation. */
-function adComp(concept) {
-  const fam = getColorFamily(concept.colorFamilyId) || COLOR_FAMILIES[0];
-  const bullets = (concept.benefits || []).slice(0, 4).map((b) => `<li>${esc(b)}</li>`).join('');
-  const pendingBadge = (concept.claimIds || []).some((id) => {
-    const c = getClaim(id);
-    return c && c.status !== 'Confirmed';
-  });
-  const badge = pendingBadge
-    ? `<span class="ac-badge" style="background:#E10600;color:#fff">Badge pending claim</span>`
-    : '';
-  return `<div class="adcomp" style="background:${esc(fam.background)};color:${esc(fam.headlineColor)}">
-    ${badge}
-    <div>
-      <div class="ac-head">${esc(concept.headline)}</div>
-      <ul class="ac-bullets" style="color:${esc(fam.bulletColor)}">${bullets}</ul>
+function masterCard(master, { size = 'lg' } = {}) {
+  const formats = presentFormatsSummary(master);
+  return `<article class="master-card master-card--${esc(size)}">
+  <div class="master-card__media">
+    <img src="${esc(master.masterImage)}" alt="${esc(master.name)} approved master 1:1" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="master-card__body">
+    <div class="master-card__meta">VMA-${esc(master.number)} · ${esc(master.name)}</div>
+    <h3>${esc(master.headline)}</h3>
+    <p>${esc(master.colorFamily)}</p>
+    <p>${esc(master.languageOrTrust)}</p>
+    <p>Formats: ${esc(formats.availableLabel)}</p>
+    <p>${statusBadge(master.status)}</p>
+    <p>${esc(master.productionNote)}</p>
+    <a class="dl" href="${esc(master.masterImage)}" download>Download 1:1 master</a>
+  </div>
+</article>`;
+}
+
+function mastersGrid(size = 'lg') {
+  return `<div class="masters-grid">${APPROVED_MASTERS.map((m) => masterCard(m, { size })).join('')}</div>`;
+}
+
+function mastersStrip() {
+  return `<div class="thumb-row masters-strip">${APPROVED_MASTERS.map(
+    (m) =>
+      `<a href="${esc(m.masterImage)}" title="VMA-${esc(m.number)} ${esc(m.name)}"><img src="${esc(m.masterImage)}" alt="${esc(m.name)}" loading="lazy" /><span>0${esc(m.number)} · ${esc(m.name)}</span></a>`,
+  ).join('')}</div>`;
+}
+
+function formatRow(master) {
+  const cards = master.formats
+    .map((f) => {
+      if (f.path && f.status === 'Approved') {
+        return `<div class="format-card">
+  <div class="format-card__preview" data-ratio="${esc(f.formatId)}">
+    <img src="${esc(f.path)}" alt="${esc(master.name)} ${esc(f.label)}" loading="lazy" />
+  </div>
+  <div class="format-card__body">
+    <b>${esc(f.label)} · ${esc(f.dims)}</b>
+    <div>${statusBadge('Approved')}</div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">${esc(f.placement)}</div>
+  </div>
+</div>`;
+      }
+      return `<div class="format-card">
+  <div class="format-card__preview" data-ratio="${esc(f.formatId)}">
+    <div class="format-placeholder">
+      <strong>AWAITING DESIGN</strong>
+      ${esc(f.expectedFilename)}<br />${esc(f.dims)}
     </div>
-    <div class="ac-person" style="background:${esc(fam.scrubColor)}"></div>
-    <div class="ac-cta" style="background:${esc(fam.ctaBg)};color:${esc(fam.ctaText)}">${esc(concept.cta)}</div>
-    <div class="ac-note" style="color:${esc(fam.headlineColor)}">Abstract comp · designer builds final</div>
-  </div>`;
-}
-
-/** Claim warning block for a concept. */
-function claimWarnings(concept) {
-  const claims = getClaimsForConcept(concept);
-  const risky = claims.filter((c) => c.status !== 'Confirmed');
-  if (!risky.length) return '';
-  const danger = risky.some((c) => c.status === 'Do Not Use' || c.status === 'Rejected');
-  const lines = risky.map((c) => `${c.label} — ${c.status}`).join(' · ');
-  return `<div class="warn${danger ? ' danger' : ''}">⚠ Claim check: ${esc(lines)}. Do not publish until approved.</div>`;
-}
-
-function beatTimeline(scenes) {
-  return `<div class="timeline">${scenes
-    .map((s) => {
-      if (typeof s === 'string') return `<div class="beat"><b>${esc(s)}</b></div>`;
-      return `<div class="beat"><b>${esc(s.label)}</b><span>${esc(s.seconds || '')}</span></div>`;
+  </div>
+  <div class="format-card__body">
+    <b>${esc(f.label)} · ${esc(f.dims)}</b>
+    <div>${statusBadge('Awaiting Design')}</div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">${esc(f.layoutNote)}</div>
+  </div>
+</div>`;
     })
-    .join('')}</div>`;
+    .join('');
+  return `<div class="format-row">${cards}</div>`;
 }
 
-// ─── Page shell ──────────────────────────────────────────────────────────────
-
-function page({ activeId, title, pageTitle, pageSubtitle, showRule = false, body }) {
+function page({ activeId, title, pageTitle, pageSubtitle, body }) {
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${esc(title)} · MedVirtual</title>
-  <style>${PAGE_CSS}</style>
+  <style>${HEADER_CSS}${PAGE_CSS}</style>
 </head>
 <body>
   ${renderDocHeader({ activeId, pageTitle, pageSubtitle })}
   <main>
     <div class="banner"><strong>${esc(VMA_META.banner)}</strong><span class="sub">${esc(VMA_META.bannerSub)}</span></div>
-    ${showRule ? `<div class="rule-100"><strong>${esc(VMA_META.hundredDollarRule)}</strong></div>` : ''}
     ${body}
-    <p class="foot">MedVirtual Ad Production · Virtual Medical Admin · Reviewed ${esc(VMA_META.reviewDateDisplay)} · Approved creative colors only (no pink) · Ad-facing brand: MedVirtual.</p>
+    <p class="foot">MedVirtual Ad Production · Virtual Medical Admin · Reviewed ${esc(VMA_META.reviewDateDisplay)} · No pink · Ad-facing brand: MedVirtual.</p>
   </main>
   ${PAGE_SCRIPT}
 </body>
 </html>`;
 }
 
-// ─── 1. Dashboard (studio.html) ──────────────────────────────────────────────
+function renderRedirect(to) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0;url=${esc(to)}" />
+  <link rel="canonical" href="${esc(to)}" />
+  <title>Redirecting…</title>
+</head>
+<body>
+  <p>Moved to <a href="${esc(to)}">${esc(to)}</a>.</p>
+</body>
+</html>`;
+}
+
+// ─── 1. Dashboard ────────────────────────────────────────────────────────────
 
 function renderDashboard() {
-  const pendingClaims = CLAIMS.filter((c) => c.status !== 'Confirmed' && c.status !== 'Approved for Launch');
-  const queuedCount = PRODUCTION_QUEUE.filter((q) => q.status === 'Queued').length;
-  const onHoldCount = PRODUCTION_QUEUE.filter((q) => q.status === 'On Hold').length;
-
-  const metrics = ['Spend', 'Leads', 'Cost / Lead', 'Best Color', 'Best Concept', 'Ads at $100 no-lead']
-    .map(
-      (m, i) => `<div class="metric"><label>${esc(m)}</label><input type="text" data-persist="metric-${i}" placeholder="—" /></div>`,
-    )
-    .join('');
-
-  const tiles = [
-    ['Current Direction', '/direct-response.html', 'Bold Virtual Medical Admin ads + animated video.'],
-    ['Static Ad Concepts', '/vma-static.html', '24 concepts + 6 color tests.'],
-    ['Animated Video', '/vma-video.html', '15 video concepts, scene timelines.'],
-    ['ChatGPT Prompts', '/vma-chatgpt.html', 'Generate full ad plates (no baked text).'],
-    ['Production Queue', '/vma-queue.html', '24 static + video build items.'],
-    ['Claims Tracker', '/vma-claims.html', 'Price / HIPAA approval status.'],
-    ['Campaign Tests', '/vma-campaign.html', 'Ad sets + $100 rule.'],
-    ['Competitor Wall', '/competitors.html', 'External benchmarks (research only).'],
-  ]
-    .map(
-      ([t, href, d]) =>
-        `<a class="card" href="${href}"><span class="eyebrow">Open</span><h3>${esc(t)}</h3><p>${esc(d)}</p></a>`,
-    )
-    .join('');
-
-  const claimRows = pendingClaims
-    .map((c) => `<tr><td class="ref">${esc(c.label)}</td><td>${statusBadge(c.status)}</td><td>${esc(c.notes)}</td></tr>`)
-    .join('');
-
   const body = `
     <div class="hero">
-      <h1>Production Dashboard</h1>
-      <p>Control center for the Virtual Medical Admin Meta system — bold human-led static ads and short animated video. Generate the parts here; designers assemble the finals.</p>
+      <h1>Simple overview</h1>
+      <p>The four Virtual Medical Admin square ads are already approved. They were created with ChatGPT and then polished. <b>Graphics team job now = change aspect ratios only.</b> Video is later.</p>
     </div>
-
+    <div class="job-box">
+      <h2>Start here</h2>
+      <p><a class="dl" href="/vma-handoff.html">Open the Graphics Job page →</a></p>
+      <p class="note" style="margin-top:0.6rem">That page has the 4 masters, the 4 sizes, build order, and Do / Don’t list.</p>
+    </div>
     <section>
-      <h2>Live metrics <span class="pill badge-status">manual</span></h2>
-      <p class="lede">Type in the latest numbers from Ads Manager. Saved to this browser only.</p>
-      <div class="metricgrid">${metrics}</div>
+      <h2>The 4 approved masters</h2>
+      ${mastersStrip()}
     </section>
-
     <section>
-      <h2>Queue summary</h2>
-      <div class="grid">
-        <div class="card"><span class="eyebrow">Queued</span><h3>${queuedCount} items</h3><p>Ready to produce.</p></div>
-        <div class="card"><span class="eyebrow">On hold</span><h3>${onHoldCount} items</h3><p>Blocked on claim / offer approval.</p></div>
-        <div class="card"><span class="eyebrow">Concepts</span><h3>${CONCEPTS.length} static · ${VIDEO_CONCEPTS.length} video</h3><p>Plus ${COLOR_TEST_SET.length} color tests.</p></div>
+      <h2>Other pages (optional)</h2>
+      <div class="quick-links">
+        <a href="/vma-static.html">Size checklist</a>
+        <a href="/direct-response.html">Rules (no pink)</a>
+        <a href="/asset-hub.html">Logo &amp; assets</a>
+        <a href="/vma-video.html">Video (later)</a>
       </div>
-    </section>
+    </section>`;
 
-    <section>
-      <h2>Claims pending approval</h2>
-      <p class="lede">These may not appear on any published ad until approved.</p>
-      <table><thead><tr><th>Claim</th><th>Status</th><th>Notes</th></tr></thead><tbody>${claimRows}</tbody></table>
-    </section>
-
-    <section>
-      <h2>Jump in</h2>
-      <div class="grid">${tiles}</div>
-    </section>
-  `;
   return page({
     activeId: 'studio',
-    title: 'Dashboard',
-    pageTitle: 'Dashboard',
-    pageSubtitle: 'Production control center — metrics, queue, and claims at a glance.',
-    showRule: true,
+    title: 'Overview',
+    pageTitle: 'Overview',
+    pageSubtitle: 'Resize job now · video later.',
     body,
   });
 }
 
-// ─── 2. Current Direction (direct-response.html) ─────────────────────────────
+// ─── 2. Rules (was Approved Creative Direction) ──────────────────────────────
 
 function renderDirection() {
-  const rules = VMA_META.rules.map((r) => `<li>${esc(r)}</li>`).join('');
-  const colorCards = COLOR_FAMILIES.map(
-    (f) => `<div class="card">
-      <span class="eyebrow">${swatch(f.accent)} ${esc(f.name)}</span>
-      <p><b>Plate</b> ${swatch(f.background)}${esc(f.background)} · <b>Accent</b> ${swatch(f.accent)}${esc(f.accent)}</p>
-      <p>${esc(f.contrastStrategy)}</p>
-      <p style="color:#fca5a5">${esc(f.forbiddenNote)}</p>
-    </div>`,
-  ).join('');
-  const testComps = COLOR_TEST_SET.map(
-    (c) => `<div class="card"><span class="eyebrow">${esc(c.number)} · ${esc(getColorFamily(c.colorFamilyId).name)}</span>${adComp(c)}</div>`,
-  ).join('');
+  const grounding = COLOR_DIRECTION.grounding.map((g) => `<span class="swatch-chip">${esc(g)}</span>`).join('');
+  const accents = COLOR_DIRECTION.accents.map((a) => `<span class="swatch-chip">${esc(a)}</span>`).join('');
+  const forbidden = COLOR_DIRECTION.forbidden.map((f) => `<span class="swatch-chip">${esc(f)}</span>`).join('');
+  const rules = [
+    ...COLOR_DIRECTION.rules,
+    'Keep MedVirtual as the brand name — never MedVirtual.ai.',
+    'Keep $10 / Spanish / HIPAA exactly as shown on each approved master. Do not invent new claims.',
+  ]
+    .map((r) => `<li>${esc(r)}</li>`)
+    .join('');
 
   const body = `
     <div class="hero">
-      <h1>${esc(VMA_META.coreHeadline)}</h1>
-      <p>Human-led, offer-first, mobile-readable static ads plus short animated video. One dominant headline, 3–4 benefit checks, a credible virtual medical admin, and one clear CTA — understood in about one second.</p>
+      <h1>Rules for this job</h1>
+      <p>Short checklist only. For the actual assignment, use the <a href="/vma-handoff.html">Graphics Job</a> page.</p>
     </div>
-
     <section>
-      <h2>Non-negotiable rules</h2>
+      <h2>Approved masters (already done)</h2>
+      ${mastersStrip()}
+      <p class="note">Do not redesign from scratch. Match these.</p>
+    </section>
+    <section>
+      <h2>Color</h2>
+      <p class="lede">${esc(COLOR_DIRECTION.summary)}</p>
+      <p style="margin:0.75rem 0 0.25rem;font-size:0.8rem;font-weight:700;color:#4A6275">OK grounding</p>
+      <div class="swatch-row">${grounding}</div>
+      <p style="margin:0.75rem 0 0.25rem;font-size:0.8rem;font-weight:700;color:#4A6275">OK accents</p>
+      <div class="swatch-row">${accents}</div>
+      <p style="margin:0.75rem 0 0.25rem;font-size:0.8rem;font-weight:700;color:#4A6275">Never</p>
+      <div class="swatch-row">${forbidden}</div>
       <ul class="clean">${rules}</ul>
     </section>
-
     <section>
-      <h2>First color test</h2>
-      <p class="lede">Six identical ads — same headline, benefits, offer, talent, and CTA. Color is the only variable (VMA-C01..C06). These are abstract comps; designers build the finals.</p>
-      <div class="grid">${testComps}</div>
-    </section>
+      <h2>Sizes needed</h2>
+      <p><span class="chip">1080×1080</span><span class="chip">1080×1350</span><span class="chip">1080×1920</span><span class="chip">1200×628</span></p>
+      <p class="note"><a href="/vma-handoff.html">Back to Graphics Job</a></p>
+    </section>`;
 
-    <section>
-      <h2>Approved color families (no pink)</h2>
-      <div class="grid">${colorCards}</div>
-    </section>
-  `;
   return page({
     activeId: 'vma-direction',
-    title: 'Current Direction',
-    pageTitle: 'Current Direction',
-    pageSubtitle: 'Bold Virtual Medical Admin ads + animated video — the current Meta system.',
-    showRule: true,
+    title: 'Rules',
+    pageTitle: 'Rules',
+    pageSubtitle: 'No pink · MedVirtual only · keep master claims.',
     body,
   });
 }
 
-// ─── 3. Competitor Wall (competitors.html) ───────────────────────────────────
+// ─── 3. Competitors ──────────────────────────────────────────────────────────
+
+function competitorCard(ad, { featured = false } = {}) {
+  const incomplete = !ad.image;
+  const pink = PINK_REFERENCE_COMPETITOR_IDS.has(ad.id);
+  const media = ad.image
+    ? `<img src="${esc(ad.image)}" alt="${esc(ad.name)} ad reference" loading="lazy" />`
+    : `<div class="format-placeholder"><strong>Image Needed</strong>${statusBadge('Image Needed')}</div>`;
+
+  return `<article class="comp-card${incomplete ? ' incomplete' : ''}${featured ? ' featured' : ''}">
+  <div class="comp-card__media">${media}</div>
+  <div class="comp-card__body">
+    ${pink ? `<span class="pink-ref">Reference only — do not use pink.</span>` : ''}
+    <h3>${esc(ad.name)}</h3>
+    <p class="why">${esc(ad.whyWatch)}</p>
+    <p class="mini"><b>Offer</b> ${esc(ad.fingerprint?.hookStyle || '—')}</p>
+    <p class="mini"><a href="${esc(adLibraryUrl(ad.adLibraryQuery))}" target="_blank" rel="noopener">Ad Library source</a></p>
+    <p class="mini"><b>What works</b> ${esc(ad.steal)}</p>
+    <p class="mini"><b>Learn</b> ${esc(ad.remix)}</p>
+    <p class="mini"><b>Not to copy</b> ${esc(ad.reject)}</p>
+  </div>
+</article>`;
+}
 
 function renderCompetitors() {
-  const cards = COMPETITOR_RESEARCH_SEED.map((r) => {
-    const fields = [
-      ['Website', r.website],
-      ['Facebook Page', r.facebookPage],
-      ['Meta Ad Library', r.metaAdLibraryUrl],
-      ['Creative format', r.creativeFormat],
-      ['Language', r.language],
-      ['Headline', r.headline],
-      ['Offer', r.offer],
-      ['Price shown', r.priceShown],
-      ['Trust claim', r.trustClaim],
-      ['CTA', r.cta],
-      ['Talent / wardrobe', `${r.talentShown} / ${r.wardrobe}`],
-      ['Colors', `${r.backgroundColor} / ${r.accentColor}`],
-      ['Spanish / flag', `${r.spanishTreatment} / ${r.flagTreatment}`],
-      ['Form type / friction', `${r.formType} / ${r.formFriction}`],
-      ['Required fields', r.requiredFields],
-      ['SMS verify / work email', `${r.smsVerification} / ${r.workEmailRequirement}`],
-      ['Strengths', r.strengths],
-      ['Weaknesses', r.weaknesses],
-      ['What to adapt', r.whatAdapt],
-      ['What NOT to copy', r.whatNotCopy],
-      ['Originality risk', r.originalityRisk],
-    ]
-      .map(([k, v]) => `<li><b>${esc(k)}:</b> ${esc(v)}</li>`)
-      .join('');
-    return `<div class="card">
-      <span class="eyebrow">External reference</span>
-      <h3>${esc(r.company)} ${statusBadge(r.reviewStatus)}</h3>
-      <div class="warn">${esc(r.notes)}</div>
-      <ul class="clean">${fields}</ul>
-    </div>`;
-  }).join('');
+  const byId = Object.fromEntries(COMPETITOR_ADS.map((a) => [a.id, a]));
+  const featuredRaw = FEATURED_COMPETITOR_IDS.map((id) => byId[id]).filter(Boolean);
+  const featured = [...featuredRaw]
+    .sort((a, b) => Number(Boolean(b.image)) - Number(Boolean(a.image)))
+    .slice(0, 8);
+  const featuredSet = new Set(featured.map((a) => a.id));
+  const rest = COMPETITOR_ADS.filter((a) => !featuredSet.has(a.id));
 
   const body = `
     <div class="hero">
-      <h1>Competitor Wall</h1>
-      <p>External Meta benchmarks — <b>research only</b>. Every card is an outside company we do not represent. Capture structure and friction lessons; never reuse their names, logos, palettes (especially pink), copy, or unverified claims.</p>
+      <h1>Competitor references (optional)</h1>
+      <p><b>Not required for the resize job.</b> Look only if you want hierarchy ideas. Do not copy layouts, colors, badges, or pink designs.</p>
     </div>
-    <div class="warn danger">These are EXTERNAL references. Do not copy competitor creative, claims, or brand assets. Fill in fields marked "Research needed" from the public Meta Ad Library before relying on them.</div>
-    <section><div class="grid-2">${cards}</div></section>
-  `;
+    <p class="note">External references only — steal structure ideas, invent original MedVirtual executions. Never pink.</p>
+    <section>
+      <h2>Most Relevant References</h2>
+      <p class="note">Use these references for hierarchy, offer clarity, and mobile readability. Do not copy exact layouts, colors, badges, or typography.</p>
+      <div class="comp-grid">${featured.map((a) => competitorCard(a, { featured: true })).join('')}</div>
+    </section>
+    <section>
+      <h2>All references</h2>
+      <div class="comp-grid">${rest.map((a) => competitorCard(a)).join('')}</div>
+    </section>`;
+
   return page({
     activeId: 'competitors',
     title: 'Competitor Wall',
     pageTitle: 'Competitor Wall',
-    pageSubtitle: 'External Meta benchmarks — research only, never copy.',
+    pageSubtitle: 'Image-first external references.',
     body,
   });
 }
 
-// ─── 4. Static Ad Concepts (vma-static.html) ─────────────────────────────────
+// ─── 4. Static Ads ───────────────────────────────────────────────────────────
 
 function renderStatic() {
-  const groups = [...new Set(CONCEPTS.map((c) => c.groupLabel))];
-  const groupFilters = ['all', ...groups]
-    .map((g, i) => `<button data-filter="${g === 'all' ? 'all' : esc(g)}" class="${i === 0 ? 'active' : ''}">${g === 'all' ? 'All' : esc(g)}</button>`)
-    .join('');
-  const langFilters = ['all', 'en', 'es', 'bilingual']
-    .map((l, i) => `<button data-filter="${l}" class="${i === 0 ? 'active' : ''}">${l === 'all' ? 'All languages' : esc(l)}</button>`)
-    .join('');
-
-  const cards = CONCEPTS.map((c) => {
-    const fam = getColorFamily(c.colorFamilyId);
-    return `<div class="card" data-group="${esc(c.groupLabel)}" data-lang="${esc(c.language)}">
-      <span class="eyebrow">${esc(c.number)} · ${esc(c.groupLabel)} · ${esc(fam.name)}</span>
-      <h3>${esc(c.name)}</h3>
-      ${adComp(c)}
-      <p><b>Audience:</b> ${esc(c.audience)}</p>
-      <p><b>Supporting:</b> ${esc(c.supportingLine)}</p>
-      <p><b>Talent:</b> ${esc(c.talentDirection)}</p>
-      <p><b>Offer:</b> ${esc(c.offer)}</p>
-      <p><b>Formats:</b> ${c.staticFormats.map((f) => `<span class="chip">${esc(f)}</span>`).join('')} · <b>Video:</b> <span class="chip">${esc(c.videoDuration)} ${esc(c.animationTemplate)}</span></p>
-      <p><b>Form:</b> ${esc(c.formId)} · <b>Status:</b> ${statusBadge(c.productionStatus)}</p>
-      ${claimWarnings(c)}
-      ${copyBlock(`${c.headline}\n${c.supportingLine}\n• ${c.benefits.join('\n• ')}\nCTA: ${c.cta}`)}
-    </div>`;
-  }).join('');
+  const masterBlocks = APPROVED_MASTERS.map(
+    (m) => `<div style="margin-top:1.25rem">
+  <h3>Concept ${esc(m.number)} · ${esc(m.name)}</h3>
+  <p class="lede"><a href="${esc(m.masterImage)}" target="_blank" rel="noopener">Open approved master</a> · ${esc(m.colorFamily)}</p>
+  ${formatRow(m)}
+</div>`,
+  ).join('');
 
   const body = `
     <div class="hero">
-      <h1>Static Ad Concepts</h1>
-      <p>${CONCEPTS.length} Virtual Medical Admin static concepts across Core, Pain, Role, Spanish, and Offer groups. Each comp below is abstract — designers build the final ad from the approved headline, benefits, and color family.</p>
+      <h1>Size checklist</h1>
+      <p>This page only shows which sizes exist. <b>Yellow = still need to design.</b> Do not invent new concepts here.</p>
+    </div>
+    <div class="job-box">
+      <p><b>Current job:</b> rebuild each approved master into 1080×1350, 1080×1920, and 1200×628 (then confirm 1080×1080).</p>
+      <p class="note"><a href="/vma-handoff.html">Full Graphics Job instructions →</a></p>
     </div>
     <section>
-      <div class="filters" data-filter-group="group"><span class="chip">Group</span>${groupFilters}</div>
-      <div class="filters" data-filter-group="lang"><span class="chip">Language</span>${langFilters}</div>
-      <div class="grid-2" style="margin-top:1rem">${cards}</div>
+      ${masterBlocks}
     </section>
-  `;
+    <details class="block">
+      <summary>Ignore for now — old concept bank (not this request)</summary>
+      <p class="note">These are future test ideas only. They are <b>not</b> the current graphics job.</p>
+    </details>`;
+
   return page({
     activeId: 'vma-static',
-    title: 'Static Ad Concepts',
-    pageTitle: 'Static Ad Concepts',
-    pageSubtitle: `${CONCEPTS.length} concepts + ${COLOR_TEST_SET.length} color tests — filter by group and language.`,
+    title: 'Size Checklist',
+    pageTitle: 'Size Checklist',
+    pageSubtitle: '4 masters × 4 Meta sizes.',
     body,
   });
 }
 
-// ─── 5. Animated Video Concepts (vma-video.html) ─────────────────────────────
+// ─── 5. Video ────────────────────────────────────────────────────────────────
 
 function renderVideo() {
-  const tmpl = VIDEO_SCENES_15S;
-  const structure = tmpl.structure
-    .map((s) => `<div class="beat"><b>${esc(s.label)}</b><span>${esc(s.seconds)}</span><span>${esc(s.purpose)}</span></div>`)
-    .join('');
+  const outputs = APPROVED_MASTERS.map(
+    (m) => `<div class="soft-card">
+  <h3>VMA-${esc(m.number)} · ${esc(m.name)}</h3>
+  <div class="thumb-row"><a href="${esc(m.masterImage)}"><img src="${esc(m.masterImage)}" alt="" loading="lazy" /></a></div>
+  <ul class="clean">${VIDEO_OUTPUTS_PER_MASTER.map((o) => `<li><b>${esc(o.label)}</b> — ${esc(o.purpose)}</li>`).join('')}</ul>
+</div>`,
+  ).join('');
 
-  const cards = VIDEO_CONCEPTS.map((v) => {
-    const fam = getColorFamily(v.colorFamilyId);
-    return `<div class="card">
-      <span class="eyebrow">${esc(v.number)} · ${esc(fam.name)} · ${esc(v.duration)}</span>
-      <h3>${esc(v.name)}</h3>
-      <p><b>Headline:</b> ${esc(v.headline)}</p>
-      <p><b>Remotion:</b> <span class="chip">${esc(v.remotionComposition)}</span> · <b>CapCut:</b> <span class="chip">${esc(v.capcutTemplate)}</span></p>
-      <p><b>Aspect ratios:</b> ${v.aspectRatios.map((a) => `<span class="chip">${esc(a)}</span>`).join('')}</p>
-      ${v.mirrorsConcept ? `<p><b>Mirrors static:</b> ${esc(v.mirrorsConcept)}</p>` : ''}
-      <p><b>Status:</b> ${statusBadge(v.productionStatus)}</p>
-      ${beatTimeline(v.scenes)}
-    </div>`;
-  }).join('');
+  const story = VIDEO_STORYBOARD.map(
+    (s) => `<div class="beat"><b>${esc(s.scene)}</b><span>${esc(s.timing)}</span><div>${esc(s.note)}</div></div>`,
+  ).join('');
+
+  const sceneHint = (VIDEO_SCENES_15S?.structure || [])
+    .map((x) => x.label)
+    .filter(Boolean)
+    .join(' → ');
+
+  const remotionComps = REMOTION_COMPOSITIONS.map(
+    (c) => `<div class="soft-card">
+  <h3>${esc(c.name)}</h3>
+  <p>${esc(c.duration)} · ${esc(c.frames)}f @ ${esc(c.fps)}fps</p>
+  <p>${esc(c.purpose)}</p>
+  <p>${(c.uses || []).map((u) => `<span class="chip">${esc(u)}</span>`).join('')}</p>
+</div>`,
+  ).join('');
+
+  const remotionInputs = REMOTION_COMPONENTS.map(
+    (c) => `<div class="soft-card"><h3>${esc(c.name)}</h3><p>${esc(c.purpose)}</p><p><span class="chip">${esc(c.props)}</span></p></div>`,
+  ).join('');
+
+  const playbook = (REMOTION_PLAYBOOK.steps || []).map((s) => `<li>${esc(s)}</li>`).join('');
+
+  const capcut = CAPCUT_TEMPLATES.map(
+    (t) => `<div class="soft-card">
+  <h3>${esc(t.name)}</h3>
+  <p>${esc(t.duration)} · ${(t.aspectRatios || []).join(', ')}</p>
+  <p>${esc(t.exportSpec)}</p>
+  <p>${esc(t.colorNote)}</p>
+</div>`,
+  ).join('');
+
+  const prompts = VIDEO_PROMPTS.map(
+    (p) => `<div class="soft-card">
+  <h3>${esc(p.id)} · ${esc(p.title)}</h3>
+  <p>${esc(p.duration)} · ${esc(p.colorFamily)}</p>
+  ${copyBlock(p.prompt)}
+</div>`,
+  ).join('');
 
   const body = `
     <div class="hero">
-      <h1>Animated Video Concepts</h1>
-      <p>${VIDEO_CONCEPTS.length} short animated Virtual Medical Admin spots mirroring the static roles and color tests. Built in Remotion (code) or CapCut (no-code). Captions burned in; no pink; no unapproved badges.</p>
+      <h1>Video — later</h1>
+      <p><b>Not part of the current graphics request.</b> Finish the 16 static PNGs first. Come back here when we animate the approved masters.</p>
     </div>
-
+    <div class="job-box">
+      <p>Current job = static sizes only → <a href="/vma-handoff.html">Graphics Job</a></p>
+    </div>
     <section>
-      <h2>Standard 15s scene template</h2>
-      <p class="lede">${esc(tmpl.fps)}fps · ${esc(tmpl.totalFrames)} frames · ${tmpl.aspectRatios.join(' / ')}. ${esc(tmpl.safeZones)}</p>
-      <div class="timeline">${structure}</div>
+      <h2>When video starts, use these masters</h2>
+      ${mastersStrip()}
     </section>
-
     <section>
-      <h2>Video concepts</h2>
-      <div class="grid-2">${cards}</div>
+      <h2>Planned outputs per master (future)</h2>
+      <div class="queue-grid">${outputs}</div>
     </section>
-  `;
+    <section>
+      <h2>Storyboard (15s)</h2>
+      <div class="storyboard">${story}</div>
+      ${sceneHint ? `<p class="lede">Reference beat string: ${esc(sceneHint)}</p>` : ''}
+    </section>
+    <section data-tabs>
+      <h2>Production Paths</h2>
+      <div class="tabs">
+        <button type="button" class="active" data-tab="overview">Overview</button>
+        <button type="button" data-tab="remotion">Remotion</button>
+        <button type="button" data-tab="capcut">CapCut</button>
+        <button type="button" data-tab="prompts">Prompt Pack</button>
+      </div>
+      <div class="tab-panels">
+        <div class="tab-panel active" data-panel="overview" id="overview">
+          <p class="lede">Animate the approved hierarchy: hook → role clarity → benefits → offer/CTA. Prefer 6s / 10s / 15s from each master after static QA.</p>
+          <ul class="clean">${(REMOTION_PLAYBOOK.rules || []).map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
+        </div>
+        <div class="tab-panel" data-panel="remotion" id="remotion">
+          <p class="lede">${esc(REMOTION_PLAYBOOK.studioCmd)} · ${esc(REMOTION_PLAYBOOK.entryFile)}</p>
+          <ul class="clean">${playbook}</ul>
+          <h3 style="margin-top:1rem">Compositions</h3>
+          <div class="queue-grid">${remotionComps}</div>
+          <details class="block"><summary>Component inputs</summary>
+            <div class="queue-grid">${remotionInputs}</div>
+          </details>
+        </div>
+        <div class="tab-panel" data-panel="capcut" id="capcut">
+          <div class="queue-grid">${capcut}</div>
+        </div>
+        <div class="tab-panel" data-panel="prompts" id="prompts">
+          <div class="prompt-grid">${prompts}</div>
+        </div>
+      </div>
+    </section>`;
+
   return page({
     activeId: 'vma-video',
-    title: 'Animated Video Concepts',
-    pageTitle: 'Animated Video Concepts',
-    pageSubtitle: 'Short animated spots — scene timelines, Remotion + CapCut.',
+    title: 'Animated Video',
+    pageTitle: 'Animated Video',
+    pageSubtitle: 'Motion from the four approved masters.',
     body,
   });
 }
 
-// ─── 6. ChatGPT Image Prompts (vma-chatgpt.html) ─────────────────────────────
+// ─── 6. Prompts & Copy ───────────────────────────────────────────────────────
+
+function renderCopyPack(packs, langLabel) {
+  return packs
+    .map((pack) => {
+      const sections = [
+        ['Primary texts', pack.primaryTexts],
+        ['Headlines', pack.headlines],
+        ['Descriptions', pack.descriptions],
+        ['CTAs', pack.ctas],
+      ]
+        .filter(([, lines]) => Array.isArray(lines) && lines.length)
+        .map(
+          ([title, lines]) => `<details class="block"><summary>${esc(title)} (${lines.length})</summary>
+  ${lines.map((line) => `<div style="margin:0.45rem 0">${copyBlock(line)}</div>`).join('')}
+</details>`,
+        )
+        .join('');
+      return `<div class="soft-card" style="grid-column:1/-1">
+  <h3>${esc(pack.name)} · ${esc(langLabel)}</h3>
+  <p>Matching form: ${esc(pack.matchingForm || '—')}</p>
+  ${sections}
+</div>`;
+    })
+    .join('');
+}
 
 function renderChatgpt() {
-  const risks = VMA_META.chatgptRisks.map((r) => `<li>${esc(r)}</li>`).join('');
-  const steps = CHATGPT_WORKFLOW.map(
-    (s) => `<div class="card"><span class="eyebrow">Step ${s.step}</span><h3>${esc(s.title)}</h3><p>${esc(s.instruction)}</p></div>`,
-  ).join('');
-  const prompts = CHATGPT_PROMPTS.map(
-    (p) => `<div class="card">
-      <span class="eyebrow">${esc(p.id)} · ${esc(p.conceptNumber)} · ${esc(p.colorFamily)}</span>
-      <h3>${esc(p.title)}</h3>
-      ${copyBlock(p.prompt)}
-      <p style="margin-top:0.6rem"><b>Overlay in design tools (never AI text):</b></p>
-      <ul class="clean"><li>Headline: ${esc(p.overlayLater.headline)}</li><li>Benefits: ${esc(p.overlayLater.benefits.join(', '))}</li><li>CTA: ${esc(p.overlayLater.cta)}</li><li>${esc(p.overlayLater.logo)}</li></ul>
-    </div>`,
-  ).join('');
+  const workflowSteps = [
+    { step: 1, title: 'Upload master', instruction: 'Upload one approved 1:1 master as the baseline.' },
+    { step: 2, title: 'Analyze', instruction: 'Describe hierarchy and colors — do not invent claims.' },
+    { step: 3, title: 'Variation (only if asked)', instruction: 'Keep clarity; never pink; never copy competitors.' },
+    { step: 4, title: 'Confirm copy', instruction: 'Use approved EN/ES lines before any new design.' },
+    { step: 5, title: 'Brief designer', instruction: 'Hand off master + ratios. Rebuild for each canvas.' },
+    { step: 6, title: 'QA', instruction: 'Spelling, MedVirtual brand, dimensions.' },
+  ];
 
-  const body = `
-    <div class="hero">
-      <h1>ChatGPT Image Prompts</h1>
-      <p>Generate full-image ad plates with ChatGPT, then overlay approved copy yourself. ${CHATGPT_PROMPTS.length} production prompts for static concepts. AI makes the plate — the designer makes the ad.</p>
-    </div>
+  const workflow = workflowSteps
+    .map(
+      (s) => `<div class="soft-card"><div class="master-card__meta">Step ${s.step}</div><h3>${esc(s.title)}</h3><p>${esc(s.instruction)}</p></div>`,
+    )
+    .join('');
 
-    <div class="warn danger"><b>Known AI risks:</b><ul class="clean" style="color:inherit">${risks}</ul></div>
-
-    <section>
-      <h2>Workflow</h2>
-      <div class="grid">${steps}</div>
-    </section>
-
-    <section>
-      <h2>Production prompts</h2>
-      <div class="grid-2">${prompts}</div>
-    </section>
-  `;
-  return page({
-    activeId: 'vma-chatgpt',
-    title: 'ChatGPT Image Prompts',
-    pageTitle: 'ChatGPT Image Prompts',
-    pageSubtitle: 'Generate ad plates — overlay approved copy in design tools.',
-    body,
-  });
-}
-
-// ─── 7. Remotion Playbook (vma-remotion.html) ────────────────────────────────
-
-function renderRemotion() {
-  const pb = REMOTION_PLAYBOOK;
-  const steps = pb.steps.map((s) => `<li>${esc(s)}</li>`).join('');
-  const rules = pb.rules.map((s) => `<li>${esc(s)}</li>`).join('');
-  const comps = REMOTION_COMPONENTS.map(
-    (c) => `<div class="card"><span class="eyebrow">${esc(c.name)}</span><p>${esc(c.purpose)}</p><p><b>Props:</b> <code>${esc(c.props)}</code></p></div>`,
-  ).join('');
-  const rows = REMOTION_COMPOSITIONS.map(
-    (c) => `<tr><td class="ref">${esc(c.name)}</td><td>${esc(c.duration)} · ${esc(c.frames)}f</td><td>${esc(c.purpose)}</td><td>${c.uses.map((u) => `<span class="chip">${esc(u)}</span>`).join('')}</td></tr>`,
+  const imagePrompts = CHATGPT_PROMPTS.map(
+    (p) => `<div class="soft-card">
+  <h3>${esc(p.id)} · ${esc(p.title)}</h3>
+  <p>${esc(p.conceptNumber)} · ${esc(p.colorFamily)}</p>
+  ${copyBlock(p.prompt)}
+</div>`,
   ).join('');
 
   const videoPrompts = VIDEO_PROMPTS.map(
-    (p) => `<div class="card"><span class="eyebrow">${esc(p.id)} · ${esc(p.videoNumber)} · ${esc(p.duration)} · ${esc(p.remotionComposition)}</span><h3>${esc(p.title)}</h3>${copyBlock(p.prompt)}</div>`,
+    (p) => `<div class="soft-card">
+  <h3>${esc(p.id)} · ${esc(p.title)}</h3>
+  <p>${esc(p.duration)}</p>
+  ${copyBlock(p.prompt)}
+</div>`,
   ).join('');
 
   const body = `
     <div class="hero">
-      <h1>Remotion Playbook</h1>
-      <p>Code-driven animated compositions for Virtual Medical Admin spots. Entry file <code>${esc(pb.entryFile)}</code>. The <code>&lt;ColorPlate /&gt;</code> component enforces the approved palette — no pink can render.</p>
+      <h1>ChatGPT notes</h1>
+      <p><b>You do not need to remake the ads in ChatGPT for this request.</b> The four square masters are already approved. This page is background for how they were created, plus copy banks for later.</p>
     </div>
-
+    <div class="job-box">
+      <p>Current job = resize the approved masters → <a href="/vma-handoff.html">Graphics Job</a></p>
+    </div>
+    <details class="block">
+      <summary>Reference only — prompts &amp; copy banks</summary>
     <section>
-      <h2>How to render</h2>
-      <p class="lede">Studio: <code>${esc(pb.studioCmd)}</code> · Render: <code>${esc(pb.renderPattern)}</code></p>
-      <ol class="clean">${steps}</ol>
-      <div class="warn"><b>Guardrails:</b><ul class="clean" style="color:inherit">${rules}</ul></div>
+      <h2>If leadership asks for a new ChatGPT plate later</h2>
+      <div class="queue-grid">${workflow}</div>
     </section>
+    <section data-tabs>
+      <div class="tabs">
+        <button type="button" class="active" data-tab="images">Image prompts</button>
+        <button type="button" data-tab="video">Video prompts</button>
+        <button type="button" data-tab="english">English copy</button>
+        <button type="button" data-tab="spanish">Spanish copy</button>
+        <button type="button" data-tab="builder">Copy builder</button>
+      </div>
+      <div class="tab-panels">
+        <div class="tab-panel active" data-panel="images" id="images">
+          <div class="prompt-grid">${imagePrompts}</div>
+        </div>
+        <div class="tab-panel" data-panel="video" id="video">
+          <div class="prompt-grid">${videoPrompts}</div>
+        </div>
+        <div class="tab-panel" data-panel="english" id="english">
+          <div class="copy-grid">${renderCopyPack(COPY_EN, 'EN')}</div>
+        </div>
+        <div class="tab-panel" data-panel="spanish" id="spanish">
+          <div class="copy-grid">${renderCopyPack(COPY_ES, 'ES')}</div>
+        </div>
+        <div class="tab-panel" data-panel="builder" id="builder">
+          <div class="soft-card">
+            <h3>Simple Copy Builder</h3>
+            <p>Pick one primary text, one headline, and one description. Pair with Learn More. Keep claims already on the approved masters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </details>`;
 
-    <section>
-      <h2>Components</h2>
-      <div class="grid">${comps}</div>
-    </section>
-
-    <section>
-      <h2>Compositions (${REMOTION_COMPOSITIONS.length})</h2>
-      <table><thead><tr><th>Composition</th><th>Length</th><th>Purpose</th><th>Uses</th></tr></thead><tbody>${rows}</tbody></table>
-    </section>
-
-    <section>
-      <h2>Video prompts</h2>
-      <div class="grid-2">${videoPrompts}</div>
-    </section>
-  `;
   return page({
-    activeId: 'vma-remotion',
-    title: 'Remotion Playbook',
-    pageTitle: 'Remotion Playbook',
-    pageSubtitle: 'Code-driven compositions + video prompts.',
+    activeId: 'vma-chatgpt',
+    title: 'ChatGPT Notes',
+    pageTitle: 'ChatGPT Notes',
+    pageSubtitle: 'Background only — not the current resize job.',
     body,
   });
 }
 
-// ─── 8. CapCut Templates (vma-capcut.html) ───────────────────────────────────
+// ─── 7. Production Handoff ───────────────────────────────────────────────────
 
-function renderCapcut() {
-  const cards = CAPCUT_TEMPLATES.map((t) => {
-    const layers = t.textLayers.map((l) => `<li>${esc(l)}</li>`).join('');
-    const rules = t.rules.map((l) => `<li>${esc(l)}</li>`).join('');
-    return `<div class="card">
-      <span class="eyebrow">${esc(t.id)} · ${esc(t.duration)}</span>
-      <h3>${esc(t.name)}</h3>
-      <p><b>Aspect ratios:</b> ${t.aspectRatios.map((a) => `<span class="chip">${esc(a)}</span>`).join('')}</p>
-      ${beatTimeline(t.beats)}
-      <p style="margin-top:0.6rem"><b>Text layers:</b></p><ul class="clean">${layers}</ul>
-      <p><b>Color:</b> ${esc(t.colorNote)}</p>
-      <p><b>Captions:</b> ${esc(t.captions)}</p>
-      <p><b>Music:</b> ${esc(t.music)} · <b>Fonts:</b> ${esc(t.fonts)}</p>
-      <p><b>Export:</b> ${esc(t.exportSpec)}</p>
-      <div class="warn"><ul class="clean" style="color:inherit">${rules}</ul></div>
-    </div>`;
-  }).join('');
-
-  const body = `
-    <div class="hero">
-      <h1>CapCut Templates</h1>
-      <p>No-code video templates for the Virtual Medical Admin system — ${CAPCUT_TEMPLATES.length} reusable structures. Single approved color family per export, burned-in captions, MedVirtual logo, no pink.</p>
-    </div>
-    <section><div class="grid-2">${cards}</div></section>
-  `;
-  return page({
-    activeId: 'vma-capcut',
-    title: 'CapCut Templates',
-    pageTitle: 'CapCut Templates',
-    pageSubtitle: 'No-code video build specs.',
-    body,
-  });
+function claimStatusSimple(status) {
+  const s = String(status || '').toLowerCase();
+  if (s.includes('reject') || s.includes('do not')) return 'Rejected';
+  if (s.includes('approved') || s.includes('confirmed')) return 'Approved';
+  return 'Pending';
 }
 
-// ─── 9/10. Copy matrices ─────────────────────────────────────────────────────
+function renderHandoff() {
+  const byNumber = Object.fromEntries(APPROVED_MASTERS.map((m) => [m.number, m]));
+  const ordered = GRAPHICS_BUILD_ORDER.map((n) => byNumber[n]).filter(Boolean);
 
-function renderCopy(groups, lang) {
-  const cards = groups
-    .map((g) => {
-      const block = (label, arr) =>
-        `<p style="margin-top:0.6rem"><b>${label}</b></p>` +
-        arr.map((t) => copyBlock(t)).join('');
-      return `<div class="card">
-        <span class="eyebrow">${esc(g.id)} · ${esc(g.matchingForm)}</span>
-        <h3>${esc(g.name)}</h3>
-        ${block('Primary text (5)', g.primaryTexts)}
-        ${block('Headlines (5)', g.headlines)}
-        ${block('Descriptions (5)', g.descriptions)}
-      </div>`;
-    })
-    .join('');
-
-  const isEs = lang === 'es';
-  const body = `
-    <div class="hero">
-      <h1>${isEs ? 'Spanish' : 'English'} Copy Matrix</h1>
-      <p>${isEs ? 'Native-review required before launch. ' : ''}Five primary texts, five headlines, and five descriptions per group. Copy buttons paste straight into Ads Manager. MedVirtual only — never MedVirtual.ai.</p>
-    </div>
-    ${isEs ? '<div class="warn">Spanish copy requires native-speaker review. Do not assume nationality of worker or viewer.</div>' : ''}
-    <section><div class="grid-2">${cards}</div></section>
-  `;
-  return page({
-    activeId: isEs ? 'vma-copy-es' : 'vma-copy-en',
-    title: isEs ? 'Spanish Copy Matrix' : 'English Copy Matrix',
-    pageTitle: isEs ? 'Spanish Copy Matrix' : 'English Copy Matrix',
-    pageSubtitle: '5 primary · 5 headlines · 5 descriptions per group.',
-    body,
-  });
-}
-
-// ─── 11. Instant Form Playbook (vma-form.html) ───────────────────────────────
-
-function renderForm() {
-  const formCard = (f) => {
-    const rows = f.fields
-      .map((fl) => `<tr><td class="ref">${esc(fl.name)}</td><td>${fl.required ? 'Required' : 'Optional'}</td><td>${esc(fl.type)}</td></tr>`)
-      .join('');
-    return `<div class="card"><span class="eyebrow">${esc(f.id)}</span><h3>${esc(f.name)}</h3><p>${esc(f.objective)}</p>
-      <table><thead><tr><th>Field</th><th>Req</th><th>Type</th></tr></thead><tbody>${rows}</tbody></table></div>`;
-  };
-  const rules = FORMS.rules.map((r) => `<li>${esc(r)}</li>`).join('');
-  const tracking = FORMS.trackingFields
-    .map((t) => `<tr><td class="ref">${esc(t.label)}</td><td>${esc(t.value)}</td></tr>`)
-    .join('');
-  const staffing = FORMS.staffingNeedOptions.map((o) => `<span class="chip">${esc(o)}</span>`).join('');
-  const completion = COMPLETION_SCREENS.map(
-    (c) => `<div class="card"><span class="eyebrow">${esc(c.label)} ${statusBadge(c.status)}</span><h3>${esc(c.headline)}</h3><p>${esc(c.body)}</p><ul class="clean">${c.nextStepBullets.map((b) => `<li>${esc(b)}</li>`).join('')}</ul><p><b>CTA:</b> ${esc(c.cta)} → ${esc(c.ctaUrl)}</p><div class="warn">${esc(c.notes)}</div></div>`,
-  ).join('');
-  const offers = OFFER_CONCEPTS.map(
-    (o) => `<tr><td class="ref">${esc(o.name)}</td><td>${esc(o.description)}</td><td>${statusBadge(o.status)}</td></tr>`,
-  ).join('');
-
-  const body = `
-    <div class="hero">
-      <h1>Instant Form Playbook</h1>
-      <p>Low-friction Meta Instant Forms that turn scroll-stops into staffing conversations. Default to Form A. Legal/compliance approval required before publishing.</p>
-    </div>
-    <div class="warn danger">${esc(FORMS.complianceNote)}</div>
-
-    <section><h2>Forms</h2><div class="grid-2">${formCard(FORMS.formA)}${formCard(FORMS.formB)}</div>
-      <p class="lede" style="margin-top:0.6rem"><b>Staffing-need options (Form B):</b> ${staffing}</p></section>
-
-    <section><h2>Form rules</h2><ul class="clean">${rules}</ul></section>
-
-    <section><h2>Hidden tracking fields</h2>
-      <table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>${tracking}</tbody></table></section>
-
-    <section><h2>Completion screens</h2><div class="grid-2">${completion}</div></section>
-
-    <section><h2>Offer concepts (pending)</h2>
-      <div class="warn">Do not publish any offer until leadership approves it.</div>
-      <table><thead><tr><th>Offer</th><th>Description</th><th>Status</th></tr></thead><tbody>${offers}</tbody></table></section>
-  `;
-  return page({
-    activeId: 'vma-form',
-    title: 'Instant Form Playbook',
-    pageTitle: 'Instant Form Playbook',
-    pageSubtitle: 'Low-friction lead forms + completion screens.',
-    body,
-  });
-}
-
-// ─── 12. Campaign Tests (vma-campaign.html) ──────────────────────────────────
-
-function renderCampaign() {
-  const adSets = CAMPAIGN.adSets
+  const masterLinks = ordered
     .map(
-      (a) => `<div class="card"><span class="eyebrow">Ad set</span><h3>${esc(a.name)}</h3><p>${esc(a.structure)}</p>
-        <p><b>Creatives:</b> ${a.creatives.map((c) => `<span class="chip">${esc(c)}</span>`).join('')}</p>
-        <div class="warn">${esc(a.budgetNote)}</div></div>`,
+      (m, i) => `<div class="soft-card">
+  <div class="master-card__meta">Build order ${i + 1}</div>
+  <h3>Concept ${esc(m.number)} — ${esc(m.name)}</h3>
+  <p>${esc(m.languageOrTrust)}</p>
+  <a class="dl" href="${esc(m.masterImage)}" target="_blank" rel="noopener">Open approved master PNG</a>
+  <p style="margin-top:0.45rem;font-size:0.72rem;color:#4A6275;word-break:break-all">${esc(m.masterImage)}</p>
+</div>`,
     )
     .join('');
-  const controls = CAMPAIGN.controls.map((c) => `<li>${esc(c)}</li>`).join('');
 
-  const body = `
-    <div class="hero">
-      <h1>Campaign Tests</h1>
-      <p>${esc(CAMPAIGN.campaign)} — objective: ${esc(CAMPAIGN.objective)}</p>
-    </div>
-    <div class="warn danger">${esc(CAMPAIGN.warning)}</div>
-    <section><h2>Ad sets</h2><div class="grid-2">${adSets}</div></section>
-    <section><h2>Test controls</h2><ul class="clean">${controls}</ul></section>
-  `;
-  return page({
-    activeId: 'vma-campaign',
-    title: 'Campaign Tests',
-    pageTitle: 'Campaign Tests',
-    pageSubtitle: 'Ad sets, color isolation, and the $100 rule.',
-    showRule: true,
-    body,
-  });
-}
+  const buildSteps = ordered
+    .map(
+      (m, i) =>
+        `<li><b>Concept ${esc(m.number)} — ${esc(m.name)}</b><br />First make 1080×1350, then 1080×1920, then 1200×628, then confirm/rebuild 1080×1080.</li>`,
+    )
+    .join('');
 
-// ─── 13. Claims Tracker (vma-claims.html) ────────────────────────────────────
+  const sizeChips = FORMAT_SPECS.map((f) => `<span class="chip">${esc(f.dims)} (${esc(f.label)})</span>`).join('');
 
-function renderClaims() {
-  const legend = CLAIM_STATUSES.map((s) => statusBadge(s)).join(' ');
-  const rows = CLAIMS.map(
-    (c) => `<tr><td class="ref">${esc(c.label)}</td><td>${esc(c.category)}</td><td>${statusBadge(c.status)}</td><td>${esc(c.claimText)}</td><td>${esc(c.notes)}</td></tr>`,
-  ).join('');
-  const body = `
-    <div class="hero">
-      <h1>Claims Tracker</h1>
-      <p>Every price, HIPAA, savings, availability, and offer claim with its approval status. A claim may not appear on any published ad, video, or form until it is <b>Approved for Launch</b>.</p>
-    </div>
-    <div class="warn">Statuses: ${legend}</div>
-    <section><table><thead><tr><th>Claim</th><th>Category</th><th>Status</th><th>Text</th><th>Notes</th></tr></thead><tbody>${rows}</tbody></table></section>
-  `;
-  return page({
-    activeId: 'vma-claims',
-    title: 'Claims Tracker',
-    pageTitle: 'Claims Tracker',
-    pageSubtitle: 'Approval status for every claim.',
-    body,
-  });
-}
-
-// ─── 14. Launch QA (vma-qa.html) ─────────────────────────────────────────────
-
-function renderQA() {
-  let idx = 0;
-  const sections = QA_CHECKLIST.map((grp) => {
-    const items = grp.items
-      .map((it) => {
-        const id = `qa-${idx++}`;
-        return `<label class="checkline"><input type="checkbox" data-persist="${id}" /> <span>${esc(it)}</span></label>`;
-      })
-      .join('');
-    return `<div class="card"><span class="eyebrow">${esc(grp.group)}</span>${items}</div>`;
-  }).join('');
-
-  const body = `
-    <div class="hero">
-      <h1>Launch QA</h1>
-      <p>Pre-flight checklist for every Virtual Medical Admin ad. Checked items save to this browser. Do not scale spend until lead flow is confirmed end-to-end.</p>
-    </div>
-    <section><div class="grid-2">${sections}</div></section>
-  `;
-  return page({
-    activeId: 'vma-qa',
-    title: 'Launch QA',
-    pageTitle: 'Launch QA',
-    pageSubtitle: 'Pre-flight checklist — saves to your browser.',
-    showRule: true,
-    body,
-  });
-}
-
-// ─── 15. Production Queue (vma-queue.html) ────────────────────────────────────
-
-function renderQueue() {
-  const rows = PRODUCTION_QUEUE.map(
-    (q) => `<tr>
-      <td class="ref">${q.order}</td>
-      <td class="ref">${esc(q.ref)}</td>
-      <td><span class="chip">${esc(q.type)}</span></td>
-      <td>${swatch(getColorFamily(q.colorFamilyId).accent)}${esc(q.label)}</td>
-      <td>${statusBadge(q.status)}</td>
-      <td>${q.notes ? `<span class="warn" style="display:inline-block">${esc(q.notes)}</span>` : ''}</td>
-    </tr>`,
-  ).join('');
-  const statuses = PRODUCTION_STATUSES.map((s) => `<span class="chip">${esc(s)}</span>`).join('');
-  const body = `
-    <div class="hero">
-      <h1>Production Queue</h1>
-      <p>${PRODUCTION_QUEUE.length} build items alternating Static and Video, in launch order. Color tests first, then role / pain / offer / Spanish.</p>
-    </div>
-    <section><table><thead><tr><th>#</th><th>Ref</th><th>Type</th><th>Item</th><th>Status</th><th>Notes</th></tr></thead><tbody>${rows}</tbody></table></section>
-    <section><h2>Status vocabulary</h2><p>${statuses}</p></section>
-  `;
-  return page({
-    activeId: 'vma-queue',
-    title: 'Production Queue',
-    pageTitle: 'Production Queue',
-    pageSubtitle: '24 static + video items in launch order.',
-    body,
-  });
-}
-
-// ─── 16. Approval Board (vma-approval.html) ──────────────────────────────────
-
-function renderApproval() {
-  let idx = 0;
-  const rows = [...COLOR_TEST_SET, ...CONCEPTS]
-    .map((c) => {
-      const id = `appr-${idx++}`;
-      const fam = getColorFamily(c.colorFamilyId);
-      return `<tr>
-        <td class="ref">${esc(c.number)}</td>
-        <td>${esc(c.name)}</td>
-        <td>${swatch(fam.accent)}${esc(fam.name)}</td>
-        <td>${statusBadge(c.productionStatus || 'Ready for design')}</td>
-        <td><input type="text" data-persist="${id}-rev" placeholder="reviewer" style="width:7rem;background:#05070b;border:1px solid #263041;border-radius:6px;color:#f8fafc;font:inherit;padding:0.2rem 0.35rem" /></td>
-        <td><label class="checkline" style="border:none;padding:0"><input type="checkbox" data-persist="${id}-ok" /> <span>Approved</span></label></td>
-      </tr>`;
+  const matrix = formatMatrixCells();
+  const matrixHead = FORMAT_SPECS.map((f) => `<th>${esc(f.label)}<br /><span style="font-weight:500;text-transform:none;letter-spacing:0">${esc(f.dims)}</span></th>`).join('');
+  const matrixRows = matrix
+    .map((row) => {
+      const cells = row.cells.map((c) => `<td>${statusBadge(c.displayStatus)}</td>`).join('');
+      return `<tr><td class="rowhead">Concept ${esc(row.master.number)}<br />${esc(row.master.name)}</td>${cells}</tr>`;
     })
     .join('');
+
+  const dashClaims = DASHBOARD_CLAIMS.map((c) => {
+    const full = CLAIMS.find((x) => x.id === c.id);
+    const simple = claimStatusSimple(c.status);
+    return `<div class="soft-card">
+  <h3>${esc(c.label)}</h3>
+  <p>${statusBadge(simple)}</p>
+  ${full ? `<p style="font-size:0.78rem;color:#4A6275">${esc(full.notes || full.status)}</p>` : ''}
+</div>`;
+  }).join('');
+
+  const qa = HANDOFF_QA.map(
+    (item, i) =>
+      `<li><input type="checkbox" data-persist="handoff-qa-${i}" /> <span>${esc(item)}</span></li>`,
+  ).join('');
+
+  const delivery = APPROVED_MASTERS.map((m) => {
+    const chips = m.formats.map((f) => `<span class="chip">${esc(f.label)}: ${esc(f.status)}</span>`).join('');
+    return `<div class="soft-card">
+  <h3>Concept ${esc(m.number)} · ${esc(m.name)}</h3>
+  <div>${chips}</div>
+  <label>Status
+    <select data-persist="delivery-${m.id}">
+      <option>Needs Review</option>
+      <option>Approved</option>
+      <option>Needs Revision</option>
+    </select>
+  </label>
+</div>`;
+  }).join('');
+
+  const dos = GRAPHICS_DO.map((d) => `<li>${esc(d)}</li>`).join('');
+  const donts = GRAPHICS_DONT.map((d) => `<li>${esc(d)}</li>`).join('');
+
+  const form = CURRENT_META_FORM;
+  const formFields = (form.requiredFields || []).map((f) => `<span class="chip">${esc(f)}</span>`).join('');
+  const answers = (form.routingAnswers || []).map((a) => `<li>${esc(a)}</li>`).join('');
+
   const body = `
     <div class="hero">
-      <h1>Approval Board</h1>
-      <p>Sign-off tracking for every color test and static concept. Reviewer names and approval checks save to this browser. Nothing launches with a pending claim.</p>
+      <h1>Graphics Job — resize 4 masters</h1>
+      <p>The square ads are already approved (made with ChatGPT + polish). <b>Your job is aspect ratios only.</b> Do not redesign. Video is later — not this request.</p>
     </div>
-    <section><table><thead><tr><th>Ref</th><th>Concept</th><th>Color</th><th>Status</th><th>Reviewer</th><th>Sign-off</th></tr></thead><tbody>${rows}</tbody></table></section>
-  `;
+
+    <section id="job">
+      <div class="job-box">
+        <h2>Deliver 16 PNGs + editable source files</h2>
+        <p>Sizes for every concept:</p>
+        <div style="margin:0.6rem 0">${sizeChips}</div>
+        <p><b>How to work</b></p>
+        <ol class="job-steps">${buildSteps}</ol>
+        <p class="note" style="margin-top:0.85rem">Rebuild the layout for each size. Do not only crop or stretch the square.</p>
+      </div>
+    </section>
+
+    <section id="masters">
+      <h2>1. Download these 4 approved masters</h2>
+      <div class="queue-grid">${masterLinks}</div>
+    </section>
+
+    <section>
+      <h2>2. Do / Don’t</h2>
+      <div class="two-cols">
+        <div class="soft-card"><h3>Do</h3><ul class="clean do-list">${dos}</ul></div>
+        <div class="soft-card"><h3>Don’t</h3><ul class="clean dont-list">${donts}</ul></div>
+      </div>
+    </section>
+
+    <section id="matrix">
+      <h2>3. Progress board</h2>
+      <p class="lede">Yellow = still needed. Green = approved square already done.</p>
+      <table class="matrix">
+        <thead><tr><th>Concept</th>${matrixHead}</tr></thead>
+        <tbody>${matrixRows}</tbody>
+      </table>
+      <p class="note"><a href="/vma-static.html">Open size checklist page</a></p>
+    </section>
+
+    <section>
+      <h2>4. Logo</h2>
+      <div class="soft-card">
+        <p><a href="/assets/brand/medvirtual/logo-colored.svg" target="_blank" rel="noopener">MedVirtual logo (SVG)</a></p>
+        <p><a href="/asset-hub.html">More brand assets</a></p>
+        <p class="note">Brand spelling: <b>MedVirtual</b> only — never MedVirtual.ai</p>
+      </div>
+    </section>
+
+    <section id="claims">
+      <h2>5. Claims already on the masters</h2>
+      <p class="lede"><b>Keep them as shown on each PNG.</b> For this resize job you are not deciding legal approval — just match the approved masters.</p>
+      <div class="claim-grid">${dashClaims}</div>
+    </section>
+
+    <section id="qa">
+      <h2>6. Quick check before upload</h2>
+      <ul class="checklist">${qa}</ul>
+    </section>
+
+    <section id="approval">
+      <h2>7. Delivery status</h2>
+      <p class="note">Detailed tracking stays in the team spreadsheet.</p>
+      <div class="delivery-row">${delivery}</div>
+    </section>
+
+    <details class="block" id="form">
+      <summary>Not for graphics — current Meta form (ops only)</summary>
+      <div class="soft-card">
+        <h3>${esc(form.name)}</h3>
+        <p><b>Intro:</b> ${esc(form.introHeadline)} — ${esc(form.introDescription)}</p>
+        <p><b>Routing:</b> ${esc(form.routingQuestion)}</p>
+        <ul class="clean">${answers}</ul>
+        <p style="margin-top:0.5rem">${formFields}</p>
+        <p>${esc(form.privacyMessage)}</p>
+        <p><b>End:</b> ${esc(form.endHeadline)} — ${esc(form.endDescription)}</p>
+        <p><a href="${esc(form.demoLink)}" target="_blank" rel="noopener">${esc(form.demoCta)}</a></p>
+      </div>
+    </details>`;
+
   return page({
-    activeId: 'vma-approval',
-    title: 'Approval Board',
-    pageTitle: 'Approval Board',
-    pageSubtitle: 'Reviewer sign-off tracking.',
+    activeId: 'vma-handoff',
+    title: 'Graphics Job',
+    pageTitle: 'Graphics Job',
+    pageSubtitle: 'Resize 4 approved masters into 16 Meta PNGs.',
     body,
   });
 }
 
-// ─── 17. Project History (vma-history.html) ──────────────────────────────────
+// ─── 8. History ──────────────────────────────────────────────────────────────
 
 function renderHistory() {
-  const removed = [
-    ['Teal SaaS / no-people lane', 'Archived as primary Meta direction — glass/3D props, no people. Kept under Producer Lab only.'],
-    ['Role-Offer + Real People (Hailey lane)', 'Useful people treatments; not the current cold-lead system.'],
-    ['Pink / magenta reference palettes', 'Reference competitor ads used pink — that informed structure only. Pink is permanently forbidden in MedVirtual creative.'],
-    ['dr-* board set (July 14 2026)', 'Superseded by the VMA static + animated-video system. Old dr-* routes now redirect to VMA pages.'],
-    ['Brand-first restraint direction', 'Replaced by offer-first, high-contrast direct response designed to generate leads.'],
-  ]
-    .map(([t, d]) => `<div class="card"><span class="eyebrow">Removed / archived</span><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`)
-    .join('');
-
-  const redirects = REDIRECTS.map(
-    (r) => `<tr><td class="ref">/${esc(r.from)}</td><td>→</td><td>${esc(r.to)}</td></tr>`,
+  const notes = HISTORY_NOTES.map(
+    (n) => `<div class="soft-card">
+  <div class="master-card__meta">${esc(n.date)}</div>
+  <h3>${esc(n.title)}</h3>
+  <p>${esc(n.change)}</p>
+</div>`,
   ).join('');
 
   const body = `
     <div class="hero">
-      <h1>Project History</h1>
-      <p>One-note archive of removed and superseded directions. The current system is bold Virtual Medical Admin ads plus animated video.</p>
+      <h1>History</h1>
+      <p>Minimal direction notes only.</p>
     </div>
-    <section><div class="grid">${removed}</div></section>
-    <section><h2>Old route redirects</h2>
-      <p class="lede">These legacy pages now meta-refresh to their VMA replacements.</p>
-      <table><thead><tr><th>Old</th><th></th><th>New</th></tr></thead><tbody>${redirects}</tbody></table></section>
-  `;
+    <section>
+      <div class="queue-grid">${notes}</div>
+    </section>`;
+
   return page({
     activeId: 'vma-history',
-    title: 'Project History',
-    pageTitle: 'Project History',
-    pageSubtitle: 'Removed directions + legacy redirects.',
+    title: 'History',
+    pageTitle: 'History',
+    pageSubtitle: 'Direction changes.',
+    body,
+  });
+}
+
+// ─── ideas.html ──────────────────────────────────────────────────────────────
+
+function renderIdeas() {
+  const links = VMA_NAV.map(
+    (n) => `<li><a href="${esc(n.href)}">${esc(n.label)}</a><span>${esc(n.description)}</span></li>`,
+  ).join('');
+
+  const body = `
+    <div class="hero">
+      <h1>Site Map</h1>
+      <p>Primary boards for the Virtual Medical Admin creative handoff.</p>
+    </div>
+    <ul class="ideas-list">${links}</ul>`;
+
+  return page({
+    activeId: '',
+    title: 'Ideas / Site Map',
+    pageTitle: 'Site Map',
+    pageSubtitle: 'Quick links to every board.',
     body,
   });
 }
@@ -1003,80 +1309,55 @@ function renderHistory() {
 // ─── Redirects ───────────────────────────────────────────────────────────────
 
 const REDIRECTS = [
+  // Consolidated VMA pages → handoff / video / prompts
+  { from: 'vma-remotion.html', to: '/vma-video.html#remotion' },
+  { from: 'vma-capcut.html', to: '/vma-video.html#capcut' },
+  { from: 'vma-copy-en.html', to: '/vma-chatgpt.html#english' },
+  { from: 'vma-copy-es.html', to: '/vma-chatgpt.html#spanish' },
+  { from: 'vma-form.html', to: '/vma-handoff.html#form' },
+  { from: 'vma-campaign.html', to: '/vma-handoff.html' },
+  { from: 'vma-claims.html', to: '/vma-handoff.html#claims' },
+  { from: 'vma-qa.html', to: '/vma-handoff.html#qa' },
+  { from: 'vma-queue.html', to: '/vma-handoff.html#matrix' },
+  { from: 'vma-approval.html', to: '/vma-handoff.html#approval' },
+  // Legacy dr-* → consolidated VMA pages
   { from: 'dr-concepts-en.html', to: '/vma-static.html' },
-  { from: 'dr-concepts-es.html', to: '/vma-copy-es.html' },
+  { from: 'dr-concepts-es.html', to: '/vma-chatgpt.html#spanish' },
   { from: 'dr-concepts-roles.html', to: '/vma-static.html' },
-  { from: 'dr-image-prompts.html', to: '/vma-chatgpt.html' },
-  { from: 'dr-form.html', to: '/vma-form.html' },
-  { from: 'dr-offers.html', to: '/vma-form.html' },
-  { from: 'dr-claims.html', to: '/vma-claims.html' },
-  { from: 'dr-production-queue.html', to: '/vma-queue.html' },
-  { from: 'dr-qa-checklist.html', to: '/vma-qa.html' },
-  { from: 'dr-campaign-plan.html', to: '/vma-campaign.html' },
-  { from: 'dr-copy-matrix.html', to: '/vma-copy-en.html' },
-  { from: 'dr-copy-en.html', to: '/vma-copy-en.html' },
-  { from: 'dr-copy-es.html', to: '/vma-copy-es.html' },
-  { from: 'dr-approval.html', to: '/vma-approval.html' },
+  { from: 'dr-image-prompts.html', to: '/vma-chatgpt.html#images' },
+  { from: 'dr-form.html', to: '/vma-handoff.html#form' },
+  { from: 'dr-offers.html', to: '/vma-handoff.html#form' },
+  { from: 'dr-claims.html', to: '/vma-handoff.html#claims' },
+  { from: 'dr-production-queue.html', to: '/vma-handoff.html#matrix' },
+  { from: 'dr-qa-checklist.html', to: '/vma-handoff.html#qa' },
+  { from: 'dr-campaign-plan.html', to: '/vma-handoff.html' },
+  { from: 'dr-copy-matrix.html', to: '/vma-chatgpt.html#english' },
+  { from: 'dr-copy-en.html', to: '/vma-chatgpt.html#english' },
+  { from: 'dr-copy-es.html', to: '/vma-chatgpt.html#spanish' },
+  { from: 'dr-approval.html', to: '/vma-handoff.html#approval' },
   { from: 'dr-superseded.html', to: '/vma-history.html' },
   { from: 'dr-reference-analysis.html', to: '/competitors.html' },
   { from: 'dr-design-system.html', to: '/direct-response.html' },
   { from: 'dr-color-board.html', to: '/direct-response.html' },
 ];
 
-function renderRedirect(to) {
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="refresh" content="0; url=${esc(to)}" />
-  <link rel="canonical" href="${esc(to)}" />
-  <title>Moved — MedVirtual VMA</title>
-  <style>body{font-family:${BRAND.fonts.family};background:#06080d;color:#e5e7eb;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0}a{color:#B8F000}</style>
-</head>
-<body>
-  <p>This page moved. Redirecting to <a href="${esc(to)}">${esc(to)}</a>…</p>
-  <script>location.replace(${JSON.stringify(to)});</script>
-</body>
-</html>`;
-}
+// ─── Write all pages ─────────────────────────────────────────────────────────
 
-// ─── Ideas.html — simple links to VMA sections ───────────────────────────────
+const primary = [
+  ['studio.html', renderDashboard()],
+  ['direct-response.html', renderDirection()],
+  ['competitors.html', renderCompetitors()],
+  ['vma-static.html', renderStatic()],
+  ['vma-video.html', renderVideo()],
+  ['vma-chatgpt.html', renderChatgpt()],
+  ['vma-handoff.html', renderHandoff()],
+  ['vma-history.html', renderHistory()],
+  ['ideas.html', renderIdeas()],
+];
 
-function renderIdeas() {
-  const links = VMA_NAV_LINKS.map((n) => `<a class="card" href="${n.href}"><span class="eyebrow">Section</span><h3>${esc(n.label)}</h3><p>${esc(n.description)}</p></a>`).join('');
-  const body = `
-    <div class="hero"><h1>Ideas — VMA Sections</h1><p>Quick links into the current Virtual Medical Admin production system.</p></div>
-    <section><div class="grid">${links}</div></section>
-  `;
-  return page({ activeId: 'studio', title: 'Ideas', pageTitle: 'Ideas', pageSubtitle: 'Jump into any VMA section.', body });
-}
+for (const [name, html] of primary) write(name, html);
+for (const r of REDIRECTS) write(r.from, renderRedirect(r.to));
 
-const VMA_NAV_LINKS = VMA_NAV.filter((n) => n.id !== 'studio');
-
-// ─── Write everything ────────────────────────────────────────────────────────
-
-write('studio.html', renderDashboard());
-write('direct-response.html', renderDirection());
-write('competitors.html', renderCompetitors());
-write('vma-static.html', renderStatic());
-write('vma-video.html', renderVideo());
-write('vma-chatgpt.html', renderChatgpt());
-write('vma-remotion.html', renderRemotion());
-write('vma-capcut.html', renderCapcut());
-write('vma-copy-en.html', renderCopy(COPY_EN, 'en'));
-write('vma-copy-es.html', renderCopy(COPY_ES, 'es'));
-write('vma-form.html', renderForm());
-write('vma-campaign.html', renderCampaign());
-write('vma-claims.html', renderClaims());
-write('vma-qa.html', renderQA());
-write('vma-queue.html', renderQueue());
-write('vma-approval.html', renderApproval());
-write('vma-history.html', renderHistory());
-
-const pageCount = filesWritten;
-
-// Redirects + ideas
-REDIRECTS.forEach((r) => write(r.from, renderRedirect(r.to)));
-write('ideas.html', renderIdeas());
-
-console.log(`VMA site generated · ${pageCount} primary pages + ${REDIRECTS.length} redirects + ideas.html · ${filesWritten} files total.`);
+console.log(
+  `VMA handoff site generated · ${primary.length} primary pages + ${REDIRECTS.length} redirects · ${filesWritten} files total.`,
+);

@@ -38,7 +38,9 @@ Archive only: `_archive/july-2026-removed/`. One history note on `/vma-history.h
 - `_archive/`: removed historical directions
 
 ## Site order
-Dashboard → Current Direction → Competitors → Static → Video → ChatGPT → Forms/Launch → History
+Graphics Job → Size Checklist → Rules → Video (later) → Competitors (optional) → ChatGPT Notes (optional) → Overview → History
+
+Current focus for designers: **resize 4 approved masters into Meta sizes**. Video later. Do not ask them to remake ChatGPT plates for this request.
 
 Same header via `scripts/shared-doc-header.mjs`. Never style bare `details`/`summary` globally — scope to `main`.
 
