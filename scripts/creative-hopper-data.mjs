@@ -19,7 +19,7 @@
 import { BRAND } from './medvirtual-brand-data.mjs';
 
 /** George’s inbox for briefs, pitches, and sandbox exports */
-export const GRAPHICS_REQUEST_EMAIL = 'george@a.legalsoft.com';
+export const GRAPHICS_REQUEST_EMAIL = 'george.a@legalsoft.com';
 
 export const HOPPER_POLICY = {
   targetReadyMin: 15,

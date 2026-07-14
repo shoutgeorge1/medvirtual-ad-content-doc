@@ -1,0 +1,382 @@
+{
+  "updatedAt": "2026-07-14T04:27:54.957660+00:00",
+  "sources": {
+    "hello-rache": {
+      "query": "Hello Rache",
+      "scrapedAt": "2026-07-14T04:14:01.001566+00:00",
+      "ads": [
+        {
+          "libraryId": "810571518485456",
+          "started": "May 4, 2026",
+          "platforms": [
+            "Facebook",
+            "Instagram"
+          ],
+          "primaryText": "How do you leave the clinic when your last patient does?",
+          "headline": "",
+          "description": "See how easy it is to introduce a virtual assistant to your patient. The VA listens, documents the history, and records your exam findings live. By the time the patient leaves, the work is done. No more late nights. No more backlog. Just patient care. 0:00 / 1:22",
+          "cta": "",
+          "advertiser": "Hello Rache",
+          "image": "/assets/competitors/live/hello-rache-1.jpg",
+          "index": 0
+        },
+        {
+          "libraryId": "1589021232591322",
+          "started": "May 4, 2026",
+          "platforms": [
+            "Facebook",
+            "Instagram"
+          ],
+          "primaryText": "Why pay $20+/hr for an untrained freelancer when you can get a Healthcare Professional for $9.50/hr?",
+          "headline": "",
+          "description": "Check the slides and compare for yourself. \ud83d\udc46 GO.HELLORACHE.COM Premium Medical VAs. $9.50/Hour.",
+          "cta": "",
+          "advertiser": "Hello Rache",
+          "image": "/assets/competitors/live/hello-rache-2.jpg",
+          "index": 1
+        },
+        {
+          "libraryId": "974824428840058",
+          "started": "May 4, 2026",
+          "platforms": [
+            "Facebook",
+            "Instagram"
+          ],
+          "primaryText": "Here\u2019s a hard truth: You don\u2019t own a medical practice if it stops running the moment you leave the room.",
+          "headline": "It doesn\u2019t matter how much revenue you generate or how many patients you see.",
+          "description": "If every chart, every prior authorization, and every schedule gap relies on your energy to fix it, the value of your freedom is close to zero. That\u2019s the \"Physician\u2019s Trap.\" And until you solve it, you don\u2019t have a business asset. You have a high-stress liability. We integrate specialized Healthcare Virtual Assistants in practices to lessen physician dependency on repetitive tasks and create workflows that actually flow\u2026 and let you go home on time.",
+          "cta": "",
+          "advertiser": "Hello Rache",
+          "image": "/assets/competitors/live/hello-rache-3.jpg",
+          "index": 2
+        },
+        {
+          "libraryId": "1418938503249890",
+          "started": "May 4, 2026",
+          "platforms": [
+            "Facebook",
+            "Instagram"
+          ],
+          "primaryText": "You spent years training to treat patients, not to become the world's most expensive data entry clerk. \ud83e\ude7a",
+          "headline": "Look at the difference between \"Administrative Overload\" and true \"Focus on Care.\" The only difference is dedicated support.",
+          "description": "When you try to do it all yourself, you end up exhausted and stuck at the desk. Our HIPAA-compliant Healthcare VAs handle the non-clinical burdens so you can do the job you were actually trained for. Empower your practice by delegating the busy work. Get back to healing, and get home for dinner. GO.HELLORACHE.COM",
+          "cta": "",
+          "advertiser": "Hello Rache",
+          "image": "/assets/competitors/live/hello-rache-4.jpg",
+          "index": 3
+        },
+        {
+          "libraryId": "1708916656798157",
+          "started": "May 4, 2026",
+          "platforms": [
+            "Facebook",
+            "Instagram"
+          ],
+          "primaryText": "When Dr. Rabin says our VAs \"saved him hours,\" he isn't just talking about efficiency. He's talking about getting his life back.",
+          "headline": "Those missing hours are the difference between staying late to chart and leaving the clinic when your last patient does.",
+          "description": "Don't just take our word for it. Join practicing physicians like Dr. Rabin who have stopped the burnout cycle by delegating to specialized Healthcare Virtual Assistants for only $9.50/Hour. GO.HELLORACHE.COM What Could You Do With Extra Hours Every Day?",
+          "cta": "",
+          "advertiser": "Hello Rache",
+          "image": "/assets/competitors/live/hello-rache-5.jpg",
+          "index": 4
+        }
+      ]
+    },
+    "weave": {
+      "query": "Weave dental",
+      "scrapedAt": "2026-07-14T04:12:58.633067+00:00",
+      "ads": [
+        {
+          "libraryId": "1989351485117580",
+          "started": "Jun 17, 2026",
+          "platforms": [],
+          "primaryText": "Keep your dental practice running smoothly while you\u2019re out and about. Handle calls, texts, appointments, and more\u2014all from your phone! \ud83e\uddb7\ud83d\udcf2",
+          "headline": "Manage texts, calls, & scheduling on the go",
+          "description": "The simpler dental software to connect better with patients.",
+          "cta": "Learn more",
+          "advertiser": "Weave",
+          "image": "/assets/competitors/live/weave-1.jpg"
+        },
+        {
+          "libraryId": "1010815844872289",
+          "started": "Jun 17, 2026",
+          "platforms": [],
+          "primaryText": "Busy with patients or out for lunch? Let Weave automatically text back every missed call\u2014day or night.",
+          "headline": "Miss a call? Weave answers with a text",
+          "description": "Dental practices like yours are already saving hours a week\u2014why not you? Book your demo today!",
+          "cta": "Learn More",
+          "advertiser": "Weave",
+          "image": "/assets/competitors/live/weave-2.jpg"
+        },
+        {
+          "libraryId": "1036229989362075",
+          "started": "Jun 17, 2026",
+          "platforms": [],
+          "primaryText": "Don't let new patients slip away. Weave's missed call text automatically sends a friendly message, so you can capture leads and grow your practice\u2014even when you're busy.",
+          "headline": "Turn Missed Calls Into New Patients",
+          "description": "",
+          "cta": "Book Now",
+          "advertiser": "Weave",
+          "image": "/assets/competitors/live/weave-3.jpg"
+        },
+        {
+          "libraryId": "1552440253195381",
+          "started": "Jun 18, 2026",
+          "platforms": [],
+          "primaryText": "Weave\u2019s smart VoIP phone system does more than just take calls\u2014it helps you run your veterinary clinic more efficiently.",
+          "headline": "Smarter Phones, Smoother Workflow with Weave",
+          "description": "Upgrade to Weave's VoIP system and make every call count!",
+          "cta": "Learn more",
+          "advertiser": "Weave",
+          "image": "/assets/competitors/live/weave-4.jpg"
+        }
+      ]
+    },
+    "nexhealth": {
+      "query": "NexHealth",
+      "scrapedAt": "2026-07-14T04:15:22.784456+00:00",
+      "ads": [
+        {
+          "libraryId": "2006828616593472",
+          "started": "Jun 4, 2026",
+          "platforms": [],
+          "primaryText": "Collect Balances Without the Chase",
+          "headline": "",
+          "description": "NexHealth practice collections / patient payment creative (live Ad Library).",
+          "cta": "Learn More",
+          "advertiser": "NexHealth",
+          "image": "/assets/competitors/live/nexhealth-1.jpg",
+          "index": 0
+        }
+      ]
+    },
+    "zocdoc": {
+      "query": "Zocdoc",
+      "scrapedAt": "2026-07-14T04:15:56.462527+00:00",
+      "ads": [
+        {
+          "libraryId": "4458646070948055",
+          "started": "Jun 4, 2026",
+          "platforms": [],
+          "primaryText": "Ready for your own before-and-after? Use Zocdoc to book top-rated dermatologists who accept your insurance.",
+          "headline": "Find & book a dermatologist",
+          "description": "",
+          "cta": "Book Now",
+          "advertiser": "Zocdoc",
+          "image": "/assets/competitors/live/zocdoc-1.jpg",
+          "index": 0
+        },
+        {
+          "libraryId": "1531737048332451",
+          "started": "Jun 4, 2026",
+          "platforms": [],
+          "primaryText": "Find & book a dentist who takes your insurance on Zocdoc:",
+          "headline": "Search by insurance & location",
+          "description": "See real-time availability \u00b7 Read reviews from real patients \u00b7 Book online anytime, anywhere",
+          "cta": "Book Now",
+          "advertiser": "Zocdoc",
+          "image": "/assets/competitors/live/zocdoc-2.jpg",
+          "index": 1
+        },
+        {
+          "libraryId": "4163899043741831",
+          "started": "Jun 4, 2026",
+          "platforms": [],
+          "primaryText": "Putting off that cleaning because you dread the phone tag and \"is this covered?\" talk? Zocdoc makes it easy to find top-rated dentists near you\u2014and book online, instantly.",
+          "headline": "Book a Top-Rated Dentist Today!",
+          "description": "Real openings. Real reviews. Real fast.",
+          "cta": "Book Now",
+          "advertiser": "Zocdoc",
+          "image": "/assets/competitors/live/zocdoc-3.jpg",
+          "index": 2
+        },
+        {
+          "libraryId": "1560698375402068",
+          "started": "Jun 4, 2026",
+          "platforms": [],
+          "primaryText": "Need a Doctor? Book now on Zocdoc:",
+          "headline": "See in-network providers",
+          "description": "Filter by your location \u00b7 Read real patient reviews \u00b7 Book instantly",
+          "cta": "Book Now",
+          "advertiser": "Zocdoc",
+          "image": "/assets/competitors/live/zocdoc-4.jpg",
+          "index": 3
+        }
+      ]
+    },
+    "commure-scribe": {
+      "query": "Commure Scribe",
+      "scrapedAt": "2026-07-14T04:22:56.341290+00:00",
+      "ads": [
+        {
+          "libraryId": "1850917389199451",
+          "started": "Jun 9, 2026",
+          "platforms": [],
+          "primaryText": "AI scribe that integrates with your EHR. Transfer notes with 1 click. Try for free.",
+          "headline": "SCRIBE.COMMURE.COM",
+          "description": "Works with every EHR. Sync notes directly with your desktop or web EHR. Get the smarter AI scribe \u2014 starting $59/mo.",
+          "cta": "Sign Up",
+          "advertiser": "Commure Scribe",
+          "image": "/assets/competitors/live/commure-scribe-1.jpg",
+          "index": 0
+        }
+      ]
+    },
+    "quadrant-health": {
+      "query": "Quadrant Health",
+      "scrapedAt": "2026-07-14T04:22:56.749800+00:00",
+      "ads": [
+        {
+          "libraryId": "1899284274016689",
+          "started": "Nov 3, 2025",
+          "platforms": [],
+          "primaryText": "How Clinics Are Making Phones Disappear and Revenue Jump",
+          "headline": "You\u2019ve tried it all:",
+          "description": "Outsourcing to a call center\u2014only to get mispronounced names, dropped scripts, and zero accountability. Hiring temp receptionists who quit in weeks\u2026",
+          "cta": "Learn More",
+          "advertiser": "Quadrant Health",
+          "image": "/assets/competitors/live/quadrant-health-1.jpg",
+          "index": 0
+        }
+      ]
+    },
+    "generic-va-commodity": {
+      "query": "hire a medical virtual assistant | medical virtual assistant | hire medical VA | healthcare virtual assistant",
+      "scrapedAt": "2026-07-14T04:27:54.957263+00:00",
+      "ads": [
+        {
+          "libraryId": "1739290310384151",
+          "started": "Feb 17, 2026",
+          "platforms": [],
+          "primaryText": "Elevate patient care, reduce overhead, and scale effortlessly with Tactical Back Office.",
+          "headline": "Part-Time or Full-Time Staffing",
+          "description": "HME Business Award Winning Service \u00b7 Immediate Onboarding",
+          "cta": "Get Offer",
+          "advertiser": "Tactical Back Office",
+          "image": "/assets/competitors/live/generic-va-1.jpg",
+          "index": 0
+        },
+        {
+          "libraryId": "2648105012304571",
+          "started": "Jun 23, 2026",
+          "platforms": [],
+          "primaryText": "Your front desk is costing your practice time & revenue.",
+          "headline": "Get a trained Virtual Medical Receptionist to streamline:",
+          "description": "Scheduling & Intake \u00b7 Correspondence \u00b7 Insurance Verification",
+          "cta": "Learn More",
+          "advertiser": "Edge Services",
+          "image": "/assets/competitors/live/generic-va-2.jpg",
+          "index": 1
+        },
+        {
+          "libraryId": "1005513509043204",
+          "started": "Jun 22, 2026",
+          "platforms": [],
+          "primaryText": "Is your staff overwhelmed?",
+          "headline": "Give patients the personalized attention they deserve!",
+          "description": "Hire a Virtual Patient Care Coordinator to manage follow-ups & appointment reminders",
+          "cta": "Learn More",
+          "advertiser": "Edge Services",
+          "image": "/assets/competitors/live/generic-va-3.jpg",
+          "index": 2
+        },
+        {
+          "libraryId": "979366721772311",
+          "started": "Jul 9, 2026",
+          "platforms": [],
+          "primaryText": "Clinic owners\u2026 how many hours are you losing to admin every week?",
+          "headline": "It\u2019s not patients causing burnout. It\u2019s everything behind the scenes.",
+          "description": "Messages. Scheduling. Follow-ups. Charting.",
+          "cta": "",
+          "advertiser": "Winning Clinics",
+          "image": "/assets/competitors/live/generic-va-4.jpg",
+          "index": 3
+        },
+        {
+          "libraryId": "1667508437864872",
+          "started": "Jun 22, 2026",
+          "platforms": [],
+          "primaryText": "Trained, HIPAA-compliant Virtual Coordinators for scheduling, follow-ups & patient support. Save time, reduce burnout, and boost care quality.",
+          "headline": "WWW.ONEDGE.CO",
+          "description": "HIPAA Compliant Virtual Scheduling Coordinator",
+          "cta": "Learn More",
+          "advertiser": "Edge Services",
+          "image": "/assets/competitors/live/generic-va-5.jpg",
+          "index": 4
+        },
+        {
+          "libraryId": "885433090668106",
+          "started": "Jun 27, 2026",
+          "platforms": [],
+          "primaryText": "Stop overpaying for backend tasks. You can lower your administrative overhead by up to 70% this month without compromising patient experience.",
+          "headline": "Skilled Virtual Healthcare Talent from $6/hr.",
+          "description": "Medical VAs, billers & scribes ready to work.",
+          "cta": "Learn More",
+          "advertiser": "Snappy CX",
+          "image": "/assets/competitors/live/generic-va-6.jpg",
+          "index": 5
+        },
+        {
+          "libraryId": "4370418569885564",
+          "started": "Jul 10, 2026",
+          "platforms": [],
+          "primaryText": "Administrative tasks shouldn't get in the way of exceptional patient care.",
+          "headline": "Reduce Patient No-Shows by 18-32%",
+          "description": "Practices see an 18-32% reduction in patient no-shows within 60 days and a significant drop in front-desk backlog in 2-3 weeks.",
+          "cta": "Book Now",
+          "advertiser": "My Medical VA",
+          "image": "/assets/competitors/live/generic-va-7.jpg",
+          "index": 6
+        },
+        {
+          "libraryId": "1006100685236333",
+          "started": "Jun 22, 2026",
+          "platforms": [],
+          "primaryText": "Every minute you spend chasing paperwork is a minute stolen from practice revenue. \ud83d\udcc8",
+          "headline": "MYMOUNTAINMOVER.COM",
+          "description": "Delegate admin to a highly trained Medical Virtual Assistant. HIPAA-compliant. Trusted by 1,000+ practices nationwide.",
+          "cta": "Contact us",
+          "advertiser": "My Mountain Mover",
+          "image": "/assets/competitors/live/generic-va-8.jpg",
+          "index": 7
+        },
+        {
+          "libraryId": "2118091545587342",
+          "started": "Jul 5, 2026",
+          "platforms": [],
+          "primaryText": "Managing a medical practice shouldn't mean drowning in overhead costs and administrative tasks. Scale your clinical efficiency with dedicated remote healthcare specialists.",
+          "headline": "Medical Scribes \u00b7 Front Desk \u00b7 HIPAA Compliant",
+          "description": "Experienced Medical Scribes \u00b7 Efficient Front Desk Management \u00b7 Fully HIPAA Compliant Staff",
+          "cta": "Learn More",
+          "advertiser": "VM Assistants",
+          "image": "/assets/competitors/live/generic-va-9.jpg",
+          "index": 8
+        },
+        {
+          "libraryId": "1268840981694317",
+          "started": "Aug 7, 2025",
+          "platforms": [],
+          "primaryText": "We provide fully trained HIPAA-compliant Remote Medical VAs. No monthly contract or commitment.",
+          "headline": "Remote Medical VAs",
+          "description": "Medical Scribing \u00b7 Front desk call handling \u00b7 Patient appointment scheduling",
+          "cta": "Learn More",
+          "advertiser": "Cure Intent",
+          "image": "/assets/competitors/live/generic-va-10.jpg",
+          "index": 9
+        },
+        {
+          "libraryId": "1727806568372051",
+          "started": "Jun 27, 2026",
+          "platforms": [],
+          "primaryText": "How much of your day is spent on work that could be delegated? A Medical Virtual Assistant can help with appointment scheduling, patient follow-ups, and administrative paperwork.",
+          "headline": "Medical Virtual Assistant",
+          "description": "Appointment scheduling \u00b7 Patient follow-ups",
+          "cta": "Learn More",
+          "advertiser": "Psyphycare",
+          "image": "/assets/competitors/live/generic-va-11.jpg",
+          "index": 10
+        }
+      ]
+    }
+  }
+}

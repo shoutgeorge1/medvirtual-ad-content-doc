@@ -9,12 +9,12 @@
 export const COMPETITOR_META = {
   title: 'Competitor Wall',
   intro:
-    'Hey — peek at what’s running out there, get inspired, then mock your own MedVirtual take and pitch it to George. Cool ideas welcome.',
+    'Real Meta Ad Library creatives — the actual frames competitors are running, plus their hooks and copy. Browse, get inspired, mock a MedVirtual take, pitch George. No fake placeholders.',
   howToRefresh: [
-    'Open a Meta Ad Library link below.',
-    'Screenshot a feed ad you like (or don’t like!).',
-    'Drop it as public/assets/competitors/{id}.jpg — or just email George the shot + your mock.',
-    'Run npm run generate:competitors so everyone sees the new snapshot.',
+    'An automated Cursor agent refreshes this wall every couple of weeks from Meta Ad Library.',
+    'We only publish brands when we have real creative stills + primary text / headline / description.',
+    'Your job: skim the ads, steal the energy (not the look), mock something cooler for MedVirtual, pitch George.',
+    'Spotted a wild new competitor running ads? Email george.a@legalsoft.com and we’ll pull them in.',
   ],
   libraryBase:
     'https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&media_type=all&search_type=keyword_unordered&q=',
@@ -59,7 +59,7 @@ export const COMPETITOR_ADS = [
     name: 'TimeDoc Health',
     category: 'practice-saas',
     whyWatch: 'Care-management / RPM adjacent — often more software than staffing.',
-    adLibraryQuery: 'TimeDoc',
+    adLibraryQuery: 'TimeDoc Health',
     fingerprint: {
       hookStyle: 'Outcomes / efficiency claims',
       visual: 'Dashboard + clinician UI screenshots',
@@ -70,11 +70,47 @@ export const COMPETITOR_ADS = [
     remix: 'SaaS Prop lane — glass UI metaphor, no fake PHI, Book a Demo.',
   },
   {
+    id: 'commure-scribe',
+    name: 'Commure Scribe',
+    category: 'practice-saas',
+    whyWatch: 'AI scribe competitor adjacent to “virtual help in the exam room” — live Meta ads right now.',
+    adLibraryQuery: 'Commure Scribe',
+    image: '/assets/competitors/commure-scribe.jpg',
+    snapshotNote: 'Live Meta Ad Library creative',
+    fingerprint: {
+      hookStyle: 'EHR integration · one-click notes · free trial',
+      visual: 'Product / software simplicity',
+      weakness: 'Software, not a dedicated teammate',
+    },
+    steal: 'Crystal-clear product promise in one line.',
+    reject: 'Sounding like another AI tool, not MedVirtual humans.',
+    remix: 'Meet-[Name] who works the note + patient flow — Interview CTA.',
+  },
+  {
+    id: 'quadrant-health',
+    name: 'Quadrant Health',
+    category: 'practice-saas',
+    whyWatch: 'Front-desk / phone pain — live Meta ads competing for practice-owner attention.',
+    adLibraryQuery: 'Quadrant Health',
+    image: '/assets/competitors/quadrant-health.jpg',
+    snapshotNote: 'Live Meta Ad Library creative',
+    fingerprint: {
+      hookStyle: 'Missed calls · temp turnover · revenue jump',
+      visual: 'Problem list → solution narrative',
+      weakness: 'Can read as fear-heavy ops tooling',
+    },
+    steal: 'Named failed alternatives (“call center”, “temp receptionist”).',
+    reject: 'Doom-scroll scare tactics for MedVirtual talent ads.',
+    remix: 'Same pain, human hire answer — Meet front-desk / admin talent.',
+  },
+  {
     id: 'weave',
     name: 'Weave',
     category: 'practice-saas',
     whyWatch: 'Dental/medical practice platform — strong paid social craft.',
     adLibraryQuery: 'Weave',
+    image: '/assets/competitors/weave.jpg',
+    snapshotNote: 'Live Meta Ad Library creative',
     fingerprint: {
       hookStyle: 'Front-desk pain · missed calls · growth',
       visual: 'Bright product moments, strong type hierarchy',
@@ -90,6 +126,8 @@ export const COMPETITOR_ADS = [
     category: 'practice-saas',
     whyWatch: 'Patient experience / scheduling — polished B2B healthcare creative.',
     adLibraryQuery: 'NexHealth',
+    image: '/assets/competitors/nexhealth.jpg',
+    snapshotNote: 'Live Meta Ad Library creative',
     fingerprint: {
       hookStyle: 'Modern clinic ops / patient access',
       visual: 'Clean sans, lots of whitespace, product moments',
@@ -105,6 +143,8 @@ export const COMPETITOR_ADS = [
     category: 'other',
     whyWatch: 'Consumer brand in healthcare — their paid often out-crafts staffing competitors.',
     adLibraryQuery: 'Zocdoc',
+    image: '/assets/competitors/zocdoc.jpg',
+    snapshotNote: 'Live Meta Ad Library creative',
     fingerprint: {
       hookStyle: 'Simple benefit lines, high recognition',
       visual: 'Bold brand color blocks, minimal clutter',
@@ -149,7 +189,18 @@ export const COMPETITOR_ADS = [
     name: 'Generic “Hire VAs” cluster',
     category: 'virtual-staffing',
     whyWatch: 'A crowded “hire VAs” look we can happily do better than — lots of room for fresh MedVirtual ideas.',
-    adLibraryQuery: 'virtual medical assistant',
+    adLibraryQuery: 'hire a medical virtual assistant',
+    /** Extra keyword variants for Ad Library refresh (generic VA cluster). */
+    adLibraryQueries: [
+      'hire a medical virtual assistant',
+      'medical virtual assistant',
+      'hire medical VA',
+      'healthcare virtual assistant',
+      'virtual medical receptionist',
+      'hire a virtual medical assistant',
+    ],
+    image: '/assets/competitors/generic-va-commodity.jpg',
+    snapshotNote: 'Live Meta Ad Library creative',
     fingerprint: {
       hookStyle: 'Cheap / fast / 24-7 staffing spam',
       visual: 'Same headset crop everywhere',
