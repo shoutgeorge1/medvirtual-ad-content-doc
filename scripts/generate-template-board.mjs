@@ -1207,7 +1207,8 @@ const LAYOUT_REF_PROFILES = {
   '2': {
     className: 'lr lr-c2',
     template: 'PERSON_LEFT_HOOK_RIGHT',
-    objectPosition: '20% 26%',
+    // Face sits further left so right-column copy does not cover her
+    objectPosition: '8% 22%',
     hookHtml: 'DENTAL PRACTICE<br />OWNERS',
     support: 'Help with scheduling, insurance, and patient follow-up.',
   },
@@ -1306,20 +1307,23 @@ const LAYOUT_REF_CSS = `
   }
   .lr-c1 .cta { bottom: var(--lr-pad); right: var(--lr-pad); left: auto; }
 
-  /* C2 Dental — soft deep-teal side wash, pale support */
-  .lr-c2 img.bg { object-position: 20% 26%; }
+  /* C2 Dental — person hard-left, copy clear on the right (no face cover) */
+  .lr-c2 img.bg { object-position: 8% 22%; }
   .lr-c2::before {
     content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-    background: linear-gradient(90deg, transparent 42%, rgba(13,84,107,0.55) 72%, rgba(13,84,107,0.72) 100%);
+    /* Wash starts later so teal doesn't scrub her face */
+    background: linear-gradient(90deg, transparent 52%, rgba(13,84,107,0.45) 72%, rgba(13,84,107,0.7) 100%);
   }
   .lr-c2 .copy {
-    top: 14%; right: var(--lr-pad); left: 48%;
+    /* Headline higher, column further right — clears face */
+    top: 10%; right: var(--lr-pad); left: 54%;
   }
   .lr-c2 .text-panel {
     background: rgba(240, 245, 255, 0.96);
   }
   .lr-c2 .hook { color: var(--mv-deep-teal); }
   .lr-c2 .support {
+    margin-top: 0.55em;
     background: rgba(240, 245, 255, 0.95);
     border-color: rgba(0, 178, 226, 0.35);
   }

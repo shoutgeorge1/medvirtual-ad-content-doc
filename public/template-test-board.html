@@ -639,20 +639,23 @@
   }
   .lr-c1 .cta { bottom: var(--lr-pad); right: var(--lr-pad); left: auto; }
 
-  /* C2 Dental — soft deep-teal side wash, pale support */
-  .lr-c2 img.bg { object-position: 20% 26%; }
+  /* C2 Dental — person hard-left, copy clear on the right (no face cover) */
+  .lr-c2 img.bg { object-position: 8% 22%; }
   .lr-c2::before {
     content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-    background: linear-gradient(90deg, transparent 42%, rgba(13,84,107,0.55) 72%, rgba(13,84,107,0.72) 100%);
+    /* Wash starts later so teal doesn't scrub her face */
+    background: linear-gradient(90deg, transparent 52%, rgba(13,84,107,0.45) 72%, rgba(13,84,107,0.7) 100%);
   }
   .lr-c2 .copy {
-    top: 14%; right: var(--lr-pad); left: 48%;
+    /* Headline higher, column further right — clears face */
+    top: 10%; right: var(--lr-pad); left: 54%;
   }
   .lr-c2 .text-panel {
     background: rgba(240, 245, 255, 0.96);
   }
   .lr-c2 .hook { color: var(--mv-deep-teal); }
   .lr-c2 .support {
+    margin-top: 0.55em;
     background: rgba(240, 245, 255, 0.95);
     border-color: rgba(0, 178, 226, 0.35);
   }
@@ -1017,7 +1020,7 @@
     <div class="prod-card__preview">
       <div class="mock r-4x5 tpl-left lr lr-c2">
         
-        <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_015_4X5_FACE_LEFT.png" alt="" style="object-position:20% 26%" />
+        <img class="bg" src="/exports/image-tests/feed-4x5/IMG_AI_015_4X5_FACE_LEFT.png" alt="" style="object-position:8% 22%" />
         <div class="logo-wrap"><img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" /></div>
         <div class="copy">
           <div class="text-panel">
