@@ -30,7 +30,7 @@
     "generate:meta-launch": "node scripts/generate-meta-launch-pack.mjs && node scripts/generate-meta-launch-1.mjs && node scripts/generate-meta-launch-2.mjs",
     "generate:real-people": "node scripts/generate-real-people-treatment-e.mjs && node scripts/generate-real-people-creative.mjs && node scripts/generate-real-people-assets-page.mjs && node scripts/generate-meta-launch-1.mjs && node scripts/generate-meta-launch-2.mjs",
     "generate:real-people-assets": "node scripts/generate-real-people-assets.mjs && node scripts/generate-real-people-assets-page.mjs",
-    "generate:docs": "node scripts/generate-studio-home.mjs && node scripts/generate-ideas-lab.mjs && node scripts/generate-competitor-wall.mjs && node scripts/generate-mockup-sandbox.mjs && node scripts/generate-creative-concept-lab.mjs && node scripts/generate-motion-concept-lab.mjs && node scripts/generate-video-production.mjs && node scripts/generate-brand-guide.mjs && node scripts/generate-graphic-request-brief.mjs && node scripts/generate-ad-copy.mjs && node scripts/generate-template-board.mjs && node scripts/generate-role-offer-templates.mjs && node scripts/generate-saas-prop-templates.mjs && node scripts/generate-asset-hub.mjs && node scripts/generate-marketing-library.mjs && node scripts/generate-meta-launch-pack.mjs && npm run generate:real-people",
+    "generate:docs": "node scripts/generate-studio-home.mjs && node scripts/generate-ideas-lab.mjs && node scripts/generate-raw-assets.mjs && node scripts/generate-competitor-wall.mjs && node scripts/generate-mockup-sandbox.mjs && node scripts/generate-creative-concept-lab.mjs && node scripts/generate-motion-concept-lab.mjs && node scripts/generate-video-production.mjs && node scripts/generate-brand-guide.mjs && node scripts/generate-graphic-request-brief.mjs && node scripts/generate-ad-copy.mjs && node scripts/generate-template-board.mjs && node scripts/generate-role-offer-templates.mjs && node scripts/generate-saas-prop-templates.mjs && node scripts/generate-asset-hub.mjs && node scripts/generate-marketing-library.mjs && node scripts/generate-meta-launch-pack.mjs && node scripts/generate-foundry-page.mjs && npm run generate:real-people",
     "remotion:studio": "remotion studio src/remotion/index.js",
     "remotion:render:hook-human": "remotion render src/remotion/index.js MV-HOOK-HUMAN-01 .local-masters/renders/MV-HOOK-HUMAN-01.mp4",
     "remotion:render:checklist": "remotion render src/remotion/index.js MV-CHECKLIST-01 .local-masters/renders/MV-CHECKLIST-01.mp4",
@@ -42,16 +42,23 @@
     "remotion:render:meet-teammate": "remotion render src/remotion/index.js MV-MEET-TEAMMATE-01 .local-masters/renders/MV-MEET-TEAMMATE-01.mp4",
     "remotion:render:real-workday": "remotion render src/remotion/index.js MV-REAL-WORKDAY-01 .local-masters/renders/MV-REAL-WORKDAY-01.mp4",
     "remotion:render:overload-support": "remotion render src/remotion/index.js MV-OVERLOAD-SUPPORT-01 .local-masters/renders/MV-OVERLOAD-SUPPORT-01.mp4",
-    "remotion:render:vertical-practice": "remotion render src/remotion/index.js MV-VERTICAL-PRACTICE-01 .local-masters/renders/MV-VERTICAL-PRACTICE-01.mp4"
+    "remotion:render:vertical-practice": "remotion render src/remotion/index.js MV-VERTICAL-PRACTICE-01 .local-masters/renders/MV-VERTICAL-PRACTICE-01.mp4",
+    "generate:foundry": "node scripts/generate-foundry-page.mjs",
+    "generate:raw-assets": "node scripts/generate-raw-assets.mjs",
+    "assets:foundry-api": "node --env-file=.env.local scripts/asset-foundry/local-api.mjs",
+    "assets:pull-approved": "node --env-file=.env.local scripts/asset-foundry/pull-approved.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.489",
     "@remotion/player": "^4.0.489",
+    "@vercel/blob": "^2.6.1",
     "html-to-image": "^1.11.13",
+    "openai": "^6.46.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1",
-    "remotion": "^4.0.489"
+    "remotion": "^4.0.489",
+    "sharp": "^0.35.3"
   },
   "devDependencies": {
     "@types/node": "^24.13.2",
@@ -59,7 +66,6 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
-    "sharp": "^0.35.3",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
   }

@@ -254,52 +254,52 @@ const html = `<!doctype html>
   ${renderDocHeader({
     activeId: 'brief',
     pageTitle: 'Graphics brief',
-    pageSubtitle: 'Four ads to play with — thanks for helping make them great',
+    pageSubtitle: 'Current assignments only — download the parts, rebuild finals in your design tools',
   })}
   <main>
     <header class="hero">
-      <h1>Four ads to design</h1>
-      <p>Hey team — each card is one ad. Grab the examples and photos, make something you’re proud of, and send PNGs to George. Want to invent something cooler? Jump into <a href="/ideas.html">Ideas Lab</a> or the <a href="/mockup-sandbox.html">sandbox</a>.</p>
+      <h1>Current assignments</h1>
+      <p>Each card is one deliverable. Download the listed raw assets and copy, match the reference composition (rebuild offline), and email the finished files to George. HTML mockups are art direction — not mandatory editors.</p>
     </header>
 
-    <p class="hint">Ads 1–4 whenever you’re ready. Matching the example keeps this batch consistent — and your craft still shines.</p>
+    <p class="hint">Produce only the cards in this section. Matching the example keeps the batch consistent.</p>
 
     <ol class="steps">
       ${HOPPER_POLICY.howItWorks.map((s) => `<li>${esc(s)}</li>`).join('')}
     </ol>
 
     <nav class="jump" aria-label="On this page">
-      <a href="#jobs">The four ads</a>
-      <a href="/real-people-creative.html">See finished ads</a>
+      <a href="#jobs">Assignments</a>
+      <a href="/raw-assets.html">Raw Assets</a>
+      <a href="/real-people-creative.html">People examples</a>
       <a href="/medvirtual-brand-guide.html">Brand guide</a>
     </nav>
 
     <section id="jobs">
-      <h2>Ads we need</h2>
-      <p class="lede">Feel free to download the files on each card before you start.</p>
+      <h2>Produce now</h2>
+      <p class="lede">Download assets from each card before you start.</p>
       ${
         doNow.length
           ? doNow.map((i, idx) => renderJobCard(i, idx + 1)).join('')
-          : '<p class="lede">Nothing queued right now — feel free to check with your MedVirtual contact.</p>'
+          : '<p class="lede">Nothing queued — ask your MedVirtual contact.</p>'
       }
     </section>
 
     <section>
-      <h2>Brand notes (short)</h2>
+      <h2>Brand rules</h2>
       <ul class="rules">${HOPPER_POLICY.languageRules.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
     </section>
 
     <section class="idea-box" id="share-idea">
-      <h2>Want to suggest something cooler?</h2>
-      <p class="lede">If a card’s unclear, or you’ve got a stronger layout or hook that still feels on-brand, tell George — he’d rather riff with you than guess.</p>
-      <p><a class="btn primary" href="mailto:${esc(GRAPHICS_REQUEST_EMAIL)}?subject=${encodeURIComponent('Brief idea')}&body=${encodeURIComponent('Hey George!\n\nIdea / note on the Brief:\n\n')}">Email George an idea</a>
-      <a class="btn" href="/ideas.html">Open Ideas Lab</a>
+      <h2>Unclear assignment?</h2>
+      <p class="lede">If a card is missing files or the reference is confusing, email George before redesigning from scratch.</p>
+      <p><a class="btn primary" href="mailto:${esc(GRAPHICS_REQUEST_EMAIL)}?subject=${encodeURIComponent('Brief clarification')}&body=${encodeURIComponent('Hey George,\n\nClarification needed on Brief card:\n\n')}">Email George</a>
       <a class="btn" href="/studio.html">Studio home</a></p>
     </section>
 
     <section id="archive">
-      <h2>Producer notes</h2>
-      <p class="lede">Optional reference for producers. Designers usually won’t need this.</p>
+      <h2>Producer archive</h2>
+      <p class="lede">Hidden by default — designers usually skip this. Speculative backlog, finished work, and paused jobs.</p>
       <details class="archive">
         <summary>Already finished (${esc(String(ready.length))})</summary>
         <div style="margin-top:0.75rem">${ready.map((i) => renderArchiveCard(i, 'ready_to_load')).join('') || '<p class="lede">None.</p>'}</div>

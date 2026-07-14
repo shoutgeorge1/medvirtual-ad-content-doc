@@ -9,6 +9,42 @@
     return;
   }
 
+  // Merge Foundry-approved repo assets (shared manifest — not duplicated hand edits)
+  function mergeAiApproved(manifest) {
+    const list = Array.isArray(manifest?.assets) ? manifest.assets : [];
+    const existing = new Set((DATA.images || []).map((i) => i.id));
+    for (const a of list) {
+      if (!a?.id || !a?.src || existing.has(a.id)) continue;
+      DATA.images.push({
+        id: a.id,
+        name: a.concept || a.id,
+        src: a.src,
+        thumb: a.src,
+        aspectRatio: a.format || '4:5',
+        subjectPosition: a.subjectPosition || 'right',
+        copyZone: a.copySpace || 'left',
+        status: 'Approved AI',
+        kind: a.kind || 'ai-approved',
+        source: 'asset-foundry',
+      });
+      existing.add(a.id);
+    }
+  }
+
+  fetch('/assets/ai-approved/manifest.json')
+    .then((r) => (r.ok ? r.json() : null))
+    .then((m) => {
+      if (m) {
+        mergeAiApproved(m);
+        try {
+          render();
+        } catch {
+          /* first paint may not be ready */
+        }
+      }
+    })
+    .catch(() => {});
+
   const STORAGE = DATA.storageKeys.creativeBatch;
   const PROMOTE = DATA.storageKeys.promote;
   const FORMATS = DATA.formats;
@@ -443,8 +479,8 @@
     const banks = DATA.banks;
     const principles = DATA.competitorPrinciples;
     const talent = DATA.talent;
-    const peopleImgs = DATA.images.filter((i) => i.kind !== 'saas-prop');
-    const saasImgs = DATA.images.filter((i) => i.kind === 'saas-prop');
+    const peopleImgs = DATA.images.filter((i) => i.kind !== 'saas-prop' && i.kind !== 'ai-prop');
+    const saasImgs = DATA.images.filter((i) => i.kind === 'saas-prop' || i.kind === 'ai-prop');
     const layouts = [
       { layout: 'PainPortraitLayout', lane: 'pain-human', theme: 'light-grid', name: 'Pain + Human Answer', motion: 'MV-HOOK-HUMAN-01', dur: 330 },
       { layout: 'EditorialTalentLayout', lane: 'editorial-talent', theme: 'editorial-light', name: 'Named Talent / Editorial', motion: 'MV-CHECKLIST-01', dur: 300 },

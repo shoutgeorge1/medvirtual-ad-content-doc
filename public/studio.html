@@ -264,23 +264,26 @@
     font-size: clamp(1.75rem, 4vw, 2.35rem);
     letter-spacing: -0.03em;
   }
-  .hero p { margin: 0; max-width: 40rem; color: #405766; }
-  .stages {
-    display: grid;
-    gap: 0.65rem;
-    grid-template-columns: repeat(3, 1fr);
+  .hero p { margin: 0; max-width: 42rem; color: #405766; }
+  .steps {
     margin: 1.35rem 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.55rem;
   }
-  @media (max-width: 720px) { .stages { grid-template-columns: 1fr; } }
-  .stages article {
+  .steps li {
     background: #fff;
     border: 1px solid #d5e2ea;
-    border-radius: 14px;
-    padding: 1rem 1.05rem;
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0.65rem;
+    align-items: start;
   }
-  .stages h2 { margin: 0 0 0.3rem; font-size: 0.95rem; color: #0D546B; }
-  .stages p { margin: 0; font-size: 0.88rem; color: #516472; }
-  .stages a { color: #077999; font-weight: 700; text-decoration: none; }
+  .steps strong { color: #0D546B; }
+  .steps span { color: #516472; font-size: 0.92rem; }
   .grid {
     display: grid;
     gap: 0.85rem;
@@ -318,6 +321,34 @@
   .panel .lede { margin: 0 0 0.7rem; color: #64748b; font-size: 0.92rem; }
   .jobs { margin: 0; padding-left: 1.1rem; color: #405766; }
   .jobs a { color: #077999; font-weight: 700; }
+  .producer {
+    margin-top: 1.5rem;
+    border: 1px dashed #94a3b8;
+    border-radius: 14px;
+    padding: 1rem 1.05rem;
+    background: #f8fafc;
+  }
+  .producer summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: #0D546B;
+  }
+  .review-row {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0.75rem 0;
+    padding: 0.65rem 0;
+    border-top: 1px solid #e2e8f0;
+  }
+  .review-row label { font-size: 0.86rem; font-weight: 600; }
+  .review-row select {
+    font: inherit;
+    max-width: 16rem;
+    border: 1px solid #d5e2ea;
+    border-radius: 8px;
+    padding: 0.35rem 0.5rem;
+  }
+  .note { font-size: 0.8rem; color: #64748b; margin: 0.5rem 0 0; }
 </style>
 </head>
 <body>
@@ -327,19 +358,19 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Produce now · reuse approved systems · experiment in the lab</p>
+        <p class="doc-header__tagline">Raw materials + clear direction · designers assemble the finals</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
       <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
       <summary>Examples</summary>
-      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/real-people-creative.html" class="">People treatments</a></div>
-    </details><a href="/real-people-creative.html" class="">People</a><a href="/video-production.html" class="">Video</a><details class="doc-nav-dd ">
-      <summary>Assets</summary>
-      <div class="doc-nav-dd__menu"><a href="/asset-hub.html" class="">Asset Hub</a><a href="/image-variation-review.html" class="">Image board</a><a href="/real-people-assets.html" class="">People downloads</a></div>
-    </details><details class="doc-nav-dd ">
-      <summary>Creative Lab</summary>
-      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Experimental Ideas</a><a href="/competitors.html" class="">Competitors</a><a href="/creative-concept-lab.html" class="">Static Concepts</a><a href="/motion-concept-lab.html" class="">Motion Concepts</a><a href="/mockup-sandbox.html" class="">Sandbox</a><a href="/saas-prop-templates.html" class="">SaaS Props</a></div>
+      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer examples</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/real-people-creative.html" class="">People treatments</a></div>
+    </details><a href="/real-people-creative.html" class="">People</a><details class="doc-nav-dd ">
+      <summary>Raw Assets</summary>
+      <div class="doc-nav-dd__menu"><a href="/raw-assets.html" class="">Raw library</a><a href="/asset-hub.html" class="">Full Asset Hub</a><a href="/image-variation-review.html" class="">Image board</a><a href="/real-people-assets.html" class="">People downloads</a></div>
+    </details><a href="/video-production.html" class="">Video Capture</a><details class="doc-nav-dd ">
+      <summary>Producer Lab</summary>
+      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Lab home</a><a href="/ai-asset-foundry.html" class="">AI Asset Foundry</a><a href="/competitors.html" class="">Competitors</a><a href="/creative-concept-lab.html" class="">Static References</a><a href="/motion-concept-lab.html" class="">Motion References</a><a href="/mockup-sandbox.html" class="">Sandbox</a><a href="/saas-prop-templates.html" class="">SaaS Props</a><a href="/role-offer-templates.html" class="">Role-Offer mockups</a></div>
     </details></nav>
       <span class="doc-nav-sep" aria-hidden="true"></span>
       <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/studio.html" class="active">Studio</a></nav>
@@ -347,7 +378,7 @@
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Studio</h2>
-          <p class="doc-header__page-sub">Produce now · reuse approved systems · experiment only in Creative Lab</p>
+          <p class="doc-header__page-sub">Generate the parts. Show the intended result. Designers assemble the finals.</p>
           
         </div>
 </header>
@@ -369,63 +400,162 @@
 </script>
   <main>
     <header class="hero">
-      <h1>What to produce is on the Brief.</h1>
-      <p>Start with assigned work. Reuse approved examples. Record simple phone footage when the job is video. Keep experiments in Creative Lab.</p>
+      <h1>Start with the Brief.</h1>
+      <p>MedVirtual supplies raw images, logos, separate copy, and a reference composition. Build the finished ad in your normal design or video tools — this site is not a Photoshop or CapCut replacement.</p>
     </header>
 
-    <div class="stages">
-      <article>
-        <h2>1. Produce Now</h2>
-        <p>Open the <a href="/graphic-request-brief.html">Brief</a> — only the current assignments.</p>
-      </article>
-      <article>
-        <h2>2. Approved Systems</h2>
-        <p><a href="/template-test-board.html">Examples</a>, <a href="/real-people-creative.html">People</a>, and <a href="/video-production.html">Video</a> templates.</p>
-      </article>
-      <article>
-        <h2>3. Creative Lab</h2>
-        <p>Optional exploration: <a href="/ideas.html">competitors, concepts, sandbox</a>.</p>
-      </article>
-    </div>
+    <ol class="steps" aria-label="Handoff path">
+      <li><strong>1</strong><span>Open the <a href="/graphic-request-brief.html">Brief</a> — only the current assignments.</span></li>
+      <li><strong>2</strong><span>Download the listed raw images, logos, and copy from each card.</span></li>
+      <li><strong>3</strong><span>View one reference mockup or capture brief — treat it as art direction, not mandatory HTML editing.</span></li>
+      <li><strong>4</strong><span>Build the final asset in your usual tools (Illustrator, Canva, Premiere, CapCut, etc.).</span></li>
+      <li><strong>5</strong><span>Submit via the destination on the Brief (email George).</span></li>
+    </ol>
 
     <div class="grid">
       <a class="tile" href="/graphic-request-brief.html">
-        <span class="eyebrow">Start here</span>
+        <span class="eyebrow">Production</span>
         <h3>Brief</h3>
-        <p>Assigned static, motion, and capture jobs with due dates and assets.</p>
+        <p>Assigned jobs with dimensions, assets, copy, and due dates.</p>
       </a>
-      <a class="tile" href="/video-production.html">
-        <span class="eyebrow">Motion</span>
-        <h3>Real People Video</h3>
-        <p>Capture briefs, four video templates, consent checks, Remotion preview.</p>
+      <a class="tile" href="/raw-assets.html">
+        <span class="eyebrow">Files</span>
+        <h3>Raw Assets</h3>
+        <p>Photos, logos, props, backgrounds — components, not finished ads.</p>
       </a>
       <a class="tile" href="/template-test-board.html">
-        <span class="eyebrow">Systems</span>
+        <span class="eyebrow">Direction</span>
         <h3>Examples</h3>
-        <p>Approved static layouts and Role-Offer treatments to reuse.</p>
+        <p>Approved layouts Hailey is likely to accept.</p>
       </a>
       <a class="tile" href="/real-people-creative.html">
         <span class="eyebrow">Talent</span>
         <h3>People</h3>
-        <p>Named talent ads, public skills, and download packs.</p>
+        <p>Named talent treatments and public-safe downloads.</p>
       </a>
-      <a class="tile" href="/asset-hub.html">
-        <span class="eyebrow">Files</span>
-        <h3>Assets</h3>
-        <p>Logos, approved images, and production files.</p>
+      <a class="tile" href="/video-production.html">
+        <span class="eyebrow">Capture</span>
+        <h3>Video Capture</h3>
+        <p>Shot list, lines, framing — Remotion is reference only.</p>
       </a>
       <a class="tile" href="/ideas.html">
-        <span class="eyebrow">Secondary</span>
-        <h3>Creative Lab</h3>
-        <p>Competitors, static/motion concept labs, sandbox, SaaS props.</p>
+        <span class="eyebrow">Producers</span>
+        <h3>Producer Lab</h3>
+        <p>Foundry, competitors, static/motion references — optional for designers.</p>
       </a>
     </div>
 
     <section class="panel">
       <h2>Open on the Brief</h2>
-      <p class="lede">Current produce-now queue.</p>
+      <p class="lede">Current produce-now queue (4).</p>
       <ul class="jobs"><li><a href="/graphic-request-brief.html#rp-carmen-4x5">Static · Meet Carmen · 4:5 feed</a> · due 07/20/2026</li><li><a href="/graphic-request-brief.html#vid-meet-jessica">Capture + Motion · Jessica direct-to-camera · Meet Your Next Teammate</a> · due 07/27/2026</li><li><a href="/graphic-request-brief.html#vid-pain-carmen">Motion · Carmen · Pain → Human (9–13s)</a> · due 07/24/2026</li><li><a href="/graphic-request-brief.html#vid-dental-chelsea">Motion · Chelsea · Dental vertical (10–15s)</a> · due 07/27/2026</li></ul>
     </section>
+
+    <details class="producer">
+      <summary>Producer only — tomorrow review (not for graphics team)</summary>
+      <p class="note">Scores stay in this browser (localStorage). Mark each area after you walk the site.</p>
+      
+    <div class="review-row">
+      <label for="rev-brief">Current Brief</label>
+      <select id="rev-brief" data-review="brief" aria-label="Current Brief assessment">
+        <option value="">— choose —</option>
+        <option value="useful">Useful</option>
+        <option value="too-complicated">Too complicated</option>
+        <option value="producer-only">Keep producer-only</option>
+        <option value="simplify">Simplify</option>
+        <option value="remove-nav">Remove from navigation</option>
+        <option value="broken">Broken</option>
+      </select>
+    </div>
+    <div class="review-row">
+      <label for="rev-raw">Raw Assets library</label>
+      <select id="rev-raw" data-review="raw" aria-label="Raw Assets library assessment">
+        <option value="">— choose —</option>
+        <option value="useful">Useful</option>
+        <option value="too-complicated">Too complicated</option>
+        <option value="producer-only">Keep producer-only</option>
+        <option value="simplify">Simplify</option>
+        <option value="remove-nav">Remove from navigation</option>
+        <option value="broken">Broken</option>
+      </select>
+    </div>
+    <div class="review-row">
+      <label for="rev-foundry">AI Asset Foundry</label>
+      <select id="rev-foundry" data-review="foundry" aria-label="AI Asset Foundry assessment">
+        <option value="">— choose —</option>
+        <option value="useful">Useful</option>
+        <option value="too-complicated">Too complicated</option>
+        <option value="producer-only">Keep producer-only</option>
+        <option value="simplify">Simplify</option>
+        <option value="remove-nav">Remove from navigation</option>
+        <option value="broken">Broken</option>
+      </select>
+    </div>
+    <div class="review-row">
+      <label for="rev-static-ref">Static reference mockups</label>
+      <select id="rev-static-ref" data-review="static-ref" aria-label="Static reference mockups assessment">
+        <option value="">— choose —</option>
+        <option value="useful">Useful</option>
+        <option value="too-complicated">Too complicated</option>
+        <option value="producer-only">Keep producer-only</option>
+        <option value="simplify">Simplify</option>
+        <option value="remove-nav">Remove from navigation</option>
+        <option value="broken">Broken</option>
+      </select>
+    </div>
+    <div class="review-row">
+      <label for="rev-motion-ref">Motion / video references</label>
+      <select id="rev-motion-ref" data-review="motion-ref" aria-label="Motion / video references assessment">
+        <option value="">— choose —</option>
+        <option value="useful">Useful</option>
+        <option value="too-complicated">Too complicated</option>
+        <option value="producer-only">Keep producer-only</option>
+        <option value="simplify">Simplify</option>
+        <option value="remove-nav">Remove from navigation</option>
+        <option value="broken">Broken</option>
+      </select>
+    </div>
+    <div class="review-row">
+      <label for="rev-nav">Graphics-facing navigation</label>
+      <select id="rev-nav" data-review="nav" aria-label="Graphics-facing navigation assessment">
+        <option value="">— choose —</option>
+        <option value="useful">Useful</option>
+        <option value="too-complicated">Too complicated</option>
+        <option value="producer-only">Keep producer-only</option>
+        <option value="simplify">Simplify</option>
+        <option value="remove-nav">Remove from navigation</option>
+        <option value="broken">Broken</option>
+      </select>
+    </div>
+    <div class="review-row">
+      <label for="rev-build">Overall build health</label>
+      <select id="rev-build" data-review="build" aria-label="Overall build health assessment">
+        <option value="">— choose —</option>
+        <option value="useful">Useful</option>
+        <option value="too-complicated">Too complicated</option>
+        <option value="producer-only">Keep producer-only</option>
+        <option value="simplify">Simplify</option>
+        <option value="remove-nav">Remove from navigation</option>
+        <option value="broken">Broken</option>
+      </select>
+    </div>
+      <p class="note"><a href="/ai-asset-foundry.html">Foundry</a> · <a href="/creative-concept-lab.html">Static refs</a> · <a href="/motion-concept-lab.html">Motion refs</a> · Audit doc lives in repo root as <code>PROJECT-AUDIT-RAW-MATERIALS.md</code></p>
+    </details>
   </main>
+  <script>
+  (function () {
+    const KEY = 'mv-studio-review-v1';
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+    document.querySelectorAll('[data-review]').forEach((sel) => {
+      const id = sel.getAttribute('data-review');
+      if (saved[id]) sel.value = saved[id];
+      sel.addEventListener('change', () => {
+        saved[id] = sel.value;
+        localStorage.setItem(KEY, JSON.stringify(saved));
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

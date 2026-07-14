@@ -8,22 +8,21 @@ import { LAUNCH_SUBNAV } from './launch-sequences-data.mjs';
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Creative Handoff',
-  tagline: 'Produce now · reuse approved systems · experiment in the lab',
+  tagline: 'Raw materials + clear direction · designers assemble the finals',
   homeHref: '/studio.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };
 
 /**
- * Primary nav — production first.
- * Brief → Examples → People → Video → Assets
- * Creative Lab is grouped so experiments stay secondary.
+ * Primary nav — graphics-facing first; Producer Lab is secondary.
+ * Brief → Examples → People → Raw Assets → Video Capture → Producer Lab
  */
 export const PRIMARY_NAV = [
   {
     href: '/graphic-request-brief.html',
     label: 'Brief',
     id: 'brief',
-    description: 'Current production assignments.',
+    description: 'Current production assignments only.',
   },
   {
     href: '/template-test-board.html',
@@ -32,7 +31,7 @@ export const PRIMARY_NAV = [
     description: 'Approved layouts and treatments to reuse.',
     children: [
       { href: '/template-test-board.html', label: 'Layout guides', id: 'templates' },
-      { href: '/role-offer-templates.html', label: 'Role-Offer', id: 'role-offer' },
+      { href: '/role-offer-templates.html', label: 'Role-Offer examples', id: 'role-offer' },
       { href: '/medvirtual-brand-guide.html', label: 'Brand Guide', id: 'brand-guide' },
       { href: '/real-people-creative.html', label: 'People treatments', id: 'real-people-examples' },
     ],
@@ -44,34 +43,37 @@ export const PRIMARY_NAV = [
     description: 'Named talent ads and public profile assets.',
   },
   {
-    href: '/video-production.html',
-    label: 'Video',
-    id: 'video',
-    description: 'Capture briefs and real-person short-form ads.',
-  },
-  {
-    href: '/asset-hub.html',
-    label: 'Assets',
-    id: 'hub',
-    description: 'Logos, approved images, and production files.',
+    href: '/raw-assets.html',
+    label: 'Raw Assets',
+    id: 'raw-assets',
+    description: 'Photos, props, backgrounds, logos — not finished ads.',
     children: [
-      { href: '/asset-hub.html', label: 'Asset Hub', id: 'hub' },
+      { href: '/raw-assets.html', label: 'Raw library', id: 'raw-assets' },
+      { href: '/asset-hub.html', label: 'Full Asset Hub', id: 'hub' },
       { href: '/image-variation-review.html', label: 'Image board', id: 'images' },
       { href: '/real-people-assets.html', label: 'People downloads', id: 'real-people-assets' },
     ],
   },
   {
+    href: '/video-production.html',
+    label: 'Video Capture',
+    id: 'video',
+    description: 'Capture briefs and reference motion — not a CapCut/Premiere replacement.',
+  },
+  {
     href: '/ideas.html',
-    label: 'Creative Lab',
+    label: 'Producer Lab',
     id: 'lab',
-    description: 'Experiments — demoted behind current production.',
+    description: 'George / Hailey tools — not required for graphics production.',
     children: [
-      { href: '/ideas.html', label: 'Experimental Ideas', id: 'ideas' },
+      { href: '/ideas.html', label: 'Lab home', id: 'ideas' },
+      { href: '/ai-asset-foundry.html', label: 'AI Asset Foundry', id: 'foundry' },
       { href: '/competitors.html', label: 'Competitors', id: 'competitors' },
-      { href: '/creative-concept-lab.html', label: 'Static Concepts', id: 'creative-lab' },
-      { href: '/motion-concept-lab.html', label: 'Motion Concepts', id: 'motion-lab' },
+      { href: '/creative-concept-lab.html', label: 'Static References', id: 'creative-lab' },
+      { href: '/motion-concept-lab.html', label: 'Motion References', id: 'motion-lab' },
       { href: '/mockup-sandbox.html', label: 'Sandbox', id: 'mockups' },
       { href: '/saas-prop-templates.html', label: 'SaaS Props', id: 'saas-prop' },
+      { href: '/role-offer-templates.html', label: 'Role-Offer mockups', id: 'role-offer-lab' },
     ],
   },
 ];
@@ -386,6 +388,8 @@ export function renderDocHeader(opts = {}) {
       mockups: 'mockups',
       competitors: 'competitors',
       'saas-prop': 'saas-prop',
+      'raw-assets': 'raw-assets',
+      foundry: 'foundry',
       video: 'video',
     }[activeId] || activeId;
 

@@ -33,10 +33,10 @@ export const HOPPER_POLICY = {
   brandGuideUrl: 'https://medvirtual-ad-content-doc.vercel.app/medvirtual-brand-guide.html',
   metaLaunchUrl: 'https://medvirtual-ad-content-doc.vercel.app/meta-launch-build-pack.html',
   howItWorks: [
-    'Open the four assignments below — those are the only jobs to produce now.',
-    'Use the linked example as the approved layout or motion guide.',
-    'Use only the listed photo/logo/footage assets.',
-    'Submit finished files to George (email on each card).',
+    'Open the assignments below — those are the only jobs to produce now.',
+    'Download the listed raw images, logos, and copy from each card.',
+    'Use the linked example as art-direction / composition reference (rebuild in your tools).',
+    'Submit finished files to George using the destination on each card.',
   ],
   languageRules: [
     'Brand on ads: MedVirtual (not MedVirtual.ai)',

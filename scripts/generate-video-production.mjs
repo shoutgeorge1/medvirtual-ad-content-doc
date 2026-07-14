@@ -24,7 +24,7 @@ const html = `<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Real People Video · MedVirtual</title>
+  <title>Video Capture · MedVirtual</title>
   <style>
     ${HEADER_CSS}
     body {
@@ -44,8 +44,8 @@ const html = `<!doctype html>
 <body>
   ${renderDocHeader({
     activeId: 'video',
-    pageTitle: 'Real People Video',
-    pageSubtitle: 'Turn authentic VA footage into polished short-form ads. Record simply. Edit intentionally.',
+    pageTitle: 'Video Capture',
+    pageSubtitle: 'Capture briefs and shot lists. Remotion previews are references — not the required editing platform.',
   })}
   <div id="video-lab-root"></div>
   <script>

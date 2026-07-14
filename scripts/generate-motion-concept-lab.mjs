@@ -23,7 +23,7 @@ const html = `<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Motion Concept Lab · MedVirtual</title>
+  <title>Motion Mock References · MedVirtual</title>
   <style>${css}
     body {
       margin: 0;
@@ -39,8 +39,8 @@ const html = `<!doctype html>
 <body class="mcl-shell-body">
   ${renderDocHeader({
     activeId: 'motion-lab',
-    pageTitle: 'Motion Concept Lab',
-    pageSubtitle: 'Four short-form concepts. Simple motion, strong frames, production-ready structure.',
+    pageTitle: 'Motion Mock References',
+    pageSubtitle: 'Producer motion prototypes — reference only. Video team may rebuild in CapCut / Premiere / AE.',
   })}
   <div id="motion-lab-root"></div>
   <script type="module" src="/src/motion-lab-entry.jsx"></script>

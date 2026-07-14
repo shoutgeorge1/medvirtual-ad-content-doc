@@ -14,6 +14,12 @@ export default defineConfig({
         '**/_private/**',
       ],
     },
+    proxy: {
+      '/api/asset-foundry': {
+        target: 'http://localhost:3456',
+        changeOrigin: true,
+      },
+    },
   },
   build: {
     rollupOptions: {
@@ -21,6 +27,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         motionLab: resolve(__dirname, 'motion-concept-lab.html'),
         videoLab: resolve(__dirname, 'video-production.html'),
+        foundry: resolve(__dirname, 'ai-asset-foundry.html'),
       },
     },
   },

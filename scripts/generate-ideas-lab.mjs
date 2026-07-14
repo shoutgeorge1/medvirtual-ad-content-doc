@@ -1,5 +1,6 @@
 /**
- * Creative Lab hub — experiments only. Regenerate: npm run generate:ideas
+ * Producer Lab hub — George / Hailey tools (demoted for graphics team).
+ * Regenerate: npm run generate:ideas
  */
 import fs from 'fs';
 import path from 'path';
@@ -9,14 +10,6 @@ import { BRAND } from './medvirtual-brand-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.join(__dirname, '..', 'public');
-
-function esc(s) {
-  return String(s ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
 
 const css = `
   ${HEADER_CSS}
@@ -57,6 +50,15 @@ const css = `
   .lane:hover { border-color: ${BRAND.colors.main02}; }
   .lane h3 { margin: 0 0 0.3rem; font-size: 1rem; }
   .lane p { margin: 0; font-size: 0.86rem; color: #516472; }
+  .lane .tag {
+    display: inline-block;
+    margin-top: 0.45rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: ${BRAND.colors.main03};
+  }
 `;
 
 const html = `<!doctype html>
@@ -64,32 +66,34 @@ const html = `<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Creative Lab · MedVirtual</title>
+  <title>Producer Lab · MedVirtual</title>
   <style>${css}</style>
 </head>
 <body>
   ${renderDocHeader({
     activeId: 'ideas',
-    pageTitle: 'Creative Lab',
-    pageSubtitle: 'Experimental tools — not the current brief.',
+    pageTitle: 'Producer Lab',
+    pageSubtitle: 'George / Hailey tools — raw materials and art-direction references, not designer editors',
   })}
   <main>
     <header class="hero">
-      <h1>Creative Lab</h1>
-      <p>Test future directions here. Current production work lives on the Brief and Video pages.</p>
+      <h1>Producer Lab</h1>
+      <p>Generate raw images, approve taste, and build rough mock references. The graphics team rebuilds finals in their own tools from the Brief.</p>
     </header>
-    <p class="banner">If you have an open Brief assignment, finish that before spending time in the lab.</p>
+    <p class="banner">Designers: if you have an open Brief assignment, finish that first. You do not need this lab to produce assigned work.</p>
     <div class="lanes">
-      <a class="lane" href="/competitors.html"><h3>Competitors</h3><p>Steal energy, reject trade dress, remix for MedVirtual.</p></a>
-      <a class="lane" href="/creative-concept-lab.html"><h3>Static Concepts</h3><p>Four polished mockups at a time · export PNG · promote to video.</p></a>
-      <a class="lane" href="/motion-concept-lab.html"><h3>Motion Concepts</h3><p>Short Remotion previews and static cutdowns.</p></a>
-      <a class="lane" href="/video-production.html"><h3>Real People Video</h3><p>Capture briefs and production templates (first-class lane).</p></a>
-      <a class="lane" href="/mockup-sandbox.html"><h3>Sandbox</h3><p>Quick editable forks for experiments.</p></a>
-      <a class="lane" href="/saas-prop-templates.html"><h3>SaaS Props</h3><p>No-people ops visuals with staffing-true support copy.</p></a>
+      <a class="lane" href="/ai-asset-foundry.html"><h3>AI Asset Foundry</h3><p>Generate four raw images · review · approve · save plates with no ad text.</p><span class="tag">Producer</span></a>
+      <a class="lane" href="/competitors.html"><h3>Competitors</h3><p>Steal energy as principles — never copy trade dress.</p><span class="tag">Producer</span></a>
+      <a class="lane" href="/creative-concept-lab.html"><h3>Static References</h3><p>Art-direction mockups for composition and copy length — not final production artwork.</p><span class="tag">Reference</span></a>
+      <a class="lane" href="/motion-concept-lab.html"><h3>Motion References</h3><p>Remotion previews for motion intent — not CapCut/Premiere.</p><span class="tag">Reference</span></a>
+      <a class="lane" href="/mockup-sandbox.html"><h3>Sandbox</h3><p>Quick editable forks for producer experiments.</p><span class="tag">Producer</span></a>
+      <a class="lane" href="/saas-prop-templates.html"><h3>SaaS Props</h3><p>No-people ops references with staffing-true support copy.</p><span class="tag">Reference</span></a>
+      <a class="lane" href="/role-offer-templates.html"><h3>Role-Offer mockups</h3><p>Meet-layout references designers may rebuild offline.</p><span class="tag">Reference</span></a>
+      <a class="lane" href="/raw-assets.html"><h3>Raw Assets</h3><p>Graphics-facing library of downloadable components.</p><span class="tag">Shared</span></a>
     </div>
   </main>
 </body>
 </html>`;
 
 fs.writeFileSync(path.join(PUBLIC, 'ideas.html'), html);
-console.log('Creative Lab hub written');
+console.log('Producer Lab hub written');

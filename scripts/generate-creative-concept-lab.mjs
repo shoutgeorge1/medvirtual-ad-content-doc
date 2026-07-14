@@ -34,7 +34,7 @@ const html = `<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Creative Concept Lab · MedVirtual</title>
+  <title>Static Mock References · MedVirtual</title>
   <link rel="stylesheet" href="/assets/concept-lab/concept-lab.css" />
   <style>${css}</style>
   <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.13/dist/html-to-image.js"></script>
@@ -42,13 +42,13 @@ const html = `<!doctype html>
 <body>
   ${renderDocHeader({
     activeId: 'creative-lab',
-    pageTitle: 'Creative Concept Lab',
-    pageSubtitle: 'Four fresh directions at a time. Remix the strategy, refine the copy, export the strongest ideas.',
+    pageTitle: 'Static Mock References',
+    pageSubtitle: 'Producer art-direction prototypes — not final production artwork. Graphics may rebuild in their own tools.',
   })}
   <main class="ccl-page">
     <header class="ccl-hero">
-      <h1>Creative Concept Lab</h1>
-      <p>Four fresh directions at a time. Remix the strategy, refine the copy, export the strongest ideas.</p>
+      <h1>Static Mock References</h1>
+      <p>Composition and copy-length prototypes for Hailey approval. Separate raw images and copy for handoff — do not treat PNG exports as mandatory final files.</p>
     </header>
 
     <div class="ccl-toolbar" role="toolbar" aria-label="Batch tools">
@@ -58,10 +58,10 @@ const html = `<!doctype html>
       <button type="button" id="ccl-import-batch">Import batch JSON</button>
       <input type="file" id="ccl-import-file" accept="application/json,.json" hidden />
       <button type="button" id="ccl-reset-batch">Reset entire batch</button>
-      <a class="ccl-btn" href="/motion-concept-lab.html">Motion Concepts</a>
+      <a class="ccl-btn" href="/motion-concept-lab.html">Motion References</a>
       <a class="ccl-btn" href="/competitors.html">Competitor Wall</a>
       <a class="ccl-btn" href="/mockup-sandbox.html">Sandbox</a>
-      <a class="ccl-btn" href="/ideas.html">Ideas Lab</a>
+      <a class="ccl-btn" href="/ideas.html">Producer Lab</a>
     </div>
 
     <div id="ccl-root" class="ccl-batch" aria-live="polite"></div>
