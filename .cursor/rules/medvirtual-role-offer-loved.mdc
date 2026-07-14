@@ -1,0 +1,43 @@
+---
+description: Role-offer checklist layouts the team loves (editable template family)
+globs:
+  - public/role-offer-templates.html
+  - scripts/role-offer-templates-data.mjs
+  - scripts/generate-role-offer-templates.mjs
+  - public/assets/role-offer-refs/**
+alwaysApply: true
+---
+
+# Role-Offer Layouts They Love
+
+These five **role-offer** comps are proven winners with the team. Keep them available as editable Templates — separate from Real People Studio Profile.
+
+## Family vs Real People
+
+| Family | Use | Do not |
+|--------|-----|--------|
+| **Role-Offer** (this rule) | Stock/AI person crops · role pills · checklists · price/CTA · grid plate | Put named Talent Pool people here |
+| **Real People / Treatment E** | Meet {Name} · role · Available to interview · no checklist/price/CTA on image | Paste these checklist layouts onto Talent portraits |
+
+## The five layouts (1:1)
+
+1. **`ROLE_CENTER_CHECKLIST_COLLAGE`** — Medical Admin · centered logo + “Hire a Virtual” + role pill · headline · check list + `$10` circle · 3 tilted photo strip
+2. **`ROLE_SPLIT_PHOTO_LEFT`** — Medical Biller · person left · headline + bullets + bordered “STARTING AT $10/hour” box right
+3. **`ROLE_SPLIT_COPY_LEFT`** — Dental Admin · audience pill (e.g. DENTISTS!) · copy + CTA left · person + price circle right
+4. **`ROLE_SPLIT_COPY_PRICE_LEFT`** — Medical Nurse · audience pill · headline + checks + price bar left · person + CTA right
+5. **`ROLE_PILL_CHECKLIST_SPLIT`** — Medical Admin burnout · DOCTORS! + logo · headline + role pill + checks + CTA left · person + price overlay right
+
+## Visual DNA (match refs)
+
+- Light grid plate (white → soft cyan), Be Vietnam, brand teal (`#077999` / `#00B2E2` / `#0D546B`)
+- “Hire a Virtual” + dark teal **role pill** (white type)
+- Checklist with circular check icons (or plain dots on Biller)
+- Price as circle stamp **or** bordered/rounded box — editable, do not invent new rates
+- Scrubs + headset stock/AI people OK on this family; colored MedVirtual logo
+
+## Editable handoff
+
+Source of truth: `scripts/role-offer-templates-data.mjs` → `public/role-offer-templates.html`  
+All copy, bullets, icons, price, CTA, audience pill, and photo slots are data-driven / in-page editable. Refs: `public/assets/role-offer-refs/`.
+
+Rebuild: `npm run generate:role-offer`

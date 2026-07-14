@@ -1463,16 +1463,23 @@ async function main() {
     activeId: 'templates',
     pageTitle: 'Templates',
     pageSubtitle: `Layout reference · ${FIRST_BATCH_COUNT} ads · 1080×1350`,
+    subnav: [
+      { href: '/template-test-board.html', label: 'Layout refs' },
+      { href: '/role-offer-templates.html', label: 'Role-Offer' },
+    ],
+    activeSubHref: '/template-test-board.html',
   })}
   <div class="wrap">
     <header class="banner">
       <h2>Layout reference only</h2>
       <p>Produce from the <a href="/graphic-request-brief.html">Creative Brief</a>. These mocks show person placement, headline, support, and CTA zones — not final ads.</p>
       <p class="clarify">Final typography, image treatment, and polish will be completed by the design team.</p>
+      <p class="clarify"><strong>Team favorites:</strong> editable checklist role-offer ads → <a href="/role-offer-templates.html">Role-Offer Templates</a> (text, icons, price, CTA, photos).</p>
       <div class="banner-meta">
         <span>${FIRST_BATCH_COUNT} concepts</span>
         <span>1080×1350 · 4:5</span>
         <span>Composition reference</span>
+        <span><a href="/role-offer-templates.html">Role-Offer editable</a></span>
       </div>
     </header>
     <div class="prod-list">${cards}</div>

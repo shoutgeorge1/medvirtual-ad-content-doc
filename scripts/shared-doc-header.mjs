@@ -28,7 +28,7 @@ export const PRIMARY_NAV = [
     href: '/template-test-board.html',
     label: 'Templates',
     id: 'templates',
-    description: 'Layout examples to visualize ads — not final art.',
+    description: 'Layout refs + Role-Offer checklist templates (editable).',
   },
   {
     href: '/meta-launch-1.html',

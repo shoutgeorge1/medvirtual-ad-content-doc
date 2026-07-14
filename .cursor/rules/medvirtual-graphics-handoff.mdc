@@ -34,19 +34,26 @@ Active: **Treatment E — Studio Profile**
 Full-bleed natural portrait · light white/cyan plate · Meet {Name} · exact public role · Available to interview · colored logo.
 Pain + CTA in Meta copy only.
 
-Never reintroduce Treatment C, checklist layouts, CTA strips, or dark muddy teal overlays.
+Never reintroduce Treatment C, checklist layouts, CTA strips, or dark muddy teal overlays **onto named Talent Pool people**.
+
+## Role-Offer (separate — team favorites)
+Checklist + role-pill + price/CTA layouts on **stock/AI** people live under Templates → Role-Offer.
+See `.cursor/rules/medvirtual-role-offer-loved.mdc` and `public/role-offer-templates.html`.
+Do not mix those comps onto Real People Studio Profile cards.
 
 Launch 1: Jessica, Chelsea, Angelica, Mark.
 Next: Carmen, Jennifer, Stories resizes.
 
 ## Site order
-1. Brief  2. Templates  3. Launch 1 / Launch 2  4. Real People (one page)
+1. Brief  2. Templates (layout refs + Role-Offer)  3. Launch 1 / Launch 2  4. Real People (one page)
 Reference far right: Brand Guide · Assets · Images
 
 ## Workflow
-copy form → attach refs → design Studio Profile
+Real People: copy form → attach refs → design Studio Profile  
+Role-Offer: edit data / in-page fields → design from loved layouts
 
 No UTM / form QA / campaign shell / audience clutter on graphics pages.
 
 ## Claims
-Do not invent HIPAA, $10/hour, savings %, performance, credentials, or availability.
+Do not invent HIPAA, new rates, savings %, performance, credentials, or availability.
+Role-Offer price fields may keep the approved default from those comps until ops changes them.
