@@ -1,6 +1,6 @@
 /**
- * Graphic Request Brief = VA Graphics Queue.
- * Copy-paste ready for the Graphics Request Form. Hopper target 15–30 ready ads.
+ * Graphic Request Brief = simple jobs list for graphics designers.
+ * Source data: creative-hopper-data.mjs · Regenerate: npm run generate:brief
  */
 import fs from 'fs';
 import path from 'path';
@@ -8,7 +8,6 @@ import { fileURLToPath } from 'url';
 import { HEADER_CSS, renderDocHeader } from './shared-doc-header.mjs';
 import { BRAND } from './medvirtual-brand-data.mjs';
 import {
-  GRAPHICS_REQUEST_EMAIL,
   HOPPER_POLICY,
   hopperByStatus,
   hopperCounts,
@@ -32,21 +31,66 @@ function fmtDesc(text) {
 
 function statusLabel(s) {
   const map = {
-    do_now: 'Do now',
-    queued: 'Queued',
-    ready_to_load: 'Ready to load',
+    do_now: 'Job',
+    queued: 'Later',
+    ready_to_load: 'Done',
     live: 'Live',
     retired: 'Retired',
-    killed: 'Killed',
+    killed: 'Do not build',
   };
   return map[s] || s;
 }
 
-function renderFormCard(item, mode) {
+function refLabel(url) {
+  const u = String(url);
+  if (u.includes('logo-colored')) return 'MedVirtual logo (download)';
+  if (u.includes('clean-master')) return 'Person photo (download & use)';
+  if (u.includes('ad-treatment-e-9x16')) return 'Tall draft example (optional)';
+  if (u.includes('ad-treatment-e-4x5')) return 'Example finished ad — match this look';
+  if (u.includes('role-offer-templates')) return 'More layout examples';
+  if (u.includes('real-people-creative')) return 'Real People page';
+  if (u.includes('template-test-board')) return 'Template board';
+  const file = u.split('/').pop() || u;
+  return file;
+}
+
+function renderJobCard(item, jobNumber) {
   const paste = graphicsFormPaste(item);
-  const isWork = mode === 'do_now';
-  const isReady = mode === 'ready_to_load';
+  const displayTitle = item.designerTitle || item.title;
+  const jobTag = item.batchLabel || 'Design job';
+
+  return `<article class="card work" id="${esc(item.id)}">
+    <div class="card-top">
+      <span class="badge go">Job ${esc(String(jobNumber))}</span>
+      <span class="batch">${esc(jobTag)}</span>
+    </div>
+    <h3>${esc(displayTitle)}</h3>
+    <dl class="mini">
+      <div><dt>Size</dt><dd>${esc(item.resolution)}</dd></div>
+      ${item.onImage ? `<div><dt>Big text</dt><dd>${esc(item.onImage)}</dd></div>` : ''}
+      ${item.roleLine ? `<div><dt>Job title</dt><dd>${esc(item.roleLine)}</dd></div>` : ''}
+      <div><dt>Due</dt><dd>${esc(item.dueDate)}</dd></div>
+    </dl>
+    <div class="desc"><span class="label">What to do</span><p>${fmtDesc(item.description)}</p></div>
+    <div class="refs"><span class="label">Files &amp; examples (open these)</span><ul>${(item.references || [])
+      .map((r) => {
+        const href = r.startsWith('http') || r.startsWith('/') ? r : '#';
+        const label = refLabel(r);
+        return href === '#'
+          ? `<li>${esc(label)}</li>`
+          : `<li><a href="${esc(href)}" target="_blank" rel="noopener">${esc(label)}</a></li>`;
+      })
+      .join('')}</ul></div>
+    <div class="actions">
+      <button type="button" class="btn primary" data-copy="${esc(paste)}">Copy full brief</button>
+      <button type="button" class="btn" data-copy="${esc(item.description || '')}">Copy instructions only</button>
+    </div>
+  </article>`;
+}
+
+function renderArchiveCard(item, mode) {
   const isDead = mode === 'dead';
+  const isReady = mode === 'ready_to_load';
 
   if (isDead) {
     return `<article class="card dead">
@@ -59,56 +103,26 @@ function renderFormCard(item, mode) {
     </article>`;
   }
 
-  return `<article class="card ${isWork ? 'work' : ''} ${isReady ? 'ready' : ''}" id="${esc(item.id)}">
+  return `<article class="card ${isReady ? 'ready' : ''}" id="${esc(item.id)}">
     <div class="card-top">
-      <span class="badge ${isWork ? 'go' : isReady ? 'ok' : 'wait'}">${esc(statusLabel(item.status))}</span>
+      <span class="badge ${isReady ? 'ok' : 'wait'}">${esc(statusLabel(item.status))}</span>
       <span class="batch">${esc(item.batchLabel || '')}</span>
-      ${item.priority && item.priority < 90 ? `<span class="prio">P${esc(item.priority)}</span>` : ''}
     </div>
-    <h3>${esc(item.title)}</h3>
+    <h3>${esc(item.designerTitle || item.title)}</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>${esc(item.formType)}</dd></div>
-      <div><dt>Resolution</dt><dd>${esc(item.resolution)}</dd></div>
-      <div><dt>Due</dt><dd>${esc(item.dueDate)}</dd></div>
-      <div><dt>Brand</dt><dd>${esc(HOPPER_POLICY.brand)}</dd></div>
+      <div><dt>Size</dt><dd>${esc(item.resolution)}</dd></div>
       ${item.onImage ? `<div><dt>On-image</dt><dd>${esc(item.onImage)}</dd></div>` : ''}
-      ${item.metaHeadline ? `<div><dt>Meta headline</dt><dd>${esc(item.metaHeadline)}</dd></div>` : ''}
-      ${item.uploadFile ? `<div><dt>Upload file</dt><dd class="mono">${esc(item.uploadFile)}</dd></div>` : ''}
     </dl>
-    ${
-      isWork
-        ? `<div class="desc"><span class="label">Description (goes in form field 5)</span><p>${fmtDesc(item.description)}</p></div>
-           <div class="refs"><span class="label">References to attach</span><ul>${(item.references || [])
-             .map((r) =>
-               r.startsWith('http') || r.startsWith('/')
-                 ? `<li><a href="${esc(r)}" target="_blank" rel="noopener">${esc(r)}</a></li>`
-                 : `<li>${esc(r)}</li>`,
-             )
-             .join('')}</ul></div>`
-        : ''
-    }
     <div class="actions">
       ${
-        isWork
-          ? `<button type="button" class="btn primary" data-copy="${esc(paste)}">Copy Graphics Form</button>
-             <button type="button" class="btn" data-copy="${esc(item.description || '')}">Copy description only</button>`
-          : ''
-      }
-      ${
         isReady
-          ? `<a class="btn primary" href="/meta-launch-build-pack.html">Open Meta Launch</a>
+          ? `<a class="btn primary" href="/meta-launch-build-pack.html">Meta Launch</a>
              ${
                item.uploadFile
                  ? `<a class="btn" href="/exports/meta-upload-ready/${esc(item.uploadFile)}" target="_blank" rel="noopener">Preview PNG</a>`
                  : ''
-             }
-             <button type="button" class="btn" data-copy="${esc(paste)}">Copy form archive</button>`
-          : ''
-      }
-      ${
-        !isWork && !isReady
-          ? `<button type="button" class="btn" data-copy="${esc(paste)}">Copy Graphics Form (when assigned)</button>`
-          : ''
+             }`
+          : `<button type="button" class="btn" data-copy="${esc(graphicsFormPaste(item))}">Copy brief (later)</button>`
       }
     </div>
   </article>`;
@@ -119,14 +133,6 @@ const doNow = hopperByStatus('do_now');
 const queued = hopperByStatus('queued');
 const ready = hopperByStatus('ready_to_load');
 const dead = [...hopperByStatus('killed'), ...hopperByStatus('retired')];
-const readyCount = counts.ready_to_load || 0;
-const pipelineCount = (counts.do_now || 0) + (counts.queued || 0) + readyCount;
-const targetHint =
-  readyCount < HOPPER_POLICY.targetReadyMin
-    ? `Hopper below target (${readyCount} ready · aim ${HOPPER_POLICY.targetReadyMin}–${HOPPER_POLICY.targetReadyMax}). Keep moving DO NOW.`
-    : readyCount > HOPPER_POLICY.targetReadyMax
-      ? `Ready count high (${readyCount}). Pause new builds; load and test first.`
-      : `Ready count on track (${readyCount} / ${HOPPER_POLICY.targetReadyMin}–${HOPPER_POLICY.targetReadyMax}).`;
 
 const css = `
   ${HEADER_CSS}
@@ -142,17 +148,7 @@ const css = `
   }
   main { max-width: 860px; margin: 0 auto; padding: 1.25rem 1.1rem 3.5rem; }
   .hero h1 { margin: 0 0 0.4rem; font-size: clamp(1.6rem, 3.5vw, 2.1rem); letter-spacing: -0.02em; }
-  .hero p { margin: 0 0 0.75rem; color: #475569; max-width: 40rem; }
-  .meters {
-    display: grid; gap: 0.5rem; grid-template-columns: repeat(4, 1fr);
-    margin: 0 0 1rem;
-  }
-  @media (max-width: 700px) { .meters { grid-template-columns: repeat(2, 1fr); } }
-  .meter {
-    background: #fff; border: 1px solid #d7e2ea; border-radius: 10px; padding: 0.65rem 0.75rem;
-  }
-  .meter b { display: block; font-size: 1.35rem; color: ${BRAND.colors.main03}; }
-  .meter span { font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; }
+  .hero p { margin: 0 0 0.75rem; color: #475569; max-width: 38rem; }
   .hint {
     background: #ecfeff; border: 1px solid #a5f3fc; color: #155e75;
     border-radius: 10px; padding: 0.7rem 0.85rem; margin-bottom: 1rem; font-weight: 600; font-size: 0.92rem;
@@ -162,7 +158,7 @@ const css = `
   }
   .steps li {
     background: #fff; border: 1px solid #d7e2ea; border-radius: 10px; padding: 0.65rem 0.8rem 0.65rem 2.5rem;
-    position: relative; font-size: 0.92rem; color: #334155;
+    position: relative; font-size: 0.95rem; color: #334155;
   }
   .steps li::before {
     counter-increment: step; content: counter(step);
@@ -174,53 +170,49 @@ const css = `
   .jump { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.5rem; }
   .jump a { color: ${BRAND.colors.main01}; font-weight: 700; text-decoration: none; border-bottom: 2px solid rgba(7,121,153,0.25); }
   section { margin-bottom: 1.75rem; }
-  section > h2 { margin: 0 0 0.35rem; font-size: 1.1rem; }
-  section > .lede { margin: 0 0 0.75rem; color: #64748b; font-size: 0.9rem; }
+  section > h2 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+  section > .lede { margin: 0 0 0.75rem; color: #64748b; font-size: 0.92rem; }
   .card {
-    background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 0.9rem 1rem; margin-bottom: 0.75rem;
+    background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 1rem 1.05rem; margin-bottom: 0.9rem;
   }
   .card.work { border-color: ${BRAND.colors.main01}; box-shadow: 0 0 0 1px rgba(7,121,153,0.15); }
   .card.ready { border-color: #86efac; }
   .card.dead { opacity: 0.85; background: #f8fafc; }
   .card-top { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin-bottom: 0.35rem; }
   .badge {
-    font-size: 0.68rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
-    padding: 0.2rem 0.5rem; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 0.25rem 0.55rem; border-radius: 999px;
   }
   .badge.go { background: #dcfce7; color: #166534; }
   .badge.ok { background: #dbeafe; color: #1e40af; }
   .badge.wait { background: #f1f5f9; color: #475569; }
   .badge.bad { background: #fee2e2; color: #991b1b; }
   .batch, .prio { font-size: 0.75rem; color: #64748b; font-weight: 600; }
-  .card h3 { margin: 0 0 0.55rem; font-size: 1.02rem; line-height: 1.25; }
+  .card h3 { margin: 0 0 0.55rem; font-size: 1.15rem; line-height: 1.25; }
   .mini { margin: 0 0 0.65rem; display: grid; gap: 0.25rem; }
-  .mini div { display: grid; grid-template-columns: 7rem 1fr; gap: 0.35rem; font-size: 0.86rem; }
+  .mini div { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0.35rem; font-size: 0.9rem; }
   .mini dt { color: #64748b; font-weight: 600; }
-  .mini dd { margin: 0; }
-  .mono { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.8rem; word-break: break-all; }
+  .mini dd { margin: 0; font-weight: 600; }
   .label { display: block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #64748b; margin-bottom: 0.3rem; }
-  .desc, .refs { margin: 0 0 0.65rem; padding: 0.65rem 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; }
-  .desc p { margin: 0; font-size: 0.88rem; color: #334155; }
-  .refs ul { margin: 0; padding-left: 1.1rem; font-size: 0.82rem; }
-  .refs a { color: ${BRAND.colors.main01}; word-break: break-all; }
+  .desc, .refs { margin: 0 0 0.65rem; padding: 0.7rem 0.8rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .desc p { margin: 0; font-size: 0.92rem; color: #334155; }
+  .refs ul { margin: 0; padding-left: 1.1rem; font-size: 0.9rem; }
+  .refs a { color: ${BRAND.colors.main01}; font-weight: 600; word-break: break-word; }
   .actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .btn {
     display: inline-flex; align-items: center; justify-content: center;
-    padding: 0.45rem 0.75rem; border-radius: 8px; border: 1px solid #cbd5e1;
-    background: #fff; color: ${BRAND.colors.main03}; font: inherit; font-size: 0.82rem; font-weight: 700;
+    padding: 0.5rem 0.8rem; border-radius: 8px; border: 1px solid #cbd5e1;
+    background: #fff; color: ${BRAND.colors.main03}; font: inherit; font-size: 0.85rem; font-weight: 700;
     text-decoration: none; cursor: pointer;
   }
   .btn.primary { background: ${BRAND.colors.main01}; border-color: ${BRAND.colors.main01}; color: #fff; }
   .kill { margin: 0; font-size: 0.88rem; color: #7f1d1d; }
-  main details { background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 0.75rem 0.9rem; }
-  main details + details { margin-top: 0.55rem; }
-  main summary { cursor: pointer; font-weight: 800; color: ${BRAND.colors.main03}; }
-  .rules { margin: 0.65rem 0 0; padding-left: 1.1rem; color: #475569; font-size: 0.88rem; }
-  .retire-help {
-    margin-top: 0.75rem; padding: 0.75rem 0.85rem; background: #fff7ed; border: 1px solid #fed7aa;
-    border-radius: 10px; font-size: 0.88rem; color: #9a3412;
+  main details.archive {
+    background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 0.75rem 0.9rem;
+    margin-bottom: 0.55rem;
   }
-  .retire-help code { background: #ffedd5; padding: 0.05rem 0.3rem; border-radius: 4px; font-size: 0.8rem; }
+  main details.archive summary { cursor: pointer; font-weight: 800; color: #64748b; }
+  .rules { margin: 0.65rem 0 0; padding-left: 1.1rem; color: #475569; font-size: 0.88rem; }
   .toast {
     position: fixed; bottom: 1rem; right: 1rem; background: ${BRAND.colors.main03}; color: #fff;
     padding: 0.55rem 0.85rem; border-radius: 8px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity 0.2s;
@@ -233,82 +225,63 @@ const html = `<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VA Graphics Queue · MedVirtual</title>
+  <title>Design jobs · MedVirtual</title>
   <style>${css}</style>
 </head>
 <body>
   ${renderDocHeader({
     activeId: 'brief',
-    pageTitle: 'VA Graphics Queue',
-    pageSubtitle: 'Graphics Request Form paste · hopper toward 15–30 ads ready to load',
+    pageTitle: 'Design jobs',
+    pageSubtitle: '4 simple ads for the graphics team — open a job, match the example, send the PNG back',
   })}
   <main>
     <header class="hero">
-      <h1>Do these next. Ignore the rest.</h1>
-      <p>This page feeds your <strong>Graphics Request Form</strong>. One card = one submission. Max <strong>${esc(String(HOPPER_POLICY.maxDoNow))}</strong> open at a time. Layout default: <strong>${esc(HOPPER_POLICY.primaryLayout)}</strong>.</p>
+      <h1>4 jobs. That’s it.</h1>
+      <p>Each card is one ad to design. Open the example file, match that look, use the photo + logo linked on the card. Ignore anything under “Not for designers.”</p>
     </header>
 
-    <div class="meters">
-      <div class="meter"><b>${esc(String(counts.do_now || 0))}</b><span>Do now</span></div>
-      <div class="meter"><b>${esc(String(counts.queued || 0))}</b><span>Queued</span></div>
-      <div class="meter"><b>${esc(String(readyCount))}</b><span>Ready to load</span></div>
-      <div class="meter"><b>${esc(String(pipelineCount))}</b><span>In hopper</span></div>
-    </div>
-    <p class="hint">${esc(targetHint)}</p>
+    <p class="hint">Start with Job 1 → Job 4. Do not invent new layouts or claims.</p>
 
     <ol class="steps">
       ${HOPPER_POLICY.howItWorks.map((s) => `<li>${esc(s)}</li>`).join('')}
     </ol>
 
     <nav class="jump" aria-label="On this page">
-      <a href="#do-now">Do now</a>
-      <a href="#ready">Ready to load</a>
-      <a href="#queued">Queued</a>
-      <a href="#retired">Retired / killed</a>
-      <a href="/real-people-creative.html">Real People layout</a>
-      <a href="/meta-launch-build-pack.html">Meta Launch</a>
-      <a href="/marketing-library.html">Marketing Library</a>
+      <a href="#jobs">The 4 jobs</a>
+      <a href="/real-people-creative.html">See finished ads</a>
+      <a href="/medvirtual-brand-guide.html">Brand guide</a>
     </nav>
 
-    <section id="do-now">
-      <h2>1. Do now — submit these</h2>
-      <p class="lede">Copy Graphics Form → paste into the form → attach references → set due date. Email field default: <strong>${esc(GRAPHICS_REQUEST_EMAIL)}</strong> (change if your inbox differs).</p>
-      ${doNow.map((i) => renderFormCard(i, 'do_now')).join('') || '<p class="lede">Nothing in DO NOW. Promote the next queued items in <code>scripts/creative-hopper-data.mjs</code>.</p>'}
-    </section>
-
-    <section id="ready">
-      <h2>2. Ready to load — Media Buyer</h2>
-      <p class="lede">Art is done. Do <strong>not</strong> re-request graphics unless polishing. Load from Meta Launch.</p>
-      ${ready.map((i) => renderFormCard(i, 'ready_to_load')).join('')}
-    </section>
-
-    <section id="queued">
-      <h2>3. Queued — waiting</h2>
-      <p class="lede">Do not start these until DO NOW is empty or producer promotes them. Keeps the team from drowning.</p>
-      <details>
-        <summary>Show ${esc(String(queued.length))} queued items</summary>
-        <div style="margin-top:0.75rem">${queued.map((i) => renderFormCard(i, 'queued')).join('')}</div>
-      </details>
-    </section>
-
-    <section id="retired">
-      <h2>4. Retired / killed — do not rebuild</h2>
-      <p class="lede">Losers and rejected systems stay here so nobody “helpfully” remakes them.</p>
-      <details>
-        <summary>Show ${esc(String(dead.length))} killed / retired items</summary>
-        <div style="margin-top:0.75rem">${dead.map((i) => renderFormCard(i, 'dead')).join('')}</div>
-      </details>
-      <div class="retire-help">
-        <strong>How to clear a loser:</strong> In <code>scripts/creative-hopper-data.mjs</code>, set that item’s
-        <code>status</code> to <code>retired</code> or <code>killed</code>, add a one-line <code>killReason</code>,
-        then run <code>npm run generate:brief</code>. It drops out of Do now / Queued / Ready and only shows here.
-      </div>
+    <section id="jobs">
+      <h2>Your jobs</h2>
+      <p class="lede">Download the files on each card before you start.</p>
+      ${
+        doNow.length
+          ? doNow.map((i, idx) => renderJobCard(i, idx + 1)).join('')
+          : '<p class="lede">No jobs right now. Check with your MedVirtual contact.</p>'
+      }
     </section>
 
     <section>
-      <h2>Language guardrails</h2>
+      <h2>Quick rules</h2>
       <ul class="rules">${HOPPER_POLICY.languageRules.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
-      <p class="lede" style="margin-top:0.75rem">Full brand: <a href="/medvirtual-brand-guide.html">Brand Guide</a> · Layout: <a href="/real-people-creative.html#concept">Portrait Lead</a></p>
+    </section>
+
+    <section id="archive">
+      <h2>Not for designers</h2>
+      <p class="lede">Producer / media-buyer notes. You can ignore this section.</p>
+      <details class="archive">
+        <summary>Done ads (${esc(String(ready.length))}) — already finished</summary>
+        <div style="margin-top:0.75rem">${ready.map((i) => renderArchiveCard(i, 'ready_to_load')).join('') || '<p class="lede">None.</p>'}</div>
+      </details>
+      <details class="archive">
+        <summary>Later queue (${esc(String(queued.length))}) — do not start yet</summary>
+        <div style="margin-top:0.75rem">${queued.map((i) => renderArchiveCard(i, 'queued')).join('') || '<p class="lede">None.</p>'}</div>
+      </details>
+      <details class="archive">
+        <summary>Do not build (${esc(String(dead.length))})</summary>
+        <div style="margin-top:0.75rem">${dead.map((i) => renderArchiveCard(i, 'dead')).join('') || '<p class="lede">None.</p>'}</div>
+      </details>
     </section>
   </main>
 
@@ -324,7 +297,7 @@ const html = `<!doctype html>
       btn.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(btn.getAttribute('data-copy') || '');
-          flash('Copied — paste into Graphics Request Form');
+          flash('Copied');
         } catch {
           flash('Copy failed');
         }
@@ -336,5 +309,5 @@ const html = `<!doctype html>
 
 fs.writeFileSync(path.join(PUBLIC, 'graphic-request-brief.html'), html);
 console.log(
-  `Creative brief (VA queue): do_now=${doNow.length} queued=${queued.length} ready=${ready.length} dead=${dead.length}`,
+  `Brief (designer jobs): jobs=${doNow.length} queued=${queued.length} ready=${ready.length} dead=${dead.length} (counts do_now=${counts.do_now || 0})`,
 );

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VA Graphics Queue · MedVirtual</title>
+  <title>Design jobs · MedVirtual</title>
   <style>
   
   
@@ -261,17 +261,7 @@
   }
   main { max-width: 860px; margin: 0 auto; padding: 1.25rem 1.1rem 3.5rem; }
   .hero h1 { margin: 0 0 0.4rem; font-size: clamp(1.6rem, 3.5vw, 2.1rem); letter-spacing: -0.02em; }
-  .hero p { margin: 0 0 0.75rem; color: #475569; max-width: 40rem; }
-  .meters {
-    display: grid; gap: 0.5rem; grid-template-columns: repeat(4, 1fr);
-    margin: 0 0 1rem;
-  }
-  @media (max-width: 700px) { .meters { grid-template-columns: repeat(2, 1fr); } }
-  .meter {
-    background: #fff; border: 1px solid #d7e2ea; border-radius: 10px; padding: 0.65rem 0.75rem;
-  }
-  .meter b { display: block; font-size: 1.35rem; color: #0D546B; }
-  .meter span { font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; }
+  .hero p { margin: 0 0 0.75rem; color: #475569; max-width: 38rem; }
   .hint {
     background: #ecfeff; border: 1px solid #a5f3fc; color: #155e75;
     border-radius: 10px; padding: 0.7rem 0.85rem; margin-bottom: 1rem; font-weight: 600; font-size: 0.92rem;
@@ -281,7 +271,7 @@
   }
   .steps li {
     background: #fff; border: 1px solid #d7e2ea; border-radius: 10px; padding: 0.65rem 0.8rem 0.65rem 2.5rem;
-    position: relative; font-size: 0.92rem; color: #334155;
+    position: relative; font-size: 0.95rem; color: #334155;
   }
   .steps li::before {
     counter-increment: step; content: counter(step);
@@ -293,53 +283,49 @@
   .jump { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.5rem; }
   .jump a { color: #077999; font-weight: 700; text-decoration: none; border-bottom: 2px solid rgba(7,121,153,0.25); }
   section { margin-bottom: 1.75rem; }
-  section > h2 { margin: 0 0 0.35rem; font-size: 1.1rem; }
-  section > .lede { margin: 0 0 0.75rem; color: #64748b; font-size: 0.9rem; }
+  section > h2 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+  section > .lede { margin: 0 0 0.75rem; color: #64748b; font-size: 0.92rem; }
   .card {
-    background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 0.9rem 1rem; margin-bottom: 0.75rem;
+    background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 1rem 1.05rem; margin-bottom: 0.9rem;
   }
   .card.work { border-color: #077999; box-shadow: 0 0 0 1px rgba(7,121,153,0.15); }
   .card.ready { border-color: #86efac; }
   .card.dead { opacity: 0.85; background: #f8fafc; }
   .card-top { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin-bottom: 0.35rem; }
   .badge {
-    font-size: 0.68rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
-    padding: 0.2rem 0.5rem; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 0.25rem 0.55rem; border-radius: 999px;
   }
   .badge.go { background: #dcfce7; color: #166534; }
   .badge.ok { background: #dbeafe; color: #1e40af; }
   .badge.wait { background: #f1f5f9; color: #475569; }
   .badge.bad { background: #fee2e2; color: #991b1b; }
   .batch, .prio { font-size: 0.75rem; color: #64748b; font-weight: 600; }
-  .card h3 { margin: 0 0 0.55rem; font-size: 1.02rem; line-height: 1.25; }
+  .card h3 { margin: 0 0 0.55rem; font-size: 1.15rem; line-height: 1.25; }
   .mini { margin: 0 0 0.65rem; display: grid; gap: 0.25rem; }
-  .mini div { display: grid; grid-template-columns: 7rem 1fr; gap: 0.35rem; font-size: 0.86rem; }
+  .mini div { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0.35rem; font-size: 0.9rem; }
   .mini dt { color: #64748b; font-weight: 600; }
-  .mini dd { margin: 0; }
-  .mono { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.8rem; word-break: break-all; }
+  .mini dd { margin: 0; font-weight: 600; }
   .label { display: block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #64748b; margin-bottom: 0.3rem; }
-  .desc, .refs { margin: 0 0 0.65rem; padding: 0.65rem 0.75rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; }
-  .desc p { margin: 0; font-size: 0.88rem; color: #334155; }
-  .refs ul { margin: 0; padding-left: 1.1rem; font-size: 0.82rem; }
-  .refs a { color: #077999; word-break: break-all; }
+  .desc, .refs { margin: 0 0 0.65rem; padding: 0.7rem 0.8rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; }
+  .desc p { margin: 0; font-size: 0.92rem; color: #334155; }
+  .refs ul { margin: 0; padding-left: 1.1rem; font-size: 0.9rem; }
+  .refs a { color: #077999; font-weight: 600; word-break: break-word; }
   .actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .btn {
     display: inline-flex; align-items: center; justify-content: center;
-    padding: 0.45rem 0.75rem; border-radius: 8px; border: 1px solid #cbd5e1;
-    background: #fff; color: #0D546B; font: inherit; font-size: 0.82rem; font-weight: 700;
+    padding: 0.5rem 0.8rem; border-radius: 8px; border: 1px solid #cbd5e1;
+    background: #fff; color: #0D546B; font: inherit; font-size: 0.85rem; font-weight: 700;
     text-decoration: none; cursor: pointer;
   }
   .btn.primary { background: #077999; border-color: #077999; color: #fff; }
   .kill { margin: 0; font-size: 0.88rem; color: #7f1d1d; }
-  main details { background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 0.75rem 0.9rem; }
-  main details + details { margin-top: 0.55rem; }
-  main summary { cursor: pointer; font-weight: 800; color: #0D546B; }
-  .rules { margin: 0.65rem 0 0; padding-left: 1.1rem; color: #475569; font-size: 0.88rem; }
-  .retire-help {
-    margin-top: 0.75rem; padding: 0.75rem 0.85rem; background: #fff7ed; border: 1px solid #fed7aa;
-    border-radius: 10px; font-size: 0.88rem; color: #9a3412;
+  main details.archive {
+    background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 0.75rem 0.9rem;
+    margin-bottom: 0.55rem;
   }
-  .retire-help code { background: #ffedd5; padding: 0.05rem 0.3rem; border-radius: 4px; font-size: 0.8rem; }
+  main details.archive summary { cursor: pointer; font-weight: 800; color: #64748b; }
+  .rules { margin: 0.65rem 0 0; padding-left: 1.1rem; color: #475569; font-size: 0.88rem; }
   .toast {
     position: fixed; bottom: 1rem; right: 1rem; background: #0D546B; color: #fff;
     padding: 0.55rem 0.85rem; border-radius: 8px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity 0.2s;
@@ -364,8 +350,8 @@
     </div>
   </div>
   <div class="doc-header__page">
-          <h2 class="doc-header__page-title">VA Graphics Queue</h2>
-          <p class="doc-header__page-sub">Graphics Request Form paste · hopper toward 15–30 ads ready to load</p>
+          <h2 class="doc-header__page-title">Design jobs</h2>
+          <p class="doc-header__page-sub">4 simple ads for the graphics team — open a job, match the example, send the PNG back</p>
           
         </div>
 </header>
@@ -387,53 +373,39 @@
 </script>
   <main>
     <header class="hero">
-      <h1>Do these next. Ignore the rest.</h1>
-      <p>This page feeds your <strong>Graphics Request Form</strong>. One card = one submission. Max <strong>4</strong> open at a time. Layout default: <strong>Treatment E — Hailey / Role-Offer Meet</strong>.</p>
+      <h1>4 jobs. That’s it.</h1>
+      <p>Each card is one ad to design. Open the example file, match that look, use the photo + logo linked on the card. Ignore anything under “Not for designers.”</p>
     </header>
 
-    <div class="meters">
-      <div class="meter"><b>4</b><span>Do now</span></div>
-      <div class="meter"><b>12</b><span>Queued</span></div>
-      <div class="meter"><b>4</b><span>Ready to load</span></div>
-      <div class="meter"><b>20</b><span>In hopper</span></div>
-    </div>
-    <p class="hint">Hopper below target (4 ready · aim 15–30). Keep moving DO NOW.</p>
+    <p class="hint">Start with Job 1 → Job 4. Do not invent new layouts or claims.</p>
 
     <ol class="steps">
-      <li>Open DO NOW — pick the next card (max 4 open at once).</li><li>Click Copy Graphics Form — paste into the Graphics Request Form fields.</li><li>Upload the reference files listed on the card (source photo + logo + layout mock).</li><li>When design returns, mark the item ready_to_load in creative-hopper-data.mjs (or ask producer to).</li><li>Media Buyer loads ready_to_load ads from Meta Launch. Retire losers so they leave the hopper.</li>
+      <li>Open one of the 4 jobs below.</li><li>Download the photo, logo, and example ad linked on that card.</li><li>Match the example look. Change the person / size as the card says.</li><li>When finished, send the PNG back to your MedVirtual contact.</li>
     </ol>
 
     <nav class="jump" aria-label="On this page">
-      <a href="#do-now">Do now</a>
-      <a href="#ready">Ready to load</a>
-      <a href="#queued">Queued</a>
-      <a href="#retired">Retired / killed</a>
-      <a href="/real-people-creative.html">Real People layout</a>
-      <a href="/meta-launch-build-pack.html">Meta Launch</a>
-      <a href="/marketing-library.html">Marketing Library</a>
+      <a href="#jobs">The 4 jobs</a>
+      <a href="/real-people-creative.html">See finished ads</a>
+      <a href="/medvirtual-brand-guide.html">Brand guide</a>
     </nav>
 
-    <section id="do-now">
-      <h2>1. Do now — submit these</h2>
-      <p class="lede">Copy Graphics Form → paste into the form → attach references → set due date. Email field default: <strong>UPDATE_ME@medvirtual.ai</strong> (change if your inbox differs).</p>
-      <article class="card work " id="rp-carmen-4x5">
+    <section id="jobs">
+      <h2>Your jobs</h2>
+      <p class="lede">Download the files on each card before you start.</p>
+      <article class="card work" id="rp-carmen-4x5">
     <div class="card-top">
-      <span class="badge go">Do now</span>
-      <span class="batch">Batch B · expand Talent Pool</span>
-      <span class="prio">P1</span>
+      <span class="badge go">Job 1</span>
+      <span class="batch">New person ad</span>
     </div>
-    <h3>MV RP Static — Meet Carmen · Billing Support · 4:5</h3>
+    <h3>Make a Meet Carmen ad</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Static Meta Ad</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1350 px (4:5 feed)</dd></div>
+      <div><dt>Size</dt><dd>1080×1350 px (4:5 feed)</dd></div>
+      <div><dt>Big text</dt><dd>Meet Carmen</dd></div>
+      <div><dt>Job title</dt><dd>Medical Biller</dd></div>
       <div><dt>Due</dt><dd>07/20/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
-      <div><dt>On-image</dt><dd>Meet Carmen</dd></div>
-      <div><dt>Meta headline</dt><dd>Billing Work Piling Up?</dd></div>
-      
     </dl>
-    <div class="desc"><span class="label">Description (goes in form field 5)</span><p>LAYOUT: Treatment E Hailey / Role-Offer Meet (match Role-Offer Templates).<br><br>ON-IMAGE:<br>• Light cyan grid plate<br>• Hire a Virtual + Meet Carmen<br>• Exact public job title as teal pill<br>• 2–3 public skills as checks<br>• REQUEST AN INTERVIEW CTA<br>• Colored MedVirtual logo<br>• Carmen photo on the right<br><br>DO NOT: dark teal mud · invent HIPAA/rates/credentials<br><br>META: Headline Billing Work Piling Up? · hire dedicated staff framing · Learn More<br><br>REFS: /role-offer-templates.html · /assets/role-offer-refs/ · Jessica ad-treatment-e-4x5.png · carmen clean-master · logo-colored.svg</p></div>
-           <div class="refs"><span class="label">References to attach</span><ul><li><a href="https://medvirtual-ad-content-doc.vercel.app/role-offer-templates.html" target="_blank" rel="noopener">https://medvirtual-ad-content-doc.vercel.app/role-offer-templates.html</a></li><li><a href="https://medvirtual-ad-content-doc.vercel.app/template-test-board.html#hailey-likes" target="_blank" rel="noopener">https://medvirtual-ad-content-doc.vercel.app/template-test-board.html#hailey-likes</a></li><li><a href="https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#downloads" target="_blank" rel="noopener">https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#downloads</a></li><li><a href="/assets/real-people/carmen/clean-master.jpg" target="_blank" rel="noopener">/assets/real-people/carmen/clean-master.jpg</a></li><li><a href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">/assets/real-people/jessica/ad-treatment-e-4x5.png</a></li><li><a href="/assets/brand/medvirtual/logo-colored.svg" target="_blank" rel="noopener">/assets/brand/medvirtual/logo-colored.svg</a></li></ul></div>
+    <div class="desc"><span class="label">What to do</span><p>Make one Facebook/Instagram feed ad. Size: 1080×1350.<br><br>Copy the Jessica example ad (same layout). Swap in Carmen.<br><br>Put on the image:<br>• Light cyan / grid background (not dark teal)<br>• “Hire a Virtual” + “Meet Carmen”<br>• Job title pill: Medical Biller<br>• 2–3 skills from her profile as checkmarks<br>• “REQUEST AN INTERVIEW” button<br>• Colored MedVirtual logo<br>• Carmen photo on the right<br><br>Do not invent HIPAA, pay rates, or credentials.</p></div>
+    <div class="refs"><span class="label">Files &amp; examples (open these)</span><ul><li><a href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">Example finished ad — match this look</a></li><li><a href="/assets/real-people/carmen/clean-master.jpg" target="_blank" rel="noopener">Person photo (download &amp; use)</a></li><li><a href="/assets/brand/medvirtual/logo-colored.svg" target="_blank" rel="noopener">MedVirtual logo (download)</a></li><li><a href="https://medvirtual-ad-content-doc.vercel.app/role-offer-templates.html" target="_blank" rel="noopener">More layout examples</a></li></ul></div>
     <div class="actions">
       <button type="button" class="btn primary" data-copy="1. TITLE OF REQUEST
 MV RP Static — Meet Carmen · Billing Support · 4:5
@@ -448,22 +420,20 @@ Static Meta Ad
 1080×1350 px (4:5 feed)
 
 5. DESCRIPTION OF REQUEST
-LAYOUT: Treatment E Hailey / Role-Offer Meet (match Role-Offer Templates).
+Make one Facebook/Instagram feed ad. Size: 1080×1350.
 
-ON-IMAGE:
-• Light cyan grid plate
-• Hire a Virtual + Meet Carmen
-• Exact public job title as teal pill
-• 2–3 public skills as checks
-• REQUEST AN INTERVIEW CTA
+Copy the Jessica example ad (same layout). Swap in Carmen.
+
+Put on the image:
+• Light cyan / grid background (not dark teal)
+• “Hire a Virtual” + “Meet Carmen”
+• Job title pill: Medical Biller
+• 2–3 skills from her profile as checkmarks
+• “REQUEST AN INTERVIEW” button
 • Colored MedVirtual logo
 • Carmen photo on the right
 
-DO NOT: dark teal mud · invent HIPAA/rates/credentials
-
-META: Headline Billing Work Piling Up? · hire dedicated staff framing · Learn More
-
-REFS: /role-offer-templates.html · /assets/role-offer-refs/ · Jessica ad-treatment-e-4x5.png · carmen clean-master · logo-colored.svg
+Do not invent HIPAA, pay rates, or credentials.
 
 On-image text: Meet Carmen
 Role line: Medical Biller
@@ -482,12 +452,10 @@ Brand rules: MedVirtual only; hire dedicated staff; no call-center / managed fro
 
 6. PROVIDE INSPO/REFERENCES
 Paste these links and upload the local files listed:
-https://medvirtual-ad-content-doc.vercel.app/role-offer-templates.html
-https://medvirtual-ad-content-doc.vercel.app/template-test-board.html#hailey-likes
-https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#downloads
-/assets/real-people/carmen/clean-master.jpg
 /assets/real-people/jessica/ad-treatment-e-4x5.png
+/assets/real-people/carmen/clean-master.jpg
 /assets/brand/medvirtual/logo-colored.svg
+https://medvirtual-ad-content-doc.vercel.app/role-offer-templates.html
 
 Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
 
@@ -495,44 +463,36 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 07/20/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form</button>
-             <button type="button" class="btn" data-copy="LAYOUT: Treatment E Hailey / Role-Offer Meet (match Role-Offer Templates).
+MedVirtual">Copy full brief</button>
+      <button type="button" class="btn" data-copy="Make one Facebook/Instagram feed ad. Size: 1080×1350.
 
-ON-IMAGE:
-• Light cyan grid plate
-• Hire a Virtual + Meet Carmen
-• Exact public job title as teal pill
-• 2–3 public skills as checks
-• REQUEST AN INTERVIEW CTA
+Copy the Jessica example ad (same layout). Swap in Carmen.
+
+Put on the image:
+• Light cyan / grid background (not dark teal)
+• “Hire a Virtual” + “Meet Carmen”
+• Job title pill: Medical Biller
+• 2–3 skills from her profile as checkmarks
+• “REQUEST AN INTERVIEW” button
 • Colored MedVirtual logo
 • Carmen photo on the right
 
-DO NOT: dark teal mud · invent HIPAA/rates/credentials
-
-META: Headline Billing Work Piling Up? · hire dedicated staff framing · Learn More
-
-REFS: /role-offer-templates.html · /assets/role-offer-refs/ · Jessica ad-treatment-e-4x5.png · carmen clean-master · logo-colored.svg">Copy description only</button>
-      
-      
+Do not invent HIPAA, pay rates, or credentials.">Copy instructions only</button>
     </div>
-  </article><article class="card work " id="rp-jennifer-4x5">
+  </article><article class="card work" id="rp-jennifer-4x5">
     <div class="card-top">
-      <span class="badge go">Do now</span>
-      <span class="batch">Batch B · expand Talent Pool</span>
-      <span class="prio">P2</span>
+      <span class="badge go">Job 2</span>
+      <span class="batch">New person ad</span>
     </div>
-    <h3>MV RP Static — Meet Jennifer · 4:5</h3>
+    <h3>Make a Meet Jennifer ad</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Static Meta Ad</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1350 px (4:5 feed)</dd></div>
+      <div><dt>Size</dt><dd>1080×1350 px (4:5 feed)</dd></div>
+      <div><dt>Big text</dt><dd>Meet Jennifer</dd></div>
+      <div><dt>Job title</dt><dd>Patient Intake Coordinator</dd></div>
       <div><dt>Due</dt><dd>07/20/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
-      <div><dt>On-image</dt><dd>Meet Jennifer</dd></div>
-      <div><dt>Meta headline</dt><dd>Need Dedicated Virtual Support?</dd></div>
-      
     </dl>
-    <div class="desc"><span class="label">Description (goes in form field 5)</span><p>LAYOUT: Treatment E Hailey / Role-Offer Meet.<br><br>ON-IMAGE: Hire a Virtual · Meet Jennifer · teal role pill · public skills checks · REQUEST AN INTERVIEW · logo · photo right on light grid.<br><br>DO NOT: dark teal mud · invent claims.<br><br>META: Need Dedicated Virtual Support? · hire dedicated staff · Learn More.<br><br>REFS: /role-offer-templates.html · jessica ad-treatment-e-4x5 · jennifer clean-master · logo.</p></div>
-           <div class="refs"><span class="label">References to attach</span><ul><li><a href="https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#downloads" target="_blank" rel="noopener">https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#downloads</a></li><li><a href="https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#concept" target="_blank" rel="noopener">https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#concept</a></li><li><a href="/assets/real-people/jennifer/clean-master.jpg" target="_blank" rel="noopener">/assets/real-people/jennifer/clean-master.jpg</a></li><li><a href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">/assets/real-people/jessica/ad-treatment-e-4x5.png</a></li><li><a href="/assets/brand/medvirtual/logo-colored.svg" target="_blank" rel="noopener">/assets/brand/medvirtual/logo-colored.svg</a></li></ul></div>
+    <div class="desc"><span class="label">What to do</span><p>Make one Facebook/Instagram feed ad. Size: 1080×1350.<br><br>Copy the Jessica example ad (same layout). Swap in Jennifer.<br><br>Put on the image:<br>• Light cyan / grid background (not dark teal)<br>• “Hire a Virtual” + “Meet Jennifer”<br>• Job title pill: Patient Intake Coordinator<br>• 2–3 skills from her profile as checkmarks<br>• “REQUEST AN INTERVIEW” button<br>• Colored MedVirtual logo<br>• Jennifer photo on the right<br><br>Do not invent HIPAA, pay rates, or credentials.</p></div>
+    <div class="refs"><span class="label">Files &amp; examples (open these)</span><ul><li><a href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">Example finished ad — match this look</a></li><li><a href="/assets/real-people/jennifer/clean-master.jpg" target="_blank" rel="noopener">Person photo (download &amp; use)</a></li><li><a href="/assets/brand/medvirtual/logo-colored.svg" target="_blank" rel="noopener">MedVirtual logo (download)</a></li></ul></div>
     <div class="actions">
       <button type="button" class="btn primary" data-copy="1. TITLE OF REQUEST
 MV RP Static — Meet Jennifer · 4:5
@@ -547,15 +507,20 @@ Static Meta Ad
 1080×1350 px (4:5 feed)
 
 5. DESCRIPTION OF REQUEST
-LAYOUT: Treatment E Hailey / Role-Offer Meet.
+Make one Facebook/Instagram feed ad. Size: 1080×1350.
 
-ON-IMAGE: Hire a Virtual · Meet Jennifer · teal role pill · public skills checks · REQUEST AN INTERVIEW · logo · photo right on light grid.
+Copy the Jessica example ad (same layout). Swap in Jennifer.
 
-DO NOT: dark teal mud · invent claims.
+Put on the image:
+• Light cyan / grid background (not dark teal)
+• “Hire a Virtual” + “Meet Jennifer”
+• Job title pill: Patient Intake Coordinator
+• 2–3 skills from her profile as checkmarks
+• “REQUEST AN INTERVIEW” button
+• Colored MedVirtual logo
+• Jennifer photo on the right
 
-META: Need Dedicated Virtual Support? · hire dedicated staff · Learn More.
-
-REFS: /role-offer-templates.html · jessica ad-treatment-e-4x5 · jennifer clean-master · logo.
+Do not invent HIPAA, pay rates, or credentials.
 
 On-image text: Meet Jennifer
 Role line: Patient Intake Coordinator
@@ -574,10 +539,8 @@ Brand rules: MedVirtual only; hire dedicated staff; no call-center / managed fro
 
 6. PROVIDE INSPO/REFERENCES
 Paste these links and upload the local files listed:
-https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#downloads
-https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#concept
-/assets/real-people/jennifer/clean-master.jpg
 /assets/real-people/jessica/ad-treatment-e-4x5.png
+/assets/real-people/jennifer/clean-master.jpg
 /assets/brand/medvirtual/logo-colored.svg
 
 Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
@@ -586,37 +549,36 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 07/20/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form</button>
-             <button type="button" class="btn" data-copy="LAYOUT: Treatment E Hailey / Role-Offer Meet.
+MedVirtual">Copy full brief</button>
+      <button type="button" class="btn" data-copy="Make one Facebook/Instagram feed ad. Size: 1080×1350.
 
-ON-IMAGE: Hire a Virtual · Meet Jennifer · teal role pill · public skills checks · REQUEST AN INTERVIEW · logo · photo right on light grid.
+Copy the Jessica example ad (same layout). Swap in Jennifer.
 
-DO NOT: dark teal mud · invent claims.
+Put on the image:
+• Light cyan / grid background (not dark teal)
+• “Hire a Virtual” + “Meet Jennifer”
+• Job title pill: Patient Intake Coordinator
+• 2–3 skills from her profile as checkmarks
+• “REQUEST AN INTERVIEW” button
+• Colored MedVirtual logo
+• Jennifer photo on the right
 
-META: Need Dedicated Virtual Support? · hire dedicated staff · Learn More.
-
-REFS: /role-offer-templates.html · jessica ad-treatment-e-4x5 · jennifer clean-master · logo.">Copy description only</button>
-      
-      
+Do not invent HIPAA, pay rates, or credentials.">Copy instructions only</button>
     </div>
-  </article><article class="card work " id="rp-jessica-9x16">
+  </article><article class="card work" id="rp-jessica-9x16">
     <div class="card-top">
-      <span class="badge go">Do now</span>
-      <span class="batch">Batch B · Stories resize</span>
-      <span class="prio">P3</span>
+      <span class="badge go">Job 3</span>
+      <span class="batch">Resize only</span>
     </div>
-    <h3>MV RP Resize — Meet Jessica · 9:16 Stories</h3>
+    <h3>Resize Jessica ad for Stories</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Resize / Story</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1920 px (9:16 Stories/Reels)</dd></div>
+      <div><dt>Size</dt><dd>1080×1920 px (9:16 Stories/Reels)</dd></div>
+      <div><dt>Big text</dt><dd>Meet Jessica</dd></div>
+      <div><dt>Job title</dt><dd>Jr. Medical Admin</dd></div>
       <div><dt>Due</dt><dd>07/20/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
-      <div><dt>On-image</dt><dd>Meet Jessica</dd></div>
-      <div><dt>Meta headline</dt><dd>Admin Work Piling Up?</dd></div>
-      
     </dl>
-    <div class="desc"><span class="label">Description (goes in form field 5)</span><p>RESIZE only — same creative as Jessica 4:5 Studio Profile, adapted to 9:16.<br><br>Keep person full-bleed. Keep Meet Jessica + role + one proof line + logo. Safe margins for Stories UI (~top/bottom).<br><br>Ref: /assets/real-people/jessica/ad-treatment-e-9x16.png (concept draft) + clean-master.<br>Do not invent new claims.</p></div>
-           <div class="refs"><span class="label">References to attach</span><ul><li><a href="https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#person-jessica" target="_blank" rel="noopener">https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#person-jessica</a></li><li><a href="/assets/real-people/jessica/ad-treatment-e-9x16.png" target="_blank" rel="noopener">/assets/real-people/jessica/ad-treatment-e-9x16.png</a></li><li><a href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">/assets/real-people/jessica/ad-treatment-e-4x5.png</a></li><li><a href="/assets/real-people/jessica/clean-master.jpg" target="_blank" rel="noopener">/assets/real-people/jessica/clean-master.jpg</a></li></ul></div>
+    <div class="desc"><span class="label">What to do</span><p>This is a RESIZE only — not a new design.<br><br>Take Jessica’s finished 4:5 feed ad and make a tall Stories version: 1080×1920.<br><br>Keep the same person, text, logo, and look.<br>Leave empty space at the top and bottom (Stories UI covers those areas).<br><br>Do not add new claims or rewrite copy.</p></div>
+    <div class="refs"><span class="label">Files &amp; examples (open these)</span><ul><li><a href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">Example finished ad — match this look</a></li><li><a href="/assets/real-people/jessica/ad-treatment-e-9x16.png" target="_blank" rel="noopener">Tall draft example (optional)</a></li><li><a href="/assets/real-people/jessica/clean-master.jpg" target="_blank" rel="noopener">Person photo (download &amp; use)</a></li></ul></div>
     <div class="actions">
       <button type="button" class="btn primary" data-copy="1. TITLE OF REQUEST
 MV RP Resize — Meet Jessica · 9:16 Stories
@@ -631,12 +593,14 @@ Resize / Story
 1080×1920 px (9:16 Stories/Reels)
 
 5. DESCRIPTION OF REQUEST
-RESIZE only — same creative as Jessica 4:5 Studio Profile, adapted to 9:16.
+This is a RESIZE only — not a new design.
 
-Keep person full-bleed. Keep Meet Jessica + role + one proof line + logo. Safe margins for Stories UI (~top/bottom).
+Take Jessica’s finished 4:5 feed ad and make a tall Stories version: 1080×1920.
 
-Ref: /assets/real-people/jessica/ad-treatment-e-9x16.png (concept draft) + clean-master.
-Do not invent new claims.
+Keep the same person, text, logo, and look.
+Leave empty space at the top and bottom (Stories UI covers those areas).
+
+Do not add new claims or rewrite copy.
 
 On-image text: Meet Jessica
 Role line: Jr. Medical Admin
@@ -655,9 +619,8 @@ Brand rules: MedVirtual only; hire dedicated staff; no call-center / managed fro
 
 6. PROVIDE INSPO/REFERENCES
 Paste these links and upload the local files listed:
-https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#person-jessica
-/assets/real-people/jessica/ad-treatment-e-9x16.png
 /assets/real-people/jessica/ad-treatment-e-4x5.png
+/assets/real-people/jessica/ad-treatment-e-9x16.png
 /assets/real-people/jessica/clean-master.jpg
 
 Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
@@ -666,34 +629,30 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 07/20/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form</button>
-             <button type="button" class="btn" data-copy="RESIZE only — same creative as Jessica 4:5 Studio Profile, adapted to 9:16.
+MedVirtual">Copy full brief</button>
+      <button type="button" class="btn" data-copy="This is a RESIZE only — not a new design.
 
-Keep person full-bleed. Keep Meet Jessica + role + one proof line + logo. Safe margins for Stories UI (~top/bottom).
+Take Jessica’s finished 4:5 feed ad and make a tall Stories version: 1080×1920.
 
-Ref: /assets/real-people/jessica/ad-treatment-e-9x16.png (concept draft) + clean-master.
-Do not invent new claims.">Copy description only</button>
-      
-      
+Keep the same person, text, logo, and look.
+Leave empty space at the top and bottom (Stories UI covers those areas).
+
+Do not add new claims or rewrite copy.">Copy instructions only</button>
     </div>
-  </article><article class="card work " id="rp-chelsea-9x16">
+  </article><article class="card work" id="rp-chelsea-9x16">
     <div class="card-top">
-      <span class="badge go">Do now</span>
-      <span class="batch">Batch B · Stories resize</span>
-      <span class="prio">P4</span>
+      <span class="badge go">Job 4</span>
+      <span class="batch">Resize only</span>
     </div>
-    <h3>MV RP Resize — Meet Chelsea · 9:16 Stories</h3>
+    <h3>Resize Chelsea ad for Stories</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Resize / Story</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1920 px (9:16 Stories/Reels)</dd></div>
+      <div><dt>Size</dt><dd>1080×1920 px (9:16 Stories/Reels)</dd></div>
+      <div><dt>Big text</dt><dd>Meet Chelsea</dd></div>
+      <div><dt>Job title</dt><dd>Dental Virtual Assistant</dd></div>
       <div><dt>Due</dt><dd>07/20/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
-      <div><dt>On-image</dt><dd>Meet Chelsea</dd></div>
-      <div><dt>Meta headline</dt><dd>Scheduling Taking Over?</dd></div>
-      
     </dl>
-    <div class="desc"><span class="label">Description (goes in form field 5)</span><p>RESIZE only — Chelsea Studio Profile → 9:16. Same rules as Jessica Stories card. Ref: chelsea ad-treatment-e-9x16.png + clean-master.</p></div>
-           <div class="refs"><span class="label">References to attach</span><ul><li><a href="https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#person-chelsea" target="_blank" rel="noopener">https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#person-chelsea</a></li><li><a href="/assets/real-people/chelsea/ad-treatment-e-9x16.png" target="_blank" rel="noopener">/assets/real-people/chelsea/ad-treatment-e-9x16.png</a></li><li><a href="/assets/real-people/chelsea/ad-treatment-e-4x5.png" target="_blank" rel="noopener">/assets/real-people/chelsea/ad-treatment-e-4x5.png</a></li><li><a href="/assets/real-people/chelsea/clean-master.jpg" target="_blank" rel="noopener">/assets/real-people/chelsea/clean-master.jpg</a></li></ul></div>
+    <div class="desc"><span class="label">What to do</span><p>This is a RESIZE only — not a new design.<br><br>Take Chelsea’s finished 4:5 feed ad and make a tall Stories version: 1080×1920.<br><br>Keep the same person, text, logo, and look.<br>Leave empty space at the top and bottom (Stories UI covers those areas).<br><br>Do not add new claims or rewrite copy.</p></div>
+    <div class="refs"><span class="label">Files &amp; examples (open these)</span><ul><li><a href="/assets/real-people/chelsea/ad-treatment-e-4x5.png" target="_blank" rel="noopener">Example finished ad — match this look</a></li><li><a href="/assets/real-people/chelsea/ad-treatment-e-9x16.png" target="_blank" rel="noopener">Tall draft example (optional)</a></li><li><a href="/assets/real-people/chelsea/clean-master.jpg" target="_blank" rel="noopener">Person photo (download &amp; use)</a></li></ul></div>
     <div class="actions">
       <button type="button" class="btn primary" data-copy="1. TITLE OF REQUEST
 MV RP Resize — Meet Chelsea · 9:16 Stories
@@ -708,7 +667,14 @@ Resize / Story
 1080×1920 px (9:16 Stories/Reels)
 
 5. DESCRIPTION OF REQUEST
-RESIZE only — Chelsea Studio Profile → 9:16. Same rules as Jessica Stories card. Ref: chelsea ad-treatment-e-9x16.png + clean-master.
+This is a RESIZE only — not a new design.
+
+Take Chelsea’s finished 4:5 feed ad and make a tall Stories version: 1080×1920.
+
+Keep the same person, text, logo, and look.
+Leave empty space at the top and bottom (Stories UI covers those areas).
+
+Do not add new claims or rewrite copy.
 
 On-image text: Meet Chelsea
 Role line: Dental Virtual Assistant
@@ -727,9 +693,8 @@ Brand rules: MedVirtual only; hire dedicated staff; no call-center / managed fro
 
 6. PROVIDE INSPO/REFERENCES
 Paste these links and upload the local files listed:
-https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html#person-chelsea
-/assets/real-people/chelsea/ad-treatment-e-9x16.png
 /assets/real-people/chelsea/ad-treatment-e-4x5.png
+/assets/real-people/chelsea/ad-treatment-e-9x16.png
 /assets/real-people/chelsea/clean-master.jpg
 
 Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
@@ -738,296 +703,100 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 07/20/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form</button>
-             <button type="button" class="btn" data-copy="RESIZE only — Chelsea Studio Profile → 9:16. Same rules as Jessica Stories card. Ref: chelsea ad-treatment-e-9x16.png + clean-master.">Copy description only</button>
-      
-      
+MedVirtual">Copy full brief</button>
+      <button type="button" class="btn" data-copy="This is a RESIZE only — not a new design.
+
+Take Chelsea’s finished 4:5 feed ad and make a tall Stories version: 1080×1920.
+
+Keep the same person, text, logo, and look.
+Leave empty space at the top and bottom (Stories UI covers those areas).
+
+Do not add new claims or rewrite copy.">Copy instructions only</button>
     </div>
   </article>
     </section>
 
-    <section id="ready">
-      <h2>2. Ready to load — Media Buyer</h2>
-      <p class="lede">Art is done. Do <strong>not</strong> re-request graphics unless polishing. Load from Meta Launch.</p>
-      <article class="card  ready" id="rp-jessica-4x5">
+    <section>
+      <h2>Quick rules</h2>
+      <ul class="rules"><li>Brand name on ads: MedVirtual (not MedVirtual.ai)</li><li>Say we hire dedicated full-time virtual staff for the practice team</li><li>Do not say call center, “we run your front desk,” or managed service</li><li>Do not invent HIPAA, savings $, or credentials</li></ul>
+    </section>
+
+    <section id="archive">
+      <h2>Not for designers</h2>
+      <p class="lede">Producer / media-buyer notes. You can ignore this section.</p>
+      <details class="archive">
+        <summary>Done ads (4) — already finished</summary>
+        <div style="margin-top:0.75rem"><article class="card ready" id="rp-jessica-4x5">
     <div class="card-top">
-      <span class="badge ok">Ready to load</span>
+      <span class="badge ok">Done</span>
       <span class="batch">Batch A · live pack</span>
-      
     </div>
     <h3>MV RP Static — Meet Jessica · Admin · 4:5</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Static Meta Ad</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1350 px</dd></div>
-      <div><dt>Due</dt><dd>—</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1350 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Jessica</dd></div>
-      <div><dt>Meta headline</dt><dd>Admin Work Piling Up?</dd></div>
-      <div><dt>Upload file</dt><dd class="mono">IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png</dd></div>
     </dl>
-    
     <div class="actions">
-      
-      <a class="btn primary" href="/meta-launch-build-pack.html">Open Meta Launch</a>
+      <a class="btn primary" href="/meta-launch-build-pack.html">Meta Launch</a>
              <a class="btn" href="/exports/meta-upload-ready/IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png" target="_blank" rel="noopener">Preview PNG</a>
-             <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
-MV RP Static — Meet Jessica · Admin · 4:5
-
-2. EMAIL
-UPDATE_ME@medvirtual.ai
-
-3. TYPE OF REQUEST
-Static Meta Ad
-
-4. GRAPHIC RESOLUTION
-1080×1350 px
-
-5. DESCRIPTION OF REQUEST
-DONE. Upload from Meta Launch pack. Draft art may get designer polish later.
-
-On-image text: Meet Jessica
-Role line: Jr. Medical Admin
-Meta headline: Admin Work Piling Up?
-Meta primary text:
-Calls keep coming. Tasks keep stacking. Your team is already stretched.
-
-Meet Jessica — a Jr. Medical Admin available through MedVirtual. Hire a dedicated full-time virtual staff member who works as part of your practice team.
-
-Book a demo to request an interview.
-Meta CTA: Learn More
-
-Layout system: Treatment E — Hailey / Role-Offer Meet
-Brand rules: MedVirtual only; hire dedicated staff; no call-center / managed front desk language.
-
-6. PROVIDE INSPO/REFERENCES
-Paste these links and upload the local files listed:
-https://medvirtual-ad-content-doc.vercel.app/meta-launch-build-pack.html
-/exports/meta-upload-ready/IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png
-
-Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
-
-7. DUE DATE
-—
-
-8. BRAND
-MedVirtual">Copy form archive</button>
-      
     </div>
-  </article><article class="card  ready" id="rp-chelsea-4x5">
+  </article><article class="card ready" id="rp-chelsea-4x5">
     <div class="card-top">
-      <span class="badge ok">Ready to load</span>
+      <span class="badge ok">Done</span>
       <span class="batch">Batch A · live pack</span>
-      
     </div>
     <h3>MV RP Static — Meet Chelsea · Scheduling · 4:5</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Static Meta Ad</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1350 px</dd></div>
-      <div><dt>Due</dt><dd>—</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1350 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Chelsea</dd></div>
-      <div><dt>Meta headline</dt><dd>Scheduling Taking Over?</dd></div>
-      <div><dt>Upload file</dt><dd class="mono">IMB_MV_RP_Static_02_ChelseaScheduling_1080x1350.png</dd></div>
     </dl>
-    
     <div class="actions">
-      
-      <a class="btn primary" href="/meta-launch-build-pack.html">Open Meta Launch</a>
+      <a class="btn primary" href="/meta-launch-build-pack.html">Meta Launch</a>
              <a class="btn" href="/exports/meta-upload-ready/IMB_MV_RP_Static_02_ChelseaScheduling_1080x1350.png" target="_blank" rel="noopener">Preview PNG</a>
-             <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
-MV RP Static — Meet Chelsea · Scheduling · 4:5
-
-2. EMAIL
-UPDATE_ME@medvirtual.ai
-
-3. TYPE OF REQUEST
-Static Meta Ad
-
-4. GRAPHIC RESOLUTION
-1080×1350 px
-
-5. DESCRIPTION OF REQUEST
-DONE. Meta Launch upload pack.
-
-On-image text: Meet Chelsea
-Meta headline: Scheduling Taking Over?
-Meta primary text:
-Scheduling should not consume your entire front desk.
-
-Meet Chelsea — a Dental Virtual Assistant available through MedVirtual.
-
-Book a demo to get started.
-Meta CTA: Learn More
-
-Layout system: Treatment E — Hailey / Role-Offer Meet
-Brand rules: MedVirtual only; hire dedicated staff; no call-center / managed front desk language.
-
-6. PROVIDE INSPO/REFERENCES
-Paste these links and upload the local files listed:
-https://medvirtual-ad-content-doc.vercel.app/meta-launch-build-pack.html
-/exports/meta-upload-ready/IMB_MV_RP_Static_02_ChelseaScheduling_1080x1350.png
-
-Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
-
-7. DUE DATE
-—
-
-8. BRAND
-MedVirtual">Copy form archive</button>
-      
     </div>
-  </article><article class="card  ready" id="rp-angelica-4x5">
+  </article><article class="card ready" id="rp-angelica-4x5">
     <div class="card-top">
-      <span class="badge ok">Ready to load</span>
+      <span class="badge ok">Done</span>
       <span class="batch">Batch A · live pack</span>
-      
     </div>
     <h3>MV RP Static — Meet Angelica · Front Desk · 4:5</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Static Meta Ad</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1350 px</dd></div>
-      <div><dt>Due</dt><dd>—</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1350 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Angelica</dd></div>
-      <div><dt>Meta headline</dt><dd>Front Desk Stretched Thin?</dd></div>
-      <div><dt>Upload file</dt><dd class="mono">IMB_MV_RP_Static_03_AngelicaFrontDesk_1080x1350.png</dd></div>
     </dl>
-    
     <div class="actions">
-      
-      <a class="btn primary" href="/meta-launch-build-pack.html">Open Meta Launch</a>
+      <a class="btn primary" href="/meta-launch-build-pack.html">Meta Launch</a>
              <a class="btn" href="/exports/meta-upload-ready/IMB_MV_RP_Static_03_AngelicaFrontDesk_1080x1350.png" target="_blank" rel="noopener">Preview PNG</a>
-             <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
-MV RP Static — Meet Angelica · Front Desk · 4:5
-
-2. EMAIL
-UPDATE_ME@medvirtual.ai
-
-3. TYPE OF REQUEST
-Static Meta Ad
-
-4. GRAPHIC RESOLUTION
-1080×1350 px
-
-5. DESCRIPTION OF REQUEST
-DONE. Meta Launch upload pack.
-
-On-image text: Meet Angelica
-Meta headline: Front Desk Stretched Thin?
-Meta primary text:
-Patients are waiting. Phones are ringing. Follow-up is stacking up.
-
-Meet Angelica through MedVirtual. Hire dedicated virtual staff — not a call center.
-
-Book a demo.
-Meta CTA: Learn More
-
-Layout system: Treatment E — Hailey / Role-Offer Meet
-Brand rules: MedVirtual only; hire dedicated staff; no call-center / managed front desk language.
-
-6. PROVIDE INSPO/REFERENCES
-Paste these links and upload the local files listed:
-/exports/meta-upload-ready/IMB_MV_RP_Static_03_AngelicaFrontDesk_1080x1350.png
-
-Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
-
-7. DUE DATE
-—
-
-8. BRAND
-MedVirtual">Copy form archive</button>
-      
     </div>
-  </article><article class="card  ready" id="rp-mark-4x5">
+  </article><article class="card ready" id="rp-mark-4x5">
     <div class="card-top">
-      <span class="badge ok">Ready to load</span>
+      <span class="badge ok">Done</span>
       <span class="batch">Batch A · live pack</span>
-      
     </div>
     <h3>MV RP Static — Meet Mark · Verification · 4:5</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Static Meta Ad</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1350 px</dd></div>
-      <div><dt>Due</dt><dd>—</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1350 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Mark</dd></div>
-      <div><dt>Meta headline</dt><dd>Verification Work Piling Up?</dd></div>
-      <div><dt>Upload file</dt><dd class="mono">IMB_MV_RP_Static_04_MarkVerification_1080x1350.png</dd></div>
     </dl>
-    
     <div class="actions">
-      
-      <a class="btn primary" href="/meta-launch-build-pack.html">Open Meta Launch</a>
+      <a class="btn primary" href="/meta-launch-build-pack.html">Meta Launch</a>
              <a class="btn" href="/exports/meta-upload-ready/IMB_MV_RP_Static_04_MarkVerification_1080x1350.png" target="_blank" rel="noopener">Preview PNG</a>
-             <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
-MV RP Static — Meet Mark · Verification · 4:5
-
-2. EMAIL
-UPDATE_ME@medvirtual.ai
-
-3. TYPE OF REQUEST
-Static Meta Ad
-
-4. GRAPHIC RESOLUTION
-1080×1350 px
-
-5. DESCRIPTION OF REQUEST
-DONE. Meta Launch upload pack.
-
-On-image text: Meet Mark
-Meta headline: Verification Work Piling Up?
-Meta primary text:
-Insurance verification can pull your team away from patients.
-
-Meet Mark through MedVirtual. Hire dedicated full-time virtual verification support.
-
-Book a demo.
-Meta CTA: Learn More
-
-Layout system: Treatment E — Hailey / Role-Offer Meet
-Brand rules: MedVirtual only; hire dedicated staff; no call-center / managed front desk language.
-
-6. PROVIDE INSPO/REFERENCES
-Paste these links and upload the local files listed:
-/exports/meta-upload-ready/IMB_MV_RP_Static_04_MarkVerification_1080x1350.png
-
-Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html
-
-7. DUE DATE
-—
-
-8. BRAND
-MedVirtual">Copy form archive</button>
-      
     </div>
-  </article>
-    </section>
-
-    <section id="queued">
-      <h2>3. Queued — waiting</h2>
-      <p class="lede">Do not start these until DO NOW is empty or producer promotes them. Keeps the team from drowning.</p>
-      <details>
-        <summary>Show 12 queued items</summary>
-        <div style="margin-top:0.75rem"><article class="card  " id="rp-mark-9x16">
+  </article></div>
+      </details>
+      <details class="archive">
+        <summary>Later queue (12) — do not start yet</summary>
+        <div style="margin-top:0.75rem"><article class="card " id="rp-mark-9x16">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch C · Stories</span>
-      <span class="prio">P5</span>
     </div>
     <h3>MV RP Resize — Meet Mark · 9:16</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Resize / Story</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1920 px</dd></div>
-      <div><dt>Due</dt><dd>07/27/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1920 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Mark</dd></div>
-      <div><dt>Meta headline</dt><dd>Verification Work Piling Up?</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV RP Resize — Meet Mark · 9:16
 
@@ -1068,28 +837,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 07/27/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="rp-angelica-9x16">
+  </article><article class="card " id="rp-angelica-9x16">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch C · Stories</span>
-      <span class="prio">P6</span>
     </div>
     <h3>MV RP Resize — Meet Angelica · 9:16</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Resize / Story</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1920 px</dd></div>
-      <div><dt>Due</dt><dd>07/27/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1920 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Angelica</dd></div>
-      <div><dt>Meta headline</dt><dd>Front Desk Stretched Thin?</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV RP Resize — Meet Angelica · 9:16
 
@@ -1128,28 +888,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 07/27/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="rp-jessica-1x1">
+  </article><article class="card " id="rp-jessica-1x1">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch C · Square</span>
-      <span class="prio">P7</span>
     </div>
     <h3>MV RP Resize — Meet Jessica · 1:1</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Resize</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1080 px</dd></div>
-      <div><dt>Due</dt><dd>07/27/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1080 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Jessica</dd></div>
-      <div><dt>Meta headline</dt><dd>Admin Work Piling Up?</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV RP Resize — Meet Jessica · 1:1
 
@@ -1185,28 +936,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 07/27/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="rp-chelsea-1x1">
+  </article><article class="card " id="rp-chelsea-1x1">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch C · Square</span>
-      <span class="prio">P8</span>
     </div>
     <h3>MV RP Resize — Meet Chelsea · 1:1</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Resize</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1080 px</dd></div>
-      <div><dt>Due</dt><dd>07/27/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1080 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Chelsea</dd></div>
-      <div><dt>Meta headline</dt><dd>Scheduling Taking Over?</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV RP Resize — Meet Chelsea · 1:1
 
@@ -1242,28 +984,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 07/27/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="rp-mark-1x1">
+  </article><article class="card " id="rp-mark-1x1">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch D · Square</span>
-      <span class="prio">P9</span>
     </div>
     <h3>MV RP Resize — Meet Mark · 1:1</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Resize</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1080 px</dd></div>
-      <div><dt>Due</dt><dd>08/03/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1080 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Mark</dd></div>
-      <div><dt>Meta headline</dt><dd>Verification Work Piling Up?</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV RP Resize — Meet Mark · 1:1
 
@@ -1299,28 +1032,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 08/03/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="rp-angelica-1x1">
+  </article><article class="card " id="rp-angelica-1x1">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch D · Square</span>
-      <span class="prio">P10</span>
     </div>
     <h3>MV RP Resize — Meet Angelica · 1:1</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Resize</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1080 px</dd></div>
-      <div><dt>Due</dt><dd>08/03/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1080 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Angelica</dd></div>
-      <div><dt>Meta headline</dt><dd>Front Desk Stretched Thin?</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV RP Resize — Meet Angelica · 1:1
 
@@ -1356,28 +1080,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 08/03/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="rp-carmen-9x16">
+  </article><article class="card " id="rp-carmen-9x16">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch D · Stories</span>
-      <span class="prio">P11</span>
     </div>
     <h3>MV RP Resize — Meet Carmen · 9:16</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Resize / Story</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1920 px</dd></div>
-      <div><dt>Due</dt><dd>08/03/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1920 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Carmen</dd></div>
-      <div><dt>Meta headline</dt><dd>Billing Work Piling Up?</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV RP Resize — Meet Carmen · 9:16
 
@@ -1412,28 +1127,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 08/03/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="rp-jennifer-9x16">
+  </article><article class="card " id="rp-jennifer-9x16">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch D · Stories</span>
-      <span class="prio">P12</span>
     </div>
     <h3>MV RP Resize — Meet Jennifer · 9:16</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Resize / Story</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1920 px</dd></div>
-      <div><dt>Due</dt><dd>08/03/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1920 px</dd></div>
       <div><dt>On-image</dt><dd>Meet Jennifer</dd></div>
-      <div><dt>Meta headline</dt><dd>Need Dedicated Virtual Support?</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV RP Resize — Meet Jennifer · 9:16
 
@@ -1468,28 +1174,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 08/03/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="rp-jessica-alt-hook">
+  </article><article class="card " id="rp-jessica-alt-hook">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch E · copy test</span>
-      <span class="prio">P13</span>
     </div>
     <h3>MV RP Static — Jessica alt Meta headline pack · same art</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Copy-only / same art</dd></div>
-      <div><dt>Resolution</dt><dd>N/A — reuse Jessica 4:5 art</dd></div>
-      <div><dt>Due</dt><dd>08/10/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>N/A — reuse Jessica 4:5 art</dd></div>
       <div><dt>On-image</dt><dd>(same art) Meet Jessica</dd></div>
-      <div><dt>Meta headline</dt><dd>Too Much Admin. Not Enough Day.</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV RP Static — Jessica alt Meta headline pack · same art
 
@@ -1529,28 +1226,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 08/10/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="rp-chelsea-alt-hook">
+  </article><article class="card " id="rp-chelsea-alt-hook">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch E · copy test</span>
-      <span class="prio">P14</span>
     </div>
     <h3>MV RP Static — Chelsea alt Meta headline pack · same art</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Copy-only / same art</dd></div>
-      <div><dt>Resolution</dt><dd>N/A — reuse Chelsea 4:5 art</dd></div>
-      <div><dt>Due</dt><dd>08/10/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>N/A — reuse Chelsea 4:5 art</dd></div>
       <div><dt>On-image</dt><dd>(same art) Meet Chelsea</dd></div>
-      <div><dt>Meta headline</dt><dd>Front Desk Buried in Scheduling?</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV RP Static — Chelsea alt Meta headline pack · same art
 
@@ -1589,28 +1277,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 08/10/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="stock-ops-calls-safe">
+  </article><article class="card " id="stock-ops-calls-safe">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch F · non-RP (only if RP hopper full)</span>
-      <span class="prio">P15</span>
     </div>
     <h3>MV Static — Ops overload · no named talent · 4:5</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Static Meta Ad</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1350 px</dd></div>
-      <div><dt>Due</dt><dd>08/17/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1350 px</dd></div>
       <div><dt>On-image</dt><dd>Too many calls. Not enough staff.</dd></div>
-      <div><dt>Meta headline</dt><dd>Too Many Calls. Not Enough Staff.</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV Static — Ops overload · no named talent · 4:5
 
@@ -1653,28 +1332,19 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 08/17/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
-  </article><article class="card  " id="stock-dental-schedule-safe">
+  </article><article class="card " id="stock-dental-schedule-safe">
     <div class="card-top">
-      <span class="badge wait">Queued</span>
+      <span class="badge wait">Later</span>
       <span class="batch">Batch F · non-RP</span>
-      <span class="prio">P16</span>
     </div>
     <h3>MV Static — Dental scheduling support · 4:5</h3>
     <dl class="mini">
-      <div><dt>Type</dt><dd>Static Meta Ad</dd></div>
-      <div><dt>Resolution</dt><dd>1080×1350 px</dd></div>
-      <div><dt>Due</dt><dd>08/17/2026</dd></div>
-      <div><dt>Brand</dt><dd>MedVirtual</dd></div>
+      <div><dt>Size</dt><dd>1080×1350 px</dd></div>
       <div><dt>On-image</dt><dd>Scheduling backup for dental practices.</dd></div>
-      <div><dt>Meta headline</dt><dd>Dental Scheduling Support</dd></div>
-      
     </dl>
-    
     <div class="actions">
-      
-      
       <button type="button" class="btn" data-copy="1. TITLE OF REQUEST
 MV Static — Dental scheduling support · 4:5
 
@@ -1714,41 +1384,36 @@ Brief page: https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.h
 08/17/2026
 
 8. BRAND
-MedVirtual">Copy Graphics Form (when assigned)</button>
+MedVirtual">Copy brief (later)</button>
     </div>
   </article></div>
       </details>
-    </section>
-
-    <section id="retired">
-      <h2>4. Retired / killed — do not rebuild</h2>
-      <p class="lede">Losers and rejected systems stay here so nobody “helpfully” remakes them.</p>
-      <details>
-        <summary>Show 5 killed / retired items</summary>
+      <details class="archive">
+        <summary>Do not build (5)</summary>
         <div style="margin-top:0.75rem"><article class="card dead">
       <div class="card-top">
-        <span class="badge bad">Killed</span>
+        <span class="badge bad">Do not build</span>
         <span class="batch">FirstBatch · killed</span>
       </div>
       <h3>DO NOT BUILD — Medical Practice Owners</h3>
       <p class="kill">FirstBatch campaign killed. Stock audience-callout creative underperformed / retired.</p>
     </article><article class="card dead">
       <div class="card-top">
-        <span class="badge bad">Killed</span>
+        <span class="badge bad">Do not build</span>
         <span class="batch">FirstBatch · killed</span>
       </div>
       <h3>DO NOT BUILD — Dental Practice Owners</h3>
       <p class="kill">FirstBatch campaign killed.</p>
     </article><article class="card dead">
       <div class="card-top">
-        <span class="badge bad">Killed</span>
+        <span class="badge bad">Do not build</span>
         <span class="batch">FirstBatch · killed</span>
       </div>
       <h3>DO NOT BUILD — Hire a Full-Time Virtual Medical Admin (old card)</h3>
       <p class="kill">FirstBatch campaign killed.</p>
     </article><article class="card dead">
       <div class="card-top">
-        <span class="badge bad">Killed</span>
+        <span class="badge bad">Do not build</span>
         <span class="batch">FirstBatch · killed</span>
       </div>
       <h3>DO NOT BUILD — Too Many Calls FirstBatch static (old execution)</h3>
@@ -1762,17 +1427,6 @@ MedVirtual">Copy Graphics Form (when assigned)</button>
       <p class="kill">CMO rejected. Replaced by Treatment E Studio Profile.</p>
     </article></div>
       </details>
-      <div class="retire-help">
-        <strong>How to clear a loser:</strong> In <code>scripts/creative-hopper-data.mjs</code>, set that item’s
-        <code>status</code> to <code>retired</code> or <code>killed</code>, add a one-line <code>killReason</code>,
-        then run <code>npm run generate:brief</code>. It drops out of Do now / Queued / Ready and only shows here.
-      </div>
-    </section>
-
-    <section>
-      <h2>Language guardrails</h2>
-      <ul class="rules"><li>Brand on ads: MedVirtual (never MedVirtual.ai)</li><li>Hire dedicated full-time virtual staff who join the practice team</li><li>Not a call center / not “we run your front desk” / not managed service</li><li>Do not invent HIPAA, savings, or $10 claims unless producer confirms</li></ul>
-      <p class="lede" style="margin-top:0.75rem">Full brand: <a href="/medvirtual-brand-guide.html">Brand Guide</a> · Layout: <a href="/real-people-creative.html#concept">Portrait Lead</a></p>
     </section>
   </main>
 
@@ -1788,7 +1442,7 @@ MedVirtual">Copy Graphics Form (when assigned)</button>
       btn.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(btn.getAttribute('data-copy') || '');
-          flash('Copied — paste into Graphics Request Form');
+          flash('Copied');
         } catch {
           flash('Copy failed');
         }
