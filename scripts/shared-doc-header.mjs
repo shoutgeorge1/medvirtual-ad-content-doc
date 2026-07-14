@@ -16,7 +16,8 @@ export const DOC_BRAND = {
 
 /**
  * Primary nav — left → right. New concept lanes append after Real People.
- * Use `children` for a dropdown when a lane has 2+ boards.
+ * Prefer flat links so every page looks identical. Use `children` only when a
+ * lane needs a dropdown (CSS is scoped so page `details` rules cannot bleach it).
  */
 export const PRIMARY_NAV = [
   {
@@ -29,19 +30,7 @@ export const PRIMARY_NAV = [
     href: '/template-test-board.html',
     label: 'Templates',
     id: 'templates',
-    description: 'Hailey layout refs + Role-Offer boards.',
-    children: [
-      {
-        href: '/template-test-board.html',
-        label: 'Layout refs',
-        id: 'templates',
-      },
-      {
-        href: '/role-offer-templates.html',
-        label: 'Role-Offer',
-        id: 'role-offer',
-      },
-    ],
+    description: 'Hailey layout refs · Role-Offer boards.',
   },
   {
     href: '/real-people-creative.html',
@@ -55,6 +44,12 @@ export const PRIMARY_NAV = [
     id: 'saas-prop',
     description: 'Classy medical-software look · no people · fancy words.',
   },
+];
+
+/** Related boards reached from Templates pages / banners — not primary nav clones */
+export const TEMPLATE_LANES = [
+  { href: '/template-test-board.html', label: 'Layout refs', id: 'templates' },
+  { href: '/role-offer-templates.html', label: 'Role-Offer', id: 'role-offer' },
 ];
 
 /** Far-right reference — producer / brand, not daily VA workflow */
@@ -196,6 +191,8 @@ export const HEADER_CSS = `
   }
   .doc-nav a,
   .doc-nav-dd > summary {
+    display: inline-flex;
+    align-items: center;
     padding: 0.45rem 0.75rem;
     border-radius: 8px;
     font-size: 0.8rem;
@@ -206,6 +203,25 @@ export const HEADER_CSS = `
     transition: background 0.15s, color 0.15s;
     list-style: none;
     cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+  }
+  /* Kill page-level details/summary styles that bleed into the header */
+  .doc-header details.doc-nav-dd {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
+  .doc-header details.doc-nav-dd > summary {
+    background: transparent !important;
+    color: #d7e8f0 !important;
+    font-weight: 500 !important;
+    border: 1px solid transparent !important;
+    padding: 0.45rem 0.75rem !important;
   }
   .doc-nav-dd > summary::-webkit-details-marker { display: none; }
   .doc-nav-dd > summary::after {
@@ -215,15 +231,18 @@ export const HEADER_CSS = `
     opacity: 0.75;
   }
   .doc-nav a:hover,
-  .doc-nav-dd > summary:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.08);
+  .doc-header details.doc-nav-dd > summary:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
   }
-  .doc-nav a.active,
-  .doc-nav-dd.active > summary,
-  .doc-nav-dd[open] > summary {
+  .doc-nav a.active {
     color: #ffffff;
     background: var(--mv-primary);
+  }
+  .doc-header details.doc-nav-dd.active > summary,
+  .doc-header details.doc-nav-dd[open] > summary {
+    color: #ffffff !important;
+    background: var(--mv-primary) !important;
   }
   .doc-nav-dd {
     position: relative;

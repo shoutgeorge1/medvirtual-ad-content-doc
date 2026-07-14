@@ -344,11 +344,11 @@ const css = `
   .primary p { margin: 0 0 0.55rem; line-height: 1.45; font-size: 0.92rem; }
   .primary p:last-child { margin-bottom: 0; }
   .note { margin: 0.7rem 0 0; font-size: 0.88rem; color: #475569; }
-  details {
+  main details {
     background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.85rem 1rem;
   }
-  details + details { margin-top: 0.65rem; }
-  summary { cursor: pointer; font-weight: 800; color: var(--deep); }
+  main details + details { margin-top: 0.65rem; }
+  main summary { cursor: pointer; font-weight: 800; color: var(--deep); }
   .reject-banner {
     margin: 0.75rem 0; padding: 0.65rem 0.8rem; border-radius: 10px;
     background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; font-size: 0.9rem;

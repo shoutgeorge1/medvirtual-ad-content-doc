@@ -621,9 +621,9 @@ const html = `<!DOCTYPE html>
 </head>
 <body>
   ${renderDocHeader({
-    activeId: 'role-offer',
+    activeId: 'templates',
     pageTitle: 'Role-Offer · Hailey likes these',
-    pageSubtitle: 'Editable checklist layouts — open these first',
+    pageSubtitle: 'Editable checklist layouts — open from Templates',
   })}
   <div class="intro">
     <h1>${esc(ROLE_OFFER_META.title)}</h1>

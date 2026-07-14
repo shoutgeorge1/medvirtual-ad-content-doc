@@ -124,6 +124,8 @@
   }
   .doc-nav a,
   .doc-nav-dd > summary {
+    display: inline-flex;
+    align-items: center;
     padding: 0.45rem 0.75rem;
     border-radius: 8px;
     font-size: 0.8rem;
@@ -134,6 +136,25 @@
     transition: background 0.15s, color 0.15s;
     list-style: none;
     cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+  }
+  /* Kill page-level details/summary styles that bleed into the header */
+  .doc-header details.doc-nav-dd {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
+  .doc-header details.doc-nav-dd > summary {
+    background: transparent !important;
+    color: #d7e8f0 !important;
+    font-weight: 500 !important;
+    border: 1px solid transparent !important;
+    padding: 0.45rem 0.75rem !important;
   }
   .doc-nav-dd > summary::-webkit-details-marker { display: none; }
   .doc-nav-dd > summary::after {
@@ -143,15 +164,18 @@
     opacity: 0.75;
   }
   .doc-nav a:hover,
-  .doc-nav-dd > summary:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.08);
+  .doc-header details.doc-nav-dd > summary:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
   }
-  .doc-nav a.active,
-  .doc-nav-dd.active > summary,
-  .doc-nav-dd[open] > summary {
+  .doc-nav a.active {
     color: #ffffff;
     background: var(--mv-primary);
+  }
+  .doc-header details.doc-nav-dd.active > summary,
+  .doc-header details.doc-nav-dd[open] > summary {
+    color: #ffffff !important;
+    background: var(--mv-primary) !important;
   }
   .doc-nav-dd {
     position: relative;
@@ -360,11 +384,11 @@
   .primary p { margin: 0 0 0.55rem; line-height: 1.45; font-size: 0.92rem; }
   .primary p:last-child { margin-bottom: 0; }
   .note { margin: 0.7rem 0 0; font-size: 0.88rem; color: #475569; }
-  details {
+  main details {
     background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.85rem 1rem;
   }
-  details + details { margin-top: 0.65rem; }
-  summary { cursor: pointer; font-weight: 800; color: var(--deep); }
+  main details + details { margin-top: 0.65rem; }
+  main summary { cursor: pointer; font-weight: 800; color: var(--deep); }
   .reject-banner {
     margin: 0.75rem 0; padding: 0.65rem 0.8rem; border-radius: 10px;
     background: #fef2f2; border: 1px solid #fecaca; color: #7f1d1d; font-size: 0.9rem;
@@ -408,10 +432,7 @@
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
-      <summary>Templates</summary>
-      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout refs</a><a href="/role-offer-templates.html" class="">Role-Offer</a></div>
-    </details><a href="/real-people-creative.html" class="active">Real People</a><a href="/saas-prop-templates.html" class="">SaaS Prop</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><a href="/template-test-board.html" class="">Templates</a><a href="/real-people-creative.html" class="active">Real People</a><a href="/saas-prop-templates.html" class="">SaaS Prop</a></nav>
       <span class="doc-nav-sep" aria-hidden="true"></span>
       <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/asset-hub.html" class="">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
     </div>

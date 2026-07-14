@@ -1840,7 +1840,7 @@ async function main() {
   ${renderDocHeader({
     activeId: 'templates',
     pageTitle: 'Templates',
-    pageSubtitle: 'Hailey layout refs · Role-Offer boards under Templates ▾',
+    pageSubtitle: 'Hailey layout refs · Role-Offer boards',
   })}
   <div class="wrap">
     <header class="banner">

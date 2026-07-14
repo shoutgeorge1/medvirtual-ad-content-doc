@@ -212,9 +212,9 @@ const css = `
   }
   .btn.primary { background: ${BRAND.colors.main01}; border-color: ${BRAND.colors.main01}; color: #fff; }
   .kill { margin: 0; font-size: 0.88rem; color: #7f1d1d; }
-  details { background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 0.75rem 0.9rem; }
-  details + details { margin-top: 0.55rem; }
-  summary { cursor: pointer; font-weight: 800; color: ${BRAND.colors.main03}; }
+  main details { background: #fff; border: 1px solid #d7e2ea; border-radius: 12px; padding: 0.75rem 0.9rem; }
+  main details + details { margin-top: 0.55rem; }
+  main summary { cursor: pointer; font-weight: 800; color: ${BRAND.colors.main03}; }
   .rules { margin: 0.65rem 0 0; padding-left: 1.1rem; color: #475569; font-size: 0.88rem; }
   .retire-help {
     margin-top: 0.75rem; padding: 0.75rem 0.85rem; background: #fff7ed; border: 1px solid #fed7aa;
