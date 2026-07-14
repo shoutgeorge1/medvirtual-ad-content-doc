@@ -1,0 +1,32 @@
+---
+description: Classy SaaS Prop ads — no people, fancy words, staffing truth
+globs:
+  - public/saas-prop-templates.html
+  - scripts/saas-prop-templates-data.mjs
+  - scripts/generate-saas-prop-templates.mjs
+  - public/assets/saas-prop-refs/**
+alwaysApply: true
+---
+
+# SaaS Prop Ads (Hailey ask)
+
+Premium **medical software look**, **no people** — glass UI / 3D props only.
+Refs: `public/assets/saas-prop-refs/` · board: `/saas-prop-templates.html`
+
+## Look
+Billion-dollar SaaS: glassmorphism, dashboards, calendars, shields, workflow steps, teal/cyan/navy, big negative space for fancy headlines.
+
+## Words
+Rotate fancy ops headlines (“Clinical capacity without operational drag.”).
+**Support/CTA must stay staffing-true:** hire dedicated full-time virtual staff who join the practice team.
+
+## Never
+- Claim MedVirtual is EMR/PMS/software or a managed front desk
+- Invent HIPAA / savings % / performance
+- Put named Talent Pool faces on this family (that’s Real People)
+
+## Relationship
+| Family | People? | Job |
+|--------|---------|-----|
+| Role-Offer / Real People | Yes | Hire / Meet faces |
+| **SaaS Prop** | No | Classy ops props + fancy words |

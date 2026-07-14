@@ -12,6 +12,7 @@
     "generate:handoff": "node scripts/generate-handoff-docs.mjs",
     "generate:templates": "node scripts/generate-template-board.mjs",
     "generate:role-offer": "node scripts/generate-role-offer-templates.mjs",
+    "generate:saas-prop": "node scripts/generate-saas-prop-templates.mjs",
     "generate:hub": "node scripts/generate-asset-hub.mjs",
     "generate:brand-guide": "node scripts/generate-brand-guide.mjs",
     "generate:copy": "node scripts/generate-ad-copy.mjs",
@@ -22,7 +23,7 @@
     "generate:meta-launch": "node scripts/generate-meta-launch-pack.mjs && node scripts/generate-meta-launch-1.mjs && node scripts/generate-meta-launch-2.mjs",
     "generate:real-people": "node scripts/generate-real-people-treatment-e.mjs && node scripts/generate-real-people-creative.mjs && node scripts/generate-real-people-assets-page.mjs && node scripts/generate-meta-launch-1.mjs && node scripts/generate-meta-launch-2.mjs",
     "generate:real-people-assets": "node scripts/generate-real-people-assets.mjs && node scripts/generate-real-people-assets-page.mjs",
-    "generate:docs": "node scripts/generate-brand-guide.mjs && node scripts/generate-graphic-request-brief.mjs && node scripts/generate-ad-copy.mjs && node scripts/generate-template-board.mjs && node scripts/generate-role-offer-templates.mjs && node scripts/generate-asset-hub.mjs && node scripts/generate-marketing-library.mjs && node scripts/generate-meta-launch-pack.mjs && npm run generate:real-people"
+    "generate:docs": "node scripts/generate-brand-guide.mjs && node scripts/generate-graphic-request-brief.mjs && node scripts/generate-ad-copy.mjs && node scripts/generate-template-board.mjs && node scripts/generate-role-offer-templates.mjs && node scripts/generate-saas-prop-templates.mjs && node scripts/generate-asset-hub.mjs && node scripts/generate-marketing-library.mjs && node scripts/generate-meta-launch-pack.mjs && npm run generate:real-people"
   },
   "dependencies": {
     "html-to-image": "^1.11.13",

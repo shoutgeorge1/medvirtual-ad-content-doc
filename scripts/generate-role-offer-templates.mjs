@@ -627,6 +627,7 @@ const html = `<!DOCTYPE html>
     subnav: [
       { href: '/template-test-board.html', label: 'Layout refs' },
       { href: '/role-offer-templates.html', label: 'Role-Offer' },
+      { href: '/saas-prop-templates.html', label: 'SaaS Prop' },
     ],
     activeSubHref: '/role-offer-templates.html',
   })}

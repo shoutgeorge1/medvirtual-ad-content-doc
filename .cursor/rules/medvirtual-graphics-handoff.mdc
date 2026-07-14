@@ -24,12 +24,9 @@ Keep 15–30 ads in the hopper. Make “do this next” obvious.
 Hire dedicated full-time virtual staff who join the practice team.
 Not a call center / managed front desk / software / “we run your front desk.”
 
-## Visual DNA (one look — Hailey)
-Same system for **Role-Offer** (stock roles) and **Real People** (named talent):
-light cyan grid plate · Hire a Virtual / Meet {Name} · teal role pill · short checklist · CTA · colored logo · person on light plate.
-
-- Stock Role-Offer: may include approved price stamp / Hire language — `role-offer-templates.html`
-- Named Real People: Meet {Name} · exact public role · public skills only · interview CTA — **no invented rates/credentials**
+## Visual DNA
+**Hailey people lane:** Role-Offer + Real People — grid plate · role pill · checklist · CTA · faces.
+**SaaS Prop lane (new):** no people · glass/3D medical-software props · fancy headlines · staffing truth in support — `/saas-prop-templates.html`
 
 Never dark muddy teal overlays.
 
@@ -39,15 +36,16 @@ Never dark muddy teal overlays.
 - `_private/`: internal docs — never expose to graphics
 
 ## Site order
-1. Brief  2. Templates  3. Real People (Ready · Next · downloads)
+1. Brief  2. Templates (Hailey · Role-Offer · SaaS Prop)  3. Real People (Ready · Next · downloads)
 Reference far right: Brand Guide · Assets · Images
 
 Launch 1 / Launch 2 are sections on Real People (`#ready` / `#next`), not separate nav.
 
 ## Workflow
-copy form → attach refs (Hailey / Role-Offer + talent photo + logo) → design
+copy form → attach refs (Hailey people **or** SaaS prop art + logo) → design
 
 No UTM / form QA / campaign shell / audience clutter on graphics pages.
 
 ## Claims
 Do not invent HIPAA, new rates, savings %, performance, credentials, or availability.
+SaaS Prop looks like software — **never** copy that MedVirtual *is* software.

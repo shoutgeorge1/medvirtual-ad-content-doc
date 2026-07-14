@@ -1530,6 +1530,7 @@ function renderHaileyFavorites() {
         <p class="hailey__eyebrow">Priority · open this first</p>
         <h2>What Hailey likes</h2>
         <p>One Visual DNA for Role-Offer <em>and</em> Real People. Match these comps. Named talent uses Meet {Name} + role pill + public skills — same grid / teal / logo system. <a href="/role-offer-templates.html">Editable Role-Offer →</a> · <a href="/real-people-creative.html">Real People →</a></p>
+        <p style="margin:0.55rem 0 0;font-size:0.88rem;color:#b8d4e0"><strong>New lane:</strong> classy SaaS props, no people, fancy words → <a href="/saas-prop-templates.html">SaaS Prop Templates</a></p>
       </div>
       <div class="hailey__grid">${cards}</div>
     </section>`;
@@ -1702,6 +1703,7 @@ async function main() {
     subnav: [
       { href: '/template-test-board.html', label: 'Layout refs' },
       { href: '/role-offer-templates.html', label: 'Role-Offer' },
+      { href: '/saas-prop-templates.html', label: 'SaaS Prop' },
     ],
     activeSubHref: '/template-test-board.html',
   })}
