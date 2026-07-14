@@ -8,10 +8,12 @@ globs:
 alwaysApply: true
 ---
 
-# SaaS Prop Ads (Hailey ask)
+# SaaS Prop Ads (archived as primary Meta)
 
 Premium **medical software look**, **no people** — glass UI / 3D props only.
 Refs: `public/assets/saas-prop-refs/` · board: `/saas-prop-templates.html`
+
+> **July 14, 2026:** Teal SaaS / no-people is **superseded as the primary paid Meta direction** by Direct Response human-led creatives (`/direct-response.html`). Keep this board for reference and alternate tests — do not treat it as the default cold-lead system.
 
 ## Look
 Billion-dollar SaaS: glassmorphism, dashboards, calendars, shields, workflow steps, teal/cyan/navy, big negative space for fancy headlines.
@@ -29,4 +31,5 @@ Rotate fancy ops headlines (“Clinical capacity without operational drag.”).
 | Family | People? | Job |
 |--------|---------|-----|
 | Role-Offer / Real People | Yes | Hire / Meet faces |
-| **SaaS Prop** | No | Classy ops props + fancy words |
+| **Direct Response (current Meta)** | Yes | Bold DR medical admin ads |
+| **SaaS Prop (archived primary)** | No | Classy ops props + fancy words |

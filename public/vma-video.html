@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animated Video Concepts · MedVirtual</title>
+  <style>
+  
+  
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --mv-deep-teal: #0D546B;
+  --mv-accent: #00C0D4;
+  --mv-bright-accent: #27E6FA;
+  --mv-neutral-blue: #F0F5FF;
+  --mv-neutral-warm: #EFEDE1;
+  --mv-ink: #161511;
+  --mv-white: #FFFFFF;
+  --mv-gradient-primary: linear-gradient(90deg, #077999 0%, #00B2E2 100%);
+  --mv-gradient-light: linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%);
+  --mv-gradient-bright: linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%);
+  --mv-gradient-deep: linear-gradient(90deg, #0D546B 0%, #00C0D4 100%);
+  --mv-font: "Be Vietnam", Inter, Arial, sans-serif;
+}
+
+  .doc-header {
+    background: #0a0a0a;
+    color: #ffffff;
+    border-bottom: 3px solid #B8F000;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    font-family: var(--mv-font);
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .doc-header__mark { display: none; }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #a3a3a3;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #a3a3a3;
+    max-width: 820px;
+  }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .doc-nav a,
+  .doc-nav-dd > summary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #d4d4d4;
+    text-decoration: none;
+    border: 1px solid transparent;
+    list-style: none;
+    cursor: pointer;
+    background: transparent;
+  }
+  .doc-header details.doc-nav-dd {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .doc-header details.doc-nav-dd > summary {
+    background: transparent !important;
+    color: #d4d4d4 !important;
+    font-weight: 500 !important;
+    border: 1px solid transparent !important;
+    padding: 0.45rem 0.75rem !important;
+  }
+  .doc-nav-dd > summary::-webkit-details-marker { display: none; }
+  .doc-nav-dd > summary::after {
+    content: '▾';
+    margin-left: 0.35em;
+    font-size: 0.7em;
+    opacity: 0.75;
+  }
+  .doc-nav a:hover,
+  .doc-header details.doc-nav-dd > summary:hover {
+    color: #ffffff !important;
+    background: rgba(184, 240, 0, 0.12) !important;
+  }
+  .doc-nav a.active {
+    color: #0a0a0a;
+    background: #B8F000;
+    font-weight: 700;
+  }
+  .doc-header details.doc-nav-dd.active > summary,
+  .doc-header details.doc-nav-dd[open] > summary {
+    color: #0a0a0a !important;
+    background: #B8F000 !important;
+    font-weight: 700 !important;
+  }
+  .doc-nav-dd { position: relative; }
+  .doc-nav-dd__menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    min-width: 12rem;
+    background: #171717;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    padding: 0.35rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .doc-nav-dd__menu a {
+    display: block;
+    white-space: nowrap;
+    border-radius: 7px;
+  }
+  .doc-nav-dd__menu a.active {
+    background: rgba(184, 240, 0, 0.25);
+    color: #B8F000;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: #B8F000;
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: #B8F000; color: #fff; }
+  .doc-subnav a.active {
+    background: rgba(184, 240, 0, 0.2);
+    border-color: #B8F000;
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Be Vietnam", Inter, Arial, sans-serif;
+    color: #e5e7eb;
+    background:
+      radial-gradient(ellipse 80% 50% at 15% -10%, rgba(184,240,0,0.10), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 90% 0%, rgba(0,229,255,0.08), transparent 55%),
+      #06080d;
+    line-height: 1.5;
+  }
+  a { color: #B8F000; }
+  main { max-width: 1120px; margin: 0 auto; padding: 1.5rem 1.15rem 5rem; }
+  h1, h2, h3 { color: #f8fafc; }
+  .banner {
+    margin: 0 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: linear-gradient(120deg, rgba(184,240,0,0.14), rgba(0,229,255,0.10));
+    border: 1px solid rgba(184,240,0,0.45);
+    font-size: 0.9rem;
+  }
+  .banner strong { color: #B8F000; }
+  .banner .sub { display:block; color:#cbd5e1; margin-top:0.25rem; font-weight:400; }
+  .rule-100 {
+    margin: 0 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: rgba(225,6,0,0.10);
+    border: 1px solid rgba(225,6,0,0.45);
+    color: #fecaca;
+    font-size: 0.88rem;
+  }
+  .rule-100 strong { color: #ff6b6b; }
+  .hero h1 { margin: 0 0 0.4rem; font-size: clamp(1.6rem, 4vw, 2.3rem); letter-spacing: -0.03em; }
+  .hero p { margin: 0; max-width: 52rem; color: #94a3b8; }
+  .lede { color: #94a3b8; max-width: 52rem; }
+  section { margin-top: 1.75rem; }
+  section > h2 { font-size: 1.2rem; margin: 0 0 0.35rem; }
+  .grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .grid-2 { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
+  .card {
+    background: #0d111a;
+    border: 1px solid #1f2937;
+    border-radius: 14px;
+    padding: 1rem 1.05rem;
+  }
+  .card h3 { margin: 0 0 0.3rem; font-size: 1.02rem; }
+  .card p { margin: 0.25rem 0; font-size: 0.88rem; color: #b4becb; }
+  .eyebrow {
+    display: inline-block; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #B8F000; margin-bottom: 0.25rem;
+  }
+  .pill {
+    display: inline-block; padding: 0.12rem 0.55rem; border-radius: 999px;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em; border: 1px solid transparent;
+  }
+  .badge-status { background: rgba(148,163,184,0.15); color:#cbd5e1; border-color: rgba(148,163,184,0.3); }
+  .s-confirmed, .s-approved-for-launch { background: rgba(34,197,94,0.16); color:#86efac; border-color: rgba(34,197,94,0.4); }
+  .s-approved-for-test { background: rgba(0,229,255,0.14); color:#67e8f9; border-color: rgba(0,229,255,0.4); }
+  .s-pending-leadership, .s-pending-compliance, .s-on-hold { background: rgba(255,230,0,0.14); color:#fde047; border-color: rgba(255,230,0,0.4); }
+  .s-rejected, .s-do-not-use { background: rgba(225,6,0,0.16); color:#fca5a5; border-color: rgba(225,6,0,0.45); }
+  .s-queued, .s-ready-for-design, .s-ready-for-animation { background: rgba(184,240,0,0.14); color:#cbe96a; border-color: rgba(184,240,0,0.4); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1f2937; vertical-align: top; }
+  th { color: #94a3b8; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td.ref { font-weight: 700; color: #f8fafc; white-space: nowrap; }
+  ul.clean { margin: 0.4rem 0 0; padding-left: 1.1rem; color: #b4becb; font-size: 0.86rem; }
+  ul.clean li { margin: 0.15rem 0; }
+  .copy-btn {
+    font: inherit; font-size: 0.72rem; font-weight: 700; cursor: pointer;
+    background: #B8F000; color: #06080d; border: none; border-radius: 7px;
+    padding: 0.28rem 0.6rem; margin-top: 0.4rem;
+  }
+  .copy-btn:hover { background: #cbff33; }
+  .copy-btn.copied { background: #22C55E; color:#04120a; }
+  .copytext {
+    display: block; background: #05070b; border: 1px solid #1f2937; border-radius: 8px;
+    padding: 0.6rem 0.7rem; font-size: 0.82rem; color: #d1d9e2; white-space: pre-wrap; margin-top: 0.4rem;
+  }
+  .warn {
+    margin-top: 0.5rem; padding: 0.5rem 0.65rem; border-radius: 8px; font-size: 0.78rem;
+    background: rgba(255,230,0,0.10); border: 1px solid rgba(255,230,0,0.4); color: #fde047;
+  }
+  .warn.danger { background: rgba(225,6,0,0.12); border-color: rgba(225,6,0,0.45); color:#fca5a5; }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 0.25rem; }
+  .filters button {
+    font: inherit; font-size: 0.76rem; font-weight: 600; cursor: pointer; color:#cbd5e1;
+    background: #0d111a; border: 1px solid #1f2937; border-radius: 999px; padding: 0.3rem 0.75rem;
+  }
+  .filters button.active { background: #B8F000; color:#06080d; border-color:#B8F000; }
+  /* Mock ad comp */
+  .adcomp {
+    position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 5;
+    display: flex; flex-direction: column; justify-content: space-between; padding: 0.9rem;
+    border: 1px solid rgba(255,255,255,0.14);
+  }
+  .adcomp .ac-head { font-weight: 800; font-size: 1.05rem; line-height: 1.05; letter-spacing:-0.02em; text-transform: uppercase; max-width: 78%; }
+  .adcomp .ac-bullets { list-style: none; margin: 0.5rem 0 0; padding: 0; font-size: 0.72rem; font-weight:600; max-width: 78%; }
+  .adcomp .ac-bullets li { display:flex; gap:0.35rem; align-items:center; margin:0.18rem 0; }
+  .adcomp .ac-bullets li::before { content:'✓'; font-weight:900; }
+  .adcomp .ac-person {
+    position: absolute; right: -6%; bottom: 0; width: 42%; height: 72%; border-radius: 50% 50% 0 0;
+    opacity: 0.9;
+  }
+  .adcomp .ac-cta { align-self: flex-start; padding: 0.35rem 0.8rem; border-radius: 999px; font-weight:800; font-size:0.75rem; z-index:2; }
+  .adcomp .ac-badge {
+    position:absolute; top:0.7rem; right:0.7rem; z-index:3; font-size:0.6rem; font-weight:800;
+    padding:0.2rem 0.45rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.03em;
+  }
+  .adcomp .ac-note { font-size:0.6rem; opacity:0.8; z-index:2; }
+  .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px,1fr)); gap: 0.4rem; margin-top: 0.6rem; }
+  .timeline .beat { background:#05070b; border:1px solid #1f2937; border-top:3px solid #00E5FF; border-radius:8px; padding:0.45rem 0.5rem; }
+  .timeline .beat b { display:block; font-size:0.72rem; color:#67e8f9; }
+  .timeline .beat span { font-size:0.68rem; color:#94a3b8; }
+  .chip { display:inline-block; font-size:0.66rem; font-weight:700; padding:0.14rem 0.5rem; border-radius:6px; background:#111827; border:1px solid #263041; color:#cbd5e1; margin:0.12rem 0.12rem 0 0; }
+  .swatch { display:inline-block; width:0.85rem; height:0.85rem; border-radius:3px; vertical-align:-2px; margin-right:0.3rem; border:1px solid rgba(255,255,255,0.25); }
+  .metricgrid { display:grid; gap:0.7rem; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
+  .metric { background:#0d111a; border:1px solid #1f2937; border-radius:12px; padding:0.75rem 0.85rem; }
+  .metric label { display:block; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8; }
+  .metric input { width:100%; margin-top:0.3rem; background:#05070b; border:1px solid #263041; border-radius:7px; color:#f8fafc; font:inherit; padding:0.3rem 0.4rem; }
+  .checkline { display:flex; gap:0.5rem; align-items:flex-start; padding:0.35rem 0; border-bottom:1px solid #131a26; font-size:0.86rem; color:#cbd5e1; }
+  .checkline input { margin-top:0.2rem; }
+  .foot { margin-top:3rem; padding-top:1rem; border-top:1px solid #1f2937; color:#64748b; font-size:0.76rem; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/studio.html">
+      <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
+      <div>
+        <h1 class="doc-header__title">MedVirtual Ad Production</h1>
+        <p class="doc-header__tagline">Bold Virtual Medical Admin ads · static + animated video</p>
+      </div>
+    </a>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Dashboard</a><a href="/direct-response.html" class="">Current Direction</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-static.html" class="">Static Ads</a><details class="doc-nav-dd active">
+      <summary>Animated Video</summary>
+      <div class="doc-nav-dd__menu"><a href="/vma-video.html" class="active">Video Concepts</a><a href="/vma-remotion.html" class="">Remotion Playbook</a><a href="/vma-capcut.html" class="">CapCut Templates</a></div>
+    </details><a href="/vma-chatgpt.html" class="">ChatGPT Prompts</a><details class="doc-nav-dd ">
+      <summary>Copy</summary>
+      <div class="doc-nav-dd__menu"><a href="/vma-copy-en.html" class="">English Matrix</a><a href="/vma-copy-es.html" class="">Spanish Matrix</a></div>
+    </details><details class="doc-nav-dd ">
+      <summary>Forms &amp; Launch</summary>
+      <div class="doc-nav-dd__menu"><a href="/vma-form.html" class="">Instant Form</a><a href="/vma-campaign.html" class="">Campaign Tests</a><a href="/vma-claims.html" class="">Claims Tracker</a><a href="/vma-qa.html" class="">Launch QA</a><a href="/vma-queue.html" class="">Production Queue</a><a href="/vma-approval.html" class="">Approval Board</a></div>
+    </details><a href="/vma-history.html" class="">History</a></nav>
+    </div>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Animated Video Concepts</h2>
+          <p class="doc-header__page-sub">Short animated spots — scene timelines, Remotion + CapCut.</p>
+          
+        </div>
+</header>
+<script>
+(function () {
+  document.querySelectorAll('.doc-nav-dd').forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (!dd.open) return;
+      document.querySelectorAll('.doc-nav-dd').forEach((other) => {
+        if (other !== dd) other.open = false;
+      });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.doc-nav-dd')) return;
+    document.querySelectorAll('.doc-nav-dd[open]').forEach((dd) => { dd.open = false; });
+  });
+})();
+</script>
+  <main>
+    <div class="banner"><strong>CURRENT DIRECTION — BOLD VIRTUAL MEDICAL ADMIN ADS + ANIMATED VIDEO</strong><span class="sub">Human-led, offer-first, mobile-readable static ads + short animated video. Hire a Virtual Medical Admin.</span></div>
+    
+    
+    <div class="hero">
+      <h1>Animated Video Concepts</h1>
+      <p>15 short animated Virtual Medical Admin spots mirroring the static roles and color tests. Built in Remotion (code) or CapCut (no-code). Captions burned in; no pink; no unapproved badges.</p>
+    </div>
+
+    <section>
+      <h2>Standard 15s scene template</h2>
+      <p class="lede">30fps · 450 frames · 9:16 / 1:1 / 4:5. Keep all text inside Meta 9:16 safe zones — clear of top/bottom UI chrome.</p>
+      <div class="timeline"><div class="beat"><b>Hook</b><span>0–3s</span><span>Pain or role headline snaps on. One idea, huge type.</span></div><div class="beat"><b>Problem</b><span>3–6s</span><span>Name the front-office pain (calls, scheduling, backlog).</span></div><div class="beat"><b>Solution</b><span>6–10s</span><span>Introduce the dedicated virtual medical admin + benefits.</span></div><div class="beat"><b>Proof / Trust</b><span>10–13s</span><span>Dedicated full-time, not a call center. Optional approved badge.</span></div><div class="beat"><b>CTA</b><span>13–15s</span><span>Single clear CTA + MedVirtual logo lockup.</span></div></div>
+    </section>
+
+    <section>
+      <h2>Video concepts</h2>
+      <div class="grid-2"><div class="card">
+      <span class="eyebrow">VMA-V01 · Electric Lime · 15s</span>
+      <h3>Electric Lime — Hire a Virtual Medical Admin (15s)</h3>
+      <p><b>Headline:</b> HIRE A VIRTUAL MEDICAL ADMIN</p>
+      <p><b>Remotion:</b> <span class="chip">VMABenefits15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-BENEFITS-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-C01</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V02 · Signal Yellow · 15s</span>
+      <h3>Signal Yellow — Hire a Virtual Medical Admin (15s)</h3>
+      <p><b>Headline:</b> HIRE A VIRTUAL MEDICAL ADMIN</p>
+      <p><b>Remotion:</b> <span class="chip">VMABenefits15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-BENEFITS-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-C02</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V03 · Cobalt Blue · 15s</span>
+      <h3>Cobalt Blue — Hire a Virtual Medical Admin (15s)</h3>
+      <p><b>Headline:</b> HIRE A VIRTUAL MEDICAL ADMIN</p>
+      <p><b>Remotion:</b> <span class="chip">VMABenefits15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-BENEFITS-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-C03</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V04 · High-Voltage Cyan · 15s</span>
+      <h3>High-Voltage Cyan — Hire a Virtual Medical Admin (15s)</h3>
+      <p><b>Headline:</b> HIRE A VIRTUAL MEDICAL ADMIN</p>
+      <p><b>Remotion:</b> <span class="chip">VMABenefits15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-BENEFITS-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-C04</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V05 · Vivid Green · 15s</span>
+      <h3>Vivid Green — Hire a Virtual Medical Admin (15s)</h3>
+      <p><b>Headline:</b> HIRE A VIRTUAL MEDICAL ADMIN</p>
+      <p><b>Remotion:</b> <span class="chip">VMABenefits15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-BENEFITS-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-C05</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V06 · Commercial Red · 15s</span>
+      <h3>Commercial Red — Hire a Virtual Medical Admin (15s)</h3>
+      <p><b>Headline:</b> HIRE A VIRTUAL MEDICAL ADMIN</p>
+      <p><b>Remotion:</b> <span class="chip">VMABenefits15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-BENEFITS-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-C06</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V07 · Electric Lime · 15s</span>
+      <h3>Missed Calls (15s)</h3>
+      <p><b>Headline:</b> STOP MISSING PATIENT CALLS</p>
+      <p><b>Remotion:</b> <span class="chip">VMAMissedCalls15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-PAIN-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-07</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V08 · Vivid Green · 15s</span>
+      <h3>Dental Admin (15s)</h3>
+      <p><b>Headline:</b> HIRE A VIRTUAL DENTAL ADMIN</p>
+      <p><b>Remotion:</b> <span class="chip">VMADental15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-BENEFITS-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-09</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V09 · Cobalt Blue · 15s</span>
+      <h3>Medical Biller (15s)</h3>
+      <p><b>Headline:</b> HIRE A VIRTUAL MEDICAL BILLER</p>
+      <p><b>Remotion:</b> <span class="chip">VMABilling15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-BENEFITS-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-10</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V10 · High-Voltage Cyan · 15s</span>
+      <h3>Insurance Verification (15s)</h3>
+      <p><b>Headline:</b> SUPPORT INSURANCE VERIFICATION</p>
+      <p><b>Remotion:</b> <span class="chip">VMAInsurance15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-BENEFITS-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-12</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V11 · Vivid Green · 15s</span>
+      <h3>Spanish Core (15s)</h3>
+      <p><b>Headline:</b> CONTRATA A UN ASISTENTE MÉDICO VIRTUAL</p>
+      <p><b>Remotion:</b> <span class="chip">VMASpanish15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-PAIN-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-17</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V12 · Signal Yellow · 15s</span>
+      <h3>Front Desk Overloaded — Pain/Solution (15s)</h3>
+      <p><b>Headline:</b> YOUR FRONT DESK IS OVERLOADED</p>
+      <p><b>Remotion:</b> <span class="chip">VMAPainSolution15</span> · <b>CapCut:</b> <span class="chip">CAPCUT-PAIN-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-06</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook</b></div><div class="beat"><b>Problem</b></div><div class="beat"><b>Solution</b></div><div class="beat"><b>Proof / Trust</b></div><div class="beat"><b>CTA</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V13 · High-Voltage Cyan · 10s</span>
+      <h3>Offer Anchor (10s)</h3>
+      <p><b>Headline:</b> MEDICAL ADMIN SUPPORT STARTING AT $10/HR</p>
+      <p><b>Remotion:</b> <span class="chip">VMAOffer10</span> · <b>CapCut:</b> <span class="chip">CAPCUT-OFFER-10</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-21</p>
+      <p><b>Status:</b> <span class="pill s-on-hold-claim-pending">On hold — claim pending</span></p>
+      <div class="timeline"><div class="beat"><b>Hook (0–3s)</b></div><div class="beat"><b>Offer + Benefits (3–7s)</b></div><div class="beat"><b>CTA + Logo (7–10s)</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V14 · Electric Lime · 6s</span>
+      <h3>Static Motion Loop (6s)</h3>
+      <p><b>Headline:</b> HIRE A VIRTUAL MEDICAL ADMIN</p>
+      <p><b>Remotion:</b> <span class="chip">VMAStaticMotion6</span> · <b>CapCut:</b> <span class="chip">CAPCUT-OFFER-10</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-01</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Static plate reveal (0–2s)</b></div><div class="beat"><b>Benefit checks stagger (2–4s)</b></div><div class="beat"><b>CTA + logo (4–6s)</b></div></div>
+    </div><div class="card">
+      <span class="eyebrow">VMA-V15 · Cobalt Blue · 20s</span>
+      <h3>Story — Meet Your Virtual Admin (20s)</h3>
+      <p><b>Headline:</b> MEET YOUR DEDICATED VIRTUAL MEDICAL ADMIN</p>
+      <p><b>Remotion:</b> <span class="chip">VMAStory20</span> · <b>CapCut:</b> <span class="chip">CAPCUT-BENEFITS-15</span></p>
+      <p><b>Aspect ratios:</b> <span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">4:5</span></p>
+      <p><b>Mirrors static:</b> VMA-02</p>
+      <p><b>Status:</b> <span class="pill s-ready-for-animation">Ready for animation</span></p>
+      <div class="timeline"><div class="beat"><b>Hook (0–4s)</b></div><div class="beat"><b>Problem story (4–8s)</b></div><div class="beat"><b>Meet the admin (8–12s)</b></div><div class="beat"><b>Benefits (12–16s)</b></div><div class="beat"><b>Trust + CTA (16–20s)</b></div></div>
+    </div></div>
+    </section>
+  
+    <p class="foot">MedVirtual Ad Production · Virtual Medical Admin · Reviewed July 14, 2026 · Approved creative colors only (no pink) · Ad-facing brand: MedVirtual.</p>
+  </main>
+  
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.copy-btn');
+    if(!btn) return;
+    var text = btn.getAttribute('data-copy') || '';
+    navigator.clipboard.writeText(text).then(function(){
+      var old = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(function(){ btn.textContent = old; btn.classList.remove('copied'); }, 1400);
+    });
+  });
+  // Generic data-filter groups
+  document.querySelectorAll('[data-filter-group]').forEach(function(group){
+    var key = group.getAttribute('data-filter-group');
+    group.querySelectorAll('button[data-filter]').forEach(function(b){
+      b.addEventListener('click', function(){
+        group.querySelectorAll('button[data-filter]').forEach(function(x){ x.classList.remove('active'); });
+        b.classList.add('active');
+        var val = b.getAttribute('data-filter');
+        document.querySelectorAll('[data-'+key+']').forEach(function(item){
+          var show = (val === 'all') || item.getAttribute('data-'+key) === val;
+          item.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  });
+  // Persist checkboxes + text inputs with data-persist
+  document.querySelectorAll('[data-persist]').forEach(function(el){
+    var k = 'vma-'+el.getAttribute('data-persist');
+    try {
+      var saved = localStorage.getItem(k);
+      if(saved !== null){ if(el.type==='checkbox'){ el.checked = saved==='1'; } else { el.value = saved; } }
+    } catch(e){}
+    el.addEventListener(el.type==='checkbox'?'change':'input', function(){
+      try { localStorage.setItem(k, el.type==='checkbox' ? (el.checked?'1':'0') : el.value); } catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>

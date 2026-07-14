@@ -1,142 +1,112 @@
 /**
  * Shared MedVirtual Content Doc header.
- * Produce Now → Approved Systems → Creative Lab (secondary).
+ * VMA production machine — Virtual Medical Admin static + animated video.
  */
 import { brandCssVariables, BRAND } from './medvirtual-brand-data.mjs';
-import { LAUNCH_SUBNAV } from './launch-sequences-data.mjs';
 
 export const DOC_BRAND = {
   mark: 'MV',
-  title: 'MedVirtual Creative Handoff',
-  tagline: 'Raw materials + clear direction · designers assemble the finals',
+  title: 'MedVirtual Ad Production',
+  tagline: 'Bold Virtual Medical Admin ads · static + animated video',
   homeHref: '/studio.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };
 
+/** @deprecated */
+export const LAUNCH_SUBNAV = [];
+
 /**
- * Primary nav — graphics-facing first; Producer Lab is secondary.
- * Brief → Examples → People → Raw Assets → Video Capture → Producer Lab
+ * Primary nav — VMA production only (no Real People / SaaS / Role-Offer).
  */
 export const PRIMARY_NAV = [
   {
-    href: '/graphic-request-brief.html',
-    label: 'Brief',
-    id: 'brief',
-    description: 'Current production assignments only.',
-  },
-  {
-    href: '/template-test-board.html',
-    label: 'Examples',
-    id: 'examples',
-    description: 'Approved layouts and treatments to reuse.',
-    children: [
-      { href: '/template-test-board.html', label: 'Layout guides', id: 'templates' },
-      { href: '/role-offer-templates.html', label: 'Role-Offer examples', id: 'role-offer' },
-      { href: '/medvirtual-brand-guide.html', label: 'Brand Guide', id: 'brand-guide' },
-      { href: '/real-people-creative.html', label: 'People treatments', id: 'real-people-examples' },
-    ],
-  },
-  {
-    href: '/real-people-creative.html',
-    label: 'People',
-    id: 'real-people',
-    description: 'Named talent ads and public profile assets.',
-  },
-  {
-    href: '/raw-assets.html',
-    label: 'Raw Assets',
-    id: 'raw-assets',
-    description: 'Photos, props, backgrounds, logos — not finished ads.',
-    children: [
-      { href: '/raw-assets.html', label: 'Raw library', id: 'raw-assets' },
-      { href: '/asset-hub.html', label: 'Full Asset Hub', id: 'hub' },
-      { href: '/image-variation-review.html', label: 'Image board', id: 'images' },
-      { href: '/real-people-assets.html', label: 'People downloads', id: 'real-people-assets' },
-    ],
-  },
-  {
-    href: '/video-production.html',
-    label: 'Video Capture',
-    id: 'video',
-    description: 'Capture briefs and reference motion — not a CapCut/Premiere replacement.',
-  },
-  {
-    href: '/ideas.html',
-    label: 'Producer Lab',
-    id: 'lab',
-    description: 'George / Hailey tools — not required for graphics production.',
-    children: [
-      { href: '/ideas.html', label: 'Lab home', id: 'ideas' },
-      { href: '/ai-asset-foundry.html', label: 'AI Asset Foundry', id: 'foundry' },
-      { href: '/competitors.html', label: 'Competitors', id: 'competitors' },
-      { href: '/creative-concept-lab.html', label: 'Static References', id: 'creative-lab' },
-      { href: '/motion-concept-lab.html', label: 'Motion References', id: 'motion-lab' },
-      { href: '/mockup-sandbox.html', label: 'Sandbox', id: 'mockups' },
-      { href: '/saas-prop-templates.html', label: 'SaaS Props', id: 'saas-prop' },
-      { href: '/role-offer-templates.html', label: 'Role-Offer mockups', id: 'role-offer-lab' },
-    ],
-  },
-];
-
-/** @deprecated legacy lookup helpers */
-export const TEMPLATE_LANES = [
-  { href: '/template-test-board.html', label: 'Layout guides', id: 'templates' },
-  { href: '/role-offer-templates.html', label: 'Role-Offer', id: 'role-offer' },
-];
-
-/** Far-right reference shelf — keep light */
-export const REFERENCE_NAV = [
-  {
     href: '/studio.html',
-    label: 'Studio',
+    label: 'Dashboard',
     id: 'studio',
+    description: 'Production control center.',
+  },
+  {
+    href: '/direct-response.html',
+    label: 'Current Direction',
+    id: 'vma-direction',
+    description: 'Hire a Virtual Medical Admin — static + video.',
+  },
+  {
+    href: '/competitors.html',
+    label: 'Competitor Wall',
+    id: 'competitors',
+    description: 'External Meta benchmarks — research only.',
+  },
+  {
+    href: '/vma-static.html',
+    label: 'Static Ads',
+    id: 'vma-static',
+    description: '24 Virtual Medical Admin static concepts.',
+  },
+  {
+    href: '/vma-video.html',
+    label: 'Animated Video',
+    id: 'vma-video',
+    description: 'Remotion + CapCut video system.',
+    children: [
+      { href: '/vma-video.html', label: 'Video Concepts', id: 'vma-video' },
+      { href: '/vma-remotion.html', label: 'Remotion Playbook', id: 'vma-remotion' },
+      { href: '/vma-capcut.html', label: 'CapCut Templates', id: 'vma-capcut' },
+    ],
+  },
+  {
+    href: '/vma-chatgpt.html',
+    label: 'ChatGPT Prompts',
+    id: 'vma-chatgpt',
+    description: 'Generate complete Meta ads with ChatGPT.',
+  },
+  {
+    href: '/vma-copy-en.html',
+    label: 'Copy',
+    id: 'vma-copy-en',
+    description: 'English and Spanish Meta copy.',
+    children: [
+      { href: '/vma-copy-en.html', label: 'English Matrix', id: 'vma-copy-en' },
+      { href: '/vma-copy-es.html', label: 'Spanish Matrix', id: 'vma-copy-es' },
+    ],
+  },
+  {
+    href: '/vma-form.html',
+    label: 'Forms & Launch',
+    id: 'vma-form',
+    description: 'Instant forms, campaigns, claims, QA.',
+    children: [
+      { href: '/vma-form.html', label: 'Instant Form', id: 'vma-form' },
+      { href: '/vma-campaign.html', label: 'Campaign Tests', id: 'vma-campaign' },
+      { href: '/vma-claims.html', label: 'Claims Tracker', id: 'vma-claims' },
+      { href: '/vma-qa.html', label: 'Launch QA', id: 'vma-qa' },
+      { href: '/vma-queue.html', label: 'Production Queue', id: 'vma-queue' },
+      { href: '/vma-approval.html', label: 'Approval Board', id: 'vma-approval' },
+    ],
+  },
+  {
+    href: '/vma-history.html',
+    label: 'History',
+    id: 'vma-history',
+    description: 'One-note archive of removed directions.',
   },
 ];
 
-/** @deprecated use PRIMARY_NAV + REFERENCE_NAV */
-export const IMAGE_SUBNAV = [
-  { href: '/image-variation-review.html', label: 'Selection Board' },
-  { href: '/contact-sheet-best-candidates.html', label: 'Approved Only' },
-  { href: '/contact-sheet-all-4x5.html', label: '4:5 Feed' },
-  { href: '/contact-sheet-all-9x16.html', label: '9:16 Stories' },
-];
-
-export { LAUNCH_SUBNAV };
-
+export const TEMPLATE_LANES = [];
+export const REFERENCE_NAV = [];
+export const IMAGE_SUBNAV = [];
 export const SECONDARY_PAGES = [
-  {
-    href: '/marketing-library.html',
-    label: 'Marketing Library',
-    description: 'Blog, LinkedIn, newsletter, print, social, and web channel assets.',
-  },
-  {
-    href: '/contact-sheet-best-candidates.html',
-    label: 'Approved Crops',
-    description: 'Shortlist of best image crops for production.',
-  },
-  {
-    href: '/contact-sheet-all-4x5.html',
-    label: '4:5 Feed Crops',
-    description: 'All 1080×1350 feed crops in one contact sheet.',
-  },
-  {
-    href: '/contact-sheet-all-9x16.html',
-    label: '9:16 Story Crops',
-    description: 'All story/reels crops — for later resize phase only.',
-  },
-  {
-    href: '/contact-sheet-ai-images.html',
-    label: 'AI Image Catalog',
-    description: 'Full catalog of AI-generated source images.',
-  },
+  { href: '/raw-assets.html', label: 'Raw Assets', description: 'Downloadable components.' },
+  { href: '/asset-hub.html', label: 'Asset Hub', description: 'Brand packages.' },
+  { href: '/graphic-request-brief.html', label: 'Brief', description: 'Designer assignments.' },
 ];
 
 export const HEADER_CSS = `
   ${brandCssVariables()}
   .doc-header {
-    background: var(--mv-deep-teal);
+    background: #0a0a0a;
     color: #ffffff;
-    border-bottom: 3px solid var(--mv-cyan);
+    border-bottom: 3px solid #B8F000;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -165,9 +135,7 @@ export const HEADER_CSS = `
     object-fit: contain;
     flex-shrink: 0;
   }
-  .doc-header__mark {
-    display: none;
-  }
+  .doc-header__mark { display: none; }
   .doc-header__title {
     margin: 0;
     font-size: 1.05rem;
@@ -178,7 +146,7 @@ export const HEADER_CSS = `
     margin: 0.1rem 0 0;
     font-size: 0.78rem;
     font-weight: 400;
-    color: #b8d4e0;
+    color: #a3a3a3;
   }
   .doc-header__page {
     margin: 0.85rem 0 0;
@@ -195,7 +163,7 @@ export const HEADER_CSS = `
     margin: 0.25rem 0 0;
     font-size: 0.82rem;
     font-weight: 400;
-    color: #b8d4e0;
+    color: #a3a3a3;
     max-width: 820px;
   }
   .doc-nav-wrap {
@@ -218,27 +186,22 @@ export const HEADER_CSS = `
     border-radius: 8px;
     font-size: 0.8rem;
     font-weight: 500;
-    color: #d7e8f0;
+    color: #d4d4d4;
     text-decoration: none;
     border: 1px solid transparent;
-    transition: background 0.15s, color 0.15s;
     list-style: none;
     cursor: pointer;
     background: transparent;
-    box-shadow: none;
   }
   .doc-header details.doc-nav-dd {
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    color: inherit !important;
   }
   .doc-header details.doc-nav-dd > summary {
     background: transparent !important;
-    color: #d7e8f0 !important;
+    color: #d4d4d4 !important;
     font-weight: 500 !important;
     border: 1px solid transparent !important;
     padding: 0.45rem 0.75rem !important;
@@ -253,30 +216,30 @@ export const HEADER_CSS = `
   .doc-nav a:hover,
   .doc-header details.doc-nav-dd > summary:hover {
     color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(184, 240, 0, 0.12) !important;
   }
   .doc-nav a.active {
-    color: #ffffff;
-    background: var(--mv-primary);
+    color: #0a0a0a;
+    background: #B8F000;
+    font-weight: 700;
   }
   .doc-header details.doc-nav-dd.active > summary,
   .doc-header details.doc-nav-dd[open] > summary {
-    color: #ffffff !important;
-    background: var(--mv-primary) !important;
+    color: #0a0a0a !important;
+    background: #B8F000 !important;
+    font-weight: 700 !important;
   }
-  .doc-nav-dd {
-    position: relative;
-  }
+  .doc-nav-dd { position: relative; }
   .doc-nav-dd__menu {
     position: absolute;
     top: calc(100% + 0.35rem);
     left: 0;
-    min-width: 11rem;
-    background: #0a4558;
+    min-width: 12rem;
+    background: #171717;
     border: 1px solid rgba(255,255,255,0.14);
     border-radius: 10px;
     padding: 0.35rem;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.45);
     z-index: 50;
     display: flex;
     flex-direction: column;
@@ -288,20 +251,8 @@ export const HEADER_CSS = `
     border-radius: 7px;
   }
   .doc-nav-dd__menu a.active {
-    background: rgba(0, 178, 226, 0.28);
-  }
-  .doc-nav--ref a,
-  .doc-nav--ref .doc-nav-dd > summary {
-    font-size: 0.72rem;
-    font-weight: 400;
-    color: #9fb9c6;
-    padding: 0.35rem 0.55rem;
-  }
-  .doc-nav--ref a.active,
-  .doc-nav--ref .doc-nav-dd.active > summary,
-  .doc-nav--ref .doc-nav-dd[open] > summary {
-    background: rgba(255,255,255,0.12);
-    color: #fff;
+    background: rgba(184, 240, 0, 0.25);
+    color: #B8F000;
   }
   .doc-nav-sep {
     width: 1px;
@@ -316,24 +267,23 @@ export const HEADER_CSS = `
     margin-top: 0.75rem;
   }
   .doc-subnav a {
-    color: var(--mv-bright-accent);
+    color: #B8F000;
     text-decoration: none;
     font-size: 0.75rem;
     padding: 0.25rem 0.6rem;
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 6px;
   }
-  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
+  .doc-subnav a:hover { border-color: #B8F000; color: #fff; }
   .doc-subnav a.active {
-    background: rgba(0, 178, 226, 0.2);
-    border-color: var(--mv-cyan);
+    background: rgba(184, 240, 0, 0.2);
+    border-color: #B8F000;
     color: #fff;
   }
   @media (max-width: 640px) {
     .doc-header { padding: 1rem; }
     .doc-header__logo { height: 30px; max-width: 130px; }
     .doc-nav-sep { display: none; }
-    .doc-nav-dd__menu { min-width: 9.5rem; }
   }
 `;
 
@@ -366,35 +316,13 @@ function renderNavItem(item, activeId) {
   return `<a href="${esc(item.href)}" class="${cls}">${esc(item.label)}</a>`;
 }
 
-function linkList(items, activeId) {
-  return items.map((item) => renderNavItem(item, activeId)).join('');
-}
-
 /**
  * @param {{ activeId?: string, pageTitle?: string, pageSubtitle?: string, subnav?: Array<{href:string,label:string}>, activeSubHref?: string }} opts
  */
 export function renderDocHeader(opts = {}) {
   const { activeId, pageTitle, pageSubtitle, subnav, activeSubHref } = opts;
-  // Map legacy active ids onto new structure
-  const mapped =
-    {
-      lookbook: 'examples',
-      templates: 'templates',
-      'brand-guide': 'brand-guide',
-      ideas: 'ideas',
-      studio: 'studio',
-      'creative-lab': 'creative-lab',
-      'motion-lab': 'motion-lab',
-      mockups: 'mockups',
-      competitors: 'competitors',
-      'saas-prop': 'saas-prop',
-      'raw-assets': 'raw-assets',
-      foundry: 'foundry',
-      video: 'video',
-    }[activeId] || activeId;
-
-  const primary = linkList(PRIMARY_NAV, mapped);
-  const reference = linkList(REFERENCE_NAV, mapped);
+  const mapped = activeId;
+  const primary = PRIMARY_NAV.map((item) => renderNavItem(item, mapped)).join('');
 
   let sub = '';
   if (subnav?.length) {
@@ -430,8 +358,6 @@ export function renderDocHeader(opts = {}) {
     </a>
     <div class="doc-nav-wrap">
       <nav class="doc-nav" aria-label="Primary">${primary}</nav>
-      <span class="doc-nav-sep" aria-hidden="true"></span>
-      <nav class="doc-nav doc-nav--ref" aria-label="Reference">${reference}</nav>
     </div>
   </div>
   ${pageBlock}

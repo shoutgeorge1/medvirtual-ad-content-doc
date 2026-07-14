@@ -82,12 +82,13 @@ const html = `<!doctype html>
     </header>
     <p class="banner">Designers: if you have an open Brief assignment, finish that first. You do not need this lab to produce assigned work.</p>
     <div class="lanes">
+      <a class="lane" href="/direct-response.html"><h3>Direct Response</h3><p>Current Meta strategy — bold medical admin ads, color tests, form, campaign plan.</p><span class="tag">Current</span></a>
       <a class="lane" href="/ai-asset-foundry.html"><h3>AI Asset Foundry</h3><p>Generate four raw images · review · approve · save plates with no ad text.</p><span class="tag">Producer</span></a>
       <a class="lane" href="/competitors.html"><h3>Competitors</h3><p>Steal energy as principles — never copy trade dress.</p><span class="tag">Producer</span></a>
       <a class="lane" href="/creative-concept-lab.html"><h3>Static References</h3><p>Art-direction mockups for composition and copy length — not final production artwork.</p><span class="tag">Reference</span></a>
       <a class="lane" href="/motion-concept-lab.html"><h3>Motion References</h3><p>Remotion previews for motion intent — not CapCut/Premiere.</p><span class="tag">Reference</span></a>
       <a class="lane" href="/mockup-sandbox.html"><h3>Sandbox</h3><p>Quick editable forks for producer experiments.</p><span class="tag">Producer</span></a>
-      <a class="lane" href="/saas-prop-templates.html"><h3>SaaS Props</h3><p>No-people ops references with staffing-true support copy.</p><span class="tag">Reference</span></a>
+      <a class="lane" href="/saas-prop-templates.html"><h3>SaaS Props</h3><p>Archived as primary Meta — no-people ops refs still available.</p><span class="tag">Archived primary</span></a>
       <a class="lane" href="/role-offer-templates.html"><h3>Role-Offer mockups</h3><p>Meet-layout references designers may rebuild offline.</p><span class="tag">Reference</span></a>
       <a class="lane" href="/raw-assets.html"><h3>Raw Assets</h3><p>Graphics-facing library of downloadable components.</p><span class="tag">Shared</span></a>
     </div>

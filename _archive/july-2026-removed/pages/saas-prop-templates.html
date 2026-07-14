@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SaaS Prop · Classy Ops Ads · MedVirtual</title>
+  <style>
+
+  
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --mv-deep-teal: #0D546B;
+  --mv-accent: #00C0D4;
+  --mv-bright-accent: #27E6FA;
+  --mv-neutral-blue: #F0F5FF;
+  --mv-neutral-warm: #EFEDE1;
+  --mv-ink: #161511;
+  --mv-white: #FFFFFF;
+  --mv-gradient-primary: linear-gradient(90deg, #077999 0%, #00B2E2 100%);
+  --mv-gradient-light: linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%);
+  --mv-gradient-bright: linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%);
+  --mv-gradient-deep: linear-gradient(90deg, #0D546B 0%, #00C0D4 100%);
+  --mv-font: "Be Vietnam", Inter, Arial, sans-serif;
+}
+
+  .doc-header {
+    background: var(--mv-deep-teal);
+    color: #ffffff;
+    border-bottom: 3px solid var(--mv-cyan);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    font-family: var(--mv-font);
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .doc-header__mark {
+    display: none;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #b8d4e0;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #b8d4e0;
+    max-width: 820px;
+  }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .doc-nav a,
+  .doc-nav-dd > summary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #d7e8f0;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+    list-style: none;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+  }
+  .doc-header details.doc-nav-dd {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
+  .doc-header details.doc-nav-dd > summary {
+    background: transparent !important;
+    color: #d7e8f0 !important;
+    font-weight: 500 !important;
+    border: 1px solid transparent !important;
+    padding: 0.45rem 0.75rem !important;
+  }
+  .doc-nav-dd > summary::-webkit-details-marker { display: none; }
+  .doc-nav-dd > summary::after {
+    content: '▾';
+    margin-left: 0.35em;
+    font-size: 0.7em;
+    opacity: 0.75;
+  }
+  .doc-nav a:hover,
+  .doc-header details.doc-nav-dd > summary:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: var(--mv-primary);
+  }
+  .doc-header details.doc-nav-dd.active > summary,
+  .doc-header details.doc-nav-dd[open] > summary {
+    color: #ffffff !important;
+    background: var(--mv-primary) !important;
+  }
+  .doc-nav-dd {
+    position: relative;
+  }
+  .doc-nav-dd__menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    min-width: 11rem;
+    background: #0a4558;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    padding: 0.35rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .doc-nav-dd__menu a {
+    display: block;
+    white-space: nowrap;
+    border-radius: 7px;
+  }
+  .doc-nav-dd__menu a.active {
+    background: rgba(0, 178, 226, 0.28);
+  }
+  .doc-nav--ref a,
+  .doc-nav--ref .doc-nav-dd > summary {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #9fb9c6;
+    padding: 0.35rem 0.55rem;
+  }
+  .doc-nav--ref a.active,
+  .doc-nav--ref .doc-nav-dd.active > summary,
+  .doc-nav--ref .doc-nav-dd[open] > summary {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: var(--mv-bright-accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
+  .doc-subnav a.active {
+    background: rgba(0, 178, 226, 0.2);
+    border-color: var(--mv-cyan);
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
+    .doc-nav-dd__menu { min-width: 9.5rem; }
+  }
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--mv-font); background: #070b14; color: #e2e8f0; }
+.intro {
+  padding: 1.25rem 2rem 0.85rem;
+  border-bottom: 1px solid #1f2937;
+  background: linear-gradient(120deg, #0b1624, #0d546b 140%);
+}
+.intro h1 { margin: 0 0 0.35rem; font-size: 1.4rem; color: #f8fafc; }
+.intro p { margin: 0; font-size: 0.9rem; color: #cbd5e1; max-width: 72ch; line-height: 1.45; }
+.intro .guard {
+  margin-top: 0.65rem; font-size: 0.8rem; color: #67e8f9; font-weight: 600;
+}
+.banks {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem;
+}
+.banks span {
+  font-size: 0.68rem; font-weight: 700; padding: 0.22rem 0.5rem; border-radius: 999px;
+  background: rgba(0,178,226,0.15); border: 1px solid rgba(0,178,226,0.35); color: #a5f3fc;
+}
+.stack { display: flex; flex-direction: column; gap: 2rem; padding: 1.5rem 2rem 3rem; }
+.row {
+  display: grid;
+  grid-template-columns: minmax(320px, 540px) minmax(280px, 1fr);
+  gap: 1.1rem; align-items: start;
+}
+@media (max-width: 960px) { .row { grid-template-columns: 1fr; } }
+.frame {
+  background: #0f172a; border: 1px solid #1e293b; border-radius: 14px; padding: 0.7rem;
+}
+.frame .label {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; margin-bottom: 0.45rem;
+}
+.frame .id { color: #67e8f9; font-family: ui-monospace, monospace; }
+
+.ad {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #0b1c2c;
+}
+.ad .prop {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center right;
+}
+.ad .veil {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7,11,20,0.88) 0%, rgba(7,11,20,0.72) 38%, rgba(7,11,20,0.2) 62%, rgba(7,11,20,0.05) 100%),
+    linear-gradient(180deg, rgba(7,11,20,0.25) 0%, transparent 40%, rgba(7,11,20,0.35) 100%);
+  pointer-events: none;
+}
+.ad .copy {
+  position: relative; z-index: 2;
+  height: 100%;
+  padding: 7% 8%;
+  display: flex; flex-direction: column;
+  max-width: 54%;
+  color: #f8fafc;
+}
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 1.1rem; }
+.logo { height: 1.35rem; width: auto; filter: brightness(1.05); }
+.aud {
+  display: inline-flex; background: rgba(13,84,107,0.92); color: #fff;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em;
+  padding: 0.28rem 0.65rem; border-radius: 999px;
+}
+.eyebrow {
+  margin: 0 0 0.45rem; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #67e8f9;
+}
+.headline {
+  margin: 0 0 0.65rem; font-size: clamp(1.15rem, 3.4vw, 1.55rem);
+  line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; color: #fff;
+}
+.support {
+  margin: 0 0 0.85rem; font-size: 0.82rem; line-height: 1.4; color: #cbd5e1; font-weight: 500;
+}
+.bullets { list-style: none; margin: 0 0 auto; padding: 0; display: flex; flex-direction: column; gap: 0.38rem; }
+.bullets li { display: flex; gap: 0.45rem; align-items: flex-start; font-size: 0.78rem; color: #e2e8f0; font-weight: 500; }
+.bullets .dot {
+  flex: 0 0 0.45rem; width: 0.45rem; height: 0.45rem; margin-top: 0.35rem;
+  border-radius: 50%; background: #00B2E2; box-shadow: 0 0 10px rgba(0,178,226,0.55);
+}
+.cta {
+  align-self: flex-start; margin-top: 0.9rem;
+  border: 0; border-radius: 10px; padding: 0.7rem 1.05rem;
+  background: linear-gradient(90deg, #077999, #00B2E2);
+  color: #fff; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.04em;
+  box-shadow: 0 10px 28px rgba(0,178,226,0.25);
+}
+[contenteditable="true"] { outline: none; border-radius: 3px; }
+[contenteditable="true"]:focus { box-shadow: 0 0 0 2px rgba(103,232,249,0.45); background: rgba(255,255,255,0.06); }
+
+.editor {
+  background: #0f172a; border: 1px solid #1e293b; border-radius: 14px;
+  padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.55rem;
+}
+.editor h3 { margin: 0; font-size: 1rem; color: #f8fafc; }
+.editor .note { margin: 0; font-size: 0.78rem; color: #94a3b8; }
+.editor .guard { margin: 0; font-size: 0.72rem; color: #67e8f9; }
+.editor label {
+  display: flex; flex-direction: column; gap: 0.25rem;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; color: #94a3b8;
+}
+.editor input, .editor textarea, .editor select {
+  font: inherit; text-transform: none; letter-spacing: normal; font-size: 0.88rem;
+  color: #e2e8f0; background: #020617; border: 1px solid #334155; border-radius: 8px; padding: 0.45rem 0.55rem;
+}
+.copy-json {
+  margin-top: 0.25rem; background: #077999; color: #fff; border: 0; border-radius: 8px;
+  padding: 0.55rem 0.75rem; font-weight: 700; cursor: pointer;
+}
+.toast {
+  position: fixed; bottom: 1.25rem; right: 1.25rem; background: #065f46; color: #ecfdf5;
+  padding: 0.65rem 0.9rem; border-radius: 8px; font-size: 0.85rem; opacity: 0; transition: opacity 0.2s; z-index: 40;
+}
+.toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/studio.html">
+      <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
+      <div>
+        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
+        <p class="doc-header__tagline">Raw materials + clear direction · designers assemble the finals</p>
+      </div>
+    </a>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
+      <summary>Direct Response</summary>
+      <div class="doc-nav-dd__menu"><a href="/direct-response.html" class="">Strategy Overview</a><a href="/dr-creative-board.html" class="">Creative Board</a><a href="/dr-color-board.html" class="">Color Tests</a><a href="/dr-copy-en.html" class="">English Copy</a><a href="/dr-copy-es.html" class="">Spanish Copy</a><a href="/dr-form.html" class="">Low-Friction Form</a><a href="/dr-offers.html" class="">Offers &amp; Completion</a><a href="/dr-campaign-plan.html" class="">Campaign Test Plan</a><a href="/dr-qa-checklist.html" class="">Launch QA</a><a href="/dr-production-queue.html" class="">Production Queue</a><a href="/dr-approval.html" class="">Final Approval</a><a href="/dr-superseded.html" class="">Superseded Direction</a></div>
+    </details><details class="doc-nav-dd ">
+      <summary>Examples</summary>
+      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer examples</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/real-people-creative.html" class="">People treatments</a></div>
+    </details><a href="/real-people-creative.html" class="">People</a><details class="doc-nav-dd ">
+      <summary>Raw Assets</summary>
+      <div class="doc-nav-dd__menu"><a href="/raw-assets.html" class="">Raw library</a><a href="/asset-hub.html" class="">Full Asset Hub</a><a href="/image-variation-review.html" class="">Image board</a><a href="/real-people-assets.html" class="">People downloads</a></div>
+    </details><a href="/video-production.html" class="">Video Capture</a><details class="doc-nav-dd active">
+      <summary>Producer Lab</summary>
+      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Lab home</a><a href="/direct-response.html" class="">Direct Response</a><a href="/ai-asset-foundry.html" class="">AI Asset Foundry</a><a href="/competitors.html" class="">Competitors</a><a href="/creative-concept-lab.html" class="">Static References</a><a href="/motion-concept-lab.html" class="">Motion References</a><a href="/mockup-sandbox.html" class="">Sandbox</a><a href="/saas-prop-templates.html" class="active">SaaS Props (archived primary)</a><a href="/role-offer-templates.html" class="">Role-Offer mockups</a></div>
+    </details></nav>
+      <span class="doc-nav-sep" aria-hidden="true"></span>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/studio.html" class="">Studio</a></nav>
+    </div>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">SaaS Prop Templates</h2>
+          <p class="doc-header__page-sub">Software-style lane · no people · part of Ideas Lab</p>
+          
+        </div>
+</header>
+<script>
+(function () {
+  document.querySelectorAll('.doc-nav-dd').forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (!dd.open) return;
+      document.querySelectorAll('.doc-nav-dd').forEach((other) => {
+        if (other !== dd) other.open = false;
+      });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.doc-nav-dd')) return;
+    document.querySelectorAll('.doc-nav-dd[open]').forEach((dd) => { dd.open = false; });
+  });
+})();
+</script>
+  <div class="intro">
+    <h1>SaaS Prop · Classy Ops Ads</h1>
+    <p>Billion-dollar medical software look. No people — props only. Fancy words in rotation. Truth underneath: hire dedicated virtual staff.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <div class="banks">
+      <span>No people</span><span>Glass / 3D props</span><span>Fancy headline banks</span><span>Staffing truth in support</span>
+    </div>
+  </div>
+  <datalist id="cta-bank"><option value="Book a Demo"></option><option value="Request Talent"></option><option value="See Available Staff"></option><option value="Start Hiring"></option><option value="Talk to MedVirtual"></option></datalist>
+  <datalist id="eyebrow-bank"><option value="Practice Operations"></option><option value="Virtual Staffing"></option><option value="For Growing Practices"></option><option value="Medical &amp; Dental Ops"></option><option value="Capacity, Staffed"></option></datalist>
+  <div class="stack">
+  <section class="row" id="SP-OPS-LAYER">
+    <div class="frame">
+      <div class="label">Ops layer · glass dashboard · <span class="id">SP-OPS-LAYER</span></div>
+      
+  <article class="ad" data-id="SP-OPS-LAYER" data-layout="PROP_COPY_LEFT">
+    <img class="prop" src="/assets/saas-prop-refs/saas-dashboard-stack.png" alt="" />
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="top">
+        <img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" />
+        
+      </div>
+      <p class="eyebrow" data-field="eyebrow" contenteditable="true">Practice Operations</p>
+      <h2 class="headline" data-field="headline" contenteditable="true">Enterprise-grade ops. Practice-sized teams.</h2>
+      <p class="support" data-field="support" contenteditable="true">Hire dedicated full-time virtual staff who join your practice team.</p>
+      <ul class="bullets"><li><span class="dot"></span><span class="btxt" data-bullet="0" contenteditable="true">Calls &amp; scheduling</span></li><li><span class="dot"></span><span class="btxt" data-bullet="1" contenteditable="true">Insurance &amp; billing support</span></li><li><span class="dot"></span><span class="btxt" data-bullet="2" contenteditable="true">EMR / admin follow-through</span></li></ul>
+      <button type="button" class="cta"><span data-field="cta" contenteditable="true">Book a Demo</span></button>
+    </div>
+  </article>
+    </div>
+    
+  <aside class="editor" data-editor-for="SP-OPS-LAYER">
+    <h3>Ops layer · glass dashboard</h3>
+    <p class="note">Prop = stacked medical UI. Fancy words left; big negative space.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <label>Fancy headline (pick a variant)
+      <select data-bind="headlineVariant">
+        <option value="">— keep current —</option>
+        <option value="Enterprise-grade ops. Practice-sized teams.">Enterprise-grade ops. Practice-sized teams.</option><option value="Built like serious software. Delivered as dedicated people.">Built like serious software. Delivered as dedicated people.</option><option value="The operating system is still your team — we staff it.">The operating system is still your team — we staff it.</option><option value="Infrastructure for practices that outgrew scramble mode.">Infrastructure for practices that outgrew scramble mode.</option><option value="White-glove capacity. Full-time commitment.">White-glove capacity. Full-time commitment.</option>
+      </select>
+    </label>
+    <label>Or write headline <textarea data-bind="headline" rows="2">Enterprise-grade ops. Practice-sized teams.</textarea></label>
+    <label>Eyebrow <input data-bind="eyebrow" value="Practice Operations" list="eyebrow-bank" /></label>
+    <label>Support <textarea data-bind="support" rows="3">Hire dedicated full-time virtual staff who join your practice team.</textarea></label>
+    <label>Bullets (one per line) <textarea data-bind="bullets" rows="4">Calls &amp; scheduling
+Insurance &amp; billing support
+EMR / admin follow-through</textarea></label>
+    <label>CTA <input data-bind="cta" value="Book a Demo" list="cta-bank" /></label>
+    <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DENTISTS!" /></label>
+    <label>Prop art URL <input data-bind="art" value="/assets/saas-prop-refs/saas-dashboard-stack.png" /></label>
+    <label>Upload prop
+      <input type="file" accept="image/*" data-upload />
+    </label>
+    <button type="button" class="copy-json" data-copy>Copy JSON</button>
+  </aside>
+  </section>
+
+  <section class="row" id="SP-CHAOS-CLEAN">
+    <div class="frame">
+      <div class="label">Chaos → clean dashboard · <span class="id">SP-CHAOS-CLEAN</span></div>
+      
+  <article class="ad" data-id="SP-CHAOS-CLEAN" data-layout="PROP_COPY_LEFT">
+    <img class="prop" src="/assets/saas-prop-refs/saas-chaos-to-dashboard.png" alt="" />
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="top">
+        <img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" />
+        
+      </div>
+      <p class="eyebrow" data-field="eyebrow" contenteditable="true">From scramble to structure</p>
+      <h2 class="headline" data-field="headline" contenteditable="true">Front-office throughput, without burnout.</h2>
+      <p class="support" data-field="support" contenteditable="true">Dedicated virtual staff absorb the admin load — your team stays on patients.</p>
+      <ul class="bullets"><li><span class="dot"></span><span class="btxt" data-bullet="0" contenteditable="true">Unread queues cleared</span></li><li><span class="dot"></span><span class="btxt" data-bullet="1" contenteditable="true">Calendars held</span></li><li><span class="dot"></span><span class="btxt" data-bullet="2" contenteditable="true">Follow-ups owned</span></li></ul>
+      <button type="button" class="cta"><span data-field="cta" contenteditable="true">Request Talent</span></button>
+    </div>
+  </article>
+    </div>
+    
+  <aside class="editor" data-editor-for="SP-CHAOS-CLEAN">
+    <h3>Chaos → clean dashboard</h3>
+    <p class="note">Visual metaphor: mess → organized. Do NOT imply MedVirtual is software.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <label>Fancy headline (pick a variant)
+      <select data-bind="headlineVariant">
+        <option value="">— keep current —</option>
+        <option value="Clinical capacity without operational drag.">Clinical capacity without operational drag.</option><option value="More care. Less chaos.">More care. Less chaos.</option><option value="The practice stays human. The admin gets serious.">The practice stays human. The admin gets serious.</option><option value="Front-office throughput, without burnout.">Front-office throughput, without burnout.</option><option value="Quiet operations. Louder outcomes.">Quiet operations. Louder outcomes.</option>
+      </select>
+    </label>
+    <label>Or write headline <textarea data-bind="headline" rows="2">Front-office throughput, without burnout.</textarea></label>
+    <label>Eyebrow <input data-bind="eyebrow" value="From scramble to structure" list="eyebrow-bank" /></label>
+    <label>Support <textarea data-bind="support" rows="3">Dedicated virtual staff absorb the admin load — your team stays on patients.</textarea></label>
+    <label>Bullets (one per line) <textarea data-bind="bullets" rows="4">Unread queues cleared
+Calendars held
+Follow-ups owned</textarea></label>
+    <label>CTA <input data-bind="cta" value="Request Talent" list="cta-bank" /></label>
+    <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DENTISTS!" /></label>
+    <label>Prop art URL <input data-bind="art" value="/assets/saas-prop-refs/saas-chaos-to-dashboard.png" /></label>
+    <label>Upload prop
+      <input type="file" accept="image/*" data-upload />
+    </label>
+    <button type="button" class="copy-json" data-copy>Copy JSON</button>
+  </aside>
+  </section>
+
+  <section class="row" id="SP-INBOX-FUNNEL">
+    <div class="frame">
+      <div class="label">Calls &amp; inbox funnel · <span class="id">SP-INBOX-FUNNEL</span></div>
+      
+  <article class="ad" data-id="SP-INBOX-FUNNEL" data-layout="PROP_COPY_LEFT">
+    <img class="prop" src="/assets/saas-prop-refs/saas-inbox-funnel.png" alt="" />
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="top">
+        <img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" />
+        
+      </div>
+      <p class="eyebrow" data-field="eyebrow" contenteditable="true">Patient access</p>
+      <h2 class="headline" data-field="headline" contenteditable="true">Every chair filled starts with every call answered.</h2>
+      <p class="support" data-field="support" contenteditable="true">Hire a full-time virtual teammate for phones, scheduling, and patient follow-up.</p>
+      <ul class="bullets"><li><span class="dot"></span><span class="btxt" data-bullet="0" contenteditable="true">Answer &amp; route</span></li><li><span class="dot"></span><span class="btxt" data-bullet="1" contenteditable="true">Book &amp; confirm</span></li><li><span class="dot"></span><span class="btxt" data-bullet="2" contenteditable="true">Reduce no-shows</span></li></ul>
+      <button type="button" class="cta"><span data-field="cta" contenteditable="true">See Available Staff</span></button>
+    </div>
+  </article>
+    </div>
+    
+  <aside class="editor" data-editor-for="SP-INBOX-FUNNEL">
+    <h3>Calls &amp; inbox funnel</h3>
+    <p class="note">Props = phones/chats funneling into UI. Staffing message in support.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <label>Fancy headline (pick a variant)
+      <select data-bind="headlineVariant">
+        <option value="">— keep current —</option>
+        <option value="Every chair filled starts with every call answered.">Every chair filled starts with every call answered.</option><option value="Schedules that hold. Days that breathe.">Schedules that hold. Days that breathe.</option><option value="Fewer empty chairs. Calmer calendars.">Fewer empty chairs. Calmer calendars.</option><option value="Precision scheduling for practices that can’t miss.">Precision scheduling for practices that can’t miss.</option><option value="Confirmations, reminders, coverage — orchestrated.">Confirmations, reminders, coverage — orchestrated.</option>
+      </select>
+    </label>
+    <label>Or write headline <textarea data-bind="headline" rows="2">Every chair filled starts with every call answered.</textarea></label>
+    <label>Eyebrow <input data-bind="eyebrow" value="Patient access" list="eyebrow-bank" /></label>
+    <label>Support <textarea data-bind="support" rows="3">Hire a full-time virtual teammate for phones, scheduling, and patient follow-up.</textarea></label>
+    <label>Bullets (one per line) <textarea data-bind="bullets" rows="4">Answer &amp; route
+Book &amp; confirm
+Reduce no-shows</textarea></label>
+    <label>CTA <input data-bind="cta" value="See Available Staff" list="cta-bank" /></label>
+    <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DENTISTS!" /></label>
+    <label>Prop art URL <input data-bind="art" value="/assets/saas-prop-refs/saas-inbox-funnel.png" /></label>
+    <label>Upload prop
+      <input type="file" accept="image/*" data-upload />
+    </label>
+    <button type="button" class="copy-json" data-copy>Copy JSON</button>
+  </aside>
+  </section>
+
+  <section class="row" id="SP-SCHEDULE-UI">
+    <div class="frame">
+      <div class="label">Scheduling UI prop · <span class="id">SP-SCHEDULE-UI</span></div>
+      
+  <article class="ad" data-id="SP-SCHEDULE-UI" data-layout="PROP_COPY_LEFT">
+    <img class="prop" src="/assets/saas-prop-refs/saas-scheduling-ui.png" alt="" />
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="top">
+        <img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" />
+        
+      </div>
+      <p class="eyebrow" data-field="eyebrow" contenteditable="true">Scheduling</p>
+      <h2 class="headline" data-field="headline" contenteditable="true">Schedules that hold. Days that breathe.</h2>
+      <p class="support" data-field="support" contenteditable="true">Virtual schedulers who work like full-time practice staff — not a shared queue.</p>
+      <ul class="bullets"><li><span class="dot"></span><span class="btxt" data-bullet="0" contenteditable="true">Appointment setting</span></li><li><span class="dot"></span><span class="btxt" data-bullet="1" contenteditable="true">Confirmations</span></li><li><span class="dot"></span><span class="btxt" data-bullet="2" contenteditable="true">Reminder discipline</span></li></ul>
+      <button type="button" class="cta"><span data-field="cta" contenteditable="true">Book a Demo</span></button>
+    </div>
+  </article>
+    </div>
+    
+  <aside class="editor" data-editor-for="SP-SCHEDULE-UI">
+    <h3>Scheduling UI prop</h3>
+    <p class="note">Calendar/SaaS chrome as prop only.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <label>Fancy headline (pick a variant)
+      <select data-bind="headlineVariant">
+        <option value="">— keep current —</option>
+        <option value="Every chair filled starts with every call answered.">Every chair filled starts with every call answered.</option><option value="Schedules that hold. Days that breathe.">Schedules that hold. Days that breathe.</option><option value="Fewer empty chairs. Calmer calendars.">Fewer empty chairs. Calmer calendars.</option><option value="Precision scheduling for practices that can’t miss.">Precision scheduling for practices that can’t miss.</option><option value="Confirmations, reminders, coverage — orchestrated.">Confirmations, reminders, coverage — orchestrated.</option>
+      </select>
+    </label>
+    <label>Or write headline <textarea data-bind="headline" rows="2">Schedules that hold. Days that breathe.</textarea></label>
+    <label>Eyebrow <input data-bind="eyebrow" value="Scheduling" list="eyebrow-bank" /></label>
+    <label>Support <textarea data-bind="support" rows="3">Virtual schedulers who work like full-time practice staff — not a shared queue.</textarea></label>
+    <label>Bullets (one per line) <textarea data-bind="bullets" rows="4">Appointment setting
+Confirmations
+Reminder discipline</textarea></label>
+    <label>CTA <input data-bind="cta" value="Book a Demo" list="cta-bank" /></label>
+    <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DENTISTS!" /></label>
+    <label>Prop art URL <input data-bind="art" value="/assets/saas-prop-refs/saas-scheduling-ui.png" /></label>
+    <label>Upload prop
+      <input type="file" accept="image/*" data-upload />
+    </label>
+    <button type="button" class="copy-json" data-copy>Copy JSON</button>
+  </aside>
+  </section>
+
+  <section class="row" id="SP-VERIFY-FLOW">
+    <div class="frame">
+      <div class="label">Verification flow · <span class="id">SP-VERIFY-FLOW</span></div>
+      
+  <article class="ad" data-id="SP-VERIFY-FLOW" data-layout="PROP_COPY_LEFT">
+    <img class="prop" src="/assets/saas-prop-refs/saas-flow-verify.png" alt="" />
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="top">
+        <img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" />
+        
+      </div>
+      <p class="eyebrow" data-field="eyebrow" contenteditable="true">Insurance &amp; eligibility</p>
+      <h2 class="headline" data-field="headline" contenteditable="true">Coverage before the visit. Clarity before the day.</h2>
+      <p class="support" data-field="support" contenteditable="true">Hire virtual verification talent to protect the schedule and the day.</p>
+      <ul class="bullets"><li><span class="dot"></span><span class="btxt" data-bullet="0" contenteditable="true">Eligibility checks</span></li><li><span class="dot"></span><span class="btxt" data-bullet="1" contenteditable="true">Pre-authorizations</span></li><li><span class="dot"></span><span class="btxt" data-bullet="2" contenteditable="true">Fewer day-of surprises</span></li></ul>
+      <button type="button" class="cta"><span data-field="cta" contenteditable="true">Talk to MedVirtual</span></button>
+    </div>
+  </article>
+    </div>
+    
+  <aside class="editor" data-editor-for="SP-VERIFY-FLOW">
+    <h3>Verification flow</h3>
+    <p class="note">Step glass props. No HIPAA boasts unless producer-approved.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <label>Fancy headline (pick a variant)
+      <select data-bind="headlineVariant">
+        <option value="">— keep current —</option>
+        <option value="Coverage before the visit. Clarity before the day.">Coverage before the visit. Clarity before the day.</option><option value="Insurance verification without the waiting room bottleneck.">Insurance verification without the waiting room bottleneck.</option><option value="Pre-auth that doesn’t stall treatment.">Pre-auth that doesn’t stall treatment.</option><option value="Eligibility handled. Schedule protected.">Eligibility handled. Schedule protected.</option>
+      </select>
+    </label>
+    <label>Or write headline <textarea data-bind="headline" rows="2">Coverage before the visit. Clarity before the day.</textarea></label>
+    <label>Eyebrow <input data-bind="eyebrow" value="Insurance &amp; eligibility" list="eyebrow-bank" /></label>
+    <label>Support <textarea data-bind="support" rows="3">Hire virtual verification talent to protect the schedule and the day.</textarea></label>
+    <label>Bullets (one per line) <textarea data-bind="bullets" rows="4">Eligibility checks
+Pre-authorizations
+Fewer day-of surprises</textarea></label>
+    <label>CTA <input data-bind="cta" value="Talk to MedVirtual" list="cta-bank" /></label>
+    <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DENTISTS!" /></label>
+    <label>Prop art URL <input data-bind="art" value="/assets/saas-prop-refs/saas-flow-verify.png" /></label>
+    <label>Upload prop
+      <input type="file" accept="image/*" data-upload />
+    </label>
+    <button type="button" class="copy-json" data-copy>Copy JSON</button>
+  </aside>
+  </section>
+
+  <section class="row" id="SP-BILLING-GLASS">
+    <div class="frame">
+      <div class="label">Billing / analytics glass · <span class="id">SP-BILLING-GLASS</span></div>
+      
+  <article class="ad" data-id="SP-BILLING-GLASS" data-layout="PROP_COPY_LEFT">
+    <img class="prop" src="/assets/saas-prop-refs/saas-analytics-glass.png" alt="" />
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="top">
+        <img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" />
+        
+      </div>
+      <p class="eyebrow" data-field="eyebrow" contenteditable="true">Revenue operations</p>
+      <h2 class="headline" data-field="headline" contenteditable="true">Cleaner claims. Cleaner cash flow.</h2>
+      <p class="support" data-field="support" contenteditable="true">Dedicated virtual billers and billing support who join your team.</p>
+      <ul class="bullets"><li><span class="dot"></span><span class="btxt" data-bullet="0" contenteditable="true">Claims review</span></li><li><span class="dot"></span><span class="btxt" data-bullet="1" contenteditable="true">Denial follow-up</span></li><li><span class="dot"></span><span class="btxt" data-bullet="2" contenteditable="true">Payment posting support</span></li></ul>
+      <button type="button" class="cta"><span data-field="cta" contenteditable="true">Start Hiring</span></button>
+    </div>
+  </article>
+    </div>
+    
+  <aside class="editor" data-editor-for="SP-BILLING-GLASS">
+    <h3>Billing / analytics glass</h3>
+    <p class="note">Glass charts = status/premium. Message = people, not a billing platform.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <label>Fancy headline (pick a variant)
+      <select data-bind="headlineVariant">
+        <option value="">— keep current —</option>
+        <option value="Cleaner claims. Cleaner cash flow.">Cleaner claims. Cleaner cash flow.</option><option value="Revenue that doesn’t wait on follow-up queues.">Revenue that doesn’t wait on follow-up queues.</option><option value="Billing discipline without the in-office tax.">Billing discipline without the in-office tax.</option><option value="From denial pile to posted payments — staffed.">From denial pile to posted payments — staffed.</option><option value="Claims that move. Teams that breathe.">Claims that move. Teams that breathe.</option>
+      </select>
+    </label>
+    <label>Or write headline <textarea data-bind="headline" rows="2">Cleaner claims. Cleaner cash flow.</textarea></label>
+    <label>Eyebrow <input data-bind="eyebrow" value="Revenue operations" list="eyebrow-bank" /></label>
+    <label>Support <textarea data-bind="support" rows="3">Dedicated virtual billers and billing support who join your team.</textarea></label>
+    <label>Bullets (one per line) <textarea data-bind="bullets" rows="4">Claims review
+Denial follow-up
+Payment posting support</textarea></label>
+    <label>CTA <input data-bind="cta" value="Start Hiring" list="cta-bank" /></label>
+    <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DENTISTS!" /></label>
+    <label>Prop art URL <input data-bind="art" value="/assets/saas-prop-refs/saas-analytics-glass.png" /></label>
+    <label>Upload prop
+      <input type="file" accept="image/*" data-upload />
+    </label>
+    <button type="button" class="copy-json" data-copy>Copy JSON</button>
+  </aside>
+  </section>
+
+  <section class="row" id="SP-SECURE-FILES">
+    <div class="frame">
+      <div class="label">Secure files prop · <span class="id">SP-SECURE-FILES</span></div>
+      
+  <article class="ad" data-id="SP-SECURE-FILES" data-layout="PROP_COPY_LEFT">
+    <img class="prop" src="/assets/saas-prop-refs/saas-secure-files.png" alt="" />
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="top">
+        <img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" />
+        
+      </div>
+      <p class="eyebrow" data-field="eyebrow" contenteditable="true">Admin that protects the day</p>
+      <h2 class="headline" data-field="headline" contenteditable="true">Quiet operations. Louder outcomes.</h2>
+      <p class="support" data-field="support" contenteditable="true">Full-time virtual medical admin — trained, dedicated, interviewable.</p>
+      <ul class="bullets"><li><span class="dot"></span><span class="btxt" data-bullet="0" contenteditable="true">Intake &amp; documentation</span></li><li><span class="dot"></span><span class="btxt" data-bullet="1" contenteditable="true">EMR updates</span></li><li><span class="dot"></span><span class="btxt" data-bullet="2" contenteditable="true">Insurance follow-through</span></li></ul>
+      <button type="button" class="cta"><span data-field="cta" contenteditable="true">Book a Demo</span></button>
+    </div>
+  </article>
+    </div>
+    
+  <aside class="editor" data-editor-for="SP-SECURE-FILES">
+    <h3>Secure files prop</h3>
+    <p class="note">Shield/files = premium care ops vibe. Avoid inventing compliance claims.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <label>Fancy headline (pick a variant)
+      <select data-bind="headlineVariant">
+        <option value="">— keep current —</option>
+        <option value="Clinical capacity without operational drag.">Clinical capacity without operational drag.</option><option value="More care. Less chaos.">More care. Less chaos.</option><option value="The practice stays human. The admin gets serious.">The practice stays human. The admin gets serious.</option><option value="Front-office throughput, without burnout.">Front-office throughput, without burnout.</option><option value="Quiet operations. Louder outcomes.">Quiet operations. Louder outcomes.</option>
+      </select>
+    </label>
+    <label>Or write headline <textarea data-bind="headline" rows="2">Quiet operations. Louder outcomes.</textarea></label>
+    <label>Eyebrow <input data-bind="eyebrow" value="Admin that protects the day" list="eyebrow-bank" /></label>
+    <label>Support <textarea data-bind="support" rows="3">Full-time virtual medical admin — trained, dedicated, interviewable.</textarea></label>
+    <label>Bullets (one per line) <textarea data-bind="bullets" rows="4">Intake &amp; documentation
+EMR updates
+Insurance follow-through</textarea></label>
+    <label>CTA <input data-bind="cta" value="Book a Demo" list="cta-bank" /></label>
+    <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DENTISTS!" /></label>
+    <label>Prop art URL <input data-bind="art" value="/assets/saas-prop-refs/saas-secure-files.png" /></label>
+    <label>Upload prop
+      <input type="file" accept="image/*" data-upload />
+    </label>
+    <button type="button" class="copy-json" data-copy>Copy JSON</button>
+  </aside>
+  </section>
+
+  <section class="row" id="SP-NETWORK-HUB">
+    <div class="frame">
+      <div class="label">Ops network hub · <span class="id">SP-NETWORK-HUB</span></div>
+      
+  <article class="ad" data-id="SP-NETWORK-HUB" data-layout="PROP_COPY_LEFT">
+    <img class="prop" src="/assets/saas-prop-refs/saas-network-hub.png" alt="" />
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="top">
+        <img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" />
+        
+      </div>
+      <p class="eyebrow" data-field="eyebrow" contenteditable="true">One practice team</p>
+      <h2 class="headline" data-field="headline" contenteditable="true">Built like serious software. Delivered as dedicated people.</h2>
+      <p class="support" data-field="support" contenteditable="true">MedVirtual staffs your ops roles — the teammate is human, full-time, and yours to interview.</p>
+      <ul class="bullets"><li><span class="dot"></span><span class="btxt" data-bullet="0" contenteditable="true">Scheduling</span></li><li><span class="dot"></span><span class="btxt" data-bullet="1" contenteditable="true">Billing support</span></li><li><span class="dot"></span><span class="btxt" data-bullet="2" contenteditable="true">Patient communication</span></li></ul>
+      <button type="button" class="cta"><span data-field="cta" contenteditable="true">Request Talent</span></button>
+    </div>
+  </article>
+    </div>
+    
+  <aside class="editor" data-editor-for="SP-NETWORK-HUB">
+    <h3>Ops network hub</h3>
+    <p class="note">Best “software look / staffing truth” bridge line.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <label>Fancy headline (pick a variant)
+      <select data-bind="headlineVariant">
+        <option value="">— keep current —</option>
+        <option value="Enterprise-grade ops. Practice-sized teams.">Enterprise-grade ops. Practice-sized teams.</option><option value="Built like serious software. Delivered as dedicated people.">Built like serious software. Delivered as dedicated people.</option><option value="The operating system is still your team — we staff it.">The operating system is still your team — we staff it.</option><option value="Infrastructure for practices that outgrew scramble mode.">Infrastructure for practices that outgrew scramble mode.</option><option value="White-glove capacity. Full-time commitment.">White-glove capacity. Full-time commitment.</option>
+      </select>
+    </label>
+    <label>Or write headline <textarea data-bind="headline" rows="2">Built like serious software. Delivered as dedicated people.</textarea></label>
+    <label>Eyebrow <input data-bind="eyebrow" value="One practice team" list="eyebrow-bank" /></label>
+    <label>Support <textarea data-bind="support" rows="3">MedVirtual staffs your ops roles — the teammate is human, full-time, and yours to interview.</textarea></label>
+    <label>Bullets (one per line) <textarea data-bind="bullets" rows="4">Scheduling
+Billing support
+Patient communication</textarea></label>
+    <label>CTA <input data-bind="cta" value="Request Talent" list="cta-bank" /></label>
+    <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DENTISTS!" /></label>
+    <label>Prop art URL <input data-bind="art" value="/assets/saas-prop-refs/saas-network-hub.png" /></label>
+    <label>Upload prop
+      <input type="file" accept="image/*" data-upload />
+    </label>
+    <button type="button" class="copy-json" data-copy>Copy JSON</button>
+  </aside>
+  </section>
+
+  <section class="row" id="SP-DENTAL">
+    <div class="frame">
+      <div class="label">Dental network · <span class="id">SP-DENTAL</span></div>
+      
+  <article class="ad" data-id="SP-DENTAL" data-layout="PROP_COPY_LEFT">
+    <img class="prop" src="/assets/saas-prop-refs/saas-dental-network.png" alt="" />
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="top">
+        <img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" />
+        <span class="aud" data-field="audiencePill" contenteditable="true">DENTISTS!</span>
+      </div>
+      <p class="eyebrow" data-field="eyebrow" contenteditable="true">Dental practices</p>
+      <h2 class="headline" data-field="headline" contenteditable="true">Fewer missed calls. Fewer empty chairs.</h2>
+      <p class="support" data-field="support" contenteditable="true">Hire dedicated virtual dental admin for scheduling, reminders, and patient follow-up.</p>
+      <ul class="bullets"><li><span class="dot"></span><span class="btxt" data-bullet="0" contenteditable="true">Scheduling</span></li><li><span class="dot"></span><span class="btxt" data-bullet="1" contenteditable="true">Confirmations</span></li><li><span class="dot"></span><span class="btxt" data-bullet="2" contenteditable="true">Treatment reminders</span></li></ul>
+      <button type="button" class="cta"><span data-field="cta" contenteditable="true">Book a Demo</span></button>
+    </div>
+  </article>
+    </div>
+    
+  <aside class="editor" data-editor-for="SP-DENTAL">
+    <h3>Dental network</h3>
+    <p class="note">Dental prop set. Audience can use DENTISTS! pill optionally.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <label>Fancy headline (pick a variant)
+      <select data-bind="headlineVariant">
+        <option value="">— keep current —</option>
+        <option value="Fewer missed calls. Fewer empty chairs.">Fewer missed calls. Fewer empty chairs.</option><option value="Dental ops that keep the book full.">Dental ops that keep the book full.</option><option value="Chair time is too expensive to waste on admin.">Chair time is too expensive to waste on admin.</option><option value="The practice floor stays clinical. The back office stays covered.">The practice floor stays clinical. The back office stays covered.</option>
+      </select>
+    </label>
+    <label>Or write headline <textarea data-bind="headline" rows="2">Fewer missed calls. Fewer empty chairs.</textarea></label>
+    <label>Eyebrow <input data-bind="eyebrow" value="Dental practices" list="eyebrow-bank" /></label>
+    <label>Support <textarea data-bind="support" rows="3">Hire dedicated virtual dental admin for scheduling, reminders, and patient follow-up.</textarea></label>
+    <label>Bullets (one per line) <textarea data-bind="bullets" rows="4">Scheduling
+Confirmations
+Treatment reminders</textarea></label>
+    <label>CTA <input data-bind="cta" value="Book a Demo" list="cta-bank" /></label>
+    <label>Audience pill <input data-bind="audiencePill" value="DENTISTS!" placeholder="e.g. DENTISTS!" /></label>
+    <label>Prop art URL <input data-bind="art" value="/assets/saas-prop-refs/saas-dental-network.png" /></label>
+    <label>Upload prop
+      <input type="file" accept="image/*" data-upload />
+    </label>
+    <button type="button" class="copy-json" data-copy>Copy JSON</button>
+  </aside>
+  </section>
+
+  <section class="row" id="SP-WORKFLOW">
+    <div class="frame">
+      <div class="label">Workflow steps · <span class="id">SP-WORKFLOW</span></div>
+      
+  <article class="ad" data-id="SP-WORKFLOW" data-layout="PROP_COPY_LEFT">
+    <img class="prop" src="/assets/saas-prop-refs/saas-workflow-steps.png" alt="" />
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="top">
+        <img class="logo" src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" />
+        
+      </div>
+      <p class="eyebrow" data-field="eyebrow" contenteditable="true">How capacity shows up</p>
+      <h2 class="headline" data-field="headline" contenteditable="true">The practice stays human. The admin gets serious.</h2>
+      <p class="support" data-field="support" contenteditable="true">Hire through MedVirtual. Dedicated staff. Part of your practice team.</p>
+      <ul class="bullets"><li><span class="dot"></span><span class="btxt" data-bullet="0" contenteditable="true">Intake</span></li><li><span class="dot"></span><span class="btxt" data-bullet="1" contenteditable="true">Coordinate</span></li><li><span class="dot"></span><span class="btxt" data-bullet="2" contenteditable="true">Close the loop</span></li></ul>
+      <button type="button" class="cta"><span data-field="cta" contenteditable="true">See Available Staff</span></button>
+    </div>
+  </article>
+    </div>
+    
+  <aside class="editor" data-editor-for="SP-WORKFLOW">
+    <h3>Workflow steps</h3>
+    <p class="note">Horizontal process props — great for “steps” storytelling.</p>
+    <p class="guard">Looks like premium software. Sounds like staffing. Never claim MedVirtual is EMR/PMS software or a managed front desk.</p>
+    <label>Fancy headline (pick a variant)
+      <select data-bind="headlineVariant">
+        <option value="">— keep current —</option>
+        <option value="Clinical capacity without operational drag.">Clinical capacity without operational drag.</option><option value="More care. Less chaos.">More care. Less chaos.</option><option value="The practice stays human. The admin gets serious.">The practice stays human. The admin gets serious.</option><option value="Front-office throughput, without burnout.">Front-office throughput, without burnout.</option><option value="Quiet operations. Louder outcomes.">Quiet operations. Louder outcomes.</option><option value="Enterprise-grade ops. Practice-sized teams.">Enterprise-grade ops. Practice-sized teams.</option><option value="Built like serious software. Delivered as dedicated people.">Built like serious software. Delivered as dedicated people.</option><option value="The operating system is still your team — we staff it.">The operating system is still your team — we staff it.</option><option value="Infrastructure for practices that outgrew scramble mode.">Infrastructure for practices that outgrew scramble mode.</option><option value="White-glove capacity. Full-time commitment.">White-glove capacity. Full-time commitment.</option>
+      </select>
+    </label>
+    <label>Or write headline <textarea data-bind="headline" rows="2">The practice stays human. The admin gets serious.</textarea></label>
+    <label>Eyebrow <input data-bind="eyebrow" value="How capacity shows up" list="eyebrow-bank" /></label>
+    <label>Support <textarea data-bind="support" rows="3">Hire through MedVirtual. Dedicated staff. Part of your practice team.</textarea></label>
+    <label>Bullets (one per line) <textarea data-bind="bullets" rows="4">Intake
+Coordinate
+Close the loop</textarea></label>
+    <label>CTA <input data-bind="cta" value="See Available Staff" list="cta-bank" /></label>
+    <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DENTISTS!" /></label>
+    <label>Prop art URL <input data-bind="art" value="/assets/saas-prop-refs/saas-workflow-steps.png" /></label>
+    <label>Upload prop
+      <input type="file" accept="image/*" data-upload />
+    </label>
+    <button type="button" class="copy-json" data-copy>Copy JSON</button>
+  </aside>
+  </section></div>
+  <div class="toast" id="toast">Copied</div>
+  <script>
+    const state = [{"id":"SP-OPS-LAYER","layout":"PROP_COPY_LEFT","label":"Ops layer · glass dashboard","art":"/assets/saas-prop-refs/saas-dashboard-stack.png","eyebrow":"Practice Operations","headline":"Enterprise-grade ops. Practice-sized teams.","variants":["Enterprise-grade ops. Practice-sized teams.","Built like serious software. Delivered as dedicated people.","The operating system is still your team — we staff it.","Infrastructure for practices that outgrew scramble mode.","White-glove capacity. Full-time commitment."],"support":"Hire dedicated full-time virtual staff who join your practice team.","bullets":["Calls & scheduling","Insurance & billing support","EMR / admin follow-through"],"cta":"Book a Demo","notes":"Prop = stacked medical UI. Fancy words left; big negative space."},{"id":"SP-CHAOS-CLEAN","layout":"PROP_COPY_LEFT","label":"Chaos → clean dashboard","art":"/assets/saas-prop-refs/saas-chaos-to-dashboard.png","eyebrow":"From scramble to structure","headline":"Front-office throughput, without burnout.","variants":["Clinical capacity without operational drag.","More care. Less chaos.","The practice stays human. The admin gets serious.","Front-office throughput, without burnout.","Quiet operations. Louder outcomes."],"support":"Dedicated virtual staff absorb the admin load — your team stays on patients.","bullets":["Unread queues cleared","Calendars held","Follow-ups owned"],"cta":"Request Talent","notes":"Visual metaphor: mess → organized. Do NOT imply MedVirtual is software."},{"id":"SP-INBOX-FUNNEL","layout":"PROP_COPY_LEFT","label":"Calls & inbox funnel","art":"/assets/saas-prop-refs/saas-inbox-funnel.png","eyebrow":"Patient access","headline":"Every chair filled starts with every call answered.","variants":["Every chair filled starts with every call answered.","Schedules that hold. Days that breathe.","Fewer empty chairs. Calmer calendars.","Precision scheduling for practices that can’t miss.","Confirmations, reminders, coverage — orchestrated."],"support":"Hire a full-time virtual teammate for phones, scheduling, and patient follow-up.","bullets":["Answer & route","Book & confirm","Reduce no-shows"],"cta":"See Available Staff","notes":"Props = phones/chats funneling into UI. Staffing message in support."},{"id":"SP-SCHEDULE-UI","layout":"PROP_COPY_LEFT","label":"Scheduling UI prop","art":"/assets/saas-prop-refs/saas-scheduling-ui.png","eyebrow":"Scheduling","headline":"Schedules that hold. Days that breathe.","variants":["Every chair filled starts with every call answered.","Schedules that hold. Days that breathe.","Fewer empty chairs. Calmer calendars.","Precision scheduling for practices that can’t miss.","Confirmations, reminders, coverage — orchestrated."],"support":"Virtual schedulers who work like full-time practice staff — not a shared queue.","bullets":["Appointment setting","Confirmations","Reminder discipline"],"cta":"Book a Demo","notes":"Calendar/SaaS chrome as prop only."},{"id":"SP-VERIFY-FLOW","layout":"PROP_COPY_LEFT","label":"Verification flow","art":"/assets/saas-prop-refs/saas-flow-verify.png","eyebrow":"Insurance & eligibility","headline":"Coverage before the visit. Clarity before the day.","variants":["Coverage before the visit. Clarity before the day.","Insurance verification without the waiting room bottleneck.","Pre-auth that doesn’t stall treatment.","Eligibility handled. Schedule protected."],"support":"Hire virtual verification talent to protect the schedule and the day.","bullets":["Eligibility checks","Pre-authorizations","Fewer day-of surprises"],"cta":"Talk to MedVirtual","notes":"Step glass props. No HIPAA boasts unless producer-approved."},{"id":"SP-BILLING-GLASS","layout":"PROP_COPY_LEFT","label":"Billing / analytics glass","art":"/assets/saas-prop-refs/saas-analytics-glass.png","eyebrow":"Revenue operations","headline":"Cleaner claims. Cleaner cash flow.","variants":["Cleaner claims. Cleaner cash flow.","Revenue that doesn’t wait on follow-up queues.","Billing discipline without the in-office tax.","From denial pile to posted payments — staffed.","Claims that move. Teams that breathe."],"support":"Dedicated virtual billers and billing support who join your team.","bullets":["Claims review","Denial follow-up","Payment posting support"],"cta":"Start Hiring","notes":"Glass charts = status/premium. Message = people, not a billing platform."},{"id":"SP-SECURE-FILES","layout":"PROP_COPY_LEFT","label":"Secure files prop","art":"/assets/saas-prop-refs/saas-secure-files.png","eyebrow":"Admin that protects the day","headline":"Quiet operations. Louder outcomes.","variants":["Clinical capacity without operational drag.","More care. Less chaos.","The practice stays human. The admin gets serious.","Front-office throughput, without burnout.","Quiet operations. Louder outcomes."],"support":"Full-time virtual medical admin — trained, dedicated, interviewable.","bullets":["Intake & documentation","EMR updates","Insurance follow-through"],"cta":"Book a Demo","notes":"Shield/files = premium care ops vibe. Avoid inventing compliance claims."},{"id":"SP-NETWORK-HUB","layout":"PROP_COPY_LEFT","label":"Ops network hub","art":"/assets/saas-prop-refs/saas-network-hub.png","eyebrow":"One practice team","headline":"Built like serious software. Delivered as dedicated people.","variants":["Enterprise-grade ops. Practice-sized teams.","Built like serious software. Delivered as dedicated people.","The operating system is still your team — we staff it.","Infrastructure for practices that outgrew scramble mode.","White-glove capacity. Full-time commitment."],"support":"MedVirtual staffs your ops roles — the teammate is human, full-time, and yours to interview.","bullets":["Scheduling","Billing support","Patient communication"],"cta":"Request Talent","notes":"Best “software look / staffing truth” bridge line."},{"id":"SP-DENTAL","layout":"PROP_COPY_LEFT","label":"Dental network","art":"/assets/saas-prop-refs/saas-dental-network.png","eyebrow":"Dental practices","headline":"Fewer missed calls. Fewer empty chairs.","variants":["Fewer missed calls. Fewer empty chairs.","Dental ops that keep the book full.","Chair time is too expensive to waste on admin.","The practice floor stays clinical. The back office stays covered."],"support":"Hire dedicated virtual dental admin for scheduling, reminders, and patient follow-up.","bullets":["Scheduling","Confirmations","Treatment reminders"],"cta":"Book a Demo","notes":"Dental prop set. Audience can use DENTISTS! pill optionally.","audiencePill":"DENTISTS!"},{"id":"SP-WORKFLOW","layout":"PROP_COPY_LEFT","label":"Workflow steps","art":"/assets/saas-prop-refs/saas-workflow-steps.png","eyebrow":"How capacity shows up","headline":"The practice stays human. The admin gets serious.","variants":["Clinical capacity without operational drag.","More care. Less chaos.","The practice stays human. The admin gets serious.","Front-office throughput, without burnout.","Quiet operations. Louder outcomes.","Enterprise-grade ops. Practice-sized teams.","Built like serious software. Delivered as dedicated people.","The operating system is still your team — we staff it.","Infrastructure for practices that outgrew scramble mode.","White-glove capacity. Full-time commitment."],"support":"Hire through MedVirtual. Dedicated staff. Part of your practice team.","bullets":["Intake","Coordinate","Close the loop"],"cta":"See Available Staff","notes":"Horizontal process props — great for “steps” storytelling."}];
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 1600);
+    }
+    function findTpl(id) { return state.find((t) => t.id === id); }
+    function syncBullets(ad, t) {
+      const ul = ad.querySelector('.bullets');
+      if (!ul) return;
+      ul.innerHTML = (t.bullets || []).map((b, i) =>
+        '<li><span class="dot"></span><span class="btxt" data-bullet="' + i + '" contenteditable="true">' + escapeHtml(b) + '</span></li>'
+      ).join('');
+    }
+    function escapeHtml(s) {
+      return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+    document.querySelectorAll('[data-editor-for]').forEach((panel) => {
+      const id = panel.dataset.editorFor;
+      panel.querySelectorAll('[data-bind]').forEach((input) => {
+        const key = input.dataset.bind;
+        const apply = () => {
+          const t = findTpl(id);
+          const ad = document.querySelector('.ad[data-id="' + id + '"]');
+          if (!t || !ad) return;
+          if (key === 'headlineVariant') {
+            if (input.value) {
+              t.headline = input.value;
+              const ta = panel.querySelector('[data-bind="headline"]');
+              if (ta) ta.value = input.value;
+              const el = ad.querySelector('[data-field="headline"]');
+              if (el) el.textContent = input.value;
+            }
+            return;
+          }
+          if (key === 'bullets') {
+            t.bullets = String(input.value).split(/\n/).map((x) => x.trim()).filter(Boolean);
+            syncBullets(ad, t);
+            return;
+          }
+          t[key] = input.value;
+          if (key === 'art') {
+            const img = ad.querySelector('.prop');
+            if (img) img.src = input.value;
+            return;
+          }
+          if (key === 'audiencePill') {
+            let aud = ad.querySelector('[data-field="audiencePill"]');
+            if (!input.value) { if (aud) aud.remove(); return; }
+            if (!aud) {
+              aud = document.createElement('span');
+              aud.className = 'aud';
+              aud.dataset.field = 'audiencePill';
+              aud.contentEditable = 'true';
+              ad.querySelector('.top').appendChild(aud);
+            }
+            aud.textContent = input.value;
+            return;
+          }
+          const el = ad.querySelector('[data-field="' + key + '"]');
+          if (el && document.activeElement !== el) el.textContent = input.value;
+        };
+        input.addEventListener('input', apply);
+        input.addEventListener('change', apply);
+      });
+      const upload = panel.querySelector('[data-upload]');
+      if (upload) {
+        upload.addEventListener('change', () => {
+          const file = upload.files && upload.files[0];
+          const t = findTpl(id);
+          if (!file || !t) return;
+          const r = new FileReader();
+          r.onload = () => {
+            t.art = r.result;
+            const ad = document.querySelector('.ad[data-id="' + id + '"]');
+            if (ad) ad.querySelector('.prop').src = r.result;
+            const artInput = panel.querySelector('[data-bind="art"]');
+            if (artInput) artInput.value = '(local upload preview)';
+            toast('Prop updated (local preview)');
+          };
+          r.readAsDataURL(file);
+        });
+      }
+      const copyBtn = panel.querySelector('[data-copy]');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          const t = findTpl(id);
+          try {
+            await navigator.clipboard.writeText(JSON.stringify(t, null, 2));
+            toast('JSON copied — paste into saas-prop-templates-data.mjs');
+          } catch { toast('Copy failed'); }
+        });
+      }
+    });
+    document.querySelectorAll('.ad').forEach((ad) => {
+      ad.addEventListener('input', (e) => {
+        const id = ad.dataset.id;
+        const t = findTpl(id);
+        if (!t) return;
+        const target = e.target;
+        if (target.matches('[data-bullet]')) {
+          t.bullets[Number(target.dataset.bullet)] = target.textContent.trim();
+          const panel = document.querySelector('[data-editor-for="' + id + '"]');
+          const ta = panel && panel.querySelector('[data-bind="bullets"]');
+          if (ta) ta.value = t.bullets.join('\n');
+          return;
+        }
+        const field = target.getAttribute('data-field');
+        if (!field) return;
+        t[field] = target.textContent.trim();
+        const panel = document.querySelector('[data-editor-for="' + id + '"]');
+        const input = panel && panel.querySelector('[data-bind="' + field + '"]');
+        if (input) input.value = t[field];
+      });
+    });
+  </script>
+</body>
+</html>

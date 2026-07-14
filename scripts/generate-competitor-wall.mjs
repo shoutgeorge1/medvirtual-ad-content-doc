@@ -14,6 +14,7 @@ import {
   WEEKLY_FORK_PROMPTS,
   adLibraryUrl,
 } from './competitor-ads-data.mjs';
+import { COMPETITOR_RESEARCH_SEED } from './vma-site-data.mjs';
 import { GRAPHICS_REQUEST_EMAIL } from './creative-hopper-data.mjs';
 import { loadLiveSnapshots } from './scrape-ad-library-helpers.mjs';
 
@@ -345,18 +346,35 @@ const html = `<!doctype html>
     </div>
 
     <section>
+      <h2>Research Needed · competitor records</h2>
+      <p class="lede">Structured logs for staffing competitors. External competitor reference — visual benchmark only. Do not invent missing fields.</p>
+      <div class="wall">
+        ${COMPETITOR_RESEARCH_SEED.map((r) => `
+          <article class="card" data-category="virtual-staffing" data-has-live="0">
+            <div class="body">
+              <p class="name">${esc(r.company)}</p>
+              <p class="why"><strong>${esc(r.reviewStatus)}</strong> · ${esc(r.notes || '')}</p>
+              <p class="why">Website: ${esc(r.website || '—')} · Language: ${esc(r.language || '—')}</p>
+              <p class="steal"><strong>Adapt:</strong> ${esc(r.whatAdapt || 'Research Needed')}</p>
+              <p class="reject"><strong>Do not copy:</strong> ${esc(r.whatNotCopy || 'Trade dress, claims, exact layouts')}</p>
+            </div>
+          </article>`).join('')}
+      </div>
+    </section>
+
+    <section>
       <h2>This week’s three forks</h2>
-      <p class="lede">Same brief, three directions — Lookbook faithful, bold experiment, SaaS. Open them in the mock-up sandbox and send your favorite.</p>
+      <p class="lede">Same VMA brief, three directions — color test, pain hook, Spanish. Build in the static board and pitch George.</p>
       <div class="forks">${renderForks()}</div>
     </section>
 
     <section class="cta">
       <h2>Mock it · pitch George</h2>
-      <p>Saw a hook you like? Remix it in the sandbox and email George — he’s excited to see what you cook up.</p>
+      <p>Saw a hook you like? Remix it as an original MedVirtual VMA concept — no pink, no copied layouts.</p>
       <a class="btn primary" href="${esc(mailto)}">Email George a remix</a>
-      <a class="btn" href="/creative-concept-lab.html">Static Concepts</a>
-      <a class="btn" href="/mockup-sandbox.html">Open mock-up sandbox</a>
-      <a class="btn" href="/ideas.html">Ideas Lab</a>
+      <a class="btn" href="/vma-static.html">Static Ad Concepts</a>
+      <a class="btn" href="/vma-chatgpt.html">ChatGPT Prompts</a>
+      <a class="btn" href="/studio.html">Dashboard</a>
     </section>
   </main>
   <script>

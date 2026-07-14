@@ -1,0 +1,34 @@
+---
+description: MedVirtual Virtual Medical Admin ad production (July 2026)
+globs:
+  - public/**/*.html
+  - scripts/vma-*.mjs
+  - scripts/generate-vma-site.mjs
+  - scripts/shared-doc-header.mjs
+alwaysApply: true
+---
+
+# MedVirtual Ad Production Machine
+
+**CURRENT DIRECTION:** Bold Virtual Medical Admin static ads + repeatable animated video variations.
+
+## Primary message
+HIRE A VIRTUAL MEDICAL ADMIN — MedVirtual only (never MedVirtual.ai).
+
+## No pink
+Never use pink / magenta / fuchsia / rose in creatives or site accents.
+
+## Colors
+Electric Lime · Signal Yellow · Cobalt Blue · High-Voltage Cyan · Vivid Green · Commercial Red · Bright White.
+
+## Removed (July 2026)
+Previous portrait-profile (Real People / named Talent Pool) and SaaS-first directions were removed from the active site. Archive: `_archive/july-2026-removed/`.
+
+## Active boards
+Dashboard `/studio.html` · Current Direction `/direct-response.html` · Competitors · Static · Video · ChatGPT · Remotion · CapCut · Copy · Forms · Campaign · Claims · QA · Queue · Approval · History.
+
+## Service model
+Dedicated virtual staff who join the practice team — not call center, chatbot, AI assistant, managed front desk, or software.
+
+## Claims
+$10/hr and HIPAA require leadership/compliance confirmation before launch.

@@ -46,9 +46,9 @@
 }
 
   .doc-header {
-    background: var(--mv-deep-teal);
+    background: #0a0a0a;
     color: #ffffff;
-    border-bottom: 3px solid var(--mv-cyan);
+    border-bottom: 3px solid #B8F000;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -77,9 +77,7 @@
     object-fit: contain;
     flex-shrink: 0;
   }
-  .doc-header__mark {
-    display: none;
-  }
+  .doc-header__mark { display: none; }
   .doc-header__title {
     margin: 0;
     font-size: 1.05rem;
@@ -90,7 +88,7 @@
     margin: 0.1rem 0 0;
     font-size: 0.78rem;
     font-weight: 400;
-    color: #b8d4e0;
+    color: #a3a3a3;
   }
   .doc-header__page {
     margin: 0.85rem 0 0;
@@ -107,7 +105,7 @@
     margin: 0.25rem 0 0;
     font-size: 0.82rem;
     font-weight: 400;
-    color: #b8d4e0;
+    color: #a3a3a3;
     max-width: 820px;
   }
   .doc-nav-wrap {
@@ -130,27 +128,22 @@
     border-radius: 8px;
     font-size: 0.8rem;
     font-weight: 500;
-    color: #d7e8f0;
+    color: #d4d4d4;
     text-decoration: none;
     border: 1px solid transparent;
-    transition: background 0.15s, color 0.15s;
     list-style: none;
     cursor: pointer;
     background: transparent;
-    box-shadow: none;
   }
   .doc-header details.doc-nav-dd {
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    color: inherit !important;
   }
   .doc-header details.doc-nav-dd > summary {
     background: transparent !important;
-    color: #d7e8f0 !important;
+    color: #d4d4d4 !important;
     font-weight: 500 !important;
     border: 1px solid transparent !important;
     padding: 0.45rem 0.75rem !important;
@@ -165,30 +158,30 @@
   .doc-nav a:hover,
   .doc-header details.doc-nav-dd > summary:hover {
     color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(184, 240, 0, 0.12) !important;
   }
   .doc-nav a.active {
-    color: #ffffff;
-    background: var(--mv-primary);
+    color: #0a0a0a;
+    background: #B8F000;
+    font-weight: 700;
   }
   .doc-header details.doc-nav-dd.active > summary,
   .doc-header details.doc-nav-dd[open] > summary {
-    color: #ffffff !important;
-    background: var(--mv-primary) !important;
+    color: #0a0a0a !important;
+    background: #B8F000 !important;
+    font-weight: 700 !important;
   }
-  .doc-nav-dd {
-    position: relative;
-  }
+  .doc-nav-dd { position: relative; }
   .doc-nav-dd__menu {
     position: absolute;
     top: calc(100% + 0.35rem);
     left: 0;
-    min-width: 11rem;
-    background: #0a4558;
+    min-width: 12rem;
+    background: #171717;
     border: 1px solid rgba(255,255,255,0.14);
     border-radius: 10px;
     padding: 0.35rem;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.45);
     z-index: 50;
     display: flex;
     flex-direction: column;
@@ -200,20 +193,8 @@
     border-radius: 7px;
   }
   .doc-nav-dd__menu a.active {
-    background: rgba(0, 178, 226, 0.28);
-  }
-  .doc-nav--ref a,
-  .doc-nav--ref .doc-nav-dd > summary {
-    font-size: 0.72rem;
-    font-weight: 400;
-    color: #9fb9c6;
-    padding: 0.35rem 0.55rem;
-  }
-  .doc-nav--ref a.active,
-  .doc-nav--ref .doc-nav-dd.active > summary,
-  .doc-nav--ref .doc-nav-dd[open] > summary {
-    background: rgba(255,255,255,0.12);
-    color: #fff;
+    background: rgba(184, 240, 0, 0.25);
+    color: #B8F000;
   }
   .doc-nav-sep {
     width: 1px;
@@ -228,144 +209,149 @@
     margin-top: 0.75rem;
   }
   .doc-subnav a {
-    color: var(--mv-bright-accent);
+    color: #B8F000;
     text-decoration: none;
     font-size: 0.75rem;
     padding: 0.25rem 0.6rem;
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 6px;
   }
-  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
+  .doc-subnav a:hover { border-color: #B8F000; color: #fff; }
   .doc-subnav a.active {
-    background: rgba(0, 178, 226, 0.2);
-    border-color: var(--mv-cyan);
+    background: rgba(184, 240, 0, 0.2);
+    border-color: #B8F000;
     color: #fff;
   }
   @media (max-width: 640px) {
     .doc-header { padding: 1rem; }
     .doc-header__logo { height: 30px; max-width: 130px; }
     .doc-nav-sep { display: none; }
-    .doc-nav-dd__menu { min-width: 9.5rem; }
   }
 
   * { box-sizing: border-box; }
   body {
     margin: 0;
     font-family: "Be Vietnam", Inter, Arial, sans-serif;
-    color: #161511;
+    color: #e5e7eb;
     background:
-      radial-gradient(ellipse 70% 40% at 0% 0%, rgba(0,178,226,0.14), transparent 55%),
-      #f3f7fa;
+      radial-gradient(ellipse 80% 50% at 15% -10%, rgba(184,240,0,0.10), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 90% 0%, rgba(0,229,255,0.08), transparent 55%),
+      #06080d;
     line-height: 1.5;
   }
-  main { max-width: 1180px; margin: 0 auto; padding: 1.35rem 1.1rem 4rem; }
-  .hero h1 { margin: 0 0 0.4rem; font-size: clamp(1.7rem, 3.5vw, 2.3rem); letter-spacing: -0.03em; }
-  .hero p { margin: 0 0 1rem; max-width: 48rem; color: #405766; font-size: 1.02rem; }
-  .fresh {
-    display: inline-flex; flex-wrap: wrap; gap: 0.45rem; align-items: center;
-    margin: 0 0 1rem; font-size: 0.86rem; color: #0e7490; font-weight: 700;
+  a { color: #B8F000; }
+  main { max-width: 1120px; margin: 0 auto; padding: 1.5rem 1.15rem 5rem; }
+  h1, h2, h3 { color: #f8fafc; }
+  .banner {
+    margin: 0 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: linear-gradient(120deg, rgba(184,240,0,0.14), rgba(0,229,255,0.10));
+    border: 1px solid rgba(184,240,0,0.45);
+    font-size: 0.9rem;
   }
-  .fresh span {
-    background: #ecfeff; border: 1px solid #a5f3fc; border-radius: 999px;
-    padding: 0.25rem 0.65rem;
+  .banner strong { color: #B8F000; }
+  .banner .sub { display:block; color:#cbd5e1; margin-top:0.25rem; font-weight:400; }
+  .rule-100 {
+    margin: 0 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: rgba(225,6,0,0.10);
+    border: 1px solid rgba(225,6,0,0.45);
+    color: #fecaca;
+    font-size: 0.88rem;
   }
-  .howto {
-    background: #fff; border: 1px solid #d5e2ea; border-radius: 12px;
-    padding: 0.85rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: #405766;
-  }
-  .howto ol { margin: 0.4rem 0 0; padding-left: 1.2rem; }
-  .filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
-  .filters button {
-    font: inherit; font-size: 0.8rem; font-weight: 700; padding: 0.4rem 0.7rem;
-    border-radius: 999px; border: 1px solid #cbd5e1; background: #fff; color: #0D546B; cursor: pointer;
-  }
-  .filters button.on { background: #077999; color: #fff; border-color: #077999; }
-  .wall { display: grid; gap: 1.5rem; }
+  .rule-100 strong { color: #ff6b6b; }
+  .hero h1 { margin: 0 0 0.4rem; font-size: clamp(1.6rem, 4vw, 2.3rem); letter-spacing: -0.03em; }
+  .hero p { margin: 0; max-width: 52rem; color: #94a3b8; }
+  .lede { color: #94a3b8; max-width: 52rem; }
+  section { margin-top: 1.75rem; }
+  section > h2 { font-size: 1.2rem; margin: 0 0 0.35rem; }
+  .grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .grid-2 { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
   .card {
-    background: #fff; border: 1px solid #d5e2ea; border-radius: 16px; overflow: hidden;
+    background: #0d111a;
+    border: 1px solid #1f2937;
+    border-radius: 14px;
+    padding: 1rem 1.05rem;
   }
-  .empty-card { opacity: 0.92; }
-  .empty-body { padding: 1.1rem 1.15rem 1.2rem; }
-  .empty-note { margin: 0 0 0.85rem; color: #64748b; font-size: 0.9rem; max-width: 40rem; }
-  .brand-head {
-    display: grid; grid-template-columns: 1fr minmax(200px, 320px); gap: 1rem;
-    padding: 1.05rem 1.15rem; border-bottom: 1px solid #e2e8f0;
-    background: linear-gradient(180deg, #f8fcff, #fff);
+  .card h3 { margin: 0 0 0.3rem; font-size: 1.02rem; }
+  .card p { margin: 0.25rem 0; font-size: 0.88rem; color: #b4becb; }
+  .eyebrow {
+    display: inline-block; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #B8F000; margin-bottom: 0.25rem;
   }
-  @media (max-width: 800px) { .brand-head { grid-template-columns: 1fr; } }
-  .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; }
-  .strip-shot {
-    display: block; aspect-ratio: 1; border-radius: 10px; overflow: hidden;
-    border: 1px solid #dbe7ef; background: #0f172a;
+  .pill {
+    display: inline-block; padding: 0.12rem 0.55rem; border-radius: 999px;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em; border: 1px solid transparent;
   }
-  .strip-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .top { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; margin-bottom: 0.35rem; }
-  .top h3 { margin: 0; font-size: 1.25rem; }
-  .cat {
-    font-size: 0.65rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
-    background: #ecfeff; color: #0e7490; padding: 0.2rem 0.45rem; border-radius: 999px;
+  .badge-status { background: rgba(148,163,184,0.15); color:#cbd5e1; border-color: rgba(148,163,184,0.3); }
+  .s-confirmed, .s-approved-for-launch { background: rgba(34,197,94,0.16); color:#86efac; border-color: rgba(34,197,94,0.4); }
+  .s-approved-for-test { background: rgba(0,229,255,0.14); color:#67e8f9; border-color: rgba(0,229,255,0.4); }
+  .s-pending-leadership, .s-pending-compliance, .s-on-hold { background: rgba(255,230,0,0.14); color:#fde047; border-color: rgba(255,230,0,0.4); }
+  .s-rejected, .s-do-not-use { background: rgba(225,6,0,0.16); color:#fca5a5; border-color: rgba(225,6,0,0.45); }
+  .s-queued, .s-ready-for-design, .s-ready-for-animation { background: rgba(184,240,0,0.14); color:#cbe96a; border-color: rgba(184,240,0,0.4); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1f2937; vertical-align: top; }
+  th { color: #94a3b8; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td.ref { font-weight: 700; color: #f8fafc; white-space: nowrap; }
+  ul.clean { margin: 0.4rem 0 0; padding-left: 1.1rem; color: #b4becb; font-size: 0.86rem; }
+  ul.clean li { margin: 0.15rem 0; }
+  .copy-btn {
+    font: inherit; font-size: 0.72rem; font-weight: 700; cursor: pointer;
+    background: #B8F000; color: #06080d; border: none; border-radius: 7px;
+    padding: 0.28rem 0.6rem; margin-top: 0.4rem;
   }
-  .cat.live { background: #dcfce7; color: #166534; }
-  .cat.warn { background: #fff7ed; color: #c2410c; }
-  .why { margin: 0; font-size: 0.92rem; color: #516472; max-width: 40rem; }
-  .live-block { padding: 1rem 1.15rem 1.25rem; }
-  .live-block h4 { margin: 0 0 0.25rem; font-size: 1.05rem; }
-  .live-lede { margin: 0 0 1rem; color: #64748b; font-size: 0.9rem; max-width: 52rem; }
-  .live-grid { display: grid; gap: 1.1rem; }
-  .live-ad {
-    display: grid; grid-template-columns: minmax(220px, 360px) 1fr; gap: 1rem;
-    border: 1px solid #dbe7ef; border-radius: 14px; padding: 0.85rem; background: #fff;
+  .copy-btn:hover { background: #cbff33; }
+  .copy-btn.copied { background: #22C55E; color:#04120a; }
+  .copytext {
+    display: block; background: #05070b; border: 1px solid #1f2937; border-radius: 8px;
+    padding: 0.6rem 0.7rem; font-size: 0.82rem; color: #d1d9e2; white-space: pre-wrap; margin-top: 0.4rem;
   }
-  @media (max-width: 800px) { .live-ad { grid-template-columns: 1fr; } }
-  .creative {
-    display: block; border-radius: 12px; overflow: hidden; background: #0f172a;
-    min-height: 280px; border: 1px solid #cbd5e1;
+  .warn {
+    margin-top: 0.5rem; padding: 0.5rem 0.65rem; border-radius: 8px; font-size: 0.78rem;
+    background: rgba(255,230,0,0.10); border: 1px solid rgba(255,230,0,0.4); color: #fde047;
   }
-  .creative img {
-    width: 100%; height: 100%; object-fit: contain; display: block;
-    background: #0b1220; min-height: 280px; max-height: 520px;
+  .warn.danger { background: rgba(225,6,0,0.12); border-color: rgba(225,6,0,0.45); color:#fca5a5; }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 0.25rem; }
+  .filters button {
+    font: inherit; font-size: 0.76rem; font-weight: 600; cursor: pointer; color:#cbd5e1;
+    background: #0d111a; border: 1px solid #1f2937; border-radius: 999px; padding: 0.3rem 0.75rem;
   }
-  .live-meta { margin: 0 0 0.55rem; font-size: 0.72rem; color: #64748b; font-weight: 600; }
-  .field { margin-bottom: 0.65rem; }
-  .field .fk {
-    display: block; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.04em;
-    text-transform: uppercase; color: #0e7490; margin-bottom: 0.15rem;
+  .filters button.active { background: #B8F000; color:#06080d; border-color:#B8F000; }
+  /* Mock ad comp */
+  .adcomp {
+    position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 5;
+    display: flex; flex-direction: column; justify-content: space-between; padding: 0.9rem;
+    border: 1px solid rgba(255,255,255,0.14);
   }
-  .field p { margin: 0; font-size: 0.95rem; color: #1e293b; white-space: pre-wrap; }
-  .actions, .live-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .btn {
-    display: inline-flex; align-items: center; padding: 0.45rem 0.75rem; border-radius: 8px;
-    border: 1px solid #cbd5e1; background: #fff; color: #0D546B; font: inherit; font-size: 0.82rem;
-    font-weight: 700; text-decoration: none;
+  .adcomp .ac-head { font-weight: 800; font-size: 1.05rem; line-height: 1.05; letter-spacing:-0.02em; text-transform: uppercase; max-width: 78%; }
+  .adcomp .ac-bullets { list-style: none; margin: 0.5rem 0 0; padding: 0; font-size: 0.72rem; font-weight:600; max-width: 78%; }
+  .adcomp .ac-bullets li { display:flex; gap:0.35rem; align-items:center; margin:0.18rem 0; }
+  .adcomp .ac-bullets li::before { content:'✓'; font-weight:900; }
+  .adcomp .ac-person {
+    position: absolute; right: -6%; bottom: 0; width: 42%; height: 72%; border-radius: 50% 50% 0 0;
+    opacity: 0.9;
   }
-  .btn.primary { background: #077999; border-color: #077999; color: #fff; }
-  .notes { margin-top: 1rem; border-top: 1px dashed #e2e8f0; padding-top: 0.75rem; }
-  .notes summary { cursor: pointer; font-weight: 700; color: #0D546B; font-size: 0.9rem; }
-  .tri { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.65rem; }
-  @media (max-width: 720px) { .tri { grid-template-columns: 1fr; } }
-  .tri > div { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.55rem 0.65rem; }
-  .tri p { margin: 0.25rem 0 0; font-size: 0.82rem; color: #334155; }
-  .lab { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
-  .lab.steal { color: #047857; }
-  .lab.reject { color: #b91c1c; }
-  .lab.remix { color: #077999; }
-  section { margin: 1.75rem 0; }
-  section > h2 { margin: 0 0 0.35rem; font-size: 1.2rem; }
-  section > .lede { margin: 0 0 0.85rem; color: #64748b; font-size: 0.94rem; }
-  .forks { display: grid; gap: 0.75rem; grid-template-columns: repeat(2, 1fr); }
-  @media (max-width: 700px) { .forks { grid-template-columns: 1fr; } }
-  .fork { background: #fff; border: 1px solid #d5e2ea; border-radius: 12px; padding: 1rem; }
-  .fork h3 { margin: 0 0 0.45rem; font-size: 1.05rem; }
-  .fork ul { margin: 0 0 0.75rem; padding-left: 1.1rem; font-size: 0.88rem; color: #334155; }
-  .cta {
-    background: linear-gradient(120deg, #0D546B, #077999); color: #fff;
-    border-radius: 14px; padding: 1.1rem 1.15rem;
+  .adcomp .ac-cta { align-self: flex-start; padding: 0.35rem 0.8rem; border-radius: 999px; font-weight:800; font-size:0.75rem; z-index:2; }
+  .adcomp .ac-badge {
+    position:absolute; top:0.7rem; right:0.7rem; z-index:3; font-size:0.6rem; font-weight:800;
+    padding:0.2rem 0.45rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.03em;
   }
-  .cta h2 { margin: 0 0 0.35rem; }
-  .cta p { margin: 0 0 0.75rem; color: rgba(255,255,255,0.88); }
-  .cta .btn.primary { background: #fff; color: #0D546B; border-color: #fff; }
-  .cta .btn:not(.primary) { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
-  .card.is-hidden { display: none; }
+  .adcomp .ac-note { font-size:0.6rem; opacity:0.8; z-index:2; }
+  .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px,1fr)); gap: 0.4rem; margin-top: 0.6rem; }
+  .timeline .beat { background:#05070b; border:1px solid #1f2937; border-top:3px solid #00E5FF; border-radius:8px; padding:0.45rem 0.5rem; }
+  .timeline .beat b { display:block; font-size:0.72rem; color:#67e8f9; }
+  .timeline .beat span { font-size:0.68rem; color:#94a3b8; }
+  .chip { display:inline-block; font-size:0.66rem; font-weight:700; padding:0.14rem 0.5rem; border-radius:6px; background:#111827; border:1px solid #263041; color:#cbd5e1; margin:0.12rem 0.12rem 0 0; }
+  .swatch { display:inline-block; width:0.85rem; height:0.85rem; border-radius:3px; vertical-align:-2px; margin-right:0.3rem; border:1px solid rgba(255,255,255,0.25); }
+  .metricgrid { display:grid; gap:0.7rem; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
+  .metric { background:#0d111a; border:1px solid #1f2937; border-radius:12px; padding:0.75rem 0.85rem; }
+  .metric label { display:block; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8; }
+  .metric input { width:100%; margin-top:0.3rem; background:#05070b; border:1px solid #263041; border-radius:7px; color:#f8fafc; font:inherit; padding:0.3rem 0.4rem; }
+  .checkline { display:flex; gap:0.5rem; align-items:flex-start; padding:0.35rem 0; border-bottom:1px solid #131a26; font-size:0.86rem; color:#cbd5e1; }
+  .checkline input { margin-top:0.2rem; }
+  .foot { margin-top:3rem; padding-top:1rem; border-top:1px solid #1f2937; color:#64748b; font-size:0.76rem; }
 </style>
 </head>
 <body>
@@ -374,28 +360,26 @@
     <a class="doc-header__brand" href="/studio.html">
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
-        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Raw materials + clear direction · designers assemble the finals</p>
+        <h1 class="doc-header__title">MedVirtual Ad Production</h1>
+        <p class="doc-header__tagline">Bold Virtual Medical Admin ads · static + animated video</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
-      <summary>Examples</summary>
-      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer examples</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/real-people-creative.html" class="">People treatments</a></div>
-    </details><a href="/real-people-creative.html" class="">People</a><details class="doc-nav-dd ">
-      <summary>Raw Assets</summary>
-      <div class="doc-nav-dd__menu"><a href="/raw-assets.html" class="">Raw library</a><a href="/asset-hub.html" class="">Full Asset Hub</a><a href="/image-variation-review.html" class="">Image board</a><a href="/real-people-assets.html" class="">People downloads</a></div>
-    </details><a href="/video-production.html" class="">Video Capture</a><details class="doc-nav-dd active">
-      <summary>Producer Lab</summary>
-      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Lab home</a><a href="/ai-asset-foundry.html" class="">AI Asset Foundry</a><a href="/competitors.html" class="active">Competitors</a><a href="/creative-concept-lab.html" class="">Static References</a><a href="/motion-concept-lab.html" class="">Motion References</a><a href="/mockup-sandbox.html" class="">Sandbox</a><a href="/saas-prop-templates.html" class="">SaaS Props</a><a href="/role-offer-templates.html" class="">Role-Offer mockups</a></div>
-    </details></nav>
-      <span class="doc-nav-sep" aria-hidden="true"></span>
-      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/studio.html" class="">Studio</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Dashboard</a><a href="/direct-response.html" class="">Current Direction</a><a href="/competitors.html" class="active">Competitor Wall</a><a href="/vma-static.html" class="">Static Ads</a><details class="doc-nav-dd ">
+      <summary>Animated Video</summary>
+      <div class="doc-nav-dd__menu"><a href="/vma-video.html" class="">Video Concepts</a><a href="/vma-remotion.html" class="">Remotion Playbook</a><a href="/vma-capcut.html" class="">CapCut Templates</a></div>
+    </details><a href="/vma-chatgpt.html" class="">ChatGPT Prompts</a><details class="doc-nav-dd ">
+      <summary>Copy</summary>
+      <div class="doc-nav-dd__menu"><a href="/vma-copy-en.html" class="">English Matrix</a><a href="/vma-copy-es.html" class="">Spanish Matrix</a></div>
+    </details><details class="doc-nav-dd ">
+      <summary>Forms &amp; Launch</summary>
+      <div class="doc-nav-dd__menu"><a href="/vma-form.html" class="">Instant Form</a><a href="/vma-campaign.html" class="">Campaign Tests</a><a href="/vma-claims.html" class="">Claims Tracker</a><a href="/vma-qa.html" class="">Launch QA</a><a href="/vma-queue.html" class="">Production Queue</a><a href="/vma-approval.html" class="">Approval Board</a></div>
+    </details><a href="/vma-history.html" class="">History</a></nav>
     </div>
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Competitor Wall</h2>
-          <p class="doc-header__page-sub">Real Meta ads · hooks · copy · pitch George</p>
+          <p class="doc-header__page-sub">External Meta benchmarks — research only, never copy.</p>
           
         </div>
 </header>
@@ -416,771 +400,99 @@
 })();
 </script>
   <main>
-    <header class="hero">
+    <div class="banner"><strong>CURRENT DIRECTION — BOLD VIRTUAL MEDICAL ADMIN ADS + ANIMATED VIDEO</strong><span class="sub">Human-led, offer-first, mobile-readable static ads + short animated video. Hire a Virtual Medical Admin.</span></div>
+    
+    
+    <div class="hero">
       <h1>Competitor Wall</h1>
-      <p>Real Meta Ad Library creatives — the actual frames competitors are running, plus their hooks and copy. Browse, get inspired, mock a MedVirtual take, pitch George. No fake placeholders.</p>
-      <div class="fresh">
-        <span>Updated Jul 13, 2026</span>
-        <span>27 real creatives</span>
-        <span>7 brands with live ads</span>
-      </div>
-    </header>
-
-    <div class="howto">
-      <strong>How this stays fresh</strong>
-      <ol><li>An automated Cursor agent refreshes this wall every couple of weeks from Meta Ad Library.</li><li>We only publish brands when we have real creative stills + primary text / headline / description.</li><li>Your job: skim the ads, steal the energy (not the look), mock something cooler for MedVirtual, pitch George.</li><li>Spotted a wild new competitor running ads? Email george.a@legalsoft.com and we’ll pull them in.</li></ol>
+      <p>External Meta benchmarks — <b>research only</b>. Every card is an outside company we do not represent. Capture structure and friction lessons; never reuse their names, logos, palettes (especially pink), copy, or unverified claims.</p>
     </div>
-
-    <div class="filters" role="group" aria-label="Filter">
-      <button type="button" class="on" data-filter="live">Has live ads</button>
-      <button type="button" data-filter="all">All brands</button>
-      <button type="button" data-filter="virtual-staffing">Virtual staffing</button>
-      <button type="button" data-filter="practice-saas">Practice SaaS</button>
-      <button type="button" data-filter="job-marketplace">Job marketplaces</button>
-      <button type="button" data-filter="other">Other</button>
-    </div>
-
-    <div class="wall">
-      <article class="card" id="hello-rache" data-category="virtual-staffing" data-has-live="1">
-    <header class="brand-head">
-      <div>
-        <div class="top">
-          <h3>Hello Rache</h3>
-          <span class="cat">virtual-staffing</span>
-          <span class="cat live">5 live ads</span>
-        </div>
-        <p class="why">Closest category neighbor — virtual medical help pitched to US practices.</p>
-      </div>
-      <div class="strip"><a class="strip-shot" href="#ad-hello-rache-810571518485456" title="How do you leave the clinic when your last patient does?"><img src="/assets/competitors/live/hello-rache-1.jpg" alt="" /></a><a class="strip-shot" href="#ad-hello-rache-1589021232591322" title="Why pay $20+/hr for an untrained freelancer when you can get a Healthcare Profes"><img src="/assets/competitors/live/hello-rache-2.jpg" alt="" /></a><a class="strip-shot" href="#ad-hello-rache-974824428840058" title="Here’s a hard truth: You don’t own a medical practice if it stops running the mo"><img src="/assets/competitors/live/hello-rache-3.jpg" alt="" /></a><a class="strip-shot" href="#ad-hello-rache-1418938503249890" title="You spent years training to treat patients, not to become the world's most expen"><img src="/assets/competitors/live/hello-rache-4.jpg" alt="" /></a></div>
-    </header>
-    <div class="live-block" id="hello-rache-live">
-      <h4>See the ads</h4>
-      <p class="live-lede">Creative still + hook + headline + description — scroll and get inspired. Mock a MedVirtual take when something sparks.</p>
-      <div class="live-grid">
-        <div id="ad-hello-rache-810571518485456"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=810571518485456" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/hello-rache-1.jpg" alt="Hello Rache Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 810571518485456 · Started May 4, 2026 · Hello Rache</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>How do you leave the clinic when your last patient does?</p></div>
-      
-      <div class="field"><span class="fk">Description</span><p>See how easy it is to introduce a virtual assistant to your patient. The VA listens, documents the history, and records your exam findings live. By the time the patient leaves, the work is done. No more late nights. No more backlog. Just patient care. 0:00 / 1:22</p></div>
-      
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=810571518485456" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=hello-rache">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=hello-rache">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Hello%20Rache%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Hello%20Rache%0ALibrary%20ID%3A%20810571518485456%0AHook%20I%20noticed%3A%20How%20do%20you%20leave%20the%20clinic%20when%20your%20last%20patient%20does%3F%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-hello-rache-1589021232591322"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1589021232591322" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/hello-rache-2.jpg" alt="Hello Rache Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1589021232591322 · Started May 4, 2026 · Hello Rache</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Why pay $20+/hr for an untrained freelancer when you can get a Healthcare Professional for $9.50/hr?</p></div>
-      
-      <div class="field"><span class="fk">Description</span><p>Check the slides and compare for yourself. 👆 GO.HELLORACHE.COM Premium Medical VAs. $9.50/Hour.</p></div>
-      
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1589021232591322" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=hello-rache">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=hello-rache">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Hello%20Rache%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Hello%20Rache%0ALibrary%20ID%3A%201589021232591322%0AHook%20I%20noticed%3A%20Why%20pay%20%2420%2B%2Fhr%20for%20an%20untrained%20freelancer%20when%20you%20can%20get%20a%20Healthcare%20Professional%20for%20%249.50%2Fhr%3F%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-hello-rache-974824428840058"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=974824428840058" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/hello-rache-3.jpg" alt="Hello Rache Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 974824428840058 · Started May 4, 2026 · Hello Rache</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Here’s a hard truth: You don’t own a medical practice if it stops running the moment you leave the room.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>It doesn’t matter how much revenue you generate or how many patients you see.</p></div>
-      <div class="field"><span class="fk">Description</span><p>If every chart, every prior authorization, and every schedule gap relies on your energy to fix it, the value of your freedom is close to zero. That’s the &quot;Physician’s Trap.&quot; And until you solve it, you don’t have a business asset. You have a high-stress liability. We integrate specialized Healthcare Virtual Assistants in practices to lessen physician dependency on repetitive tasks and create workflows that actually flow… and let you go home on time.</p></div>
-      
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=974824428840058" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=hello-rache">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=hello-rache">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Hello%20Rache%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Hello%20Rache%0ALibrary%20ID%3A%20974824428840058%0AHook%20I%20noticed%3A%20Here%E2%80%99s%20a%20hard%20truth%3A%20You%20don%E2%80%99t%20own%20a%20medical%20practice%20if%20it%20stops%20running%20the%20moment%20you%20leave%20the%20room.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-hello-rache-1418938503249890"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1418938503249890" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/hello-rache-4.jpg" alt="Hello Rache Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1418938503249890 · Started May 4, 2026 · Hello Rache</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>You spent years training to treat patients, not to become the world's most expensive data entry clerk. 🩺</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Look at the difference between &quot;Administrative Overload&quot; and true &quot;Focus on Care.&quot; The only difference is dedicated support.</p></div>
-      <div class="field"><span class="fk">Description</span><p>When you try to do it all yourself, you end up exhausted and stuck at the desk. Our HIPAA-compliant Healthcare VAs handle the non-clinical burdens so you can do the job you were actually trained for. Empower your practice by delegating the busy work. Get back to healing, and get home for dinner. GO.HELLORACHE.COM</p></div>
-      
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1418938503249890" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=hello-rache">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=hello-rache">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Hello%20Rache%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Hello%20Rache%0ALibrary%20ID%3A%201418938503249890%0AHook%20I%20noticed%3A%20You%20spent%20years%20training%20to%20treat%20patients%2C%20not%20to%20become%20the%20world's%20most%20expensive%20data%20entry%20clerk.%20%F0%9F%A9%BA%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-hello-rache-1708916656798157"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1708916656798157" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/hello-rache-5.jpg" alt="Hello Rache Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1708916656798157 · Started May 4, 2026 · Hello Rache</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>When Dr. Rabin says our VAs &quot;saved him hours,&quot; he isn't just talking about efficiency. He's talking about getting his life back.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Those missing hours are the difference between staying late to chart and leaving the clinic when your last patient does.</p></div>
-      <div class="field"><span class="fk">Description</span><p>Don't just take our word for it. Join practicing physicians like Dr. Rabin who have stopped the burnout cycle by delegating to specialized Healthcare Virtual Assistants for only $9.50/Hour. GO.HELLORACHE.COM What Could You Do With Extra Hours Every Day?</p></div>
-      
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1708916656798157" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=hello-rache">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=hello-rache">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Hello%20Rache%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Hello%20Rache%0ALibrary%20ID%3A%201708916656798157%0AHook%20I%20noticed%3A%20When%20Dr.%20Rabin%20says%20our%20VAs%20%22saved%20him%20hours%2C%22%20he%20isn't%20just%20talking%20about%20efficiency.%20He's%20talking%20about%20getting%20his%20life%20back.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div>
-      </div>
-      <details class="notes">
-        <summary>Steal / reject / remix notes</summary>
-        <div class="tri">
-          <div><span class="lab steal">Steal</span><p>Clear role framing in one glance — title + a simple patient story.</p></div>
-          <div><span class="lab reject">Reject</span><p>Generic stock smiles with no practice-owner POV.</p></div>
-          <div><span class="lab remix">Remix for MV</span><p>MedVirtual Meet-[Name] with public skills + Interview CTA — human and distinct.</p></div>
-        </div>
-      </details>
-    </div>
-  </article><article class="card" id="commure-scribe" data-category="practice-saas" data-has-live="1">
-    <header class="brand-head">
-      <div>
-        <div class="top">
-          <h3>Commure Scribe</h3>
-          <span class="cat">practice-saas</span>
-          <span class="cat live">1 live ads</span>
-        </div>
-        <p class="why">AI scribe competitor adjacent to “virtual help in the exam room” — live Meta ads right now.</p>
-      </div>
-      <div class="strip"><a class="strip-shot" href="#ad-commure-scribe-1850917389199451" title="AI scribe that integrates with your EHR. Transfer notes with 1 click. Try for fr"><img src="/assets/competitors/live/commure-scribe-1.jpg" alt="" /></a></div>
-    </header>
-    <div class="live-block" id="commure-scribe-live">
-      <h4>See the ads</h4>
-      <p class="live-lede">Creative still + hook + headline + description — scroll and get inspired. Mock a MedVirtual take when something sparks.</p>
-      <div class="live-grid">
-        <div id="ad-commure-scribe-1850917389199451"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1850917389199451" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/commure-scribe-1.jpg" alt="Commure Scribe Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1850917389199451 · Started Jun 9, 2026 · Commure Scribe</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>AI scribe that integrates with your EHR. Transfer notes with 1 click. Try for free.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>SCRIBE.COMMURE.COM</p></div>
-      <div class="field"><span class="fk">Description</span><p>Works with every EHR. Sync notes directly with your desktop or web EHR. Get the smarter AI scribe — starting $59/mo.</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Sign Up</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1850917389199451" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=commure-scribe">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=commure-scribe">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Commure%20Scribe%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Commure%20Scribe%0ALibrary%20ID%3A%201850917389199451%0AHook%20I%20noticed%3A%20AI%20scribe%20that%20integrates%20with%20your%20EHR.%20Transfer%20notes%20with%201%20click.%20Try%20for%20free.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div>
-      </div>
-      <details class="notes">
-        <summary>Steal / reject / remix notes</summary>
-        <div class="tri">
-          <div><span class="lab steal">Steal</span><p>Crystal-clear product promise in one line.</p></div>
-          <div><span class="lab reject">Reject</span><p>Sounding like another AI tool, not MedVirtual humans.</p></div>
-          <div><span class="lab remix">Remix for MV</span><p>Meet-[Name] who works the note + patient flow — Interview CTA.</p></div>
-        </div>
-      </details>
-    </div>
-  </article><article class="card" id="quadrant-health" data-category="practice-saas" data-has-live="1">
-    <header class="brand-head">
-      <div>
-        <div class="top">
-          <h3>Quadrant Health</h3>
-          <span class="cat">practice-saas</span>
-          <span class="cat live">1 live ads</span>
-        </div>
-        <p class="why">Front-desk / phone pain — live Meta ads competing for practice-owner attention.</p>
-      </div>
-      <div class="strip"><a class="strip-shot" href="#ad-quadrant-health-1899284274016689" title="How Clinics Are Making Phones Disappear and Revenue Jump"><img src="/assets/competitors/live/quadrant-health-1.jpg" alt="" /></a></div>
-    </header>
-    <div class="live-block" id="quadrant-health-live">
-      <h4>See the ads</h4>
-      <p class="live-lede">Creative still + hook + headline + description — scroll and get inspired. Mock a MedVirtual take when something sparks.</p>
-      <div class="live-grid">
-        <div id="ad-quadrant-health-1899284274016689"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1899284274016689" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/quadrant-health-1.jpg" alt="Quadrant Health Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1899284274016689 · Started Nov 3, 2025 · Quadrant Health</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>How Clinics Are Making Phones Disappear and Revenue Jump</p></div>
-      <div class="field"><span class="fk">Headline</span><p>You’ve tried it all:</p></div>
-      <div class="field"><span class="fk">Description</span><p>Outsourcing to a call center—only to get mispronounced names, dropped scripts, and zero accountability. Hiring temp receptionists who quit in weeks…</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn More</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1899284274016689" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=quadrant-health">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=quadrant-health">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Quadrant%20Health%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Quadrant%20Health%0ALibrary%20ID%3A%201899284274016689%0AHook%20I%20noticed%3A%20How%20Clinics%20Are%20Making%20Phones%20Disappear%20and%20Revenue%20Jump%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div>
-      </div>
-      <details class="notes">
-        <summary>Steal / reject / remix notes</summary>
-        <div class="tri">
-          <div><span class="lab steal">Steal</span><p>Named failed alternatives (“call center”, “temp receptionist”).</p></div>
-          <div><span class="lab reject">Reject</span><p>Doom-scroll scare tactics for MedVirtual talent ads.</p></div>
-          <div><span class="lab remix">Remix for MV</span><p>Same pain, human hire answer — Meet front-desk / admin talent.</p></div>
-        </div>
-      </details>
-    </div>
-  </article><article class="card" id="weave" data-category="practice-saas" data-has-live="1">
-    <header class="brand-head">
-      <div>
-        <div class="top">
-          <h3>Weave</h3>
-          <span class="cat">practice-saas</span>
-          <span class="cat live">4 live ads</span>
-        </div>
-        <p class="why">Dental/medical practice platform — strong paid social craft.</p>
-      </div>
-      <div class="strip"><a class="strip-shot" href="#ad-weave-1989351485117580" title="Keep your dental practice running smoothly while you’re out and about. Handle ca"><img src="/assets/competitors/live/weave-1.jpg" alt="" /></a><a class="strip-shot" href="#ad-weave-1010815844872289" title="Busy with patients or out for lunch? Let Weave automatically text back every mis"><img src="/assets/competitors/live/weave-2.jpg" alt="" /></a><a class="strip-shot" href="#ad-weave-1036229989362075" title="Don't let new patients slip away. Weave's missed call text automatically sends a"><img src="/assets/competitors/live/weave-3.jpg" alt="" /></a><a class="strip-shot" href="#ad-weave-1552440253195381" title="Weave’s smart VoIP phone system does more than just take calls—it helps you run "><img src="/assets/competitors/live/weave-4.jpg" alt="" /></a></div>
-    </header>
-    <div class="live-block" id="weave-live">
-      <h4>See the ads</h4>
-      <p class="live-lede">Creative still + hook + headline + description — scroll and get inspired. Mock a MedVirtual take when something sparks.</p>
-      <div class="live-grid">
-        <div id="ad-weave-1989351485117580"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1989351485117580" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/weave-1.jpg" alt="Weave Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1989351485117580 · Started Jun 17, 2026 · Weave</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Keep your dental practice running smoothly while you’re out and about. Handle calls, texts, appointments, and more—all from your phone! 🦷📲</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Manage texts, calls, &amp; scheduling on the go</p></div>
-      <div class="field"><span class="fk">Description</span><p>The simpler dental software to connect better with patients.</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn more</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1989351485117580" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=weave">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=weave">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Weave%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Weave%0ALibrary%20ID%3A%201989351485117580%0AHook%20I%20noticed%3A%20Keep%20your%20dental%20practice%20running%20smoothly%20while%20you%E2%80%99re%20out%20and%20about.%20Handle%20calls%2C%20texts%2C%20appointments%2C%20and%20more%E2%80%94all%20from%20your%20phone!%20%F0%9F%A6%B7%F0%9F%93%B2%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-weave-1010815844872289"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1010815844872289" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/weave-2.jpg" alt="Weave Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1010815844872289 · Started Jun 17, 2026 · Weave</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Busy with patients or out for lunch? Let Weave automatically text back every missed call—day or night.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Miss a call? Weave answers with a text</p></div>
-      <div class="field"><span class="fk">Description</span><p>Dental practices like yours are already saving hours a week—why not you? Book your demo today!</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn More</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1010815844872289" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=weave">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=weave">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Weave%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Weave%0ALibrary%20ID%3A%201010815844872289%0AHook%20I%20noticed%3A%20Busy%20with%20patients%20or%20out%20for%20lunch%3F%20Let%20Weave%20automatically%20text%20back%20every%20missed%20call%E2%80%94day%20or%20night.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-weave-1036229989362075"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1036229989362075" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/weave-3.jpg" alt="Weave Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1036229989362075 · Started Jun 17, 2026 · Weave</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Don't let new patients slip away. Weave's missed call text automatically sends a friendly message, so you can capture leads and grow your practice—even when you're busy.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Turn Missed Calls Into New Patients</p></div>
-      
-      <div class="field"><span class="fk">CTA</span><p>Book Now</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1036229989362075" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=weave">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=weave">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Weave%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Weave%0ALibrary%20ID%3A%201036229989362075%0AHook%20I%20noticed%3A%20Don't%20let%20new%20patients%20slip%20away.%20Weave's%20missed%20call%20text%20automatically%20sends%20a%20friendly%20message%2C%20so%20you%20can%20capture%20leads%20and%20grow%20your%20practice%E2%80%94even%20when%20you're%20busy.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-weave-1552440253195381"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1552440253195381" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/weave-4.jpg" alt="Weave Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1552440253195381 · Started Jun 18, 2026 · Weave</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Weave’s smart VoIP phone system does more than just take calls—it helps you run your veterinary clinic more efficiently.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Smarter Phones, Smoother Workflow with Weave</p></div>
-      <div class="field"><span class="fk">Description</span><p>Upgrade to Weave's VoIP system and make every call count!</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn more</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1552440253195381" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=weave">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=weave">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Weave%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Weave%0ALibrary%20ID%3A%201552440253195381%0AHook%20I%20noticed%3A%20Weave%E2%80%99s%20smart%20VoIP%20phone%20system%20does%20more%20than%20just%20take%20calls%E2%80%94it%20helps%20you%20run%20your%20veterinary%20clinic%20more%20efficiently.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div>
-      </div>
-      <details class="notes">
-        <summary>Steal / reject / remix notes</summary>
-        <div class="tri">
-          <div><span class="lab steal">Steal</span><p>Tight hooks about phones / schedules without fear-mongering.</p></div>
-          <div><span class="lab reject">Reject</span><p>“We run your front desk” positioning for MedVirtual.</p></div>
-          <div><span class="lab remix">Remix for MV</span><p>Keep the pain in Meta primary text; on-image stays Meet + interview.</p></div>
-        </div>
-      </details>
-    </div>
-  </article><article class="card" id="nexhealth" data-category="practice-saas" data-has-live="1">
-    <header class="brand-head">
-      <div>
-        <div class="top">
-          <h3>NexHealth</h3>
-          <span class="cat">practice-saas</span>
-          <span class="cat live">1 live ads</span>
-        </div>
-        <p class="why">Patient experience / scheduling — polished B2B healthcare creative.</p>
-      </div>
-      <div class="strip"><a class="strip-shot" href="#ad-nexhealth-2006828616593472" title="Collect Balances Without the Chase"><img src="/assets/competitors/live/nexhealth-1.jpg" alt="" /></a></div>
-    </header>
-    <div class="live-block" id="nexhealth-live">
-      <h4>See the ads</h4>
-      <p class="live-lede">Creative still + hook + headline + description — scroll and get inspired. Mock a MedVirtual take when something sparks.</p>
-      <div class="live-grid">
-        <div id="ad-nexhealth-2006828616593472"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=2006828616593472" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/nexhealth-1.jpg" alt="NexHealth Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 2006828616593472 · Started Jun 4, 2026 · NexHealth</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Collect Balances Without the Chase</p></div>
-      
-      <div class="field"><span class="fk">Description</span><p>NexHealth practice collections / patient payment creative (live Ad Library).</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn More</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=2006828616593472" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=nexhealth">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=nexhealth">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20NexHealth%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20NexHealth%0ALibrary%20ID%3A%202006828616593472%0AHook%20I%20noticed%3A%20Collect%20Balances%20Without%20the%20Chase%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div>
-      </div>
-      <details class="notes">
-        <summary>Steal / reject / remix notes</summary>
-        <div class="tri">
-          <div><span class="lab steal">Steal</span><p>Whitespace + hierarchy — don’t crowd the 4:5.</p></div>
-          <div><span class="lab reject">Reject</span><p>Over-design that hides the offer.</p></div>
-          <div><span class="lab remix">Remix for MV</span><p>Borrow calm modern layout; keep MedVirtual teal + Be Vietnam.</p></div>
-        </div>
-      </details>
-    </div>
-  </article><article class="card" id="zocdoc" data-category="other" data-has-live="1">
-    <header class="brand-head">
-      <div>
-        <div class="top">
-          <h3>Zocdoc</h3>
-          <span class="cat">other</span>
-          <span class="cat live">4 live ads</span>
-        </div>
-        <p class="why">Consumer brand in healthcare — their paid often out-crafts staffing competitors.</p>
-      </div>
-      <div class="strip"><a class="strip-shot" href="#ad-zocdoc-4458646070948055" title="Ready for your own before-and-after? Use Zocdoc to book top-rated dermatologists"><img src="/assets/competitors/live/zocdoc-1.jpg" alt="" /></a><a class="strip-shot" href="#ad-zocdoc-1531737048332451" title="Find &amp; book a dentist who takes your insurance on Zocdoc:"><img src="/assets/competitors/live/zocdoc-2.jpg" alt="" /></a><a class="strip-shot" href="#ad-zocdoc-4163899043741831" title="Putting off that cleaning because you dread the phone tag and &quot;is this covered?&quot;"><img src="/assets/competitors/live/zocdoc-3.jpg" alt="" /></a><a class="strip-shot" href="#ad-zocdoc-1560698375402068" title="Need a Doctor? Book now on Zocdoc:"><img src="/assets/competitors/live/zocdoc-4.jpg" alt="" /></a></div>
-    </header>
-    <div class="live-block" id="zocdoc-live">
-      <h4>See the ads</h4>
-      <p class="live-lede">Creative still + hook + headline + description — scroll and get inspired. Mock a MedVirtual take when something sparks.</p>
-      <div class="live-grid">
-        <div id="ad-zocdoc-4458646070948055"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=4458646070948055" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/zocdoc-1.jpg" alt="Zocdoc Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 4458646070948055 · Started Jun 4, 2026 · Zocdoc</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Ready for your own before-and-after? Use Zocdoc to book top-rated dermatologists who accept your insurance.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Find &amp; book a dermatologist</p></div>
-      
-      <div class="field"><span class="fk">CTA</span><p>Book Now</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=4458646070948055" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=zocdoc">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=zocdoc">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Zocdoc%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Zocdoc%0ALibrary%20ID%3A%204458646070948055%0AHook%20I%20noticed%3A%20Ready%20for%20your%20own%20before-and-after%3F%20Use%20Zocdoc%20to%20book%20top-rated%20dermatologists%20who%20accept%20your%20insurance.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-zocdoc-1531737048332451"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1531737048332451" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/zocdoc-2.jpg" alt="Zocdoc Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1531737048332451 · Started Jun 4, 2026 · Zocdoc</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Find &amp; book a dentist who takes your insurance on Zocdoc:</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Search by insurance &amp; location</p></div>
-      <div class="field"><span class="fk">Description</span><p>See real-time availability · Read reviews from real patients · Book online anytime, anywhere</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Book Now</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1531737048332451" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=zocdoc">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=zocdoc">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Zocdoc%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Zocdoc%0ALibrary%20ID%3A%201531737048332451%0AHook%20I%20noticed%3A%20Find%20%26%20book%20a%20dentist%20who%20takes%20your%20insurance%20on%20Zocdoc%3A%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-zocdoc-4163899043741831"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=4163899043741831" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/zocdoc-3.jpg" alt="Zocdoc Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 4163899043741831 · Started Jun 4, 2026 · Zocdoc</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Putting off that cleaning because you dread the phone tag and &quot;is this covered?&quot; talk? Zocdoc makes it easy to find top-rated dentists near you—and book online, instantly.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Book a Top-Rated Dentist Today!</p></div>
-      <div class="field"><span class="fk">Description</span><p>Real openings. Real reviews. Real fast.</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Book Now</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=4163899043741831" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=zocdoc">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=zocdoc">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Zocdoc%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Zocdoc%0ALibrary%20ID%3A%204163899043741831%0AHook%20I%20noticed%3A%20Putting%20off%20that%20cleaning%20because%20you%20dread%20the%20phone%20tag%20and%20%22is%20this%20covered%3F%22%20talk%3F%20Zocdoc%20makes%20it%20easy%20to%20find%20top-rated%20dentists%20near%20you%E2%80%94and%20book%20online%2C%20instantly.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-zocdoc-1560698375402068"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1560698375402068" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/zocdoc-4.jpg" alt="Zocdoc Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1560698375402068 · Started Jun 4, 2026 · Zocdoc</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Need a Doctor? Book now on Zocdoc:</p></div>
-      <div class="field"><span class="fk">Headline</span><p>See in-network providers</p></div>
-      <div class="field"><span class="fk">Description</span><p>Filter by your location · Read real patient reviews · Book instantly</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Book Now</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1560698375402068" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=zocdoc">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=zocdoc">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Zocdoc%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Zocdoc%0ALibrary%20ID%3A%201560698375402068%0AHook%20I%20noticed%3A%20Need%20a%20Doctor%3F%20Book%20now%20on%20Zocdoc%3A%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div>
-      </div>
-      <details class="notes">
-        <summary>Steal / reject / remix notes</summary>
-        <div class="tri">
-          <div><span class="lab steal">Steal</span><p>Ruthless simplicity — one idea per frame.</p></div>
-          <div><span class="lab reject">Reject</span><p>Trying to explain our whole company on the image.</p></div>
-          <div><span class="lab remix">Remix for MV</span><p>One proof line + Meet name + CTA — stop packing five claims.</p></div>
-        </div>
-      </details>
-    </div>
-  </article><article class="card" id="generic-va-commodity" data-category="virtual-staffing" data-has-live="1">
-    <header class="brand-head">
-      <div>
-        <div class="top">
-          <h3>Generic “Hire VAs” cluster</h3>
-          <span class="cat">virtual-staffing</span>
-          <span class="cat live">11 live ads</span>
-        </div>
-        <p class="why">A crowded “hire VAs” look we can happily do better than — lots of room for fresh MedVirtual ideas.</p>
-      </div>
-      <div class="strip"><a class="strip-shot" href="#ad-generic-va-commodity-1739290310384151" title="Elevate patient care, reduce overhead, and scale effortlessly with Tactical Back"><img src="/assets/competitors/live/generic-va-1.jpg" alt="" /></a><a class="strip-shot" href="#ad-generic-va-commodity-2648105012304571" title="Your front desk is costing your practice time &amp; revenue."><img src="/assets/competitors/live/generic-va-2.jpg" alt="" /></a><a class="strip-shot" href="#ad-generic-va-commodity-1005513509043204" title="Is your staff overwhelmed?"><img src="/assets/competitors/live/generic-va-3.jpg" alt="" /></a><a class="strip-shot" href="#ad-generic-va-commodity-979366721772311" title="Clinic owners… how many hours are you losing to admin every week?"><img src="/assets/competitors/live/generic-va-4.jpg" alt="" /></a></div>
-    </header>
-    <div class="live-block" id="generic-va-commodity-live">
-      <h4>See the ads</h4>
-      <p class="live-lede">Creative still + hook + headline + description — scroll and get inspired. Mock a MedVirtual take when something sparks.</p>
-      <div class="live-grid">
-        <div id="ad-generic-va-commodity-1739290310384151"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1739290310384151" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-1.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1739290310384151 · Started Feb 17, 2026 · Tactical Back Office</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Elevate patient care, reduce overhead, and scale effortlessly with Tactical Back Office.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Part-Time or Full-Time Staffing</p></div>
-      <div class="field"><span class="fk">Description</span><p>HME Business Award Winning Service · Immediate Onboarding</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Get Offer</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1739290310384151" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%201739290310384151%0AHook%20I%20noticed%3A%20Elevate%20patient%20care%2C%20reduce%20overhead%2C%20and%20scale%20effortlessly%20with%20Tactical%20Back%20Office.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-generic-va-commodity-2648105012304571"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=2648105012304571" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-2.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 2648105012304571 · Started Jun 23, 2026 · Edge Services</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Your front desk is costing your practice time &amp; revenue.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Get a trained Virtual Medical Receptionist to streamline:</p></div>
-      <div class="field"><span class="fk">Description</span><p>Scheduling &amp; Intake · Correspondence · Insurance Verification</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn More</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=2648105012304571" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%202648105012304571%0AHook%20I%20noticed%3A%20Your%20front%20desk%20is%20costing%20your%20practice%20time%20%26%20revenue.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-generic-va-commodity-1005513509043204"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1005513509043204" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-3.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1005513509043204 · Started Jun 22, 2026 · Edge Services</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Is your staff overwhelmed?</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Give patients the personalized attention they deserve!</p></div>
-      <div class="field"><span class="fk">Description</span><p>Hire a Virtual Patient Care Coordinator to manage follow-ups &amp; appointment reminders</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn More</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1005513509043204" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%201005513509043204%0AHook%20I%20noticed%3A%20Is%20your%20staff%20overwhelmed%3F%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-generic-va-commodity-979366721772311"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=979366721772311" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-4.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 979366721772311 · Started Jul 9, 2026 · Winning Clinics</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Clinic owners… how many hours are you losing to admin every week?</p></div>
-      <div class="field"><span class="fk">Headline</span><p>It’s not patients causing burnout. It’s everything behind the scenes.</p></div>
-      <div class="field"><span class="fk">Description</span><p>Messages. Scheduling. Follow-ups. Charting.</p></div>
-      
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=979366721772311" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%20979366721772311%0AHook%20I%20noticed%3A%20Clinic%20owners%E2%80%A6%20how%20many%20hours%20are%20you%20losing%20to%20admin%20every%20week%3F%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-generic-va-commodity-1667508437864872"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1667508437864872" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-5.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1667508437864872 · Started Jun 22, 2026 · Edge Services</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Trained, HIPAA-compliant Virtual Coordinators for scheduling, follow-ups &amp; patient support. Save time, reduce burnout, and boost care quality.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>WWW.ONEDGE.CO</p></div>
-      <div class="field"><span class="fk">Description</span><p>HIPAA Compliant Virtual Scheduling Coordinator</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn More</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1667508437864872" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%201667508437864872%0AHook%20I%20noticed%3A%20Trained%2C%20HIPAA-compliant%20Virtual%20Coordinators%20for%20scheduling%2C%20follow-ups%20%26%20patient%20support.%20Save%20time%2C%20reduce%20burnout%2C%20and%20boost%20care%20quality.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-generic-va-commodity-885433090668106"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=885433090668106" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-6.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 885433090668106 · Started Jun 27, 2026 · Snappy CX</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Stop overpaying for backend tasks. You can lower your administrative overhead by up to 70% this month without compromising patient experience.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Skilled Virtual Healthcare Talent from $6/hr.</p></div>
-      <div class="field"><span class="fk">Description</span><p>Medical VAs, billers &amp; scribes ready to work.</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn More</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=885433090668106" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%20885433090668106%0AHook%20I%20noticed%3A%20Stop%20overpaying%20for%20backend%20tasks.%20You%20can%20lower%20your%20administrative%20overhead%20by%20up%20to%2070%25%20this%20month%20without%20compromising%20patient%20experience.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-generic-va-commodity-4370418569885564"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=4370418569885564" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-7.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 4370418569885564 · Started Jul 10, 2026 · My Medical VA</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Administrative tasks shouldn't get in the way of exceptional patient care.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Reduce Patient No-Shows by 18-32%</p></div>
-      <div class="field"><span class="fk">Description</span><p>Practices see an 18-32% reduction in patient no-shows within 60 days and a significant drop in front-desk backlog in 2-3 weeks.</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Book Now</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=4370418569885564" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%204370418569885564%0AHook%20I%20noticed%3A%20Administrative%20tasks%20shouldn't%20get%20in%20the%20way%20of%20exceptional%20patient%20care.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-generic-va-commodity-1006100685236333"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1006100685236333" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-8.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1006100685236333 · Started Jun 22, 2026 · My Mountain Mover</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Every minute you spend chasing paperwork is a minute stolen from practice revenue. 📈</p></div>
-      <div class="field"><span class="fk">Headline</span><p>MYMOUNTAINMOVER.COM</p></div>
-      <div class="field"><span class="fk">Description</span><p>Delegate admin to a highly trained Medical Virtual Assistant. HIPAA-compliant. Trusted by 1,000+ practices nationwide.</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Contact us</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1006100685236333" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%201006100685236333%0AHook%20I%20noticed%3A%20Every%20minute%20you%20spend%20chasing%20paperwork%20is%20a%20minute%20stolen%20from%20practice%20revenue.%20%F0%9F%93%88%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-generic-va-commodity-2118091545587342"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=2118091545587342" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-9.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 2118091545587342 · Started Jul 5, 2026 · VM Assistants</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>Managing a medical practice shouldn't mean drowning in overhead costs and administrative tasks. Scale your clinical efficiency with dedicated remote healthcare specialists.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Medical Scribes · Front Desk · HIPAA Compliant</p></div>
-      <div class="field"><span class="fk">Description</span><p>Experienced Medical Scribes · Efficient Front Desk Management · Fully HIPAA Compliant Staff</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn More</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=2118091545587342" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%202118091545587342%0AHook%20I%20noticed%3A%20Managing%20a%20medical%20practice%20shouldn't%20mean%20drowning%20in%20overhead%20costs%20and%20administrative%20tasks.%20Scale%20your%20clinical%20efficiency%20with%20dedicated%20remote%20healthcare%20specialists.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-generic-va-commodity-1268840981694317"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1268840981694317" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-10.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1268840981694317 · Started Aug 7, 2025 · Cure Intent</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>We provide fully trained HIPAA-compliant Remote Medical VAs. No monthly contract or commitment.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Remote Medical VAs</p></div>
-      <div class="field"><span class="fk">Description</span><p>Medical Scribing · Front desk call handling · Patient appointment scheduling</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn More</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1268840981694317" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%201268840981694317%0AHook%20I%20noticed%3A%20We%20provide%20fully%20trained%20HIPAA-compliant%20Remote%20Medical%20VAs.%20No%20monthly%20contract%20or%20commitment.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div><div id="ad-generic-va-commodity-1727806568372051"><article class="live-ad">
-    <a class="creative" href="https://www.facebook.com/ads/library/?id=1727806568372051" target="_blank" rel="noopener">
-      <img src="/assets/competitors/live/generic-va-11.jpg" alt="Generic “Hire VAs” cluster Meta ad creative" />
-    </a>
-    <div class="live-copy">
-      <p class="live-meta">Library ID 1727806568372051 · Started Jun 27, 2026 · Psyphycare</p>
-      <div class="field"><span class="fk">Primary text / hook</span><p>How much of your day is spent on work that could be delegated? A Medical Virtual Assistant can help with appointment scheduling, patient follow-ups, and administrative paperwork.</p></div>
-      <div class="field"><span class="fk">Headline</span><p>Medical Virtual Assistant</p></div>
-      <div class="field"><span class="fk">Description</span><p>Appointment scheduling · Patient follow-ups</p></div>
-      <div class="field"><span class="fk">CTA</span><p>Learn More</p></div>
-      <div class="live-actions">
-        <a class="btn primary" href="https://www.facebook.com/ads/library/?id=1727806568372051" target="_blank" rel="noopener">Open this ad</a>
-        <a class="btn" href="/creative-concept-lab.html?competitor=generic-va-commodity">Build Static Concept</a>
-        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Mock my own take</a>
-        <a class="btn" href="mailto:george.a@legalsoft.com?subject=Pitch%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%20remix&body=Hey%20George!%0A%0ACompetitor%3A%20Generic%20%E2%80%9CHire%20VAs%E2%80%9D%20cluster%0ALibrary%20ID%3A%201727806568372051%0AHook%20I%20noticed%3A%20How%20much%20of%20your%20day%20is%20spent%20on%20work%20that%20could%20be%20delegated%3F%20A%20Medical%20Virtual%20Assistant%20can%20help%20with%20appointment%20scheduling%2C%20patient%20follow-ups%2C%20and%20administrative%20paperwork.%0A%0AMy%20remix%20idea%3A%0A%0AThanks!%0A">Pitch George</a>
-      </div>
-    </div>
-  </article></div>
-      </div>
-      <details class="notes">
-        <summary>Steal / reject / remix notes</summary>
-        <div class="tri">
-          <div><span class="lab steal">Steal</span><p>Nothing required — use it as fuel to go different.</p></div>
-          <div><span class="lab reject">Reject</span><p>Blending in with the pack just because it’s familiar.</p></div>
-          <div><span class="lab remix">Remix for MV</span><p>Ideas Lab: Veo, motion, human shoots, SaaS Prop — have fun standing out.</p></div>
-        </div>
-      </details>
-    </div>
-  </article><article class="card empty-card" id="time-doc" data-category="practice-saas" data-has-live="0">
-      <div class="empty-body">
-        <div class="top">
-          <h3>TimeDoc Health</h3>
-          <span class="cat warn">No live Meta creative yet</span>
-        </div>
-        <p class="why">Care-management / RPM adjacent — often more software than staffing.</p>
-        <p class="empty-note">We only show real Ad Library creatives here — not placeholder frames. As soon as a scrape finds active ads, they’ll land in this slot.</p>
-        <div class="actions">
-          <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=TimeDoc%20Health" target="_blank" rel="noopener">Check Ad Library now</a>
-          <a class="btn" href="mailto:george.a@legalsoft.com?subject=Found%20ads%20for%3A%20TimeDoc%20Health&body=Hey%20George!%0A%0AI%20found%20live%20ads%20for%20TimeDoc%20Health%20%E2%80%94%20Library%20links%3A%0A%0A">Email George a find</a>
-        </div>
-      </div>
-    </article><article class="card empty-card" id="carerev" data-category="job-marketplace" data-has-live="0">
-      <div class="empty-body">
-        <div class="top">
-          <h3>CareRev</h3>
-          <span class="cat warn">No live Meta creative yet</span>
-        </div>
-        <p class="why">Clinician marketplace — shows how staffing brands swing job-seeker vs buyer ads.</p>
-        <p class="empty-note">We only show real Ad Library creatives here — not placeholder frames. As soon as a scrape finds active ads, they’ll land in this slot.</p>
-        <div class="actions">
-          <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=CareRev" target="_blank" rel="noopener">Check Ad Library now</a>
-          <a class="btn" href="mailto:george.a@legalsoft.com?subject=Found%20ads%20for%3A%20CareRev&body=Hey%20George!%0A%0AI%20found%20live%20ads%20for%20CareRev%20%E2%80%94%20Library%20links%3A%0A%0A">Email George a find</a>
-        </div>
-      </div>
-    </article><article class="card empty-card" id="patientpop" data-category="practice-saas" data-has-live="0">
-      <div class="empty-body">
-        <div class="top">
-          <h3>PatientPop / Tebra</h3>
-          <span class="cat warn">No live Meta creative yet</span>
-        </div>
-        <p class="why">Practice growth marketing stack — lots of Meta history.</p>
-        <p class="empty-note">We only show real Ad Library creatives here — not placeholder frames. As soon as a scrape finds active ads, they’ll land in this slot.</p>
-        <div class="actions">
-          <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=PatientPop" target="_blank" rel="noopener">Check Ad Library now</a>
-          <a class="btn" href="mailto:george.a@legalsoft.com?subject=Found%20ads%20for%3A%20PatientPop%20%2F%20Tebra&body=Hey%20George!%0A%0AI%20found%20live%20ads%20for%20PatientPop%20%2F%20Tebra%20%E2%80%94%20Library%20links%3A%0A%0A">Email George a find</a>
-        </div>
-      </div>
-    </article>
-    </div>
-
-    <section>
-      <h2>This week’s three forks</h2>
-      <p class="lede">Same brief, three directions — Lookbook faithful, bold experiment, SaaS. Open them in the mock-up sandbox and send your favorite.</p>
-      <div class="forks"><article class="fork">
-      <h3>Carmen · 1080×1350</h3>
-      <ul>
-        <li><strong>Lookbook</strong> — Meet Carmen · Medical Biller · Lookbook-faithful</li>
-        <li><strong>Experiment</strong> — Bold type · fewer checks · bigger face crop</li>
-        <li><strong>SaaS</strong> — No face — glass dashboard metaphor + “Billing work piling up?”</li>
-      </ul>
-      <a class="btn" href="/mockup-sandbox.html?fork=fork-carmen">Open three forks in sandbox</a>
-    </article><article class="fork">
-      <h3>Jessica · 1080×1920</h3>
-      <ul>
-        <li><strong>Lookbook</strong> — Stories resize of Jessica feed ad</li>
-        <li><strong>Experiment</strong> — Full-bleed motion poster frame for Remotion STATIC_TO_SHORT</li>
-        <li><strong>SaaS</strong> — Tall software UI with three pulsing checklist ticks</li>
-      </ul>
-      <a class="btn" href="/mockup-sandbox.html?fork=fork-jessica-story">Open three forks in sandbox</a>
-    </article></div>
-    </section>
-
-    <section class="cta">
-      <h2>Mock it · pitch George</h2>
-      <p>Saw a hook you like? Remix it in the sandbox and email George — he’s excited to see what you cook up.</p>
-      <a class="btn primary" href="mailto:george.a@legalsoft.com?subject=Competitor%20remix%20pitch&amp;body=Hey%20George!%0A%0ACompetitor%20I%20studied%3A%0AMy%20remix%20%2F%20mock%20idea%3A%0A(Optional%3A%20attached%20PNG%20from%20the%20sandbox)%0A%0AThanks!%0A">Email George a remix</a>
-      <a class="btn" href="/creative-concept-lab.html">Static Concepts</a>
-      <a class="btn" href="/mockup-sandbox.html">Open mock-up sandbox</a>
-      <a class="btn" href="/ideas.html">Ideas Lab</a>
-    </section>
+    <div class="warn danger">These are EXTERNAL references. Do not copy competitor creative, claims, or brand assets. Fill in fields marked "Research needed" from the public Meta Ad Library before relying on them.</div>
+    <section><div class="grid-2"><div class="card">
+      <span class="eyebrow">External reference</span>
+      <h3>Hello Rache <span class="pill s-research-needed">Research Needed</span></h3>
+      <div class="warn">EXTERNAL REFERENCE ONLY — healthcare virtual assistant competitor. Benchmark structure only; do not copy palette, claims, or copy.</div>
+      <ul class="clean"><li><b>Website:</b> https://www.hellorache.com</li><li><b>Facebook Page:</b> Research needed</li><li><b>Meta Ad Library:</b> Research needed — search Meta Ad Library by page name</li><li><b>Creative format:</b> Research needed</li><li><b>Language:</b> Research needed</li><li><b>Headline:</b> Research needed</li><li><b>Offer:</b> Research needed</li><li><b>Price shown:</b> Research needed</li><li><b>Trust claim:</b> Research needed</li><li><b>CTA:</b> Research needed</li><li><b>Talent / wardrobe:</b> Research needed / Research needed</li><li><b>Colors:</b> Research needed / Research needed</li><li><b>Spanish / flag:</b> Research needed / Research needed</li><li><b>Form type / friction:</b> Research needed / Research needed</li><li><b>Required fields:</b> Research needed</li><li><b>SMS verify / work email:</b> Research needed / Research needed</li><li><b>Strengths:</b> Research needed</li><li><b>Weaknesses:</b> Research needed</li><li><b>What to adapt:</b> Research needed</li><li><b>What NOT to copy:</b> Never copy competitor names, logos, URLs, exact layouts, palettes (esp. pink), or unverified claims.</li><li><b>Originality risk:</b> Research needed</li></ul>
+    </div><div class="card">
+      <span class="eyebrow">External reference</span>
+      <h3>Virtual Medical Admins <span class="pill s-research-needed">Research Needed</span></h3>
+      <div class="warn">EXTERNAL REFERENCE ONLY — verify this is a distinct company vs a generic category name before logging ads.</div>
+      <ul class="clean"><li><b>Website:</b> Research needed — confirm official domain</li><li><b>Facebook Page:</b> Research needed</li><li><b>Meta Ad Library:</b> Research needed — search Meta Ad Library by page name</li><li><b>Creative format:</b> Research needed</li><li><b>Language:</b> Research needed</li><li><b>Headline:</b> Research needed</li><li><b>Offer:</b> Research needed</li><li><b>Price shown:</b> Research needed</li><li><b>Trust claim:</b> Research needed</li><li><b>CTA:</b> Research needed</li><li><b>Talent / wardrobe:</b> Research needed / Research needed</li><li><b>Colors:</b> Research needed / Research needed</li><li><b>Spanish / flag:</b> Research needed / Research needed</li><li><b>Form type / friction:</b> Research needed / Research needed</li><li><b>Required fields:</b> Research needed</li><li><b>SMS verify / work email:</b> Research needed / Research needed</li><li><b>Strengths:</b> Research needed</li><li><b>Weaknesses:</b> Research needed</li><li><b>What to adapt:</b> Research needed</li><li><b>What NOT to copy:</b> Never copy competitor names, logos, URLs, exact layouts, palettes (esp. pink), or unverified claims.</li><li><b>Originality risk:</b> Research needed</li></ul>
+    </div><div class="card">
+      <span class="eyebrow">External reference</span>
+      <h3>My Mountain Mover <span class="pill s-research-needed">Research Needed</span></h3>
+      <div class="warn">EXTERNAL REFERENCE ONLY — healthcare VA staffing competitor. Benchmark only.</div>
+      <ul class="clean"><li><b>Website:</b> https://www.mymountainmover.com</li><li><b>Facebook Page:</b> Research needed</li><li><b>Meta Ad Library:</b> Research needed — search Meta Ad Library by page name</li><li><b>Creative format:</b> Research needed</li><li><b>Language:</b> Research needed</li><li><b>Headline:</b> Research needed</li><li><b>Offer:</b> Research needed</li><li><b>Price shown:</b> Research needed</li><li><b>Trust claim:</b> Research needed</li><li><b>CTA:</b> Research needed</li><li><b>Talent / wardrobe:</b> Research needed / Research needed</li><li><b>Colors:</b> Research needed / Research needed</li><li><b>Spanish / flag:</b> Research needed / Research needed</li><li><b>Form type / friction:</b> Research needed / Research needed</li><li><b>Required fields:</b> Research needed</li><li><b>SMS verify / work email:</b> Research needed / Research needed</li><li><b>Strengths:</b> Research needed</li><li><b>Weaknesses:</b> Research needed</li><li><b>What to adapt:</b> Research needed</li><li><b>What NOT to copy:</b> Never copy competitor names, logos, URLs, exact layouts, palettes (esp. pink), or unverified claims.</li><li><b>Originality risk:</b> Research needed</li></ul>
+    </div><div class="card">
+      <span class="eyebrow">External reference</span>
+      <h3>MedVA <span class="pill s-research-needed">Research Needed</span></h3>
+      <div class="warn">EXTERNAL REFERENCE ONLY — medical virtual assistant competitor. Benchmark only.</div>
+      <ul class="clean"><li><b>Website:</b> https://www.medva.com</li><li><b>Facebook Page:</b> Research needed</li><li><b>Meta Ad Library:</b> Research needed — search Meta Ad Library by page name</li><li><b>Creative format:</b> Research needed</li><li><b>Language:</b> Research needed</li><li><b>Headline:</b> Research needed</li><li><b>Offer:</b> Research needed</li><li><b>Price shown:</b> Research needed</li><li><b>Trust claim:</b> Research needed</li><li><b>CTA:</b> Research needed</li><li><b>Talent / wardrobe:</b> Research needed / Research needed</li><li><b>Colors:</b> Research needed / Research needed</li><li><b>Spanish / flag:</b> Research needed / Research needed</li><li><b>Form type / friction:</b> Research needed / Research needed</li><li><b>Required fields:</b> Research needed</li><li><b>SMS verify / work email:</b> Research needed / Research needed</li><li><b>Strengths:</b> Research needed</li><li><b>Weaknesses:</b> Research needed</li><li><b>What to adapt:</b> Research needed</li><li><b>What NOT to copy:</b> Never copy competitor names, logos, URLs, exact layouts, palettes (esp. pink), or unverified claims.</li><li><b>Originality risk:</b> Research needed</li></ul>
+    </div><div class="card">
+      <span class="eyebrow">External reference</span>
+      <h3>Virtual Latinos <span class="pill s-research-needed">Research Needed</span></h3>
+      <div class="warn">EXTERNAL REFERENCE ONLY — relevant for Spanish/bilingual staffing benchmark. Benchmark only.</div>
+      <ul class="clean"><li><b>Website:</b> https://www.virtuallatinos.com</li><li><b>Facebook Page:</b> Research needed</li><li><b>Meta Ad Library:</b> Research needed — search Meta Ad Library by page name</li><li><b>Creative format:</b> Research needed</li><li><b>Language:</b> Likely EN + ES</li><li><b>Headline:</b> Research needed</li><li><b>Offer:</b> Research needed</li><li><b>Price shown:</b> Research needed</li><li><b>Trust claim:</b> Research needed</li><li><b>CTA:</b> Research needed</li><li><b>Talent / wardrobe:</b> Research needed / Research needed</li><li><b>Colors:</b> Research needed / Research needed</li><li><b>Spanish / flag:</b> Research needed — Spanish-speaking VA positioning / Research needed</li><li><b>Form type / friction:</b> Research needed / Research needed</li><li><b>Required fields:</b> Research needed</li><li><b>SMS verify / work email:</b> Research needed / Research needed</li><li><b>Strengths:</b> Research needed</li><li><b>Weaknesses:</b> Research needed</li><li><b>What to adapt:</b> Research needed</li><li><b>What NOT to copy:</b> Never copy competitor names, logos, URLs, exact layouts, palettes (esp. pink), or unverified claims.</li><li><b>Originality risk:</b> Research needed</li></ul>
+    </div><div class="card">
+      <span class="eyebrow">External reference</span>
+      <h3>Dental VA competitor (e.g., Dental Support Specialties) <span class="pill s-research-needed">Research Needed</span></h3>
+      <div class="warn">EXTERNAL REFERENCE ONLY — dental-specific virtual admin benchmark. Identify a concrete vendor before logging.</div>
+      <ul class="clean"><li><b>Website:</b> Research needed — confirm specific dental VA vendor</li><li><b>Facebook Page:</b> Research needed</li><li><b>Meta Ad Library:</b> Research needed — search Meta Ad Library by page name</li><li><b>Creative format:</b> Research needed</li><li><b>Language:</b> Research needed</li><li><b>Headline:</b> Research needed</li><li><b>Offer:</b> Research needed</li><li><b>Price shown:</b> Research needed</li><li><b>Trust claim:</b> Research needed</li><li><b>CTA:</b> Research needed</li><li><b>Talent / wardrobe:</b> Research needed / Research needed</li><li><b>Colors:</b> Research needed / Research needed</li><li><b>Spanish / flag:</b> Research needed / Research needed</li><li><b>Form type / friction:</b> Research needed / Research needed</li><li><b>Required fields:</b> Research needed</li><li><b>SMS verify / work email:</b> Research needed / Research needed</li><li><b>Strengths:</b> Research needed</li><li><b>Weaknesses:</b> Research needed</li><li><b>What to adapt:</b> Research needed</li><li><b>What NOT to copy:</b> Never copy competitor names, logos, URLs, exact layouts, palettes (esp. pink), or unverified claims.</li><li><b>Originality risk:</b> Research needed</li></ul>
+    </div><div class="card">
+      <span class="eyebrow">External reference</span>
+      <h3>Medical billing VA competitor <span class="pill s-research-needed">Research Needed</span></h3>
+      <div class="warn">EXTERNAL REFERENCE ONLY — medical-billing virtual staff benchmark. Identify a concrete vendor before logging.</div>
+      <ul class="clean"><li><b>Website:</b> Research needed — confirm specific billing VA vendor</li><li><b>Facebook Page:</b> Research needed</li><li><b>Meta Ad Library:</b> Research needed — search Meta Ad Library by page name</li><li><b>Creative format:</b> Research needed</li><li><b>Language:</b> Research needed</li><li><b>Headline:</b> Research needed</li><li><b>Offer:</b> Research needed</li><li><b>Price shown:</b> Research needed</li><li><b>Trust claim:</b> Research needed</li><li><b>CTA:</b> Research needed</li><li><b>Talent / wardrobe:</b> Research needed / Research needed</li><li><b>Colors:</b> Research needed / Research needed</li><li><b>Spanish / flag:</b> Research needed / Research needed</li><li><b>Form type / friction:</b> Research needed / Research needed</li><li><b>Required fields:</b> Research needed</li><li><b>SMS verify / work email:</b> Research needed / Research needed</li><li><b>Strengths:</b> Research needed</li><li><b>Weaknesses:</b> Research needed</li><li><b>What to adapt:</b> Research needed</li><li><b>What NOT to copy:</b> Never copy competitor names, logos, URLs, exact layouts, palettes (esp. pink), or unverified claims.</li><li><b>Originality risk:</b> Research needed</li></ul>
+    </div><div class="card">
+      <span class="eyebrow">External reference</span>
+      <h3>Spanish-speaking staffing competitor <span class="pill s-research-needed">Research Needed</span></h3>
+      <div class="warn">EXTERNAL REFERENCE ONLY — bilingual staffing benchmark for the Spanish segment.</div>
+      <ul class="clean"><li><b>Website:</b> Research needed</li><li><b>Facebook Page:</b> Research needed</li><li><b>Meta Ad Library:</b> Research needed — search Meta Ad Library by page name</li><li><b>Creative format:</b> Research needed</li><li><b>Language:</b> ES</li><li><b>Headline:</b> Research needed</li><li><b>Offer:</b> Research needed</li><li><b>Price shown:</b> Research needed</li><li><b>Trust claim:</b> Research needed</li><li><b>CTA:</b> Research needed</li><li><b>Talent / wardrobe:</b> Research needed / Research needed</li><li><b>Colors:</b> Research needed / Research needed</li><li><b>Spanish / flag:</b> Research needed / Research needed</li><li><b>Form type / friction:</b> Research needed / Research needed</li><li><b>Required fields:</b> Research needed</li><li><b>SMS verify / work email:</b> Research needed / Research needed</li><li><b>Strengths:</b> Research needed</li><li><b>Weaknesses:</b> Research needed</li><li><b>What to adapt:</b> Research needed</li><li><b>What NOT to copy:</b> Never copy competitor names, logos, URLs, exact layouts, palettes (esp. pink), or unverified claims.</li><li><b>Originality risk:</b> Research needed</li></ul>
+    </div></div></section>
+  
+    <p class="foot">MedVirtual Ad Production · Virtual Medical Admin · Reviewed July 14, 2026 · Approved creative colors only (no pink) · Ad-facing brand: MedVirtual.</p>
   </main>
-  <script>
-    const buttons = document.querySelectorAll('[data-filter]');
-    const cards = document.querySelectorAll('.card[data-category]');
-    function applyFilter(f) {
-      cards.forEach((c) => {
-        let show = true;
-        if (f === 'live') show = c.getAttribute('data-has-live') === '1';
-        else if (f !== 'all') show = c.getAttribute('data-category') === f;
-        c.classList.toggle('is-hidden', !show);
-      });
-    }
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        buttons.forEach((b) => b.classList.remove('on'));
-        btn.classList.add('on');
-        applyFilter(btn.getAttribute('data-filter'));
+  
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.copy-btn');
+    if(!btn) return;
+    var text = btn.getAttribute('data-copy') || '';
+    navigator.clipboard.writeText(text).then(function(){
+      var old = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(function(){ btn.textContent = old; btn.classList.remove('copied'); }, 1400);
+    });
+  });
+  // Generic data-filter groups
+  document.querySelectorAll('[data-filter-group]').forEach(function(group){
+    var key = group.getAttribute('data-filter-group');
+    group.querySelectorAll('button[data-filter]').forEach(function(b){
+      b.addEventListener('click', function(){
+        group.querySelectorAll('button[data-filter]').forEach(function(x){ x.classList.remove('active'); });
+        b.classList.add('active');
+        var val = b.getAttribute('data-filter');
+        document.querySelectorAll('[data-'+key+']').forEach(function(item){
+          var show = (val === 'all') || item.getAttribute('data-'+key) === val;
+          item.style.display = show ? '' : 'none';
+        });
       });
     });
-    applyFilter(document.querySelector('[data-filter].on')?.getAttribute('data-filter') || 'live');
-  </script>
+  });
+  // Persist checkboxes + text inputs with data-persist
+  document.querySelectorAll('[data-persist]').forEach(function(el){
+    var k = 'vma-'+el.getAttribute('data-persist');
+    try {
+      var saved = localStorage.getItem(k);
+      if(saved !== null){ if(el.type==='checkbox'){ el.checked = saved==='1'; } else { el.value = saved; } }
+    } catch(e){}
+    el.addEventListener(el.type==='checkbox'?'change':'input', function(){
+      try { localStorage.setItem(k, el.type==='checkbox' ? (el.checked?'1':'0') : el.value); } catch(e){}
+    });
+  });
+})();
+</script>
 </body>
 </html>

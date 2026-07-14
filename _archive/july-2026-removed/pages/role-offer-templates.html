@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Role-Offer Templates · MedVirtual</title>
+  <style>
+
+  
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --mv-deep-teal: #0D546B;
+  --mv-accent: #00C0D4;
+  --mv-bright-accent: #27E6FA;
+  --mv-neutral-blue: #F0F5FF;
+  --mv-neutral-warm: #EFEDE1;
+  --mv-ink: #161511;
+  --mv-white: #FFFFFF;
+  --mv-gradient-primary: linear-gradient(90deg, #077999 0%, #00B2E2 100%);
+  --mv-gradient-light: linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%);
+  --mv-gradient-bright: linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%);
+  --mv-gradient-deep: linear-gradient(90deg, #0D546B 0%, #00C0D4 100%);
+  --mv-font: "Be Vietnam", Inter, Arial, sans-serif;
+}
+
+  .doc-header {
+    background: var(--mv-deep-teal);
+    color: #ffffff;
+    border-bottom: 3px solid var(--mv-cyan);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    font-family: var(--mv-font);
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .doc-header__mark {
+    display: none;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #b8d4e0;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #b8d4e0;
+    max-width: 820px;
+  }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .doc-nav a,
+  .doc-nav-dd > summary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #d7e8f0;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+    list-style: none;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+  }
+  .doc-header details.doc-nav-dd {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
+  .doc-header details.doc-nav-dd > summary {
+    background: transparent !important;
+    color: #d7e8f0 !important;
+    font-weight: 500 !important;
+    border: 1px solid transparent !important;
+    padding: 0.45rem 0.75rem !important;
+  }
+  .doc-nav-dd > summary::-webkit-details-marker { display: none; }
+  .doc-nav-dd > summary::after {
+    content: '▾';
+    margin-left: 0.35em;
+    font-size: 0.7em;
+    opacity: 0.75;
+  }
+  .doc-nav a:hover,
+  .doc-header details.doc-nav-dd > summary:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: var(--mv-primary);
+  }
+  .doc-header details.doc-nav-dd.active > summary,
+  .doc-header details.doc-nav-dd[open] > summary {
+    color: #ffffff !important;
+    background: var(--mv-primary) !important;
+  }
+  .doc-nav-dd {
+    position: relative;
+  }
+  .doc-nav-dd__menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    min-width: 11rem;
+    background: #0a4558;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    padding: 0.35rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .doc-nav-dd__menu a {
+    display: block;
+    white-space: nowrap;
+    border-radius: 7px;
+  }
+  .doc-nav-dd__menu a.active {
+    background: rgba(0, 178, 226, 0.28);
+  }
+  .doc-nav--ref a,
+  .doc-nav--ref .doc-nav-dd > summary {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #9fb9c6;
+    padding: 0.35rem 0.55rem;
+  }
+  .doc-nav--ref a.active,
+  .doc-nav--ref .doc-nav-dd.active > summary,
+  .doc-nav--ref .doc-nav-dd[open] > summary {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: var(--mv-bright-accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
+  .doc-subnav a.active {
+    background: rgba(0, 178, 226, 0.2);
+    border-color: var(--mv-cyan);
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
+    .doc-nav-dd__menu { min-width: 9.5rem; }
+  }
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--mv-font);
+  background: #0b1220;
+  color: #e2e8f0;
+}
+.intro {
+  padding: 1.25rem 2rem 0.5rem;
+  border-bottom: 1px solid #1f2937;
+  background: #111827;
+}
+.intro h1 { font-size: 1.35rem; color: #f8fafc; margin: 0 0 0.35rem; }
+.intro p { margin: 0; font-size: 0.88rem; color: #94a3b8; max-width: 70ch; }
+.intro .tips { margin-top: 0.65rem; font-size: 0.8rem; color: #67e8f9; }
+.stack { display: flex; flex-direction: column; gap: 2.5rem; padding: 1.5rem 2rem 3rem; }
+.row {
+  display: grid;
+  grid-template-columns: minmax(320px, 540px) minmax(280px, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .row { grid-template-columns: 1fr; }
+}
+.ad-frame {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  padding: 0.75rem;
+}
+.ad-frame .label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+.ad-frame .layout-id { color: #67e8f9; font-family: ui-monospace, monospace; }
+
+/* ——— Ad canvas (1:1) ——— */
+.ad {
+  --mv-deep: #0D546B;
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --ink: #0D546B;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, #f7fbff 0%, #eef6fb 55%, #e8f3f9 100%);
+  color: var(--ink);
+  font-family: var(--mv-font);
+}
+.ad::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 178, 226, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 178, 226, 0.09) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+.ad > * { position: relative; z-index: 1; }
+.logo-wrap img { height: 1.55rem; width: auto; display: block; }
+.hire { color: var(--mv-cyan); font-weight: 600; font-size: 0.95rem; }
+.role-pill, .aud-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--mv-deep);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.28rem 0.85rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+.aud-pill { text-transform: uppercase; font-size: 0.75rem; }
+.hire-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; }
+.headline {
+  font-weight: 800;
+  font-size: clamp(1.05rem, 3.2vw, 1.45rem);
+  line-height: 1.2;
+  color: var(--mv-deep);
+  margin: 0.55rem 0;
+  outline: none;
+}
+.headline.center { text-align: center; }
+.headline .accent { color: var(--mv-cyan); }
+.rule {
+  width: 3rem;
+  height: 3px;
+  background: var(--mv-deep);
+  border-radius: 2px;
+  margin: 0.35rem 0 0.7rem;
+}
+.rule.cyan { background: var(--mv-cyan); width: 4rem; }
+.bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--mv-deep);
+  font-weight: 500;
+}
+.bullets .ico {
+  flex: 0 0 1.05rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  color: var(--mv-cyan);
+  margin-top: 0.1rem;
+}
+.bullets .ico svg { width: 100%; height: 100%; display: block; }
+.ad[data-icon-style="bulletDot"] .bullets .ico { color: var(--mv-deep); }
+.btxt, [contenteditable="true"] { outline: none; border-radius: 3px; }
+[contenteditable="true"]:focus {
+  box-shadow: 0 0 0 2px rgba(0, 178, 226, 0.45);
+  background: rgba(255,255,255,0.55);
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.1rem;
+}
+.price .plabel { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.price .pamount { font-size: 1.65rem; font-weight: 800; line-height: 1; }
+.price .punit { font-size: 0.7rem; font-weight: 600; }
+.price-circle {
+  width: 6.2rem;
+  height: 6.2rem;
+  border-radius: 50%;
+  background: linear-gradient(160deg, var(--mv-deep), var(--mv-primary));
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(13, 84, 107, 0.28);
+  transform: rotate(-6deg);
+}
+.price-box {
+  border: 2px solid var(--mv-cyan);
+  border-radius: 12px;
+  padding: 0.55rem 0.9rem;
+  background: #fff;
+  color: var(--mv-deep);
+  align-self: flex-end;
+}
+.price-box .pamount { color: var(--mv-cyan); font-size: 1.8rem; }
+.price-bar {
+  align-self: flex-start;
+  background: linear-gradient(90deg, var(--mv-primary), var(--mv-cyan));
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.55rem 1rem;
+  box-shadow: 0 6px 16px rgba(7, 121, 153, 0.28);
+  flex-direction: row;
+  gap: 0.45rem;
+  align-items: baseline;
+}
+.price-bar .plabel { color: rgba(255,255,255,0.9); }
+.price-bar .pamount { font-size: 1.4rem; }
+.price-overlay {
+  position: absolute;
+  left: 8%;
+  bottom: 8%;
+  background: rgba(240, 248, 255, 0.92);
+  border-radius: 12px;
+  padding: 0.55rem 0.9rem;
+  color: var(--mv-deep);
+  box-shadow: 0 6px 18px rgba(13, 84, 107, 0.18);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--mv-deep);
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  cursor: default;
+  margin-top: 0.85rem;
+}
+.cta-ico { width: 1.5rem; height: 1.5rem; display: inline-flex; }
+.cta-ico svg { width: 100%; height: 100%; }
+
+.photo { overflow: hidden; }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Layout-specific */
+.ad-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.1rem 1.15rem 0.9rem;
+}
+.ad-center .logo-wrap { margin-bottom: 0.35rem; }
+.ad-center .hire-row { justify-content: center; margin-bottom: 0.35rem; }
+.ad-center .mid-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+  flex: 1;
+  padding: 0 0.25rem;
+}
+.ad-center .collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  width: 100%;
+  margin-top: 0.35rem;
+  height: 28%;
+  align-items: end;
+}
+.ad-center .photo {
+  border: 3px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(13, 84, 107, 0.2);
+  height: 100%;
+}
+.ad-center .photo-0 { transform: rotate(-7deg) translateY(6%); }
+.ad-center .photo-1 { transform: translateY(-4%); z-index: 2; }
+.ad-center .photo-2 { transform: rotate(7deg) translateY(6%); }
+
+.ad-split-left {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  padding: 0;
+}
+.ad-split-left .col-photo {
+  position: relative;
+  height: 100%;
+}
+.ad-split-left .photo { position: absolute; inset: 0; height: 100%; }
+.ad-split-left .col-copy {
+  padding: 1rem 1rem 1rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+}
+.ad-split-left .top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.ad-split-left .top-row .hire-row { flex-direction: column; align-items: flex-end; }
+.ad-split-left .price { margin-top: auto; align-self: flex-end; }
+
+.ad-split-copy, .ad-nurse, .ad-burnout {
+  display: flex;
+  flex-direction: column;
+  padding: 0.9rem 1rem 1rem;
+}
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.55rem;
+}
+.ad-burnout .top-bar { justify-content: space-between; }
+.body {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0.75rem;
+  flex: 1;
+  min-height: 0;
+}
+.col-copy { display: flex; flex-direction: column; min-width: 0; }
+.col-photo {
+  position: relative;
+  min-height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.col-photo .photo { position: absolute; inset: 0; }
+.ad-split-copy .price-circle,
+.ad-nurse .cta {
+  position: absolute;
+  z-index: 3;
+}
+.ad-split-copy .price-circle { left: 6%; bottom: 8%; }
+.ad-nurse .cta { left: 50%; bottom: 8%; transform: translateX(-50%); }
+.ad-nurse .price-bar { margin-top: auto; }
+.ad-burnout .price-overlay { position: absolute; }
+
+/* Editor */
+.editor {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.editor h3 { margin: 0; font-size: 1rem; color: #f8fafc; }
+.editor .note { margin: 0; font-size: 0.78rem; color: #94a3b8; }
+.editor label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #94a3b8;
+}
+.editor input, .editor textarea, .editor select {
+  font: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  background: #0b1220;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+}
+.editor textarea { resize: vertical; }
+.copy-json {
+  margin-top: 0.35rem;
+  background: var(--mv-primary);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.copy-json:hover { filter: brightness(1.08); }
+.toast {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  background: #065f46;
+  color: #ecfdf5;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 50;
+}
+.toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/studio.html">
+      <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
+      <div>
+        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
+        <p class="doc-header__tagline">Raw materials + clear direction · designers assemble the finals</p>
+      </div>
+    </a>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
+      <summary>Direct Response</summary>
+      <div class="doc-nav-dd__menu"><a href="/direct-response.html" class="">Strategy Overview</a><a href="/dr-creative-board.html" class="">Creative Board</a><a href="/dr-color-board.html" class="">Color Tests</a><a href="/dr-copy-en.html" class="">English Copy</a><a href="/dr-copy-es.html" class="">Spanish Copy</a><a href="/dr-form.html" class="">Low-Friction Form</a><a href="/dr-offers.html" class="">Offers &amp; Completion</a><a href="/dr-campaign-plan.html" class="">Campaign Test Plan</a><a href="/dr-qa-checklist.html" class="">Launch QA</a><a href="/dr-production-queue.html" class="">Production Queue</a><a href="/dr-approval.html" class="">Final Approval</a><a href="/dr-superseded.html" class="">Superseded Direction</a></div>
+    </details><details class="doc-nav-dd active">
+      <summary>Examples</summary>
+      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="active">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer examples</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/real-people-creative.html" class="">People treatments</a></div>
+    </details><a href="/real-people-creative.html" class="">People</a><details class="doc-nav-dd ">
+      <summary>Raw Assets</summary>
+      <div class="doc-nav-dd__menu"><a href="/raw-assets.html" class="">Raw library</a><a href="/asset-hub.html" class="">Full Asset Hub</a><a href="/image-variation-review.html" class="">Image board</a><a href="/real-people-assets.html" class="">People downloads</a></div>
+    </details><a href="/video-production.html" class="">Video Capture</a><details class="doc-nav-dd ">
+      <summary>Producer Lab</summary>
+      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Lab home</a><a href="/direct-response.html" class="">Direct Response</a><a href="/ai-asset-foundry.html" class="">AI Asset Foundry</a><a href="/competitors.html" class="">Competitors</a><a href="/creative-concept-lab.html" class="">Static References</a><a href="/motion-concept-lab.html" class="">Motion References</a><a href="/mockup-sandbox.html" class="">Sandbox</a><a href="/saas-prop-templates.html" class="">SaaS Props (archived primary)</a><a href="/role-offer-templates.html" class="">Role-Offer mockups</a></div>
+    </details></nav>
+      <span class="doc-nav-sep" aria-hidden="true"></span>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/studio.html" class="">Studio</a></nav>
+    </div>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Role-Offer board</h2>
+          <p class="doc-header__page-sub">Editable layout comps — open from Lookbook</p>
+          
+        </div>
+</header>
+<script>
+(function () {
+  document.querySelectorAll('.doc-nav-dd').forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (!dd.open) return;
+      document.querySelectorAll('.doc-nav-dd').forEach((other) => {
+        if (other !== dd) other.open = false;
+      });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.doc-nav-dd')) return;
+    document.querySelectorAll('.doc-nav-dd[open]').forEach((dd) => { dd.open = false; });
+  });
+})();
+</script>
+  <div class="intro">
+    <h1>Role-Offer Templates</h1>
+    <p>The five checklist layouts the team loves. Edit text, icons, price, CTA, and photos — then hand off to graphics.</p>
+    <p class="tips">Click any text on the ad to edit · use the side panel for bullets, icons, price, CTA, photos · Copy JSON to paste back into <code>scripts/role-offer-templates-data.mjs</code>. Stock/AI people only — not Talent Pool portraits.</p>
+  </div>
+  <div class="stack">
+    
+  <section class="row" id="RO-ADMIN-COLLAGE">
+    <div class="ad-frame">
+      <div class="label">Medical Admin — checklist + collage · <span class="layout-id">ROLE_CENTER_CHECKLIST_COLLAGE</span></div>
+      
+      <article class="ad ad-center" data-id="RO-ADMIN-COLLAGE" data-layout="ROLE_CENTER_CHECKLIST_COLLAGE" data-icon-style="checkCircle">
+        <div class="logo-wrap"><img src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" /></div>
+        
+    <div class="hire-row">
+      <span class="hire" data-field="hirePrefix" contenteditable="true">Hire a Virtual</span>
+      <span class="role-pill" data-field="role" contenteditable="true">Medical Admin</span>
+    </div>
+        <h2 class="headline center" data-field="headline" contenteditable="true">Don't Let Administrative Work Slow Down Patient Care</h2>
+        <div class="mid-row">
+          <ul class="bullets"><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="0" contenteditable="true">Verify insurance coverage</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="1" contenteditable="true">Manage pre-authorizations</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="2" contenteditable="true">Update your EMR</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="3" contenteditable="true">Submit claims</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="4" contenteditable="true">Support billing inquiries</span></li></ul>
+          
+    <div class="price price-circle" data-price>
+      <span class="plabel" data-field="priceLabel" contenteditable="true">Starts at</span>
+      <span class="pamount" data-field="priceAmount" contenteditable="true">$10</span>
+      <span class="punit" data-field="priceUnit" contenteditable="true">/hr</span>
+    </div>
+        </div>
+        <div class="collage"><div class="photo photo-0" data-photo-slot="0"><img src="/assets/ai-images/ai-generated-02.png" alt="" /></div><div class="photo photo-1" data-photo-slot="1"><img src="/assets/ai-images/ai-generated-05.png" alt="" /></div><div class="photo photo-2" data-photo-slot="2"><img src="/assets/ai-images/ai-generated-08.png" alt="" /></div></div>
+      </article>
+    </div>
+    
+    <aside class="editor" data-editor-for="RO-ADMIN-COLLAGE">
+      <h3>Medical Admin — checklist + collage</h3>
+      <p class="note">Centered brand block · checklist left · price circle right · 3 tilted photos bottom.</p>
+      <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DOCTORS!" /></label>
+      <label>Hire prefix <input data-bind="hirePrefix" value="Hire a Virtual" /></label>
+      <label>Role pill <input data-bind="role" value="Medical Admin" /></label>
+      <label>Headline <textarea data-bind="headline" rows="3">Don't Let Administrative Work Slow Down Patient Care</textarea></label>
+      <label>Headline accent (optional) <input data-bind="headlineAccent" value="" /></label>
+      <label>Bullets (one per line) <textarea data-bind="bullets" rows="6">Verify insurance coverage
+Manage pre-authorizations
+Update your EMR
+Submit claims
+Support billing inquiries</textarea></label>
+      <label>Icon style
+        <select data-bind="iconStyle">
+          <option value="checkCircle" selected>Check circles</option>
+          <option value="bulletDot">Simple dots</option>
+        </select>
+      </label>
+      <label>Price label <input data-bind="priceLabel" value="Starts at" /></label>
+      <label>Price amount <input data-bind="priceAmount" value="$10" /></label>
+      <label>Price unit <input data-bind="priceUnit" value="/hr" /></label>
+      <label>Price style
+        <select data-bind="priceStyle">
+          <option value="circle" selected>circle</option><option value="box">box</option><option value="bar">bar</option><option value="overlay">overlay</option>
+        </select>
+      </label>
+      <label>CTA <input data-bind="cta" value="" /></label>
+      <label>CTA icon
+        <select data-bind="ctaIcon">
+          <option value="none" selected>none</option><option value="arrow">arrow</option><option value="calendar">calendar</option>
+        </select>
+      </label>
+      <label>Photo URLs (one per line) <textarea data-bind="photos" rows="3">/assets/ai-images/ai-generated-02.png
+/assets/ai-images/ai-generated-05.png
+/assets/ai-images/ai-generated-08.png</textarea></label>
+      <label>Upload photo(s)
+        <input type="file" accept="image/*" multiple data-upload />
+      </label>
+      <button type="button" class="copy-json" data-copy>Copy JSON for this ad</button>
+    </aside>
+  </section>
+
+  <section class="row" id="RO-BILLER-SPLIT">
+    <div class="ad-frame">
+      <div class="label">Medical Biller — photo left · <span class="layout-id">ROLE_SPLIT_PHOTO_LEFT</span></div>
+      
+      <article class="ad ad-split-left" data-id="RO-BILLER-SPLIT" data-layout="ROLE_SPLIT_PHOTO_LEFT" data-icon-style="bulletDot">
+        <div class="col-photo"><div class="photo photo-0" data-photo-slot="0"><img src="/assets/ai-images/ai-generated-04.png" alt="" /></div></div>
+        <div class="col-copy">
+          <div class="top-row"><div class="logo-wrap"><img src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" /></div>
+    <div class="hire-row">
+      <span class="hire" data-field="hirePrefix" contenteditable="true">Hire a Virtual</span>
+      <span class="role-pill" data-field="role" contenteditable="true">Medical Biller</span>
+    </div></div>
+          <h2 class="headline" data-field="headline" contenteditable="true">Clean Claims, Faster Payments, Less Follow-Up</h2>
+          <div class="rule"></div>
+          <ul class="bullets"><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg></span><span class="btxt" data-bullet="0" contenteditable="true">Entry &amp; coding support</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg></span><span class="btxt" data-bullet="1" contenteditable="true">Claims review &amp; submission</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg></span><span class="btxt" data-bullet="2" contenteditable="true">Payment posting &amp; reconciliation</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg></span><span class="btxt" data-bullet="3" contenteditable="true">Denial follow-up &amp; resolution</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg></span><span class="btxt" data-bullet="4" contenteditable="true">Billing support &amp; cash flow management</span></li></ul>
+          
+    <div class="price price-box" data-price>
+      <span class="plabel" data-field="priceLabel" contenteditable="true">STARTING AT</span>
+      <span class="pamount" data-field="priceAmount" contenteditable="true">$10</span>
+      <span class="punit" data-field="priceUnit" contenteditable="true">/hour</span>
+    </div>
+        </div>
+      </article>
+    </div>
+    
+    <aside class="editor" data-editor-for="RO-BILLER-SPLIT">
+      <h3>Medical Biller — photo left</h3>
+      <p class="note">Person left · copy + bordered price box right.</p>
+      <label>Audience pill <input data-bind="audiencePill" value="" placeholder="e.g. DOCTORS!" /></label>
+      <label>Hire prefix <input data-bind="hirePrefix" value="Hire a Virtual" /></label>
+      <label>Role pill <input data-bind="role" value="Medical Biller" /></label>
+      <label>Headline <textarea data-bind="headline" rows="3">Clean Claims, Faster Payments, Less Follow-Up</textarea></label>
+      <label>Headline accent (optional) <input data-bind="headlineAccent" value="" /></label>
+      <label>Bullets (one per line) <textarea data-bind="bullets" rows="6">Entry &amp; coding support
+Claims review &amp; submission
+Payment posting &amp; reconciliation
+Denial follow-up &amp; resolution
+Billing support &amp; cash flow management</textarea></label>
+      <label>Icon style
+        <select data-bind="iconStyle">
+          <option value="checkCircle">Check circles</option>
+          <option value="bulletDot" selected>Simple dots</option>
+        </select>
+      </label>
+      <label>Price label <input data-bind="priceLabel" value="STARTING AT" /></label>
+      <label>Price amount <input data-bind="priceAmount" value="$10" /></label>
+      <label>Price unit <input data-bind="priceUnit" value="/hour" /></label>
+      <label>Price style
+        <select data-bind="priceStyle">
+          <option value="circle">circle</option><option value="box" selected>box</option><option value="bar">bar</option><option value="overlay">overlay</option>
+        </select>
+      </label>
+      <label>CTA <input data-bind="cta" value="" /></label>
+      <label>CTA icon
+        <select data-bind="ctaIcon">
+          <option value="none" selected>none</option><option value="arrow">arrow</option><option value="calendar">calendar</option>
+        </select>
+      </label>
+      <label>Photo URLs (one per line) <textarea data-bind="photos" rows="3">/assets/ai-images/ai-generated-04.png</textarea></label>
+      <label>Upload photo(s)
+        <input type="file" accept="image/*" multiple data-upload />
+      </label>
+      <button type="button" class="copy-json" data-copy>Copy JSON for this ad</button>
+    </aside>
+  </section>
+
+  <section class="row" id="RO-DENTAL-ADMIN">
+    <div class="ad-frame">
+      <div class="label">Dental Admin — copy left + CTA · <span class="layout-id">ROLE_SPLIT_COPY_LEFT</span></div>
+      
+      <article class="ad ad-split-copy" data-id="RO-DENTAL-ADMIN" data-layout="ROLE_SPLIT_COPY_LEFT" data-icon-style="bulletDot">
+        <div class="top-bar"><div class="logo-wrap"><img src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" /></div><span class="aud-pill" data-field="audiencePill" contenteditable="true">DENTISTS!</span></div>
+        <div class="body">
+          <div class="col-copy">
+            
+    <div class="hire-row">
+      <span class="hire" data-field="hirePrefix" contenteditable="true">Hire a Virtual</span>
+      <span class="role-pill" data-field="role" contenteditable="true">Dental Admin</span>
+    </div>
+            <h2 class="headline" data-field="headline" contenteditable="true">Virtual staffing means fewer missed calls and fewer empty chairs.</h2>
+            <div class="rule"></div>
+            <ul class="bullets"><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg></span><span class="btxt" data-bullet="0" contenteditable="true">Appointment scheduling</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg></span><span class="btxt" data-bullet="1" contenteditable="true">Appointment confirmations</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg></span><span class="btxt" data-bullet="2" contenteditable="true">Treatment reminders</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg></span><span class="btxt" data-bullet="3" contenteditable="true">Patient communication</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/></svg></span><span class="btxt" data-bullet="4" contenteditable="true">Calendar management</span></li></ul>
+            <button type="button" class="cta" data-cta><span class="cta-txt" data-field="cta" contenteditable="true">GET STARTED</span><span class="cta-ico" data-cta-icon="arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--mv-cyan)"/><path d="M10 8l4 4-4 4" fill="none" stroke="var(--mv-deep)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          </div>
+          <div class="col-photo">
+            <div class="photo photo-0" data-photo-slot="0"><img src="/assets/ai-images/ai-generated-07.png" alt="" /></div>
+            
+    <div class="price price-circle" data-price>
+      <span class="plabel" data-field="priceLabel" contenteditable="true">STARTING AT</span>
+      <span class="pamount" data-field="priceAmount" contenteditable="true">$10</span>
+      <span class="punit" data-field="priceUnit" contenteditable="true">PER HOUR</span>
+    </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    
+    <aside class="editor" data-editor-for="RO-DENTAL-ADMIN">
+      <h3>Dental Admin — copy left + CTA</h3>
+      <p class="note">Audience pill · copy + CTA left · person + price circle right.</p>
+      <label>Audience pill <input data-bind="audiencePill" value="DENTISTS!" placeholder="e.g. DOCTORS!" /></label>
+      <label>Hire prefix <input data-bind="hirePrefix" value="Hire a Virtual" /></label>
+      <label>Role pill <input data-bind="role" value="Dental Admin" /></label>
+      <label>Headline <textarea data-bind="headline" rows="3">Virtual staffing means fewer missed calls and fewer empty chairs.</textarea></label>
+      <label>Headline accent (optional) <input data-bind="headlineAccent" value="" /></label>
+      <label>Bullets (one per line) <textarea data-bind="bullets" rows="6">Appointment scheduling
+Appointment confirmations
+Treatment reminders
+Patient communication
+Calendar management</textarea></label>
+      <label>Icon style
+        <select data-bind="iconStyle">
+          <option value="checkCircle">Check circles</option>
+          <option value="bulletDot" selected>Simple dots</option>
+        </select>
+      </label>
+      <label>Price label <input data-bind="priceLabel" value="STARTING AT" /></label>
+      <label>Price amount <input data-bind="priceAmount" value="$10" /></label>
+      <label>Price unit <input data-bind="priceUnit" value="PER HOUR" /></label>
+      <label>Price style
+        <select data-bind="priceStyle">
+          <option value="circle" selected>circle</option><option value="box">box</option><option value="bar">bar</option><option value="overlay">overlay</option>
+        </select>
+      </label>
+      <label>CTA <input data-bind="cta" value="GET STARTED" /></label>
+      <label>CTA icon
+        <select data-bind="ctaIcon">
+          <option value="none">none</option><option value="arrow" selected>arrow</option><option value="calendar">calendar</option>
+        </select>
+      </label>
+      <label>Photo URLs (one per line) <textarea data-bind="photos" rows="3">/assets/ai-images/ai-generated-07.png</textarea></label>
+      <label>Upload photo(s)
+        <input type="file" accept="image/*" multiple data-upload />
+      </label>
+      <button type="button" class="copy-json" data-copy>Copy JSON for this ad</button>
+    </aside>
+  </section>
+
+  <section class="row" id="RO-NURSE-SPLIT">
+    <div class="ad-frame">
+      <div class="label">Medical Nurse — price left + CTA · <span class="layout-id">ROLE_SPLIT_COPY_PRICE_LEFT</span></div>
+      
+      <article class="ad ad-nurse" data-id="RO-NURSE-SPLIT" data-layout="ROLE_SPLIT_COPY_PRICE_LEFT" data-icon-style="checkCircle">
+        <div class="top-bar"><div class="logo-wrap"><img src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" /></div><span class="aud-pill" data-field="audiencePill" contenteditable="true">DOCTORS!</span></div>
+        <div class="body">
+          <div class="col-copy">
+            
+    <div class="hire-row">
+      <span class="hire" data-field="hirePrefix" contenteditable="true">Hire a Virtual</span>
+      <span class="role-pill" data-field="role" contenteditable="true">Medical Nurse</span>
+    </div>
+            <h2 class="headline" data-field="headline" contenteditable="true">Deliver better follow-up and better outcomes at a <span class="accent" data-field="headlineAccent">lower cost.</span></h2>
+            <ul class="bullets"><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="0" contenteditable="true">Remote monitoring</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="1" contenteditable="true">Triage support</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="2" contenteditable="true">Prescription coordination</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="3" contenteditable="true">Extending the reach of your clinical team</span></li></ul>
+            
+    <div class="price price-bar" data-price>
+      <span class="plabel" data-field="priceLabel" contenteditable="true">STARTING AT</span>
+      <span class="pamount" data-field="priceAmount" contenteditable="true">$10</span>
+      <span class="punit" data-field="priceUnit" contenteditable="true">/hour</span>
+    </div>
+          </div>
+          <div class="col-photo">
+            <div class="photo photo-0" data-photo-slot="0"><img src="/assets/ai-images/ai-generated-09.png" alt="" /></div>
+            <button type="button" class="cta" data-cta><span class="cta-txt" data-field="cta" contenteditable="true">HIRE NOW</span><span class="cta-ico" data-cta-icon="arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--mv-cyan)"/><path d="M10 8l4 4-4 4" fill="none" stroke="var(--mv-deep)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          </div>
+        </div>
+      </article>
+    </div>
+    
+    <aside class="editor" data-editor-for="RO-NURSE-SPLIT">
+      <h3>Medical Nurse — price left + CTA</h3>
+      <p class="note">Audience pill · checks + price bar left · person + CTA right. Nurse claims need service-scope approval before Meta package.</p>
+      <label>Audience pill <input data-bind="audiencePill" value="DOCTORS!" placeholder="e.g. DOCTORS!" /></label>
+      <label>Hire prefix <input data-bind="hirePrefix" value="Hire a Virtual" /></label>
+      <label>Role pill <input data-bind="role" value="Medical Nurse" /></label>
+      <label>Headline <textarea data-bind="headline" rows="3">Deliver better follow-up and better outcomes at a lower cost.</textarea></label>
+      <label>Headline accent (optional) <input data-bind="headlineAccent" value="lower cost." /></label>
+      <label>Bullets (one per line) <textarea data-bind="bullets" rows="6">Remote monitoring
+Triage support
+Prescription coordination
+Extending the reach of your clinical team</textarea></label>
+      <label>Icon style
+        <select data-bind="iconStyle">
+          <option value="checkCircle" selected>Check circles</option>
+          <option value="bulletDot">Simple dots</option>
+        </select>
+      </label>
+      <label>Price label <input data-bind="priceLabel" value="STARTING AT" /></label>
+      <label>Price amount <input data-bind="priceAmount" value="$10" /></label>
+      <label>Price unit <input data-bind="priceUnit" value="/hour" /></label>
+      <label>Price style
+        <select data-bind="priceStyle">
+          <option value="circle">circle</option><option value="box">box</option><option value="bar" selected>bar</option><option value="overlay">overlay</option>
+        </select>
+      </label>
+      <label>CTA <input data-bind="cta" value="HIRE NOW" /></label>
+      <label>CTA icon
+        <select data-bind="ctaIcon">
+          <option value="none">none</option><option value="arrow" selected>arrow</option><option value="calendar">calendar</option>
+        </select>
+      </label>
+      <label>Photo URLs (one per line) <textarea data-bind="photos" rows="3">/assets/ai-images/ai-generated-09.png</textarea></label>
+      <label>Upload photo(s)
+        <input type="file" accept="image/*" multiple data-upload />
+      </label>
+      <button type="button" class="copy-json" data-copy>Copy JSON for this ad</button>
+    </aside>
+  </section>
+
+  <section class="row" id="RO-ADMIN-BURNOUT">
+    <div class="ad-frame">
+      <div class="label">Medical Admin — front-office backup · <span class="layout-id">ROLE_PILL_CHECKLIST_SPLIT</span></div>
+      
+    <article class="ad ad-burnout" data-id="RO-ADMIN-BURNOUT" data-layout="ROLE_PILL_CHECKLIST_SPLIT" data-icon-style="checkCircle">
+      <div class="top-bar"><span class="aud-pill" data-field="audiencePill" contenteditable="true">DOCTORS!</span><div class="logo-wrap"><img src="/assets/brand/medvirtual/logo-colored.svg" alt="MedVirtual" /></div></div>
+      <div class="body">
+        <div class="col-copy">
+          <h2 class="headline" data-field="headline" contenteditable="true">Give your front office backup, not burnout.</h2>
+          <div class="rule cyan"></div>
+          
+    <div class="hire-row">
+      <span class="hire" data-field="hirePrefix" contenteditable="true">Hire a Virtual</span>
+      <span class="role-pill" data-field="role" contenteditable="true">Medical Admin</span>
+    </div>
+          <ul class="bullets"><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="0" contenteditable="true">Verify insurance coverage</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="1" contenteditable="true">Manage pre-authorizations</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="2" contenteditable="true">Update EMR records</span></li><li><span class="ico" data-icon><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7.2 12.4l3 3 6.6-6.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="btxt" data-bullet="3" contenteditable="true">Submit insurance claims</span></li></ul>
+          <button type="button" class="cta" data-cta><span class="cta-txt" data-field="cta" contenteditable="true">BOOK A CONSULTATION</span><span class="cta-ico" data-cta-icon="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></button>
+        </div>
+        <div class="col-photo">
+          <div class="photo photo-0" data-photo-slot="0"><img src="/assets/ai-images/ai-generated-11.png" alt="" /></div>
+          
+    <div class="price price-overlay" data-price>
+      <span class="plabel" data-field="priceLabel" contenteditable="true">STARTING AT</span>
+      <span class="pamount" data-field="priceAmount" contenteditable="true">$10</span>
+      <span class="punit" data-field="priceUnit" contenteditable="true">/hour</span>
+    </div>
+        </div>
+      </div>
+    </article>
+    </div>
+    
+    <aside class="editor" data-editor-for="RO-ADMIN-BURNOUT">
+      <h3>Medical Admin — front-office backup</h3>
+      <p class="note">Audience pill + logo · headline + role + checks + CTA left · person + price overlay right.</p>
+      <label>Audience pill <input data-bind="audiencePill" value="DOCTORS!" placeholder="e.g. DOCTORS!" /></label>
+      <label>Hire prefix <input data-bind="hirePrefix" value="Hire a Virtual" /></label>
+      <label>Role pill <input data-bind="role" value="Medical Admin" /></label>
+      <label>Headline <textarea data-bind="headline" rows="3">Give your front office backup, not burnout.</textarea></label>
+      <label>Headline accent (optional) <input data-bind="headlineAccent" value="" /></label>
+      <label>Bullets (one per line) <textarea data-bind="bullets" rows="6">Verify insurance coverage
+Manage pre-authorizations
+Update EMR records
+Submit insurance claims</textarea></label>
+      <label>Icon style
+        <select data-bind="iconStyle">
+          <option value="checkCircle" selected>Check circles</option>
+          <option value="bulletDot">Simple dots</option>
+        </select>
+      </label>
+      <label>Price label <input data-bind="priceLabel" value="STARTING AT" /></label>
+      <label>Price amount <input data-bind="priceAmount" value="$10" /></label>
+      <label>Price unit <input data-bind="priceUnit" value="/hour" /></label>
+      <label>Price style
+        <select data-bind="priceStyle">
+          <option value="circle">circle</option><option value="box">box</option><option value="bar">bar</option><option value="overlay" selected>overlay</option>
+        </select>
+      </label>
+      <label>CTA <input data-bind="cta" value="BOOK A CONSULTATION" /></label>
+      <label>CTA icon
+        <select data-bind="ctaIcon">
+          <option value="none">none</option><option value="arrow">arrow</option><option value="calendar" selected>calendar</option>
+        </select>
+      </label>
+      <label>Photo URLs (one per line) <textarea data-bind="photos" rows="3">/assets/ai-images/ai-generated-11.png</textarea></label>
+      <label>Upload photo(s)
+        <input type="file" accept="image/*" multiple data-upload />
+      </label>
+      <button type="button" class="copy-json" data-copy>Copy JSON for this ad</button>
+    </aside>
+  </section>
+  </div>
+  <div class="toast" id="toast">Copied</div>
+  <script>
+    const ICONS = {"checkCircle":"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"11\" fill=\"currentColor\"/><path d=\"M7.2 12.4l3 3 6.6-6.8\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>","bulletDot":"<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4.5\" fill=\"currentColor\"/></svg>"};
+    const state = [{"id":"RO-ADMIN-COLLAGE","layout":"ROLE_CENTER_CHECKLIST_COLLAGE","label":"Medical Admin — checklist + collage","audiencePill":"","hirePrefix":"Hire a Virtual","role":"Medical Admin","headline":"Don't Let Administrative Work Slow Down Patient Care","bullets":["Verify insurance coverage","Manage pre-authorizations","Update your EMR","Submit claims","Support billing inquiries"],"iconStyle":"checkCircle","priceLabel":"Starts at","priceAmount":"$10","priceUnit":"/hr","priceStyle":"circle","cta":"","ctaIcon":"none","photos":["/assets/ai-images/ai-generated-02.png","/assets/ai-images/ai-generated-05.png","/assets/ai-images/ai-generated-08.png"],"notes":"Centered brand block · checklist left · price circle right · 3 tilted photos bottom."},{"id":"RO-BILLER-SPLIT","layout":"ROLE_SPLIT_PHOTO_LEFT","label":"Medical Biller — photo left","audiencePill":"","hirePrefix":"Hire a Virtual","role":"Medical Biller","headline":"Clean Claims, Faster Payments, Less Follow-Up","bullets":["Entry & coding support","Claims review & submission","Payment posting & reconciliation","Denial follow-up & resolution","Billing support & cash flow management"],"iconStyle":"bulletDot","priceLabel":"STARTING AT","priceAmount":"$10","priceUnit":"/hour","priceStyle":"box","cta":"","ctaIcon":"none","photos":["/assets/ai-images/ai-generated-04.png"],"notes":"Person left · copy + bordered price box right."},{"id":"RO-DENTAL-ADMIN","layout":"ROLE_SPLIT_COPY_LEFT","label":"Dental Admin — copy left + CTA","audiencePill":"DENTISTS!","hirePrefix":"Hire a Virtual","role":"Dental Admin","headline":"Virtual staffing means fewer missed calls and fewer empty chairs.","bullets":["Appointment scheduling","Appointment confirmations","Treatment reminders","Patient communication","Calendar management"],"iconStyle":"bulletDot","priceLabel":"STARTING AT","priceAmount":"$10","priceUnit":"PER HOUR","priceStyle":"circle","cta":"GET STARTED","ctaIcon":"arrow","photos":["/assets/ai-images/ai-generated-07.png"],"notes":"Audience pill · copy + CTA left · person + price circle right."},{"id":"RO-NURSE-SPLIT","layout":"ROLE_SPLIT_COPY_PRICE_LEFT","label":"Medical Nurse — price left + CTA","audiencePill":"DOCTORS!","hirePrefix":"Hire a Virtual","role":"Medical Nurse","headline":"Deliver better follow-up and better outcomes at a lower cost.","headlineAccent":"lower cost.","bullets":["Remote monitoring","Triage support","Prescription coordination","Extending the reach of your clinical team"],"iconStyle":"checkCircle","priceLabel":"STARTING AT","priceAmount":"$10","priceUnit":"/hour","priceStyle":"bar","cta":"HIRE NOW","ctaIcon":"arrow","photos":["/assets/ai-images/ai-generated-09.png"],"notes":"Audience pill · checks + price bar left · person + CTA right. Nurse claims need service-scope approval before Meta package."},{"id":"RO-ADMIN-BURNOUT","layout":"ROLE_PILL_CHECKLIST_SPLIT","label":"Medical Admin — front-office backup","audiencePill":"DOCTORS!","hirePrefix":"Hire a Virtual","role":"Medical Admin","headline":"Give your front office backup, not burnout.","bullets":["Verify insurance coverage","Manage pre-authorizations","Update EMR records","Submit insurance claims"],"iconStyle":"checkCircle","priceLabel":"STARTING AT","priceAmount":"$10","priceUnit":"/hour","priceStyle":"overlay","cta":"BOOK A CONSULTATION","ctaIcon":"calendar","photos":["/assets/ai-images/ai-generated-11.png"],"notes":"Audience pill + logo · headline + role + checks + CTA left · person + price overlay right."}];
+
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 1600);
+    }
+
+    function findTpl(id) {
+      return state.find((t) => t.id === id);
+    }
+
+    function renderBullets(ad, t) {
+      const ul = ad.querySelector('.bullets');
+      if (!ul) return;
+      const icon = ICONS[t.iconStyle] || ICONS.checkCircle;
+      ul.innerHTML = (t.bullets || []).map((b, i) =>
+        '<li><span class="ico" data-icon>' + icon + '</span><span class="btxt" data-bullet="' + i + '" contenteditable="true">' + escapeHtml(b) + '</span></li>'
+      ).join('');
+      ad.dataset.iconStyle = t.iconStyle;
+    }
+
+    function renderPhotos(ad, t) {
+      const slots = ad.querySelectorAll('[data-photo-slot]');
+      slots.forEach((slot) => {
+        const i = Number(slot.dataset.photoSlot);
+        const img = slot.querySelector('img');
+        if (img && t.photos[i]) img.src = t.photos[i];
+      });
+    }
+
+    function renderPrice(ad, t) {
+      const price = ad.querySelector('[data-price]');
+      if (!price) return;
+      price.className = 'price price-' + (t.priceStyle || 'circle');
+      const label = price.querySelector('[data-field="priceLabel"]');
+      const amount = price.querySelector('[data-field="priceAmount"]');
+      const unit = price.querySelector('[data-field="priceUnit"]');
+      if (label) label.textContent = t.priceLabel || '';
+      if (amount) amount.textContent = t.priceAmount || '';
+      if (unit) unit.textContent = t.priceUnit || '';
+    }
+
+    function renderCta(ad, t) {
+      let cta = ad.querySelector('[data-cta]');
+      if (!t.cta) {
+        if (cta) cta.remove();
+        return;
+      }
+      if (!cta) {
+        const host = ad.querySelector('.col-copy') || ad.querySelector('.col-photo') || ad;
+        cta = document.createElement('button');
+        cta.type = 'button';
+        cta.className = 'cta';
+        cta.dataset.cta = '';
+        host.appendChild(cta);
+      }
+      const arrow = '<span class="cta-ico" data-cta-icon="arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--mv-cyan)"/><path d="M10 8l4 4-4 4" fill="none" stroke="var(--mv-deep)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+      const cal = '<span class="cta-ico" data-cta-icon="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>';
+      const icon = t.ctaIcon === 'calendar' ? cal : t.ctaIcon === 'arrow' ? arrow : '';
+      cta.innerHTML = '<span class="cta-txt" data-field="cta" contenteditable="true">' + escapeHtml(t.cta) + '</span>' + icon;
+    }
+
+    function escapeHtml(s) {
+      return String(s ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function syncFieldFromBind(id, key, value) {
+      const t = findTpl(id);
+      if (!t) return;
+      if (key === 'bullets') {
+        t.bullets = String(value).split(/\n/).map((x) => x.trim()).filter(Boolean);
+      } else if (key === 'photos') {
+        t.photos = String(value).split(/\n/).map((x) => x.trim()).filter(Boolean);
+      } else {
+        t[key] = value;
+      }
+      const ad = document.querySelector('.ad[data-id="' + id + '"]');
+      if (!ad) return;
+
+      if (key === 'bullets' || key === 'iconStyle') renderBullets(ad, t);
+      if (key === 'photos') renderPhotos(ad, t);
+      if (key === 'priceLabel' || key === 'priceAmount' || key === 'priceUnit' || key === 'priceStyle') renderPrice(ad, t);
+      if (key === 'cta' || key === 'ctaIcon') renderCta(ad, t);
+
+      const map = {
+        audiencePill: '[data-field="audiencePill"]',
+        hirePrefix: '[data-field="hirePrefix"]',
+        role: '[data-field="role"]',
+        headline: '[data-field="headline"]',
+        priceLabel: '[data-field="priceLabel"]',
+        priceAmount: '[data-field="priceAmount"]',
+        priceUnit: '[data-field="priceUnit"]',
+        cta: '[data-field="cta"]',
+      };
+      if (map[key]) {
+        const el = ad.querySelector(map[key]);
+        if (el && document.activeElement !== el) {
+          if (key === 'headline' && t.headlineAccent && String(t.headline).includes(t.headlineAccent)) {
+            const h = t.headline;
+            const a = t.headlineAccent;
+            const i = h.indexOf(a);
+            el.innerHTML = escapeHtml(h.slice(0, i)) + '<span class="accent">' + escapeHtml(a) + '</span>' + escapeHtml(h.slice(i + a.length));
+          } else {
+            el.textContent = value;
+          }
+        }
+      }
+      // audience pill may be absent — create if needed
+      if (key === 'audiencePill') {
+        let pill = ad.querySelector('[data-field="audiencePill"]');
+        if (!value && pill) pill.remove();
+        if (value && !pill) {
+          const bar = ad.querySelector('.top-bar');
+          if (bar) {
+            pill = document.createElement('span');
+            pill.className = 'aud-pill';
+            pill.dataset.field = 'audiencePill';
+            pill.contentEditable = 'true';
+            pill.textContent = value;
+            bar.insertBefore(pill, bar.firstChild);
+          }
+        } else if (pill) {
+          pill.textContent = value;
+        }
+      }
+    }
+
+    document.querySelectorAll('[data-editor-for]').forEach((panel) => {
+      const id = panel.dataset.editorFor;
+      panel.querySelectorAll('[data-bind]').forEach((input) => {
+        const key = input.dataset.bind;
+        const handler = () => syncFieldFromBind(id, key, input.value);
+        input.addEventListener('input', handler);
+        input.addEventListener('change', handler);
+      });
+      const upload = panel.querySelector('[data-upload]');
+      if (upload) {
+        upload.addEventListener('change', () => {
+          const t = findTpl(id);
+          const files = [...upload.files];
+          if (!files.length || !t) return;
+          Promise.all(files.map((f) => new Promise((res) => {
+            const r = new FileReader();
+            r.onload = () => res(r.result);
+            r.readAsDataURL(f);
+          }))).then((urls) => {
+            t.photos = urls;
+            const ta = panel.querySelector('[data-bind="photos"]');
+            if (ta) ta.value = '(uploaded local previews — replace with /assets/… paths before shipping)';
+            const ad = document.querySelector('.ad[data-id="' + id + '"]');
+            if (ad) renderPhotos(ad, t);
+            toast('Photos updated (local preview)');
+          });
+        });
+      }
+      const copyBtn = panel.querySelector('[data-copy]');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          const t = findTpl(id);
+          const text = JSON.stringify(t, null, 2);
+          try {
+            await navigator.clipboard.writeText(text);
+            toast('JSON copied — paste into role-offer-templates-data.mjs');
+          } catch {
+            toast('Copy failed — select JSON manually');
+            console.log(text);
+          }
+        });
+      }
+    });
+
+    // Sync contenteditable on the ad back into state + panel
+    document.querySelectorAll('.ad').forEach((ad) => {
+      ad.addEventListener('input', (e) => {
+        const id = ad.dataset.id;
+        const t = findTpl(id);
+        if (!t) return;
+        const target = e.target;
+        if (target.matches('[data-bullet]')) {
+          const i = Number(target.dataset.bullet);
+          t.bullets[i] = target.textContent.trim();
+          const panel = document.querySelector('[data-editor-for="' + id + '"]');
+          const ta = panel && panel.querySelector('[data-bind="bullets"]');
+          if (ta) ta.value = t.bullets.join('\n');
+          return;
+        }
+        const field = target.getAttribute('data-field');
+        if (!field) return;
+        let val = target.textContent.trim();
+        if (field === 'headline') val = target.innerText.trim();
+        t[field] = val;
+        const panel = document.querySelector('[data-editor-for="' + id + '"]');
+        const input = panel && panel.querySelector('[data-bind="' + field + '"]');
+        if (input) input.value = val;
+      });
+    });
+  </script>
+</body>
+</html>

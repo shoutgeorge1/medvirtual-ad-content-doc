@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Studio · MedVirtual</title>
+  <title>Dashboard · MedVirtual</title>
   <style>
   
   
@@ -46,9 +46,9 @@
 }
 
   .doc-header {
-    background: var(--mv-deep-teal);
+    background: #0a0a0a;
     color: #ffffff;
-    border-bottom: 3px solid var(--mv-cyan);
+    border-bottom: 3px solid #B8F000;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -77,9 +77,7 @@
     object-fit: contain;
     flex-shrink: 0;
   }
-  .doc-header__mark {
-    display: none;
-  }
+  .doc-header__mark { display: none; }
   .doc-header__title {
     margin: 0;
     font-size: 1.05rem;
@@ -90,7 +88,7 @@
     margin: 0.1rem 0 0;
     font-size: 0.78rem;
     font-weight: 400;
-    color: #b8d4e0;
+    color: #a3a3a3;
   }
   .doc-header__page {
     margin: 0.85rem 0 0;
@@ -107,7 +105,7 @@
     margin: 0.25rem 0 0;
     font-size: 0.82rem;
     font-weight: 400;
-    color: #b8d4e0;
+    color: #a3a3a3;
     max-width: 820px;
   }
   .doc-nav-wrap {
@@ -130,27 +128,22 @@
     border-radius: 8px;
     font-size: 0.8rem;
     font-weight: 500;
-    color: #d7e8f0;
+    color: #d4d4d4;
     text-decoration: none;
     border: 1px solid transparent;
-    transition: background 0.15s, color 0.15s;
     list-style: none;
     cursor: pointer;
     background: transparent;
-    box-shadow: none;
   }
   .doc-header details.doc-nav-dd {
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    color: inherit !important;
   }
   .doc-header details.doc-nav-dd > summary {
     background: transparent !important;
-    color: #d7e8f0 !important;
+    color: #d4d4d4 !important;
     font-weight: 500 !important;
     border: 1px solid transparent !important;
     padding: 0.45rem 0.75rem !important;
@@ -165,30 +158,30 @@
   .doc-nav a:hover,
   .doc-header details.doc-nav-dd > summary:hover {
     color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(184, 240, 0, 0.12) !important;
   }
   .doc-nav a.active {
-    color: #ffffff;
-    background: var(--mv-primary);
+    color: #0a0a0a;
+    background: #B8F000;
+    font-weight: 700;
   }
   .doc-header details.doc-nav-dd.active > summary,
   .doc-header details.doc-nav-dd[open] > summary {
-    color: #ffffff !important;
-    background: var(--mv-primary) !important;
+    color: #0a0a0a !important;
+    background: #B8F000 !important;
+    font-weight: 700 !important;
   }
-  .doc-nav-dd {
-    position: relative;
-  }
+  .doc-nav-dd { position: relative; }
   .doc-nav-dd__menu {
     position: absolute;
     top: calc(100% + 0.35rem);
     left: 0;
-    min-width: 11rem;
-    background: #0a4558;
+    min-width: 12rem;
+    background: #171717;
     border: 1px solid rgba(255,255,255,0.14);
     border-radius: 10px;
     padding: 0.35rem;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.45);
     z-index: 50;
     display: flex;
     flex-direction: column;
@@ -200,20 +193,8 @@
     border-radius: 7px;
   }
   .doc-nav-dd__menu a.active {
-    background: rgba(0, 178, 226, 0.28);
-  }
-  .doc-nav--ref a,
-  .doc-nav--ref .doc-nav-dd > summary {
-    font-size: 0.72rem;
-    font-weight: 400;
-    color: #9fb9c6;
-    padding: 0.35rem 0.55rem;
-  }
-  .doc-nav--ref a.active,
-  .doc-nav--ref .doc-nav-dd.active > summary,
-  .doc-nav--ref .doc-nav-dd[open] > summary {
-    background: rgba(255,255,255,0.12);
-    color: #fff;
+    background: rgba(184, 240, 0, 0.25);
+    color: #B8F000;
   }
   .doc-nav-sep {
     width: 1px;
@@ -228,127 +209,149 @@
     margin-top: 0.75rem;
   }
   .doc-subnav a {
-    color: var(--mv-bright-accent);
+    color: #B8F000;
     text-decoration: none;
     font-size: 0.75rem;
     padding: 0.25rem 0.6rem;
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 6px;
   }
-  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
+  .doc-subnav a:hover { border-color: #B8F000; color: #fff; }
   .doc-subnav a.active {
-    background: rgba(0, 178, 226, 0.2);
-    border-color: var(--mv-cyan);
+    background: rgba(184, 240, 0, 0.2);
+    border-color: #B8F000;
     color: #fff;
   }
   @media (max-width: 640px) {
     .doc-header { padding: 1rem; }
     .doc-header__logo { height: 30px; max-width: 130px; }
     .doc-nav-sep { display: none; }
-    .doc-nav-dd__menu { min-width: 9.5rem; }
   }
 
   * { box-sizing: border-box; }
   body {
     margin: 0;
     font-family: "Be Vietnam", Inter, Arial, sans-serif;
-    color: #161511;
+    color: #e5e7eb;
     background:
-      radial-gradient(ellipse 90% 50% at 10% -10%, rgba(0,178,226,0.14), transparent 55%),
-      #f3f7fa;
+      radial-gradient(ellipse 80% 50% at 15% -10%, rgba(184,240,0,0.10), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 90% 0%, rgba(0,229,255,0.08), transparent 55%),
+      #06080d;
     line-height: 1.5;
   }
-  main { max-width: 980px; margin: 0 auto; padding: 1.5rem 1.15rem 4rem; }
-  .hero h1 {
-    margin: 0 0 0.45rem;
-    font-size: clamp(1.75rem, 4vw, 2.35rem);
-    letter-spacing: -0.03em;
-  }
-  .hero p { margin: 0; max-width: 42rem; color: #405766; }
-  .steps {
-    margin: 1.35rem 0 1.5rem;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 0.55rem;
-  }
-  .steps li {
-    background: #fff;
-    border: 1px solid #d5e2ea;
-    border-radius: 12px;
+  a { color: #B8F000; }
+  main { max-width: 1120px; margin: 0 auto; padding: 1.5rem 1.15rem 5rem; }
+  h1, h2, h3 { color: #f8fafc; }
+  .banner {
+    margin: 0 0 1.25rem;
     padding: 0.85rem 1rem;
-    display: grid;
-    grid-template-columns: 2rem 1fr;
-    gap: 0.65rem;
-    align-items: start;
+    border-radius: 12px;
+    background: linear-gradient(120deg, rgba(184,240,0,0.14), rgba(0,229,255,0.10));
+    border: 1px solid rgba(184,240,0,0.45);
+    font-size: 0.9rem;
   }
-  .steps strong { color: #0D546B; }
-  .steps span { color: #516472; font-size: 0.92rem; }
-  .grid {
-    display: grid;
-    gap: 0.85rem;
-    grid-template-columns: repeat(2, 1fr);
+  .banner strong { color: #B8F000; }
+  .banner .sub { display:block; color:#cbd5e1; margin-top:0.25rem; font-weight:400; }
+  .rule-100 {
+    margin: 0 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: rgba(225,6,0,0.10);
+    border: 1px solid rgba(225,6,0,0.45);
+    color: #fecaca;
+    font-size: 0.88rem;
   }
-  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
-  .tile {
-    background: #fff;
-    border: 1px solid #d5e2ea;
+  .rule-100 strong { color: #ff6b6b; }
+  .hero h1 { margin: 0 0 0.4rem; font-size: clamp(1.6rem, 4vw, 2.3rem); letter-spacing: -0.03em; }
+  .hero p { margin: 0; max-width: 52rem; color: #94a3b8; }
+  .lede { color: #94a3b8; max-width: 52rem; }
+  section { margin-top: 1.75rem; }
+  section > h2 { font-size: 1.2rem; margin: 0 0 0.35rem; }
+  .grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .grid-2 { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); }
+  .card {
+    background: #0d111a;
+    border: 1px solid #1f2937;
     border-radius: 14px;
     padding: 1rem 1.05rem;
-    text-decoration: none;
-    color: inherit;
   }
-  .tile:hover { border-color: #00B2E2; }
-  .tile .eyebrow {
-    display: block;
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #077999;
-    margin-bottom: 0.3rem;
+  .card h3 { margin: 0 0 0.3rem; font-size: 1.02rem; }
+  .card p { margin: 0.25rem 0; font-size: 0.88rem; color: #b4becb; }
+  .eyebrow {
+    display: inline-block; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #B8F000; margin-bottom: 0.25rem;
   }
-  .tile h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
-  .tile p { margin: 0; font-size: 0.88rem; color: #516472; }
-  .panel {
-    margin-top: 1.35rem;
-    background: #fff;
-    border: 1px solid #d5e2ea;
-    border-radius: 14px;
-    padding: 1.05rem 1.1rem;
+  .pill {
+    display: inline-block; padding: 0.12rem 0.55rem; border-radius: 999px;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em; border: 1px solid transparent;
   }
-  .panel h2 { margin: 0 0 0.4rem; font-size: 1.1rem; }
-  .panel .lede { margin: 0 0 0.7rem; color: #64748b; font-size: 0.92rem; }
-  .jobs { margin: 0; padding-left: 1.1rem; color: #405766; }
-  .jobs a { color: #077999; font-weight: 700; }
-  .producer {
-    margin-top: 1.5rem;
-    border: 1px dashed #94a3b8;
-    border-radius: 14px;
-    padding: 1rem 1.05rem;
-    background: #f8fafc;
+  .badge-status { background: rgba(148,163,184,0.15); color:#cbd5e1; border-color: rgba(148,163,184,0.3); }
+  .s-confirmed, .s-approved-for-launch { background: rgba(34,197,94,0.16); color:#86efac; border-color: rgba(34,197,94,0.4); }
+  .s-approved-for-test { background: rgba(0,229,255,0.14); color:#67e8f9; border-color: rgba(0,229,255,0.4); }
+  .s-pending-leadership, .s-pending-compliance, .s-on-hold { background: rgba(255,230,0,0.14); color:#fde047; border-color: rgba(255,230,0,0.4); }
+  .s-rejected, .s-do-not-use { background: rgba(225,6,0,0.16); color:#fca5a5; border-color: rgba(225,6,0,0.45); }
+  .s-queued, .s-ready-for-design, .s-ready-for-animation { background: rgba(184,240,0,0.14); color:#cbe96a; border-color: rgba(184,240,0,0.4); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1f2937; vertical-align: top; }
+  th { color: #94a3b8; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td.ref { font-weight: 700; color: #f8fafc; white-space: nowrap; }
+  ul.clean { margin: 0.4rem 0 0; padding-left: 1.1rem; color: #b4becb; font-size: 0.86rem; }
+  ul.clean li { margin: 0.15rem 0; }
+  .copy-btn {
+    font: inherit; font-size: 0.72rem; font-weight: 700; cursor: pointer;
+    background: #B8F000; color: #06080d; border: none; border-radius: 7px;
+    padding: 0.28rem 0.6rem; margin-top: 0.4rem;
   }
-  .producer summary {
-    cursor: pointer;
-    font-weight: 700;
-    color: #0D546B;
+  .copy-btn:hover { background: #cbff33; }
+  .copy-btn.copied { background: #22C55E; color:#04120a; }
+  .copytext {
+    display: block; background: #05070b; border: 1px solid #1f2937; border-radius: 8px;
+    padding: 0.6rem 0.7rem; font-size: 0.82rem; color: #d1d9e2; white-space: pre-wrap; margin-top: 0.4rem;
   }
-  .review-row {
-    display: grid;
-    gap: 0.45rem;
-    margin: 0.75rem 0;
-    padding: 0.65rem 0;
-    border-top: 1px solid #e2e8f0;
+  .warn {
+    margin-top: 0.5rem; padding: 0.5rem 0.65rem; border-radius: 8px; font-size: 0.78rem;
+    background: rgba(255,230,0,0.10); border: 1px solid rgba(255,230,0,0.4); color: #fde047;
   }
-  .review-row label { font-size: 0.86rem; font-weight: 600; }
-  .review-row select {
-    font: inherit;
-    max-width: 16rem;
-    border: 1px solid #d5e2ea;
-    border-radius: 8px;
-    padding: 0.35rem 0.5rem;
+  .warn.danger { background: rgba(225,6,0,0.12); border-color: rgba(225,6,0,0.45); color:#fca5a5; }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 0.25rem; }
+  .filters button {
+    font: inherit; font-size: 0.76rem; font-weight: 600; cursor: pointer; color:#cbd5e1;
+    background: #0d111a; border: 1px solid #1f2937; border-radius: 999px; padding: 0.3rem 0.75rem;
   }
-  .note { font-size: 0.8rem; color: #64748b; margin: 0.5rem 0 0; }
+  .filters button.active { background: #B8F000; color:#06080d; border-color:#B8F000; }
+  /* Mock ad comp */
+  .adcomp {
+    position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 5;
+    display: flex; flex-direction: column; justify-content: space-between; padding: 0.9rem;
+    border: 1px solid rgba(255,255,255,0.14);
+  }
+  .adcomp .ac-head { font-weight: 800; font-size: 1.05rem; line-height: 1.05; letter-spacing:-0.02em; text-transform: uppercase; max-width: 78%; }
+  .adcomp .ac-bullets { list-style: none; margin: 0.5rem 0 0; padding: 0; font-size: 0.72rem; font-weight:600; max-width: 78%; }
+  .adcomp .ac-bullets li { display:flex; gap:0.35rem; align-items:center; margin:0.18rem 0; }
+  .adcomp .ac-bullets li::before { content:'✓'; font-weight:900; }
+  .adcomp .ac-person {
+    position: absolute; right: -6%; bottom: 0; width: 42%; height: 72%; border-radius: 50% 50% 0 0;
+    opacity: 0.9;
+  }
+  .adcomp .ac-cta { align-self: flex-start; padding: 0.35rem 0.8rem; border-radius: 999px; font-weight:800; font-size:0.75rem; z-index:2; }
+  .adcomp .ac-badge {
+    position:absolute; top:0.7rem; right:0.7rem; z-index:3; font-size:0.6rem; font-weight:800;
+    padding:0.2rem 0.45rem; border-radius:6px; text-transform:uppercase; letter-spacing:0.03em;
+  }
+  .adcomp .ac-note { font-size:0.6rem; opacity:0.8; z-index:2; }
+  .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px,1fr)); gap: 0.4rem; margin-top: 0.6rem; }
+  .timeline .beat { background:#05070b; border:1px solid #1f2937; border-top:3px solid #00E5FF; border-radius:8px; padding:0.45rem 0.5rem; }
+  .timeline .beat b { display:block; font-size:0.72rem; color:#67e8f9; }
+  .timeline .beat span { font-size:0.68rem; color:#94a3b8; }
+  .chip { display:inline-block; font-size:0.66rem; font-weight:700; padding:0.14rem 0.5rem; border-radius:6px; background:#111827; border:1px solid #263041; color:#cbd5e1; margin:0.12rem 0.12rem 0 0; }
+  .swatch { display:inline-block; width:0.85rem; height:0.85rem; border-radius:3px; vertical-align:-2px; margin-right:0.3rem; border:1px solid rgba(255,255,255,0.25); }
+  .metricgrid { display:grid; gap:0.7rem; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
+  .metric { background:#0d111a; border:1px solid #1f2937; border-radius:12px; padding:0.75rem 0.85rem; }
+  .metric label { display:block; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8; }
+  .metric input { width:100%; margin-top:0.3rem; background:#05070b; border:1px solid #263041; border-radius:7px; color:#f8fafc; font:inherit; padding:0.3rem 0.4rem; }
+  .checkline { display:flex; gap:0.5rem; align-items:flex-start; padding:0.35rem 0; border-bottom:1px solid #131a26; font-size:0.86rem; color:#cbd5e1; }
+  .checkline input { margin-top:0.2rem; }
+  .foot { margin-top:3rem; padding-top:1rem; border-top:1px solid #1f2937; color:#64748b; font-size:0.76rem; }
 </style>
 </head>
 <body>
@@ -357,28 +360,26 @@
     <a class="doc-header__brand" href="/studio.html">
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
-        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Raw materials + clear direction · designers assemble the finals</p>
+        <h1 class="doc-header__title">MedVirtual Ad Production</h1>
+        <p class="doc-header__tagline">Bold Virtual Medical Admin ads · static + animated video</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
-      <summary>Examples</summary>
-      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer examples</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/real-people-creative.html" class="">People treatments</a></div>
-    </details><a href="/real-people-creative.html" class="">People</a><details class="doc-nav-dd ">
-      <summary>Raw Assets</summary>
-      <div class="doc-nav-dd__menu"><a href="/raw-assets.html" class="">Raw library</a><a href="/asset-hub.html" class="">Full Asset Hub</a><a href="/image-variation-review.html" class="">Image board</a><a href="/real-people-assets.html" class="">People downloads</a></div>
-    </details><a href="/video-production.html" class="">Video Capture</a><details class="doc-nav-dd ">
-      <summary>Producer Lab</summary>
-      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Lab home</a><a href="/ai-asset-foundry.html" class="">AI Asset Foundry</a><a href="/competitors.html" class="">Competitors</a><a href="/creative-concept-lab.html" class="">Static References</a><a href="/motion-concept-lab.html" class="">Motion References</a><a href="/mockup-sandbox.html" class="">Sandbox</a><a href="/saas-prop-templates.html" class="">SaaS Props</a><a href="/role-offer-templates.html" class="">Role-Offer mockups</a></div>
-    </details></nav>
-      <span class="doc-nav-sep" aria-hidden="true"></span>
-      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/studio.html" class="active">Studio</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="active">Dashboard</a><a href="/direct-response.html" class="">Current Direction</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-static.html" class="">Static Ads</a><details class="doc-nav-dd ">
+      <summary>Animated Video</summary>
+      <div class="doc-nav-dd__menu"><a href="/vma-video.html" class="">Video Concepts</a><a href="/vma-remotion.html" class="">Remotion Playbook</a><a href="/vma-capcut.html" class="">CapCut Templates</a></div>
+    </details><a href="/vma-chatgpt.html" class="">ChatGPT Prompts</a><details class="doc-nav-dd ">
+      <summary>Copy</summary>
+      <div class="doc-nav-dd__menu"><a href="/vma-copy-en.html" class="">English Matrix</a><a href="/vma-copy-es.html" class="">Spanish Matrix</a></div>
+    </details><details class="doc-nav-dd ">
+      <summary>Forms &amp; Launch</summary>
+      <div class="doc-nav-dd__menu"><a href="/vma-form.html" class="">Instant Form</a><a href="/vma-campaign.html" class="">Campaign Tests</a><a href="/vma-claims.html" class="">Claims Tracker</a><a href="/vma-qa.html" class="">Launch QA</a><a href="/vma-queue.html" class="">Production Queue</a><a href="/vma-approval.html" class="">Approval Board</a></div>
+    </details><a href="/vma-history.html" class="">History</a></nav>
     </div>
   </div>
   <div class="doc-header__page">
-          <h2 class="doc-header__page-title">Studio</h2>
-          <p class="doc-header__page-sub">Generate the parts. Show the intended result. Designers assemble the finals.</p>
+          <h2 class="doc-header__page-title">Dashboard</h2>
+          <p class="doc-header__page-sub">Production control center — metrics, queue, and claims at a glance.</p>
           
         </div>
 </header>
@@ -399,163 +400,83 @@
 })();
 </script>
   <main>
-    <header class="hero">
-      <h1>Start with the Brief.</h1>
-      <p>MedVirtual supplies raw images, logos, separate copy, and a reference composition. Build the finished ad in your normal design or video tools — this site is not a Photoshop or CapCut replacement.</p>
-    </header>
-
-    <ol class="steps" aria-label="Handoff path">
-      <li><strong>1</strong><span>Open the <a href="/graphic-request-brief.html">Brief</a> — only the current assignments.</span></li>
-      <li><strong>2</strong><span>Download the listed raw images, logos, and copy from each card.</span></li>
-      <li><strong>3</strong><span>View one reference mockup or capture brief — treat it as art direction, not mandatory HTML editing.</span></li>
-      <li><strong>4</strong><span>Build the final asset in your usual tools (Illustrator, Canva, Premiere, CapCut, etc.).</span></li>
-      <li><strong>5</strong><span>Submit via the destination on the Brief (email George).</span></li>
-    </ol>
-
-    <div class="grid">
-      <a class="tile" href="/graphic-request-brief.html">
-        <span class="eyebrow">Production</span>
-        <h3>Brief</h3>
-        <p>Assigned jobs with dimensions, assets, copy, and due dates.</p>
-      </a>
-      <a class="tile" href="/raw-assets.html">
-        <span class="eyebrow">Files</span>
-        <h3>Raw Assets</h3>
-        <p>Photos, logos, props, backgrounds — components, not finished ads.</p>
-      </a>
-      <a class="tile" href="/template-test-board.html">
-        <span class="eyebrow">Direction</span>
-        <h3>Examples</h3>
-        <p>Approved layouts Hailey is likely to accept.</p>
-      </a>
-      <a class="tile" href="/real-people-creative.html">
-        <span class="eyebrow">Talent</span>
-        <h3>People</h3>
-        <p>Named talent treatments and public-safe downloads.</p>
-      </a>
-      <a class="tile" href="/video-production.html">
-        <span class="eyebrow">Capture</span>
-        <h3>Video Capture</h3>
-        <p>Shot list, lines, framing — Remotion is reference only.</p>
-      </a>
-      <a class="tile" href="/ideas.html">
-        <span class="eyebrow">Producers</span>
-        <h3>Producer Lab</h3>
-        <p>Foundry, competitors, static/motion references — optional for designers.</p>
-      </a>
+    <div class="banner"><strong>CURRENT DIRECTION — BOLD VIRTUAL MEDICAL ADMIN ADS + ANIMATED VIDEO</strong><span class="sub">Human-led, offer-first, mobile-readable static ads + short animated video. Hire a Virtual Medical Admin.</span></div>
+    <div class="rule-100"><strong>$100 NO-LEAD RULE: If an individual ad spends $100 with zero qualified leads, pause it and iterate the creative (new color, headline, or offer). Do not keep paying to lose. Judge each ad on cost-per-lead, not impressions.</strong></div>
+    
+    <div class="hero">
+      <h1>Production Dashboard</h1>
+      <p>Control center for the Virtual Medical Admin Meta system — bold human-led static ads and short animated video. Generate the parts here; designers assemble the finals.</p>
     </div>
 
-    <section class="panel">
-      <h2>Open on the Brief</h2>
-      <p class="lede">Current produce-now queue (4).</p>
-      <ul class="jobs"><li><a href="/graphic-request-brief.html#rp-carmen-4x5">Static · Meet Carmen · 4:5 feed</a> · due 07/20/2026</li><li><a href="/graphic-request-brief.html#vid-meet-jessica">Capture + Motion · Jessica direct-to-camera · Meet Your Next Teammate</a> · due 07/27/2026</li><li><a href="/graphic-request-brief.html#vid-pain-carmen">Motion · Carmen · Pain → Human (9–13s)</a> · due 07/24/2026</li><li><a href="/graphic-request-brief.html#vid-dental-chelsea">Motion · Chelsea · Dental vertical (10–15s)</a> · due 07/27/2026</li></ul>
+    <section>
+      <h2>Live metrics <span class="pill badge-status">manual</span></h2>
+      <p class="lede">Type in the latest numbers from Ads Manager. Saved to this browser only.</p>
+      <div class="metricgrid"><div class="metric"><label>Spend</label><input type="text" data-persist="metric-0" placeholder="—" /></div><div class="metric"><label>Leads</label><input type="text" data-persist="metric-1" placeholder="—" /></div><div class="metric"><label>Cost / Lead</label><input type="text" data-persist="metric-2" placeholder="—" /></div><div class="metric"><label>Best Color</label><input type="text" data-persist="metric-3" placeholder="—" /></div><div class="metric"><label>Best Concept</label><input type="text" data-persist="metric-4" placeholder="—" /></div><div class="metric"><label>Ads at $100 no-lead</label><input type="text" data-persist="metric-5" placeholder="—" /></div></div>
     </section>
 
-    <details class="producer">
-      <summary>Producer only — tomorrow review (not for graphics team)</summary>
-      <p class="note">Scores stay in this browser (localStorage). Mark each area after you walk the site.</p>
-      
-    <div class="review-row">
-      <label for="rev-brief">Current Brief</label>
-      <select id="rev-brief" data-review="brief" aria-label="Current Brief assessment">
-        <option value="">— choose —</option>
-        <option value="useful">Useful</option>
-        <option value="too-complicated">Too complicated</option>
-        <option value="producer-only">Keep producer-only</option>
-        <option value="simplify">Simplify</option>
-        <option value="remove-nav">Remove from navigation</option>
-        <option value="broken">Broken</option>
-      </select>
-    </div>
-    <div class="review-row">
-      <label for="rev-raw">Raw Assets library</label>
-      <select id="rev-raw" data-review="raw" aria-label="Raw Assets library assessment">
-        <option value="">— choose —</option>
-        <option value="useful">Useful</option>
-        <option value="too-complicated">Too complicated</option>
-        <option value="producer-only">Keep producer-only</option>
-        <option value="simplify">Simplify</option>
-        <option value="remove-nav">Remove from navigation</option>
-        <option value="broken">Broken</option>
-      </select>
-    </div>
-    <div class="review-row">
-      <label for="rev-foundry">AI Asset Foundry</label>
-      <select id="rev-foundry" data-review="foundry" aria-label="AI Asset Foundry assessment">
-        <option value="">— choose —</option>
-        <option value="useful">Useful</option>
-        <option value="too-complicated">Too complicated</option>
-        <option value="producer-only">Keep producer-only</option>
-        <option value="simplify">Simplify</option>
-        <option value="remove-nav">Remove from navigation</option>
-        <option value="broken">Broken</option>
-      </select>
-    </div>
-    <div class="review-row">
-      <label for="rev-static-ref">Static reference mockups</label>
-      <select id="rev-static-ref" data-review="static-ref" aria-label="Static reference mockups assessment">
-        <option value="">— choose —</option>
-        <option value="useful">Useful</option>
-        <option value="too-complicated">Too complicated</option>
-        <option value="producer-only">Keep producer-only</option>
-        <option value="simplify">Simplify</option>
-        <option value="remove-nav">Remove from navigation</option>
-        <option value="broken">Broken</option>
-      </select>
-    </div>
-    <div class="review-row">
-      <label for="rev-motion-ref">Motion / video references</label>
-      <select id="rev-motion-ref" data-review="motion-ref" aria-label="Motion / video references assessment">
-        <option value="">— choose —</option>
-        <option value="useful">Useful</option>
-        <option value="too-complicated">Too complicated</option>
-        <option value="producer-only">Keep producer-only</option>
-        <option value="simplify">Simplify</option>
-        <option value="remove-nav">Remove from navigation</option>
-        <option value="broken">Broken</option>
-      </select>
-    </div>
-    <div class="review-row">
-      <label for="rev-nav">Graphics-facing navigation</label>
-      <select id="rev-nav" data-review="nav" aria-label="Graphics-facing navigation assessment">
-        <option value="">— choose —</option>
-        <option value="useful">Useful</option>
-        <option value="too-complicated">Too complicated</option>
-        <option value="producer-only">Keep producer-only</option>
-        <option value="simplify">Simplify</option>
-        <option value="remove-nav">Remove from navigation</option>
-        <option value="broken">Broken</option>
-      </select>
-    </div>
-    <div class="review-row">
-      <label for="rev-build">Overall build health</label>
-      <select id="rev-build" data-review="build" aria-label="Overall build health assessment">
-        <option value="">— choose —</option>
-        <option value="useful">Useful</option>
-        <option value="too-complicated">Too complicated</option>
-        <option value="producer-only">Keep producer-only</option>
-        <option value="simplify">Simplify</option>
-        <option value="remove-nav">Remove from navigation</option>
-        <option value="broken">Broken</option>
-      </select>
-    </div>
-      <p class="note"><a href="/ai-asset-foundry.html">Foundry</a> · <a href="/creative-concept-lab.html">Static refs</a> · <a href="/motion-concept-lab.html">Motion refs</a> · Audit doc lives in repo root as <code>PROJECT-AUDIT-RAW-MATERIALS.md</code></p>
-    </details>
+    <section>
+      <h2>Queue summary</h2>
+      <div class="grid">
+        <div class="card"><span class="eyebrow">Queued</span><h3>22 items</h3><p>Ready to produce.</p></div>
+        <div class="card"><span class="eyebrow">On hold</span><h3>2 items</h3><p>Blocked on claim / offer approval.</p></div>
+        <div class="card"><span class="eyebrow">Concepts</span><h3>24 static · 15 video</h3><p>Plus 6 color tests.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Claims pending approval</h2>
+      <p class="lede">These may not appear on any published ad until approved.</p>
+      <table><thead><tr><th>Claim</th><th>Status</th><th>Notes</th></tr></thead><tbody><tr><td class="ref">Starting at $10/hr</td><td><span class="pill s-pending-leadership">Pending Leadership</span></td><td>Requires final leadership confirmation before it appears on any creative or form.</td></tr><tr><td class="ref">HIPAA Compliant</td><td><span class="pill s-pending-compliance">Pending Compliance</span></td><td>Requires compliance confirmation before launch.</td></tr><tr><td class="ref">Spanish-Speaking Staff Available</td><td><span class="pill s-pending-leadership">Pending Leadership</span></td><td>Confirm availability messaging with operations before launch.</td></tr><tr><td class="ref">Free Staffing Consultation</td><td><span class="pill s-pending-leadership">Pending Leadership</span></td><td>Pending leadership approval — do not publish on form or completion screen.</td></tr><tr><td class="ref">Save up to XX%</td><td><span class="pill s-do-not-use">Do Not Use</span></td><td>No invented savings percentages.</td></tr><tr><td class="ref">Instant Placement / Hire Today</td><td><span class="pill s-do-not-use">Do Not Use</span></td><td>Do not claim instant placement unless verified.</td></tr></tbody></table>
+    </section>
+
+    <section>
+      <h2>Jump in</h2>
+      <div class="grid"><a class="card" href="/direct-response.html"><span class="eyebrow">Open</span><h3>Current Direction</h3><p>Bold Virtual Medical Admin ads + animated video.</p></a><a class="card" href="/vma-static.html"><span class="eyebrow">Open</span><h3>Static Ad Concepts</h3><p>24 concepts + 6 color tests.</p></a><a class="card" href="/vma-video.html"><span class="eyebrow">Open</span><h3>Animated Video</h3><p>15 video concepts, scene timelines.</p></a><a class="card" href="/vma-chatgpt.html"><span class="eyebrow">Open</span><h3>ChatGPT Prompts</h3><p>Generate full ad plates (no baked text).</p></a><a class="card" href="/vma-queue.html"><span class="eyebrow">Open</span><h3>Production Queue</h3><p>24 static + video build items.</p></a><a class="card" href="/vma-claims.html"><span class="eyebrow">Open</span><h3>Claims Tracker</h3><p>Price / HIPAA approval status.</p></a><a class="card" href="/vma-campaign.html"><span class="eyebrow">Open</span><h3>Campaign Tests</h3><p>Ad sets + $100 rule.</p></a><a class="card" href="/competitors.html"><span class="eyebrow">Open</span><h3>Competitor Wall</h3><p>External benchmarks (research only).</p></a></div>
+    </section>
+  
+    <p class="foot">MedVirtual Ad Production · Virtual Medical Admin · Reviewed July 14, 2026 · Approved creative colors only (no pink) · Ad-facing brand: MedVirtual.</p>
   </main>
-  <script>
-  (function () {
-    const KEY = 'mv-studio-review-v1';
-    let saved = {};
-    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
-    document.querySelectorAll('[data-review]').forEach((sel) => {
-      const id = sel.getAttribute('data-review');
-      if (saved[id]) sel.value = saved[id];
-      sel.addEventListener('change', () => {
-        saved[id] = sel.value;
-        localStorage.setItem(KEY, JSON.stringify(saved));
+  
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.copy-btn');
+    if(!btn) return;
+    var text = btn.getAttribute('data-copy') || '';
+    navigator.clipboard.writeText(text).then(function(){
+      var old = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(function(){ btn.textContent = old; btn.classList.remove('copied'); }, 1400);
+    });
+  });
+  // Generic data-filter groups
+  document.querySelectorAll('[data-filter-group]').forEach(function(group){
+    var key = group.getAttribute('data-filter-group');
+    group.querySelectorAll('button[data-filter]').forEach(function(b){
+      b.addEventListener('click', function(){
+        group.querySelectorAll('button[data-filter]').forEach(function(x){ x.classList.remove('active'); });
+        b.classList.add('active');
+        var val = b.getAttribute('data-filter');
+        document.querySelectorAll('[data-'+key+']').forEach(function(item){
+          var show = (val === 'all') || item.getAttribute('data-'+key) === val;
+          item.style.display = show ? '' : 'none';
+        });
       });
     });
-  })();
-  </script>
+  });
+  // Persist checkboxes + text inputs with data-persist
+  document.querySelectorAll('[data-persist]').forEach(function(el){
+    var k = 'vma-'+el.getAttribute('data-persist');
+    try {
+      var saved = localStorage.getItem(k);
+      if(saved !== null){ if(el.type==='checkbox'){ el.checked = saved==='1'; } else { el.value = saved; } }
+    } catch(e){}
+    el.addEventListener(el.type==='checkbox'?'change':'input', function(){
+      try { localStorage.setItem(k, el.type==='checkbox' ? (el.checked?'1':'0') : el.value); } catch(e){}
+    });
+  });
+})();
+</script>
 </body>
 </html>

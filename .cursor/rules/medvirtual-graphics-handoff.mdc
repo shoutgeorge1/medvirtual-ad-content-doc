@@ -8,49 +8,39 @@ alwaysApply: true
 
 # MedVirtual Meta Creative Handoff
 
-Default priority: **graphics-handoff clarity** for the Filipino VA/graphics team — not strategy essays or Meta Ads Manager ops.
+Default priority: **Virtual Medical Admin direct-response ads + animated video** production clarity.
 
 ## Goal
-Keep 15–30 ads in the hopper. Make “do this next” obvious.
+Keep bold VMA static + video ads in the hopper. Make “do this next” obvious.
 
 ## Brand
 - Ad-facing: **MedVirtual** only (never MedVirtual.ai)
-- Tagline: Staffing Solutions for Every Practice
 - Font: Be Vietnam
-- Colors: `#077999`, `#00B2E2`, `#0D546B`
-- Official SVG logos; MedVirtual-only for Meta ads
+- Active Meta colors: lime / yellow / cobalt / cyan / vivid green / commercial red / black / white
+- **No pink** (other buyer territory)
 
 ## Service model
 Hire dedicated full-time virtual staff who join the practice team.
-Not a call center / managed front desk / software / “we run your front desk.”
+Not a call center / managed front desk / software / chatbot / AI service.
 
 ## Visual DNA
-**Hailey people lane:** Role-Offer + Real People — grid plate · role pill · checklist · CTA · faces.
-**SaaS Prop lane (new):** no people · glass/3D medical-software props · fancy headlines · staffing truth in support — `/saas-prop-templates.html`
+**Current:** High-contrast human-led “Hire a Virtual Medical Admin” — huge headline · generic professional admin · 3–4 benefits · price/trust badges (pending approval) · mobile-first.
+Animated: Remotion + CapCut templates from the same concept data.
 
-Never dark muddy teal overlays.
+## Removed from active site (July 2026)
+Named Real People / Talent Pool profile ads · Role-Offer hire boards · SaaS glassmorphism / no-people primary.
+Archive only: `_archive/july-2026-removed/`. One history note on `/vma-history.html`.
 
 ## Files
 - Public: web-safe handoff assets
 - `.local-masters/`: huge video / .ai
-- `_private/`: internal docs — never expose to graphics
+- `_private/`: internal docs — never expose
+- `_archive/`: removed historical directions
 
 ## Site order
-1. Brief
-2. Templates (Layout refs page · Role-Offer linked from there)
-3. Real People
-4. SaaS Prop  ← stack new concept lanes to the right; use nav dropdowns (`children`) only when a lane needs 2+ boards
-Reference far right: Brand Guide · Assets · Images
+Dashboard → Current Direction → Competitors → Static → Video → ChatGPT → Forms/Launch → History
 
-Same header on every page via `scripts/shared-doc-header.mjs`. Never style bare `details`/`summary` globally — scope to `main`.
-
-Launch 1 / Launch 2 are sections on Real People (`#ready` / `#next`), not separate nav.
-
-## Workflow
-copy form → attach refs (Hailey people **or** SaaS prop art + logo) → design
-
-No UTM / form QA / campaign shell / audience clutter on graphics pages.
+Same header via `scripts/shared-doc-header.mjs`. Never style bare `details`/`summary` globally — scope to `main`.
 
 ## Claims
-Do not invent HIPAA, new rates, savings %, performance, credentials, or availability.
-SaaS Prop looks like software — **never** copy that MedVirtual *is* software.
+Do not invent HIPAA, rates, savings %, performance, or free offers. Pending claims are never launch-ready.

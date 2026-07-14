@@ -97,6 +97,15 @@ const css = `
   .panel .lede { margin: 0 0 0.7rem; color: #64748b; font-size: 0.92rem; }
   .jobs { margin: 0; padding-left: 1.1rem; color: #405766; }
   .jobs a { color: #077999; font-weight: 700; }
+  .dr-banner {
+    margin: 0 0 1.25rem;
+    padding: 0.9rem 1rem;
+    border-radius: 14px;
+    background: linear-gradient(120deg, #ecfdf5, #eff6ff);
+    border: 1px solid #86efac;
+  }
+  .dr-banner strong { color: #14532d; }
+  .dr-banner a { color: #077999; font-weight: 700; }
   .producer {
     margin-top: 1.5rem;
     border: 1px dashed #94a3b8;
@@ -184,6 +193,8 @@ const html = `<!doctype html>
       <p>MedVirtual supplies raw images, logos, separate copy, and a reference composition. Build the finished ad in your normal design or video tools — this site is not a Photoshop or CapCut replacement.</p>
     </header>
 
+    <p class="dr-banner"><strong>CURRENT DIRECTION — HIGH-CONTRAST DIRECT-RESPONSE META CREATIVE.</strong> Human-led, offer-first, mobile-readable — Hire a Virtual Medical Admin · color tests · no pink. <a href="/direct-response.html">Open Direct Response →</a></p>
+
     <ol class="steps" aria-label="Handoff path">
       <li><strong>1</strong><span>Open the <a href="/graphic-request-brief.html">Brief</a> — only the current assignments.</span></li>
       <li><strong>2</strong><span>Download the listed raw images, logos, and copy from each card.</span></li>
@@ -197,6 +208,11 @@ const html = `<!doctype html>
         <span class="eyebrow">Production</span>
         <h3>Brief</h3>
         <p>Assigned jobs with dimensions, assets, copy, and due dates.</p>
+      </a>
+      <a class="tile" href="/direct-response.html">
+        <span class="eyebrow">Current Meta</span>
+        <h3>Direct Response</h3>
+        <p>Strategy, creative board, color tests, form, and launch QA.</p>
       </a>
       <a class="tile" href="/raw-assets.html">
         <span class="eyebrow">Files</span>
