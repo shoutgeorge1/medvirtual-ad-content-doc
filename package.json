@@ -19,13 +19,15 @@
     "generate:brief": "node scripts/generate-graphic-request-brief.mjs",
     "generate:studio": "node scripts/generate-studio-home.mjs",
     "generate:ideas": "node scripts/generate-ideas-lab.mjs",
+    "generate:competitors": "node scripts/generate-competitor-wall.mjs",
+    "generate:mockups": "node scripts/generate-mockup-sandbox.mjs",
     "generate:marketing-library": "node scripts/generate-marketing-library.mjs",
     "import:marketing-library": "node scripts/import-marketing-library.mjs && node scripts/generate-marketing-library.mjs",
     "import:brand-pack": "node scripts/import-brand-pack.mjs",
     "generate:meta-launch": "node scripts/generate-meta-launch-pack.mjs && node scripts/generate-meta-launch-1.mjs && node scripts/generate-meta-launch-2.mjs",
     "generate:real-people": "node scripts/generate-real-people-treatment-e.mjs && node scripts/generate-real-people-creative.mjs && node scripts/generate-real-people-assets-page.mjs && node scripts/generate-meta-launch-1.mjs && node scripts/generate-meta-launch-2.mjs",
     "generate:real-people-assets": "node scripts/generate-real-people-assets.mjs && node scripts/generate-real-people-assets-page.mjs",
-    "generate:docs": "node scripts/generate-studio-home.mjs && node scripts/generate-ideas-lab.mjs && node scripts/generate-brand-guide.mjs && node scripts/generate-graphic-request-brief.mjs && node scripts/generate-ad-copy.mjs && node scripts/generate-template-board.mjs && node scripts/generate-role-offer-templates.mjs && node scripts/generate-saas-prop-templates.mjs && node scripts/generate-asset-hub.mjs && node scripts/generate-marketing-library.mjs && node scripts/generate-meta-launch-pack.mjs && npm run generate:real-people"
+    "generate:docs": "node scripts/generate-studio-home.mjs && node scripts/generate-ideas-lab.mjs && node scripts/generate-competitor-wall.mjs && node scripts/generate-mockup-sandbox.mjs && node scripts/generate-brand-guide.mjs && node scripts/generate-graphic-request-brief.mjs && node scripts/generate-ad-copy.mjs && node scripts/generate-template-board.mjs && node scripts/generate-role-offer-templates.mjs && node scripts/generate-saas-prop-templates.mjs && node scripts/generate-asset-hub.mjs && node scripts/generate-marketing-library.mjs && node scripts/generate-meta-launch-pack.mjs && npm run generate:real-people"
   },
   "dependencies": {
     "html-to-image": "^1.11.13",

@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Competitor Wall · MedVirtual</title>
+  <style>
+  
+  
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --mv-deep-teal: #0D546B;
+  --mv-accent: #00C0D4;
+  --mv-bright-accent: #27E6FA;
+  --mv-neutral-blue: #F0F5FF;
+  --mv-neutral-warm: #EFEDE1;
+  --mv-ink: #161511;
+  --mv-white: #FFFFFF;
+  --mv-gradient-primary: linear-gradient(90deg, #077999 0%, #00B2E2 100%);
+  --mv-gradient-light: linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%);
+  --mv-gradient-bright: linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%);
+  --mv-gradient-deep: linear-gradient(90deg, #0D546B 0%, #00C0D4 100%);
+  --mv-font: "Be Vietnam", Inter, Arial, sans-serif;
+}
+
+  .doc-header {
+    background: var(--mv-deep-teal);
+    color: #ffffff;
+    border-bottom: 3px solid var(--mv-cyan);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    font-family: var(--mv-font);
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .doc-header__mark {
+    display: none;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #b8d4e0;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #b8d4e0;
+    max-width: 820px;
+  }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .doc-nav a,
+  .doc-nav-dd > summary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #d7e8f0;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+    list-style: none;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+  }
+  /* Kill page-level details/summary styles that bleed into the header */
+  .doc-header details.doc-nav-dd {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
+  .doc-header details.doc-nav-dd > summary {
+    background: transparent !important;
+    color: #d7e8f0 !important;
+    font-weight: 500 !important;
+    border: 1px solid transparent !important;
+    padding: 0.45rem 0.75rem !important;
+  }
+  .doc-nav-dd > summary::-webkit-details-marker { display: none; }
+  .doc-nav-dd > summary::after {
+    content: '▾';
+    margin-left: 0.35em;
+    font-size: 0.7em;
+    opacity: 0.75;
+  }
+  .doc-nav a:hover,
+  .doc-header details.doc-nav-dd > summary:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: var(--mv-primary);
+  }
+  .doc-header details.doc-nav-dd.active > summary,
+  .doc-header details.doc-nav-dd[open] > summary {
+    color: #ffffff !important;
+    background: var(--mv-primary) !important;
+  }
+  .doc-nav-dd {
+    position: relative;
+  }
+  .doc-nav-dd__menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    min-width: 11rem;
+    background: #0a4558;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    padding: 0.35rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .doc-nav-dd__menu a {
+    display: block;
+    white-space: nowrap;
+    border-radius: 7px;
+  }
+  .doc-nav-dd__menu a.active {
+    background: rgba(0, 178, 226, 0.28);
+  }
+  .doc-nav--ref a,
+  .doc-nav--ref .doc-nav-dd > summary {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #9fb9c6;
+    padding: 0.35rem 0.55rem;
+  }
+  .doc-nav--ref a.active,
+  .doc-nav--ref .doc-nav-dd.active > summary,
+  .doc-nav--ref .doc-nav-dd[open] > summary {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: var(--mv-bright-accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
+  .doc-subnav a.active {
+    background: rgba(0, 178, 226, 0.2);
+    border-color: var(--mv-cyan);
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
+    .doc-nav-dd__menu { min-width: 9.5rem; }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Be Vietnam", Inter, Arial, sans-serif;
+    color: #161511;
+    background:
+      radial-gradient(ellipse 70% 40% at 0% 0%, rgba(0,178,226,0.14), transparent 55%),
+      #f3f7fa;
+    line-height: 1.5;
+  }
+  main { max-width: 1100px; margin: 0 auto; padding: 1.35rem 1.1rem 4rem; }
+  .hero h1 { margin: 0 0 0.4rem; font-size: clamp(1.7rem, 3.5vw, 2.3rem); letter-spacing: -0.03em; }
+  .hero p { margin: 0 0 1rem; max-width: 46rem; color: #405766; font-size: 1.02rem; }
+  .howto {
+    background: #fff; border: 1px solid #d5e2ea; border-radius: 12px;
+    padding: 0.85rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: #405766;
+  }
+  .howto ol { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .filters button {
+    font: inherit; font-size: 0.8rem; font-weight: 700; padding: 0.4rem 0.7rem;
+    border-radius: 999px; border: 1px solid #cbd5e1; background: #fff; color: #0D546B; cursor: pointer;
+  }
+  .filters button.on { background: #077999; color: #fff; border-color: #077999; }
+  .wall { display: grid; gap: 1rem; }
+  .card {
+    display: grid; grid-template-columns: minmax(160px, 220px) 1fr; gap: 0;
+    background: #fff; border: 1px solid #d5e2ea; border-radius: 14px; overflow: hidden;
+  }
+  @media (max-width: 720px) { .card { grid-template-columns: 1fr; } }
+  .shot { display: block; background: #0D546B; min-height: 220px; text-decoration: none; color: #fff; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 220px; }
+  .shot.placeholder {
+    display: flex; flex-direction: column; justify-content: flex-end; gap: 0.4rem;
+    padding: 1rem; background:
+      linear-gradient(160deg, #0D546B 0%, #077999 50%, #00B2E2 100%);
+  }
+  .ph-name { font-size: 1.15rem; font-weight: 800; }
+  .ph-hint { font-size: 0.78rem; opacity: 0.85; line-height: 1.35; }
+  .body { padding: 1rem 1.05rem 1.1rem; }
+  .top { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; margin-bottom: 0.35rem; }
+  .top h3 { margin: 0; font-size: 1.15rem; }
+  .cat {
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+    background: #ecfeff; color: #0e7490; padding: 0.2rem 0.45rem; border-radius: 999px;
+  }
+  .why { margin: 0 0 0.65rem; font-size: 0.9rem; color: #516472; }
+  .fp { margin: 0 0 0.75rem; display: grid; gap: 0.3rem; }
+  .fp div { display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.35rem; font-size: 0.84rem; }
+  .fp dt { color: #64748b; font-weight: 700; }
+  .fp dd { margin: 0; }
+  .tri { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 0.85rem; }
+  @media (max-width: 720px) { .tri { grid-template-columns: 1fr; } }
+  .tri > div { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.55rem 0.65rem; }
+  .tri p { margin: 0.25rem 0 0; font-size: 0.82rem; color: #334155; }
+  .lab { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+  .lab.steal { color: #047857; }
+  .lab.reject { color: #b91c1c; }
+  .lab.remix { color: #077999; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .btn {
+    display: inline-flex; align-items: center; padding: 0.45rem 0.75rem; border-radius: 8px;
+    border: 1px solid #cbd5e1; background: #fff; color: #0D546B; font: inherit; font-size: 0.82rem;
+    font-weight: 700; text-decoration: none;
+  }
+  .btn.primary { background: #077999; border-color: #077999; color: #fff; }
+  section { margin: 1.75rem 0; }
+  section > h2 { margin: 0 0 0.35rem; font-size: 1.2rem; }
+  section > .lede { margin: 0 0 0.85rem; color: #64748b; font-size: 0.94rem; }
+  .forks { display: grid; gap: 0.75rem; grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 700px) { .forks { grid-template-columns: 1fr; } }
+  .fork {
+    background: #fff; border: 1px solid #d5e2ea; border-radius: 12px; padding: 1rem;
+  }
+  .fork h3 { margin: 0 0 0.45rem; font-size: 1.05rem; }
+  .fork ul { margin: 0 0 0.75rem; padding-left: 1.1rem; font-size: 0.88rem; color: #334155; }
+  .cta {
+    background: linear-gradient(120deg, #0D546B, #077999); color: #fff;
+    border-radius: 14px; padding: 1.1rem 1.15rem;
+  }
+  .cta h2 { margin: 0 0 0.35rem; }
+  .cta p { margin: 0 0 0.75rem; color: rgba(255,255,255,0.88); }
+  .cta .btn.primary { background: #fff; color: #0D546B; border-color: #fff; }
+  .cta .btn:not(.primary) { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
+  .card.is-hidden { display: none; }
+</style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/studio.html">
+      <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
+      <div>
+        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
+        <p class="doc-header__tagline">Built with our graphics partners · ads that get practices to book</p>
+      </div>
+    </a>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Studio</a><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
+      <summary>Lookbook</summary>
+      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer board</a></div>
+    </details><a href="/real-people-creative.html" class="">People</a><details class="doc-nav-dd active">
+      <summary>Ideas</summary>
+      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Ideas Lab</a><a href="/competitors.html" class="active">Competitor Wall</a><a href="/mockup-sandbox.html" class="">Mock-up Sandbox</a><a href="/saas-prop-templates.html" class="">SaaS Prop</a></div>
+    </details></nav>
+      <span class="doc-nav-sep" aria-hidden="true"></span>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/asset-hub.html" class="">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
+    </div>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Competitor Wall</h2>
+          <p class="doc-header__page-sub">Steal structures · reject commodity · remix for MedVirtual</p>
+          
+        </div>
+</header>
+<script>
+(function () {
+  document.querySelectorAll('.doc-nav-dd').forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (!dd.open) return;
+      document.querySelectorAll('.doc-nav-dd').forEach((other) => {
+        if (other !== dd) other.open = false;
+      });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.doc-nav-dd')) return;
+    document.querySelectorAll('.doc-nav-dd[open]').forEach((dd) => { dd.open = false; });
+  });
+})();
+</script>
+  <main>
+    <header class="hero">
+      <h1>Competitor Wall</h1>
+      <p>See what others are running so we don’t copy commodity Meet-ads blindly — and so you can steal structures, reject clutter, and remix for MedVirtual.</p>
+    </header>
+
+    <div class="howto">
+      <strong>How we keep this fresh</strong>
+      <ol><li>Open each Meta Ad Library link (US · Active).</li><li>Screenshot 1–2 feed ads (1080×1350-ish is ideal).</li><li>Drop as public/assets/competitors/{id}.jpg and set image: `/assets/competitors/{id}.jpg` here.</li><li>Run npm run generate:competitors</li></ol>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter by category">
+      <button type="button" class="on" data-filter="all">All</button>
+      <button type="button" data-filter="virtual-staffing">Virtual staffing</button>
+      <button type="button" data-filter="practice-saas">Practice SaaS</button>
+      <button type="button" data-filter="job-marketplace">Job marketplaces</button>
+      <button type="button" data-filter="other">Other</button>
+    </div>
+
+    <div class="wall">
+      <article class="card" id="hello-rache" data-category="virtual-staffing">
+    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Hello%20Rache" target="_blank" rel="noopener">
+         <span class="ph-name">Hello Rache</span>
+         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/hello-rache.jpg</span>
+       </a>
+    <div class="body">
+      <div class="top">
+        <h3>Hello Rache</h3>
+        <span class="cat">virtual-staffing</span>
+      </div>
+      <p class="why">Closest category rival — virtual medical assistants pitched to US practices.</p>
+      <dl class="fp">
+        <div><dt>Hook</dt><dd>Staffing relief · “hire VAs” language</dd></div>
+        <div><dt>Look</dt><dd>Smiling headset talent, soft clinical colors</dd></div>
+        <div><dt>Weakness</dt><dd>Can feel interchangeable with every other VA ad</dd></div>
+      </dl>
+      <div class="tri">
+        <div><span class="lab steal">Steal</span><p>Clear role framing in one glance — title + three tasks max.</p></div>
+        <div><span class="lab reject">Reject</span><p>Generic stock smiles with no practice-owner POV.</p></div>
+        <div><span class="lab remix">Remix for MV</span><p>MedVirtual Meet-[Name] with public skills + Interview CTA — human, not call-center.</p></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Hello%20Rache" target="_blank" rel="noopener">Meta Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=hello-rache">Try a mock-up</a>
+      </div>
+    </div>
+  </article><article class="card" id="time-doc" data-category="practice-saas">
+    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=TimeDoc" target="_blank" rel="noopener">
+         <span class="ph-name">TimeDoc Health</span>
+         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/time-doc.jpg</span>
+       </a>
+    <div class="body">
+      <div class="top">
+        <h3>TimeDoc Health</h3>
+        <span class="cat">practice-saas</span>
+      </div>
+      <p class="why">Care-management / RPM adjacent — often more software than staffing.</p>
+      <dl class="fp">
+        <div><dt>Hook</dt><dd>Outcomes / efficiency claims</dd></div>
+        <div><dt>Look</dt><dd>Dashboard + clinician UI screenshots</dd></div>
+        <div><dt>Weakness</dt><dd>Heavy product UI; can feel cold for hiring messages</dd></div>
+      </dl>
+      <div class="tri">
+        <div><span class="lab steal">Steal</span><p>Problem → system → CTA pacing that feels premium.</p></div>
+        <div><span class="lab reject">Reject</span><p>Tiny UI screenshots nobody can read on mobile.</p></div>
+        <div><span class="lab remix">Remix for MV</span><p>SaaS Prop lane — glass UI metaphor, no fake PHI, Book a Demo.</p></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=TimeDoc" target="_blank" rel="noopener">Meta Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=time-doc">Try a mock-up</a>
+      </div>
+    </div>
+  </article><article class="card" id="weave" data-category="practice-saas">
+    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Weave" target="_blank" rel="noopener">
+         <span class="ph-name">Weave</span>
+         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/weave.jpg</span>
+       </a>
+    <div class="body">
+      <div class="top">
+        <h3>Weave</h3>
+        <span class="cat">practice-saas</span>
+      </div>
+      <p class="why">Dental/medical practice platform — strong paid social craft.</p>
+      <dl class="fp">
+        <div><dt>Hook</dt><dd>Front-desk pain · missed calls · growth</dd></div>
+        <div><dt>Look</dt><dd>Bright product moments, strong type hierarchy</dd></div>
+        <div><dt>Weakness</dt><dd>Software, not hiring dedicated people</dd></div>
+      </dl>
+      <div class="tri">
+        <div><span class="lab steal">Steal</span><p>Tight hooks about phones / schedules without fear-mongering.</p></div>
+        <div><span class="lab reject">Reject</span><p>“We run your front desk” positioning for MedVirtual.</p></div>
+        <div><span class="lab remix">Remix for MV</span><p>Keep the pain in Meta primary text; on-image stays Meet + interview.</p></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Weave" target="_blank" rel="noopener">Meta Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=weave">Try a mock-up</a>
+      </div>
+    </div>
+  </article><article class="card" id="nexhealth" data-category="practice-saas">
+    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=NexHealth" target="_blank" rel="noopener">
+         <span class="ph-name">NexHealth</span>
+         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/nexhealth.jpg</span>
+       </a>
+    <div class="body">
+      <div class="top">
+        <h3>NexHealth</h3>
+        <span class="cat">practice-saas</span>
+      </div>
+      <p class="why">Patient experience / scheduling — polished B2B healthcare creative.</p>
+      <dl class="fp">
+        <div><dt>Hook</dt><dd>Modern clinic ops / patient access</dd></div>
+        <div><dt>Look</dt><dd>Clean sans, lots of whitespace, product moments</dd></div>
+        <div><dt>Weakness</dt><dd>Rarely celebrates individual talent</dd></div>
+      </dl>
+      <div class="tri">
+        <div><span class="lab steal">Steal</span><p>Whitespace + hierarchy — don’t crowd the 4:5.</p></div>
+        <div><span class="lab reject">Reject</span><p>Over-design that hides the offer.</p></div>
+        <div><span class="lab remix">Remix for MV</span><p>Borrow calm modern layout; keep MedVirtual teal + Be Vietnam.</p></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=NexHealth" target="_blank" rel="noopener">Meta Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=nexhealth">Try a mock-up</a>
+      </div>
+    </div>
+  </article><article class="card" id="zocdoc" data-category="other">
+    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Zocdoc" target="_blank" rel="noopener">
+         <span class="ph-name">Zocdoc</span>
+         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/zocdoc.jpg</span>
+       </a>
+    <div class="body">
+      <div class="top">
+        <h3>Zocdoc</h3>
+        <span class="cat">other</span>
+      </div>
+      <p class="why">Consumer brand in healthcare — their paid often out-crafts staffing competitors.</p>
+      <dl class="fp">
+        <div><dt>Hook</dt><dd>Simple benefit lines, high recognition</dd></div>
+        <div><dt>Look</dt><dd>Bold brand color blocks, minimal clutter</dd></div>
+        <div><dt>Weakness</dt><dd>Patient marketplace — different buyer</dd></div>
+      </dl>
+      <div class="tri">
+        <div><span class="lab steal">Steal</span><p>Ruthless simplicity — one idea per frame.</p></div>
+        <div><span class="lab reject">Reject</span><p>Trying to explain our whole company on the image.</p></div>
+        <div><span class="lab remix">Remix for MV</span><p>One proof line + Meet name + CTA — stop packing five claims.</p></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Zocdoc" target="_blank" rel="noopener">Meta Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=zocdoc">Try a mock-up</a>
+      </div>
+    </div>
+  </article><article class="card" id="carerev" data-category="job-marketplace">
+    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=CareRev" target="_blank" rel="noopener">
+         <span class="ph-name">CareRev</span>
+         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/carerev.jpg</span>
+       </a>
+    <div class="body">
+      <div class="top">
+        <h3>CareRev</h3>
+        <span class="cat">job-marketplace</span>
+      </div>
+      <p class="why">Clinician marketplace — shows how staffing brands swing job-seeker vs buyer ads.</p>
+      <dl class="fp">
+        <div><dt>Hook</dt><dd>Flexibility / shifts / earning</dd></div>
+        <div><dt>Look</dt><dd>Clinicians in scrubs, energetic crops</dd></div>
+        <div><dt>Weakness</dt><dd>Often job-seeker facing — wrong for our practice owner funnel</dd></div>
+      </dl>
+      <div class="tri">
+        <div><span class="lab steal">Steal</span><p>Strong human photography direction.</p></div>
+        <div><span class="lab reject">Reject</span><p>Anything that makes MedVirtual look like gig staffing.</p></div>
+        <div><span class="lab remix">Remix for MV</span><p>Owner POV: hire into your team — not “pick up shifts.”</p></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=CareRev" target="_blank" rel="noopener">Meta Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=carerev">Try a mock-up</a>
+      </div>
+    </div>
+  </article><article class="card" id="patientpop" data-category="practice-saas">
+    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=PatientPop" target="_blank" rel="noopener">
+         <span class="ph-name">PatientPop / Tebra</span>
+         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/patientpop.jpg</span>
+       </a>
+    <div class="body">
+      <div class="top">
+        <h3>PatientPop / Tebra</h3>
+        <span class="cat">practice-saas</span>
+      </div>
+      <p class="why">Practice growth marketing stack — lots of Meta history.</p>
+      <dl class="fp">
+        <div><dt>Hook</dt><dd>Grow your practice / get found</dd></div>
+        <div><dt>Look</dt><dd>Marketing montage, office exteriors</dd></div>
+        <div><dt>Weakness</dt><dd>Growth-agency energy vs dedicated staff hire</dd></div>
+      </dl>
+      <div class="tri">
+        <div><span class="lab steal">Steal</span><p>Aspirational “practice leveling up” emotion.</p></div>
+        <div><span class="lab reject">Reject</span><p>Agency collage fluff with no single subject.</p></div>
+        <div><span class="lab remix">Remix for MV</span><p>One talent + one role = the upgrade story.</p></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=PatientPop" target="_blank" rel="noopener">Meta Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=patientpop">Try a mock-up</a>
+      </div>
+    </div>
+  </article><article class="card" id="generic-va-commodity" data-category="virtual-staffing">
+    <a class="shot placeholder" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=virtual%20medical%20assistant" target="_blank" rel="noopener">
+         <span class="ph-name">Generic “Hire VAs” cluster</span>
+         <span class="ph-hint">Open Ad Library → screenshot → drop into assets/competitors/generic-va-commodity.jpg</span>
+       </a>
+    <div class="body">
+      <div class="top">
+        <h3>Generic “Hire VAs” cluster</h3>
+        <span class="cat">virtual-staffing</span>
+      </div>
+      <p class="why">The cul-de-sac — endless identical teal headset ads drowning the category.</p>
+      <dl class="fp">
+        <div><dt>Hook</dt><dd>Cheap / fast / 24-7 staffing spam</dd></div>
+        <div><dt>Look</dt><dd>Same headset crop everywhere</dd></div>
+        <div><dt>Weakness</dt><dd>Zero differentiation — this is why we need Ideas Lab</dd></div>
+      </dl>
+      <div class="tri">
+        <div><span class="lab steal">Steal</span><p>Nothing. Study it so you know what to avoid.</p></div>
+        <div><span class="lab reject">Reject</span><p>Copying the commodity look because it’s “safe.”</p></div>
+        <div><span class="lab remix">Remix for MV</span><p>Ideas Lab: motion, VO, human shoots, SaaS Prop — break the pattern.</p></div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=virtual%20medical%20assistant" target="_blank" rel="noopener">Meta Ad Library</a>
+        <a class="btn" href="/mockup-sandbox.html?seed=generic-va-commodity">Try a mock-up</a>
+      </div>
+    </div>
+  </article>
+    </div>
+
+    <section>
+      <h2>This week’s three forks</h2>
+      <p class="lede">Same brief, three directions — Lookbook faithful, bold experiment, SaaS. Open them in the mock-up sandbox and send your favorite.</p>
+      <div class="forks"><article class="fork">
+      <h3>Carmen · 1080×1350</h3>
+      <ul>
+        <li><strong>Lookbook</strong> — Meet Carmen · Medical Biller · Lookbook-faithful</li>
+        <li><strong>Experiment</strong> — Bold type · fewer checks · bigger face crop</li>
+        <li><strong>SaaS</strong> — No face — glass dashboard metaphor + “Billing work piling up?”</li>
+      </ul>
+      <a class="btn" href="/mockup-sandbox.html?fork=fork-carmen">Open three forks in sandbox</a>
+    </article><article class="fork">
+      <h3>Jessica · 1080×1920</h3>
+      <ul>
+        <li><strong>Lookbook</strong> — Stories resize of Jessica feed ad</li>
+        <li><strong>Experiment</strong> — Full-bleed motion poster frame for Remotion STATIC_TO_SHORT</li>
+        <li><strong>SaaS</strong> — Tall software UI with three pulsing checklist ticks</li>
+      </ul>
+      <a class="btn" href="/mockup-sandbox.html?fork=fork-jessica-story">Open three forks in sandbox</a>
+    </article></div>
+    </section>
+
+    <section class="cta">
+      <h2>Built a better remix?</h2>
+      <p>Drop a note with the competitor + your mock angle. We’ll review with marketing and may promote winners into the Brief.</p>
+      <a class="btn primary" href="mailto:UPDATE_ME@medvirtual.ai?subject=Competitor%20insight%20%2B%20mock%20idea&amp;body=Competitor%20I%20studied%3A%5CnSteal%20%2F%20Reject%20%2F%20Remix%3A%5CnMock%20idea%3A%5Cn">Share your remix</a>
+      <a class="btn" href="/mockup-sandbox.html">Open mock-up sandbox</a>
+      <a class="btn" href="/ideas.html">Ideas Lab</a>
+    </section>
+  </main>
+  <script>
+    const buttons = document.querySelectorAll('[data-filter]');
+    const cards = document.querySelectorAll('.card[data-category]');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => b.classList.remove('on'));
+        btn.classList.add('on');
+        const f = btn.getAttribute('data-filter');
+        cards.forEach((c) => {
+          const show = f === 'all' || c.getAttribute('data-category') === f;
+          c.classList.toggle('is-hidden', !show);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

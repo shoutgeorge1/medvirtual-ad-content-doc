@@ -19,7 +19,9 @@ Live workbench for **graphics partners**, marketing, and production.
 | [Brief](https://medvirtual-ad-content-doc.vercel.app/graphic-request-brief.html) | Current ads to design |
 | [Lookbook](https://medvirtual-ad-content-doc.vercel.app/template-test-board.html) | Approved layout guides + Role-Offer board |
 | [People](https://medvirtual-ad-content-doc.vercel.app/real-people-creative.html) | Named talent ads + downloads |
-| [Ideas Lab](https://medvirtual-ad-content-doc.vercel.app/ideas.html) | Remotion · VO · human shoots · SaaS experiments |
+| [Ideas Lab](https://medvirtual-ad-content-doc.vercel.app/ideas.html) | Remotion · VO · human shoots · SaaS |
+| [Competitor Wall](https://medvirtual-ad-content-doc.vercel.app/competitors.html) | Steal / reject / remix + Ad Library links |
+| [Mock-up Sandbox](https://medvirtual-ad-content-doc.vercel.app/mockup-sandbox.html) | Editable three-fork mock-ups + PNG export |
 
 Same header on every page. `/` opens Studio.
 

@@ -209,8 +209,20 @@ const html = `<!doctype html>
       <a class="tile" href="/ideas.html">
         <span class="eyebrow">Next</span>
         <h3>Ideas Lab</h3>
-        <p>Remotion motion, ElevenLabs VO, slide stories, SaaS props, and human-shot concepts — where we evolve past commodity statics.</p>
+        <p>Remotion, VO, human shoots — plus Competitor Wall and Mock-up Sandbox to get ideas moving.</p>
         <span class="meta">Explore experiments →</span>
+      </a>
+      <a class="tile" href="/competitors.html">
+        <span class="eyebrow">Intel</span>
+        <h3>Competitor Wall</h3>
+        <p>What rivals run on Meta. Steal / reject / remix prompts for each card.</p>
+        <span class="meta">Open Ad Library links →</span>
+      </a>
+      <a class="tile" href="/mockup-sandbox.html">
+        <span class="eyebrow">Play</span>
+        <h3>Mock-up Sandbox</h3>
+        <p>Three editable forks. Click text, hit Surprise me, export PNGs.</p>
+        <span class="meta">Start mocking →</span>
       </a>
     </div>
 

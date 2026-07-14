@@ -52,9 +52,11 @@ export const PRIMARY_NAV = [
     href: '/ideas.html',
     label: 'Ideas',
     id: 'ideas',
-    description: 'Video, Remotion, human shoots, SaaS experiments.',
+    description: 'Video, Remotion, competitors, mock-ups, SaaS experiments.',
     children: [
       { href: '/ideas.html', label: 'Ideas Lab', id: 'ideas' },
+      { href: '/competitors.html', label: 'Competitor Wall', id: 'competitors' },
+      { href: '/mockup-sandbox.html', label: 'Mock-up Sandbox', id: 'mockups' },
       { href: '/saas-prop-templates.html', label: 'SaaS Prop', id: 'saas-prop' },
     ],
   },

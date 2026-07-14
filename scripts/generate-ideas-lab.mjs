@@ -221,6 +221,21 @@ const html = `<!doctype html>
     <p class="banner">Locked lane vs experiment lane: if it’s on the <a href="/graphic-request-brief.html">Brief</a>, match the brief. If it’s here, you’re invited to explore and pitch.</p>
 
     <div class="lanes">
+      <a class="lane" href="/competitors.html">
+        <h3>Competitor Wall</h3>
+        <p>Steal structures, reject commodity, remix for MedVirtual — with Ad Library links.</p>
+      </a>
+      <a class="lane" href="/mockup-sandbox.html">
+        <h3>Mock-up Sandbox</h3>
+        <p>Three editable forks (Lookbook · Bold · SaaS). Surprise me + export PNGs.</p>
+      </a>
+      <a class="lane" href="/saas-prop-templates.html">
+        <h3>SaaS Prop lane</h3>
+        <p>Glass / software aesthetic, no faces — editable headline comps.</p>
+      </a>
+    </div>
+
+    <div class="lanes" style="margin-top:-0.5rem">
       <a class="lane" href="#remotion">
         <h3>Remotion + slides</h3>
         <p>Template IDs we can build into motion once stills are strong.</p>
@@ -229,9 +244,9 @@ const html = `<!doctype html>
         <h3>ElevenLabs / VO</h3>
         <p>Practice-ops narration over approved frames — never fake testimonials.</p>
       </a>
-      <a class="lane" href="/saas-prop-templates.html">
-        <h3>SaaS Prop lane</h3>
-        <p>Glass / software aesthetic, no faces — editable headline comps.</p>
+      <a class="lane" href="#human">
+        <h3>Human-shot concepts</h3>
+        <p>When cameras are ready — consent, no PHI, no invented credentials.</p>
       </a>
     </div>
 
@@ -268,6 +283,8 @@ const html = `<!doctype html>
       <h2>Tools you’ll want nearby</h2>
       <p class="lede">Grab masters and crops while you sketch. Producer upload packs stay optional.</p>
       <div class="cards">
+        <article class="card"><h3><a href="/competitors.html">Competitor Wall</a></h3><p>Live-in-market intel + steal / reject / remix.</p></article>
+        <article class="card"><h3><a href="/mockup-sandbox.html">Mock-up Sandbox</a></h3><p>Editable forks with PNG export for idea rounds.</p></article>
         <article class="card"><h3><a href="/asset-hub.html">Asset Hub</a></h3><p>Logos + AI masters for stills and video seeds.</p></article>
         <article class="card"><h3><a href="/image-variation-review.html">Image board</a></h3><p>Approved crops and families to start motion from.</p></article>
         <article class="card"><h3><a href="/saas-prop-templates.html">SaaS Prop templates</a></h3><p>Editable no-people comps — another visual system to stress-test.</p></article>
