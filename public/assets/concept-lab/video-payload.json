@@ -1,0 +1,782 @@
+{
+  "formats": [
+    {
+      "id": "MV-MEET-TEAMMATE-01",
+      "workingName": "Meet Your Next Teammate",
+      "shortName": "Direct-to-Camera",
+      "durationSec": "10–15",
+      "durationInFrames": 360,
+      "needsDtcAudio": true,
+      "needsBroll": false,
+      "compositionId": "MV-MEET-TEAMMATE-01",
+      "structure": [
+        "Direct-to-camera clip",
+        "Approved introduction line",
+        "Name + role lower third",
+        "Two or three workflow bullets",
+        "End card + CTA"
+      ],
+      "shotList": [
+        "1× direct-to-camera take (mid-torso, eye level)",
+        "Optional: 1 clean still / portrait freeze frame"
+      ],
+      "defaultCta": "Request an Interview",
+      "defaultSpoken": "Hi, I’m {name}. I support {vertical} practices with {skill1}, {skill2}, and {skill3}."
+    },
+    {
+      "id": "MV-REAL-WORKDAY-01",
+      "workingName": "A Real Person Behind the Work",
+      "shortName": "Real Workday B-Roll",
+      "durationSec": "10–15",
+      "durationInFrames": 360,
+      "needsDtcAudio": false,
+      "needsBroll": true,
+      "compositionId": "MV-REAL-WORKDAY-01",
+      "structure": [
+        "Pain hook",
+        "Two or three work clips",
+        "Role / capabilities",
+        "Person reveal",
+        "CTA"
+      ],
+      "shotList": [
+        "Typing at a clean desk (no readable screen data)",
+        "Looking at a screen (angle that hides content)",
+        "Notes or calendar on paper / blank mock UI",
+        "Headset on — do not pretend to speak with a patient",
+        "Short natural glance toward camera"
+      ],
+      "defaultCta": "Meet Available Talent",
+      "defaultHook": "Your front desk does not need another app. It may need another person.",
+      "defaultSupport": "Add dedicated virtual staff to your practice team."
+    },
+    {
+      "id": "MV-OVERLOAD-SUPPORT-01",
+      "workingName": "From Overload to Support",
+      "shortName": "Pain → Human",
+      "durationSec": "9–13",
+      "durationInFrames": 330,
+      "needsDtcAudio": false,
+      "needsBroll": false,
+      "compositionId": "MV-OVERLOAD-SUPPORT-01",
+      "structure": [
+        "Pain statement",
+        "Operational cards: Calls · Scheduling · Follow-ups",
+        "Real person appears",
+        "Dedicated staffing line",
+        "CTA"
+      ],
+      "shotList": [
+        "1× portrait clip or approved still used as motion",
+        "Optional: 1 clean desk clip for transition"
+      ],
+      "defaultCta": "Request an Interview",
+      "defaultHook": "Too many calls. Not enough day.",
+      "defaultSupport": "Meet dedicated virtual staff who work as part of your practice."
+    },
+    {
+      "id": "MV-VERTICAL-PRACTICE-01",
+      "workingName": "Built for Your Practice",
+      "shortName": "Vertical-Specific",
+      "durationSec": "10–15",
+      "durationInFrames": 360,
+      "needsDtcAudio": false,
+      "needsBroll": false,
+      "compositionId": "MV-VERTICAL-PRACTICE-01",
+      "structure": [
+        "Vertical-specific hook",
+        "Real VA clip or portrait",
+        "Three approved workflow items",
+        "Staffing truth",
+        "CTA"
+      ],
+      "shotList": [
+        "1× direct-to-camera or portrait hold",
+        "Optional: 1–2 vertical-safe work clips (no clinical duties)"
+      ],
+      "defaultCta": "Request an Interview",
+      "defaultHook": "Scheduling taking over the front desk?",
+      "defaultSupport": "Add a dedicated Dental Admin who works as part of your practice.",
+      "defaultBullets": [
+        "Appointment scheduling",
+        "Patient follow-up",
+        "Insurance verification"
+      ],
+      "defaultVertical": "dental"
+    }
+  ],
+  "verticals": [
+    {
+      "id": "medical",
+      "label": "Medical"
+    },
+    {
+      "id": "dental",
+      "label": "Dental"
+    },
+    {
+      "id": "veterinary",
+      "label": "Veterinary"
+    },
+    {
+      "id": "behavioral",
+      "label": "Behavioral health"
+    },
+    {
+      "id": "billing",
+      "label": "Billing / revenue-cycle"
+    }
+  ],
+  "tones": [
+    "Calm professional",
+    "Warm direct",
+    "Premium editorial",
+    "Straightforward ops"
+  ],
+  "ctas": [
+    "Request an Interview",
+    "Meet Available Talent",
+    "Find Support for Your Practice",
+    "Meet This Candidate"
+  ],
+  "talent": [
+    {
+      "id": "jessica",
+      "firstName": "Jessica",
+      "fullPublicName": "Jessica Valles",
+      "title": "Jr. Medical Admin",
+      "listedSkills": [
+        "BPO - Customer Service",
+        "BPO - Healthcare"
+      ],
+      "specializationShown": [
+        "Primary Care"
+      ],
+      "imagePath": "/assets/real-people/jessica/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/jessica/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/jessica/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/jessica/clean-master.jpg"
+    },
+    {
+      "id": "angelica",
+      "firstName": "Angelica",
+      "fullPublicName": "Angelica Aljas",
+      "title": "Dermatology Front Desk Assistant",
+      "listedSkills": [
+        "VA - Medical General",
+        "BPO - Healthcare"
+      ],
+      "specializationShown": [
+        "Dermatology"
+      ],
+      "imagePath": "/assets/real-people/angelica/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/angelica/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/angelica/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/angelica/clean-master.jpg"
+    },
+    {
+      "id": "chelsea",
+      "firstName": "Chelsea",
+      "fullPublicName": "Chelsea Rose Santos",
+      "title": "Dental Virtual Assistant",
+      "listedSkills": [
+        "Appointment Setting",
+        "Medical - Healthcare",
+        "BPO - Customer Service",
+        "VA - Medical General",
+        "BPO - Healthcare"
+      ],
+      "specializationShown": [
+        "Dentistry",
+        "Dental - Orthodontics",
+        "Dental - General Dentistry",
+        "DME / Durable Medical Equipment",
+        "General Medicine"
+      ],
+      "imagePath": "/assets/real-people/chelsea/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/chelsea/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/chelsea/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/chelsea/clean-master.jpg"
+    },
+    {
+      "id": "mark",
+      "firstName": "Mark",
+      "fullPublicName": "Mark Robert Seno",
+      "title": "Insurance Verification Specialist",
+      "listedSkills": [
+        "VA - Medical Biller"
+      ],
+      "specializationShown": [
+        "Psychiatry"
+      ],
+      "imagePath": "/assets/real-people/mark/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/mark/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/mark/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/mark/clean-master.jpg"
+    },
+    {
+      "id": "carmen",
+      "firstName": "Carmen",
+      "fullPublicName": "Carmen De Leon",
+      "title": "Medical Biller",
+      "listedSkills": [
+        "BPO - Customer Service",
+        "VA - Medical Biller",
+        "VA - Medical General"
+      ],
+      "specializationShown": [
+        "Neurology",
+        "Mental Health",
+        "Behavioral Health"
+      ],
+      "imagePath": "/assets/real-people/carmen/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/carmen/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/carmen/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/carmen/clean-master.jpg"
+    },
+    {
+      "id": "jennifer",
+      "firstName": "Jennifer",
+      "fullPublicName": "Jennifer Villarubia",
+      "title": "Patient Intake Coordinator",
+      "listedSkills": [],
+      "specializationShown": [
+        "Wound Care",
+        "Assisted Living / Home Care Services"
+      ],
+      "imagePath": "/assets/real-people/jennifer/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/jennifer/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/jennifer/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/jennifer/clean-master.jpg"
+    }
+  ],
+  "assets": [
+    {
+      "id": "placeholder-jessica-dtc",
+      "personId": "jessica",
+      "filename": "placeholder-awaiting-footage",
+      "publicSrc": null,
+      "posterSrc": "/assets/real-people/jessica/vertical-reference-1080x1920.jpg",
+      "orientation": "9:16",
+      "duration": null,
+      "approved": false,
+      "usageStatus": "waiting-for-footage",
+      "hasAudio": false,
+      "backgroundType": "home-office",
+      "shotType": "direct-to-camera",
+      "safeForAds": false,
+      "notes": "Placeholder poster until approved proxy is registered."
+    },
+    {
+      "id": "placeholder-chelsea-broll",
+      "personId": "chelsea",
+      "filename": "placeholder-awaiting-footage",
+      "publicSrc": null,
+      "posterSrc": "/assets/real-people/chelsea/vertical-reference-1080x1920.jpg",
+      "orientation": "9:16",
+      "duration": null,
+      "approved": false,
+      "usageStatus": "waiting-for-footage",
+      "hasAudio": false,
+      "backgroundType": "home-office",
+      "shotType": "b-roll",
+      "safeForAds": false,
+      "notes": "Placeholder poster until approved proxy is registered."
+    },
+    {
+      "id": "placeholder-carmen-portrait",
+      "personId": "carmen",
+      "filename": "placeholder-awaiting-footage",
+      "publicSrc": null,
+      "posterSrc": "/assets/real-people/carmen/vertical-reference-1080x1920.jpg",
+      "orientation": "9:16",
+      "duration": null,
+      "approved": false,
+      "usageStatus": "waiting-for-footage",
+      "hasAudio": false,
+      "backgroundType": "neutral",
+      "shotType": "portrait-hold",
+      "safeForAds": false,
+      "notes": "Placeholder poster until approved proxy is registered."
+    }
+  ],
+  "assignments": [
+    {
+      "id": "vid-meet-jessica",
+      "assignmentType": "Capture + Motion",
+      "status": "Waiting for Footage",
+      "concept": "Direct-to-camera talent introduction",
+      "formatId": "MV-MEET-TEAMMATE-01",
+      "featuredTalentId": "jessica",
+      "featuredTalent": "Jessica",
+      "role": "Jr. Medical Admin",
+      "vertical": "medical",
+      "dueDate": "07/27/2026",
+      "owner": "Graphics / Video",
+      "deliverables": [
+        "One 10–15s vertical video",
+        "One 4:5 static cover",
+        "One 1:1 static cover"
+      ],
+      "requiredFootage": [
+        "1× direct-to-camera take (mid-torso, eye level)",
+        "Optional: 1 clean still / portrait freeze frame"
+      ],
+      "script": "Hi, I’m Jessica. I support medical practices with customer service, healthcare support, and admin coordination.",
+      "bullets": [
+        "Customer Service",
+        "Healthcare",
+        "Primary Care support"
+      ],
+      "cta": "Request an Interview",
+      "example": "/assets/real-people/jessica/ad-treatment-e-9x16.png",
+      "submission": "Email finished MP4 + PNGs to george.a@legalsoft.com",
+      "revisionNotes": "",
+      "footageStatus": "placeholder",
+      "videoAssetId": "placeholder-jessica-dtc"
+    },
+    {
+      "id": "vid-workday-chelsea",
+      "assignmentType": "Capture + Motion",
+      "status": "Waiting for Footage",
+      "concept": "Real workday b-roll",
+      "formatId": "MV-REAL-WORKDAY-01",
+      "featuredTalentId": "chelsea",
+      "featuredTalent": "Chelsea",
+      "role": "Dental Virtual Assistant",
+      "vertical": "dental",
+      "dueDate": "07/27/2026",
+      "owner": "Graphics / Video",
+      "deliverables": [
+        "Three to four simple b-roll clips",
+        "One 10–15s vertical edit",
+        "One first-frame static"
+      ],
+      "requiredFootage": [
+        "Typing at a clean desk (no readable screen data)",
+        "Looking at a screen (angle that hides content)",
+        "Notes or calendar on paper / blank mock UI",
+        "Headset on — do not pretend to speak with a patient",
+        "Short natural glance toward camera"
+      ],
+      "script": "",
+      "hook": "Your front desk does not need another app. It may need another person.",
+      "support": "Add dedicated virtual staff to your practice team.",
+      "bullets": [
+        "Appointment setting",
+        "Patient communication",
+        "Scheduling support"
+      ],
+      "cta": "Meet Available Talent",
+      "example": "/assets/real-people/chelsea/ad-treatment-e-9x16.png",
+      "submission": "Email proxy clips + final edit to george.a@legalsoft.com",
+      "revisionNotes": "",
+      "footageStatus": "placeholder",
+      "videoAssetId": "placeholder-chelsea-broll"
+    },
+    {
+      "id": "vid-pain-carmen",
+      "assignmentType": "Motion",
+      "status": "Not Started",
+      "concept": "Pain to human solution (existing imagery)",
+      "formatId": "MV-OVERLOAD-SUPPORT-01",
+      "featuredTalentId": "carmen",
+      "featuredTalent": "Carmen",
+      "role": "Medical Biller",
+      "vertical": "billing",
+      "dueDate": "07/24/2026",
+      "owner": "Graphics / Video",
+      "deliverables": [
+        "One 9–13s vertical video",
+        "One 4:5 static adaptation"
+      ],
+      "requiredFootage": [
+        "Approved portrait or feed still (motion Ken Burns acceptable)"
+      ],
+      "script": "",
+      "hook": "Too many calls. Not enough day.",
+      "support": "Meet dedicated virtual staff who work as part of your practice.",
+      "bullets": [
+        "Calls",
+        "Scheduling",
+        "Follow-ups"
+      ],
+      "cta": "Request an Interview",
+      "example": "/assets/real-people/carmen/feed-1080x1350.jpg",
+      "submission": "Render via Remotion CLI; hand stills + MP4 to George",
+      "revisionNotes": "Can ship without new capture using approved stills.",
+      "footageStatus": "using-existing-imagery",
+      "videoAssetId": "placeholder-carmen-portrait"
+    },
+    {
+      "id": "vid-dental-chelsea",
+      "assignmentType": "Motion",
+      "status": "Not Started",
+      "concept": "Vertical-specific dental support",
+      "formatId": "MV-VERTICAL-PRACTICE-01",
+      "featuredTalentId": "chelsea",
+      "featuredTalent": "Chelsea",
+      "role": "Dental Virtual Assistant",
+      "vertical": "dental",
+      "dueDate": "07/27/2026",
+      "owner": "Graphics / Video",
+      "deliverables": [
+        "One 10–15s vertical video",
+        "One square static",
+        "One 4:5 static"
+      ],
+      "requiredFootage": [
+        "Portrait or approved still; optional dental-safe work clip"
+      ],
+      "script": "",
+      "hook": "Scheduling taking over the front desk?",
+      "support": "Add a dedicated Dental Admin who works as part of your practice.",
+      "bullets": [
+        "Appointment scheduling",
+        "Patient follow-up",
+        "Insurance verification"
+      ],
+      "cta": "Request an Interview",
+      "example": "/assets/real-people/chelsea/feed-1080x1350.jpg",
+      "submission": "Email MP4 + static cutdowns to george.a@legalsoft.com",
+      "revisionNotes": "Do not imply clinical duties.",
+      "footageStatus": "using-existing-imagery",
+      "videoAssetId": "placeholder-chelsea-broll"
+    }
+  ],
+  "statuses": [
+    "Not Started",
+    "Waiting for Footage",
+    "Footage Received",
+    "Editing",
+    "Internal Review",
+    "Send to Hailey",
+    "Revision Requested",
+    "Approved",
+    "Published",
+    "Archived"
+  ],
+  "haileyFeedback": [
+    "Strong Hook",
+    "Better Person",
+    "Too Generic",
+    "Too Busy",
+    "Too Cheap-Looking",
+    "More Premium",
+    "More Real",
+    "Needs Stronger CTA",
+    "Approve Direction",
+    "Reject Direction"
+  ],
+  "consentChecks": [
+    {
+      "id": "consent",
+      "label": "Talent consent confirmed"
+    },
+    {
+      "id": "adUse",
+      "label": "Advertising usage approved"
+    },
+    {
+      "id": "nameUse",
+      "label": "Name usage approved"
+    },
+    {
+      "id": "roleVerified",
+      "label": "Role and profile details verified"
+    },
+    {
+      "id": "noPhi",
+      "label": "No patient information visible"
+    },
+    {
+      "id": "noPii",
+      "label": "No private customer information visible"
+    },
+    {
+      "id": "noLogos",
+      "label": "No unapproved logos visible"
+    },
+    {
+      "id": "noClaims",
+      "label": "No misleading claims"
+    },
+    {
+      "id": "musicOk",
+      "label": "No background music licensing issue"
+    },
+    {
+      "id": "copyOk",
+      "label": "Final copy approved"
+    }
+  ],
+  "captureStandard": {
+    "format": [
+      "Vertical 9:16",
+      "1080 × 1920 minimum",
+      "30 fps",
+      "Normal phone camera app (no beauty filters, text, or stickers)",
+      "No digital zoom",
+      "Rear camera if someone can help; front camera if alone"
+    ],
+    "framing": [
+      "Camera near eye level",
+      "Leave safe space above the head",
+      "Direct-to-camera: mid-torso upward",
+      "Keep the phone stable (stand, tripod, or propped surface)"
+    ],
+    "lighting": [
+      "Face a window or soft light",
+      "Do not put a bright window behind you",
+      "Face clearly visible"
+    ],
+    "audio": [
+      "Quiet room — silence fans and TV",
+      "Speak naturally",
+      "Record 2–3 takes",
+      "One second of silence before and after speaking"
+    ],
+    "background": {
+      "prefer": [
+        "Clean home office",
+        "Organized desk",
+        "Neutral wall",
+        "Professional workspace"
+      ],
+      "avoid": [
+        "Patient records or screen data",
+        "Names, phone numbers, emails",
+        "Political or offensive material",
+        "Messy bedrooms",
+        "Unapproved logos",
+        "Clinic/hospital footage without authorization"
+      ]
+    },
+    "wardrobe": [
+      "Smart-casual, solid colors preferred",
+      "Avoid narrow stripes and competitor logos",
+      "Professional but real — no forced suit unless asked"
+    ]
+  },
+  "workflowGuide": [
+    "Start with one practice-owner problem.",
+    "Choose one real person.",
+    "Record only the required footage (about 15–30 minutes on a phone).",
+    "Select one approved motion template.",
+    "Keep on-screen copy short.",
+    "Make the opening frame understandable immediately.",
+    "Show the person early.",
+    "Keep the role accurate — public profile facts only.",
+    "End with one CTA.",
+    "Produce one strong vertical master before resizes."
+  ],
+  "creativeRules": [
+    "Do not hide weak footage beneath excessive graphics.",
+    "Reuse the production system, not the exact composition.",
+    "Real is the advantage. Polish without making the person feel synthetic."
+  ],
+  "storageKey": "mv-video-production-v1",
+  "promoteKey": "mv-video-brief-promote-v1",
+  "videoDefaults": [
+    {
+      "compositionId": "MV-MEET-TEAMMATE-01",
+      "name": "Meet Your Next Teammate",
+      "durationInFrames": 360,
+      "candidateName": "Jessica",
+      "role": "Jr. Medical Admin",
+      "spokenLine": "Hi, I’m Jessica. I support medical practices with customer service, healthcare support, and admin coordination.",
+      "bullets": [
+        "Customer Service",
+        "Healthcare",
+        "Primary Care support"
+      ],
+      "cta": "Request an Interview",
+      "posterSrc": "/assets/real-people/jessica/vertical-reference-1080x1920.jpg",
+      "videoSrc": null,
+      "captionPhrases": [],
+      "captionStyle": "subtle",
+      "showCaptions": true,
+      "volume": 0,
+      "crop": {
+        "x": 50,
+        "y": 28,
+        "zoom": 1.05
+      },
+      "status": "Waiting for Footage"
+    },
+    {
+      "compositionId": "MV-REAL-WORKDAY-01",
+      "name": "A Real Person Behind the Work",
+      "durationInFrames": 360,
+      "headline": "Your front desk does not need another app.",
+      "headlineTwo": "It may need another person.",
+      "support": "Add dedicated virtual staff to your practice team.",
+      "bullets": [
+        "Scheduling",
+        "Patient communication",
+        "Admin support"
+      ],
+      "cta": "Meet Available Talent",
+      "candidateName": "Chelsea",
+      "role": "Dental Virtual Assistant",
+      "posterSrc": "/assets/real-people/chelsea/vertical-reference-1080x1920.jpg",
+      "videoSrc": null,
+      "volume": 0,
+      "crop": {
+        "x": 55,
+        "y": 35,
+        "zoom": 1.08
+      },
+      "status": "Waiting for Footage"
+    },
+    {
+      "compositionId": "MV-OVERLOAD-SUPPORT-01",
+      "name": "From Overload to Support",
+      "durationInFrames": 330,
+      "headline": "Too many calls.",
+      "headlineTwo": "Not enough day.",
+      "support": "Meet dedicated virtual staff who work as part of your practice.",
+      "cards": [
+        "Calls",
+        "Scheduling",
+        "Follow-ups"
+      ],
+      "cta": "Request an Interview",
+      "candidateName": "Carmen",
+      "role": "Medical Biller",
+      "posterSrc": "/assets/real-people/carmen/vertical-reference-1080x1920.jpg",
+      "status": "Not Started"
+    },
+    {
+      "compositionId": "MV-VERTICAL-PRACTICE-01",
+      "name": "Built for Your Practice",
+      "durationInFrames": 360,
+      "eyebrow": "FOR DENTAL PRACTICES",
+      "headline": "Scheduling taking over the front desk?",
+      "support": "Add a dedicated Dental Admin who works as part of your practice.",
+      "bullets": [
+        "Appointment scheduling",
+        "Patient follow-up",
+        "Insurance verification"
+      ],
+      "cta": "Request an Interview",
+      "candidateName": "Chelsea",
+      "role": "Dental Virtual Assistant",
+      "posterSrc": "/assets/real-people/chelsea/vertical-reference-1080x1920.jpg",
+      "videoSrc": null,
+      "volume": 0,
+      "crop": {
+        "x": 58,
+        "y": 32,
+        "zoom": 1.06
+      },
+      "status": "Not Started"
+    }
+  ],
+  "formatsMeta": [
+    {
+      "id": "MV-MEET-TEAMMATE-01",
+      "workingName": "Meet Your Next Teammate",
+      "shortName": "Direct-to-Camera",
+      "durationSec": "10–15",
+      "durationInFrames": 360,
+      "needsDtcAudio": true,
+      "needsBroll": false,
+      "compositionId": "MV-MEET-TEAMMATE-01",
+      "structure": [
+        "Direct-to-camera clip",
+        "Approved introduction line",
+        "Name + role lower third",
+        "Two or three workflow bullets",
+        "End card + CTA"
+      ],
+      "shotList": [
+        "1× direct-to-camera take (mid-torso, eye level)",
+        "Optional: 1 clean still / portrait freeze frame"
+      ],
+      "defaultCta": "Request an Interview",
+      "defaultSpoken": "Hi, I’m {name}. I support {vertical} practices with {skill1}, {skill2}, and {skill3}."
+    },
+    {
+      "id": "MV-REAL-WORKDAY-01",
+      "workingName": "A Real Person Behind the Work",
+      "shortName": "Real Workday B-Roll",
+      "durationSec": "10–15",
+      "durationInFrames": 360,
+      "needsDtcAudio": false,
+      "needsBroll": true,
+      "compositionId": "MV-REAL-WORKDAY-01",
+      "structure": [
+        "Pain hook",
+        "Two or three work clips",
+        "Role / capabilities",
+        "Person reveal",
+        "CTA"
+      ],
+      "shotList": [
+        "Typing at a clean desk (no readable screen data)",
+        "Looking at a screen (angle that hides content)",
+        "Notes or calendar on paper / blank mock UI",
+        "Headset on — do not pretend to speak with a patient",
+        "Short natural glance toward camera"
+      ],
+      "defaultCta": "Meet Available Talent",
+      "defaultHook": "Your front desk does not need another app. It may need another person.",
+      "defaultSupport": "Add dedicated virtual staff to your practice team."
+    },
+    {
+      "id": "MV-OVERLOAD-SUPPORT-01",
+      "workingName": "From Overload to Support",
+      "shortName": "Pain → Human",
+      "durationSec": "9–13",
+      "durationInFrames": 330,
+      "needsDtcAudio": false,
+      "needsBroll": false,
+      "compositionId": "MV-OVERLOAD-SUPPORT-01",
+      "structure": [
+        "Pain statement",
+        "Operational cards: Calls · Scheduling · Follow-ups",
+        "Real person appears",
+        "Dedicated staffing line",
+        "CTA"
+      ],
+      "shotList": [
+        "1× portrait clip or approved still used as motion",
+        "Optional: 1 clean desk clip for transition"
+      ],
+      "defaultCta": "Request an Interview",
+      "defaultHook": "Too many calls. Not enough day.",
+      "defaultSupport": "Meet dedicated virtual staff who work as part of your practice."
+    },
+    {
+      "id": "MV-VERTICAL-PRACTICE-01",
+      "workingName": "Built for Your Practice",
+      "shortName": "Vertical-Specific",
+      "durationSec": "10–15",
+      "durationInFrames": 360,
+      "needsDtcAudio": false,
+      "needsBroll": false,
+      "compositionId": "MV-VERTICAL-PRACTICE-01",
+      "structure": [
+        "Vertical-specific hook",
+        "Real VA clip or portrait",
+        "Three approved workflow items",
+        "Staffing truth",
+        "CTA"
+      ],
+      "shotList": [
+        "1× direct-to-camera or portrait hold",
+        "Optional: 1–2 vertical-safe work clips (no clinical duties)"
+      ],
+      "defaultCta": "Request an Interview",
+      "defaultHook": "Scheduling taking over the front desk?",
+      "defaultSupport": "Add a dedicated Dental Admin who works as part of your practice.",
+      "defaultBullets": [
+        "Appointment scheduling",
+        "Patient follow-up",
+        "Insurance verification"
+      ],
+      "defaultVertical": "dental"
+    }
+  ]
+}

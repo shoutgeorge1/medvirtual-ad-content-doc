@@ -64,14 +64,23 @@ function renderJobCard(item, jobNumber) {
     <div class="card-top">
       <span class="badge go">Ad ${esc(String(jobNumber))}</span>
       <span class="batch">${esc(jobTag)}</span>
+      ${item.assignmentType ? `<span class="batch">${esc(item.assignmentType)}</span>` : ''}
     </div>
     <h3>${esc(displayTitle)}</h3>
     <dl class="mini">
+      <div><dt>Type</dt><dd>${esc(item.assignmentType || item.formType || 'Static')}</dd></div>
       <div><dt>Size</dt><dd>${esc(item.resolution)}</dd></div>
       ${item.onImage ? `<div><dt>Big text</dt><dd>${esc(item.onImage)}</dd></div>` : ''}
       ${item.roleLine ? `<div><dt>Role</dt><dd>${esc(item.roleLine)}</dd></div>` : ''}
       <div><dt>Due</dt><dd>${esc(item.dueDate)}</dd></div>
+      ${item.submission ? `<div><dt>Submit</dt><dd>${esc(item.submission)}</dd></div>` : ''}
     </dl>
+    ${
+      item.requiredFootage?.length
+        ? `<div class="desc"><span class="label">Required footage</span><p>${esc(item.requiredFootage.join(' · '))}</p></div>`
+        : ''
+    }
+    ${item.script ? `<div class="desc"><span class="label">Script</span><p>${fmtDesc(item.script)}</p></div>` : ''}
     <div class="desc"><span class="label">Helpful details</span><p>${fmtDesc(item.description)}</p></div>
     <div class="refs"><span class="label">Files &amp; examples to open</span><ul>${(item.references || [])
       .map((r) => {

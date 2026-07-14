@@ -1,7 +1,6 @@
 /**
- * Shared MedVirtual Content Doc header — identical across all surfaces.
- * Graphics workflow left → right. Concepts keep stacking right of Real People.
- * Use dropdowns (`children`) when a lane has multiple boards.
+ * Shared MedVirtual Content Doc header.
+ * Produce Now → Approved Systems → Creative Lab (secondary).
  */
 import { brandCssVariables, BRAND } from './medvirtual-brand-data.mjs';
 import { LAUNCH_SUBNAV } from './launch-sequences-data.mjs';
@@ -9,81 +8,86 @@ import { LAUNCH_SUBNAV } from './launch-sequences-data.mjs';
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Creative Handoff',
-  tagline: 'Ideas welcome · ads that help practices book',
+  tagline: 'Produce now · reuse approved systems · experiment in the lab',
   homeHref: '/studio.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };
 
 /**
- * Primary nav — left → right for designers.
- * Studio (home) → Brief → Lookbook → People → Ideas.
- * Prefer flat links; use `children` for related boards in one lane.
+ * Primary nav — production first.
+ * Brief → Examples → People → Video → Assets
+ * Creative Lab is grouped so experiments stay secondary.
  */
 export const PRIMARY_NAV = [
-  {
-    href: '/studio.html',
-    label: 'Studio',
-    id: 'studio',
-    description: 'Home for graphics — how we work, tools, share ideas.',
-  },
   {
     href: '/graphic-request-brief.html',
     label: 'Brief',
     id: 'brief',
-    description: 'Current ads to design.',
+    description: 'Current production assignments.',
   },
   {
     href: '/template-test-board.html',
-    label: 'Lookbook',
-    id: 'lookbook',
-    description: 'Approved layout guides and editable comps.',
+    label: 'Examples',
+    id: 'examples',
+    description: 'Approved layouts and treatments to reuse.',
     children: [
       { href: '/template-test-board.html', label: 'Layout guides', id: 'templates' },
-      { href: '/role-offer-templates.html', label: 'Role-Offer board', id: 'role-offer' },
+      { href: '/role-offer-templates.html', label: 'Role-Offer', id: 'role-offer' },
+      { href: '/medvirtual-brand-guide.html', label: 'Brand Guide', id: 'brand-guide' },
+      { href: '/real-people-creative.html', label: 'People treatments', id: 'real-people-examples' },
     ],
   },
   {
     href: '/real-people-creative.html',
     label: 'People',
     id: 'real-people',
-    description: 'Named talent ads, downloads, and copy packages.',
+    description: 'Named talent ads and public profile assets.',
   },
   {
-    href: '/ideas.html',
-    label: 'Ideas',
-    id: 'ideas',
-    description: 'Video, Remotion, competitors, mock-ups, SaaS experiments.',
-    children: [
-      { href: '/ideas.html', label: 'Ideas Lab', id: 'ideas' },
-      { href: '/competitors.html', label: 'Competitor Wall', id: 'competitors' },
-      { href: '/mockup-sandbox.html', label: 'Mock-up Sandbox', id: 'mockups' },
-      { href: '/saas-prop-templates.html', label: 'SaaS Prop', id: 'saas-prop' },
-    ],
-  },
-];
-
-/** Related boards reached from Lookbook / banners */
-export const TEMPLATE_LANES = [
-  { href: '/template-test-board.html', label: 'Layout guides', id: 'templates' },
-  { href: '/role-offer-templates.html', label: 'Role-Offer', id: 'role-offer' },
-];
-
-/** Far-right reference shelf */
-export const REFERENCE_NAV = [
-  {
-    href: '/medvirtual-brand-guide.html',
-    label: 'Brand Guide',
-    id: 'brand-guide',
+    href: '/video-production.html',
+    label: 'Video',
+    id: 'video',
+    description: 'Capture briefs and real-person short-form ads.',
   },
   {
     href: '/asset-hub.html',
     label: 'Assets',
     id: 'hub',
+    description: 'Logos, approved images, and production files.',
+    children: [
+      { href: '/asset-hub.html', label: 'Asset Hub', id: 'hub' },
+      { href: '/image-variation-review.html', label: 'Image board', id: 'images' },
+      { href: '/real-people-assets.html', label: 'People downloads', id: 'real-people-assets' },
+    ],
   },
   {
-    href: '/image-variation-review.html',
-    label: 'Images',
-    id: 'images',
+    href: '/ideas.html',
+    label: 'Creative Lab',
+    id: 'lab',
+    description: 'Experiments — demoted behind current production.',
+    children: [
+      { href: '/ideas.html', label: 'Experimental Ideas', id: 'ideas' },
+      { href: '/competitors.html', label: 'Competitors', id: 'competitors' },
+      { href: '/creative-concept-lab.html', label: 'Static Concepts', id: 'creative-lab' },
+      { href: '/motion-concept-lab.html', label: 'Motion Concepts', id: 'motion-lab' },
+      { href: '/mockup-sandbox.html', label: 'Sandbox', id: 'mockups' },
+      { href: '/saas-prop-templates.html', label: 'SaaS Props', id: 'saas-prop' },
+    ],
+  },
+];
+
+/** @deprecated legacy lookup helpers */
+export const TEMPLATE_LANES = [
+  { href: '/template-test-board.html', label: 'Layout guides', id: 'templates' },
+  { href: '/role-offer-templates.html', label: 'Role-Offer', id: 'role-offer' },
+];
+
+/** Far-right reference shelf — keep light */
+export const REFERENCE_NAV = [
+  {
+    href: '/studio.html',
+    label: 'Studio',
+    id: 'studio',
   },
 ];
 
@@ -97,7 +101,6 @@ export const IMAGE_SUBNAV = [
 
 export { LAUNCH_SUBNAV };
 
-/** Secondary reference pages — not in main nav */
 export const SECONDARY_PAGES = [
   {
     href: '/marketing-library.html',
@@ -222,7 +225,6 @@ export const HEADER_CSS = `
     background: transparent;
     box-shadow: none;
   }
-  /* Kill page-level details/summary styles that bleed into the header */
   .doc-header details.doc-nav-dd {
     background: transparent !important;
     border: none !important;
@@ -348,14 +350,9 @@ function renderNavItem(item, activeId) {
     const openCls = itemActive(item, activeId) ? 'active' : '';
     const links = item.children
       .map((c) => {
-        const cls = c.id === activeId || (c.id === item.id && activeId === item.id) ? 'active' : '';
-        // Prefer child-specific active; Layout refs shares id with parent
         const childActive =
-          c.id === activeId ||
-          (activeId === item.id && c.href === item.href)
-            ? 'active'
-            : '';
-        return `<a href="${esc(c.href)}" class="${childActive || cls}">${esc(c.label)}</a>`;
+          c.id === activeId || (activeId === item.id && c.href === item.href) ? 'active' : '';
+        return `<a href="${esc(c.href)}" class="${childActive}">${esc(c.label)}</a>`;
       })
       .join('');
     return `<details class="doc-nav-dd ${openCls}">
@@ -376,8 +373,24 @@ function linkList(items, activeId) {
  */
 export function renderDocHeader(opts = {}) {
   const { activeId, pageTitle, pageSubtitle, subnav, activeSubHref } = opts;
-  const primary = linkList(PRIMARY_NAV, activeId);
-  const reference = linkList(REFERENCE_NAV, activeId);
+  // Map legacy active ids onto new structure
+  const mapped =
+    {
+      lookbook: 'examples',
+      templates: 'templates',
+      'brand-guide': 'brand-guide',
+      ideas: 'ideas',
+      studio: 'studio',
+      'creative-lab': 'creative-lab',
+      'motion-lab': 'motion-lab',
+      mockups: 'mockups',
+      competitors: 'competitors',
+      'saas-prop': 'saas-prop',
+      video: 'video',
+    }[activeId] || activeId;
+
+  const primary = linkList(PRIMARY_NAV, mapped);
+  const reference = linkList(REFERENCE_NAV, mapped);
 
   let sub = '';
   if (subnav?.length) {

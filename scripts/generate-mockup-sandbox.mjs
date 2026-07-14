@@ -264,6 +264,7 @@ const html = `<!doctype html>
       <button type="button" class="primary" id="surprise">Surprise me</button>
       <button type="button" id="export-all">Export all 3 PNGs</button>
       <a class="btn" href="/competitors.html">Competitor Wall</a>
+      <a class="btn" href="/creative-concept-lab.html">Static Concepts</a>
       <a class="btn" href="/ideas.html">Ideas Lab</a>
     </div>
     <p class="note">Tip: export PNGs and email them to George — favorites can graduate into the real Brief.</p>

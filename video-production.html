@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Real People Video · MedVirtual</title>
+  <style>
+    
+  
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --mv-deep-teal: #0D546B;
+  --mv-accent: #00C0D4;
+  --mv-bright-accent: #27E6FA;
+  --mv-neutral-blue: #F0F5FF;
+  --mv-neutral-warm: #EFEDE1;
+  --mv-ink: #161511;
+  --mv-white: #FFFFFF;
+  --mv-gradient-primary: linear-gradient(90deg, #077999 0%, #00B2E2 100%);
+  --mv-gradient-light: linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%);
+  --mv-gradient-bright: linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%);
+  --mv-gradient-deep: linear-gradient(90deg, #0D546B 0%, #00C0D4 100%);
+  --mv-font: "Be Vietnam", Inter, Arial, sans-serif;
+}
+
+  .doc-header {
+    background: var(--mv-deep-teal);
+    color: #ffffff;
+    border-bottom: 3px solid var(--mv-cyan);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    font-family: var(--mv-font);
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .doc-header__mark {
+    display: none;
+  }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #b8d4e0;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #b8d4e0;
+    max-width: 820px;
+  }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .doc-nav a,
+  .doc-nav-dd > summary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #d7e8f0;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s, color 0.15s;
+    list-style: none;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+  }
+  .doc-header details.doc-nav-dd {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
+  .doc-header details.doc-nav-dd > summary {
+    background: transparent !important;
+    color: #d7e8f0 !important;
+    font-weight: 500 !important;
+    border: 1px solid transparent !important;
+    padding: 0.45rem 0.75rem !important;
+  }
+  .doc-nav-dd > summary::-webkit-details-marker { display: none; }
+  .doc-nav-dd > summary::after {
+    content: '▾';
+    margin-left: 0.35em;
+    font-size: 0.7em;
+    opacity: 0.75;
+  }
+  .doc-nav a:hover,
+  .doc-header details.doc-nav-dd > summary:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: var(--mv-primary);
+  }
+  .doc-header details.doc-nav-dd.active > summary,
+  .doc-header details.doc-nav-dd[open] > summary {
+    color: #ffffff !important;
+    background: var(--mv-primary) !important;
+  }
+  .doc-nav-dd {
+    position: relative;
+  }
+  .doc-nav-dd__menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    min-width: 11rem;
+    background: #0a4558;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    padding: 0.35rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .doc-nav-dd__menu a {
+    display: block;
+    white-space: nowrap;
+    border-radius: 7px;
+  }
+  .doc-nav-dd__menu a.active {
+    background: rgba(0, 178, 226, 0.28);
+  }
+  .doc-nav--ref a,
+  .doc-nav--ref .doc-nav-dd > summary {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #9fb9c6;
+    padding: 0.35rem 0.55rem;
+  }
+  .doc-nav--ref a.active,
+  .doc-nav--ref .doc-nav-dd.active > summary,
+  .doc-nav--ref .doc-nav-dd[open] > summary {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: var(--mv-bright-accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: var(--mv-cyan); color: #fff; }
+  .doc-subnav a.active {
+    background: rgba(0, 178, 226, 0.2);
+    border-color: var(--mv-cyan);
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
+    .doc-nav-dd__menu { min-width: 9.5rem; }
+  }
+
+    body {
+      margin: 0;
+      font-family: "Be Vietnam", Inter, Arial, sans-serif;
+      background:
+        radial-gradient(ellipse 70% 40% at 100% 0%, rgba(0,178,226,0.1), transparent 55%),
+        #eef3f7;
+      color: #161511;
+    }
+    @media print {
+      .doc-header, .vpl-toolbar, .vpl-stages, #templates, .vpl-actions button:not(:first-child) { display: none !important; }
+      .vpl-brief-out { max-height: none; border: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/studio.html">
+      <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
+      <div>
+        <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
+        <p class="doc-header__tagline">Produce now · reuse approved systems · experiment in the lab</p>
+      </div>
+    </a>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
+      <summary>Examples</summary>
+      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/real-people-creative.html" class="">People treatments</a></div>
+    </details><a href="/real-people-creative.html" class="">People</a><a href="/video-production.html" class="active">Video</a><details class="doc-nav-dd ">
+      <summary>Assets</summary>
+      <div class="doc-nav-dd__menu"><a href="/asset-hub.html" class="">Asset Hub</a><a href="/image-variation-review.html" class="">Image board</a><a href="/real-people-assets.html" class="">People downloads</a></div>
+    </details><details class="doc-nav-dd ">
+      <summary>Creative Lab</summary>
+      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Experimental Ideas</a><a href="/competitors.html" class="">Competitors</a><a href="/creative-concept-lab.html" class="">Static Concepts</a><a href="/motion-concept-lab.html" class="">Motion Concepts</a><a href="/mockup-sandbox.html" class="">Sandbox</a><a href="/saas-prop-templates.html" class="">SaaS Props</a></div>
+    </details></nav>
+      <span class="doc-nav-sep" aria-hidden="true"></span>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/studio.html" class="">Studio</a></nav>
+    </div>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Real People Video</h2>
+          <p class="doc-header__page-sub">Turn authentic VA footage into polished short-form ads. Record simply. Edit intentionally.</p>
+          
+        </div>
+</header>
+<script>
+(function () {
+  document.querySelectorAll('.doc-nav-dd').forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (!dd.open) return;
+      document.querySelectorAll('.doc-nav-dd').forEach((other) => {
+        if (other !== dd) other.open = false;
+      });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.doc-nav-dd')) return;
+    document.querySelectorAll('.doc-nav-dd[open]').forEach((dd) => { dd.open = false; });
+  });
+})();
+</script>
+  <div id="video-lab-root"></div>
+  <script>
+    window.MV_VIDEO_LAB = {"formats":[{"id":"MV-MEET-TEAMMATE-01","workingName":"Meet Your Next Teammate","shortName":"Direct-to-Camera","durationSec":"10–15","durationInFrames":360,"needsDtcAudio":true,"needsBroll":false,"compositionId":"MV-MEET-TEAMMATE-01","structure":["Direct-to-camera clip","Approved introduction line","Name + role lower third","Two or three workflow bullets","End card + CTA"],"shotList":["1× direct-to-camera take (mid-torso, eye level)","Optional: 1 clean still / portrait freeze frame"],"defaultCta":"Request an Interview","defaultSpoken":"Hi, I’m {name}. I support {vertical} practices with {skill1}, {skill2}, and {skill3}."},{"id":"MV-REAL-WORKDAY-01","workingName":"A Real Person Behind the Work","shortName":"Real Workday B-Roll","durationSec":"10–15","durationInFrames":360,"needsDtcAudio":false,"needsBroll":true,"compositionId":"MV-REAL-WORKDAY-01","structure":["Pain hook","Two or three work clips","Role / capabilities","Person reveal","CTA"],"shotList":["Typing at a clean desk (no readable screen data)","Looking at a screen (angle that hides content)","Notes or calendar on paper / blank mock UI","Headset on — do not pretend to speak with a patient","Short natural glance toward camera"],"defaultCta":"Meet Available Talent","defaultHook":"Your front desk does not need another app. It may need another person.","defaultSupport":"Add dedicated virtual staff to your practice team."},{"id":"MV-OVERLOAD-SUPPORT-01","workingName":"From Overload to Support","shortName":"Pain → Human","durationSec":"9–13","durationInFrames":330,"needsDtcAudio":false,"needsBroll":false,"compositionId":"MV-OVERLOAD-SUPPORT-01","structure":["Pain statement","Operational cards: Calls · Scheduling · Follow-ups","Real person appears","Dedicated staffing line","CTA"],"shotList":["1× portrait clip or approved still used as motion","Optional: 1 clean desk clip for transition"],"defaultCta":"Request an Interview","defaultHook":"Too many calls. Not enough day.","defaultSupport":"Meet dedicated virtual staff who work as part of your practice."},{"id":"MV-VERTICAL-PRACTICE-01","workingName":"Built for Your Practice","shortName":"Vertical-Specific","durationSec":"10–15","durationInFrames":360,"needsDtcAudio":false,"needsBroll":false,"compositionId":"MV-VERTICAL-PRACTICE-01","structure":["Vertical-specific hook","Real VA clip or portrait","Three approved workflow items","Staffing truth","CTA"],"shotList":["1× direct-to-camera or portrait hold","Optional: 1–2 vertical-safe work clips (no clinical duties)"],"defaultCta":"Request an Interview","defaultHook":"Scheduling taking over the front desk?","defaultSupport":"Add a dedicated Dental Admin who works as part of your practice.","defaultBullets":["Appointment scheduling","Patient follow-up","Insurance verification"],"defaultVertical":"dental"}],"verticals":[{"id":"medical","label":"Medical"},{"id":"dental","label":"Dental"},{"id":"veterinary","label":"Veterinary"},{"id":"behavioral","label":"Behavioral health"},{"id":"billing","label":"Billing / revenue-cycle"}],"tones":["Calm professional","Warm direct","Premium editorial","Straightforward ops"],"ctas":["Request an Interview","Meet Available Talent","Find Support for Your Practice","Meet This Candidate"],"talent":[{"id":"jessica","firstName":"Jessica","fullPublicName":"Jessica Valles","title":"Jr. Medical Admin","listedSkills":["BPO - Customer Service","BPO - Healthcare"],"specializationShown":["Primary Care"],"imagePath":"/assets/real-people/jessica/feed-1080x1350.jpg","profileSquare":"/assets/real-people/jessica/profile-1080x1080.jpg","verticalPath":"/assets/real-people/jessica/vertical-reference-1080x1920.jpg","cleanMaster":"/assets/real-people/jessica/clean-master.jpg"},{"id":"angelica","firstName":"Angelica","fullPublicName":"Angelica Aljas","title":"Dermatology Front Desk Assistant","listedSkills":["VA - Medical General","BPO - Healthcare"],"specializationShown":["Dermatology"],"imagePath":"/assets/real-people/angelica/feed-1080x1350.jpg","profileSquare":"/assets/real-people/angelica/profile-1080x1080.jpg","verticalPath":"/assets/real-people/angelica/vertical-reference-1080x1920.jpg","cleanMaster":"/assets/real-people/angelica/clean-master.jpg"},{"id":"chelsea","firstName":"Chelsea","fullPublicName":"Chelsea Rose Santos","title":"Dental Virtual Assistant","listedSkills":["Appointment Setting","Medical - Healthcare","BPO - Customer Service","VA - Medical General","BPO - Healthcare"],"specializationShown":["Dentistry","Dental - Orthodontics","Dental - General Dentistry","DME / Durable Medical Equipment","General Medicine"],"imagePath":"/assets/real-people/chelsea/feed-1080x1350.jpg","profileSquare":"/assets/real-people/chelsea/profile-1080x1080.jpg","verticalPath":"/assets/real-people/chelsea/vertical-reference-1080x1920.jpg","cleanMaster":"/assets/real-people/chelsea/clean-master.jpg"},{"id":"mark","firstName":"Mark","fullPublicName":"Mark Robert Seno","title":"Insurance Verification Specialist","listedSkills":["VA - Medical Biller"],"specializationShown":["Psychiatry"],"imagePath":"/assets/real-people/mark/feed-1080x1350.jpg","profileSquare":"/assets/real-people/mark/profile-1080x1080.jpg","verticalPath":"/assets/real-people/mark/vertical-reference-1080x1920.jpg","cleanMaster":"/assets/real-people/mark/clean-master.jpg"},{"id":"carmen","firstName":"Carmen","fullPublicName":"Carmen De Leon","title":"Medical Biller","listedSkills":["BPO - Customer Service","VA - Medical Biller","VA - Medical General"],"specializationShown":["Neurology","Mental Health","Behavioral Health"],"imagePath":"/assets/real-people/carmen/feed-1080x1350.jpg","profileSquare":"/assets/real-people/carmen/profile-1080x1080.jpg","verticalPath":"/assets/real-people/carmen/vertical-reference-1080x1920.jpg","cleanMaster":"/assets/real-people/carmen/clean-master.jpg"},{"id":"jennifer","firstName":"Jennifer","fullPublicName":"Jennifer Villarubia","title":"Patient Intake Coordinator","listedSkills":[],"specializationShown":["Wound Care","Assisted Living / Home Care Services"],"imagePath":"/assets/real-people/jennifer/feed-1080x1350.jpg","profileSquare":"/assets/real-people/jennifer/profile-1080x1080.jpg","verticalPath":"/assets/real-people/jennifer/vertical-reference-1080x1920.jpg","cleanMaster":"/assets/real-people/jennifer/clean-master.jpg"}],"assets":[{"id":"placeholder-jessica-dtc","personId":"jessica","filename":"placeholder-awaiting-footage","publicSrc":null,"posterSrc":"/assets/real-people/jessica/vertical-reference-1080x1920.jpg","orientation":"9:16","duration":null,"approved":false,"usageStatus":"waiting-for-footage","hasAudio":false,"backgroundType":"home-office","shotType":"direct-to-camera","safeForAds":false,"notes":"Placeholder poster until approved proxy is registered."},{"id":"placeholder-chelsea-broll","personId":"chelsea","filename":"placeholder-awaiting-footage","publicSrc":null,"posterSrc":"/assets/real-people/chelsea/vertical-reference-1080x1920.jpg","orientation":"9:16","duration":null,"approved":false,"usageStatus":"waiting-for-footage","hasAudio":false,"backgroundType":"home-office","shotType":"b-roll","safeForAds":false,"notes":"Placeholder poster until approved proxy is registered."},{"id":"placeholder-carmen-portrait","personId":"carmen","filename":"placeholder-awaiting-footage","publicSrc":null,"posterSrc":"/assets/real-people/carmen/vertical-reference-1080x1920.jpg","orientation":"9:16","duration":null,"approved":false,"usageStatus":"waiting-for-footage","hasAudio":false,"backgroundType":"neutral","shotType":"portrait-hold","safeForAds":false,"notes":"Placeholder poster until approved proxy is registered."}],"assignments":[{"id":"vid-meet-jessica","assignmentType":"Capture + Motion","status":"Waiting for Footage","concept":"Direct-to-camera talent introduction","formatId":"MV-MEET-TEAMMATE-01","featuredTalentId":"jessica","featuredTalent":"Jessica","role":"Jr. Medical Admin","vertical":"medical","dueDate":"07/27/2026","owner":"Graphics / Video","deliverables":["One 10–15s vertical video","One 4:5 static cover","One 1:1 static cover"],"requiredFootage":["1× direct-to-camera take (mid-torso, eye level)","Optional: 1 clean still / portrait freeze frame"],"script":"Hi, I’m Jessica. I support medical practices with customer service, healthcare support, and admin coordination.","bullets":["Customer Service","Healthcare","Primary Care support"],"cta":"Request an Interview","example":"/assets/real-people/jessica/ad-treatment-e-9x16.png","submission":"Email finished MP4 + PNGs to george.a@legalsoft.com","revisionNotes":"","footageStatus":"placeholder","videoAssetId":"placeholder-jessica-dtc"},{"id":"vid-workday-chelsea","assignmentType":"Capture + Motion","status":"Waiting for Footage","concept":"Real workday b-roll","formatId":"MV-REAL-WORKDAY-01","featuredTalentId":"chelsea","featuredTalent":"Chelsea","role":"Dental Virtual Assistant","vertical":"dental","dueDate":"07/27/2026","owner":"Graphics / Video","deliverables":["Three to four simple b-roll clips","One 10–15s vertical edit","One first-frame static"],"requiredFootage":["Typing at a clean desk (no readable screen data)","Looking at a screen (angle that hides content)","Notes or calendar on paper / blank mock UI","Headset on — do not pretend to speak with a patient","Short natural glance toward camera"],"script":"","hook":"Your front desk does not need another app. It may need another person.","support":"Add dedicated virtual staff to your practice team.","bullets":["Appointment setting","Patient communication","Scheduling support"],"cta":"Meet Available Talent","example":"/assets/real-people/chelsea/ad-treatment-e-9x16.png","submission":"Email proxy clips + final edit to george.a@legalsoft.com","revisionNotes":"","footageStatus":"placeholder","videoAssetId":"placeholder-chelsea-broll"},{"id":"vid-pain-carmen","assignmentType":"Motion","status":"Not Started","concept":"Pain to human solution (existing imagery)","formatId":"MV-OVERLOAD-SUPPORT-01","featuredTalentId":"carmen","featuredTalent":"Carmen","role":"Medical Biller","vertical":"billing","dueDate":"07/24/2026","owner":"Graphics / Video","deliverables":["One 9–13s vertical video","One 4:5 static adaptation"],"requiredFootage":["Approved portrait or feed still (motion Ken Burns acceptable)"],"script":"","hook":"Too many calls. Not enough day.","support":"Meet dedicated virtual staff who work as part of your practice.","bullets":["Calls","Scheduling","Follow-ups"],"cta":"Request an Interview","example":"/assets/real-people/carmen/feed-1080x1350.jpg","submission":"Render via Remotion CLI; hand stills + MP4 to George","revisionNotes":"Can ship without new capture using approved stills.","footageStatus":"using-existing-imagery","videoAssetId":"placeholder-carmen-portrait"},{"id":"vid-dental-chelsea","assignmentType":"Motion","status":"Not Started","concept":"Vertical-specific dental support","formatId":"MV-VERTICAL-PRACTICE-01","featuredTalentId":"chelsea","featuredTalent":"Chelsea","role":"Dental Virtual Assistant","vertical":"dental","dueDate":"07/27/2026","owner":"Graphics / Video","deliverables":["One 10–15s vertical video","One square static","One 4:5 static"],"requiredFootage":["Portrait or approved still; optional dental-safe work clip"],"script":"","hook":"Scheduling taking over the front desk?","support":"Add a dedicated Dental Admin who works as part of your practice.","bullets":["Appointment scheduling","Patient follow-up","Insurance verification"],"cta":"Request an Interview","example":"/assets/real-people/chelsea/feed-1080x1350.jpg","submission":"Email MP4 + static cutdowns to george.a@legalsoft.com","revisionNotes":"Do not imply clinical duties.","footageStatus":"using-existing-imagery","videoAssetId":"placeholder-chelsea-broll"}],"statuses":["Not Started","Waiting for Footage","Footage Received","Editing","Internal Review","Send to Hailey","Revision Requested","Approved","Published","Archived"],"haileyFeedback":["Strong Hook","Better Person","Too Generic","Too Busy","Too Cheap-Looking","More Premium","More Real","Needs Stronger CTA","Approve Direction","Reject Direction"],"consentChecks":[{"id":"consent","label":"Talent consent confirmed"},{"id":"adUse","label":"Advertising usage approved"},{"id":"nameUse","label":"Name usage approved"},{"id":"roleVerified","label":"Role and profile details verified"},{"id":"noPhi","label":"No patient information visible"},{"id":"noPii","label":"No private customer information visible"},{"id":"noLogos","label":"No unapproved logos visible"},{"id":"noClaims","label":"No misleading claims"},{"id":"musicOk","label":"No background music licensing issue"},{"id":"copyOk","label":"Final copy approved"}],"captureStandard":{"format":["Vertical 9:16","1080 × 1920 minimum","30 fps","Normal phone camera app (no beauty filters, text, or stickers)","No digital zoom","Rear camera if someone can help; front camera if alone"],"framing":["Camera near eye level","Leave safe space above the head","Direct-to-camera: mid-torso upward","Keep the phone stable (stand, tripod, or propped surface)"],"lighting":["Face a window or soft light","Do not put a bright window behind you","Face clearly visible"],"audio":["Quiet room — silence fans and TV","Speak naturally","Record 2–3 takes","One second of silence before and after speaking"],"background":{"prefer":["Clean home office","Organized desk","Neutral wall","Professional workspace"],"avoid":["Patient records or screen data","Names, phone numbers, emails","Political or offensive material","Messy bedrooms","Unapproved logos","Clinic/hospital footage without authorization"]},"wardrobe":["Smart-casual, solid colors preferred","Avoid narrow stripes and competitor logos","Professional but real — no forced suit unless asked"]},"workflowGuide":["Start with one practice-owner problem.","Choose one real person.","Record only the required footage (about 15–30 minutes on a phone).","Select one approved motion template.","Keep on-screen copy short.","Make the opening frame understandable immediately.","Show the person early.","Keep the role accurate — public profile facts only.","End with one CTA.","Produce one strong vertical master before resizes."],"creativeRules":["Do not hide weak footage beneath excessive graphics.","Reuse the production system, not the exact composition.","Real is the advantage. Polish without making the person feel synthetic."],"storageKey":"mv-video-production-v1","promoteKey":"mv-video-brief-promote-v1","videoDefaults":[{"compositionId":"MV-MEET-TEAMMATE-01","name":"Meet Your Next Teammate","durationInFrames":360,"candidateName":"Jessica","role":"Jr. Medical Admin","spokenLine":"Hi, I’m Jessica. I support medical practices with customer service, healthcare support, and admin coordination.","bullets":["Customer Service","Healthcare","Primary Care support"],"cta":"Request an Interview","posterSrc":"/assets/real-people/jessica/vertical-reference-1080x1920.jpg","videoSrc":null,"captionPhrases":[],"captionStyle":"subtle","showCaptions":true,"volume":0,"crop":{"x":50,"y":28,"zoom":1.05},"status":"Waiting for Footage"},{"compositionId":"MV-REAL-WORKDAY-01","name":"A Real Person Behind the Work","durationInFrames":360,"headline":"Your front desk does not need another app.","headlineTwo":"It may need another person.","support":"Add dedicated virtual staff to your practice team.","bullets":["Scheduling","Patient communication","Admin support"],"cta":"Meet Available Talent","candidateName":"Chelsea","role":"Dental Virtual Assistant","posterSrc":"/assets/real-people/chelsea/vertical-reference-1080x1920.jpg","videoSrc":null,"volume":0,"crop":{"x":55,"y":35,"zoom":1.08},"status":"Waiting for Footage"},{"compositionId":"MV-OVERLOAD-SUPPORT-01","name":"From Overload to Support","durationInFrames":330,"headline":"Too many calls.","headlineTwo":"Not enough day.","support":"Meet dedicated virtual staff who work as part of your practice.","cards":["Calls","Scheduling","Follow-ups"],"cta":"Request an Interview","candidateName":"Carmen","role":"Medical Biller","posterSrc":"/assets/real-people/carmen/vertical-reference-1080x1920.jpg","status":"Not Started"},{"compositionId":"MV-VERTICAL-PRACTICE-01","name":"Built for Your Practice","durationInFrames":360,"eyebrow":"FOR DENTAL PRACTICES","headline":"Scheduling taking over the front desk?","support":"Add a dedicated Dental Admin who works as part of your practice.","bullets":["Appointment scheduling","Patient follow-up","Insurance verification"],"cta":"Request an Interview","candidateName":"Chelsea","role":"Dental Virtual Assistant","posterSrc":"/assets/real-people/chelsea/vertical-reference-1080x1920.jpg","videoSrc":null,"volume":0,"crop":{"x":58,"y":32,"zoom":1.06},"status":"Not Started"}],"formatsMeta":[{"id":"MV-MEET-TEAMMATE-01","workingName":"Meet Your Next Teammate","shortName":"Direct-to-Camera","durationSec":"10–15","durationInFrames":360,"needsDtcAudio":true,"needsBroll":false,"compositionId":"MV-MEET-TEAMMATE-01","structure":["Direct-to-camera clip","Approved introduction line","Name + role lower third","Two or three workflow bullets","End card + CTA"],"shotList":["1× direct-to-camera take (mid-torso, eye level)","Optional: 1 clean still / portrait freeze frame"],"defaultCta":"Request an Interview","defaultSpoken":"Hi, I’m {name}. I support {vertical} practices with {skill1}, {skill2}, and {skill3}."},{"id":"MV-REAL-WORKDAY-01","workingName":"A Real Person Behind the Work","shortName":"Real Workday B-Roll","durationSec":"10–15","durationInFrames":360,"needsDtcAudio":false,"needsBroll":true,"compositionId":"MV-REAL-WORKDAY-01","structure":["Pain hook","Two or three work clips","Role / capabilities","Person reveal","CTA"],"shotList":["Typing at a clean desk (no readable screen data)","Looking at a screen (angle that hides content)","Notes or calendar on paper / blank mock UI","Headset on — do not pretend to speak with a patient","Short natural glance toward camera"],"defaultCta":"Meet Available Talent","defaultHook":"Your front desk does not need another app. It may need another person.","defaultSupport":"Add dedicated virtual staff to your practice team."},{"id":"MV-OVERLOAD-SUPPORT-01","workingName":"From Overload to Support","shortName":"Pain → Human","durationSec":"9–13","durationInFrames":330,"needsDtcAudio":false,"needsBroll":false,"compositionId":"MV-OVERLOAD-SUPPORT-01","structure":["Pain statement","Operational cards: Calls · Scheduling · Follow-ups","Real person appears","Dedicated staffing line","CTA"],"shotList":["1× portrait clip or approved still used as motion","Optional: 1 clean desk clip for transition"],"defaultCta":"Request an Interview","defaultHook":"Too many calls. Not enough day.","defaultSupport":"Meet dedicated virtual staff who work as part of your practice."},{"id":"MV-VERTICAL-PRACTICE-01","workingName":"Built for Your Practice","shortName":"Vertical-Specific","durationSec":"10–15","durationInFrames":360,"needsDtcAudio":false,"needsBroll":false,"compositionId":"MV-VERTICAL-PRACTICE-01","structure":["Vertical-specific hook","Real VA clip or portrait","Three approved workflow items","Staffing truth","CTA"],"shotList":["1× direct-to-camera or portrait hold","Optional: 1–2 vertical-safe work clips (no clinical duties)"],"defaultCta":"Request an Interview","defaultHook":"Scheduling taking over the front desk?","defaultSupport":"Add a dedicated Dental Admin who works as part of your practice.","defaultBullets":["Appointment scheduling","Patient follow-up","Insurance verification"],"defaultVertical":"dental"}]};
+  </script>
+  <script type="module" src="/src/video-lab-entry.jsx"></script>
+</body>
+</html>

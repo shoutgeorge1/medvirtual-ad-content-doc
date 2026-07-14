@@ -78,6 +78,7 @@ function renderLiveAd(ad, competitor) {
       ${ad.cta ? `<div class="field"><span class="fk">CTA</span><p>${esc(ad.cta)}</p></div>` : ''}
       <div class="live-actions">
         <a class="btn primary" href="${esc(lib)}" target="_blank" rel="noopener">Open this ad</a>
+        <a class="btn" href="/creative-concept-lab.html?competitor=${esc(competitor.id)}">Build Static Concept</a>
         <a class="btn" href="/mockup-sandbox.html?seed=${esc(competitor.id)}">Mock my own take</a>
         <a class="btn" href="mailto:${esc(GRAPHICS_REQUEST_EMAIL)}?subject=${encodeURIComponent('Pitch: ' + competitor.name + ' remix')}&body=${encodeURIComponent('Hey George!\n\nCompetitor: ' + competitor.name + '\nLibrary ID: ' + (ad.libraryId || '') + '\nHook I noticed: ' + (ad.primaryText || '').slice(0, 180) + '\n\nMy remix idea:\n\nThanks!\n')}">Pitch George</a>
       </div>
@@ -353,6 +354,7 @@ const html = `<!doctype html>
       <h2>Mock it · pitch George</h2>
       <p>Saw a hook you like? Remix it in the sandbox and email George — he’s excited to see what you cook up.</p>
       <a class="btn primary" href="${esc(mailto)}">Email George a remix</a>
+      <a class="btn" href="/creative-concept-lab.html">Static Concepts</a>
       <a class="btn" href="/mockup-sandbox.html">Open mock-up sandbox</a>
       <a class="btn" href="/ideas.html">Ideas Lab</a>
     </section>

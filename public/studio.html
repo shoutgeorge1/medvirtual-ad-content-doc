@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Studio · MedVirtual Creative Handoff</title>
+  <title>Studio · MedVirtual</title>
   <style>
   
   
@@ -139,7 +139,6 @@
     background: transparent;
     box-shadow: none;
   }
-  /* Kill page-level details/summary styles that bleed into the header */
   .doc-header details.doc-nav-dd {
     background: transparent !important;
     border: none !important;
@@ -255,114 +254,70 @@
     font-family: "Be Vietnam", Inter, Arial, sans-serif;
     color: #161511;
     background:
-      radial-gradient(ellipse 90% 50% at 10% -10%, rgba(0,178,226,0.18), transparent 55%),
-      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(7,121,153,0.12), transparent 50%),
+      radial-gradient(ellipse 90% 50% at 10% -10%, rgba(0,178,226,0.14), transparent 55%),
       #f3f7fa;
     line-height: 1.5;
   }
   main { max-width: 980px; margin: 0 auto; padding: 1.5rem 1.15rem 4rem; }
-  .hero {
-    margin-bottom: 1.5rem;
-  }
   .hero h1 {
-    margin: 0 0 0.5rem;
-    font-size: clamp(1.85rem, 4vw, 2.55rem);
+    margin: 0 0 0.45rem;
+    font-size: clamp(1.75rem, 4vw, 2.35rem);
     letter-spacing: -0.03em;
-    line-height: 1.15;
   }
-  .hero p {
-    margin: 0;
-    max-width: 40rem;
-    font-size: 1.05rem;
-    color: #405766;
-  }
-  .mission {
+  .hero p { margin: 0; max-width: 40rem; color: #405766; }
+  .stages {
     display: grid;
     gap: 0.65rem;
     grid-template-columns: repeat(3, 1fr);
-    margin: 1.35rem 0 1.75rem;
+    margin: 1.35rem 0 1.5rem;
   }
-  @media (max-width: 720px) { .mission { grid-template-columns: 1fr; } }
-  .mission article {
+  @media (max-width: 720px) { .stages { grid-template-columns: 1fr; } }
+  .stages article {
     background: #fff;
     border: 1px solid #d5e2ea;
     border-radius: 14px;
     padding: 1rem 1.05rem;
   }
-  .mission h2 {
-    margin: 0 0 0.35rem;
-    font-size: 0.95rem;
-    color: #0D546B;
-  }
-  .mission p { margin: 0; font-size: 0.9rem; color: #516472; }
+  .stages h2 { margin: 0 0 0.3rem; font-size: 0.95rem; color: #0D546B; }
+  .stages p { margin: 0; font-size: 0.88rem; color: #516472; }
+  .stages a { color: #077999; font-weight: 700; text-decoration: none; }
   .grid {
     display: grid;
     gap: 0.85rem;
     grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 1.75rem;
   }
   @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
   .tile {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
     background: #fff;
     border: 1px solid #d5e2ea;
     border-radius: 14px;
-    padding: 1.05rem 1.1rem;
+    padding: 1rem 1.05rem;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.15s, transform 0.15s;
   }
-  .tile:hover { border-color: #00B2E2; transform: translateY(-1px); }
-  .tile.featured {
-    border-color: #077999;
-    box-shadow: 0 0 0 1px rgba(7,121,153,0.12);
-    background: linear-gradient(165deg, #fff 0%, #f0f9fc 100%);
-  }
+  .tile:hover { border-color: #00B2E2; }
   .tile .eyebrow {
-    font-size: 0.7rem;
+    display: block;
+    font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #077999;
+    margin-bottom: 0.3rem;
   }
-  .tile h3 { margin: 0; font-size: 1.15rem; }
-  .tile p { margin: 0; font-size: 0.9rem; color: #516472; flex: 1; }
-  .tile .meta { font-size: 0.8rem; font-weight: 700; color: #0D546B; }
+  .tile h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+  .tile p { margin: 0; font-size: 0.88rem; color: #516472; }
   .panel {
+    margin-top: 1.35rem;
     background: #fff;
     border: 1px solid #d5e2ea;
     border-radius: 14px;
-    padding: 1.15rem 1.2rem;
-    margin-bottom: 1rem;
+    padding: 1.05rem 1.1rem;
   }
-  .panel h2 { margin: 0 0 0.4rem; font-size: 1.15rem; }
-  .panel .lede { margin: 0 0 0.85rem; color: #516472; font-size: 0.94rem; }
-  .steps { margin: 0; padding-left: 1.15rem; color: #334155; }
-  .steps li { margin-bottom: 0.4rem; }
-  .ideas {
-    background: linear-gradient(120deg, #0D546B 0%, #077999 55%, #00B2E2 100%);
-    color: #fff;
-    border: none;
-  }
-  .ideas h2 { color: #fff; }
-  .ideas .lede { color: rgba(255,255,255,0.88); }
-  .ideas .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    padding: 0.55rem 0.9rem; border-radius: 9px; font: inherit; font-size: 0.88rem; font-weight: 700;
-    text-decoration: none; border: 1px solid transparent; cursor: pointer;
-  }
-  .btn.light { background: #fff; color: #0D546B; }
-  .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.4); }
-  .jobs { display: grid; gap: 0.45rem; margin: 0; padding: 0; list-style: none; }
-  .jobs li {
-    display: flex; justify-content: space-between; gap: 0.75rem; align-items: baseline;
-    padding: 0.55rem 0.7rem; background: #f7fafc; border-radius: 9px; font-size: 0.9rem;
-  }
-  .jobs a { color: #077999; font-weight: 700; text-decoration: none; }
-  .jobs span { color: #64748b; font-size: 0.8rem; }
+  .panel h2 { margin: 0 0 0.4rem; font-size: 1.1rem; }
+  .panel .lede { margin: 0 0 0.7rem; color: #64748b; font-size: 0.92rem; }
+  .jobs { margin: 0; padding-left: 1.1rem; color: #405766; }
+  .jobs a { color: #077999; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -372,24 +327,27 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Creative Handoff</h1>
-        <p class="doc-header__tagline">Ideas welcome · ads that help practices book</p>
+        <p class="doc-header__tagline">Produce now · reuse approved systems · experiment in the lab</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="active">Studio</a><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
-      <summary>Lookbook</summary>
-      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer board</a></div>
-    </details><a href="/real-people-creative.html" class="">People</a><details class="doc-nav-dd ">
-      <summary>Ideas</summary>
-      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Ideas Lab</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/mockup-sandbox.html" class="">Mock-up Sandbox</a><a href="/saas-prop-templates.html" class="">SaaS Prop</a></div>
+      <nav class="doc-nav" aria-label="Primary"><a href="/graphic-request-brief.html" class="">Brief</a><details class="doc-nav-dd ">
+      <summary>Examples</summary>
+      <div class="doc-nav-dd__menu"><a href="/template-test-board.html" class="">Layout guides</a><a href="/role-offer-templates.html" class="">Role-Offer</a><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/real-people-creative.html" class="">People treatments</a></div>
+    </details><a href="/real-people-creative.html" class="">People</a><a href="/video-production.html" class="">Video</a><details class="doc-nav-dd ">
+      <summary>Assets</summary>
+      <div class="doc-nav-dd__menu"><a href="/asset-hub.html" class="">Asset Hub</a><a href="/image-variation-review.html" class="">Image board</a><a href="/real-people-assets.html" class="">People downloads</a></div>
+    </details><details class="doc-nav-dd ">
+      <summary>Creative Lab</summary>
+      <div class="doc-nav-dd__menu"><a href="/ideas.html" class="">Experimental Ideas</a><a href="/competitors.html" class="">Competitors</a><a href="/creative-concept-lab.html" class="">Static Concepts</a><a href="/motion-concept-lab.html" class="">Motion Concepts</a><a href="/mockup-sandbox.html" class="">Sandbox</a><a href="/saas-prop-templates.html" class="">SaaS Props</a></div>
     </details></nav>
       <span class="doc-nav-sep" aria-hidden="true"></span>
-      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/medvirtual-brand-guide.html" class="">Brand Guide</a><a href="/asset-hub.html" class="">Assets</a><a href="/image-variation-review.html" class="">Images</a></nav>
+      <nav class="doc-nav doc-nav--ref" aria-label="Reference"><a href="/studio.html" class="active">Studio</a></nav>
     </div>
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Studio</h2>
-          <p class="doc-header__page-sub">Hey team — this is our creative playground. Ideas welcome.</p>
+          <p class="doc-header__page-sub">Produce now · reuse approved systems · experiment only in Creative Lab</p>
           
         </div>
 </header>
@@ -411,88 +369,62 @@
 </script>
   <main>
     <header class="hero">
-      <h1>Let’s make some cool ads together.</h1>
-      <p>Hey folks — we’ve got a solid Meet-[Name] look that marketing likes, and we’re also dreaming up fresh directions: motion, Veo clips, human shoots, wild mock-ups. This Studio is here so you’ve got tools, examples, and an easy way to pitch George something fun.</p>
+      <h1>What to produce is on the Brief.</h1>
+      <p>Start with assigned work. Reuse approved examples. Record simple phone footage when the job is video. Keep experiments in Creative Lab.</p>
     </header>
 
-    <div class="mission">
+    <div class="stages">
       <article>
-        <h2>Make life easier</h2>
-        <p>Sizes, logos, photos, and examples live in one place so you can jump in and create.</p>
+        <h2>1. Produce Now</h2>
+        <p>Open the <a href="/graphic-request-brief.html">Brief</a> — only the current assignments.</p>
       </article>
       <article>
-        <h2>Stay in sync</h2>
-        <p>Brief = what’s needed now. Lookbook = today’s layout guides. Ideas = where we play and invent.</p>
+        <h2>2. Approved Systems</h2>
+        <p><a href="/template-test-board.html">Examples</a>, <a href="/real-people-creative.html">People</a>, and <a href="/video-production.html">Video</a> templates.</p>
       </article>
       <article>
-        <h2>Help practices book</h2>
-        <p>Beautiful, human creative that makes a practice owner want to say yes to a demo.</p>
+        <h2>3. Creative Lab</h2>
+        <p>Optional exploration: <a href="/ideas.html">competitors, concepts, sandbox</a>.</p>
       </article>
     </div>
 
     <div class="grid">
-      <a class="tile featured" href="/graphic-request-brief.html">
+      <a class="tile" href="/graphic-request-brief.html">
         <span class="eyebrow">Start here</span>
-        <h3>Brief — ads we need</h3>
-        <p>Four clear requests with photos, logos, and examples. Pick one up whenever you’re ready.</p>
-        <span class="meta">4 open right now →</span>
+        <h3>Brief</h3>
+        <p>Assigned static, motion, and capture jobs with due dates and assets.</p>
+      </a>
+      <a class="tile" href="/video-production.html">
+        <span class="eyebrow">Motion</span>
+        <h3>Real People Video</h3>
+        <p>Capture briefs, four video templates, consent checks, Remotion preview.</p>
       </a>
       <a class="tile" href="/template-test-board.html">
-        <span class="eyebrow">Guides</span>
-        <h3>Lookbook</h3>
-        <p>Layout language for today’s Real People ads — a springboard, not a ceiling.</p>
-        <span class="meta">Layout guides + Role-Offer board →</span>
+        <span class="eyebrow">Systems</span>
+        <h3>Examples</h3>
+        <p>Approved static layouts and Role-Offer treatments to reuse.</p>
       </a>
       <a class="tile" href="/real-people-creative.html">
         <span class="eyebrow">Talent</span>
         <h3>People</h3>
-        <p>Named teammates, finished comps, downloads, and Meta copy packages.</p>
-        <span class="meta">Ready ads + source photos →</span>
+        <p>Named talent ads, public skills, and download packs.</p>
+      </a>
+      <a class="tile" href="/asset-hub.html">
+        <span class="eyebrow">Files</span>
+        <h3>Assets</h3>
+        <p>Logos, approved images, and production files.</p>
       </a>
       <a class="tile" href="/ideas.html">
-        <span class="eyebrow">Dream</span>
-        <h3>Ideas Lab</h3>
-        <p>Remotion, Veo, human shoots — plus competitors and a mock-up sandbox to jam in.</p>
-        <span class="meta">Explore experiments →</span>
-      </a>
-      <a class="tile" href="/competitors.html">
-        <span class="eyebrow">Spark</span>
-        <h3>Competitor Wall</h3>
-        <p>Peek at what’s running out there, then mock your own take and pitch it to George.</p>
-        <span class="meta">See ads + remix →</span>
-      </a>
-      <a class="tile" href="/mockup-sandbox.html">
-        <span class="eyebrow">Play</span>
-        <h3>Mock-up Sandbox</h3>
-        <p>Three editable forks. Click text, hit Surprise me, export PNGs, email George.</p>
-        <span class="meta">Start mocking →</span>
+        <span class="eyebrow">Secondary</span>
+        <h3>Creative Lab</h3>
+        <p>Competitors, static/motion concept labs, sandbox, SaaS props.</p>
       </a>
     </div>
 
     <section class="panel">
       <h2>Open on the Brief</h2>
-      <p class="lede">Quick list of what’s currently requested. Full details live on the Brief page.</p>
-      <ul class="jobs"><li><a href="/graphic-request-brief.html#rp-carmen-4x5">Make a Meet Carmen ad</a><span>Ad 1 · 1080×1350 px (4:5 feed)</span></li><li><a href="/graphic-request-brief.html#rp-jennifer-4x5">Make a Meet Jennifer ad</a><span>Ad 2 · 1080×1350 px (4:5 feed)</span></li><li><a href="/graphic-request-brief.html#rp-jessica-9x16">Resize Jessica ad for Stories</a><span>Ad 3 · 1080×1920 px (9:16 Stories/Reels)</span></li><li><a href="/graphic-request-brief.html#rp-chelsea-9x16">Resize Chelsea ad for Stories</a><span>Ad 4 · 1080×1920 px (9:16 Stories/Reels)</span></li></ul>
-    </section>
-
-    <section class="panel">
-      <h2>How we like to roll</h2>
-      <ol class="steps">
-        <li><strong>Brief</strong> for assigned statics — keeps the current campaign tight and consistent.</li>
-        <li><strong>Lookbook</strong> for the layout vibe marketing is into right now — bring your polish.</li>
-        <li><strong>Ideas Lab + Sandbox</strong> when you want to try something cooler — George is all ears.</li>
-        <li><strong>Pitch anytime</strong> — rough ideas welcome. “What if we tried…” emails make his day.</li>
-      </ol>
-    </section>
-
-    <section class="panel ideas">
-      <h2>Got a fun idea floating around?</h2>
-      <p class="lede">Seriously — shoot George a note. Sketches, “what ifs,” competitor remixes. We’re building this with you.</p>
-      <div class="actions">
-        <a class="btn light" href="mailto:george.a@legalsoft.com?subject=Creative%20idea%20%E2%80%94%20MedVirtual&amp;body=Hey%20George!%0A%0AJust%20had%20an%20idea%20I%20wanted%20to%20share%3A%0A%0A1.%20What%20it%20is%0A2.%20Why%20it%20could%20help%20practices%20book%0A3.%20Any%20rough%20notes%20or%20a%20mock%20link%0A%0AThanks!%0A">Email George an idea</a>
-        <a class="btn ghost" href="/ideas.html">Browse Ideas Lab</a>
-        <a class="btn ghost" href="/mockup-sandbox.html">Open the sandbox</a>
-      </div>
+      <p class="lede">Current produce-now queue.</p>
+      <ul class="jobs"><li><a href="/graphic-request-brief.html#rp-carmen-4x5">Static · Meet Carmen · 4:5 feed</a> · due 07/20/2026</li><li><a href="/graphic-request-brief.html#vid-meet-jessica">Capture + Motion · Jessica direct-to-camera · Meet Your Next Teammate</a> · due 07/27/2026</li><li><a href="/graphic-request-brief.html#vid-pain-carmen">Motion · Carmen · Pain → Human (9–13s)</a> · due 07/24/2026</li><li><a href="/graphic-request-brief.html#vid-dental-chelsea">Motion · Chelsea · Dental vertical (10–15s)</a> · due 07/27/2026</li></ul>
     </section>
   </main>
 </body>

@@ -1,0 +1,874 @@
+{
+  "brand": {
+    "displayName": "MedVirtual",
+    "colors": {
+      "main01": "#077999",
+      "main02": "#00B2E2",
+      "main03": "#0D546B",
+      "accent01": "#00C0D4",
+      "accent02": "#27E6FA",
+      "neutral01": "#F0F5FF",
+      "neutral02": "#EFEDE1",
+      "ink": "#161511",
+      "white": "#FFFFFF"
+    },
+    "fonts": {
+      "family": "\"Be Vietnam\", Inter, Arial, sans-serif",
+      "files": {
+        "regular": "/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf",
+        "medium": "/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf",
+        "bold": "/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf"
+      }
+    },
+    "logoColored": "/assets/brand/medvirtual/logo-colored.svg",
+    "logoWhite": "/assets/brand/medvirtual/logo-white.svg"
+  },
+  "statuses": [
+    "Draft",
+    "Worth Exploring",
+    "Send to Hailey",
+    "Approved to Produce",
+    "Needs Revision",
+    "Rejected"
+  ],
+  "formats": {
+    "4:5": {
+      "id": "4:5",
+      "label": "4:5 Feed",
+      "width": 1080,
+      "height": 1350,
+      "slug": "1080x1350"
+    },
+    "1:1": {
+      "id": "1:1",
+      "label": "1:1 Square",
+      "width": 1080,
+      "height": 1080,
+      "slug": "1080x1080"
+    },
+    "9:16": {
+      "id": "9:16",
+      "label": "9:16 Stories/Reels",
+      "width": 1080,
+      "height": 1920,
+      "slug": "1080x1920"
+    }
+  },
+  "layouts": [
+    "PainPortraitLayout",
+    "EditorialTalentLayout",
+    "PremiumOpsLayout",
+    "VerticalWorkflowLayout"
+  ],
+  "themes": [
+    "light-grid",
+    "editorial-light",
+    "premium-ops-dark",
+    "vertical-clean"
+  ],
+  "storageKeys": {
+    "creativeBatch": "mv-creative-concept-lab-v1",
+    "motionBatch": "mv-motion-concept-lab-v1",
+    "promote": "mv-concept-promote-v1"
+  },
+  "images": [
+    {
+      "id": "jessica-feed",
+      "name": "Jessica · feed portrait",
+      "src": "/assets/real-people/jessica/feed-1080x1350.jpg",
+      "thumb": "/assets/real-people/jessica/profile-1080x1080.jpg",
+      "aspectRatio": "4:5",
+      "subjectPosition": "center-right",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "talent",
+      "talentId": "jessica"
+    },
+    {
+      "id": "chelsea-feed",
+      "name": "Chelsea · feed portrait",
+      "src": "/assets/real-people/chelsea/feed-1080x1350.jpg",
+      "thumb": "/assets/real-people/chelsea/profile-1080x1080.jpg",
+      "aspectRatio": "4:5",
+      "subjectPosition": "center-right",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "talent",
+      "talentId": "chelsea"
+    },
+    {
+      "id": "carmen-feed",
+      "name": "Carmen · feed portrait",
+      "src": "/assets/real-people/carmen/feed-1080x1350.jpg",
+      "thumb": "/assets/real-people/carmen/profile-1080x1080.jpg",
+      "aspectRatio": "4:5",
+      "subjectPosition": "center",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "talent",
+      "talentId": "carmen"
+    },
+    {
+      "id": "angelica-feed",
+      "name": "Angelica · feed portrait",
+      "src": "/assets/real-people/angelica/feed-1080x1350.jpg",
+      "thumb": "/assets/real-people/angelica/profile-1080x1080.jpg",
+      "aspectRatio": "4:5",
+      "subjectPosition": "center-right",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "talent",
+      "talentId": "angelica"
+    },
+    {
+      "id": "mark-feed",
+      "name": "Mark · feed portrait",
+      "src": "/assets/real-people/mark/feed-1080x1350.jpg",
+      "thumb": "/assets/real-people/mark/profile-1080x1080.jpg",
+      "aspectRatio": "4:5",
+      "subjectPosition": "center-left",
+      "copyZone": "right",
+      "status": "approved",
+      "kind": "talent",
+      "talentId": "mark"
+    },
+    {
+      "id": "jennifer-feed",
+      "name": "Jennifer · feed portrait",
+      "src": "/assets/real-people/jennifer/feed-1080x1350.jpg",
+      "thumb": "/assets/real-people/jennifer/profile-1080x1080.jpg",
+      "aspectRatio": "4:5",
+      "subjectPosition": "center",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "talent",
+      "talentId": "jennifer"
+    },
+    {
+      "id": "ai-003-left",
+      "name": "Image 03 — Follow-Up",
+      "src": "/exports/image-tests/feed-4x5/IMG_AI_003_4X5_FACE_LEFT.png",
+      "thumb": "/exports/image-tests/feed-4x5/IMG_AI_003_4X5_FACE_LEFT.png",
+      "aspectRatio": "4:5",
+      "subjectPosition": "left",
+      "copyZone": "right",
+      "status": "approved",
+      "kind": "board"
+    },
+    {
+      "id": "ai-009-left",
+      "name": "Image 09 — Scheduling",
+      "src": "/exports/image-tests/feed-4x5/IMG_AI_009_4X5_FACE_LEFT.png",
+      "thumb": "/exports/image-tests/feed-4x5/IMG_AI_009_4X5_FACE_LEFT.png",
+      "aspectRatio": "4:5",
+      "subjectPosition": "left",
+      "copyZone": "right",
+      "status": "approved",
+      "kind": "board"
+    },
+    {
+      "id": "ai-010-left",
+      "name": "Image 10 — Front Desk",
+      "src": "/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png",
+      "thumb": "/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png",
+      "aspectRatio": "4:5",
+      "subjectPosition": "left",
+      "copyZone": "right",
+      "status": "approved",
+      "kind": "board"
+    },
+    {
+      "id": "ai-004-right",
+      "name": "Image 04 — Workflow",
+      "src": "/exports/image-tests/feed-4x5/IMG_AI_004_4X5_FACE_RIGHT.png",
+      "thumb": "/exports/image-tests/feed-4x5/IMG_AI_004_4X5_FACE_RIGHT.png",
+      "aspectRatio": "4:5",
+      "subjectPosition": "right",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "board"
+    },
+    {
+      "id": "ai-013-right",
+      "name": "Image 13 — Medical Assistant",
+      "src": "/exports/image-tests/feed-4x5/IMG_AI_013_4X5_FACE_RIGHT.png",
+      "thumb": "/exports/image-tests/feed-4x5/IMG_AI_013_4X5_FACE_RIGHT.png",
+      "aspectRatio": "4:5",
+      "subjectPosition": "right",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "board"
+    },
+    {
+      "id": "saas-scheduling",
+      "name": "SaaS · Scheduling UI",
+      "src": "/assets/saas-prop-refs/saas-scheduling-ui.png",
+      "thumb": "/assets/saas-prop-refs/saas-scheduling-ui.png",
+      "aspectRatio": "1:1",
+      "subjectPosition": "center",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "saas-prop"
+    },
+    {
+      "id": "saas-workflow",
+      "name": "SaaS · Workflow steps",
+      "src": "/assets/saas-prop-refs/saas-workflow-steps.png",
+      "thumb": "/assets/saas-prop-refs/saas-workflow-steps.png",
+      "aspectRatio": "1:1",
+      "subjectPosition": "center",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "saas-prop"
+    },
+    {
+      "id": "saas-dental",
+      "name": "SaaS · Dental network",
+      "src": "/assets/saas-prop-refs/saas-dental-network.png",
+      "thumb": "/assets/saas-prop-refs/saas-dental-network.png",
+      "aspectRatio": "1:1",
+      "subjectPosition": "center",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "saas-prop"
+    },
+    {
+      "id": "saas-analytics",
+      "name": "SaaS · Analytics glass",
+      "src": "/assets/saas-prop-refs/saas-analytics-glass.png",
+      "thumb": "/assets/saas-prop-refs/saas-analytics-glass.png",
+      "aspectRatio": "1:1",
+      "subjectPosition": "center",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "saas-prop"
+    },
+    {
+      "id": "saas-inbox",
+      "name": "SaaS · Inbox funnel",
+      "src": "/assets/saas-prop-refs/saas-inbox-funnel.png",
+      "thumb": "/assets/saas-prop-refs/saas-inbox-funnel.png",
+      "aspectRatio": "1:1",
+      "subjectPosition": "center",
+      "copyZone": "left",
+      "status": "approved",
+      "kind": "saas-prop"
+    }
+  ],
+  "talent": [
+    {
+      "id": "jessica",
+      "firstName": "Jessica",
+      "fullPublicName": "Jessica Valles",
+      "title": "Jr. Medical Admin",
+      "listedSkills": [
+        "BPO - Customer Service",
+        "BPO - Healthcare"
+      ],
+      "specializationShown": [
+        "Primary Care"
+      ],
+      "imagePath": "/assets/real-people/jessica/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/jessica/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/jessica/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/jessica/clean-master.jpg"
+    },
+    {
+      "id": "angelica",
+      "firstName": "Angelica",
+      "fullPublicName": "Angelica Aljas",
+      "title": "Dermatology Front Desk Assistant",
+      "listedSkills": [
+        "VA - Medical General",
+        "BPO - Healthcare"
+      ],
+      "specializationShown": [
+        "Dermatology"
+      ],
+      "imagePath": "/assets/real-people/angelica/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/angelica/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/angelica/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/angelica/clean-master.jpg"
+    },
+    {
+      "id": "chelsea",
+      "firstName": "Chelsea",
+      "fullPublicName": "Chelsea Rose Santos",
+      "title": "Dental Virtual Assistant",
+      "listedSkills": [
+        "Appointment Setting",
+        "Medical - Healthcare",
+        "BPO - Customer Service",
+        "VA - Medical General",
+        "BPO - Healthcare"
+      ],
+      "specializationShown": [
+        "Dentistry",
+        "Dental - Orthodontics",
+        "Dental - General Dentistry",
+        "DME / Durable Medical Equipment",
+        "General Medicine"
+      ],
+      "imagePath": "/assets/real-people/chelsea/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/chelsea/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/chelsea/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/chelsea/clean-master.jpg"
+    },
+    {
+      "id": "mark",
+      "firstName": "Mark",
+      "fullPublicName": "Mark Robert Seno",
+      "title": "Insurance Verification Specialist",
+      "listedSkills": [
+        "VA - Medical Biller"
+      ],
+      "specializationShown": [
+        "Psychiatry"
+      ],
+      "imagePath": "/assets/real-people/mark/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/mark/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/mark/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/mark/clean-master.jpg"
+    },
+    {
+      "id": "carmen",
+      "firstName": "Carmen",
+      "fullPublicName": "Carmen De Leon",
+      "title": "Medical Biller",
+      "listedSkills": [
+        "BPO - Customer Service",
+        "VA - Medical Biller",
+        "VA - Medical General"
+      ],
+      "specializationShown": [
+        "Neurology",
+        "Mental Health",
+        "Behavioral Health"
+      ],
+      "imagePath": "/assets/real-people/carmen/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/carmen/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/carmen/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/carmen/clean-master.jpg"
+    },
+    {
+      "id": "jennifer",
+      "firstName": "Jennifer",
+      "fullPublicName": "Jennifer Villarubia",
+      "title": "Patient Intake Coordinator",
+      "listedSkills": [],
+      "specializationShown": [
+        "Wound Care",
+        "Assisted Living / Home Care Services"
+      ],
+      "imagePath": "/assets/real-people/jennifer/feed-1080x1350.jpg",
+      "profileSquare": "/assets/real-people/jennifer/profile-1080x1080.jpg",
+      "verticalPath": "/assets/real-people/jennifer/vertical-reference-1080x1920.jpg",
+      "cleanMaster": "/assets/real-people/jennifer/clean-master.jpg"
+    }
+  ],
+  "banks": {
+    "practicePains": [
+      "Too many calls. Not enough day.",
+      "Admin work piling up?",
+      "Scheduling taking over the front desk?",
+      "Front desk stretched thin?",
+      "Billing follow-up eating the week?",
+      "Intake backlog before the day even starts?"
+    ],
+    "roles": [
+      "Virtual Medical Admin",
+      "Dental Admin",
+      "Medical Biller",
+      "Patient Intake Coordinator",
+      "Insurance Verification Specialist",
+      "Front Desk Support"
+    ],
+    "workflows": [
+      [
+        "Calls and scheduling",
+        "Patient intake",
+        "Follow-up support"
+      ],
+      [
+        "Appointment scheduling",
+        "Patient follow-up",
+        "Insurance verification"
+      ],
+      [
+        "Claims follow-up",
+        "Payment posting",
+        "Denial support"
+      ],
+      [
+        "Scheduling",
+        "Billing support",
+        "Patient communication"
+      ],
+      [
+        "Eligibility checks",
+        "Prior authorizations",
+        "Patient coordination"
+      ]
+    ],
+    "supportStatements": [
+      "Add dedicated virtual staff to your practice",
+      "Meet a candidate your team can interview",
+      "Full-time virtual staff who work as part of your practice",
+      "Healthcare-trained talent matched to your workflow",
+      "A dedicated team member working remotely",
+      "Your dedicated virtual staff can support calls and scheduling",
+      "Hire dedicated full-time virtual staff who join your practice team.",
+      "Trained virtual teammates for calls, scheduling, billing, and admin.",
+      "Not a call center. Not software. Dedicated people for your practice."
+    ],
+    "ctas": [
+      "Request an Interview",
+      "Meet Available Talent",
+      "Meet This Candidate",
+      "Book a Demo",
+      "Book a Demo",
+      "Request Talent"
+    ],
+    "eyebrows": [
+      "FOR BUSY MEDICAL PRACTICES",
+      "MEET AVAILABLE TALENT",
+      "PRACTICE OPERATIONS",
+      "FOR DENTAL PRACTICES",
+      "FOR MEDICAL PRACTICES",
+      "HEALTHCARE STAFFING"
+    ],
+    "audiences": [
+      "Busy medical practices",
+      "Dental practices",
+      "Primary care clinics",
+      "Specialty practices",
+      "Practice owners"
+    ],
+    "verticals": [
+      "medical",
+      "dental",
+      "billing",
+      "front-office"
+    ],
+    "saasHeadlines": [
+      "Enterprise-grade ops. Practice-sized teams.",
+      "Built like serious software. Delivered as dedicated people.",
+      "The operating system is still your team — we staff it.",
+      "Infrastructure for practices that outgrew scramble mode.",
+      "White-glove capacity. Full-time commitment."
+    ]
+  },
+  "competitorPrinciples": [
+    {
+      "id": "hello-rache",
+      "name": "Hello Rache",
+      "category": "virtual-staffing",
+      "steal": "Clear role framing in one glance — title + a simple patient story.",
+      "reject": "Generic stock smiles with no practice-owner POV.",
+      "remix": "MedVirtual Meet-[Name] with public skills + Interview CTA — human and distinct.",
+      "sourceAdId": null
+    },
+    {
+      "id": "time-doc",
+      "name": "TimeDoc Health",
+      "category": "practice-saas",
+      "steal": "Problem → system → CTA pacing that feels premium.",
+      "reject": "Tiny UI screenshots nobody can read on mobile.",
+      "remix": "SaaS Prop lane — glass UI metaphor, no fake PHI, Book a Demo.",
+      "sourceAdId": null
+    },
+    {
+      "id": "commure-scribe",
+      "name": "Commure Scribe",
+      "category": "practice-saas",
+      "steal": "Crystal-clear product promise in one line.",
+      "reject": "Sounding like another AI tool, not MedVirtual humans.",
+      "remix": "Meet-[Name] who works the note + patient flow — Interview CTA.",
+      "sourceAdId": null
+    },
+    {
+      "id": "quadrant-health",
+      "name": "Quadrant Health",
+      "category": "practice-saas",
+      "steal": "Named failed alternatives (“call center”, “temp receptionist”).",
+      "reject": "Doom-scroll scare tactics for MedVirtual talent ads.",
+      "remix": "Same pain, human hire answer — Meet front-desk / admin talent.",
+      "sourceAdId": null
+    },
+    {
+      "id": "weave",
+      "name": "Weave",
+      "category": "practice-saas",
+      "steal": "Tight hooks about phones / schedules without fear-mongering.",
+      "reject": "“We run your front desk” positioning for MedVirtual.",
+      "remix": "Keep the pain in Meta primary text; on-image stays Meet + interview.",
+      "sourceAdId": null
+    },
+    {
+      "id": "nexhealth",
+      "name": "NexHealth",
+      "category": "practice-saas",
+      "steal": "Whitespace + hierarchy — don’t crowd the 4:5.",
+      "reject": "Over-design that hides the offer.",
+      "remix": "Borrow calm modern layout; keep MedVirtual teal + Be Vietnam.",
+      "sourceAdId": null
+    },
+    {
+      "id": "zocdoc",
+      "name": "Zocdoc",
+      "category": "other",
+      "steal": "Ruthless simplicity — one idea per frame.",
+      "reject": "Trying to explain our whole company on the image.",
+      "remix": "One proof line + Meet name + CTA — stop packing five claims.",
+      "sourceAdId": null
+    },
+    {
+      "id": "carerev",
+      "name": "CareRev",
+      "category": "job-marketplace",
+      "steal": "Strong human photography direction.",
+      "reject": "Anything that makes MedVirtual look like gig staffing.",
+      "remix": "Owner POV: hire into your team — not “pick up shifts.”",
+      "sourceAdId": null
+    },
+    {
+      "id": "patientpop",
+      "name": "PatientPop / Tebra",
+      "category": "practice-saas",
+      "steal": "Aspirational “practice leveling up” emotion.",
+      "reject": "Agency collage fluff with no single subject.",
+      "remix": "One talent + one role = the upgrade story.",
+      "sourceAdId": null
+    },
+    {
+      "id": "generic-va-commodity",
+      "name": "Generic “Hire VAs” cluster",
+      "category": "virtual-staffing",
+      "steal": "Nothing required — use it as fuel to go different.",
+      "reject": "Blending in with the pack just because it’s familiar.",
+      "remix": "Ideas Lab: Veo, motion, human shoots, SaaS Prop — have fun standing out.",
+      "sourceAdId": null
+    }
+  ],
+  "defaultBatch": [
+    {
+      "id": "MV-STATIC-PAIN-HUMAN-01",
+      "name": "Pain + Human Answer",
+      "lane": "pain-human",
+      "audience": "Busy medical practices",
+      "vertical": "medical",
+      "format": "4:5",
+      "status": "Draft",
+      "eyebrow": "FOR BUSY MEDICAL PRACTICES",
+      "headline": "Too many calls. Not enough day.",
+      "support": "Add a dedicated virtual medical admin to your team.",
+      "bullets": [
+        "Calls and scheduling",
+        "Patient intake",
+        "Follow-up support"
+      ],
+      "cta": "Request an Interview",
+      "candidateId": "jessica",
+      "candidateName": "Jessica",
+      "role": "Jr. Medical Admin",
+      "imageId": "ai-010-left",
+      "imageSrc": "/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png",
+      "imagePosition": {
+        "x": 32,
+        "y": 50
+      },
+      "imageZoom": 110,
+      "overlayIntensity": 28,
+      "theme": "light-grid",
+      "layout": "PainPortraitLayout",
+      "logoVariant": "colored",
+      "copySide": "right",
+      "showAudiencePill": true,
+      "showLogo": true,
+      "competitorSource": "Hello Rache",
+      "sourceAdId": null,
+      "borrowedPrinciple": "Clear role framing in one glance — title + a simple patient story.",
+      "rejectedPattern": "Generic stock smiles with no practice-owner POV.",
+      "medvirtualRemix": "The answer is a dedicated person the practice can interview — not software or a shared service.",
+      "sourceInspiration": "Competitor Wall · virtual staffing + Image Selection Board person-left crops",
+      "internalNotes": "",
+      "motionTemplate": "MV-HOOK-HUMAN-01",
+      "durationInFrames": 330,
+      "imagePrompt": "Premium MedVirtual Meta ad background, 4:5 aspect ratio. Scene: professional healthcare workplace or portrait. Subject position: left. Generous empty copy space on the right. Color direction: teal #077999, cyan #00B2E2, deep teal #0D546B, cool neutrals. Aesthetic: calm, commercial healthcare SaaS / real workplace — expensive and composed. Strict: no visible text, no logos, no patient information, no medical claims, no fake interface text, no watermarks."
+    },
+    {
+      "id": "MV-STATIC-EDITORIAL-01",
+      "name": "Named Talent / Editorial",
+      "lane": "editorial-talent",
+      "audience": "Practice owners hiring admin support",
+      "vertical": "medical",
+      "format": "4:5",
+      "status": "Draft",
+      "eyebrow": "MEET AVAILABLE TALENT",
+      "headline": "Jessica",
+      "support": "Jr. Medical Admin",
+      "bullets": [
+        "Customer Service",
+        "Healthcare",
+        "Primary Care support"
+      ],
+      "cta": "Meet This Candidate",
+      "candidateId": "jessica",
+      "candidateName": "Jessica",
+      "role": "Jr. Medical Admin",
+      "imageId": "jessica-feed",
+      "imageSrc": "/assets/real-people/jessica/feed-1080x1350.jpg",
+      "imagePosition": {
+        "x": 58,
+        "y": 42
+      },
+      "imageZoom": 105,
+      "overlayIntensity": 12,
+      "theme": "editorial-light",
+      "layout": "EditorialTalentLayout",
+      "logoVariant": "colored",
+      "copySide": "left",
+      "showAudiencePill": false,
+      "showLogo": true,
+      "editorialHook": "Front-desk admin work overflowing?",
+      "competitorSource": "Zocdoc",
+      "sourceAdId": null,
+      "borrowedPrinciple": "Ruthless simplicity — one idea per frame.",
+      "rejectedPattern": "Job-board card energy / crowded skill walls",
+      "medvirtualRemix": "Real interviewable talent with stronger practice-owner context.",
+      "sourceInspiration": "Real People · Treatment E + editorial profile craft",
+      "internalNotes": "Price off by default. Do not invent credentials.",
+      "motionTemplate": "MV-CHECKLIST-01",
+      "durationInFrames": 300,
+      "imagePrompt": "Premium MedVirtual Meta ad background, 4:5 aspect ratio. Scene: professional healthcare workplace or portrait. Subject position: right. Generous empty copy space on the left. Color direction: teal #077999, cyan #00B2E2, deep teal #0D546B, cool neutrals. Aesthetic: calm, commercial healthcare SaaS / real workplace — expensive and composed. Strict: no visible text, no logos, no patient information, no medical claims, no fake interface text, no watermarks."
+    },
+    {
+      "id": "MV-STATIC-PREMIUM-OPS-01",
+      "name": "Premium Operations / SaaS Prop",
+      "lane": "premium-ops",
+      "audience": "Practice owners who value ops craft",
+      "vertical": "medical",
+      "format": "4:5",
+      "status": "Draft",
+      "eyebrow": "PRACTICE OPERATIONS",
+      "headline": "Built like serious operations. Delivered as dedicated people.",
+      "support": "Hire full-time virtual staff who work as part of your practice team.",
+      "bullets": [
+        "Scheduling",
+        "Billing support",
+        "Patient communication"
+      ],
+      "cta": "Meet Available Talent",
+      "candidateId": null,
+      "candidateName": "",
+      "role": "",
+      "imageId": "saas-workflow",
+      "imageSrc": "/assets/saas-prop-refs/saas-workflow-steps.png",
+      "imagePosition": {
+        "x": 70,
+        "y": 50
+      },
+      "imageZoom": 100,
+      "overlayIntensity": 0,
+      "theme": "premium-ops-dark",
+      "layout": "PremiumOpsLayout",
+      "logoVariant": "white",
+      "copySide": "left",
+      "showAudiencePill": false,
+      "showLogo": true,
+      "competitorSource": "NexHealth",
+      "sourceAdId": null,
+      "borrowedPrinciple": "Whitespace + hierarchy — don’t crowd the 4:5.",
+      "rejectedPattern": "Fake software screenshots / implying MedVirtual is an app",
+      "medvirtualRemix": "Software-grade visual polish with human staffing truth.",
+      "sourceInspiration": "SaaS Prop templates + Competitor Wall whitespace craft",
+      "internalNotes": "Never claim MedVirtual is EMR/PMS/software.",
+      "motionTemplate": "MV-PREMIUM-OPS-01",
+      "durationInFrames": 360,
+      "imagePrompt": "Premium MedVirtual Meta ad background, 4:5 aspect ratio. Scene: abstract glass medical operations props (calendar, phone, inbox) — no people. Subject position: right. Generous empty copy space on the left. Color direction: teal #077999, cyan #00B2E2, deep teal #0D546B, cool neutrals. Aesthetic: calm, commercial healthcare SaaS / real workplace — expensive and composed. Strict: no visible text, no logos, no patient information, no medical claims, no fake interface text, no watermarks."
+    },
+    {
+      "id": "MV-STATIC-VERTICAL-DENTAL-01",
+      "name": "Vertical Workflow · Dental",
+      "lane": "vertical-workflow",
+      "audience": "Dental practices",
+      "vertical": "dental",
+      "format": "4:5",
+      "status": "Draft",
+      "eyebrow": "FOR DENTAL PRACTICES",
+      "headline": "Scheduling taking over the front desk?",
+      "support": "Add a dedicated Dental Admin who works as part of your practice.",
+      "bullets": [
+        "Appointment scheduling",
+        "Patient follow-up",
+        "Insurance verification"
+      ],
+      "cta": "Request an Interview",
+      "candidateId": "chelsea",
+      "candidateName": "Chelsea",
+      "role": "Dental Virtual Assistant",
+      "imageId": "chelsea-feed",
+      "imageSrc": "/assets/real-people/chelsea/feed-1080x1350.jpg",
+      "imagePosition": {
+        "x": 62,
+        "y": 45
+      },
+      "imageZoom": 108,
+      "overlayIntensity": 18,
+      "theme": "vertical-clean",
+      "layout": "VerticalWorkflowLayout",
+      "logoVariant": "colored",
+      "copySide": "left",
+      "showAudiencePill": true,
+      "showLogo": true,
+      "competitorSource": "Weave",
+      "sourceAdId": null,
+      "borrowedPrinciple": "Tight hooks about phones / schedules without fear-mongering.",
+      "rejectedPattern": "Exaggerated smile imagery / clinical claims / “we run your front desk”",
+      "medvirtualRemix": "A dedicated team member rather than another tool or outsourced queue.",
+      "sourceInspiration": "Competitor Wall · dental/medical practice platform hooks",
+      "internalNotes": "Operational, not cosmetic.",
+      "motionTemplate": "MV-PROBLEM-PERSON-01",
+      "durationInFrames": 390,
+      "imagePrompt": "Premium MedVirtual Meta ad background, 4:5 aspect ratio. Scene: professional healthcare workplace or portrait. Subject position: right. Generous empty copy space on the left. Color direction: teal #077999, cyan #00B2E2, deep teal #0D546B, cool neutrals. Aesthetic: calm, commercial healthcare SaaS / real workplace — expensive and composed. Strict: no visible text, no logos, no patient information, no medical claims, no fake interface text, no watermarks."
+    }
+  ],
+  "motionDefaults": [
+    {
+      "compositionId": "MV-HOOK-HUMAN-01",
+      "name": "Hook Roll + Human Reveal",
+      "durationInFrames": 330,
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "conceptId": "MV-STATIC-PAIN-HUMAN-01",
+      "status": "Draft",
+      "animationIntensity": "standard",
+      "showSafeZones": false,
+      "muted": true,
+      "headline": "Too many calls.",
+      "headlineTwo": "Not enough day.",
+      "support": "Add a dedicated virtual medical admin to your team.",
+      "bullets": [
+        "Calls and scheduling",
+        "Patient intake",
+        "Follow-up support"
+      ],
+      "cta": "Request an Interview",
+      "cards": [
+        "Calls and scheduling",
+        "Patient intake",
+        "Follow-up support"
+      ],
+      "imageSrc": "/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png",
+      "role": "Jr. Medical Admin",
+      "audience": "Busy medical practices",
+      "theme": "light-grid",
+      "candidateName": "Jessica",
+      "lane": "pain-human",
+      "internalNotes": ""
+    },
+    {
+      "compositionId": "MV-CHECKLIST-01",
+      "name": "Checklist Reveal",
+      "durationInFrames": 300,
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "conceptId": "MV-STATIC-EDITORIAL-01",
+      "status": "Draft",
+      "animationIntensity": "standard",
+      "showSafeZones": false,
+      "muted": true,
+      "headline": "Admin work piling up?",
+      "headlineTwo": "",
+      "support": "Hire a dedicated virtual teammate who works as part of your practice.",
+      "bullets": [
+        "Customer Service",
+        "Healthcare",
+        "Primary Care support"
+      ],
+      "cta": "Meet Available Talent",
+      "cards": [
+        "Customer Service",
+        "Healthcare",
+        "Primary Care support"
+      ],
+      "imageSrc": "/assets/real-people/jessica/feed-1080x1350.jpg",
+      "role": "Jr. Medical Admin",
+      "audience": "Practice owners hiring admin support",
+      "theme": "editorial-light",
+      "candidateName": "Jessica",
+      "lane": "editorial-talent",
+      "internalNotes": ""
+    },
+    {
+      "compositionId": "MV-PROBLEM-PERSON-01",
+      "name": "Problem to Person",
+      "durationInFrames": 390,
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "conceptId": "MV-STATIC-VERTICAL-DENTAL-01",
+      "status": "Draft",
+      "animationIntensity": "standard",
+      "showSafeZones": false,
+      "muted": true,
+      "headline": "Add dedicated support to your practice team.",
+      "headlineTwo": "",
+      "support": "Add dedicated support to your practice team.",
+      "bullets": [
+        "Calls",
+        "Scheduling",
+        "Follow-ups"
+      ],
+      "cta": "Request an Interview",
+      "cards": [
+        "Calls",
+        "Scheduling",
+        "Follow-ups"
+      ],
+      "imageSrc": "/assets/real-people/chelsea/feed-1080x1350.jpg",
+      "role": "Dental Virtual Assistant",
+      "audience": "Dental practices",
+      "theme": "vertical-clean",
+      "candidateName": "Chelsea",
+      "lane": "vertical-workflow",
+      "internalNotes": ""
+    },
+    {
+      "compositionId": "MV-PREMIUM-OPS-01",
+      "name": "Premium Ops / Glass Cards",
+      "durationInFrames": 360,
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "conceptId": "MV-STATIC-PREMIUM-OPS-01",
+      "status": "Draft",
+      "animationIntensity": "subtle",
+      "showSafeZones": false,
+      "muted": true,
+      "headline": "Built like serious operations.",
+      "headlineTwo": "Delivered as dedicated people.",
+      "support": "Hire full-time virtual staff who join your practice team.",
+      "bullets": [
+        "Scheduling",
+        "Billing support",
+        "Patient communication"
+      ],
+      "cta": "Meet Available Talent",
+      "cards": [
+        "Scheduling",
+        "Billing support",
+        "Patient communication"
+      ],
+      "imageSrc": "/assets/saas-prop-refs/saas-workflow-steps.png",
+      "role": "",
+      "audience": "Practice owners who value ops craft",
+      "theme": "premium-ops-dark",
+      "candidateName": "",
+      "lane": "premium-ops",
+      "internalNotes": ""
+    }
+  ]
+}
