@@ -438,15 +438,15 @@ export const PRODUCTION_CONCEPTS = [
     id: '3',
     name: 'Role-Specific Offer',
     audience: 'Medical practice decision-makers',
-    headline: 'Hire a Full-Time Virtual Medical Admin',
-    support: 'Hire trained virtual staff through MedVirtual.',
+    headline: 'Give your front office backup, not burnout.',
+    support: 'Hire a Virtual Medical Admin — checklist + price + CTA (Hailey / Role-Offer look).',
     visual:
-      'Professional virtual medical administrative staff member using a laptop and headset in a clean remote workspace. Subtle medical office context without patient information.',
-    cta: 'Book a Demo',
-    warning: 'Do not make the person look like a generic call-center agent or a job-seeker ad.',
+      'Light grid plate. Person right in scrubs (stock/AI). Left: Hire a Virtual + Medical Admin pill, checklist with check icons, Book a Consultation CTA, STARTING AT $10/hour overlay on photo. Match Role-Offer RO-ADMIN-BURNOUT — not the old all-caps HIRE A FULL-TIME stack.',
+    cta: 'Book a Consultation',
+    warning: 'Do not make the person look like a generic call-center agent or a job-seeker ad. Follow Hailey Role-Offer DNA.',
     primaryText:
-      'Hire a full-time virtual medical admin through MedVirtual.\n\nTrained virtual staff for calls, scheduling, intake, and admin support — part of your practice team.\n\nBook a demo →',
-    metaHeadline: 'Hire a Virtual Medical Admin',
+      'Give your front office backup, not burnout.\n\nHire a virtual Medical Admin through MedVirtual — part of your practice team.\n\nStarting at $10/hour · Book a consultation →',
+    metaHeadline: 'Give Your Front Office Backup',
     description: 'Trained virtual staff for medical practices.',
   },
   {

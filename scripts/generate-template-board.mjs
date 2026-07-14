@@ -14,6 +14,10 @@ import {
   FIRST_BATCH_COUNT,
   TEMPLATE_BUCKET_MAP,
 } from './first-test-batch-data.mjs';
+import {
+  ROLE_OFFER_TEMPLATES,
+  ROLE_OFFER_ICON,
+} from './role-offer-templates-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -1208,11 +1212,23 @@ const LAYOUT_REF_PROFILES = {
     support: 'Help with scheduling, insurance, and patient follow-up.',
   },
   '3': {
-    className: 'lr lr-c3',
-    template: 'PERSON_RIGHT_HOOK_LEFT',
-    objectPosition: '78% 32%',
-    hookHtml: 'HIRE A FULL-TIME<br />VIRTUAL MEDICAL<br />ADMIN',
-    support: 'Hire trained virtual staff through MedVirtual.',
+    className: 'lr lr-c3 lr-hailey',
+    template: 'ROLE_PILL_CHECKLIST_SPLIT',
+    objectPosition: '78% 28%',
+    hirePrefix: 'Hire a Virtual',
+    role: 'Medical Admin',
+    audiencePill: 'DOCTORS!',
+    hookHtml: 'Give your front office backup,<br />not burnout.',
+    support: '',
+    bullets: [
+      'Verify insurance coverage',
+      'Manage pre-authorizations',
+      'Update EMR records',
+      'Submit insurance claims',
+    ],
+    priceLabel: 'STARTING AT',
+    priceAmount: '$10/hour',
+    cta: 'Book a Consultation',
   },
   '4': {
     className: 'lr lr-c4',
@@ -1309,19 +1325,98 @@ const LAYOUT_REF_CSS = `
   }
   .lr-c2 .cta { bottom: var(--lr-pad); right: var(--lr-pad); left: auto; }
 
-  /* C3 Virtual Med Admin — person right, left text column ~44% */
-  .lr-c3 img.bg { object-position: 78% 32%; }
-  .lr-c3::before {
-    content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-    background: linear-gradient(90deg, rgba(240,245,255,0.96) 0%, rgba(240,245,255,0.88) 38%, rgba(240,245,255,0.25) 52%, transparent 62%);
+  /* C3 — Hailey Role-Offer look (grid plate · role pill · checks · price · CTA) */
+  .lr-c3.lr-hailey {
+    background:
+      linear-gradient(180deg, #f7fbff 0%, #eef6fb 55%, #e8f3f9 100%);
   }
-  .lr-c3 .copy {
-    top: 16%; left: var(--lr-pad); right: 55%;
+  .lr-c3.lr-hailey::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(0, 178, 226, 0.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 178, 226, 0.09) 1px, transparent 1px);
+    background-size: 22px 22px;
   }
-  .lr-c3 .text-panel {
+  .lr-c3.lr-hailey img.bg {
+    object-position: 78% 28%;
+    left: 46%; right: 0; width: 54%; height: 100%;
+    object-fit: cover;
+  }
+  .lr-c3.lr-hailey .logo-wrap {
+    left: auto; right: var(--lr-pad);
+    background: transparent; padding: 0;
+  }
+  .lr-c3.lr-hailey .aud-pill {
+    position: absolute; top: var(--lr-pad); left: var(--lr-pad); z-index: 6;
+    display: inline-flex; align-items: center;
+    background: var(--mv-deep-teal); color: #fff;
+    font-weight: 800; font-size: clamp(10px, 2vw, 12px);
+    letter-spacing: 0.04em; text-transform: uppercase;
+    border-radius: 999px; padding: 0.28em 0.7em;
+  }
+  .lr-c3.lr-hailey .copy {
+    top: 12%; left: var(--lr-pad); right: 48%;
+    gap: 0.35em; z-index: 5;
+  }
+  .lr-c3.lr-hailey .hire-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.35em;
+  }
+  .lr-c3.lr-hailey .hire {
+    color: var(--mv-cyan); font-weight: 700;
+    font-size: clamp(11px, 2.3vw, 13px);
+  }
+  .lr-c3.lr-hailey .role-pill {
+    display: inline-flex; background: var(--mv-deep-teal); color: #fff;
+    font-weight: 800; font-size: clamp(10px, 2.1vw, 12px);
+    border-radius: 999px; padding: 0.28em 0.65em;
+  }
+  .lr-c3.lr-hailey .text-panel {
     background: transparent; border: 0; padding: 0;
   }
-  .lr-c3 .cta { bottom: var(--lr-pad); left: var(--lr-pad); right: auto; }
+  .lr-c3.lr-hailey .hook {
+    font-size: clamp(13px, 3.1vw, 18px) !important;
+    color: var(--mv-deep-teal);
+  }
+  .lr-c3.lr-hailey .rule {
+    width: 2.4rem; height: 3px; background: var(--mv-cyan); border-radius: 2px;
+  }
+  .lr-c3.lr-hailey .bullets {
+    list-style: none; margin: 0.15em 0 0; padding: 0;
+    display: flex; flex-direction: column; gap: 0.28em;
+  }
+  .lr-c3.lr-hailey .bullets li {
+    display: flex; align-items: flex-start; gap: 0.35em;
+    font-size: clamp(10px, 2vw, 12px); font-weight: 600; color: var(--mv-deep-teal);
+  }
+  .lr-c3.lr-hailey .bullets .ico {
+    flex: 0 0 0.95em; width: 0.95em; height: 0.95em; color: var(--mv-cyan); margin-top: 0.08em;
+  }
+  .lr-c3.lr-hailey .bullets .ico svg { width: 100%; height: 100%; display: block; }
+  .lr-c3.lr-hailey .support { display: none; }
+  .lr-c3.lr-hailey .cta {
+    position: absolute; bottom: var(--lr-pad); left: var(--lr-pad); right: auto;
+    background: var(--mv-deep-teal); border-radius: 10px;
+    font-size: clamp(10px, 2vw, 12px) !important;
+    letter-spacing: 0.03em; text-transform: uppercase;
+  }
+  .lr-c3.lr-hailey .price-overlay {
+    position: absolute; z-index: 6;
+    left: 50%; bottom: 9%;
+    transform: translateX(-8%);
+    background: rgba(240, 248, 255, 0.94);
+    border-radius: 10px; padding: 0.45em 0.7em;
+    box-shadow: 0 6px 16px rgba(13, 84, 107, 0.16);
+    text-align: center; line-height: 1.15;
+  }
+  .lr-c3.lr-hailey .price-overlay .plabel {
+    display: block; font-size: clamp(8px, 1.6vw, 10px); font-weight: 800;
+    color: var(--mv-deep-teal); letter-spacing: 0.04em;
+  }
+  .lr-c3.lr-hailey .price-overlay .pamount {
+    display: block; font-size: clamp(14px, 3vw, 18px); font-weight: 800;
+    color: var(--mv-deep-teal);
+  }
 
   /* C4 Too Many Calls — person left, upper-right panel */
   .lr-c4 img.bg { object-position: 16% 30%; }
@@ -1335,11 +1430,38 @@ const LAYOUT_REF_CSS = `
 function renderProductionCard(concept, baseTest, index) {
   const profile = LAYOUT_REF_PROFILES[concept.id] || LAYOUT_REF_PROFILES['1'];
   const template = profile.template || baseTest.template;
-  const cta = concept.cta || 'Book a Demo';
+  const cta = profile.cta || concept.cta || 'Book a Demo';
+  const isHailey = profile.className?.includes('lr-hailey');
 
-  return `<article class="prod-card">
-    <div class="prod-card__preview">
-      <div class="mock r-4x5 ${tplClass(template)} ${profile.className}">
+  const mockInner = isHailey
+    ? `
+        <span class="aud-pill">${esc(profile.audiencePill || 'DOCTORS!')}</span>
+        <div class="logo-wrap"><img class="logo" src="${LOGO}" alt="MedVirtual" /></div>
+        <img class="bg" src="${esc(baseTest.image)}" alt="" style="object-position:${esc(profile.objectPosition)}" />
+        <div class="copy">
+          <div class="hire-row">
+            <span class="hire">${esc(profile.hirePrefix || 'Hire a Virtual')}</span>
+            <span class="role-pill">${esc(profile.role || 'Medical Admin')}</span>
+          </div>
+          <div class="text-panel">
+            <div class="hook">${profile.hookHtml}</div>
+          </div>
+          <div class="rule"></div>
+          <ul class="bullets">
+            ${(profile.bullets || [])
+              .map(
+                (b) =>
+                  `<li><span class="ico">${ROLE_OFFER_ICON.checkCircle}</span><span>${esc(b)}</span></li>`,
+              )
+              .join('')}
+          </ul>
+        </div>
+        <div class="price-overlay">
+          <span class="plabel">${esc(profile.priceLabel || 'STARTING AT')}</span>
+          <span class="pamount">${esc(profile.priceAmount || '$10/hour')}</span>
+        </div>
+        <span class="cta">${esc(cta)}</span>`
+    : `
         <img class="bg" src="${esc(baseTest.image)}" alt="" style="object-position:${esc(profile.objectPosition)}" />
         <div class="logo-wrap"><img class="logo" src="${LOGO}" alt="MedVirtual" /></div>
         <div class="copy">
@@ -1348,16 +1470,26 @@ function renderProductionCard(concept, baseTest, index) {
           </div>
           <div class="support">${esc(profile.support)}</div>
         </div>
-        <span class="cta">${esc(cta)}</span>
+        <span class="cta">${esc(cta)}</span>`;
+
+  return `<article class="prod-card${isHailey ? ' prod-card--hailey' : ''}">
+    <div class="prod-card__preview">
+      <div class="mock r-4x5 ${tplClass(isHailey ? 'PERSON_RIGHT_HOOK_LEFT' : template)} ${profile.className}">
+        ${mockInner}
       </div>
     </div>
     <div class="prod-card__meta">
       <span class="prod-num">${index + 1}</span>
       <div class="prod-fields">
+        ${isHailey ? '<p class="hailey-tag">Hailey likes this look · Role-Offer DNA</p>' : ''}
         <p class="field-label">On-image headline</p>
         <p class="field-headline">${esc(concept.headline)}</p>
-        <p class="field-label">Support</p>
-        <p class="field-val">${esc(profile.support)}</p>
+        <p class="field-label">${isHailey ? 'Structure' : 'Support'}</p>
+        <p class="field-val">${esc(
+          isHailey
+            ? 'DOCTORS! pill · Hire a Virtual + Medical Admin · checklist · $10 overlay · CTA · person right on light grid'
+            : profile.support,
+        )}</p>
         <p class="field-label">Visual</p>
         <p class="field-val muted">${esc(concept.visual)}</p>
         <p class="field-label">Layout</p>
@@ -1366,6 +1498,33 @@ function renderProductionCard(concept, baseTest, index) {
       </div>
     </div>
   </article>`;
+}
+
+function renderHaileyFavorites() {
+  const cards = ROLE_OFFER_TEMPLATES.map(
+    (t) => `
+    <a class="hailey-card" href="/role-offer-templates.html#${esc(t.id)}">
+      <div class="hailey-card__thumb">
+        <img src="${esc(t.photos[0])}" alt="" />
+        <span class="hailey-card__role">${esc(t.role)}</span>
+      </div>
+      <div class="hailey-card__body">
+        <p class="hailey-card__label">${esc(t.label)}</p>
+        <p class="hailey-card__hook">${esc(t.headline)}</p>
+        <p class="hailey-card__meta">${esc(t.layout.replaceAll('_', ' '))}</p>
+      </div>
+    </a>`,
+  ).join('');
+
+  return `
+    <section class="hailey" id="hailey-likes">
+      <div class="hailey__head">
+        <p class="hailey__eyebrow">Priority · open this first</p>
+        <h2>What Hailey likes</h2>
+        <p>These five Role-Offer checklist comps are the current favorite look. Match this DNA — not the old all-caps audience callouts. <a href="/role-offer-templates.html">Open editable Role-Offer Templates →</a></p>
+      </div>
+      <div class="hailey__grid">${cards}</div>
+    </section>`;
 }
 
 async function main() {
@@ -1406,6 +1565,75 @@ async function main() {
   .banner-meta span {
     font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.55rem; border-radius: 6px;
     background: rgba(0,178,226,0.2); border: 1px solid rgba(39,230,250,0.35); color: #c9f4fb;
+  }
+  .banner-meta a { color: #c9f4fb; }
+
+  .hailey {
+    background: #04101a;
+    border: 2px solid var(--mv-cyan);
+    border-radius: 14px;
+    padding: 1.1rem 1.15rem 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 0 0 4px rgba(0, 178, 226, 0.12);
+  }
+  .hailey__eyebrow {
+    font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--mv-cyan); margin: 0 0 0.25rem;
+  }
+  .hailey__head h2 {
+    margin: 0 0 0.35rem; font-size: 1.35rem; color: #f8fafc; font-family: var(--mv-font);
+  }
+  .hailey__head p {
+    margin: 0 0 0.95rem; font-size: 0.88rem; color: #b8d4e0; max-width: 70ch; line-height: 1.45;
+  }
+  .hailey__head a { color: var(--mv-bright-accent); font-weight: 800; text-decoration: none; }
+  .hailey__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+  .hailey-card {
+    display: flex; flex-direction: column;
+    background: #0b1c28; border: 1px solid rgba(0,178,226,0.35);
+    border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .hailey-card:hover { border-color: var(--mv-cyan); transform: translateY(-2px); }
+  .hailey-card__thumb {
+    position: relative; aspect-ratio: 1; background: #123;
+  }
+  .hailey-card__thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .hailey-card__role {
+    position: absolute; left: 0.45rem; bottom: 0.45rem;
+    background: var(--mv-deep-teal); color: #fff;
+    font-size: 0.68rem; font-weight: 800; padding: 0.22rem 0.5rem; border-radius: 999px;
+  }
+  .hailey-card__body { padding: 0.65rem 0.7rem 0.75rem; }
+  .hailey-card__label {
+    margin: 0 0 0.25rem; font-size: 0.68rem; font-weight: 800; color: var(--mv-cyan);
+    text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .hailey-card__hook {
+    margin: 0 0 0.35rem; font-size: 0.82rem; font-weight: 700; color: #f1f5f9; line-height: 1.3;
+  }
+  .hailey-card__meta {
+    margin: 0; font-size: 0.65rem; color: #94a3b8; font-family: ui-monospace, monospace;
+  }
+
+  .section-label {
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #64748b; margin: 0.35rem 0 0.65rem;
+  }
+  .prod-card--hailey {
+    border-color: var(--mv-cyan);
+    box-shadow: 0 0 0 2px rgba(0, 178, 226, 0.18);
+  }
+  .hailey-tag {
+    display: inline-block; margin: 0 0 0.45rem;
+    background: rgba(0,178,226,0.15); color: var(--mv-deep-teal);
+    font-size: 0.68rem; font-weight: 800; padding: 0.22rem 0.5rem; border-radius: 6px;
   }
   .prod-list { display: grid; gap: 1rem; }
   .prod-card {
@@ -1462,7 +1690,7 @@ async function main() {
   ${renderDocHeader({
     activeId: 'templates',
     pageTitle: 'Templates',
-    pageSubtitle: `Layout reference · ${FIRST_BATCH_COUNT} ads · 1080×1350`,
+    pageSubtitle: 'Hailey favorites · Role-Offer · layout refs',
     subnav: [
       { href: '/template-test-board.html', label: 'Layout refs' },
       { href: '/role-offer-templates.html', label: 'Role-Offer' },
@@ -1471,19 +1699,19 @@ async function main() {
   })}
   <div class="wrap">
     <header class="banner">
-      <h2>Layout reference only</h2>
-      <p>Produce from the <a href="/graphic-request-brief.html">Creative Brief</a>. These mocks show person placement, headline, support, and CTA zones — not final ads.</p>
-      <p class="clarify">Final typography, image treatment, and polish will be completed by the design team.</p>
-      <p class="clarify"><strong>Team favorites:</strong> editable checklist role-offer ads → <a href="/role-offer-templates.html">Role-Offer Templates</a> (text, icons, price, CTA, photos).</p>
+      <h2>Templates — Hailey’s look first</h2>
+      <p>If you don’t know what Hailey likes: scroll to <a href="#hailey-likes">What Hailey likes</a> or open <a href="/role-offer-templates.html">Role-Offer Templates</a>. Those checklist / role-pill / price ads are the standard.</p>
+      <p class="clarify">Layout refs 1–4 below are zone studies. <strong>#3 is updated</strong> to the latest Role-Offer DNA.</p>
       <div class="banner-meta">
-        <span>${FIRST_BATCH_COUNT} concepts</span>
-        <span>1080×1350 · 4:5</span>
-        <span>Composition reference</span>
-        <span><a href="/role-offer-templates.html">Role-Offer editable</a></span>
+        <span><a href="#hailey-likes">5 Hailey favorites</a></span>
+        <span><a href="/role-offer-templates.html">Editable Role-Offer</a></span>
+        <span>${FIRST_BATCH_COUNT} layout refs · 1080×1350</span>
       </div>
     </header>
+    ${renderHaileyFavorites()}
+    <p class="section-label">Layout refs (Brief concepts) — #3 = latest look</p>
     <div class="prod-list">${cards}</div>
-    <p class="note">Brief owns Meta copy. This page is only for reviewing text zones on the image.</p>
+    <p class="note">Brief owns Meta copy. For Role-Offer art direction, stay on the Hailey strip / Role-Offer page — not Treatment E Real People.</p>
   </div>
 </body>
 </html>`,

@@ -622,8 +622,8 @@ const html = `<!DOCTYPE html>
 <body>
   ${renderDocHeader({
     activeId: 'templates',
-    pageTitle: 'Role-Offer Templates',
-    pageSubtitle: 'Editable checklist layouts the team loves',
+    pageTitle: 'Role-Offer · Hailey likes these',
+    pageSubtitle: 'Editable checklist layouts — open these first',
     subnav: [
       { href: '/template-test-board.html', label: 'Layout refs' },
       { href: '/role-offer-templates.html', label: 'Role-Offer' },
