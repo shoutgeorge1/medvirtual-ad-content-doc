@@ -43,10 +43,10 @@ function statusLabel(s) {
 
 function refLabel(url) {
   const u = String(url);
-  if (u.includes('logo-colored')) return 'MedVirtual logo (download)';
-  if (u.includes('clean-master')) return 'Person photo (download & use)';
+  if (u.includes('logo-colored')) return 'MedVirtual logo';
+  if (u.includes('clean-master')) return 'Person photo to use';
   if (u.includes('ad-treatment-e-9x16')) return 'Tall draft example (optional)';
-  if (u.includes('ad-treatment-e-4x5')) return 'Example finished ad — match this look';
+  if (u.includes('ad-treatment-e-4x5')) return 'Example finished ad (layout guide)';
   if (u.includes('role-offer-templates')) return 'More layout examples';
   if (u.includes('real-people-creative')) return 'Real People page';
   if (u.includes('template-test-board')) return 'Template board';
@@ -61,18 +61,18 @@ function renderJobCard(item, jobNumber) {
 
   return `<article class="card work" id="${esc(item.id)}">
     <div class="card-top">
-      <span class="badge go">Job ${esc(String(jobNumber))}</span>
+      <span class="badge go">Ad ${esc(String(jobNumber))}</span>
       <span class="batch">${esc(jobTag)}</span>
     </div>
     <h3>${esc(displayTitle)}</h3>
     <dl class="mini">
       <div><dt>Size</dt><dd>${esc(item.resolution)}</dd></div>
       ${item.onImage ? `<div><dt>Big text</dt><dd>${esc(item.onImage)}</dd></div>` : ''}
-      ${item.roleLine ? `<div><dt>Job title</dt><dd>${esc(item.roleLine)}</dd></div>` : ''}
+      ${item.roleLine ? `<div><dt>Role</dt><dd>${esc(item.roleLine)}</dd></div>` : ''}
       <div><dt>Due</dt><dd>${esc(item.dueDate)}</dd></div>
     </dl>
-    <div class="desc"><span class="label">What to do</span><p>${fmtDesc(item.description)}</p></div>
-    <div class="refs"><span class="label">Files &amp; examples (open these)</span><ul>${(item.references || [])
+    <div class="desc"><span class="label">Helpful details</span><p>${fmtDesc(item.description)}</p></div>
+    <div class="refs"><span class="label">Files &amp; examples to open</span><ul>${(item.references || [])
       .map((r) => {
         const href = r.startsWith('http') || r.startsWith('/') ? r : '#';
         const label = refLabel(r);
@@ -83,7 +83,7 @@ function renderJobCard(item, jobNumber) {
       .join('')}</ul></div>
     <div class="actions">
       <button type="button" class="btn primary" data-copy="${esc(paste)}">Copy full brief</button>
-      <button type="button" class="btn" data-copy="${esc(item.description || '')}">Copy instructions only</button>
+      <button type="button" class="btn" data-copy="${esc(item.description || '')}">Copy details only</button>
     </div>
   </article>`;
 }
@@ -225,61 +225,61 @@ const html = `<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Design jobs · MedVirtual</title>
+  <title>Graphics brief · MedVirtual</title>
   <style>${css}</style>
 </head>
 <body>
   ${renderDocHeader({
     activeId: 'brief',
-    pageTitle: 'Design jobs',
-    pageSubtitle: '4 simple ads for the graphics team — open a job, match the example, send the PNG back',
+    pageTitle: 'Graphics brief',
+    pageSubtitle: 'Four ads we need help with — thank you for taking these on',
   })}
   <main>
     <header class="hero">
-      <h1>4 jobs. That’s it.</h1>
-      <p>Each card is one ad to design. Open the example file, match that look, use the photo + logo linked on the card. Ignore anything under “Not for designers.”</p>
+      <h1>Four ads to design</h1>
+      <p>Thanks for helping with these. Each card is one ad. Open the example, then use the photo and logo linked on the card. The folder at the bottom is just for the producer team if you need it later.</p>
     </header>
 
-    <p class="hint">Start with Job 1 → Job 4. Do not invent new layouts or claims.</p>
+    <p class="hint">Ad 1–4 are ready whenever you are. Following the example layout keeps everything consistent — we really appreciate that.</p>
 
     <ol class="steps">
       ${HOPPER_POLICY.howItWorks.map((s) => `<li>${esc(s)}</li>`).join('')}
     </ol>
 
     <nav class="jump" aria-label="On this page">
-      <a href="#jobs">The 4 jobs</a>
+      <a href="#jobs">The four ads</a>
       <a href="/real-people-creative.html">See finished ads</a>
       <a href="/medvirtual-brand-guide.html">Brand guide</a>
     </nav>
 
     <section id="jobs">
-      <h2>Your jobs</h2>
-      <p class="lede">Download the files on each card before you start.</p>
+      <h2>Ads we need</h2>
+      <p class="lede">Feel free to download the files on each card before you start.</p>
       ${
         doNow.length
           ? doNow.map((i, idx) => renderJobCard(i, idx + 1)).join('')
-          : '<p class="lede">No jobs right now. Check with your MedVirtual contact.</p>'
+          : '<p class="lede">Nothing queued right now — feel free to check with your MedVirtual contact.</p>'
       }
     </section>
 
     <section>
-      <h2>Quick rules</h2>
+      <h2>Brand notes (short)</h2>
       <ul class="rules">${HOPPER_POLICY.languageRules.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
     </section>
 
     <section id="archive">
-      <h2>Not for designers</h2>
-      <p class="lede">Producer / media-buyer notes. You can ignore this section.</p>
+      <h2>Producer notes</h2>
+      <p class="lede">Optional reference for producers. Designers usually won’t need this.</p>
       <details class="archive">
-        <summary>Done ads (${esc(String(ready.length))}) — already finished</summary>
+        <summary>Already finished (${esc(String(ready.length))})</summary>
         <div style="margin-top:0.75rem">${ready.map((i) => renderArchiveCard(i, 'ready_to_load')).join('') || '<p class="lede">None.</p>'}</div>
       </details>
       <details class="archive">
-        <summary>Later queue (${esc(String(queued.length))}) — do not start yet</summary>
+        <summary>Coming later (${esc(String(queued.length))})</summary>
         <div style="margin-top:0.75rem">${queued.map((i) => renderArchiveCard(i, 'queued')).join('') || '<p class="lede">None.</p>'}</div>
       </details>
       <details class="archive">
-        <summary>Do not build (${esc(String(dead.length))})</summary>
+        <summary>Paused / not needed (${esc(String(dead.length))})</summary>
         <div style="margin-top:0.75rem">${dead.map((i) => renderArchiveCard(i, 'dead')).join('') || '<p class="lede">None.</p>'}</div>
       </details>
     </section>

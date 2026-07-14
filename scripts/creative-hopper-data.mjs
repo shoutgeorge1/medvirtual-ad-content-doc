@@ -33,16 +33,16 @@ export const HOPPER_POLICY = {
   brandGuideUrl: 'https://medvirtual-ad-content-doc.vercel.app/medvirtual-brand-guide.html',
   metaLaunchUrl: 'https://medvirtual-ad-content-doc.vercel.app/meta-launch-build-pack.html',
   howItWorks: [
-    'Open one of the 4 jobs below.',
-    'Download the photo, logo, and example ad linked on that card.',
-    'Match the example look. Change the person / size as the card says.',
-    'When finished, send the PNG back to your MedVirtual contact.',
+    'Pick one of the four ads below — whichever you’re ready for.',
+    'Download the photo, logo, and example linked on that card.',
+    'Use the example as your guide, then follow the card for the person or size.',
+    'When you’re happy with it, send the PNG to your MedVirtual contact. Thank you!',
   ],
   languageRules: [
-    'Brand name on ads: MedVirtual (not MedVirtual.ai)',
-    'Say we hire dedicated full-time virtual staff for the practice team',
-    'Do not say call center, “we run your front desk,” or managed service',
-    'Do not invent HIPAA, savings $, or credentials',
+    'Please use MedVirtual on the ad (not MedVirtual.ai)',
+    'Frame it as hiring dedicated full-time virtual staff for the practice team',
+    'Please avoid “call center,” “we run your front desk,” or managed-service wording',
+    'Please stick to what’s on the profile — no invented HIPAA, savings $, or credentials',
   ],
 };
 
@@ -72,7 +72,7 @@ export const HOPPER_ITEMS = [
       'Billing follow-up can bury your team.\n\nMeet Carmen — available through MedVirtual. Hire a dedicated full-time virtual teammate your practice can interview.\n\nBook a demo to request an interview.',
     cta: 'Learn More',
     description:
-      'Make one Facebook/Instagram feed ad. Size: 1080×1350.\n\nCopy the Jessica example ad (same layout). Swap in Carmen.\n\nPut on the image:\n• Light cyan / grid background (not dark teal)\n• “Hire a Virtual” + “Meet Carmen”\n• Job title pill: Medical Biller\n• 2–3 skills from her profile as checkmarks\n• “REQUEST AN INTERVIEW” button\n• Colored MedVirtual logo\n• Carmen photo on the right\n\nDo not invent HIPAA, pay rates, or credentials.',
+      'Please make one Facebook/Instagram feed ad. Size: 1080×1350.\n\nUse the Jessica example as your layout guide, then swap in Carmen.\n\nOn the image:\n• Light cyan / grid background (please avoid dark teal)\n• “Hire a Virtual” + “Meet Carmen”\n• Job title pill: Medical Biller\n• 2–3 skills from her profile as checkmarks\n• “REQUEST AN INTERVIEW” button\n• Colored MedVirtual logo\n• Carmen’s photo on the right\n\nPlease only use titles and skills from her real profile — no invented HIPAA, pay rates, or credentials.',
     references: [
       '/assets/real-people/jessica/ad-treatment-e-4x5.png',
       '/assets/real-people/carmen/clean-master.jpg',
@@ -100,7 +100,7 @@ export const HOPPER_ITEMS = [
       'Your in-office team is stretched. Meet Jennifer — available through MedVirtual.\n\nHire dedicated full-time virtual staff who work as part of your practice team.\n\nBook a demo to request an interview.',
     cta: 'Learn More',
     description:
-      'Make one Facebook/Instagram feed ad. Size: 1080×1350.\n\nCopy the Jessica example ad (same layout). Swap in Jennifer.\n\nPut on the image:\n• Light cyan / grid background (not dark teal)\n• “Hire a Virtual” + “Meet Jennifer”\n• Job title pill: Patient Intake Coordinator\n• 2–3 skills from her profile as checkmarks\n• “REQUEST AN INTERVIEW” button\n• Colored MedVirtual logo\n• Jennifer photo on the right\n\nDo not invent HIPAA, pay rates, or credentials.',
+      'Please make one Facebook/Instagram feed ad. Size: 1080×1350.\n\nUse the Jessica example as your layout guide, then swap in Jennifer.\n\nOn the image:\n• Light cyan / grid background (please avoid dark teal)\n• “Hire a Virtual” + “Meet Jennifer”\n• Job title pill: Patient Intake Coordinator\n• 2–3 skills from her profile as checkmarks\n• “REQUEST AN INTERVIEW” button\n• Colored MedVirtual logo\n• Jennifer’s photo on the right\n\nPlease only use titles and skills from her real profile — no invented HIPAA, pay rates, or credentials.',
     references: [
       '/assets/real-people/jessica/ad-treatment-e-4x5.png',
       '/assets/real-people/jennifer/clean-master.jpg',
@@ -127,7 +127,7 @@ export const HOPPER_ITEMS = [
       'Calls keep coming. Tasks keep stacking.\n\nMeet Jessica — Jr. Medical Admin through MedVirtual. Hire dedicated full-time virtual staff for your practice team.\n\nBook a demo to request an interview.',
     cta: 'Learn More',
     description:
-      'This is a RESIZE only — not a new design.\n\nTake Jessica’s finished 4:5 feed ad and make a tall Stories version: 1080×1920.\n\nKeep the same person, text, logo, and look.\nLeave empty space at the top and bottom (Stories UI covers those areas).\n\nDo not add new claims or rewrite copy.',
+      'This one is a resize only — same design, taller for Stories.\n\nPlease take Jessica’s finished 4:5 feed ad and make a Stories version: 1080×1920.\n\nKeep the same person, text, logo, and overall look.\nLeave a little empty space at the top and bottom (Stories UI covers those areas).\n\nNo need to rewrite the copy or add new claims — matching the feed ad is perfect.',
     references: [
       '/assets/real-people/jessica/ad-treatment-e-4x5.png',
       '/assets/real-people/jessica/ad-treatment-e-9x16.png',
@@ -154,7 +154,7 @@ export const HOPPER_ITEMS = [
       'Scheduling should not consume your front desk.\n\nMeet Chelsea — Dental Virtual Assistant through MedVirtual. Hire dedicated virtual staff your practice can interview.\n\nBook a demo.',
     cta: 'Learn More',
     description:
-      'This is a RESIZE only — not a new design.\n\nTake Chelsea’s finished 4:5 feed ad and make a tall Stories version: 1080×1920.\n\nKeep the same person, text, logo, and look.\nLeave empty space at the top and bottom (Stories UI covers those areas).\n\nDo not add new claims or rewrite copy.',
+      'This one is a resize only — same design, taller for Stories.\n\nPlease take Chelsea’s finished 4:5 feed ad and make a Stories version: 1080×1920.\n\nKeep the same person, text, logo, and overall look.\nLeave a little empty space at the top and bottom (Stories UI covers those areas).\n\nNo need to rewrite the copy or add new claims — matching the feed ad is perfect.',
     references: [
       '/assets/real-people/chelsea/ad-treatment-e-4x5.png',
       '/assets/real-people/chelsea/ad-treatment-e-9x16.png',
