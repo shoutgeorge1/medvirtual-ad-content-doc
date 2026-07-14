@@ -226,9 +226,34 @@
   }
   section > .sec-lede { margin: 0 0 0.85rem; color: #475569; max-width: 44rem; font-size: 0.95rem; }
   .ready-grid {
-    display: grid; gap: 0.85rem;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    display: grid; gap: 1.15rem;
   }
+  .ready-block {
+    background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 0.9rem 1rem 1.05rem;
+  }
+  .ready-head h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+  .ready-head p { margin: 0 0 0.75rem; font-size: 0.88rem; color: #64748b; }
+  .hailey-refs {
+    display: grid; gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    margin: 0 0 1rem;
+  }
+  .hailey-refs figure { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .hailey-refs img { width: 100%; height: auto; display: block; aspect-ratio: 1; object-fit: cover; }
+  .hailey-refs figcaption { padding: 0.55rem 0.65rem 0.7rem; }
+  .hailey-refs strong { display: block; font-size: 0.78rem; color: var(--deep); margin-bottom: 0.2rem; }
+  .hailey-refs span { font-size: 0.72rem; color: #64748b; line-height: 1.35; display: block; }
+  .var-strip {
+    display: grid; gap: 0.55rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  @media (max-width: 900px) { .var-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .var-card {
+    display: block; text-decoration: none; color: inherit;
+    background: #f8fafc; border: 1px solid var(--line); border-radius: 10px; padding: 0.4rem;
+  }
+  .var-card img { width: 100%; height: auto; border-radius: 6px; display: block; }
+  .var-card span { display: block; margin-top: 0.35rem; font-size: 0.7rem; font-weight: 700; color: #475569; line-height: 1.25; }
   .ready-card {
     background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.75rem;
     text-decoration: none; color: inherit;
@@ -257,11 +282,11 @@
   .rules ul { margin: 0; padding-left: 1.1rem; color: #334155; }
   .rules li { margin: 0.25rem 0; }
   .person {
-    display: grid; gap: 1rem; grid-template-columns: 280px 1fr;
+    display: block;
     background: #fff; border: 1px solid var(--line); border-radius: 14px;
     padding: 1rem; margin-bottom: 1rem;
   }
-  @media (max-width: 800px) { .person { grid-template-columns: 1fr; } }
+  .person__body.full { max-width: 100%; }
   .person__art img { width: 100%; height: auto; display: block; border-radius: 8px; }
   .preview-hit {
     display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in;
@@ -345,7 +370,7 @@
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Real People</h2>
-          <p class="doc-header__page-sub">Ready ads · next wave · Hailey Meet look · Talent Pool downloads — one page.</p>
+          <p class="doc-header__page-sub">Hailey Role-Offer variations · Ready ads · next wave · Talent Pool downloads.</p>
           <nav class="doc-subnav" aria-label="Section">
       <a href="/real-people-creative.html#ready" class="active">Ready</a><a href="/real-people-creative.html#next" class="">Next</a><a href="/real-people-creative.html#downloads" class="">Downloads</a>
     </nav>
@@ -354,14 +379,15 @@
   <main>
     <header class="hero">
       <h1>Real People</h1>
-      <p class="lede">Named Talent Pool people beat stock headset ads. Strategy stays; the first graphic system did not. Same Hailey / Role-Offer look that launched today. Source: <a href="https://app.medvirtual.ai/talent-pool" target="_blank" rel="noopener noreferrer">Talent Pool</a>.</p>
+      <p class="lede">Named Talent Pool people beat stock headset ads. Strategy stays; the first graphic system did not. Layouts = what Hailey likes — Meet {Name} on her Role-Offer comps. Source: <a href="https://app.medvirtual.ai/talent-pool" target="_blank" rel="noopener noreferrer">Talent Pool</a>.</p>
       <div class="status-row">
         <span class="status go">Ready · Jessica · Chelsea · Angelica · Mark</span>
         <span class="status next">Next · Carmen · Jennifer · Jessica 9:16 · Chelsea 9:16</span>
-        <span class="status soft">Treatment E — Hailey / Role-Offer Meet</span>
+        <span class="status soft">Treatment E — Hailey variations</span>
       </div>
       <nav class="jump" aria-label="On this page">
-        <a href="#ready">Ready to load</a>
+        <a href="#hailey">Hailey refs</a>
+        <a href="#ready">Ready variations</a>
         <a href="#next">Next up</a>
         <a href="#batch">Four people + copy</a>
         <a href="#concept">Look / rules</a>
@@ -371,40 +397,124 @@
       </nav>
     </header>
 
+    <section id="hailey">
+      <h2>Hailey’s refs — build variations of these</h2>
+      <p class="sec-lede">These are the comps she likes. Real People = same layouts with Meet {Name} + public role/skills.</p>
+      <div class="hailey-refs">
+    <figure>
+        <a href="/assets/role-offer-refs/ro-admin-burnout.png" target="_blank" rel="noopener">
+          <img src="/assets/role-offer-refs/ro-admin-burnout.png" alt="Photo right · price overlay" width="240" height="240" loading="lazy" />
+        </a>
+        <figcaption><strong>Photo right · price overlay</strong><span>Like burnout: Meet + role + checks + CTA left, $10 overlay on person.</span></figcaption>
+      </figure><figure>
+        <a href="/assets/role-offer-refs/ro-biller-split.png" target="_blank" rel="noopener">
+          <img src="/assets/role-offer-refs/ro-biller-split.png" alt="Photo left · price box" width="240" height="240" loading="lazy" />
+        </a>
+        <figcaption><strong>Photo left · price box</strong><span>Like Medical Biller: person left, Meet stack + $10 box right.</span></figcaption>
+      </figure><figure>
+        <a href="/assets/role-offer-refs/ro-nurse-split.png" target="_blank" rel="noopener">
+          <img src="/assets/role-offer-refs/ro-nurse-split.png" alt="Photo right · CTA on photo" width="240" height="240" loading="lazy" />
+        </a>
+        <figcaption><strong>Photo right · CTA on photo</strong><span>Like Medical Nurse: price bar left, CTA button on person.</span></figcaption>
+      </figure><figure>
+        <a href="/assets/role-offer-refs/ro-dental-admin.png" target="_blank" rel="noopener">
+          <img src="/assets/role-offer-refs/ro-dental-admin.png" alt="Photo right · $10 circle" width="240" height="240" loading="lazy" />
+        </a>
+        <figcaption><strong>Photo right · $10 circle</strong><span>Like Dental Admin: CTA left, teal $10 circle on person.</span></figcaption>
+      </figure>
+  </div>
+    </section>
+
     <section id="ready">
-      <h2>Ready to load · 4 feed ads</h2>
-      <p class="sec-lede">These 4 Hailey / Role-Offer Meet feed ads (1080×1350) are the live look. Finalize / upload. Pain stays in Meta copy.</p>
+      <h2>Ready to load · 4 feed ads · 4 layout variations each</h2>
+      <p class="sec-lede">These 4 Hailey / Role-Offer Meet feed ads (1080×1350) are the live look. Finalize / upload. Pain stays in Meta copy. Each person has burnout / biller / nurse / dental DNA.</p>
       <div class="actions" style="margin:0 0 0.85rem">
         <a class="btn primary" href="/graphic-request-brief.html">Brief / form paste</a>
         <a class="btn" href="/exports/meta-upload-ready/">Upload-ready folder</a>
-        <a class="btn" href="/template-test-board.html#hailey-likes">Hailey refs</a>
+        <a class="btn" href="/role-offer-templates.html">Editable Role-Offer board</a>
         <a class="btn" href="/meta-launch-build-pack.html">Ads Manager pack</a>
       </div>
-      <div class="ready-grid"><a class="ready-card" href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
-      <img src="/assets/real-people/jessica/ad-treatment-e-4x5.png" alt="Meet Jessica" width="432" height="540" loading="lazy" />
-      <h3>1. Jessica</h3>
-      <p>Jr. Medical Admin</p>
-      <p class="hook">Meta: Admin Work Piling Up?</p>
-      <p class="file">IMB_MV_RP_Static_01_JessicaAdmin_1080x1350.png</p>
-    </a><a class="ready-card" href="/assets/real-people/chelsea/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
-      <img src="/assets/real-people/chelsea/ad-treatment-e-4x5.png" alt="Meet Chelsea" width="432" height="540" loading="lazy" />
-      <h3>2. Chelsea</h3>
-      <p>Dental Virtual Assistant</p>
-      <p class="hook">Meta: Scheduling Taking Over?</p>
-      <p class="file">IMB_MV_RP_Static_02_ChelseaScheduling_1080x1350.png</p>
-    </a><a class="ready-card" href="/assets/real-people/angelica/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
-      <img src="/assets/real-people/angelica/ad-treatment-e-4x5.png" alt="Meet Angelica" width="432" height="540" loading="lazy" />
-      <h3>3. Angelica</h3>
-      <p>Dermatology Front Desk Assistant</p>
-      <p class="hook">Meta: Front Desk Stretched Thin?</p>
-      <p class="file">IMB_MV_RP_Static_03_AngelicaFrontDesk_1080x1350.png</p>
-    </a><a class="ready-card" href="/assets/real-people/mark/ad-treatment-e-4x5.png" target="_blank" rel="noopener">
-      <img src="/assets/real-people/mark/ad-treatment-e-4x5.png" alt="Meet Mark" width="432" height="540" loading="lazy" />
-      <h3>4. Mark</h3>
-      <p>Insurance Verification Specialist</p>
-      <p class="hook">Meta: Verification Work Piling Up?</p>
-      <p class="file">IMB_MV_RP_Static_04_MarkVerification_1080x1350.png</p>
-    </a></div>
+      <div class="ready-grid"><article class="ready-block">
+      <div class="ready-head">
+        <h3>1. Jessica</h3>
+        <p>Jr. Medical Admin · Meta: Admin Work Piling Up?</p>
+      </div>
+      <div class="var-strip">
+    <a class="var-card" href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/jessica/ad-treatment-e-4x5.png" alt="Jessica · Photo right · price overlay" width="216" height="270" loading="lazy" />
+        <span>Photo right · price overlay</span>
+      </a><a class="var-card" href="/assets/real-people/jessica/ad-treatment-e-photo-left-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/jessica/ad-treatment-e-photo-left-4x5.png" alt="Jessica · Photo left · price box" width="216" height="270" loading="lazy" />
+        <span>Photo left · price box</span>
+      </a><a class="var-card" href="/assets/real-people/jessica/ad-treatment-e-photo-right-cta-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/jessica/ad-treatment-e-photo-right-cta-4x5.png" alt="Jessica · Photo right · CTA on photo" width="216" height="270" loading="lazy" />
+        <span>Photo right · CTA on photo</span>
+      </a><a class="var-card" href="/assets/real-people/jessica/ad-treatment-e-photo-right-circle-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/jessica/ad-treatment-e-photo-right-circle-4x5.png" alt="Jessica · Photo right · $10 circle" width="216" height="270" loading="lazy" />
+        <span>Photo right · $10 circle</span>
+      </a>
+  </div>
+    </article><article class="ready-block">
+      <div class="ready-head">
+        <h3>2. Chelsea</h3>
+        <p>Dental Virtual Assistant · Meta: Scheduling Taking Over?</p>
+      </div>
+      <div class="var-strip">
+    <a class="var-card" href="/assets/real-people/chelsea/ad-treatment-e-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/chelsea/ad-treatment-e-4x5.png" alt="Chelsea · Photo right · price overlay" width="216" height="270" loading="lazy" />
+        <span>Photo right · price overlay</span>
+      </a><a class="var-card" href="/assets/real-people/chelsea/ad-treatment-e-photo-left-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/chelsea/ad-treatment-e-photo-left-4x5.png" alt="Chelsea · Photo left · price box" width="216" height="270" loading="lazy" />
+        <span>Photo left · price box</span>
+      </a><a class="var-card" href="/assets/real-people/chelsea/ad-treatment-e-photo-right-cta-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/chelsea/ad-treatment-e-photo-right-cta-4x5.png" alt="Chelsea · Photo right · CTA on photo" width="216" height="270" loading="lazy" />
+        <span>Photo right · CTA on photo</span>
+      </a><a class="var-card" href="/assets/real-people/chelsea/ad-treatment-e-photo-right-circle-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/chelsea/ad-treatment-e-photo-right-circle-4x5.png" alt="Chelsea · Photo right · $10 circle" width="216" height="270" loading="lazy" />
+        <span>Photo right · $10 circle</span>
+      </a>
+  </div>
+    </article><article class="ready-block">
+      <div class="ready-head">
+        <h3>3. Angelica</h3>
+        <p>Dermatology Front Desk Assistant · Meta: Front Desk Stretched Thin?</p>
+      </div>
+      <div class="var-strip">
+    <a class="var-card" href="/assets/real-people/angelica/ad-treatment-e-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/angelica/ad-treatment-e-4x5.png" alt="Angelica · Photo right · price overlay" width="216" height="270" loading="lazy" />
+        <span>Photo right · price overlay</span>
+      </a><a class="var-card" href="/assets/real-people/angelica/ad-treatment-e-photo-left-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/angelica/ad-treatment-e-photo-left-4x5.png" alt="Angelica · Photo left · price box" width="216" height="270" loading="lazy" />
+        <span>Photo left · price box</span>
+      </a><a class="var-card" href="/assets/real-people/angelica/ad-treatment-e-photo-right-cta-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/angelica/ad-treatment-e-photo-right-cta-4x5.png" alt="Angelica · Photo right · CTA on photo" width="216" height="270" loading="lazy" />
+        <span>Photo right · CTA on photo</span>
+      </a><a class="var-card" href="/assets/real-people/angelica/ad-treatment-e-photo-right-circle-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/angelica/ad-treatment-e-photo-right-circle-4x5.png" alt="Angelica · Photo right · $10 circle" width="216" height="270" loading="lazy" />
+        <span>Photo right · $10 circle</span>
+      </a>
+  </div>
+    </article><article class="ready-block">
+      <div class="ready-head">
+        <h3>4. Mark</h3>
+        <p>Insurance Verification Specialist · Meta: Verification Work Piling Up?</p>
+      </div>
+      <div class="var-strip">
+    <a class="var-card" href="/assets/real-people/mark/ad-treatment-e-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/mark/ad-treatment-e-4x5.png" alt="Mark · Photo right · price overlay" width="216" height="270" loading="lazy" />
+        <span>Photo right · price overlay</span>
+      </a><a class="var-card" href="/assets/real-people/mark/ad-treatment-e-photo-left-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/mark/ad-treatment-e-photo-left-4x5.png" alt="Mark · Photo left · price box" width="216" height="270" loading="lazy" />
+        <span>Photo left · price box</span>
+      </a><a class="var-card" href="/assets/real-people/mark/ad-treatment-e-photo-right-cta-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/mark/ad-treatment-e-photo-right-cta-4x5.png" alt="Mark · Photo right · CTA on photo" width="216" height="270" loading="lazy" />
+        <span>Photo right · CTA on photo</span>
+      </a><a class="var-card" href="/assets/real-people/mark/ad-treatment-e-photo-right-circle-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/mark/ad-treatment-e-photo-right-circle-4x5.png" alt="Mark · Photo right · $10 circle" width="216" height="270" loading="lazy" />
+        <span>Photo right · $10 circle</span>
+      </a>
+  </div>
+    </article></div>
     </section>
 
     <section id="next">
@@ -461,25 +571,36 @@
       <h2>Four people · Meta copy + downloads</h2>
       <p class="sec-lede">Jessica, Chelsea, Mark, Angelica — full packages for the Ready set. Pain stays in Meta text.</p>
       <article class="person" id="person-chelsea">
-      <div class="person__art">
-        <button type="button" class="preview-hit" data-preview="/assets/real-people/chelsea/ad-treatment-e-4x5.png" aria-label="Preview Chelsea">
-          <img src="/assets/real-people/chelsea/ad-treatment-e-4x5.png" alt="Meet Chelsea — Hailey Meet 4:5" width="432" height="540" loading="lazy" />
-        </button>
-        <div class="ratio-row">
-          <a href="/assets/real-people/chelsea/ad-treatment-e-4x5.png" download>4:5</a>
-          <a href="/assets/real-people/chelsea/ad-treatment-e-1x1.png" download>1:1</a>
-          <a href="/assets/real-people/chelsea/ad-treatment-e-9x16.png" download>9:16</a>
-        </div>
-      </div>
-      <div class="person__body">
+      <div class="person__body full">
         <header>
           <p class="angle">Scheduling pressure</p>
           <h3>Chelsea</h3>
           <p class="role">Dental Virtual Assistant</p>
           <p class="meta"><a href="https://app.medvirtual.ai/talent-pool/1e2dd2c0-46d5-4ec9-af7c-917e27e356a4" target="_blank" rel="noopener noreferrer">Talent Pool</a> · source 2026-07-13</p>
         </header>
+        <p class="note" style="margin-top:0.5rem"><strong>Hailey variations</strong> — same person, her four layout DNA:</p>
+        <div class="var-strip">
+    <a class="var-card" href="/assets/real-people/chelsea/ad-treatment-e-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/chelsea/ad-treatment-e-4x5.png" alt="Chelsea · Photo right · price overlay" width="216" height="270" loading="lazy" />
+        <span>Photo right · price overlay</span>
+      </a><a class="var-card" href="/assets/real-people/chelsea/ad-treatment-e-photo-left-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/chelsea/ad-treatment-e-photo-left-4x5.png" alt="Chelsea · Photo left · price box" width="216" height="270" loading="lazy" />
+        <span>Photo left · price box</span>
+      </a><a class="var-card" href="/assets/real-people/chelsea/ad-treatment-e-photo-right-cta-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/chelsea/ad-treatment-e-photo-right-cta-4x5.png" alt="Chelsea · Photo right · CTA on photo" width="216" height="270" loading="lazy" />
+        <span>Photo right · CTA on photo</span>
+      </a><a class="var-card" href="/assets/real-people/chelsea/ad-treatment-e-photo-right-circle-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/chelsea/ad-treatment-e-photo-right-circle-4x5.png" alt="Chelsea · Photo right · $10 circle" width="216" height="270" loading="lazy" />
+        <span>Photo right · $10 circle</span>
+      </a>
+  </div>
+        <div class="ratio-row" style="margin-top:0.65rem">
+          <a href="/assets/real-people/chelsea/ad-treatment-e-4x5.png" download>Flagship 4:5</a>
+          <a href="/assets/real-people/chelsea/ad-treatment-e-1x1.png" download>1:1</a>
+          <a href="/assets/real-people/chelsea/ad-treatment-e-9x16.png" download>9:16</a>
+        </div>
         <dl class="facts">
-          <div><dt>On-image</dt><dd>Meet Chelsea · Dental Virtual Assistant · interview CTA</dd></div>
+          <div><dt>On-image</dt><dd>Meet Chelsea · Dental Virtual Assistant · interview CTA · Hailey price placements</dd></div>
           <div><dt>Meta headline</dt><dd>Scheduling Taking Over?</dd></div>
           <div><dt>CTA</dt><dd>Learn More</dd></div>
         </dl>
@@ -528,25 +649,36 @@ CLAIM RESTRICTIONS:
         </div>
       </div>
     </article><article class="person" id="person-mark">
-      <div class="person__art">
-        <button type="button" class="preview-hit" data-preview="/assets/real-people/mark/ad-treatment-e-4x5.png" aria-label="Preview Mark">
-          <img src="/assets/real-people/mark/ad-treatment-e-4x5.png" alt="Meet Mark — Hailey Meet 4:5" width="432" height="540" loading="lazy" />
-        </button>
-        <div class="ratio-row">
-          <a href="/assets/real-people/mark/ad-treatment-e-4x5.png" download>4:5</a>
-          <a href="/assets/real-people/mark/ad-treatment-e-1x1.png" download>1:1</a>
-          <a href="/assets/real-people/mark/ad-treatment-e-9x16.png" download>9:16</a>
-        </div>
-      </div>
-      <div class="person__body">
+      <div class="person__body full">
         <header>
           <p class="angle">Insurance verification workload</p>
           <h3>Mark</h3>
           <p class="role">Insurance Verification Specialist</p>
           <p class="meta"><a href="https://app.medvirtual.ai/talent-pool/592dfa05-7ce9-4a3f-bccc-3c7307451aa8" target="_blank" rel="noopener noreferrer">Talent Pool</a> · source 2026-07-13</p>
         </header>
+        <p class="note" style="margin-top:0.5rem"><strong>Hailey variations</strong> — same person, her four layout DNA:</p>
+        <div class="var-strip">
+    <a class="var-card" href="/assets/real-people/mark/ad-treatment-e-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/mark/ad-treatment-e-4x5.png" alt="Mark · Photo right · price overlay" width="216" height="270" loading="lazy" />
+        <span>Photo right · price overlay</span>
+      </a><a class="var-card" href="/assets/real-people/mark/ad-treatment-e-photo-left-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/mark/ad-treatment-e-photo-left-4x5.png" alt="Mark · Photo left · price box" width="216" height="270" loading="lazy" />
+        <span>Photo left · price box</span>
+      </a><a class="var-card" href="/assets/real-people/mark/ad-treatment-e-photo-right-cta-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/mark/ad-treatment-e-photo-right-cta-4x5.png" alt="Mark · Photo right · CTA on photo" width="216" height="270" loading="lazy" />
+        <span>Photo right · CTA on photo</span>
+      </a><a class="var-card" href="/assets/real-people/mark/ad-treatment-e-photo-right-circle-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/mark/ad-treatment-e-photo-right-circle-4x5.png" alt="Mark · Photo right · $10 circle" width="216" height="270" loading="lazy" />
+        <span>Photo right · $10 circle</span>
+      </a>
+  </div>
+        <div class="ratio-row" style="margin-top:0.65rem">
+          <a href="/assets/real-people/mark/ad-treatment-e-4x5.png" download>Flagship 4:5</a>
+          <a href="/assets/real-people/mark/ad-treatment-e-1x1.png" download>1:1</a>
+          <a href="/assets/real-people/mark/ad-treatment-e-9x16.png" download>9:16</a>
+        </div>
         <dl class="facts">
-          <div><dt>On-image</dt><dd>Meet Mark · Insurance Verification Specialist · interview CTA</dd></div>
+          <div><dt>On-image</dt><dd>Meet Mark · Insurance Verification Specialist · interview CTA · Hailey price placements</dd></div>
           <div><dt>Meta headline</dt><dd>Verification Work Piling Up?</dd></div>
           <div><dt>CTA</dt><dd>Learn More</dd></div>
         </dl>
@@ -595,25 +727,36 @@ CLAIM RESTRICTIONS:
         </div>
       </div>
     </article><article class="person" id="person-jessica">
-      <div class="person__art">
-        <button type="button" class="preview-hit" data-preview="/assets/real-people/jessica/ad-treatment-e-4x5.png" aria-label="Preview Jessica">
-          <img src="/assets/real-people/jessica/ad-treatment-e-4x5.png" alt="Meet Jessica — Hailey Meet 4:5" width="432" height="540" loading="lazy" />
-        </button>
-        <div class="ratio-row">
-          <a href="/assets/real-people/jessica/ad-treatment-e-4x5.png" download>4:5</a>
-          <a href="/assets/real-people/jessica/ad-treatment-e-1x1.png" download>1:1</a>
-          <a href="/assets/real-people/jessica/ad-treatment-e-9x16.png" download>9:16</a>
-        </div>
-      </div>
-      <div class="person__body">
+      <div class="person__body full">
         <header>
           <p class="angle">Administrative workload</p>
           <h3>Jessica</h3>
           <p class="role">Jr. Medical Admin</p>
           <p class="meta"><a href="https://app.medvirtual.ai/talent-pool/cf086c15-16b5-410c-b38f-6753fc99b9b4" target="_blank" rel="noopener noreferrer">Talent Pool</a> · source 2026-07-13</p>
         </header>
+        <p class="note" style="margin-top:0.5rem"><strong>Hailey variations</strong> — same person, her four layout DNA:</p>
+        <div class="var-strip">
+    <a class="var-card" href="/assets/real-people/jessica/ad-treatment-e-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/jessica/ad-treatment-e-4x5.png" alt="Jessica · Photo right · price overlay" width="216" height="270" loading="lazy" />
+        <span>Photo right · price overlay</span>
+      </a><a class="var-card" href="/assets/real-people/jessica/ad-treatment-e-photo-left-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/jessica/ad-treatment-e-photo-left-4x5.png" alt="Jessica · Photo left · price box" width="216" height="270" loading="lazy" />
+        <span>Photo left · price box</span>
+      </a><a class="var-card" href="/assets/real-people/jessica/ad-treatment-e-photo-right-cta-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/jessica/ad-treatment-e-photo-right-cta-4x5.png" alt="Jessica · Photo right · CTA on photo" width="216" height="270" loading="lazy" />
+        <span>Photo right · CTA on photo</span>
+      </a><a class="var-card" href="/assets/real-people/jessica/ad-treatment-e-photo-right-circle-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/jessica/ad-treatment-e-photo-right-circle-4x5.png" alt="Jessica · Photo right · $10 circle" width="216" height="270" loading="lazy" />
+        <span>Photo right · $10 circle</span>
+      </a>
+  </div>
+        <div class="ratio-row" style="margin-top:0.65rem">
+          <a href="/assets/real-people/jessica/ad-treatment-e-4x5.png" download>Flagship 4:5</a>
+          <a href="/assets/real-people/jessica/ad-treatment-e-1x1.png" download>1:1</a>
+          <a href="/assets/real-people/jessica/ad-treatment-e-9x16.png" download>9:16</a>
+        </div>
         <dl class="facts">
-          <div><dt>On-image</dt><dd>Meet Jessica · Jr. Medical Admin · interview CTA</dd></div>
+          <div><dt>On-image</dt><dd>Meet Jessica · Jr. Medical Admin · interview CTA · Hailey price placements</dd></div>
           <div><dt>Meta headline</dt><dd>Admin Work Piling Up?</dd></div>
           <div><dt>CTA</dt><dd>Learn More</dd></div>
         </dl>
@@ -662,25 +805,36 @@ CLAIM RESTRICTIONS:
         </div>
       </div>
     </article><article class="person" id="person-angelica">
-      <div class="person__art">
-        <button type="button" class="preview-hit" data-preview="/assets/real-people/angelica/ad-treatment-e-4x5.png" aria-label="Preview Angelica">
-          <img src="/assets/real-people/angelica/ad-treatment-e-4x5.png" alt="Meet Angelica — Hailey Meet 4:5" width="432" height="540" loading="lazy" />
-        </button>
-        <div class="ratio-row">
-          <a href="/assets/real-people/angelica/ad-treatment-e-4x5.png" download>4:5</a>
-          <a href="/assets/real-people/angelica/ad-treatment-e-1x1.png" download>1:1</a>
-          <a href="/assets/real-people/angelica/ad-treatment-e-9x16.png" download>9:16</a>
-        </div>
-      </div>
-      <div class="person__body">
+      <div class="person__body full">
         <header>
           <p class="angle">Front-desk pressure</p>
           <h3>Angelica</h3>
           <p class="role">Dermatology Front Desk Assistant</p>
           <p class="meta"><a href="https://app.medvirtual.ai/talent-pool/4f1447a8-6f80-4995-9ba1-5292aaa3dfd3" target="_blank" rel="noopener noreferrer">Talent Pool</a> · source 2026-07-13</p>
         </header>
+        <p class="note" style="margin-top:0.5rem"><strong>Hailey variations</strong> — same person, her four layout DNA:</p>
+        <div class="var-strip">
+    <a class="var-card" href="/assets/real-people/angelica/ad-treatment-e-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/angelica/ad-treatment-e-4x5.png" alt="Angelica · Photo right · price overlay" width="216" height="270" loading="lazy" />
+        <span>Photo right · price overlay</span>
+      </a><a class="var-card" href="/assets/real-people/angelica/ad-treatment-e-photo-left-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/angelica/ad-treatment-e-photo-left-4x5.png" alt="Angelica · Photo left · price box" width="216" height="270" loading="lazy" />
+        <span>Photo left · price box</span>
+      </a><a class="var-card" href="/assets/real-people/angelica/ad-treatment-e-photo-right-cta-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/angelica/ad-treatment-e-photo-right-cta-4x5.png" alt="Angelica · Photo right · CTA on photo" width="216" height="270" loading="lazy" />
+        <span>Photo right · CTA on photo</span>
+      </a><a class="var-card" href="/assets/real-people/angelica/ad-treatment-e-photo-right-circle-4x5.png" target="_blank" rel="noopener" download>
+        <img src="/assets/real-people/angelica/ad-treatment-e-photo-right-circle-4x5.png" alt="Angelica · Photo right · $10 circle" width="216" height="270" loading="lazy" />
+        <span>Photo right · $10 circle</span>
+      </a>
+  </div>
+        <div class="ratio-row" style="margin-top:0.65rem">
+          <a href="/assets/real-people/angelica/ad-treatment-e-4x5.png" download>Flagship 4:5</a>
+          <a href="/assets/real-people/angelica/ad-treatment-e-1x1.png" download>1:1</a>
+          <a href="/assets/real-people/angelica/ad-treatment-e-9x16.png" download>9:16</a>
+        </div>
         <dl class="facts">
-          <div><dt>On-image</dt><dd>Meet Angelica · Dermatology Front Desk Assistant · interview CTA</dd></div>
+          <div><dt>On-image</dt><dd>Meet Angelica · Dermatology Front Desk Assistant · interview CTA · Hailey price placements</dd></div>
           <div><dt>Meta headline</dt><dd>Front Desk Stretched Thin?</dd></div>
           <div><dt>CTA</dt><dd>Learn More</dd></div>
         </dl>
@@ -732,19 +886,19 @@ CLAIM RESTRICTIONS:
     </section>
 
     <section id="concept">
-      <h2>Treatment E — Hailey / Role-Offer Meet</h2>
+      <h2>Treatment E — Hailey variations</h2>
       <div class="concept">
         <div>
           <strong class="kicker">Look</strong>
-          <p>Same Visual DNA as Role-Offer: light cyan grid plate, Meet {Name}, teal role pill, short public-skill checklist, interview CTA, colored logo, talent photo on the right. Pain stays in Meta copy. No invented claims.</p>
+          <p>Named Real People in the exact layouts Hailey likes: light cyan grid, Meet {Name}, teal role pill, public-skill checks, colored logo, plus her price/CTA placements (overlay · box · bar · circle). Four feed variations from her Role-Offer refs. Pain stays in Meta copy.</p>
           <div class="rules">
             <div>
               <strong class="kicker">Do</strong>
-              <ul><li>Light grid plate (white → soft cyan) + Be Vietnam + brand teal</li><li>Meet {Name} + exact public role as a teal pill</li><li>2–3 short checklist lines from public Talent Pool skills only</li><li>Interview CTA chip (REQUEST AN INTERVIEW / Available to interview)</li><li>Official colored MedVirtual logo</li><li>Named talent photo on the right (or top on Stories)</li></ul>
+              <ul><li>Copy Hailey’s four comps: burnout overlay · biller left · nurse CTA-on-photo · dental $10 circle</li><li>Light grid plate + Be Vietnam + brand teal</li><li>Meet {Name} + exact public role as a teal pill</li><li>2–3 checklist lines from public Talent Pool skills only</li><li>Interview CTA (REQUEST AN INTERVIEW)</li><li>Official colored MedVirtual logo</li></ul>
             </div>
             <div>
               <strong class="kicker">Don’t</strong>
-              <ul><li>No dark teal mud overlay over the person</li><li>No inventing skills, HIPAA, years, rates, or outcomes</li><li>Do not paste stock Role-Offer copy onto a named person</li></ul>
+              <ul><li>No dark teal mud overlay over the person</li><li>No inventing skills, HIPAA, years, or performance claims</li><li>Do not paste unrelated stock Role-Offer headlines onto a named person</li><li>No Treatment C checklist flyers / dark CTA strips</li></ul>
             </div>
           </div>
         </div>

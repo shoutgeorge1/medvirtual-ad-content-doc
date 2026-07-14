@@ -1,7 +1,16 @@
 /**
- * Treatment E — Hailey / Role-Offer Meet (active Real People look).
- * Light grid plate · Meet {Name} · role pill · short skill checks · interview CTA ·
- * colored logo · talent photo on the right. Same Visual DNA as Role-Offer templates.
+ * Treatment E — Hailey Role-Offer variations for named Real People.
+ * Four comps from Hailey’s favorites, adapted to Meet {Name}:
+ *   photo-right         → burnout (flagship default) — price overlay
+ *   photo-left          → biller split — price box
+ *   photo-right-cta     → nurse — price bar + CTA on photo
+ *   photo-right-circle  → dental — $10 circle on photo
+ *
+ * Outputs:
+ *   ad-treatment-e-{4x5|1x1|9x16}.png              (flagship = photo-right)
+ *   ad-treatment-e-photo-left-{ratio}.png
+ *   ad-treatment-e-photo-right-cta-{ratio}.png
+ *   ad-treatment-e-photo-right-circle-{ratio}.png
  */
 import fs from 'fs';
 import path from 'path';
@@ -16,6 +25,38 @@ const LOGO = path.join(ROOT, 'public', BRAND.assets.logoColoredSvg.replace(/^\//
 const FONT_BOLD = path.join(ROOT, 'public', 'assets', 'brand', 'medvirtual', 'fonts', 'BeVietnam-Bold.ttf');
 const FONT_MED = path.join(ROOT, 'public', 'assets', 'brand', 'medvirtual', 'fonts', 'BeVietnam-Medium.ttf');
 const FONT_REG = path.join(ROOT, 'public', 'assets', 'brand', 'medvirtual', 'fonts', 'BeVietnam-Regular.ttf');
+
+/** Hailey layout variants — mirrors Role-Offer comps she loves */
+export const HAILEY_VARIANTS = [
+  {
+    id: 'photo-right',
+    label: 'Photo right · price overlay',
+    note: 'Like burnout: Meet + role + checks + CTA left, $10 overlay on person.',
+    primary: true,
+    ref: '/assets/role-offer-refs/ro-admin-burnout.png',
+  },
+  {
+    id: 'photo-left',
+    label: 'Photo left · price box',
+    note: 'Like Medical Biller: person left, Meet stack + $10 box right.',
+    primary: false,
+    ref: '/assets/role-offer-refs/ro-biller-split.png',
+  },
+  {
+    id: 'photo-right-cta',
+    label: 'Photo right · CTA on photo',
+    note: 'Like Medical Nurse: price bar left, CTA button on person.',
+    primary: false,
+    ref: '/assets/role-offer-refs/ro-nurse-split.png',
+  },
+  {
+    id: 'photo-right-circle',
+    label: 'Photo right · $10 circle',
+    note: 'Like Dental Admin: CTA left, teal $10 circle on person.',
+    primary: false,
+    ref: '/assets/role-offer-refs/ro-dental-admin.png',
+  },
+];
 
 function escXml(s) {
   return String(s)
@@ -40,125 +81,197 @@ function fontFaceCss() {
   return faces.join('');
 }
 
-/** Clean Talent Pool skill labels for on-image checklist */
 export function cleanSkillLabel(raw) {
   return String(raw || '')
     .replace(/^VA\s*[-–]\s*/i, '')
     .replace(/^BPO\s*[-–]\s*/i, '')
+    .replace(/^Medical\s*[-–]\s*/i, '')
     .trim();
 }
 
 function bulletsFor(te, talent) {
-  if (Array.isArray(te.bullets) && te.bullets.length) return te.bullets.slice(0, 3);
+  if (Array.isArray(te.bullets) && te.bullets.length) return te.bullets.slice(0, 4);
   const skills = (talent?.listedSkills || []).map(cleanSkillLabel).filter(Boolean);
-  if (skills.length) return skills.slice(0, 3);
-  return ['Available full-time', 'Joins your practice team'];
+  if (skills.length) return skills.slice(0, 4);
+  return ['Available full-time', 'Joins your practice team', 'Ready to interview'];
 }
 
-function layoutFor(ratio) {
-  if (ratio === '1x1') {
-    return {
-      w: 1080,
-      h: 1080,
-      copyW: 520,
-      photoLeft: 500,
-      pad: 48,
-      meetSize: 48,
-      roleSize: 22,
-      bulletSize: 22,
-      ctaSize: 20,
-      logoW: 190,
-      safePad: 0,
-    };
-  }
-  if (ratio === '9x16') {
-    return {
-      w: 1080,
-      h: 1920,
-      copyW: 1080,
-      photoLeft: 0,
-      pad: 56,
-      meetSize: 58,
-      roleSize: 26,
-      bulletSize: 26,
-      ctaSize: 22,
-      logoW: 210,
-      safePad: 110,
-      storyStack: true,
-    };
-  }
-  return {
-    w: 1080,
-    h: 1350,
-    copyW: 520,
-    photoLeft: 500,
-    pad: 52,
-    meetSize: 52,
-    roleSize: 24,
-    bulletSize: 24,
-    ctaSize: 21,
-    logoW: 200,
-    safePad: 0,
-  };
+function canvasFor(ratio) {
+  if (ratio === '1x1') return { w: 1080, h: 1080, safePad: 0 };
+  if (ratio === '9x16') return { w: 1080, h: 1920, safePad: 100 };
+  return { w: 1080, h: 1350, safePad: 0 };
 }
 
-async function preparePhoto(srcPath, L) {
-  const photoW = L.storyStack ? L.w : L.w - L.photoLeft + 40;
-  const photoH = L.storyStack ? Math.round(L.h * 0.52) : L.h;
-  return sharp(srcPath)
-    .rotate()
-    .resize(photoW, photoH, { fit: 'cover', position: 'attention' })
-    .png()
-    .toBuffer()
-    .then(async (buf) => ({ buf, photoW, photoH }));
+function gridPattern() {
+  return `<pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+    <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#00B2E2" stroke-width="1" opacity="0.2"/>
+  </pattern>`;
 }
 
-function buildGridPattern() {
-  // Subtle cyan graph grid like Hailey comps
-  return `
-    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#00B2E2" stroke-width="1" opacity="0.22"/>
-    </pattern>`;
-}
-
-function buildOverlaySvg(L, te, bullets) {
-  const support = te.supportLine || 'Available to interview';
-  const cta = te.cta || support || 'REQUEST AN INTERVIEW';
-  const hirePrefix = te.hirePrefix || 'Hire a Virtual';
-  const pad = L.pad;
-  const top = L.safePad + pad;
-  const pillW = Math.min(
-    (L.storyStack ? L.w : L.copyW) - pad * 2,
-    Math.max(200, 40 + te.role.length * L.roleSize * 0.55),
-  );
-
-  // Story: text sits in lower plate; feed/square: text left column
-  const meetY = L.storyStack ? Math.round(L.h * 0.58) + 40 : top + 120;
-  const hireY = meetY - 48;
-  const roleY = meetY + L.meetSize + 28;
-  const ruleY = roleY + 36;
-  const bulletStart = ruleY + 36;
-  const bulletGap = L.bulletSize + 22;
-  const ctaY = bulletStart + bullets.length * bulletGap + 36;
-
-  const bulletSvg = bullets
+function bulletSvg(bullets, pad, startY, size, gap) {
+  return bullets
     .map((b, i) => {
-      const y = bulletStart + i * bulletGap;
-      return `
-      <g transform="translate(${pad}, ${y})">
-        <circle cx="12" cy="-6" r="12" fill="#00B2E2"/>
-        <path d="M6 -6 l3.2 3.2 6.5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <text class="bullet" x="34" y="0" font-size="${L.bulletSize}">${escXml(b)}</text>
+      const y = startY + i * gap;
+      return `<g transform="translate(${pad}, ${y})">
+        <circle cx="13" cy="-7" r="13" fill="#00B2E2"/>
+        <path d="M6.5 -7 l3.5 3.4 7-7.2" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text class="bullet" x="36" y="0" font-size="${size}">${escXml(b)}</text>
       </g>`;
     })
     .join('');
+}
 
-  const plateStory = L.storyStack
-    ? `<rect x="0" y="${Math.round(L.h * 0.54)}" width="${L.w}" height="${Math.round(L.h * 0.46)}" fill="url(#plate)"/>
-       <rect x="0" y="${Math.round(L.h * 0.54)}" width="${L.w}" height="${Math.round(L.h * 0.46)}" fill="url(#grid)" opacity="0.85"/>`
-    : `<rect x="0" y="0" width="${L.photoLeft}" height="${L.h}" fill="url(#bg)"/>
-       <rect x="0" y="0" width="${L.photoLeft}" height="${L.h}" fill="url(#grid)"/>
-       <rect x="${L.photoLeft - 80}" y="0" width="80" height="${L.h}" fill="url(#wash)"/>`;
+function rolePill(role, pad, y, roleSize, maxW) {
+  const pillW = Math.min(maxW, Math.max(200, 44 + role.length * roleSize * 0.55));
+  return `
+    <rect x="${pad}" y="${y - roleSize + 2}" rx="22" ry="22" width="${pillW}" height="${roleSize + 24}" fill="#0D546B"/>
+    <text fill="#FFFFFF" font-family="BeVietnam,Segoe UI,Arial,sans-serif" font-weight="700"
+      font-size="${roleSize}" x="${pad + 18}" y="${y + 10}">${escXml(role)}</text>`;
+}
+
+/**
+ * Build SVG overlay for a Hailey variant (feed / square). Stories use stacked layout.
+ */
+function buildFeedOverlay(L, te, bullets, variantId) {
+  const pad = 52;
+  const hire = te.hirePrefix || 'Hire a Virtual';
+  const cta = te.cta || 'REQUEST AN INTERVIEW';
+  const meetSize = L.h > 1200 ? 54 : 48;
+  const roleSize = 24;
+  const bulletSize = 23;
+  const copyMax = variantId === 'photo-left' ? L.w - 520 - pad : 500;
+
+  const styles = `${fontFaceCss()}
+    .meet{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:700;fill:#0D546B}
+    .hire{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:600;fill:#00B2E2}
+    .bullet{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:500;fill:#0D546B}
+    .cta{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:700;fill:#FFFFFF}
+    .plabel{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:700;fill:#0D546B;letter-spacing:0.06em}
+    .price{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:800;fill:#00B2E2}
+    .pricew{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:800;fill:#FFFFFF}`;
+
+  // Shared copy stack — Hailey DNA: Meet + role + checks + her price/CTA placements
+  const hireY = 150;
+  const meetY = 210;
+  const roleY = 270;
+  const ruleY = 310;
+  const bulletY = 360;
+  const gap = bulletSize + 22;
+  const afterBullets = bulletY + bullets.length * gap + 24;
+
+  const priceBox = (x, y) => `
+    <g transform="translate(${x}, ${y})">
+      <rect width="210" height="78" rx="14" fill="#FFFFFF" stroke="#00B2E2" stroke-width="3"/>
+      <text class="plabel" x="105" y="28" text-anchor="middle" font-size="13">STARTING AT</text>
+      <text class="price" x="105" y="60" text-anchor="middle" font-size="28">$10/hour</text>
+    </g>`;
+
+  const priceBar = (x, y) => `
+    <g transform="translate(${x}, ${y})">
+      <text class="plabel" x="0" y="0" font-size="12">STARTING AT</text>
+      <rect y="10" width="250" height="56" rx="12" fill="url(#bar)"/>
+      <text class="pricew" x="22" y="48" font-size="28">$10/hour</text>
+    </g>`;
+
+  const priceOverlay = (x, y) => `
+    <g transform="translate(${x}, ${y})">
+      <rect width="200" height="72" rx="12" fill="rgba(240,248,255,0.94)"/>
+      <text class="plabel" x="100" y="26" text-anchor="middle" font-size="12">STARTING AT</text>
+      <text class="price" x="100" y="54" text-anchor="middle" font-size="26">$10/hour</text>
+    </g>`;
+
+  const priceCircle = (cx, cy) => `
+    <g transform="translate(${cx}, ${cy})">
+      <circle r="78" fill="#00B2E2"/>
+      <circle r="70" fill="#077999"/>
+      <text class="pricew" x="0" y="-28" text-anchor="middle" font-size="12" letter-spacing="0.08em">STARTING AT</text>
+      <text class="pricew" x="0" y="18" text-anchor="middle" font-size="42">$10</text>
+      <text class="pricew" x="0" y="42" text-anchor="middle" font-size="14" letter-spacing="0.06em">PER HOUR</text>
+    </g>`;
+
+  const ctaBtn = (x, y, w = 320) => `
+    <g transform="translate(${x}, ${y})">
+      <rect width="${w}" height="56" rx="14" fill="#0D546B"/>
+      <text class="cta" x="24" y="36" font-size="18">${escXml(cta)}</text>
+    </g>`;
+
+  const copyBlock = (ox) => `
+    <g transform="translate(${ox}, 0)">
+      <text class="hire" x="${pad}" y="${hireY}" font-size="22">${escXml(hire)}</text>
+      <text class="meet" x="${pad}" y="${meetY}" font-size="${meetSize}">${escXml(te.meetLine)}</text>
+      ${rolePill(te.role, pad, roleY, roleSize, copyMax - pad)}
+      <rect x="${pad}" y="${ruleY}" width="64" height="5" rx="2.5" fill="#00B2E2"/>
+      ${bulletSvg(bullets, pad, bulletY, bulletSize, gap)}
+    </g>`;
+
+  let body = '';
+  if (variantId === 'photo-left') {
+    // Hailey biller — person left, copy + price box right
+    const ox = 500;
+    body = `
+      <rect x="500" y="0" width="580" height="${L.h}" fill="url(#bg)"/>
+      <rect x="500" y="0" width="580" height="${L.h}" fill="url(#grid)"/>
+      ${copyBlock(ox)}
+      ${priceBox(ox + pad, afterBullets)}
+      ${ctaBtn(ox + pad, afterBullets + 100, 300)}`;
+  } else if (variantId === 'photo-right-cta') {
+    // Hailey nurse — price bar left, CTA on person
+    body = `
+      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#bg)"/>
+      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#grid)"/>
+      <rect x="440" y="0" width="80" height="${L.h}" fill="url(#wash)"/>
+      ${copyBlock(0)}
+      ${priceBar(pad, afterBullets)}
+      ${ctaBtn(560, L.h - 120, 340)}`;
+  } else if (variantId === 'photo-right-circle') {
+    // Hailey dental — CTA left + $10 circle on person
+    body = `
+      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#bg)"/>
+      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#grid)"/>
+      <rect x="440" y="0" width="80" height="${L.h}" fill="url(#wash)"/>
+      ${copyBlock(0)}
+      ${ctaBtn(pad, afterBullets, 300)}
+      ${priceCircle(820, L.h - 160)}`;
+  } else {
+    // Hailey burnout flagship — CTA left + price overlay on person
+    body = `
+      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#bg)"/>
+      <rect x="0" y="0" width="520" height="${L.h}" fill="url(#grid)"/>
+      <rect x="440" y="0" width="80" height="${L.h}" fill="url(#wash)"/>
+      ${copyBlock(0)}
+      ${ctaBtn(pad, afterBullets, 340)}
+      ${priceOverlay(560, L.h - 140)}`;
+  }
+
+  return Buffer.from(`<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${L.w}" height="${L.h}" viewBox="0 0 ${L.w} ${L.h}" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>${styles}</style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F7FBFF"/><stop offset="100%" stop-color="#E8F3F9"/>
+    </linearGradient>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F7FBFF" stop-opacity="1"/><stop offset="100%" stop-color="#F7FBFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#077999"/><stop offset="100%" stop-color="#00B2E2"/>
+    </linearGradient>
+    ${gridPattern()}
+  </defs>
+  ${body}
+</svg>`);
+}
+
+function buildStoryOverlay(L, te, bullets) {
+  const pad = 56;
+  const plateTop = Math.round(L.h * 0.54);
+  const hireY = plateTop + 70;
+  const meetY = plateTop + 130;
+  const roleY = plateTop + 190;
+  const ruleY = plateTop + 230;
+  const bulletY = plateTop + 280;
+  const cta = te.cta || 'REQUEST AN INTERVIEW';
+  const hire = te.hirePrefix || 'Hire a Virtual';
 
   return Buffer.from(`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${L.w}" height="${L.h}" viewBox="0 0 ${L.w} ${L.h}" xmlns="http://www.w3.org/2000/svg">
@@ -168,48 +281,39 @@ function buildOverlaySvg(L, te, bullets) {
       .hire{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:600;fill:#00B2E2}
       .bullet{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:500;fill:#0D546B}
       .cta{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:700;fill:#FFFFFF}
-      .soft{font-family:'BeVietnam',Segoe UI,Arial,sans-serif;font-weight:400;fill:#5A6B78}
     </style>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F7FBFF"/>
-      <stop offset="55%" stop-color="#EEF6FB"/>
-      <stop offset="100%" stop-color="#E8F3F9"/>
-    </linearGradient>
     <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#F7FBFF"/>
-      <stop offset="100%" stop-color="#E8F3F9"/>
+      <stop offset="0%" stop-color="#F7FBFF"/><stop offset="100%" stop-color="#E8F3F9"/>
     </linearGradient>
-    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#F7FBFF" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#F7FBFF" stop-opacity="0"/>
-    </linearGradient>
-    ${buildGridPattern()}
+    ${gridPattern()}
   </defs>
-
-  ${plateStory}
-
-  <text class="hire" x="${pad}" y="${hireY}" font-size="${Math.round(L.roleSize * 1.05)}">${escXml(hirePrefix)}</text>
-  <text class="meet" x="${pad}" y="${meetY}" font-size="${L.meetSize}">${escXml(te.meetLine)}</text>
-
-  <!-- Role pill -->
-  <rect x="${pad}" y="${roleY - L.roleSize + 4}" rx="22" ry="22"
-    width="${pillW}"
-    height="${L.roleSize + 22}" fill="#0D546B"/>
-  <text fill="#FFFFFF" font-family="BeVietnam,Segoe UI,Arial,sans-serif" font-weight="700"
-    font-size="${L.roleSize}" x="${pad + 18}" y="${roleY + 8}">${escXml(te.role)}</text>
-
-  <rect x="${pad}" y="${ruleY}" width="64" height="5" rx="2.5" fill="#00B2E2"/>
-
-  ${bulletSvg}
-
-  <!-- CTA chip -->
-  <rect x="${pad}" y="${ctaY}" rx="14" ry="14"
-    width="${Math.min(420, 48 + cta.length * L.ctaSize * 0.62)}" height="${L.ctaSize + 28}" fill="#0D546B"/>
-  <text class="cta" x="${pad + 22}" y="${ctaY + L.ctaSize + 10}" font-size="${L.ctaSize}">${escXml(cta)}</text>
+  <rect x="0" y="${plateTop}" width="${L.w}" height="${L.h - plateTop}" fill="url(#plate)"/>
+  <rect x="0" y="${plateTop}" width="${L.w}" height="${L.h - plateTop}" fill="url(#grid)" opacity="0.9"/>
+  <text class="hire" x="${pad}" y="${hireY}" font-size="24">${escXml(hire)}</text>
+  <text class="meet" x="${pad}" y="${meetY}" font-size="56">${escXml(te.meetLine)}</text>
+  ${rolePill(te.role, pad, roleY, 26, L.w - pad * 2)}
+  <rect x="${pad}" y="${ruleY}" width="72" height="5" rx="2.5" fill="#00B2E2"/>
+  ${bulletSvg(bullets.slice(0, 3), pad, bulletY, 24, 46)}
+  <g transform="translate(${pad}, ${L.h - 140})">
+    <rect width="380" height="56" rx="14" fill="#0D546B"/>
+    <text class="cta" x="24" y="36" font-size="18">${escXml(cta)}</text>
+  </g>
 </svg>`);
 }
 
+async function preparePhoto(srcPath, w, h) {
+  return sharp(srcPath)
+    .rotate()
+    .resize(w, h, { fit: 'cover', position: 'attention' })
+    .png()
+    .toBuffer();
+}
+
 export async function renderTreatmentEAds() {
+  const logoBuf = fs.existsSync(LOGO)
+    ? await sharp(LOGO).resize({ width: 200, fit: 'inside' }).png().toBuffer()
+    : null;
+
   const outputs = [];
 
   for (const te of TREATMENT_E) {
@@ -229,72 +333,88 @@ export async function renderTreatmentEAds() {
     }
 
     const bullets = bulletsFor(te, t);
-    const logoBuf = fs.existsSync(LOGO)
-      ? await sharp(LOGO).resize({ width: 200, fit: 'inside' }).png().toBuffer()
-      : null;
 
     for (const ratio of ['4x5', '1x1', '9x16']) {
-      const L = layoutFor(ratio);
-      const { buf: photoBuf } = await preparePhoto(src, L);
-      const overlay = buildOverlaySvg(L, te, bullets);
+      const L = canvasFor(ratio);
+      const isStory = ratio === '9x16';
 
-      const composites = [];
+      for (const variant of HAILEY_VARIANTS) {
+        // Stories: one stacked layout (flagship DNA) — skip non-primary to avoid clutter
+        if (isStory && !variant.primary) continue;
 
-      if (L.storyStack) {
-        // Photo top, then text plate SVG (transparent upper half)
-        composites.push({
-          input: photoBuf,
-          top: L.safePad,
-          left: 0,
+        const composites = [];
+        let overlay;
+
+        if (isStory) {
+          const photoH = Math.round(L.h * 0.56);
+          const photo = await preparePhoto(src, L.w, photoH);
+          composites.push({ input: photo, top: L.safePad, left: 0 });
+          overlay = buildStoryOverlay(L, te, bullets);
+          composites.push({ input: overlay, top: 0, left: 0 });
+        } else if (variant.id === 'photo-left') {
+          const photoW = 520;
+          const photo = await preparePhoto(src, photoW, L.h);
+          overlay = buildFeedOverlay(L, te, bullets, variant.id);
+          composites.push({ input: overlay, top: 0, left: 0 });
+          composites.push({ input: photo, top: 0, left: 0 });
+        } else {
+          // Photo under, then plate + price/CTA badges on top (Hailey DNA)
+          const photoW = L.w - 500;
+          const photo = await preparePhoto(src, photoW + 40, L.h);
+          overlay = buildFeedOverlay(L, te, bullets, variant.id);
+          composites.push({ input: photo, top: 0, left: 500 });
+          composites.push({ input: overlay, top: 0, left: 0 });
+        }
+
+        if (logoBuf) {
+          const meta = await sharp(logoBuf).metadata();
+          const lw = meta.width || 200;
+          // Biller/dental DNA: logo top-left on photo; burnout: logo on photo top-right
+          const left =
+            variant.id === 'photo-left' || variant.id === 'photo-right-circle'
+              ? 36
+              : L.w - 48 - lw;
+          composites.push({
+            input: logoBuf,
+            top: (isStory ? L.safePad : 0) + 36,
+            left,
+          });
+        }
+
+        const outName = variant.primary
+          ? `ad-treatment-e-${ratio}.png`
+          : `ad-treatment-e-${variant.id}-${ratio}.png`;
+        const outPath = path.join(personDir, outName);
+
+        await sharp({
+          create: {
+            width: L.w,
+            height: L.h,
+            channels: 3,
+            background: { r: 247, g: 251, b: 255 },
+          },
+        })
+          .composite(composites)
+          .png({ compressionLevel: 9 })
+          .toFile(outPath);
+
+        if (variant.primary) {
+          fs.copyFileSync(outPath, path.join(personDir, `ad-treatment-d-${ratio}.png`));
+        }
+
+        outputs.push({
+          talentId: t.id,
+          slug,
+          ratio,
+          variant: variant.id,
+          path: `/assets/real-people/${slug}/${outName}`,
+          file: outPath,
         });
-        composites.push({ input: overlay, top: 0, left: 0 });
-      } else {
-        // Left plate SVG + photo right
-        composites.push({ input: overlay, top: 0, left: 0 });
-        composites.push({
-          input: photoBuf,
-          top: 0,
-          left: L.photoLeft,
-        });
+        console.log(`Treatment E ${slug} ${variant.id} ${ratio}`);
       }
-
-      if (logoBuf) {
-        const meta = await sharp(logoBuf).metadata();
-        const lw = meta.width || 200;
-        const lh = meta.height || 48;
-        composites.push({
-          input: logoBuf,
-          top: L.safePad + 36,
-          left: L.w - 48 - lw,
-        });
-      }
-
-      const outName = `ad-treatment-e-${ratio}.png`;
-      const outPath = path.join(personDir, outName);
-      await sharp({
-        create: {
-          width: L.w,
-          height: L.h,
-          channels: 3,
-          background: { r: 247, g: 251, b: 255 },
-        },
-      })
-        .composite(composites)
-        .png({ compressionLevel: 9 })
-        .toFile(outPath);
-
-      fs.copyFileSync(outPath, path.join(personDir, `ad-treatment-d-${ratio}.png`));
-
-      outputs.push({
-        talentId: t.id,
-        slug,
-        ratio,
-        path: `/assets/real-people/${slug}/${outName}`,
-        file: outPath,
-      });
-      console.log(`Treatment E ${slug} ${ratio}`);
     }
   }
+
   return outputs;
 }
 

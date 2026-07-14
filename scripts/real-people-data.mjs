@@ -43,21 +43,22 @@ export const CONCEPT_DIRECTION = {
     'Stacked pain-yell flyer look that felt off-brand',
   ],
   activeId: 'E',
-  activeName: 'Treatment E — Hailey / Role-Offer Meet',
+  activeName: 'Treatment E — Hailey variations',
   thesis:
-    'Same Visual DNA as Role-Offer: light cyan grid plate, Meet {Name}, teal role pill, short public-skill checklist, interview CTA, colored logo, talent photo on the right. Pain stays in Meta copy. No invented claims.',
+    'Named Real People in the exact layouts Hailey likes: light cyan grid, Meet {Name}, teal role pill, public-skill checks, colored logo, plus her price/CTA placements (overlay · box · bar · circle). Four feed variations from her Role-Offer refs. Pain stays in Meta copy.',
   rulesDo: [
-    'Light grid plate (white → soft cyan) + Be Vietnam + brand teal',
+    'Copy Hailey’s four comps: burnout overlay · biller left · nurse CTA-on-photo · dental $10 circle',
+    'Light grid plate + Be Vietnam + brand teal',
     'Meet {Name} + exact public role as a teal pill',
-    '2–3 short checklist lines from public Talent Pool skills only',
-    'Interview CTA chip (REQUEST AN INTERVIEW / Available to interview)',
+    '2–3 checklist lines from public Talent Pool skills only',
+    'Interview CTA (REQUEST AN INTERVIEW)',
     'Official colored MedVirtual logo',
-    'Named talent photo on the right (or top on Stories)',
   ],
   rulesDont: [
     'No dark teal mud overlay over the person',
-    'No inventing skills, HIPAA, years, rates, or outcomes',
-    'Do not paste stock Role-Offer copy onto a named person',
+    'No inventing skills, HIPAA, years, or performance claims',
+    'Do not paste unrelated stock Role-Offer headlines onto a named person',
+    'No Treatment C checklist flyers / dark CTA strips',
   ],
 };
 

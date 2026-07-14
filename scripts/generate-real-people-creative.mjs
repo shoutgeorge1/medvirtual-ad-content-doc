@@ -26,6 +26,7 @@ import {
   talentById,
   treatmentEPackage,
 } from './real-people-data.mjs';
+import { HAILEY_VARIANTS } from './generate-real-people-treatment-e.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -60,8 +61,36 @@ function primaryParagraphs(text) {
     .join('');
 }
 
-function tePath(slug, ratio) {
-  return `/assets/real-people/${slug}/ad-treatment-e-${ratio}.png`;
+function tePath(slug, ratio, variantId) {
+  if (!variantId || variantId === 'photo-right') {
+    return `/assets/real-people/${slug}/ad-treatment-e-${ratio}.png`;
+  }
+  return `/assets/real-people/${slug}/ad-treatment-e-${variantId}-${ratio}.png`;
+}
+
+function renderHaileyRefs() {
+  return `<div class="hailey-refs">
+    ${HAILEY_VARIANTS.map(
+      (v) => `<figure>
+        <a href="${esc(v.ref)}" target="_blank" rel="noopener">
+          <img src="${esc(v.ref)}" alt="${esc(v.label)}" width="240" height="240" loading="lazy" />
+        </a>
+        <figcaption><strong>${esc(v.label)}</strong><span>${esc(v.note)}</span></figcaption>
+      </figure>`,
+    ).join('')}
+  </div>`;
+}
+
+function renderVariantStrip(slug, firstName) {
+  return `<div class="var-strip">
+    ${HAILEY_VARIANTS.map((v) => {
+      const src = tePath(slug, '4x5', v.id);
+      return `<a class="var-card" href="${esc(src)}" target="_blank" rel="noopener" download>
+        <img src="${esc(src)}" alt="${esc(firstName)} · ${esc(v.label)}" width="216" height="270" loading="lazy" />
+        <span>${esc(v.label)}</span>
+      </a>`;
+    }).join('')}
+  </div>`;
 }
 
 function renderReadyGrid() {
@@ -69,13 +98,14 @@ function renderReadyGrid() {
     const t = talentById(c.talentId);
     const te = TREATMENT_E.find((x) => x.talentId === c.talentId);
     const pkg = META_AD_PACKAGES.find((x) => x.talentId === c.talentId);
-    return `<a class="ready-card" href="${esc(c.preview)}" target="_blank" rel="noopener">
-      <img src="${esc(c.preview)}" alt="${esc(te.meetLine)}" width="432" height="540" loading="lazy" />
-      <h3>${i + 1}. ${esc(t.firstName)}</h3>
-      <p>${esc(te.role)}</p>
-      <p class="hook">Meta: ${esc(pkg.headline)}</p>
-      <p class="file">${esc(c.file)}</p>
-    </a>`;
+    const slug = t.assetSlug || t.id;
+    return `<article class="ready-block">
+      <div class="ready-head">
+        <h3>${i + 1}. ${esc(t.firstName)}</h3>
+        <p>${esc(te.role)} · Meta: ${esc(pkg.headline)}</p>
+      </div>
+      ${renderVariantStrip(slug, t.firstName)}
+    </article>`;
   }).join('');
 }
 
@@ -110,25 +140,22 @@ function renderPersonCards(cat) {
     const briefText = treatmentEPackage(te);
 
     return `<article class="person" id="person-${esc(slug)}">
-      <div class="person__art">
-        <button type="button" class="preview-hit" data-preview="${esc(tePath(slug, '4x5'))}" aria-label="Preview ${esc(t.firstName)}">
-          <img src="${esc(tePath(slug, '4x5'))}" alt="${esc(te.meetLine)} — Hailey Meet 4:5" width="432" height="540" loading="lazy" />
-        </button>
-        <div class="ratio-row">
-          <a href="${esc(tePath(slug, '4x5'))}" download>4:5</a>
-          <a href="${esc(tePath(slug, '1x1'))}" download>1:1</a>
-          <a href="${esc(tePath(slug, '9x16'))}" download>9:16</a>
-        </div>
-      </div>
-      <div class="person__body">
+      <div class="person__body full">
         <header>
           <p class="angle">${esc(pkg.creativeAngle)}</p>
           <h3>${esc(t.firstName)}</h3>
           <p class="role">${esc(t.title)}</p>
           <p class="meta"><a href="${esc(t.profileUrl)}" target="_blank" rel="noopener noreferrer">Talent Pool</a> · source ${esc(SOURCE_CHECKED_AT)}</p>
         </header>
+        <p class="note" style="margin-top:0.5rem"><strong>Hailey variations</strong> — same person, her four layout DNA:</p>
+        ${renderVariantStrip(slug, t.firstName)}
+        <div class="ratio-row" style="margin-top:0.65rem">
+          <a href="${esc(tePath(slug, '4x5'))}" download>Flagship 4:5</a>
+          <a href="${esc(tePath(slug, '1x1'))}" download>1:1</a>
+          <a href="${esc(tePath(slug, '9x16'))}" download>9:16</a>
+        </div>
         <dl class="facts">
-          <div><dt>On-image</dt><dd>${esc(te.meetLine)} · ${esc(te.role)} · interview CTA</dd></div>
+          <div><dt>On-image</dt><dd>${esc(te.meetLine)} · ${esc(te.role)} · interview CTA · Hailey price placements</dd></div>
           <div><dt>Meta headline</dt><dd>${esc(pkg.headline)}</dd></div>
           <div><dt>CTA</dt><dd>${esc(pkg.cta)}</dd></div>
         </dl>
@@ -136,7 +163,7 @@ function renderPersonCards(cat) {
           <span class="label">Primary text</span>
           ${primaryParagraphs(pkg.primaryText)}
         </div>
-        <p class="note"><strong>Designer:</strong> ${esc(DESIGNER_NOTES[t.id] || 'Match Hailey / Role-Offer Meet DNA.')}</p>
+        <p class="note"><strong>Designer:</strong> ${esc(DESIGNER_NOTES[t.id] || 'Match Hailey Role-Offer comps — photo left/right + her price treatments.')}</p>
         <div class="actions">
           <a class="btn primary" href="${esc(raw)}" download>Source photo</a>
           <a class="btn" href="${esc(BRAND.assets.logoColoredSvg)}" download>Logo SVG</a>
@@ -227,9 +254,34 @@ const css = `
   }
   section > .sec-lede { margin: 0 0 0.85rem; color: #475569; max-width: 44rem; font-size: 0.95rem; }
   .ready-grid {
-    display: grid; gap: 0.85rem;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    display: grid; gap: 1.15rem;
   }
+  .ready-block {
+    background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 0.9rem 1rem 1.05rem;
+  }
+  .ready-head h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+  .ready-head p { margin: 0 0 0.75rem; font-size: 0.88rem; color: #64748b; }
+  .hailey-refs {
+    display: grid; gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    margin: 0 0 1rem;
+  }
+  .hailey-refs figure { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .hailey-refs img { width: 100%; height: auto; display: block; aspect-ratio: 1; object-fit: cover; }
+  .hailey-refs figcaption { padding: 0.55rem 0.65rem 0.7rem; }
+  .hailey-refs strong { display: block; font-size: 0.78rem; color: var(--deep); margin-bottom: 0.2rem; }
+  .hailey-refs span { font-size: 0.72rem; color: #64748b; line-height: 1.35; display: block; }
+  .var-strip {
+    display: grid; gap: 0.55rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  @media (max-width: 900px) { .var-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .var-card {
+    display: block; text-decoration: none; color: inherit;
+    background: #f8fafc; border: 1px solid var(--line); border-radius: 10px; padding: 0.4rem;
+  }
+  .var-card img { width: 100%; height: auto; border-radius: 6px; display: block; }
+  .var-card span { display: block; margin-top: 0.35rem; font-size: 0.7rem; font-weight: 700; color: #475569; line-height: 1.25; }
   .ready-card {
     background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.75rem;
     text-decoration: none; color: inherit;
@@ -258,11 +310,11 @@ const css = `
   .rules ul { margin: 0; padding-left: 1.1rem; color: #334155; }
   .rules li { margin: 0.25rem 0; }
   .person {
-    display: grid; gap: 1rem; grid-template-columns: 280px 1fr;
+    display: block;
     background: #fff; border: 1px solid var(--line); border-radius: 14px;
     padding: 1rem; margin-bottom: 1rem;
   }
-  @media (max-width: 800px) { .person { grid-template-columns: 1fr; } }
+  .person__body.full { max-width: 100%; }
   .person__art img { width: 100%; height: auto; display: block; border-radius: 8px; }
   .preview-hit {
     display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in;
@@ -340,21 +392,22 @@ const html = `<!doctype html>
   ${renderDocHeader({
     activeId: 'real-people',
     pageTitle: 'Real People',
-    pageSubtitle: 'Ready ads · next wave · Hailey Meet look · Talent Pool downloads — one page.',
+    pageSubtitle: 'Hailey Role-Offer variations · Ready ads · next wave · Talent Pool downloads.',
     subnav: LAUNCH_SUBNAV,
     activeSubHref: '/real-people-creative.html#ready',
   })}
   <main>
     <header class="hero">
       <h1>Real People</h1>
-      <p class="lede">${esc(STRATEGY.intro)} Same Hailey / Role-Offer look that launched today. Source: <a href="${esc(TALENT_POOL_URL)}" target="_blank" rel="noopener noreferrer">Talent Pool</a>.</p>
+      <p class="lede">${esc(STRATEGY.intro)} Layouts = what Hailey likes — Meet {Name} on her Role-Offer comps. Source: <a href="${esc(TALENT_POOL_URL)}" target="_blank" rel="noopener noreferrer">Talent Pool</a>.</p>
       <div class="status-row">
         <span class="status go">Ready · ${esc(launch1.people.join(' · '))}</span>
         <span class="status next">Next · ${esc(launch2.people.join(' · '))}</span>
         <span class="status soft">${esc(CONCEPT_DIRECTION.activeName)}</span>
       </div>
       <nav class="jump" aria-label="On this page">
-        <a href="#ready">Ready to load</a>
+        <a href="#hailey">Hailey refs</a>
+        <a href="#ready">Ready variations</a>
         <a href="#next">Next up</a>
         <a href="#batch">Four people + copy</a>
         <a href="#concept">Look / rules</a>
@@ -364,13 +417,19 @@ const html = `<!doctype html>
       </nav>
     </header>
 
+    <section id="hailey">
+      <h2>Hailey’s refs — build variations of these</h2>
+      <p class="sec-lede">These are the comps she likes. Real People = same layouts with Meet {Name} + public role/skills.</p>
+      ${renderHaileyRefs()}
+    </section>
+
     <section id="ready">
-      <h2>${esc(launch1.title)}</h2>
-      <p class="sec-lede">${esc(launch1.forGraphics)}</p>
+      <h2>${esc(launch1.title)} · 4 layout variations each</h2>
+      <p class="sec-lede">${esc(launch1.forGraphics)} Each person has burnout / biller / nurse / dental DNA.</p>
       <div class="actions" style="margin:0 0 0.85rem">
         <a class="btn primary" href="/graphic-request-brief.html">Brief / form paste</a>
         <a class="btn" href="/exports/meta-upload-ready/">Upload-ready folder</a>
-        <a class="btn" href="/template-test-board.html#hailey-likes">Hailey refs</a>
+        <a class="btn" href="/role-offer-templates.html">Editable Role-Offer board</a>
         <a class="btn" href="/meta-launch-build-pack.html">Ads Manager pack</a>
       </div>
       <div class="ready-grid">${renderReadyGrid()}</div>
