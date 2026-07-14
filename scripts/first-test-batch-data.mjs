@@ -408,10 +408,10 @@ export const PRODUCTION_CONCEPTS = [
     id: '1',
     name: 'General Medical Practice Callout',
     audience: 'Medical practice owners and practice managers',
-    headline: 'Medical Practice Owners',
-    support: 'Add full-time virtual support without adding office space.',
+    headline: 'Add full-time virtual support without adding office space.',
+    support: 'Hire a Virtual Medical Admin — Hailey Role-Offer DNA.',
     visual:
-      'Professional medical office environment and a calm remote virtual staff member handling calls, scheduling, patient intake, or administrative work.',
+      'Person left on light plate. Right: Hire a Virtual + Medical Admin pill, checklist, STARTING AT $10/hour box, Book a Demo. Match Hailey Role-Offer type.',
     cta: 'Book a Demo',
     warning: 'Do not imply MedVirtual operates or replaces the clinic front desk.',
     primaryText:
@@ -423,10 +423,10 @@ export const PRODUCTION_CONCEPTS = [
     id: '2',
     name: 'Dental Practice Callout',
     audience: 'Dental practice owners and dental practice managers',
-    headline: 'Dental Practice Owners',
-    support: 'Help with scheduling, insurance, and patient follow-up.',
+    headline: 'Fewer missed calls. Fewer empty chairs.',
+    support: 'Hire a Virtual Dental Admin — Hailey Role-Offer DNA.',
     visual:
-      'Professional dental office setting paired with a remote virtual staff member handling scheduling, reminders, insurance verification, or pre-authorizations.',
+      'Person hard-left (face clear of type). Right: DENTISTS! · Hire a Virtual + Dental Admin · checklist · $10 circle · Get Started. Hailey type + setup.',
     cta: 'Book a Demo',
     warning: 'Keep the visual clearly dental-specific without using graphic clinical imagery.',
     primaryText:
@@ -453,10 +453,10 @@ export const PRODUCTION_CONCEPTS = [
     id: '4',
     name: 'Pain-First Offer',
     audience: 'Medical and dental practice decision-makers',
-    headline: 'Too Many Calls. Not Enough Staff.',
-    support: 'Full-time virtual staff starting at $10/hour.',
+    headline: 'Too many calls. Not enough staff.',
+    support: 'Hire a Virtual Front Desk Support — Hailey Role-Offer DNA.',
     visual:
-      'Strong split-screen or before/after: overloaded office on one side, calm remote virtual staff member supporting the team on the other.',
+      'Person left. Right: Hire a Virtual + Front Desk Support pill, checklist, $10 box, Book a Demo. Pain headline in Hailey Be Vietnam hierarchy — not old all-caps stack.',
     cta: 'Book a Demo',
     warning: 'Keep the message simple. Do not add a long list of tasks.',
     primaryText:
