@@ -79,6 +79,8 @@ import {
   DELIVERABLES_STATIC,
   DELIVERABLES_MOTION,
   CONCEPT_VARIATIONS,
+  TEAM_HANDOFF_LINKS,
+  SITE_BASE,
 } from './production-library-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -2789,7 +2791,14 @@ function renderHandoff() {
     : `<p>VMA-01 wave complete for this size — pick up motion or concept review.</p>`;
 
   const monday = MONDAY_REQUEST;
-  const mondayDesc = monday.fields.description.replace('[site]', 'https://medvirtual-ad-content-doc.vercel.app');
+  const teamLinks = TEAM_HANDOFF_LINKS.map(
+    (l) => `<div class="soft-card">
+  <p class="master-card__meta">Step ${l.step}</p>
+  <h3><a href="${esc(SITE_BASE + l.path)}" target="_blank" rel="noopener">${esc(l.label)}</a></h3>
+  <p>${esc(l.note)}</p>
+  <p><code style="font-size:0.78rem;word-break:break-all">${esc(SITE_BASE + l.path)}</code></p>
+</div>`,
+  ).join('');
 
   const body = `
     <div class="hero">
@@ -2800,14 +2809,15 @@ function renderHandoff() {
 
     <section id="monday-request">
       <h2 class="section-head">${icon('target')} Monday.com graphics request</h2>
-      <p class="lede">Copy these fields into the <a href="${esc(monday.formUrl)}" target="_blank" rel="noopener">Graphics Request Form</a>.</p>
+      <p class="lede">Copy into the <a href="${esc(monday.formUrl)}" target="_blank" rel="noopener">Graphics Request Form</a>. <b>All answers are on the site — no email needed.</b></p>
+      <div class="queue-grid" style="margin-bottom:1rem">${teamLinks}</div>
       <div class="soft-card">
         <p><b>Brand:</b> ${esc(monday.fields.brand)}</p>
         <p><b>Type of Request:</b> ${esc(monday.fields.type)}</p>
         <p><b>Title of Request:</b> <code>${esc(monday.fields.title)}</code></p>
-        <p><b>Description:</b></p>
-        ${copyBlock(mondayDesc)}
-        <p><b>References:</b> ${esc(monday.fields.references)}</p>
+        <p><b>Description (copy all):</b></p>
+        ${copyBlock(monday.fields.description)}
+        <p><b>References / inspo:</b> ${esc(monday.fields.references)}</p>
         <p style="margin-top:0.75rem"><a class="dl" href="${esc(monday.formUrl)}" target="_blank" rel="noopener">Open Monday form →</a></p>
       </div>
     </section>

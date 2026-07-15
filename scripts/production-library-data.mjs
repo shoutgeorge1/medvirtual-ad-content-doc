@@ -147,28 +147,92 @@ export const GREEN_MOTION_BRIEF = {
   export: ['MP4 H.264', '30fps', 'Editable AE / CapCut / Premiere source', 'First frame = strong static'],
 };
 
+export const SITE_BASE = 'https://medvirtual-ad-content-doc.vercel.app';
+
+/** Direct links for Philippines team — everything on the site, no email needed. */
+export const TEAM_HANDOFF_LINKS = [
+  {
+    step: 1,
+    label: 'Component Library — START HERE',
+    path: '/graphics-kit.html#01-4x5',
+    note: 'Every piece: transparent person PNG, logos, headline copy, colors, layout mock per size. Click to inspect · right-click to save.',
+  },
+  {
+    step: 2,
+    label: 'Dashboard — what to build now',
+    path: '/studio.html',
+    note: 'Winning direction, deliverable list, what is paused.',
+  },
+  {
+    step: 3,
+    label: 'Static Production — all aspect ratios',
+    path: '/vma-static.html',
+    note: '4:5 · 9:16 · 1.91:1 · 1:1 — AI drafts, exact filenames, safe zones.',
+  },
+  {
+    step: 4,
+    label: 'Winners — approved reference',
+    path: '/vma-approved.html',
+    note: 'Full-size VMA-01 Spanish Green master to match.',
+  },
+  {
+    step: 5,
+    label: 'Animated Video — motion brief',
+    path: '/vma-video.html#green-motion',
+    note: 'Make the static move · 6s first · frame 0 = full composition.',
+  },
+  {
+    step: 6,
+    label: 'Handoff — QA checklist before submit',
+    path: '/vma-handoff.html#qa',
+    note: 'Tick off dimensions, copy, logo, no pink — then mark Monday done.',
+  },
+];
+
+function teamLink(path) {
+  return `${SITE_BASE}${path}`;
+}
+
 export const MONDAY_REQUEST = {
   formUrl: 'https://forms.monday.com/forms/d03f1925ccfafd8f54a39d90a0e277d4?r=use1',
   fields: {
     brand: 'MedVirtual',
     type: 'Ad Graphics',
-    title: 'VMA-01 Green Person — [ratio or variation name]',
-    description: `CURRENT WINNING DIRECTION ONLY — VMA-01 Spanish Green (lime-scrub admin).
+    title: 'VMA-01 Green Person — all aspect ratios + motion',
+    description: `VMA-01 Spanish Green ONLY (lime-scrub admin). Pause Cobalt (02) and Signal Yellow (03).
 
-Kill/pause all other concepts (Cobalt, Signal Yellow, unrelated experiments).
+Everything you need is on the site — no email required. Open these links in order:
 
-Production library: [site]/graphics-kit.html#01-4x5
+1) Component Library (START HERE)
+${teamLink('/graphics-kit.html#01-4x5')}
+→ Download person PNG, logos, copy text, hex colors. Layout mock = reference only — rebuild in Photoshop / Illustrator / Figma.
 
-Deliver:
-• Static PNG at exact Meta dimensions (rebuild layout — do not stretch square)
-• Transparent person from library + separate background + copy layers
-• Editable PSD/AI/Figma source
-• 6s motion MP4 where requested (make the static move — see Animated Video brief)
+2) Static Production (sizes + filenames)
+${teamLink('/vma-static.html')}
+→ 4:5 (1080×1350) first, then 9:16, 1.91:1. Do NOT stretch the square.
 
-Reference: approved 1:1 master + AI drafts on Component Library page.`,
-    resolution: 'Pick preset OR enter custom px from brief',
+3) Winners (approved reference)
+${teamLink('/vma-approved.html')}
+→ Match this look. Full-size 1:1 master.
+
+4) Motion brief (if doing video)
+${teamLink('/vma-video.html#green-motion')}
+→ 6-second MP4 test first. Make the static move — not a new commercial.
+
+5) QA before you finish
+${teamLink('/vma-handoff.html#qa')}
+→ Checklist: correct copy, dimensions, MedVirtual logo (never MedVirtual.ai), no pink.
+
+DELIVER:
+• Static PNGs per Meta size (rebuilt layouts, not cropped square)
+• Transparent person + separate background + text layers
+• Editable PSD / AI / Figma source
+• 6s MP4 (4:5) + 8s MP4 (9:16) if assigned
+
+Filename example: MV_VMA_01_SpanishGreen_4x5.png`,
+    resolution: 'Custom — see Static Production page for exact px per ratio',
     dueDate: 'Per sprint assignment',
-    references: 'Link to graphics-kit.html + attach approved master screenshot',
+    references: `${teamLink('/graphics-kit.html#01-4x5')} — attach approved master screenshot if the form allows a file.`,
   },
 };
 
