@@ -9,6 +9,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "generate:vma": "node scripts/generate-motion-concept-data.mjs && node scripts/generate-motion-concept-lab.mjs && node scripts/generate-vma-site.mjs",
+    "extract:components": "node scripts/extract-master-components.mjs",
     "generate:images": "node scripts/generate-image-variations.mjs",
     "generate:studio": "npm run generate:vma",
     "generate:ideas": "npm run generate:vma",

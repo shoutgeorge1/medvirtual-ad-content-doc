@@ -68,6 +68,7 @@ import {
 } from './competitor-ads-data.mjs';
 import { loadLiveSnapshots } from './scrape-ad-library-helpers.mjs';
 import { GRAPHICS_REQUEST_EMAIL } from './creative-hopper-data.mjs';
+import { writeGraphicsKit } from './generate-graphics-kit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.join(__dirname, '..', 'public');
@@ -1258,7 +1259,7 @@ function renderRedirect(to) {
 // ─── 1. Dashboard (studio.html) ──────────────────────────────────────────────
 
 function renderStudio() {
-  const primaryTask = WHAT_WE_NEED_NOW[0];
+  const primaryTask = 'Open the Graphics Component Kit — rebuild all 4 masters at 4:5 from separate pieces (do not stretch the square).';
   const buildOrder = WHAT_WE_NEED_NOW[1];
   const rules = WHAT_WE_NEED_NOW.slice(2);
   const ruleChips = rules
@@ -1307,6 +1308,8 @@ function renderStudio() {
     <section id="quick-links">
       <h2 class="section-head">${icon('links')} Quick Links</h2>
       <div class="quick-links">
+        <a href="/graphics-kit.html">${icon('formats')} Component Kit</a>
+        <a href="/vma-handoff.html">${icon('target')} Production Handoff</a>
         <a href="/vma-approved.html">${icon('eye')} Approved Ads</a>
         <a href="/ideas.html">${icon('idea')} New Concepts</a>
         <a href="/vma-static.html">${icon('ratio')} Aspect Ratios</a>
@@ -1813,6 +1816,8 @@ function renderStatic() {
       <h1>Aspect Ratios</h1>
       <p>Same ad idea — four phone-friendly shapes. Start from an approved square, then rebuild the layout for tall feed, Stories/Reels, and wide placements.</p>
     </div>
+
+    <div class="banner"><strong>Philippines team:</strong><span class="sub"><a href="/graphics-kit.html"><b>Graphics Component Kit</b></a> — click each piece (person, headline, benefits, price) to inspect full-size next to the layout mock and AI draft. Rebuild every size — never stretch the square.</span></div>
 
     <div class="banner"><strong>New: AI-drafted aspect ratios.</strong><span class="sub">Each approved master now has an AI-reframed 4:5, 9:16, and 1.91:1 draft below (exact Meta pixel sizes). These are <b>drafts for review</b> — check spelling, faces, hands, safe zones, and pink before use, then a designer finalizes the winners.</span></div>
 
@@ -2617,6 +2622,7 @@ function renderHandoff() {
   <p>Target: <b>${esc(waveSpec.label)}</b> · ${esc(waveSpec.dims)}</p>
   <p>Filename: <code>${esc(cell?.expectedFilename || `${m.stem}_${waveSpec.id}.png`)}</code></p>
   <p>${statusBadge(status)}</p>
+  <a class="dl" href="/graphics-kit.html#${esc(m.number)}-${esc(waveSpec?.id || '4x5')}">Open component kit →</a>
   <a class="dl" href="${esc(m.masterImage)}" target="_blank" rel="noopener">Open master</a>
 </div>`;
         })
@@ -2685,6 +2691,13 @@ function renderHandoff() {
 
     <section id="priority-now">
       <h2 class="section-head">${icon('target')} Do this first</h2>
+      <div class="primary-task" style="margin-bottom:1rem">
+        <span class="ico" aria-hidden="true">${icon('formats')}</span>
+        <div>
+          <p class="primary-task__label">Component kit — start here</p>
+          <p class="primary-task__text"><a href="/graphics-kit.html"><b>Open the Graphics Component Kit</b></a> — every piece of the puzzle, laid next to each size. Click to inspect before you download. Do not stretch the square.</p>
+        </div>
+      </div>
       <div class="job-box">
         <p style="font-size:1.05rem"><b>Resize the 4 approved masters into ${esc(waveLabel)}.</b></p>
         <p>Work in this order: ${GRAPHICS_BUILD_ORDER.map((n) => `<b>VMA-${esc(n)}</b>`).join(' → ')}</p>
@@ -2873,6 +2886,7 @@ const primary = [
 ];
 
 for (const [name, html] of primary) write(name, html);
+writeGraphicsKit();
 for (const r of REDIRECTS) write(r.from, renderRedirect(r.to));
 
 // Root entry — never serve the old Creative Handoff React app
