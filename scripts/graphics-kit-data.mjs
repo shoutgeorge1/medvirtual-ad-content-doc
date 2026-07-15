@@ -4,6 +4,7 @@
 import { APPROVED_MASTERS, FORMAT_SPECS, GRAPHICS_BUILD_ORDER, GRAPHICS_VARIATION_ORDER, GRAPHICS_PAUSED } from './vma-approved-masters.mjs';
 import {
   WINNING_NOTE,
+  ACTIVE_REQUEST_NOTE,
   PRODUCTION_STATUS,
   TYPOGRAPHY,
   LOGO_ASSETS,
@@ -56,12 +57,12 @@ export const MASTER_THEMES = {
     bg: '#0a0a0a',
     panel: 'linear-gradient(160deg,#0a0a0a 0%,#0f1a0f 100%)',
     ink: '#ffffff',
-    accent: '#B8F000',
+    accent: '#4FB84F',
     accentAlt: '#22C55E',
-    priceBg: '#B8F000',
+    priceBg: '#4FB84F',
     priceInk: '#0a0a0a',
     chipBg: 'rgba(255,255,255,0.95)',
-    chipBorder: '#B8F000',
+    chipBorder: '#4FB84F',
     chipInk: '#0a0a0a',
   },
 };
@@ -70,32 +71,33 @@ const SUBHEADS = {
   '01': 'Reception · insurance · preauth · billing — Spanish available',
   '02': 'Help with calls, scheduling, insurance, and billing',
   '03': 'Front-office support — calls, scheduling, insurance, billing',
-  '04': 'Reception · insurance · preauth · billing — HIPAA compliant',
+  '04': 'Reception · insurance · scheduling · billing — HIPAA compliant',
 };
 
 const HEADLINE_LINES = ['HIRE A', 'VIRTUAL', 'MEDICAL', 'ADMIN'];
 
 /** Transparent person PNGs — scrub color is separate, changeable in any editor */
 export const PERSON_TRANSPARENT = {
-  '01': '/assets/video-elements/people/admin-lime.png',
+  '01': '/assets/graphics-kit/options/green-person-a-brunette-bun.png',
   '02': '/assets/video-elements/people/admin-cobalt.png',
   '03': '/assets/video-elements/people/admin-cobalt.png',
-  '04': '/assets/video-elements/people/admin-lime.png',
+  '04': '/assets/graphics-kit/options/green-person-a-brunette-bun.png',
 };
 
 export const SHARED_ASSETS = [
-  { label: 'Person · cobalt scrubs (transparent PNG)', href: '/assets/video-elements/people/admin-cobalt.png' },
-  { label: 'Person · lime scrubs (transparent PNG)', href: '/assets/video-elements/people/admin-lime.png' },
+  { label: 'Green person · brunette bun — winner (transparent PNG)', href: '/assets/graphics-kit/options/green-person-a-brunette-bun.png' },
+  { label: 'Green person · brunette hair down (transparent PNG)', href: '/assets/graphics-kit/options/green-person-b-brunette-down.png' },
+  { label: 'Green person · blonde (transparent PNG)', href: '/assets/graphics-kit/options/green-person-c-blonde.png' },
   { label: 'MedVirtual logo · white', href: '/assets/brand/medvirtual/logo-white.svg' },
   { label: 'MedVirtual logo · color', href: '/assets/brand/medvirtual/logo-colored.svg' },
 ];
 
 /** Target scrub hex per master — team recolors the transparent layer (hue/sat in PS/Figma) */
 export const SCRUB_COLORS = {
-  '01': '#B8F000',
+  '01': '#4FB84F',
   '02': '#1D4ED8',
   '03': '#FFE600',
-  '04': '#B8F000',
+  '04': '#4FB84F',
 };
 
 const SCRUB_RECOLOR_NOTE = {
@@ -144,6 +146,7 @@ export function buildGraphicsKitPayload() {
 
   return {
     winningNote: WINNING_NOTE,
+    activeRequestNote: ACTIVE_REQUEST_NOTE,
     productionStatus: PRODUCTION_STATUS,
     typography: TYPOGRAPHY,
     logoAssets: LOGO_ASSETS,
@@ -179,6 +182,7 @@ export function buildGraphicsKitPayload() {
           },
         ]),
       );
+      const personOptions = m.number === '04' ? (PERSON_ASSETS.options || []) : [];
       const components = [
         {
           id: 'person',
@@ -187,12 +191,18 @@ export function buildGraphicsKitPayload() {
           src: PERSON_TRANSPARENT[m.number],
           refSrc: `/assets/graphics-kit/person-${m.number}.png`,
           scrubColor,
-          hint: 'Transparent cutout — change scrub color without redoing the photo. Match pose/lighting to the reference crop.',
+          options: personOptions,
+          hint: personOptions.length
+            ? 'Default person matches the approved master. Two alternates (hair down, blonde) are also available in Shared files.'
+            : 'Transparent cutout — change scrub color without redoing the photo. Match pose/lighting to the reference crop.',
           specs: [
             'PNG with transparent background — drag onto any layout',
             'Scrub color: ' + scrubColor + ' — use hue/saturation or color overlay in Photoshop / Illustrator / Figma',
             SCRUB_RECOLOR_NOTE[m.number] || 'Keep skin tones natural when recoloring scrubs only',
             'Reposition and scale per ratio — never stretch',
+            ...(personOptions.length
+              ? ['Person options: ' + personOptions.map((o) => o.label).join(' · ')]
+              : []),
           ],
         },
         {

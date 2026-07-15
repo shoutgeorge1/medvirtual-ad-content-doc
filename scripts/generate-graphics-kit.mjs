@@ -31,6 +31,7 @@ export function renderGraphicsKit() {
       <h1>Component Library</h1>
       <p><b>Production handoff — not an editor.</b> ${esc(data.winningNote || '')}</p>
       <p class="lede">Inspect · open · download every piece. Copy text and hex colors. Layout mock = <strong>composition reference only</strong> — rebuild in Photoshop / Illustrator / Figma / CapCut / AE.</p>
+      <div class="kit-alert kit-alert--win">✅ Winner: <b>VMA-04 HIPAA Green</b> — not VMA-01 Spanish Green. ${esc(data.activeRequestNote || '')}</div>
       <div class="kit-alert">⛔ Paused: VMA-02 Cobalt · VMA-03 Signal Yellow — do not start new work</div>
       <div class="kit-quickstart">
         <strong>Jump to your job:</strong>
@@ -40,7 +41,7 @@ export function renderGraphicsKit() {
         <summary>Shared files — open or right-click save (no hunting)</summary>
         <ul class="kit-assets__list" id="sharedAssetList"></ul>
       </details>
-      <div class="kit-order">Active: <b>VMA-01</b>${GRAPHICS_BUILD_ORDER.length > 1 ? ' → ' + GRAPHICS_BUILD_ORDER.slice(1).map((n) => 'VMA-' + n).join(' → ') : ''} · Variation when briefed: VMA-04 · Start <b>4:5</b></div>
+      <div class="kit-order">Active: <b>VMA-04</b>${GRAPHICS_BUILD_ORDER.length > 1 ? ' → ' + GRAPHICS_BUILD_ORDER.slice(1).map((n) => 'VMA-' + n).join(' → ') : ''} · Variation when briefed: VMA-01 · Start <b>4:5</b></div>
     </div>
 
     <section class="kit-prod" id="kit-deliverables">
@@ -92,7 +93,7 @@ export function renderGraphicsKit() {
         opt.textContent = DATA.ratioMeta[r].label + ' · ' + DATA.ratioMeta[r].dims;
         ratioSelect.appendChild(opt);
       });
-      masterSelect.value = DATA.buildOrder[0] || '01';
+      masterSelect.value = DATA.buildOrder[0] || '04';
       ratioSelect.value = '4x5';
 
       const quickstart = document.getElementById('quickstartLinks');
@@ -252,12 +253,21 @@ export function renderGraphicsKit() {
         const actions = document.getElementById('inspectActions');
         specs.innerHTML = (c.specs || []).map((s) => '<li>' + s + '</li>').join('');
         if (c.type === 'person') {
+          const optionsHtml = (c.options || []).length
+            ? '<div class="inspect-options"><p><b>Person options</b> — default matches approved master; alternates for variations:</p><ul>' +
+              c.options.map((o) => '<li><a href="' + o.href + '" target="_blank" rel="noopener">' + o.label + '</a></li>').join('') +
+              '</ul></div>'
+            : '';
           prev.innerHTML = '<div class="inspect-dual">' +
             '<div><small>Transparent PNG (use this)</small><div class="thumb-checker inspect-checker"><img src="' + c.src + '" alt="" /></div></div>' +
             '<div><small>Reference crop from live 1:1</small><img src="' + c.refSrc + '" alt="" /></div>' +
-            '</div>';
-          actions.innerHTML = '<a href="' + c.src + '" target="_blank" rel="noopener">Open transparent PNG</a> ' +
-            '<a href="' + c.refSrc + '" target="_blank" rel="noopener">Open reference crop</a>';
+            '</div>' + optionsHtml;
+          const optionLinks = (c.options || []).map((o) =>
+            '<a href="' + o.href + '" target="_blank" rel="noopener">' + o.label + '</a>'
+          ).join(' ');
+          actions.innerHTML = '<a href="' + c.src + '" target="_blank" rel="noopener">Open default PNG</a> ' +
+            '<a href="' + c.refSrc + '" target="_blank" rel="noopener">Open reference crop</a>' +
+            (optionLinks ? ' ' + optionLinks : '');
         } else if (c.type === 'scrub') {
           prev.innerHTML = '<div class="swatch-grid"><div><span style="background:' + c.scrubColor + '"></span><strong>Scrub color</strong><code>' + c.scrubColor + '</code></div></div>' +
             '<p class="inspect-hint">Apply to the transparent person layer — hue/saturation or color overlay. Do not bake into a flat export unless final.</p>';
@@ -326,6 +336,9 @@ export function renderGraphicsKit() {
     .kit-hero { margin-bottom: 1rem; }
     .kit-hero h1 { margin: 0 0 0.5rem; font-size: 1.75rem; }
     .kit-alert { margin: 0.65rem 0; padding: 0.55rem 0.85rem; background: #FFF4E5; border: 1px solid #E8C99A; border-radius: 8px; font-weight: 700; font-size: 0.88rem; color: #6B4E16; }
+    .kit-alert--win { background: #E8F8EC; border-color: #7BCF8E; color: #1A5C2E; font-weight: 600; }
+    .inspect-options { margin-top: 0.85rem; font-size: 0.88rem; }
+    .inspect-options ul { margin: 0.35rem 0 0; padding-left: 1.1rem; }
     .kit-prod { margin: 1rem 0; padding: 1rem; background: #fff; border: 1px solid #D6E4EC; border-radius: 12px; }
     .kit-prod h2 { margin: 0 0 0.75rem; font-size: 1.1rem; }
     .kit-prod__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
@@ -428,7 +441,7 @@ export function renderGraphicsKit() {
   </style>
 </head>
 <body>
-  ${renderDocHeader({ activeId: 'graphics-kit', pageTitle: 'Component Library', pageSubtitle: 'VMA-01 green person · download components · composition reference — not an editor.' })}
+  ${renderDocHeader({ activeId: 'graphics-kit', pageTitle: 'Component Library', pageSubtitle: 'VMA-04 green person · download components · composition reference — not an editor.' })}
   <main>${body}</main>
 </body>
 </html>`;

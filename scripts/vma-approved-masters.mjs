@@ -203,7 +203,7 @@ export const APPROVED_MASTERS = [
     headline: 'Hire a Virtual Medical Admin',
     angle: 'Spanish-speaking virtual medical admin available',
     colorFamily: 'Lime green · cyan · black',
-    accentHex: '#B8F000',
+    accentHex: '#4FB84F',
     services: [
       'Reception & Admin Support',
       'Insurance Verification',
@@ -295,19 +295,19 @@ export const APPROVED_MASTERS = [
     stem: 'MV_VMA_04_HIPAAGreen',
     headline: 'Hire a Virtual Medical Admin',
     angle: 'Trust / HIPAA-forward virtual medical admin',
-    colorFamily: 'Lime green · black · white',
-    accentHex: '#B8F000',
+    colorFamily: 'Green · black · white',
+    accentHex: '#4FB84F',
     services: [
       'Reception & Admin Support',
       'Insurance Verification',
-      'Preauthorization Support',
-      'Medical Billing Support',
+      'Appointment Scheduling',
+      'Billing Support',
     ],
     offerOrBadge: 'Starting at $10/hour · HIPAA Compliant badge',
     languageOrTrust: 'HIPAA Compliant badge · English',
     claim: 'Starting at $10/hour',
     visualDescription:
-      'HIPAA Compliant shield badge; white benefit cards; circular black/green price; lime scrub talent.',
+      'HIPAA Compliant shield badge; white benefit cards; circular black/green price; green-scrub talent at laptop.',
     productionNote: 'HIPAA badge only on this concept. Keep white benefit cards and circular price treatment.',
     whyItWorks: [
       ...SHARED_WHY,
@@ -339,16 +339,16 @@ export const APPROVED_MASTERS = [
   return { ...master, formats };
 });
 
-/** Active production — green person only. Variations of VMA-01. */
-export const GRAPHICS_BUILD_ORDER = ['01'];
+/** Active production — green person only. Variations of VMA-04. */
+export const GRAPHICS_BUILD_ORDER = ['04'];
 
-/** Optional HIPAA variation (same lime person) when explicitly briefed. */
-export const GRAPHICS_VARIATION_ORDER = ['04'];
+/** Optional Spanish variation (same green person) when explicitly briefed. */
+export const GRAPHICS_VARIATION_ORDER = ['01'];
 
 /** Paused — do not assign new work. */
 export const GRAPHICS_PAUSED = ['02', '03'];
 
-export const WINNING_MASTER_NUMBER = '01';
+export const WINNING_MASTER_NUMBER = '04';
 
 export const GRAPHICS_DO = [
   'Finish one resize wave at a time (e.g. all four masters at 4:5) before starting the next size or new concepts',
@@ -388,7 +388,7 @@ export const VIDEO_STORYBOARD = [
 ];
 
 export const WHAT_WE_NEED_NOW = [
-  'VMA-01 Spanish Green only — the winning lime-scrub admin. Kill/pause Cobalt (02) and Signal Yellow (03).',
+  'VMA-04 HIPAA Green only — the winning green-scrub admin. Pause Cobalt (02) and Signal Yellow (03).',
   'Build all aspect ratios + 2–3 scroll-stopping static variations + short motion (6–10s) from Component Library pieces.',
   'Open Component Library → inspect every piece → rebuild in Photoshop / Illustrator / Figma / CapCut / AE — not in the browser.',
   'Work order: 4:5 first, then 9:16, then 1.91:1, then 1:1 variations if needed',

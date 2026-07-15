@@ -74,6 +74,7 @@ import { GRAPHICS_REQUEST_EMAIL } from './creative-hopper-data.mjs';
 import { writeGraphicsKit } from './generate-graphics-kit.mjs';
 import {
   WINNING_NOTE,
+  ACTIVE_REQUEST_NOTE,
   MONDAY_REQUEST,
   GREEN_MOTION_BRIEF,
   DELIVERABLES_STATIC,
@@ -1311,7 +1312,7 @@ function renderStudio() {
   const body = `
     <div class="hero">
       <h1>Dashboard</h1>
-      <p>Production library for the Philippines team — <b>VMA-01 green person only</b>. Rebuild in your own software; this site is not an editor.</p>
+      <p>Production library for the Philippines team — <b>VMA-04 green person only</b>. Rebuild in your own software; this site is not an editor.</p>
     </div>
 
     <section id="what-we-need">
@@ -1319,9 +1320,10 @@ function renderStudio() {
       <div class="primary-task">
         ${icon('formats')}
         <div>
-          <p class="primary-task__label">Winning direction — kill everything else</p>
+          <p class="primary-task__label">Winning direction — pause all other requests</p>
           <p class="primary-task__text">${esc(WINNING_NOTE)}</p>
-          <a class="primary-task__cta" href="/graphics-kit.html#01-4x5">Open Component Library → VMA-01 · 4:5</a>
+          <p class="note" style="margin-top:0.35rem">${esc(ACTIVE_REQUEST_NOTE)}</p>
+          <a class="primary-task__cta" href="/graphics-kit.html#04-4x5">Open Component Library → VMA-04 · 4:5</a>
           <p class="lede" style="margin-top:0.35rem"><b>Paused:</b> ${esc(pausedList)} — do not start new work on these.</p>
         </div>
       </div>
@@ -1330,9 +1332,9 @@ function renderStudio() {
 
     <section id="winning-master">
       <h2 class="section-head">${icon('approved')} Current Winner</h2>
-      <p class="lede">${statusBadge('Winning Direction')} · VMA-01 Spanish Green — lime-scrub admin producing leads more efficiently than custom video.</p>
+      <p class="lede">${statusBadge('Winning Direction')} · VMA-04 HIPAA Green — green-scrub admin producing leads more efficiently than custom video.</p>
       ${winner ? masterCard(winner, { size: 'lg' }) : ''}
-      <p style="margin-top:0.75rem"><a class="dl" href="/graphics-kit.html#01-4x5">Open full component library →</a></p>
+      <p style="margin-top:0.75rem"><a class="dl" href="/graphics-kit.html#04-4x5">Open full component library →</a></p>
     </section>
 
     <section id="deliverables">
@@ -1360,7 +1362,7 @@ function renderStudio() {
     <section id="quick-links">
       <h2 class="section-head">${icon('links')} Quick Links</h2>
       <div class="quick-links">
-        <a href="/graphics-kit.html#01-4x5">${icon('formats')} Component Library</a>
+        <a href="/graphics-kit.html#04-4x5">${icon('formats')} Component Library</a>
         <a href="/vma-handoff.html#monday-request">${icon('target')} Monday request</a>
         <a href="/vma-approved.html">${icon('eye')} Winners</a>
         <a href="/vma-static.html">${icon('ratio')} Static Production</a>
@@ -1373,7 +1375,7 @@ function renderStudio() {
     activeId: 'studio',
     title: 'Dashboard',
     pageTitle: 'Dashboard',
-    pageSubtitle: 'VMA-01 green person · component library · deliverables · what is paused.',
+    pageSubtitle: 'VMA-04 green person · component library · deliverables · what is paused.',
     body,
   });
 }
@@ -1434,14 +1436,14 @@ function renderApproved() {
     </div>
 
     <section id="winner">
-      <h2 class="section-head">${icon('approved')} VMA-01 · Spanish Green</h2>
+      <h2 class="section-head">${icon('approved')} VMA-04 · HIPAA Green</h2>
       ${winner ? approvedDetailBlock(winner) : ''}
-      <p><a class="dl" href="/graphics-kit.html#01-4x5">Open Component Library for all pieces →</a></p>
+      <p><a class="dl" href="/graphics-kit.html#04-4x5">Open Component Library for all pieces →</a></p>
     </section>
 
     ${variations.length ? `<section id="variations">
-      <h2 class="section-head">${icon('idea')} Approved variations (same lime person)</h2>
-      <p class="lede">Only when explicitly briefed — e.g. HIPAA badge instead of Spanish.</p>
+      <h2 class="section-head">${icon('idea')} Approved variations (same green person)</h2>
+      <p class="lede">Only when explicitly briefed — e.g. Spanish badge instead of HIPAA on VMA-01.</p>
       ${variations.map((m) => approvedDetailBlock(m)).join('')}
     </section>` : ''}
 
@@ -1463,7 +1465,7 @@ function renderApproved() {
     activeId: 'vma-approved',
     title: 'Performance Winners',
     pageTitle: 'Performance Winners',
-    pageSubtitle: 'VMA-01 green person · variations · paused concepts.',
+    pageSubtitle: 'VMA-04 green person · variations · paused concepts.',
     body,
   });
 }
@@ -1655,7 +1657,7 @@ function renderIdeas() {
     <div class="hero">
       <h1>Concept Review</h1>
       <p><b>Not production.</b> Thumbs up/down + notes on experiments only. Approved production assets live in the <a href="/graphics-kit.html">Component Library</a>.</p>
-      <p class="lede">Current winner: <b>VMA-01 green person</b> — new concepts should stay visually close unless explicitly testing a new direction.</p>
+      <p class="lede">Current winner: <b>VMA-04 green person</b> — new concepts should stay visually close unless explicitly testing a new direction.</p>
     </div>
 
     <section id="mockup-review">
@@ -1673,7 +1675,7 @@ function renderIdeas() {
 
     <details class="block" id="batch-archive">
       <summary>Idea batch structure (paused — green person priority)</summary>
-      <p class="lede">Finish VMA-01 production wave before starting new 15–20 concept batches.</p>
+      <p class="lede">Finish VMA-04 production wave before starting new 15–20 concept batches.</p>
       <div class="queue-grid">${batchStructure}</div>
       <h3 style="margin-top:1.25rem">Copy-paste batch request (when resumed)</h3>
       ${copyBlock(VMA_META.conceptBatchRequest)}
@@ -1864,10 +1866,10 @@ function renderStatic() {
   const body = `
     <div class="hero">
       <h1>Static Production</h1>
-      <p><b>VMA-01 green person</b> — all Meta sizes + scroll-stopping variations. Composition references on this site; final PNGs built in your production software.</p>
+      <p><b>VMA-04 green person</b> — all Meta sizes + scroll-stopping variations. Composition references on this site; final PNGs built in your production software.</p>
     </div>
 
-    <div class="banner"><strong>Component Library:</strong><span class="sub"><a href="/graphics-kit.html#01-4x5"><b>Open Component Library</b></a> — person PNG, copy, colors, logos, layout reference per ratio. <b>Do not stretch the square.</b> Cobalt (02) and Signal Yellow (03) are paused.</span></div>
+    <div class="banner"><strong>Component Library:</strong><span class="sub"><a href="/graphics-kit.html#04-4x5"><b>Open Component Library</b></a> — person PNG, copy, colors, logos, layout reference per ratio. <b>Do not stretch the square.</b> Cobalt (02) and Signal Yellow (03) are paused.</span></div>
 
     <div class="banner"><strong>AI drafts below</strong><span class="sub">AI-reframed 4:5, 9:16, and 1.91:1 drafts are <b>reference only</b> — check spelling, faces, hands, safe zones. Designer rebuilds from components.</span></div>
 
@@ -1879,7 +1881,7 @@ function renderStatic() {
 
     <section id="example">
       <h2>Start from a real approved example</h2>
-      <p class="lede">VMA-01 Spanish Green — approved square producing leads. Use as clarity bar for every other size.</p>
+      <p class="lede">VMA-04 HIPAA Green — approved square producing leads. Use as clarity bar for every other size.</p>
       <div class="example-hero">
         <div class="example-hero__media">
           <img src="${esc(exampleMaster.masterImage)}" alt="${esc(exampleMaster.name)} approved 1:1 example" width="1080" height="1080" loading="lazy" />
@@ -1898,7 +1900,7 @@ function renderStatic() {
     </section>
 
     <section id="walkthrough">
-      <h2>Example progress — VMA-01 Spanish Green</h2>
+      <h2>Example progress — VMA-04 HIPAA Green</h2>
       <p class="note">A crop is not a redesign. Reposition the pieces for each canvas.</p>
       ${walkthroughRow}
     </section>
@@ -1946,7 +1948,7 @@ function renderStatic() {
     activeId: 'vma-static',
     title: 'Static Production',
     pageTitle: 'Static Production',
-    pageSubtitle: 'VMA-01 all ratios · AI drafts · filenames · component library links.',
+    pageSubtitle: 'VMA-04 all ratios · AI drafts · filenames · component library links.',
     body,
   });
 }
@@ -2173,7 +2175,7 @@ function motionLab() {
     total: 6000,
     vo: 'Dedicated. Trained. Yours.',
     layers: `<div class="layer" style="background:#0B1F3A"></div>
-      <div class="layer stg-photo slide"><img src="/assets/video-elements/people/admin-lime.png" alt="Isolated virtual medical admin layer" style="object-fit:contain;object-position:right bottom" /></div>
+      <div class="layer stg-photo slide"><img src="/assets/graphics-kit/options/green-person-a-brunette-bun.png" alt="Isolated virtual medical admin layer" style="object-fit:contain;object-position:right bottom" /></div>
       <div class="layer stg-left-scrim"></div>
       <div class="stg-words">
         <div class="word w1">Dedicated.</div>
@@ -2339,7 +2341,7 @@ function renderVideo() {
   const outputsPerMaster = winner
     ? `<div class="soft-card">
   <div class="thumb-row"><a href="${esc(winner.masterImage)}"><img src="${esc(winner.masterImage)}" alt="${esc(winner.name)}" loading="lazy" /></a></div>
-  <h3>VMA-01 · ${esc(winner.name)} — motion targets</h3>
+  <h3>VMA-04 · ${esc(winner.name)} — motion targets</h3>
   <ul class="clean">${VIDEO_OUTPUTS_PER_MASTER.map((o) => `<li><b>${esc(o.label)}</b> — ${esc(o.purpose)}</li>`).join('')}</ul>
 </div>`
     : '';
@@ -2422,7 +2424,7 @@ function renderVideo() {
       <p class="lede">Browser preview only — not final export. Use specs below for MP4 delivery.</p>
       <div class="quick-links">
         <a href="/motion-concept-lab.html" class="primary-link">${icon('video')} Open Motion Concept Lab</a>
-        <a href="/graphics-kit.html#01-4x5">${icon('formats')} Component Library</a>
+        <a href="/graphics-kit.html#04-4x5">${icon('formats')} Component Library</a>
       </div>
     </section>
 
@@ -2779,16 +2781,16 @@ function renderHandoff() {
 
   const steps = waveSpec
     ? `<ol class="job-steps">
-      <li>Open <a href="/graphics-kit.html#01-${esc(waveSpec.id)}">Component Library</a> — download person PNG, logos, copy text, colors.</li>
-      <li>Rebuild VMA-01 for <b>${esc(waveLabel)}</b> in Photoshop / Illustrator / Figma — never stretch the square.</li>
-      <li>Keep locked copy: headline, benefits, Spanish badge, offer as approved.</li>
+      <li>Open <a href="/graphics-kit.html#04-${esc(waveSpec.id)}">Component Library</a> — download person PNG, logos, copy text, colors.</li>
+      <li>Rebuild VMA-04 for <b>${esc(waveLabel)}</b> in Photoshop / Illustrator / Figma — never stretch the square.</li>
+      <li>Keep locked copy: headline, benefits, HIPAA badge, offer as approved.</li>
       <li><b>No pink</b> · <b>MedVirtual</b> only — never MedVirtual.ai.</li>
       <li>Export PNG at <b>${esc(waveSpec.dims)}</b> — filename on card below.</li>
       <li>Save editable source (PSD / AI / Figma).</li>
       <li>Optional: 6s motion MP4 — <a href="/vma-video.html#green-motion">see motion brief</a>.</li>
       <li>Submit via <a href="#monday-request">Monday request</a> · run QA checklist below.</li>
     </ol>`
-    : `<p>VMA-01 wave complete for this size — pick up motion or concept review.</p>`;
+    : `<p>VMA-04 wave complete for this size — pick up motion or concept review.</p>`;
 
   const monday = MONDAY_REQUEST;
   const teamLinks = TEAM_HANDOFF_LINKS.map(
@@ -2804,8 +2806,19 @@ function renderHandoff() {
     <div class="hero">
       <h1>Production Handoff</h1>
       <p>Monday.com request · deliverables · QA — for the Philippines graphics and video team.</p>
-      <p class="lede"><b>VMA-01 green person only.</b> Pause Cobalt (02) and Signal Yellow (03). Rebuild from the <a href="/graphics-kit.html">Component Library</a> in your production software.</p>
+      <p class="lede"><b>VMA-04 green person only.</b> Pause Cobalt (02) and Signal Yellow (03). Rebuild from the <a href="/graphics-kit.html">Component Library</a> in your production software.</p>
     </div>
+
+    <div class="banner"><strong>Which ad is the winner?</strong><span class="sub">${esc(ACTIVE_REQUEST_NOTE)}</span></div>
+
+    <section id="already-submitted">
+      <h2 class="section-head">${icon('idea')} Already have an open Monday ticket?</h2>
+      <div class="soft-card">
+        <p>If you submitted a request titled <b>VMA-01 Spanish Green</b> or any earlier green-person ticket, <b>pause that work</b>. The winning ad is now <b>VMA-04 HIPAA Green</b> — same green-scrub person, different badge and layout.</p>
+        <p>Everything you need is on this site. Start at <a href="/graphics-kit.html#04-4x5">Component Library → VMA-04 · 4:5</a>.</p>
+        <p class="note">If your ticket title still says VMA-01, ask George for a one-line update on Monday — or submit a short follow-up note pointing to this Handoff page.</p>
+      </div>
+    </section>
 
     <section id="monday-request">
       <h2 class="section-head">${icon('target')} Monday.com graphics request</h2>
@@ -2829,11 +2842,11 @@ function renderHandoff() {
         <div>
           <p class="primary-task__label">Component Library — start here</p>
           <p class="primary-task__text"><a href="/graphics-kit.html"><b>Open Component Library</b></a> — inspect every piece · download originals · copy text/colors · see layout reference per ratio.</p>
-          <a class="primary-task__cta" href="/graphics-kit.html#01-4x5">VMA-01 · 4:5 →</a>
+          <a class="primary-task__cta" href="/graphics-kit.html#04-4x5">VMA-04 · 4:5 →</a>
         </div>
       </div>
       <div class="job-box">
-        <p style="font-size:1.05rem"><b>Build VMA-01 at ${esc(waveLabel)}.</b></p>
+        <p style="font-size:1.05rem"><b>Build VMA-04 at ${esc(waveLabel)}.</b></p>
         <p>Active: ${GRAPHICS_BUILD_ORDER.map((n) => `<b>VMA-${esc(n)}</b>`).join('')}${GRAPHICS_VARIATION_ORDER.length ? ` · Variation when briefed: ${GRAPHICS_VARIATION_ORDER.map((n) => `<b>VMA-${esc(n)}</b>`).join('')}` : ''}</p>
         <p class="note"><b>Paused:</b> ${GRAPHICS_PAUSED.map((n) => `VMA-${n}`).join(', ')}</p>
         ${steps}

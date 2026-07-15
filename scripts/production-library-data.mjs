@@ -4,16 +4,20 @@
  */
 import { FORMAT_SPECS } from './vma-approved-masters.mjs';
 
-export const WINNING_MASTER = '01';
-export const VARIATION_MASTERS = ['04'];
+export const WINNING_MASTER = '04';
+export const VARIATION_MASTERS = ['01'];
 export const PAUSED_MASTERS = ['02', '03'];
 
 export const WINNING_NOTE =
-  'VMA-01 Spanish Green (lime-scrub admin) is the current winning direction. Static images are producing leads more efficiently than longer custom video concepts. New static and motion work should stay visually close to this — do not invent unrelated directions.';
+  'VMA-04 HIPAA Green (green-scrub admin, HIPAA Compliant badge) is the current winning direction. Static images are producing leads more efficiently than longer custom video concepts. New static and motion work should stay visually close to this — do not invent unrelated directions.';
+
+/** Shown on Handoff + Component Library — prevents confusion with older VMA-01 tickets. */
+export const ACTIVE_REQUEST_NOTE =
+  'Current winner: VMA-04 HIPAA Green — the green-scrub admin with the HIPAA Compliant badge and circular $10/hr offer. If your Monday ticket says VMA-01 Spanish Green, pause that work and use VMA-04 instead. VMA-01 is only an approved variation when explicitly briefed (Spanish badge).';
 
 export const PRODUCTION_STATUS = {
-  '01': { label: 'Winning Direction', tone: 'win' },
-  '04': { label: 'Approved Variation', tone: 'ok' },
+  '04': { label: 'Winning Direction', tone: 'win' },
+  '01': { label: 'Approved Variation', tone: 'ok' },
   '02': { label: 'Paused', tone: 'pause' },
   '03': { label: 'Paused', tone: 'pause' },
 };
@@ -41,10 +45,15 @@ export const LOGO_ASSETS = [
 ];
 
 export const PERSON_ASSETS = {
-  transparent: '/assets/video-elements/people/admin-lime.png',
-  referenceCrop: '/assets/graphics-kit/person-01.png',
-  scrubColor: '#B8F000',
-  dimensions: 'High-res PNG · transparent background',
+  transparent: '/assets/graphics-kit/options/green-person-a-brunette-bun.png',
+  referenceCrop: '/assets/graphics-kit/options/green-person-a-brunette-bun.png',
+  scrubColor: '#1F7A4D',
+  dimensions: 'High-res transparent PNG · 1024×1536',
+  options: [
+    { id: 'a', label: 'Brunette · bun (matches winner)', href: '/assets/graphics-kit/options/green-person-a-brunette-bun.png' },
+    { id: 'b', label: 'Brunette · hair down', href: '/assets/graphics-kit/options/green-person-b-brunette-down.png' },
+    { id: 'c', label: 'Blonde · hair down', href: '/assets/graphics-kit/options/green-person-c-blonde.png' },
+  ],
   rules: [
     'No text, badges, backgrounds, or logos baked into the person file',
     'Recolor scrubs only — preserve natural skin tones',
@@ -69,25 +78,25 @@ export const ICON_ELEMENTS = [
 
 export const COPY_LOCKED = {
   headline: { lines: ['HIRE A', 'VIRTUAL', 'MEDICAL', 'ADMIN'], locked: true, accentLine: 1 },
-  subhead: { text: 'Reception · insurance · preauth · billing — Spanish available', locked: true },
+  subhead: { text: 'Reception · insurance · scheduling · billing', locked: true },
   benefits: {
     items: [
       'Reception & Admin Support',
       'Insurance Verification',
-      'Preauthorization Support',
-      'Medical Billing Support',
+      'Appointment Scheduling',
+      'Billing Support',
     ],
     locked: true,
   },
   offer: { text: 'Starting at $10/hour', locked: 'pending-claim', note: 'Pending leadership approval — use only as shown on approved master' },
-  trust: { text: 'Spanish Speaking Available', locked: true, note: 'Concept 01 only — flag/badge treatment' },
+  trust: { text: 'HIPAA Compliant', locked: 'pending-claim', note: 'Concept 04 — shield badge. HIPAA claim pending compliance confirmation before launch.' },
   brand: { text: 'MedVirtual', locked: true, forbid: 'MedVirtual.ai' },
 };
 
 export const DELIVERABLES_STATIC = FORMAT_SPECS.map((f) => ({
   ratio: f.label,
   dims: f.dims,
-  filename: `MV_VMA_01_SpanishGreen_${f.id}.png`,
+  filename: `MV_VMA_04_HIPAAGreen_${f.id}.png`,
   required: f.id !== '1x1' || true,
 }));
 
@@ -99,7 +108,7 @@ export const DELIVERABLES_MOTION = [
     duration: '6s',
     fps: 30,
     format: 'MP4 H.264',
-    filename: 'MV_VMA_01_SpanishGreen_6s_4x5.mp4',
+    filename: 'MV_VMA_04_HIPAAGreen_6s_4x5.mp4',
     sound: 'Works with sound off — captions optional',
     firstFrame: 'Must read as a strong static ad',
   },
@@ -110,7 +119,7 @@ export const DELIVERABLES_MOTION = [
     duration: '8s',
     fps: 30,
     format: 'MP4 H.264',
-    filename: 'MV_VMA_01_SpanishGreen_8s_9x16.mp4',
+    filename: 'MV_VMA_04_HIPAAGreen_8s_9x16.mp4',
     sound: 'Sound-off first — subtle bed only if licensed',
     firstFrame: 'Headline + person visible in frame 1',
   },
@@ -154,14 +163,14 @@ export const TEAM_HANDOFF_LINKS = [
   {
     step: 1,
     label: 'Component Library — start here',
-    path: '/graphics-kit.html#01-4x5',
+    path: '/graphics-kit.html#04-4x5',
     note: 'Transparent person PNG, logos, headline copy, colors, and layout reference for each size.',
   },
   {
     step: 2,
     label: 'Approved winner',
     path: '/vma-approved.html',
-    note: 'VMA-01 Spanish Green — match this look.',
+    note: 'VMA-04 HIPAA Green — match this look.',
   },
   {
     step: 3,
@@ -186,17 +195,17 @@ export const MONDAY_REQUEST = {
   fields: {
     brand: 'MedVirtual',
     type: 'Ad Graphics',
-    title: 'VMA-01 Green Person — 3–4 static variations + 1 animation',
+    title: 'VMA-04 HIPAA Green — 3–4 static variations + 1 animation',
     description: `Please pause all other open MedVirtual graphics requests (including any earlier VMA-01 / green-person tickets). This request replaces them.
 
-Creative direction: VMA-01 Spanish Green (lime-scrub Virtual Medical Admin). Stay close to the winning static.
+Creative direction: VMA-04 HIPAA Green — green-scrub Virtual Medical Admin with HIPAA Compliant badge and circular $10/hr offer. Match the approved 1:1 master exactly. Do not use the older VMA-01 Spanish Green layout unless explicitly briefed as a variation.
 
 Please deliver:
 • 3–4 static variations of the green-person concept, each in Meta aspect ratios: 1:1 (1080×1080), 4:5 (1080×1350), 9:16 (1080×1920), and 1.91:1 (1200×628)
 • 1 short animated sequence (about 6 seconds) based on the winning static — make the static move; do not invent a new video concept
 
 Production links:
-• Component Library (assets + copy): ${teamLink('/graphics-kit.html#01-4x5')}
+• Component Library (assets + copy): ${teamLink('/graphics-kit.html#04-4x5')}
 • Approved winner: ${teamLink('/vma-approved.html')}
 • Aspect ratios + filenames: ${teamLink('/vma-static.html')}
 • Motion brief: ${teamLink('/vma-video.html#green-motion')}
@@ -204,7 +213,7 @@ Production links:
 Brand rules: MedVirtual logo only (never MedVirtual.ai) · no pink · rebuild each ratio (do not stretch the square) · deliver PNG + editable source (PSD / AI / Figma).`,
     resolution: 'Custom — see Static Production for exact pixels per ratio',
     dueDate: 'Per sprint assignment',
-    references: teamLink('/graphics-kit.html#01-4x5'),
+    references: teamLink('/graphics-kit.html#04-4x5'),
   },
 };
 
@@ -212,16 +221,16 @@ export const CONCEPT_VARIATIONS = [
   {
     id: 'var-core',
     name: 'Core winner',
-    master: '01',
+    master: '04',
     status: 'Winning Direction',
     note: 'Approved 1:1 live reference — all new work matches this',
   },
   {
-    id: 'var-hipaa',
-    name: 'HIPAA variation',
-    master: '04',
+    id: 'var-spanish',
+    name: 'Spanish variation',
+    master: '01',
     status: 'Approved Variation',
-    note: 'Same lime person — HIPAA badge instead of Spanish. Only when briefed.',
+    note: 'Same green person — Spanish badge instead of HIPAA. Only when briefed.',
   },
   {
     id: 'var-scroll-01',

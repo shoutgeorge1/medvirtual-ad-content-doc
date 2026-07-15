@@ -29,7 +29,7 @@ export const PRIMARY_NAV = [
     href: '/vma-approved.html',
     label: 'Winners',
     id: 'vma-approved',
-    description: 'VMA-01 green person — current performance winner.',
+    description: 'VMA-04 green person — current performance winner.',
   },
   {
     href: '/ideas.html',
