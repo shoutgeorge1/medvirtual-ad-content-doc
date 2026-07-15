@@ -696,6 +696,22 @@ const PAGE_CSS = `
     margin: 0 0 0.15rem;
   }
   .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
+  .badge-new {
+    font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #fff; background: #077999; border-radius: 999px; padding: 0.15rem 0.5rem;
+  }
+  .studio-cta {
+    background: linear-gradient(160deg,#0B1F3A 0%,#0d3350 100%);
+    border-radius: 14px; padding: 1.4rem 1.5rem; margin: 0.75rem 0 1.25rem; color: #fff;
+  }
+  .studio-cta__lede { margin: 0 0 0.6rem; font-size: 1.02rem; line-height: 1.5; color: #eaf3f8; }
+  .studio-cta__lede b { color: #fff; }
+  .studio-cta .note { color: #a9c4d3; margin: 0 0 1rem; }
+  .studio-cta__btn {
+    display: inline-block; background: #00B2E2; color: #04121f; font-weight: 800;
+    padding: 0.7rem 1.2rem; border-radius: 10px; text-decoration: none; font-size: 0.98rem;
+  }
+  .studio-cta__btn:hover { filter: brightness(1.08); }
   .rule-chips { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; margin: 0.35rem 0 0; }
   .rule-chip {
     display: inline-flex;
@@ -1572,6 +1588,17 @@ function renderIdeas() {
       <h1>New Ad Ideas</h1>
       <p><b>Standard request: 15–20 concepts.</b> Build scroll-stopping originals that get people to book a demo — steal competitor energy, never copy layouts.</p>
     </div>
+
+    <section id="ad-studio-cta">
+      <h2 class="section-head">${icon('idea')} Component Ad Studio <span class="badge-new">new</span></h2>
+      <div class="studio-cta">
+        <div class="studio-cta__text">
+          <p class="studio-cta__lede">Build an ad from <b>reusable components</b> — person, headline, sub-line, callout, price, icons — like assembling a webpage. One layered build recomposes for every Meta size (1:1 · 4:5 · 9:16 · Wide) and later becomes video variations.</p>
+          <p class="note">Starting neutral (white / navy) while we lock the component system — color comes once it's right. This is the direction: elements first, graphics assembled from them.</p>
+          <a class="studio-cta__btn" href="/ad-studio.html">Open the Ad Studio →</a>
+        </div>
+      </div>
+    </section>
 
     <section id="spark-gallery">
       <h2 class="section-head">${icon('idea')} Visual spark gallery</h2>
