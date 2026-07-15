@@ -25,6 +25,8 @@
       --bg: #f7f8fa;
       --card: #ffffff;
       --accent: #0d546b;
+      --up: #1a7a4c;
+      --down: #a33a3a;
       --font: "Be Vietnam", system-ui, -apple-system, sans-serif;
     }
     * { box-sizing: border-box; }
@@ -54,11 +56,20 @@
       letter-spacing: -0.02em;
     }
     .lede {
-      margin: 0 0 1.75rem;
+      margin: 0 0 1.25rem;
       font-size: 1rem;
       color: var(--muted);
     }
     .lede strong { color: var(--ink); }
+    .studio-link {
+      display: inline-block;
+      margin: 0 0 1.5rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .studio-link:hover { text-decoration: underline; }
     .concept {
       margin-bottom: 1.75rem;
       padding: 1rem 1rem 1.1rem;
@@ -66,6 +77,7 @@
       background: var(--card);
       border: 1px solid var(--line);
     }
+    .concept.is-hidden { display: none; }
     .concept__num {
       font-size: 0.7rem;
       font-weight: 700;
@@ -87,6 +99,7 @@
       display: flex;
       gap: 0.35rem;
       margin-bottom: 0.75rem;
+      flex-wrap: wrap;
     }
     .ratio-bar button {
       font: inherit;
@@ -105,6 +118,10 @@
       color: #fff;
       border-color: var(--accent);
     }
+    .ratio-bar button.is-down {
+      opacity: 0.45;
+      text-decoration: line-through;
+    }
     .preview {
       border-radius: 10px;
       overflow: hidden;
@@ -114,36 +131,106 @@
     }
     .preview img { width: 100%; height: auto; display: block; }
     .preview__meta {
-      margin: 0.5rem 0 0;
+      margin: 0.5rem 0 0.85rem;
       font-size: 0.78rem;
       color: var(--muted);
     }
-    .feedback {
-      margin-top: 2rem;
-      padding: 1.15rem 1.1rem;
-      border-radius: 14px;
-      background: var(--card);
-      border: 1px solid var(--line);
-    }
-    .feedback h2 { margin: 0 0 0.4rem; font-size: 1.15rem; }
-    .feedback p { margin: 0 0 0.6rem; font-size: 0.92rem; color: var(--muted); }
-    .feedback ol { margin: 0 0 1rem; padding-left: 1.15rem; font-size: 0.95rem; }
-    .feedback li { margin: 0.3rem 0; }
-    .btn-mail {
-      display: inline-flex;
+    .vote {
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
-      padding: 0.7rem 1.15rem;
-      border-radius: 10px;
-      border: none;
-      font: inherit;
-      font-size: 0.98rem;
-      font-weight: 700;
-      text-decoration: none;
-      color: #fff;
-      background: var(--accent);
+      gap: 0.45rem;
+      margin-bottom: 0.55rem;
     }
-    .btn-mail:hover { filter: brightness(1.08); }
+    .vote span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-right: 0.15rem;
+    }
+    .vote button {
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .vote button.selected.up {
+      background: #e8f6ee;
+      border-color: #9ad4b4;
+      color: var(--up);
+    }
+    .vote button.selected.down {
+      background: #f8eaea;
+      border-color: #e0a8a8;
+      color: var(--down);
+    }
+    .note-label {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .note-box {
+      width: 100%;
+      font: inherit;
+      font-size: 0.9rem;
+      padding: 0.55rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      resize: vertical;
+      min-height: 64px;
+      color: var(--ink);
+      background: #fff;
+    }
+    .vote-hint {
+      margin: 0.45rem 0 0;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+    .rejected {
+      margin-top: 1.5rem;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      border: 1px dashed #d0d7de;
+      background: #fff;
+    }
+    .rejected summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .rejected__item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.7rem 0 0;
+      border-top: 1px solid var(--line);
+      margin-top: 0.7rem;
+    }
+    .rejected__item:first-of-type { border-top: none; margin-top: 0.55rem; }
+    .rejected__item strong { display: block; font-size: 0.9rem; }
+    .rejected__item p { margin: 0.2rem 0 0; font-size: 0.82rem; color: var(--muted); }
+    .rejected__item button {
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      cursor: pointer;
+      white-space: nowrap;
+    }
     .fine {
       margin-top: 1.25rem;
       font-size: 0.76rem;
@@ -160,58 +247,20 @@
   <main>
     <p class="eyebrow">Vendor review · private</p>
     <h1>Hey Athena</h1>
-    <p class="lede"><strong>Two pink concepts, all four Meta sizes.</strong> These are draft AI renders in the pink lane you asked for — pink scrubs and pink accents baked into the creative. Not final. We want your gut before we push further.</p>
+    <p class="lede"><strong>Two pink concepts, all four Meta sizes.</strong> Draft AI renders — pink scrubs and pink accents in the creative. Tap through sizes. Thumbs up / thumbs down each image and leave a note if you want something changed.</p>
+    <a class="studio-link" href="/athena-studio.html">Open the layered studio →</a>
 
-    <article class="concept" data-concept="core">
-      <p class="concept__num">Concept 01</p>
-      <h2>Pink core hire</h2>
-      <p class="concept__hook">Bold headline, admin in pink scrubs, $10/hr badge.</p>
-      <div class="ratio-bar" role="tablist" aria-label="Concept 01 sizes">
-        <button type="button" role="tab" aria-selected="false" data-ratio="1x1">1:1</button>
-        <button type="button" role="tab" aria-selected="true" data-ratio="4x5" class="is-on">4:5</button>
-        <button type="button" role="tab" aria-selected="false" data-ratio="9x16">9:16</button>
-        <button type="button" role="tab" aria-selected="false" data-ratio="1.91x1">Wide</button>
-      </div>
-      <div class="preview">
-        <img src="/exports/athena-pink/ATH_01_PinkCore_4x5.png" alt="Pink core hire ad, 4:5" loading="eager" data-preview />
-      </div>
-      <p class="preview__meta" data-meta>4:5 · 1080×1350 · primary feed</p>
-    </article>
+    <div id="concepts"></div>
+    <div id="rejectedTray"></div>
 
-    <article class="concept" data-concept="trust">
-      <p class="concept__num">Concept 02</p>
-      <h2>Pink trust</h2>
-      <p class="concept__hook">Softer blush look, friendly admin in pink scrubs.</p>
-      <div class="ratio-bar" role="tablist" aria-label="Concept 02 sizes">
-        <button type="button" role="tab" aria-selected="false" data-ratio="1x1">1:1</button>
-        <button type="button" role="tab" aria-selected="true" data-ratio="4x5" class="is-on">4:5</button>
-        <button type="button" role="tab" aria-selected="false" data-ratio="9x16">9:16</button>
-        <button type="button" role="tab" aria-selected="false" data-ratio="1.91x1">Wide</button>
-      </div>
-      <div class="preview">
-        <img src="/exports/athena-pink/ATH_02_PinkTrust_4x5.png" alt="Pink trust ad, 4:5" loading="lazy" data-preview />
-      </div>
-      <p class="preview__meta" data-meta>4:5 · 1080×1350 · primary feed</p>
-    </article>
-
-    <section class="feedback" id="feedback">
-      <h2>Your call</h2>
-      <p>Tap through the sizes, then reply — bullet points are fine.</p>
-      <ol>
-        <li>Which concept works better?</li>
-        <li>Is the pink right, or push it more / less?</li>
-        <li>Anything to change — type, crop, scrubs, vibe?</li>
-      </ol>
-      <a class="btn-mail" href="mailto:george.a@legalsoft.com?subject=Athena%20%E2%80%94%20pink%20creative%20feedback&amp;body=Hey%20George%2C%0A%0A1.%20Better%20concept%3A%20%0A2.%20Pink%20right%20or%20push%3A%20%0A3.%20Changes%3A%20%0A%0A%E2%80%94%20Athena">Send feedback</a>
-    </section>
-
-    <p class="fine">Private link — not on the main MedVirtual board. Draft AI renders for review only.</p>
+    <p class="fine">Private link — not on the main MedVirtual board. Feedback saves in this browser so we can kill the thumbs-down images and improve the ones with notes next time we work.</p>
     <footer>MedVirtual · vendor review · July 2026</footer>
   </main>
 
   <script>
     (function () {
-      var STEM = { core: 'ATH_01_PinkCore', trust: 'ATH_02_PinkTrust' };
+      var FEEDBACK_KEY = 'mv_creative_feedback_v1';
+      var RATIOS = ['1x1', '4x5', '9x16', '1.91x1'];
       var META = {
         '1x1': '1:1 · 1080×1080 · square feed',
         '4x5': '4:5 · 1080×1350 · primary feed',
@@ -219,26 +268,243 @@
         '1.91x1': '1.91:1 · 1200×628 · wide / link ads',
       };
       var BASE = '/exports/athena-pink/';
+      var CONCEPTS = [
+        {
+          id: 'core',
+          stem: 'ATH_01_PinkCore',
+          num: 'Concept 01',
+          title: 'Pink core hire',
+          hook: 'Bold headline, admin in pink scrubs, $10/hr badge.',
+        },
+        {
+          id: 'trust',
+          stem: 'ATH_02_PinkTrust',
+          num: 'Concept 02',
+          title: 'Pink trust',
+          hook: 'Softer blush look, friendly admin in pink scrubs.',
+        },
+      ];
 
-      document.querySelectorAll('.concept').forEach(function (article) {
-        var stem = STEM[article.getAttribute('data-concept')];
-        if (!stem) return;
+      function feedbackId(stem, ratio) {
+        return 'athena-' + stem + '_' + ratio;
+      }
+
+      function readFeedback() {
+        try {
+          return JSON.parse(localStorage.getItem(FEEDBACK_KEY) || '{}');
+        } catch (e) {
+          return {};
+        }
+      }
+
+      function writeFeedback(all) {
+        localStorage.setItem(FEEDBACK_KEY, JSON.stringify(all));
+      }
+
+      function updateFeedback(id, patch) {
+        var all = readFeedback();
+        all[id] = Object.assign({}, all[id] || {}, patch, {
+          updatedAt: new Date().toISOString(),
+        });
+        writeFeedback(all);
+        return all;
+      }
+
+      function restoreFeedback(id) {
+        var all = readFeedback();
+        delete all[id];
+        writeFeedback(all);
+        return all;
+      }
+
+      function firstLiveRatio(stem) {
+        var all = readFeedback();
+        for (var i = 0; i < RATIOS.length; i++) {
+          var v = all[feedbackId(stem, RATIOS[i])];
+          if (!v || v.vote !== 'down') return RATIOS[i];
+        }
+        return null;
+      }
+
+      function conceptFullyRejected(stem) {
+        var all = readFeedback();
+        return RATIOS.every(function (ratio) {
+          var v = all[feedbackId(stem, ratio)];
+          return v && v.vote === 'down';
+        });
+      }
+
+      function render() {
+        var all = readFeedback();
+        var root = document.getElementById('concepts');
+        root.innerHTML = '';
+
+        CONCEPTS.forEach(function (concept) {
+          var liveRatio = firstLiveRatio(concept.stem);
+          var fullyDown = conceptFullyRejected(concept.stem);
+          var article = document.createElement('article');
+          article.className = 'concept' + (fullyDown ? ' is-hidden' : '');
+          article.setAttribute('data-concept', concept.id);
+          if (fullyDown) {
+            root.appendChild(article);
+            return;
+          }
+
+          var ratio = liveRatio || '4x5';
+          var fid = feedbackId(concept.stem, ratio);
+          var entry = all[fid] || {};
+
+          article.innerHTML =
+            '<p class="concept__num">' + concept.num + '</p>' +
+            '<h2>' + concept.title + '</h2>' +
+            '<p class="concept__hook">' + concept.hook + '</p>' +
+            '<div class="ratio-bar" role="tablist" aria-label="' + concept.num + ' sizes"></div>' +
+            '<div class="preview"><img alt="" loading="lazy" data-preview /></div>' +
+            '<p class="preview__meta" data-meta></p>' +
+            '<div class="vote" aria-label="Creative feedback">' +
+              '<span>This size?</span>' +
+              '<button type="button" class="up" data-vote="up">👍 Works</button>' +
+              '<button type="button" class="down" data-vote="down">👎 Remove</button>' +
+            '</div>' +
+            '<label class="note-label">Note' +
+              '<textarea class="note-box" rows="3" placeholder="What works? What should change? Leave blank if nothing."></textarea>' +
+            '</label>' +
+            '<p class="vote-hint">Thumbs down hides this size. Notes save here — next time we talk, downs get cut and ups with notes get improved.</p>';
+
+          var bar = article.querySelector('.ratio-bar');
+          RATIOS.forEach(function (r) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.setAttribute('role', 'tab');
+            btn.setAttribute('data-ratio', r);
+            btn.textContent = r === '1.91x1' ? 'Wide' : r.replace('x', ':');
+            var rv = all[feedbackId(concept.stem, r)];
+            if (rv && rv.vote === 'down') btn.classList.add('is-down');
+            if (r === ratio) {
+              btn.classList.add('is-on');
+              btn.setAttribute('aria-selected', 'true');
+            } else {
+              btn.setAttribute('aria-selected', 'false');
+            }
+            btn.addEventListener('click', function () {
+              showRatio(article, concept, r);
+            });
+            bar.appendChild(btn);
+          });
+
+          var img = article.querySelector('[data-preview]');
+          var meta = article.querySelector('[data-meta]');
+          img.src = BASE + concept.stem + '_' + ratio + '.png';
+          img.alt = concept.title + ' ad, ' + ratio;
+          meta.textContent = META[ratio];
+
+          var upBtn = article.querySelector('[data-vote="up"]');
+          var downBtn = article.querySelector('[data-vote="down"]');
+          var note = article.querySelector('.note-box');
+          if (entry.vote === 'up') upBtn.classList.add('selected');
+          if (entry.vote === 'down') downBtn.classList.add('selected');
+          note.value = entry.note || '';
+
+          upBtn.addEventListener('click', function () {
+            var cur = (readFeedback()[fid] || {}).vote;
+            updateFeedback(fid, { vote: cur === 'up' ? null : 'up' });
+            render();
+          });
+          downBtn.addEventListener('click', function () {
+            updateFeedback(fid, { vote: 'down' });
+            render();
+          });
+          note.addEventListener('input', function () {
+            updateFeedback(fid, { note: note.value });
+          });
+
+          root.appendChild(article);
+        });
+
+        renderRejected();
+      }
+
+      function showRatio(article, concept, ratio) {
+        var all = readFeedback();
+        var fid = feedbackId(concept.stem, ratio);
+        var entry = all[fid] || {};
+        article.querySelectorAll('.ratio-bar button').forEach(function (b) {
+          var on = b.getAttribute('data-ratio') === ratio;
+          b.classList.toggle('is-on', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
         var img = article.querySelector('[data-preview]');
         var meta = article.querySelector('[data-meta]');
-        var buttons = article.querySelectorAll('.ratio-bar button');
-        buttons.forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            var ratio = btn.getAttribute('data-ratio');
-            buttons.forEach(function (b) {
-              b.classList.toggle('is-on', b === btn);
-              b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
-            });
-            img.src = BASE + stem + '_' + ratio + '.png';
-            img.alt = article.querySelector('h2').textContent + ' ad, ' + ratio;
-            if (meta) meta.textContent = META[ratio] || ratio;
+        img.src = BASE + concept.stem + '_' + ratio + '.png';
+        img.alt = concept.title + ' ad, ' + ratio;
+        meta.textContent = META[ratio];
+
+        var upBtn = article.querySelector('[data-vote="up"]');
+        var downBtn = article.querySelector('[data-vote="down"]');
+        var note = article.querySelector('.note-box');
+        upBtn.classList.toggle('selected', entry.vote === 'up');
+        downBtn.classList.toggle('selected', entry.vote === 'down');
+        note.value = entry.note || '';
+
+        // Rebind vote handlers for this ratio
+        upBtn.onclick = function () {
+          var cur = (readFeedback()[fid] || {}).vote;
+          updateFeedback(fid, { vote: cur === 'up' ? null : 'up' });
+          render();
+        };
+        downBtn.onclick = function () {
+          updateFeedback(fid, { vote: 'down' });
+          render();
+        };
+        note.oninput = function () {
+          updateFeedback(fid, { note: note.value });
+        };
+      }
+
+      function renderRejected() {
+        var all = readFeedback();
+        var tray = document.getElementById('rejectedTray');
+        var items = [];
+        CONCEPTS.forEach(function (concept) {
+          RATIOS.forEach(function (ratio) {
+            var id = feedbackId(concept.stem, ratio);
+            var entry = all[id];
+            if (entry && entry.vote === 'down') {
+              items.push({
+                id: id,
+                label: concept.title + ' · ' + (ratio === '1.91x1' ? 'Wide' : ratio.replace('x', ':')),
+                note: entry.note || '',
+              });
+            }
           });
         });
-      });
+        if (!items.length) {
+          tray.innerHTML = '';
+          return;
+        }
+        tray.innerHTML =
+          '<details class="rejected" open>' +
+            '<summary>Rejected (' + items.length + ')</summary>' +
+            items.map(function (item) {
+              return (
+                '<div class="rejected__item" data-id="' + item.id + '">' +
+                  '<div><strong>' + item.label + '</strong>' +
+                  (item.note ? '<p>' + item.note.replace(/</g, '&lt;') + '</p>' : '') +
+                  '</div>' +
+                  '<button type="button" data-restore="' + item.id + '">Restore</button>' +
+                '</div>'
+              );
+            }).join('') +
+          '</details>';
+        tray.querySelectorAll('[data-restore]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            restoreFeedback(btn.getAttribute('data-restore'));
+            render();
+          });
+        });
+      }
+
+      render();
     })();
   </script>
 </body>
