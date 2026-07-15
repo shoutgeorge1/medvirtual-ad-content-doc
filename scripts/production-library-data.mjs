@@ -199,7 +199,16 @@ export const MONDAY_REQUEST = {
     brand: 'MedVirtual',
     type: 'Ad Graphics',
     title: 'VMA-01 Green Person — all aspect ratios + motion',
-    description: `VMA-01 Spanish Green ONLY (lime-scrub admin). Pause Cobalt (02) and Signal Yellow (03).
+    description: `PAUSE ALL OTHER MEDVIRTUAL GRAPHICS REQUESTS.
+
+Pause/cancel:
+• Any Cobalt (VMA-02) or Signal Yellow (VMA-03) work
+• Any earlier VMA-01 / Spanish Green / green-person tickets still in progress — this request replaces them
+• Unrelated MedVirtual ad experiments not linked below
+
+Only work this ticket. Do not keep old green drafts going in parallel.
+
+CURRENT DIRECTION: VMA-01 Spanish Green (lime-scrub admin) — rebuild from the Component Library below.
 
 Everything you need is on the site — no email required. Open these links in order:
 
