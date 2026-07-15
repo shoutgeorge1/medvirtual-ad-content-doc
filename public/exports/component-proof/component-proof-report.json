@@ -1,0 +1,67 @@
+{
+  "generatedAt": "2026-07-15T22:05:39.742Z",
+  "canvas": "1080x1350",
+  "plate": "VMA-41/candidate-3.png",
+  "components": {
+    "headline": "Prompt 1 · treatment 6",
+    "background": "Prompt 2 · green burst",
+    "focalSlab": "Prompt 2 · tilted yellow offset",
+    "priceBadge": "Prompt 3 · stacked dimensional",
+    "cta": "Prompt 4 · yellow physical",
+    "icon": "Prompt 5 · call volume · variant A",
+    "benefits": [
+      "Prompt 6 · FULL-TIME STAFF",
+      "DEDICATED TO YOUR PRACTICE"
+    ]
+  },
+  "messaging": {
+    "pain": [
+      "TOO MANY CALLS.",
+      "NOT ENOUGH STAFF."
+    ],
+    "service": "HIRE A / VIRTUAL / MEDICAL ASSISTANT",
+    "price": "STARTING AT $10/HR",
+    "cta": "REQUEST AN INTERVIEW"
+  },
+  "headline": {
+    "baseSize": 82,
+    "focalSize": 97,
+    "lineHeight": 0.9,
+    "scaleX": 0.78,
+    "canvasOccupancy": {
+      "widthPct": 39.9,
+      "heightPct": 18.1
+    },
+    "strokeOuter": 14,
+    "strokeYgreen": 22,
+    "extrusionSteps": 12,
+    "extrusionStep": [
+      0.011,
+      0.013
+    ],
+    "colors": {
+      "face": "#FAF1D2",
+      "focal": "#FFD400",
+      "forest": "#14532D",
+      "extrude": "#0A3A1E",
+      "ygreen": "#9DCB3B",
+      "highlight": "#FFF7CE",
+      "slab": "#073F2A",
+      "deep": "#073F2A",
+      "forest2": "#075C37",
+      "yellow": "#F2D72E",
+      "cream": "#FFF4D6",
+      "ink": "#052818"
+    }
+  },
+  "price": {
+    "dollarSize": 124,
+    "hrSize": 50,
+    "capSize": 32
+  },
+  "cta": {
+    "height": 124,
+    "fontSize": 56,
+    "width": 976
+  }
+}

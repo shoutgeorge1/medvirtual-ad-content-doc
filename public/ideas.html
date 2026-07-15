@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Concept Review · MedVirtual</title>
+  <title>New Ad Ideas · MedVirtual</title>
   <style>
   
 @font-face {
@@ -164,21 +164,6 @@
     background: #077999;
     font-weight: 700;
   }
-  .doc-nav a.nav-team {
-    color: #0B1F3A;
-    background: #B8F000;
-    font-weight: 800;
-    border-color: rgba(184, 240, 0, 0.5);
-  }
-  .doc-nav a.nav-team:hover {
-    color: #0B1F3A !important;
-    background: #d4ff4d !important;
-  }
-  .doc-nav a.nav-team.active {
-    color: #0B1F3A;
-    background: #B8F000;
-    box-shadow: inset 0 0 0 2px #077999;
-  }
   .doc-header details.doc-nav-dd.active > summary,
   .doc-header details.doc-nav-dd[open] > summary {
     color: #ffffff !important;
@@ -308,9 +293,6 @@
   }
   .s-awaiting-design {
     background: #FFF8E8; color: #A16207; border-color: #F0D78C;
-  }
-  .s-ai-draft {
-    background: #E6F7F4; color: #0D546B; border-color: #7FCBD6;
   }
   .s-image-needed, .s-pending {
     background: #EEF2F6; color: #475569; border-color: #CBD5E1;
@@ -534,42 +516,6 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     margin-top: 0.85rem;
   }
-  .mock-grid {
-    display: grid;
-    gap: 1.1rem;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    margin-top: 0.85rem;
-  }
-  .mock-card {
-    background: #fff;
-    border: 1px solid #D6E4EC;
-    border-radius: 14px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .mock-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
-  .mock-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .mock-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; }
-  .mock-card__tag {
-    align-self: flex-start;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #077999;
-    background: #EEF6FA;
-    border: 1px solid #C5DCE8;
-    border-radius: 999px;
-    padding: 0.2rem 0.6rem;
-  }
-  .mock-card__body h3 { margin: 0; font-size: 1.2rem; }
-  .mock-card__body p { margin: 0; font-size: 0.98rem; color: #33475B; }
-  @media (max-width: 720px) {
-    .mock-grid { grid-template-columns: 1fr; }
-    .mock-card__body h3 { font-size: 1.4rem; }
-    .mock-card__body p { font-size: 1.08rem; }
-  }
   .spark-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -588,65 +534,22 @@
     object-fit: cover;
     display: block;
   }
-  .spark-card__body { padding: 1rem 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
-  .spark-card__meta {
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #077999;
-  }
-  .spark-card__headline { margin: 0; font-size: 1.3rem; line-height: 1.2; color: #0B1F3A; }
-  .spark-card__angle { margin: 0; font-size: 0.98rem; line-height: 1.45; color: #33475B; }
-  .spark-card .chip { font-size: 0.82rem; padding: 0.22rem 0.6rem; align-self: flex-start; }
+  .spark-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+  .spark-card__body h3 { margin: 0; font-size: 1.02rem; }
+  .spark-card__body p { margin: 0; font-size: 0.82rem; color: #4A6275; }
   .spark-card__spark {
     margin-top: auto;
-    padding: 0.7rem 0.8rem;
+    padding: 0.55rem 0.65rem;
     border-radius: 8px;
     background: #EEF6FA;
     border: 1px solid #C5DCE8;
     color: #0D546B;
-    font-size: 0.92rem;
-    line-height: 1.4;
+    font-size: 0.8rem;
     font-weight: 650;
   }
-  .feedback-ui {
-    margin-top: 0.35rem;
-    padding: 0.7rem;
-    border: 1px solid #D6E4EC;
-    border-radius: 9px;
-    background: #F7FAFB;
-  }
-  .feedback-ui__vote { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
-  .feedback-ui__vote strong { margin-right: 0.25rem; font-size: 0.78rem; color: #33475B; }
-  .feedback-ui button {
-    border: 1px solid #B9CAD4; border-radius: 7px; background: #fff; padding: 0.36rem 0.55rem;
-    font: inherit; font-size: 0.75rem; font-weight: 750; cursor: pointer;
-  }
-  .feedback-ui button.selected[data-vote="up"] { background: #DFF5E8; border-color: #45A66D; }
-  .feedback-ui button.selected[data-vote="down"] { background: #FFE4E4; border-color: #D65353; }
-  .feedback-ui label { display: grid; gap: 0.2rem; margin-top: 0.45rem; font-size: 0.7rem; font-weight: 750; color: #4A6275; }
-  .feedback-ui textarea {
-    width: 100%; box-sizing: border-box; resize: vertical; border: 1px solid #CBD5E1;
-    border-radius: 7px; padding: 0.45rem; font: inherit; font-size: 0.78rem;
-  }
-  .feedback-ui small { display: block; margin-top: 0.3rem; color: #6A7D89; font-size: 0.66rem; }
-  .feedback-rejected {
-    margin-top: 1rem; padding: 0.75rem; border: 1px solid #D3A3A3; border-radius: 10px;
-    background: #FFF7F7;
-  }
-  .feedback-rejected summary { cursor: pointer; font-weight: 800; }
-  .feedback-rejected__item { display: flex; justify-content: space-between; gap: 0.6rem; padding-top: 0.55rem; }
-  .feedback-rejected__item p { margin: 0.15rem 0 0; color: #6B3A3A; font-size: 0.78rem; }
   @media (max-width: 720px) {
     .example-hero, .ratio-guide { grid-template-columns: 1fr; }
     .ratio-guide__visual { flex-direction: row; flex-wrap: wrap; justify-content: center; }
-    .spark-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-    .spark-card__meta { font-size: 0.9rem; }
-    .spark-card__headline { font-size: 1.5rem; }
-    .spark-card__angle { font-size: 1.08rem; }
-    .spark-card .chip { font-size: 0.92rem; padding: 0.28rem 0.7rem; }
-    .spark-card__spark { font-size: 1.02rem; }
   }
   .approved-detail {
     display: grid;
@@ -670,84 +573,6 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
-  .ico {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    line-height: 0;
-  }
-  .section-head {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .section-head .ico { color: #077999; }
-  .primary-task {
-    display: flex;
-    gap: 0.85rem;
-    align-items: flex-start;
-    background: #ffffff;
-    border: 1px solid #D6E4EC;
-    border-left: 4px solid #077999;
-    border-radius: 12px;
-    padding: 1rem 1.15rem;
-    margin: 0.75rem 0 1rem;
-  }
-  .primary-task .ico { color: #077999; margin-top: 0.1rem; }
-  .primary-task__label {
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #077999;
-    margin: 0 0 0.15rem;
-  }
-  .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
-  .primary-task__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    margin-top: 0.65rem;
-    padding: 0.55rem 1rem;
-    border-radius: 10px;
-    background: #B8F000;
-    color: #0B1F3A !important;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 0.92rem;
-  }
-  .primary-task__cta:hover { filter: brightness(1.05); }
-  .badge-new {
-    font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
-    color: #fff; background: #077999; border-radius: 999px; padding: 0.15rem 0.5rem;
-  }
-  .studio-cta {
-    background: linear-gradient(160deg,#0B1F3A 0%,#0d3350 100%);
-    border-radius: 14px; padding: 1.4rem 1.5rem; margin: 0.75rem 0 1.25rem; color: #fff;
-  }
-  .studio-cta__lede { margin: 0 0 0.6rem; font-size: 1.02rem; line-height: 1.5; color: #eaf3f8; }
-  .studio-cta__lede b { color: #fff; }
-  .studio-cta .note { color: #a9c4d3; margin: 0 0 1rem; }
-  .studio-cta__btn {
-    display: inline-block; background: #00B2E2; color: #04121f; font-weight: 800;
-    padding: 0.7rem 1.2rem; border-radius: 10px; text-decoration: none; font-size: 0.98rem;
-  }
-  .studio-cta__btn:hover { filter: brightness(1.08); }
-  .rule-chips { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; margin: 0.35rem 0 0; }
-  .rule-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: #0D546B;
-    background: #EEF6FA;
-    border: 1px solid #C5DCE8;
-    border-radius: 999px;
-    padding: 0.28rem 0.7rem;
-  }
-  .rule-chip .ico svg { width: 15px; height: 15px; }
   .quick-links {
     display: grid;
     gap: 0.75rem;
@@ -756,10 +581,9 @@
   .quick-links a {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 0.6rem;
-    text-align: left;
-    min-height: 3.4rem;
+    justify-content: center;
+    text-align: center;
+    min-height: 3.6rem;
     padding: 0.75rem 1rem;
     border-radius: 10px;
     background: #077999;
@@ -774,73 +598,6 @@
     gap: 0.85rem;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
-  .pr-grid {
-    display: grid;
-    gap: 1.1rem;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    margin-top: 0.75rem;
-  }
-  .pr-card {
-    background: #fff;
-    border: 1px solid #D6E4EC;
-    border-radius: 14px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .pr-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
-  .pr-card__media.square { aspect-ratio: 1 / 1; }
-  .pr-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .pr-card__body { padding: 0.85rem 0.95rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
-  .pr-card__tag {
-    align-self: flex-start;
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #077999;
-    background: #EEF6FA;
-    border: 1px solid #C5DCE8;
-    border-radius: 999px;
-    padding: 0.18rem 0.55rem;
-  }
-  .pr-card__body h3 { margin: 0; font-size: 1.1rem; }
-  .pr-card__body p { margin: 0; font-size: 0.92rem; color: #4A6275; }
-  .pr-card details { margin-top: 0.35rem; }
-  .pr-card summary {
-    cursor: pointer;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #077999;
-    list-style: none;
-  }
-  .pr-card summary::-webkit-details-marker { display: none; }
-  .pr-card .prompt-body {
-    margin-top: 0.5rem;
-    padding: 0.65rem 0.75rem;
-    background: #F5F8FA;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    color: #33475B;
-    white-space: pre-wrap;
-    line-height: 1.45;
-    max-height: 12rem;
-    overflow: auto;
-  }
-  .pr-card .pr-actions { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
-  .copy-picks { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-  .copy-pick {
-    background: #fff;
-    border: 1px solid #D6E4EC;
-    border-radius: 12px;
-    padding: 0.85rem 0.95rem;
-  }
-  .copy-pick h3 { margin: 0 0 0.45rem; font-size: 0.95rem; }
-  .copy-pick .line {
-    display: flex; gap: 0.4rem; align-items: flex-start;
-    margin: 0.35rem 0; font-size: 0.88rem; color: #0B1F3A;
-  }
-  .copy-pick .line .copy-btn { flex-shrink: 0; margin-top: 0; }
   .soft-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -895,22 +652,11 @@
     object-fit: contain;
     display: block;
   }
-  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.9rem; }
-  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
-  .comp-card__body .why { font-weight: 600; color: #33475B; margin: 0.2rem 0 0; font-size: 0.92rem; }
-  .comp-card__body .mini { margin: 0.4rem 0 0; color: #4A6275; font-size: 0.86rem; }
+  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.84rem; }
+  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
+  .comp-card__body .why { font-weight: 700; color: #0B1F3A; margin: 0.2rem 0; }
+  .comp-card__body .mini { margin: 0.35rem 0 0; color: #4A6275; font-size: 0.8rem; }
   .comp-card__body .mini b { color: #0B1F3A; }
-  .comp-more { margin-top: 0.6rem; }
-  .comp-more summary {
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #077999;
-    list-style: none;
-  }
-  .comp-more summary::-webkit-details-marker { display: none; }
-  .comp-more summary::before { content: "＋ "; font-weight: 700; }
-  .comp-more[open] summary::before { content: "－ "; }
   .pink-ref {
     display: inline-block;
     margin-bottom: 0.35rem;
@@ -1120,16 +866,16 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Ad Production</h1>
-        <p class="doc-header__tagline">Scroll-stopping ads that book demos</p>
+        <p class="doc-header__tagline">Approved VMA creative · 15–20 concepts · required Meta sizes</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Dashboard</a><a href="/vma-approved.html" class="">Winners</a><a href="/ideas.html" class="active">Concept Review</a><a href="/graphics-kit.html" class="nav-team">Component Library</a><a href="/vma-static.html" class="">Static Production</a><a href="/vma-video.html" class="">Animated Video</a><a href="/vma-chatgpt.html" class="">Copy &amp; Prompts</a><a href="/competitors.html" class="">Competitors</a><a href="/vma-handoff.html" class="">Handoff</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Dashboard</a><a href="/vma-approved.html" class="">Approved Creative</a><a href="/ideas.html" class="active">New Ad Ideas</a><a href="/vma-static.html" class="">Aspect Ratios</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-video.html" class="">Animated Video</a><a href="/vma-chatgpt.html" class="">Prompts &amp; Copy</a><a href="/vma-handoff.html" class="">Production Handoff</a></nav>
     </div>
   </div>
   <div class="doc-header__page">
-          <h2 class="doc-header__page-title">Concept Review</h2>
-          <p class="doc-header__page-sub">Thumbs up/down on experiments — production lives in Component Library.</p>
+          <h2 class="doc-header__page-title">New Ad Ideas</h2>
+          <p class="doc-header__page-sub">Visual sparks · 15–20 concept workflow.</p>
           
         </div>
 </header>
@@ -1150,355 +896,309 @@
 })();
 </script>
   <main>
-    <div class="banner"><strong>MAKE ADS THAT BOOK DEMOS</strong><span class="sub">For the graphics team — match the four approved masters, build scroll-stopping concepts, rebuild every Meta size. Mine competitors for energy, never copy their layouts.</span></div>
+    <div class="banner"><strong>BOLD VIRTUAL MEDICAL ADMIN DIRECT-RESPONSE ADS</strong><span class="sub">Primary headline: HIRE A VIRTUAL MEDICAL ADMIN. Request 15–20 concepts per batch. Match the four approved masters for clarity, contrast, and mobile readability — then rebuild winners in every required Meta size.</span></div>
     
     <div class="hero">
-      <h1>Concept Review</h1>
-      <p><b>Not production.</b> Thumbs up/down + notes on experiments only. Approved production assets live in the <a href="/graphics-kit.html">Component Library</a>.</p>
-      <p class="lede">Current winner: <b>VMA-04 green person</b> — new concepts should stay visually close unless explicitly testing a new direction.</p>
+      <h1>New Ad Ideas</h1>
+      <p><b>Standard creative request: 15–20 concepts.</b> Scroll the spark gallery first — steal energy, invent original MedVirtual layouts. AI plates are for thinking and testing, not automatic launch.</p>
     </div>
 
-    <section id="mockup-review">
-      <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span> Scroll-stopping variations (review)</h2>
-      <p class="note">AI-generated mockups for direction tests — 👍 develop · 👎 archive. Production team rebuilds winners from Component Library pieces.</p>
-      <div class="spark-grid"><article class="spark-card" data-feedback-item="concept:var-scroll-01">
-  <button type="button" class="spark-card__img" data-lightbox="/assets/mockups/mock-01-giant-type.png">
-    <img src="/assets/mockups/mock-01-giant-type.png" alt="Giant type (no people)" loading="lazy" />
-  </button>
-  <div class="spark-card__body">
-    <h3>Giant type (no people)</h3>
-    <p><span class="pill s-concept-review">Concept Review</span></p>
-    <p class="note">Experimental — thumbs up/down on Concept Review page</p>
-    <div class="feedback-ui" data-feedback-for="concept:var-scroll-01"></div>
-  </div>
-</article><article class="spark-card" data-feedback-item="concept:var-scroll-02">
-  <button type="button" class="spark-card__img" data-lightbox="/assets/mockups/mock-02-split-missed-handled.png">
-    <img src="/assets/mockups/mock-02-split-missed-handled.png" alt="Split missed/handled" loading="lazy" />
-  </button>
-  <div class="spark-card__body">
-    <h3>Split missed/handled</h3>
-    <p><span class="pill s-concept-review">Concept Review</span></p>
-    <p class="note">Experimental split-screen</p>
-    <div class="feedback-ui" data-feedback-for="concept:var-scroll-02"></div>
-  </div>
-</article><article class="spark-card" data-feedback-item="concept:var-scroll-03">
-  <button type="button" class="spark-card__img" data-lightbox="/assets/mockups/mock-03-split-person.png">
-    <img src="/assets/mockups/mock-03-split-person.png" alt="Split person" loading="lazy" />
-  </button>
-  <div class="spark-card__body">
-    <h3>Split person</h3>
-    <p><span class="pill s-concept-review">Concept Review</span></p>
-    <p class="note">Person + bold type split</p>
-    <div class="feedback-ui" data-feedback-for="concept:var-scroll-03"></div>
-  </div>
-</article></div>
-      <div id="ideas-rejected"></div>
-    </section>
-
     <section id="spark-gallery">
-      <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span> Spark gallery</h2>
-      <p class="note">AI spark concepts to get the team thinking — not approved masters. Real person, clear role, a few benefits, few words. Remix freely. Check spelling, claims, hands, Spanish, logos, and pink before anything goes live.</p>
-      <div class="spark-grid"><article class="spark-card" id="spark-01" data-feedback-item="idea:spark-01" data-feedback-name="Core Hire — Lime Punch">
+      <h2>Visual spark gallery</h2>
+      <p class="note">These are AI spark concepts to get the team thinking — not approved masters. Remix freely. Check spelling, claims, hands, Spanish, logos, and pink before anything goes live.</p>
+      <p class="note"><a class="dl" href="/ai-asset-foundry.html">Open AI Asset Foundry</a> — generate raw faces, people, icons, and callouts. Click to enlarge. Download saves the file and creates four more like it.</p>
+      <div class="spark-grid"><article class="spark-card" id="spark-01">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-01-core-hire-lime.png" alt="Core Hire — Lime Punch spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 01 · Core Hire — Lime Punch</div>
-    <h3 class="spark-card__headline">Hire a Virtual Medical Admin</h3>
-    <p class="spark-card__angle">Role-first hire message with huge type and lime energy</p>
-    <span class="chip">Electric lime · black · cyan</span>
+    <div class="master-card__meta">Spark 01 · Core Offer</div>
+    <h3>Core Hire — Lime Punch</h3>
+    <p><b>Hire a Virtual Medical Admin</b></p>
+    <p>Role-first hire message with huge type and lime energy</p>
+    <p><span class="chip">Electric lime · black · cyan</span></p>
     <div class="spark-card__spark">Can we make the role even louder than the approved masters?</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
   </div>
-</article><article class="spark-card" id="spark-02" data-feedback-item="idea:spark-02" data-feedback-name="Missed Calls Panic">
+</article><article class="spark-card" id="spark-02">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-02-missed-calls.png" alt="Missed Calls Panic spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 02 · Missed Calls Panic</div>
-    <h3 class="spark-card__headline">Stop Missing Patient Calls</h3>
-    <p class="spark-card__angle">Overloaded phones / front-office chaos as the hook</p>
-    <span class="chip">Commercial red · signal yellow · navy</span>
+    <div class="master-card__meta">Spark 02 · Pain Point</div>
+    <h3>Missed Calls Panic</h3>
+    <p><b>Stop Missing Patient Calls</b></p>
+    <p>Overloaded phones / front-office chaos as the hook</p>
+    <p><span class="chip">Commercial red · signal yellow · navy</span></p>
     <div class="spark-card__spark">Lead with pain — then snap to the Virtual Medical Admin solution.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
   </div>
-</article><article class="spark-card" id="spark-03" data-feedback-item="idea:spark-03" data-feedback-name="Dental Admin Lane">
+</article><article class="spark-card" id="spark-03">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-03-dental-admin.png" alt="Dental Admin Lane spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 03 · Dental Admin Lane</div>
-    <h3 class="spark-card__headline">Hire a Virtual Dental Admin</h3>
-    <p class="spark-card__angle">Same hire model, dental practice language</p>
-    <span class="chip">Vivid green · white · yellow accent</span>
+    <div class="master-card__meta">Spark 03 · Role Specific</div>
+    <h3>Dental Admin Lane</h3>
+    <p><b>Hire a Virtual Dental Admin</b></p>
+    <p>Same hire model, dental practice language</p>
+    <p><span class="chip">Vivid green · white · yellow accent</span></p>
     <div class="spark-card__spark">Specialty lane without inventing a new brand system.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
   </div>
-</article><article class="spark-card" id="spark-04" data-feedback-item="idea:spark-04" data-feedback-name="Spanish / Bilingual">
+</article><article class="spark-card" id="spark-04">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-04-spanish-admin.png" alt="Spanish / Bilingual spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 04 · Spanish / Bilingual</div>
-    <h3 class="spark-card__headline">Contrata a un Asistente Médico Virtual</h3>
-    <p class="spark-card__angle">Full Spanish cold-audience treatment</p>
-    <span class="chip">Lime · cyan · black</span>
+    <div class="master-card__meta">Spark 04 · Language &amp; Audience</div>
+    <h3>Spanish / Bilingual</h3>
+    <p><b>Contrata a un Asistente Médico Virtual</b></p>
+    <p>Full Spanish cold-audience treatment</p>
+    <p><span class="chip">Lime · cyan · black</span></p>
     <div class="spark-card__spark">Keep Spanish native-reviewed — steal energy, not Hello Rache purple.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
   </div>
-</article><article class="spark-card" id="spark-05" data-feedback-item="idea:spark-05" data-feedback-name="Insurance Verification">
+</article><article class="spark-card" id="spark-05">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-05-insurance.png" alt="Insurance Verification spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 05 · Insurance Verification</div>
-    <h3 class="spark-card__headline">Support Insurance Verification</h3>
-    <p class="spark-card__angle">Eligibility / prior-auth backlog help</p>
-    <span class="chip">High-voltage cyan · deep navy</span>
+    <div class="master-card__meta">Spark 05 · Role Specific</div>
+    <h3>Insurance Verification</h3>
+    <p><b>Support Insurance Verification</b></p>
+    <p>Eligibility / prior-auth backlog help</p>
+    <p><span class="chip">High-voltage cyan · deep navy</span></p>
     <div class="spark-card__spark">Role-specific without looking like billing software.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
   </div>
-</article><article class="spark-card" id="spark-06" data-feedback-item="idea:spark-06" data-feedback-name="Front Desk Needs Backup">
+</article><article class="spark-card" id="spark-06">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-06-front-desk.png" alt="Front Desk Needs Backup spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 06 · Front Desk Needs Backup</div>
-    <h3 class="spark-card__headline">Your Front Desk Needs Backup</h3>
-    <p class="spark-card__angle">Problem → calm Virtual Admin solution split</p>
-    <span class="chip">Signal yellow · deep navy</span>
+    <div class="master-card__meta">Spark 06 · Pain Point</div>
+    <h3>Front Desk Needs Backup</h3>
+    <p><b>Your Front Desk Needs Backup</b></p>
+    <p>Problem → calm Virtual Admin solution split</p>
+    <p><span class="chip">Signal yellow · deep navy</span></p>
     <div class="spark-card__spark">Before/after energy without copying competitor comparison layouts.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
   </div>
-</article><article class="spark-card" id="spark-07" data-feedback-item="idea:spark-07" data-feedback-name="Medical Biller Support">
+</article><article class="spark-card" id="spark-07">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-07-billing.png" alt="Medical Biller Support spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 07 · Medical Biller Support</div>
-    <h3 class="spark-card__headline">Hire a Virtual Medical Biller</h3>
-    <p class="spark-card__angle">Billing-adjacent admin capacity</p>
-    <span class="chip">Cobalt blue · black · cyan</span>
+    <div class="master-card__meta">Spark 07 · Role Specific</div>
+    <h3>Medical Biller Support</h3>
+    <p><b>Hire a Virtual Medical Biller</b></p>
+    <p>Billing-adjacent admin capacity</p>
+    <p><span class="chip">Cobalt blue · black · cyan</span></p>
     <div class="spark-card__spark">Stay admin/staffing — never claim to replace a billing company.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
   </div>
-</article><article class="spark-card" id="spark-08" data-feedback-item="idea:spark-08" data-feedback-name="Scheduling Support">
+</article><article class="spark-card" id="spark-08">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-08-scheduling.png" alt="Scheduling Support spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 08 · Scheduling Support</div>
-    <h3 class="spark-card__headline">Add Virtual Scheduling Support</h3>
-    <p class="spark-card__angle">Book / confirm / reschedule help</p>
-    <span class="chip">Bright white · cobalt · yellow CTA</span>
+    <div class="master-card__meta">Spark 08 · Role Specific</div>
+    <h3>Scheduling Support</h3>
+    <p><b>Add Virtual Scheduling Support</b></p>
+    <p>Book / confirm / reschedule help</p>
+    <p><span class="chip">Bright white · cobalt · yellow CTA</span></p>
     <div class="spark-card__spark">Cleaner whitespace test against our denser masters.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
   </div>
-</article><article class="spark-card" id="spark-09" data-feedback-item="idea:spark-09" data-feedback-name="Dedicated — Not a Call Center">
+</article><article class="spark-card" id="spark-09">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-09-dedicated-not-callcenter.png" alt="Dedicated — Not a Call Center spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 09 · Dedicated — Not a Call Center</div>
-    <h3 class="spark-card__headline">Dedicated Staff — Not a Call Center</h3>
-    <p class="spark-card__angle">Differentiator as the hero line</p>
-    <span class="chip">Deep navy · vivid green</span>
+    <div class="master-card__meta">Spark 09 · Offer &amp; CTA</div>
+    <h3>Dedicated — Not a Call Center</h3>
+    <p><b>Dedicated Staff — Not a Call Center</b></p>
+    <p>Differentiator as the hero line</p>
+    <p><span class="chip">Deep navy · vivid green</span></p>
     <div class="spark-card__spark">Make the model crystal clear in one glance.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
   </div>
-</article><article class="spark-card" id="spark-10" data-feedback-item="idea:spark-10" data-feedback-name="Patient Intake Remote">
+</article><article class="spark-card" id="spark-10">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-10-patient-intake.png" alt="Patient Intake Remote spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 10 · Patient Intake Remote</div>
-    <h3 class="spark-card__headline">Handle Patient Intake Remotely</h3>
-    <p class="spark-card__angle">New-patient forms and chart-prep support</p>
-    <span class="chip">Electric lime · white · cobalt</span>
+    <div class="master-card__meta">Spark 10 · Role Specific</div>
+    <h3>Patient Intake Remote</h3>
+    <p><b>Handle Patient Intake Remotely</b></p>
+    <p>New-patient forms and chart-prep support</p>
+    <p><span class="chip">Electric lime · white · cobalt</span></p>
     <div class="spark-card__spark">Abstract UI only — never readable patient data.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
-  </div>
-</article><article class="spark-card" id="spark-11" data-feedback-item="idea:spark-11" data-feedback-name="Virtual Vet Admin">
-  <div class="spark-card__media">
-    <img src="/assets/idea-concepts/idea-11-vet-admin.png" alt="Virtual Vet Admin spark concept" width="1080" height="1080" loading="lazy" />
-  </div>
-  <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 11 · Virtual Vet Admin</div>
-    <h3 class="spark-card__headline">Hire a Virtual Vet Admin</h3>
-    <p class="spark-card__angle">Same hire model for veterinary practices</p>
-    <span class="chip">Vivid green · navy · white</span>
-    <div class="spark-card__spark">Veterinary lane — fewer words, one clear role.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
-  </div>
-</article><article class="spark-card" id="spark-12" data-feedback-item="idea:spark-12" data-feedback-name="Never Miss a Call">
-  <div class="spark-card__media">
-    <img src="/assets/idea-concepts/idea-12-never-miss-call.png" alt="Never Miss a Call spark concept" width="1080" height="1080" loading="lazy" />
-  </div>
-  <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 12 · Never Miss a Call</div>
-    <h3 class="spark-card__headline">Never Miss Another Call</h3>
-    <p class="spark-card__angle">After-hours / overflow phone coverage</p>
-    <span class="chip">Cobalt blue · cyan · black</span>
-    <div class="spark-card__spark">Pain hook, calm admin answer, almost no words.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
-  </div>
-</article><article class="spark-card" id="spark-13" data-feedback-item="idea:spark-13" data-feedback-name="Prior Auths Handled">
-  <div class="spark-card__media">
-    <img src="/assets/idea-concepts/idea-13-prior-auth.png" alt="Prior Auths Handled spark concept" width="1080" height="1080" loading="lazy" />
-  </div>
-  <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 13 · Prior Auths Handled</div>
-    <h3 class="spark-card__headline">Prior Auths, Handled</h3>
-    <p class="spark-card__angle">Prior-authorization backlog support</p>
-    <span class="chip">Electric lime · black · cyan</span>
-    <div class="spark-card__spark">Staffing help, not billing software.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
-  </div>
-</article><article class="spark-card" id="spark-14" data-feedback-item="idea:spark-14" data-feedback-name="Keep Patients Coming Back">
-  <div class="spark-card__media">
-    <img src="/assets/idea-concepts/idea-14-recall.png" alt="Keep Patients Coming Back spark concept" width="1080" height="1080" loading="lazy" />
-  </div>
-  <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 14 · Keep Patients Coming Back</div>
-    <h3 class="spark-card__headline">Keep Patients Coming Back</h3>
-    <p class="spark-card__angle">Recalls, reminders, and reactivation</p>
-    <span class="chip">Signal yellow · deep navy</span>
-    <div class="spark-card__spark">Outcome-led, warm, short.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
-  </div>
-</article><article class="spark-card" id="spark-15" data-feedback-item="idea:spark-15" data-feedback-name="Cut Your No-Shows">
-  <div class="spark-card__media">
-    <img src="/assets/idea-concepts/idea-15-no-shows.png" alt="Cut Your No-Shows spark concept" width="1080" height="1080" loading="lazy" />
-  </div>
-  <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 15 · Cut Your No-Shows</div>
-    <h3 class="spark-card__headline">Cut Your No-Shows</h3>
-    <p class="spark-card__angle">Confirmations that actually get answered</p>
-    <span class="chip">Vivid green · white · navy</span>
-    <div class="spark-card__spark">One outcome, three verbs, done.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
-  </div>
-</article><article class="spark-card" id="spark-16" data-feedback-item="idea:spark-16" data-feedback-name="Front Desk Backup">
-  <div class="spark-card__media">
-    <img src="/assets/idea-concepts/idea-16-front-desk-backup.png" alt="Front Desk Backup spark concept" width="1080" height="1080" loading="lazy" />
-  </div>
-  <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 16 · Front Desk Backup</div>
-    <h3 class="spark-card__headline">Give Your Front Desk Backup</h3>
-    <p class="spark-card__angle">Overloaded front office relief</p>
-    <span class="chip">High-voltage cyan · deep navy</span>
-    <div class="spark-card__spark">Relief message, calm admin, minimal text.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
-  </div>
-</article><article class="spark-card" id="spark-17" data-feedback-item="idea:spark-17" data-feedback-name="Virtual Medical Receptionist">
-  <div class="spark-card__media">
-    <img src="/assets/idea-concepts/idea-17-receptionist.png" alt="Virtual Medical Receptionist spark concept" width="1080" height="1080" loading="lazy" />
-  </div>
-  <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 17 · Virtual Medical Receptionist</div>
-    <h3 class="spark-card__headline">Hire a Virtual Medical Receptionist</h3>
-    <p class="spark-card__angle">Front-of-house receptionist lane</p>
-    <span class="chip">Electric lime · black · white</span>
-    <div class="spark-card__spark">Clear role, warm greeter energy.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
-  </div>
-</article><article class="spark-card" id="spark-18" data-feedback-item="idea:spark-18" data-feedback-name="Stay On Top of Referrals">
-  <div class="spark-card__media">
-    <img src="/assets/idea-concepts/idea-18-referrals.png" alt="Stay On Top of Referrals spark concept" width="1080" height="1080" loading="lazy" />
-  </div>
-  <div class="spark-card__body">
-    <div class="spark-card__meta">Spark 18 · Stay On Top of Referrals</div>
-    <h3 class="spark-card__headline">Stay On Top of Referrals</h3>
-    <p class="spark-card__angle">Referral coordination support</p>
-    <span class="chip">Cobalt blue · cyan · white</span>
-    <div class="spark-card__spark">Specialty admin lane, tight copy.</div>
-    <div class="feedback-ui">
-      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
-      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
-      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
-    </div>
   </div>
 </article></div>
     </section>
 
-    <details class="block" id="batch-archive">
-      <summary>Idea batch structure (paused — green person priority)</summary>
-      <p class="lede">Finish VMA-04 production wave before starting new 15–20 concept batches.</p>
-      <div class="queue-grid"><div class="soft-card"><h3>4 — Core Offer Concepts</h3></div><div class="soft-card"><h3>4 — Pain-Point Concepts</h3></div><div class="soft-card"><h3>4 — Role-Specific Concepts</h3></div><div class="soft-card"><h3>3 — Spanish or Bilingual Concepts</h3></div><div class="soft-card"><h3>3 — Offer or CTA Concepts</h3></div><div class="soft-card"><h3>2 — Experimental Concepts</h3></div></div>
-      <h3 style="margin-top:1.25rem">Copy-paste batch request (when resumed)</h3>
-      <span class="copytext">Please create 15–20 original MedVirtual Meta ad concepts. Use bold Virtual Medical Admin messaging, large mobile-readable headlines, a prominent professional person, three or four service benefits, and bright high-contrast colors. Use teal, deep navy, blue, cyan, lime, green, yellow, white, black, or limited red. Do not use pink. Do not copy competitor layouts. Provide initial square concepts first, then build approved concepts in all required aspect ratios.</span><button type="button" class="copy-btn" data-copy="Please create 15–20 original MedVirtual Meta ad concepts. Use bold Virtual Medical Admin messaging, large mobile-readable headlines, a prominent professional person, three or four service benefits, and bright high-contrast colors. Use teal, deep navy, blue, cyan, lime, green, yellow, white, black, or limited red. Do not use pink. Do not copy competitor layouts. Provide initial square concepts first, then build approved concepts in all required aspect ratios.">Copy</button>
-    </details>
+    <section id="wave-2-review">
+      <h2>Wave 2 — Controlled Testing (70% scale extensions (Spanish + trust) · 30% adjacent exploratory)</h2>
+      <div class="callout-rule">DO NOT LAUNCH ALL 14 CONCEPTS AT ONCE. First live batch: VMA-33, VMA-34, VMA-37, VMA-41, VMA-43 + videos VMA-V22, VMA-V24, VMA-V25.</div>
+      <p class="lede">Pause video campaigns globally until static winners are saturated. These animations are for AFTER static QA on their mirror concepts.</p>
+      <h3>P1 — produce &amp; test first</h3>
+      <div class="queue-grid"><article class="soft-card" id="VMA-33">
+  <div class="master-card__meta">VMA-33 · <span class="pill s-scale">Scale</span> <span class="chip" style="font-weight:700">P1</span> · ADV Broad First</div>
+  <h3>Spanish Patients Should Never Feel Lost</h3>
+  <p><b>YOUR SPANISH-SPEAKING PATIENTS SHOULD NEVER FEEL LOST</b></p>
+  <p>Dedicated bilingual virtual medical admin</p>
+  <p><span class="chip">Bilingual Patient Calls</span> <span class="chip">Schedule &amp; Confirm Visits</span> <span class="chip">Insurance Verification</span> <span class="chip">Patient Follow-Up</span></p>
+  <p><span class="chip">vivid-green</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Patient-experience framing may outperform direct hire hooks on the proven Spanish CPL lane.</p>
+  <p class="note">Clean front-office communication dashboard with English and Spanish conversation indicators, phone, appointment, and follow-up modules. No flags, stereotypes, or cartoon speech bubbles.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — bilingual communication dashboard with EN/ES lanes, phone and calendar modules; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; bilingual communication dashboard with EN/ES lanes, phone and calendar modules; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — bilingual communication dashboard with EN/ES lanes, phone and calendar modules; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; bilingual communication dashboard with EN/ES lanes, phone and calendar modules; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  <p class="note"><b>Motion:</b> Animate EN/ES lanes lighting up sequentially. VMASpanish15 or VMABilingualWorkflow15. CapCut CAPCUT-BENEFITS-15 — stagger conversation modules; no flag stickers.</p>
+</article><article class="soft-card" id="VMA-34">
+  <div class="master-card__meta">VMA-34 · <span class="pill s-scale">Scale</span> <span class="chip" style="font-weight:700">P1</span> · ADV Broad First</div>
+  <h3>Bilingual Support Without Overloading Front Desk</h3>
+  <p><b>ADD BILINGUAL SUPPORT WITHOUT OVERLOADING YOUR FRONT DESK</b></p>
+  <p>A dedicated virtual medical admin joins your team</p>
+  <p><span class="chip">English &amp; Spanish Call Support</span> <span class="chip">Appointment Scheduling</span> <span class="chip">Insurance Verification</span> <span class="chip">Patient Follow-Up</span></p>
+  <p><span class="chip">cobalt-blue</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Workload-split visual may convert practices that feel bilingual demand but fear adding local headcount.</p>
+  <p class="note">Split workload visual showing an overloaded front desk becoming an organized two-lane English/Spanish workflow.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — before/after two-lane EN/ES workflow transformation; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; before/after two-lane EN/ES workflow transformation; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — before/after two-lane EN/ES workflow transformation; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; before/after two-lane EN/ES workflow transformation; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  <p class="note"><b>Motion:</b> VMA-V22 source. Overload → lanes appear → calendar organizes. 15s. CAPCUT-PAIN-15 tension-to-resolve; split-screen transition at 3s.</p>
+</article><article class="soft-card" id="VMA-37">
+  <div class="master-card__meta">VMA-37 · <span class="pill s-scale">Scale</span> <span class="chip" style="font-weight:700">P1</span> · ADV Broad First</div>
+  <h3>Trained for Your Practice Workflow</h3>
+  <p><b>TRAINED FOR THE WAY YOUR PRACTICE WORKS</b></p>
+  <p>A dedicated virtual medical admin who learns your systems and workflow</p>
+  <p><span class="chip">Trained on Your Systems</span> <span class="chip">Practice-Specific Workflow</span> <span class="chip">Dedicated Full-Time Staff</span> <span class="chip">Confidential Support</span></p>
+  <p><span class="chip">cobalt-blue</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Practice-specific training angle may scale trust winner without HIPAA badge dependency.</p>
+  <p class="note">Practice workflow modules connecting into a central virtual staff workspace: phone, calendar, inbox, insurance, intake.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — workflow modules converging on dedicated admin workspace hub; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; workflow modules converging on dedicated admin workspace hub; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — workflow modules converging on dedicated admin workspace hub; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; workflow modules converging on dedicated admin workspace hub; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  <p class="note"><b>Motion:</b> VMA-V24 source. Modules appear → connect → organize. End on training headline. CAPCUT-BENEFITS-15 — module connection animation; no software-product chrome.</p>
+</article><article class="soft-card" id="VMA-41">
+  <div class="master-card__meta">VMA-41 · <span class="pill s-adjacent-test">Adjacent Test</span> <span class="chip" style="font-weight:700">P1</span> · ADV Broad First</div>
+  <h3>Front Desk Overload — Capacity</h3>
+  <p><b>YOUR FRONT DESK CAN’T DO EVERYTHING</b></p>
+  <p>Add dedicated administrative capacity without adding another desk</p>
+  <p><span class="chip">Answer Patient Calls</span> <span class="chip">Schedule Appointments</span> <span class="chip">Insurance Verification</span> <span class="chip">Patient Follow-Up</span></p>
+  <p><span class="chip">signal-yellow</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Capacity pain (not missed-calls video aesthetic) may find a new winner adjacent to Spanish/trust lanes.</p>
+  <p class="note">Before-and-after workload transformation. Chaotic task cards reorganize into a clean healthcare administration dashboard.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — chaotic task pile reorganizing into clean admin dashboard; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; chaotic task pile reorganizing into clean admin dashboard; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — chaotic task pile reorganizing into clean admin dashboard; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; chaotic task pile reorganizing into clean admin dashboard; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  <p class="note"><b>Motion:</b> VMA-V25 source. Task pile → virtual layer → resolved tasks. CAPCUT-PAIN-15 — pile-up to resolve arc.</p>
+</article><article class="soft-card" id="VMA-43">
+  <div class="master-card__meta">VMA-43 · <span class="pill s-adjacent-test">Adjacent Test</span> <span class="chip" style="font-weight:700">P1</span> · ADV Broad First</div>
+  <h3>Keep the Schedule Moving</h3>
+  <p><b>KEEP THE SCHEDULE MOVING</b></p>
+  <p>Dedicated virtual administrative support for confirmations, reminders, and rescheduling</p>
+  <p><span class="chip">Confirm Appointments</span> <span class="chip">Send Reminders</span> <span class="chip">Manage Reschedules</span> <span class="chip">Keep the Schedule Full</span></p>
+  <p><span class="chip">cobalt-blue</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Scheduling-specific hook tests role clarity without broad hire messaging.</p>
+  <p class="note">Premium weekly calendar interface with confirmations, reminder icons, and resolved schedule gaps.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — weekly calendar with confirmations, reminders, and filled gaps; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; weekly calendar with confirmations, reminders, and filled gaps; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — weekly calendar with confirmations, reminders, and filled gaps; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; weekly calendar with confirmations, reminders, and filled gaps; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  <p class="note"><b>Motion:</b> VMA-V27 source. Open slot → reminder → confirmed loop. </p>
+</article></div>
+      <h3>P2 — second wave</h3>
+      <div class="queue-grid"><article class="soft-card" id="VMA-35">
+  <div class="master-card__meta">VMA-35 · <span class="pill s-scale">Scale</span> <span class="chip" style="font-weight:700">P2</span> · Spanish Audience Test</div>
+  <h3>Atención en Español — Premium Ops</h3>
+  <p><b>ATENCIÓN EN ESPAÑOL. APOYO PARA TODO TU EQUIPO.</b></p>
+  <p>Asistente administrativo médico virtual y dedicado</p>
+  <p><span class="chip">Atención en Español</span> <span class="chip">Agenda de Citas</span> <span class="chip">Verificación de Seguros</span> <span class="chip">Seguimiento de Pacientes</span></p>
+  <p><span class="chip">electric-lime</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Spanish-first premium ops dashboard may beat translated English layouts for ES audiences.</p>
+  <p class="note">Spanish-first concept. Premium healthcare operations dashboard, warm but professional, no literal translation badge.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — premium Spanish-first operations dashboard with appointment and follow-up modules; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; premium Spanish-first operations dashboard with appointment and follow-up modules; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — premium Spanish-first operations dashboard with appointment and follow-up modules; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; premium Spanish-first operations dashboard with appointment and follow-up modules; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  <p class="note"><b>Motion:</b> VMA-V23 source. ES captions required. Message → response → confirmed appointment. CAPCUT-BENEFITS-15 with native ES text layers.</p>
+</article><article class="soft-card" id="VMA-36">
+  <div class="master-card__meta">VMA-36 · <span class="pill s-scale">Scale</span> <span class="chip" style="font-weight:700">P2</span> · Spanish Audience Test</div>
+  <h3>Menos Llamadas Perdidas</h3>
+  <p><b>MENOS LLAMADAS PERDIDAS. MÁS PACIENTES ATENDIDOS.</b></p>
+  <p>Agrega apoyo administrativo bilingüe a tu práctica</p>
+  <p><span class="chip">Menos Llamadas Perdidas</span> <span class="chip">Más Citas Confirmadas</span> <span class="chip">Seguimiento a Pacientes</span> <span class="chip">Apoyo al Mostrador</span></p>
+  <p><span class="chip">high-voltage-cyan</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Outcome-framed Spanish hook (calls → appointments) extends VMA-28 pain winner.</p>
+  <p class="note">Incoming calls transforming into confirmed appointments and completed follow-up cards.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — call cards morphing into confirmed appointments and follow-up completions; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; call cards morphing into confirmed appointments and follow-up completions; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — call cards morphing into confirmed appointments and follow-up completions; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; call cards morphing into confirmed appointments and follow-up completions; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  
+</article><article class="soft-card" id="VMA-38">
+  <div class="master-card__meta">VMA-38 · <span class="pill s-scale">Scale</span> <span class="chip" style="font-weight:700">P2</span> · ADV Broad First</div>
+  <h3>Your Workflow. Your Protocols.</h3>
+  <p><b>YOUR WORKFLOW. YOUR PROTOCOLS. YOUR DEDICATED ADMIN.</b></p>
+  <p>Virtual support that becomes part of your practice team</p>
+  <p><span class="chip">Trained on Your Systems</span> <span class="chip">Practice-Specific Workflow</span> <span class="chip">Dedicated Full-Time Staff</span> <span class="chip">Confidential Support</span></p>
+  <p><span class="chip">signal-yellow</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Ownership language (&quot;your workflow&quot;) tests personalization without compliance claims.</p>
+  <p class="note">Customizable operational dashboard with practice-specific workflow cards. Avoid implying software or AI.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — practice-specific workflow cards on operational dashboard; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; practice-specific workflow cards on operational dashboard; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — practice-specific workflow cards on operational dashboard; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; practice-specific workflow cards on operational dashboard; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  
+</article><article class="soft-card" id="VMA-40">
+  <div class="master-card__meta">VMA-40 · <span class="pill s-scale">Scale</span> <span class="chip" style="font-weight:700">P2</span> · ADV Broad First</div>
+  <h3>Patient Communication Human Touch</h3>
+  <p><b>PATIENT COMMUNICATION DESERVES A HUMAN TOUCH</b></p>
+  <p>Dedicated virtual medical staff for calls, scheduling, and follow-up</p>
+  <p><span class="chip">Answer Patient Calls</span> <span class="chip">Schedule Appointments</span> <span class="chip">Patient Follow-Up</span> <span class="chip">Front-Desk Support</span></p>
+  <p><span class="chip">vivid-green</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Human-touch workflow without portrait may diversify trust lane creative fatigue.</p>
+  <p class="note">Human-centered workflow without showing a portrait. Use phone, calendar, inbox, and follow-up cards with warm, polished visual treatment.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — phone, calendar, inbox, and follow-up cards — no portrait; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; phone, calendar, inbox, and follow-up cards — no portrait; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — phone, calendar, inbox, and follow-up cards — no portrait; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; phone, calendar, inbox, and follow-up cards — no portrait; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  
+</article><article class="soft-card" id="VMA-42">
+  <div class="master-card__meta">VMA-42 · <span class="pill s-adjacent-test">Adjacent Test</span> <span class="chip" style="font-weight:700">P2</span> · ADV Broad First</div>
+  <h3>Missed Calls — Static Rebuild</h3>
+  <p><b>MISSED CALLS BECOME MISSED OPPORTUNITIES</b></p>
+  <p>Add dedicated support for calls, scheduling, and patient follow-up</p>
+  <p><span class="chip">Answer Patient Calls</span> <span class="chip">Schedule Appointments</span> <span class="chip">Insurance Verification</span> <span class="chip">Patient Follow-Up</span></p>
+  <p><span class="chip">electric-lime</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Bold static phone→calendar workflow may succeed where MissedCalls video failed ($54–$116 CPL).</p>
+  <p class="note">Do not reuse the failed video aesthetic. Bold static phone-to-calendar workflow with a clear visual outcome.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — phone ring → missed warning → calendar confirmation outcome; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; phone ring → missed warning → calendar confirmation outcome; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — phone ring → missed warning → calendar confirmation outcome; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; phone ring → missed warning → calendar confirmation outcome; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  <p class="note"><b>Motion:</b> VMA-V26 source. 6s loop only — simple bold motion. CAPCUT-OFFER-10 loop template.</p>
+</article><article class="soft-card" id="VMA-44">
+  <div class="master-card__meta">VMA-44 · <span class="pill s-adjacent-test">Adjacent Test</span> <span class="chip" style="font-weight:700">P2</span> · LAL Secondary</div>
+  <h3>Insurance Tasks Overload</h3>
+  <p><b>INSURANCE TASKS SHOULD NOT TAKE OVER THE DAY</b></p>
+  <p>Add dedicated support for eligibility checks, documentation, and follow-up</p>
+  <p><span class="chip">Eligibility Checks</span> <span class="chip">Insurance Verification</span> <span class="chip">Documentation Support</span> <span class="chip">Follow-Up Tasks</span></p>
+  <p><span class="chip">high-voltage-cyan</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Insurance-task workflow may attract specialty practices without billing-outcome promises.</p>
+  <p class="note">Insurance card, eligibility check, document, and follow-up workflow. Do not promise approvals or revenue outcomes.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — insurance card → eligibility → document → follow-up workflow chain; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; insurance card → eligibility → document → follow-up workflow chain; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — insurance card → eligibility → document → follow-up workflow chain; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; insurance card → eligibility → document → follow-up workflow chain; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  <p class="note"><b>Motion:</b> VMA-V28 source. No approval guarantees in end frame. </p>
+</article></div>
+      <h3>P3 — hold for later</h3>
+      <div class="queue-grid"><article class="soft-card" id="VMA-39">
+  <div class="master-card__meta">VMA-39 · <span class="pill s-scale">Scale</span> <span class="chip" style="font-weight:700">P3</span> · LAL Secondary</div>
+  <h3>Dependable Admin — Right Person</h3>
+  <p><b>DEPENDABLE ADMINISTRATIVE SUPPORT STARTS WITH THE RIGHT PERSON</b></p>
+  <p>Background-checked virtual medical administrative staff</p>
+  <p><span class="chip">Answer Patient Calls</span> <span class="chip">Schedule Appointments</span> <span class="chip">Patient Follow-Up</span> <span class="chip">Front-Desk Support</span></p>
+  <p><span class="chip">electric-lime</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design-gate-background-checked-copy-at-upload">Ready for design — gate background-checked copy at upload</span></p>
+  <p class="note"><b>Hypothesis:</b> Profile-card trust visual may convert without HIPAA; background-checked wording is leadership-gated.</p>
+  <p class="note">Professional profile card connected to verification, training, scheduling, and communication modules. No seals or certifications unless approved.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — profile card linked to verification and workflow modules — no fake badges; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; profile card linked to verification and workflow modules — no fake badges; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — profile card linked to verification and workflow modules — no fake badges; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; profile card linked to verification and workflow modules — no fake badges; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  
+</article><article class="soft-card" id="VMA-45">
+  <div class="master-card__meta">VMA-45 · <span class="pill s-adjacent-test">Adjacent Test</span> <span class="chip" style="font-weight:700">P3</span> · LAL Secondary</div>
+  <h3>Patient Intake Easier</h3>
+  <p><b>MAKE PATIENT INTAKE EASIER ON YOUR TEAM</b></p>
+  <p>Virtual administrative support for forms, documents, and follow-up</p>
+  <p><span class="chip">Patient Intake Forms</span> <span class="chip">Collect Patient Details</span> <span class="chip">Prep Charts for Visits</span> <span class="chip">Registration Support</span></p>
+  <p><span class="chip">vivid-green</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Intake-flow visual tests operational specificity vs generic hire headline.</p>
+  <p class="note">Four-step digital intake flow with completed forms, secure documents, confirmation, and scheduling.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — four-step intake flow — forms, documents, confirmation, scheduling; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; four-step intake flow — forms, documents, confirmation, scheduling; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — four-step intake flow — forms, documents, confirmation, scheduling; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; four-step intake flow — forms, documents, confirmation, scheduling; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  
+</article><article class="soft-card" id="VMA-46">
+  <div class="master-card__meta">VMA-46 · <span class="pill s-adjacent-test">Adjacent Test</span> <span class="chip" style="font-weight:700">P3</span> · ADV Broad First</div>
+  <h3>Capacity Without Office Space</h3>
+  <p><b>ADD ADMINISTRATIVE CAPACITY WITHOUT ADDING OFFICE SPACE</b></p>
+  <p>Dedicated full-time virtual staff for your practice</p>
+  <p><span class="chip">Reception &amp; Admin Support</span> <span class="chip">Insurance Verification</span> <span class="chip">Scheduling Support</span> <span class="chip">Patient Follow-Up</span></p>
+  <p><span class="chip">cobalt-blue</span> <span class="chip">1:1 · 4:5 · 9:16 · 1.91:1</span> <span class="pill s-ready-for-design">Ready for design</span></p>
+  <p class="note"><b>Hypothesis:</b> Physical-desk → virtual-ops layer may resonate with small practices; no savings % claims.</p>
+  <p class="note">An existing physical front desk expanding into an organized virtual operations layer. Do not use dollar signs or savings percentages.</p>
+  <details class="block"><summary>1:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Balanced square: headline in upper-left third; central visual — physical front desk expanding into virtual operations layer; generous negative space; CTA/support band along lower edge.</p></details><details class="block"><summary>4:5 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; physical front desk expanding into virtual operations layer; critical content above bottom UI overlap zone.</p></details><details class="block"><summary>9:16 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — physical front desk expanding into virtual operations layer; large readable headline in safe middle band; never center-crop the square.</p></details><details class="block"><summary>1.91:1 layout</summary><p style="font-size:0.82rem;margin:0.35rem 0">Horizontal: headline left half, visual right half; physical front desk expanding into virtual operations layer; minimal text; readable at small link-ad sizes; fill the wide frame.</p></details>
+  
+</article></div>
+      <p class="note">Full prompts on <a href="/vma-chatgpt.html#wave-2-prompts">Prompts &amp; Copy</a> · Animations on <a href="/vma-video.html#wave-2-video">Animated Video</a>.</p>
+    </section>
 
-    <details class="block" id="categories">
-      <summary>Idea categories (reference)</summary>
+    <section id="categories">
+      <h2>Idea Categories — fill a 15–20 batch</h2>
       <div class="cat-grid"><div class="soft-card">
   <h3>Category 1 — Core Offer</h3>
   <div><span class="chip">Hire a Virtual Medical Admin</span><span class="chip">Add a Virtual Medical Admin</span><span class="chip">Build Your Medical Admin Team</span><span class="chip">Add Dedicated Front-Office Support</span></div>
@@ -1515,7 +1215,15 @@
   <h3>Category 5 — Offer and CTA</h3>
   <div><span class="chip">Starting at $10/Hour</span><span class="chip">Request an Interview</span><span class="chip">Find Your Virtual Admin</span><span class="chip">Book a Demo</span><span class="chip">Add Full-Time Support</span><span class="chip">Get More Front-Office Help</span></div>
 </div></div>
-    </details>
+    </section>
+
+    <section id="batch">
+      <h2>Build a 15–20 Concept Batch</h2>
+      <p class="lede">Recommended mix (totals 20 concepts):</p>
+      <div class="queue-grid"><div class="soft-card"><h3>4 — Core Offer Concepts</h3></div><div class="soft-card"><h3>4 — Pain-Point Concepts</h3></div><div class="soft-card"><h3>4 — Role-Specific Concepts</h3></div><div class="soft-card"><h3>3 — Spanish or Bilingual Concepts</h3></div><div class="soft-card"><h3>3 — Offer or CTA Concepts</h3></div><div class="soft-card"><h3>2 — Experimental Concepts</h3></div></div>
+      <h3 style="margin-top:1.25rem">Copy-paste batch request</h3>
+      <span class="copytext">Please create 15–20 original MedVirtual Meta ad concepts. Use bold Virtual Medical Admin messaging, large mobile-readable headlines, a prominent professional person, three or four service benefits, and bright high-contrast colors. Use teal, deep navy, blue, cyan, lime, green, yellow, white, black, or limited red. Do not use pink. Do not copy competitor layouts. Provide initial square concepts first, then build approved concepts in all required aspect ratios.</span><button type="button" class="copy-btn" data-copy="Please create 15–20 original MedVirtual Meta ad concepts. Use bold Virtual Medical Admin messaging, large mobile-readable headlines, a prominent professional person, three or four service benefits, and bright high-contrast colors. Use teal, deep navy, blue, cyan, lime, green, yellow, white, black, or limited red. Do not use pink. Do not copy competitor layouts. Provide initial square concepts first, then build approved concepts in all required aspect ratios.">Copy</button>
+    </section>
 
     <details class="block" id="concept-builder">
       <summary>Concept Builder — turn a spark into a brief + prompt</summary>
@@ -1662,60 +1370,6 @@
     setOut('designer', designer);
     setOut('ratios', ratios);
   });
-})();
-</script>
-<script>
-(function () {
-  var KEY = 'mv_creative_feedback_v1';
-  var cards = Array.from(document.querySelectorAll('[data-feedback-item^="idea:"]'));
-  var tray = document.getElementById('ideas-rejected');
-  function read() {
-    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (_) { return {}; }
-  }
-  function write(data) { localStorage.setItem(KEY, JSON.stringify(data)); }
-  function update(id, patch, rerender) {
-    var data = read();
-    data[id] = Object.assign({}, data[id] || {}, patch, { updatedAt: new Date().toISOString() });
-    write(data);
-    if (rerender !== false) render();
-  }
-  function render() {
-    var data = read();
-    var rejected = [];
-    cards.forEach(function (card) {
-      var id = card.dataset.feedbackItem;
-      var value = data[id] || {};
-      card.hidden = value.vote === 'down';
-      if (card.hidden) rejected.push({ id: id, name: card.dataset.feedbackName, note: value.note || '' });
-      card.querySelectorAll('[data-vote]').forEach(function (button) {
-        button.classList.toggle('selected', button.dataset.vote === value.vote);
-      });
-      var note = card.querySelector('textarea');
-      if (note && document.activeElement !== note) note.value = value.note || '';
-    });
-    if (!tray) return;
-    if (!rejected.length) { tray.innerHTML = ''; return; }
-    tray.innerHTML = '<details class="feedback-rejected"><summary>Rejected concepts (' + rejected.length + ')</summary>' +
-      rejected.map(function (item) {
-        return '<div class="feedback-rejected__item"><div><strong>' + item.name.replace(/</g, '&lt;') + '</strong>' +
-          (item.note ? '<p>' + item.note.replace(/</g, '&lt;') + '</p>' : '') +
-          '</div><button type="button" data-restore="' + item.id + '">Restore</button></div>';
-      }).join('') + '</details>';
-    tray.querySelectorAll('[data-restore]').forEach(function (button) {
-      button.addEventListener('click', function () {
-        var next = read(); delete next[button.dataset.restore]; write(next); render();
-      });
-    });
-  }
-  cards.forEach(function (card) {
-    var id = card.dataset.feedbackItem;
-    card.querySelectorAll('[data-vote]').forEach(function (button) {
-      button.addEventListener('click', function () { update(id, { vote: button.dataset.vote }); });
-    });
-    var note = card.querySelector('textarea');
-    if (note) note.addEventListener('input', function () { update(id, { note: note.value }, false); });
-  });
-  render();
 })();
 </script>
     <p class="foot">MedVirtual Ad Production · No pink · Reviewed July 14, 2026.</p>

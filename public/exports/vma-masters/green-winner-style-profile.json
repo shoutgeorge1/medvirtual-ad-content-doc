@@ -1,0 +1,100 @@
+[
+  {
+    "id": "VMA-01 SpanishGreen",
+    "file": "MV_VMA_01_SpanishGreen_1x1.png",
+    "dimensions": "1024x1024",
+    "background": {
+      "darkPct": 61.1,
+      "meanLuminance": 60.9
+    },
+    "topColors": [
+      {
+        "hex": "#030606",
+        "pct": 59
+      },
+      {
+        "hex": "#FAFAFA",
+        "pct": 5.3
+      },
+      {
+        "hex": "#30302F",
+        "pct": 2.3
+      },
+      {
+        "hex": "#6D6D6C",
+        "pct": 2.3
+      },
+      {
+        "hex": "#505050",
+        "pct": 2.2
+      },
+      {
+        "hex": "#52C344",
+        "pct": 2.2
+      }
+    ],
+    "sampled": {
+      "lime": "#61C837",
+      "limePixels": 30204,
+      "cyan": "#08BDE6",
+      "cyanPixels": 4424,
+      "white": "#FAFAFA"
+    },
+    "headlineBBox": {
+      "xPct": 5.1,
+      "yPct": 4.3,
+      "wPct": 52.7,
+      "hPct": 57.5,
+      "coveragePct": 21.6
+    }
+  },
+  {
+    "id": "VMA-04 HIPAAGreen",
+    "file": "MV_VMA_04_HIPAAGreen_1x1.png",
+    "dimensions": "1024x1024",
+    "background": {
+      "darkPct": 40.4,
+      "meanLuminance": 106.4
+    },
+    "topColors": [
+      {
+        "hex": "#0E1011",
+        "pct": 38.5
+      },
+      {
+        "hex": "#FCFCFC",
+        "pct": 17.2
+      },
+      {
+        "hex": "#6D6D70",
+        "pct": 4.5
+      },
+      {
+        "hex": "#6EB966",
+        "pct": 4.5
+      },
+      {
+        "hex": "#2F2E2E",
+        "pct": 3.3
+      },
+      {
+        "hex": "#505051",
+        "pct": 2.5
+      }
+    ],
+    "sampled": {
+      "lime": "#67B146",
+      "limePixels": 36987,
+      "cyan": null,
+      "cyanPixels": 0,
+      "white": "#FCFDFC"
+    },
+    "headlineBBox": {
+      "xPct": 5.1,
+      "yPct": 4.3,
+      "wPct": 52.7,
+      "hPct": 57.5,
+      "coveragePct": 31.9
+    }
+  }
+]

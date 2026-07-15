@@ -1,0 +1,359 @@
+{
+  "generatedAt": "2026-07-15T19:59:56.515Z",
+  "ratio": "4x5",
+  "apiCalls": 0,
+  "fontFamily": "Be Vietnam",
+  "basedOn": "Treatment C",
+  "concepts": [
+    {
+      "id": "VMA-33",
+      "plate": "candidate-2.png",
+      "treatments": {
+        "E": {
+          "file": "MV_VMA_33_SpanishNeverLost_4x5_E.png",
+          "dimensions": "1080x1350",
+          "bytes": 1573253,
+          "pinkPixels": 0,
+          "fontFamily": "Be Vietnam",
+          "fontWeightHeadline": 800,
+          "fallback": false,
+          "effects": [
+            "3d-extrusion",
+            "focal-slab",
+            "icon-badge",
+            "promo-offer",
+            "physical-cta",
+            "sparkles",
+            "chevrons"
+          ],
+          "solutionSize": 46,
+          "headlineSize": 97,
+          "priceDollarSize": 132,
+          "offerCapSize": 40,
+          "ctaSize": 52,
+          "offer": "STARTING AT $10/HR",
+          "cta": "REQUEST AN INTERVIEW",
+          "icon": "enes",
+          "copy": {
+            "headline": "STOP LOSING SPANISH PATIENTS",
+            "solution": "HIRE A BILINGUAL VIRTUAL MEDICAL ASSISTANT"
+          }
+        },
+        "F": {
+          "file": "MV_VMA_33_SpanishNeverLost_4x5_F.png",
+          "dimensions": "1080x1350",
+          "bytes": 1609848,
+          "pinkPixels": 0,
+          "fontFamily": "Be Vietnam",
+          "fontWeightHeadline": 800,
+          "fallback": false,
+          "effects": [
+            "3d-extrusion",
+            "focal-slab",
+            "icon-badge",
+            "promo-offer",
+            "physical-cta",
+            "benefit-chips"
+          ],
+          "headlineSize": 97,
+          "solutionSize": 44,
+          "benefitSize": 42,
+          "priceDollarSize": 106,
+          "offerCapSize": 38,
+          "ctaSize": 52,
+          "offer": "STARTING AT $10/HR",
+          "cta": "MEET YOUR NEXT HIRE",
+          "icon": "enes",
+          "copy": {
+            "headline": "STOP LOSING SPANISH PATIENTS",
+            "solution": "HIRE A BILINGUAL VIRTUAL MEDICAL ASSISTANT",
+            "benefits": [
+              "BILINGUAL SUPPORT",
+              "FULL-TIME STAFF"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "VMA-34",
+      "plate": "candidate-3.png",
+      "treatments": {
+        "E": {
+          "file": "MV_VMA_34_BilingualFrontDesk_4x5_E.png",
+          "dimensions": "1080x1350",
+          "bytes": 1498504,
+          "pinkPixels": 6,
+          "fontFamily": "Be Vietnam",
+          "fontWeightHeadline": 800,
+          "fallback": false,
+          "effects": [
+            "3d-extrusion",
+            "focal-slab",
+            "icon-badge",
+            "promo-offer",
+            "physical-cta",
+            "sparkles",
+            "chevrons"
+          ],
+          "solutionSize": 46,
+          "headlineSize": 100,
+          "priceDollarSize": 132,
+          "offerCapSize": 40,
+          "ctaSize": 52,
+          "offer": "STARTING AT $10/HR",
+          "cta": "REQUEST AN INTERVIEW",
+          "icon": "enes",
+          "copy": {
+            "headline": "SPEAK YOUR PATIENTS’ LANGUAGE",
+            "solution": "HIRE A BILINGUAL VIRTUAL MEDICAL ASSISTANT"
+          }
+        },
+        "F": {
+          "file": "MV_VMA_34_BilingualFrontDesk_4x5_F.png",
+          "dimensions": "1080x1350",
+          "bytes": 1532093,
+          "pinkPixels": 6,
+          "fontFamily": "Be Vietnam",
+          "fontWeightHeadline": 800,
+          "fallback": false,
+          "effects": [
+            "3d-extrusion",
+            "focal-slab",
+            "icon-badge",
+            "promo-offer",
+            "physical-cta",
+            "benefit-chips"
+          ],
+          "headlineSize": 100,
+          "solutionSize": 44,
+          "benefitSize": 42,
+          "priceDollarSize": 106,
+          "offerCapSize": 38,
+          "ctaSize": 52,
+          "offer": "STARTING AT $10/HR",
+          "cta": "MEET YOUR NEXT HIRE",
+          "icon": "enes",
+          "copy": {
+            "headline": "SPEAK YOUR PATIENTS’ LANGUAGE",
+            "solution": "HIRE A BILINGUAL VIRTUAL MEDICAL ASSISTANT",
+            "benefits": [
+              "ENGLISH & SPANISH",
+              "DEDICATED STAFF"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "VMA-37",
+      "plate": "candidate-3.png",
+      "treatments": {
+        "E": {
+          "file": "MV_VMA_37_TrainedWorkflow_4x5_E.png",
+          "dimensions": "1080x1350",
+          "bytes": 1489632,
+          "pinkPixels": 120,
+          "fontFamily": "Be Vietnam",
+          "fontWeightHeadline": 800,
+          "fallback": false,
+          "effects": [
+            "3d-extrusion",
+            "focal-slab",
+            "icon-badge",
+            "promo-offer",
+            "physical-cta",
+            "sparkles",
+            "chevrons"
+          ],
+          "solutionSize": 46,
+          "headlineSize": 98,
+          "priceDollarSize": 132,
+          "offerCapSize": 40,
+          "ctaSize": 52,
+          "offer": "STARTING AT $10/HR",
+          "cta": "REQUEST AN INTERVIEW",
+          "icon": "workflow",
+          "copy": {
+            "headline": "TRAINED FOR YOUR WORKFLOW",
+            "solution": "HIRE A VIRTUAL MEDICAL ASSISTANT"
+          }
+        },
+        "F": {
+          "file": "MV_VMA_37_TrainedWorkflow_4x5_F.png",
+          "dimensions": "1080x1350",
+          "bytes": 1525228,
+          "pinkPixels": 120,
+          "fontFamily": "Be Vietnam",
+          "fontWeightHeadline": 800,
+          "fallback": false,
+          "effects": [
+            "3d-extrusion",
+            "focal-slab",
+            "icon-badge",
+            "promo-offer",
+            "physical-cta",
+            "benefit-chips"
+          ],
+          "headlineSize": 98,
+          "solutionSize": 44,
+          "benefitSize": 42,
+          "priceDollarSize": 106,
+          "offerCapSize": 38,
+          "ctaSize": 52,
+          "offer": "STARTING AT $10/HR",
+          "cta": "MEET YOUR NEXT HIRE",
+          "icon": "workflow",
+          "copy": {
+            "headline": "TRAINED FOR YOUR WORKFLOW",
+            "solution": "HIRE A VIRTUAL MEDICAL ASSISTANT",
+            "benefits": [
+              "TRAINED ON YOUR EMR",
+              "FULL-TIME STAFF"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "VMA-41",
+      "plate": "candidate-3.png",
+      "treatments": {
+        "E": {
+          "file": "MV_VMA_41_FrontDeskCapacity_4x5_E.png",
+          "dimensions": "1080x1350",
+          "bytes": 1634201,
+          "pinkPixels": 0,
+          "fontFamily": "Be Vietnam",
+          "fontWeightHeadline": 800,
+          "fallback": false,
+          "effects": [
+            "3d-extrusion",
+            "focal-slab",
+            "icon-badge",
+            "promo-offer",
+            "physical-cta",
+            "sparkles",
+            "chevrons"
+          ],
+          "solutionSize": 46,
+          "headlineSize": 100,
+          "priceDollarSize": 132,
+          "offerCapSize": 40,
+          "ctaSize": 52,
+          "offer": "STARTING AT $10/HR",
+          "cta": "REQUEST AN INTERVIEW",
+          "icon": "bell",
+          "copy": {
+            "headline": "YOUR FRONT DESK IS MAXED OUT",
+            "solution": "HIRE A VIRTUAL MEDICAL ASSISTANT"
+          }
+        },
+        "F": {
+          "file": "MV_VMA_41_FrontDeskCapacity_4x5_F.png",
+          "dimensions": "1080x1350",
+          "bytes": 1669960,
+          "pinkPixels": 0,
+          "fontFamily": "Be Vietnam",
+          "fontWeightHeadline": 800,
+          "fallback": false,
+          "effects": [
+            "3d-extrusion",
+            "focal-slab",
+            "icon-badge",
+            "promo-offer",
+            "physical-cta",
+            "benefit-chips"
+          ],
+          "headlineSize": 100,
+          "solutionSize": 44,
+          "benefitSize": 42,
+          "priceDollarSize": 106,
+          "offerCapSize": 38,
+          "ctaSize": 52,
+          "offer": "STARTING AT $10/HR",
+          "cta": "MEET YOUR NEXT HIRE",
+          "icon": "bell",
+          "copy": {
+            "headline": "YOUR FRONT DESK IS MAXED OUT",
+            "solution": "HIRE A VIRTUAL MEDICAL ASSISTANT",
+            "benefits": [
+              "FULL-TIME STAFF",
+              "DEDICATED SUPPORT"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "VMA-43",
+      "plate": "candidate-3.png",
+      "treatments": {
+        "E": {
+          "file": "MV_VMA_43_ScheduleMoving_4x5_E.png",
+          "dimensions": "1080x1350",
+          "bytes": 1483031,
+          "pinkPixels": 5,
+          "fontFamily": "Be Vietnam",
+          "fontWeightHeadline": 800,
+          "fallback": false,
+          "effects": [
+            "3d-extrusion",
+            "focal-slab",
+            "icon-badge",
+            "promo-offer",
+            "physical-cta",
+            "sparkles",
+            "chevrons"
+          ],
+          "solutionSize": 46,
+          "headlineSize": 115,
+          "priceDollarSize": 132,
+          "offerCapSize": 40,
+          "ctaSize": 52,
+          "offer": "STARTING AT $10/HR",
+          "cta": "REQUEST AN INTERVIEW",
+          "icon": "calendar",
+          "copy": {
+            "headline": "KEEP YOUR SCHEDULE MOVING",
+            "solution": "HIRE A VIRTUAL MEDICAL ASSISTANT"
+          }
+        },
+        "F": {
+          "file": "MV_VMA_43_ScheduleMoving_4x5_F.png",
+          "dimensions": "1080x1350",
+          "bytes": 1510021,
+          "pinkPixels": 5,
+          "fontFamily": "Be Vietnam",
+          "fontWeightHeadline": 800,
+          "fallback": false,
+          "effects": [
+            "3d-extrusion",
+            "focal-slab",
+            "icon-badge",
+            "promo-offer",
+            "physical-cta",
+            "benefit-chips"
+          ],
+          "headlineSize": 115,
+          "solutionSize": 44,
+          "benefitSize": 42,
+          "priceDollarSize": 106,
+          "offerCapSize": 38,
+          "ctaSize": 52,
+          "offer": "STARTING AT $10/HR",
+          "cta": "MEET YOUR NEXT HIRE",
+          "icon": "calendar",
+          "copy": {
+            "headline": "KEEP YOUR SCHEDULE MOVING",
+            "solution": "HIRE A VIRTUAL MEDICAL ASSISTANT",
+            "benefits": [
+              "FULL-TIME STAFF",
+              "TRAINED FOR YOUR SYSTEMS"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

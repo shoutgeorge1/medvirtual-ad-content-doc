@@ -1,0 +1,37 @@
+[
+  {
+    "id": "VMA-33",
+    "file": "MV_VMA_33_SpanishNeverLost_1.91x1.png",
+    "bytes": 107626,
+    "dims": "1200x628",
+    "plate": "synthetic"
+  },
+  {
+    "id": "VMA-34",
+    "file": "MV_VMA_34_BilingualFrontDesk_1.91x1.png",
+    "bytes": 122301,
+    "dims": "1200x628",
+    "plate": "synthetic"
+  },
+  {
+    "id": "VMA-37",
+    "file": "MV_VMA_37_TrainedWorkflow_1.91x1.png",
+    "bytes": 120078,
+    "dims": "1200x628",
+    "plate": "synthetic"
+  },
+  {
+    "id": "VMA-41",
+    "file": "MV_VMA_41_FrontDeskCapacity_1.91x1.png",
+    "bytes": 104022,
+    "dims": "1200x628",
+    "plate": "synthetic"
+  },
+  {
+    "id": "VMA-43",
+    "file": "MV_VMA_43_ScheduleMoving_1.91x1.png",
+    "bytes": 111733,
+    "dims": "1200x628",
+    "plate": "synthetic"
+  }
+]

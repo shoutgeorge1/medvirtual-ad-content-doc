@@ -17,6 +17,16 @@
  * Regenerate the site with: node scripts/generate-vma-site.mjs
  */
 
+import {
+  WAVE2_STATIC_CONCEPTS,
+  WAVE2_VIDEO_CONCEPTS,
+  WAVE2_COPY_EN,
+  WAVE2_COPY_ES,
+  TESTING_WAVE_2,
+} from './vma-wave2-data.mjs';
+
+export { TESTING_WAVE_2 };
+
 // ─── Meta ────────────────────────────────────────────────────────────────────
 
 export const VMA_META = {
@@ -437,6 +447,10 @@ export const SERVICE_BULLET_BANK = {
   dedicated: ['Join Your Practice Team', 'Answer Calls & Schedule', 'Verify Insurance', 'Support Intake & Follow-Up'],
   spanish: ['Recepción y Apoyo Administrativo', 'Verificación de Seguros', 'Apoyo de Preautorización', 'Apoyo de Facturación'],
   spanishCalls: ['Contesta Llamadas', 'Agenda Citas', 'Da Seguimiento a Pacientes', 'Apoya al Mostrador'],
+  spanishRetention: ['Atiende Pacientes en Español', 'Agenda y Confirma Citas', 'Verificación de Seguros', 'Seguimiento de Pacientes'],
+  bilingual: ['Bilingual Patient Calls', 'Schedule & Confirm Visits', 'Insurance Verification', 'Patient Follow-Up'],
+  trust: ['Background-Checked Staff', 'Trained on Your Systems', 'Confidential Patient Support', 'Dedicated to Your Practice'],
+  trustAdmin: ['Reception & Admin Support', 'Insurance Verification', 'Confidential Records Handling', 'Medical Billing Support'],
 };
 
 // ─── Static concept factory + concepts (24) ──────────────────────────────────
@@ -461,6 +475,17 @@ function buildConcept({
   productionStatus = 'Ready for design',
   group,
   groupLabel,
+  staticFormats = ['1:1', '4:5', '9:16'],
+  performanceNotes = '',
+  testingTag = '',
+  sourceHypothesis = '',
+  recommendedAudience = '',
+  recommendedPriority = '',
+  visualDirection = '',
+  visualStyle = 'portrait',
+  ratioCompositions = null,
+  remotionNotes = '',
+  capcutNotes = '',
 }) {
   const family = COLOR_BY_ID[colorFamilyId];
   const resolvedCta = cta || (language === 'es' ? CTA_OPTIONS.primary.es : CTA_OPTIONS.primary.en);
@@ -478,7 +503,7 @@ function buildConcept({
     offer,
     trustBadge,
     cta: resolvedCta,
-    staticFormats: ['1:1', '4:5', '9:16'],
+    staticFormats,
     videoDuration,
     animationTemplate,
     formId,
@@ -487,7 +512,16 @@ function buildConcept({
     group,
     groupLabel,
     reviewer: '',
-    performanceNotes: '',
+    performanceNotes,
+    testingTag,
+    sourceHypothesis,
+    recommendedAudience,
+    recommendedPriority,
+    visualDirection,
+    visualStyle,
+    ratioCompositions,
+    remotionNotes,
+    capcutNotes,
   };
 }
 
@@ -838,6 +872,147 @@ export const CONCEPTS = [
     group: 5,
     groupLabel: 'Offer',
   }),
+
+  // ── Scale — proven winners (25–32) ──
+  // Derived from live Jul 12–15 2026 data: Spanish-speaking angle ($9.74–$13.46 CPL,
+  // best in account) and the HIPAA/trust angle ($13.98–$20.56 CPL, strongest volume).
+  // Both won in green families on ADV Broad + Instant Form. Build these in all four
+  // ratios and push budget behind them. HIPAA-badge variants stay gated until the
+  // hipaa claim is Approved for Launch — trust-safe variants can run now.
+  buildConcept({
+    number: 'VMA-25',
+    name: 'Spanish-Speaking Admin — Bilingual Patients (Winner Scale)',
+    audience: 'US practices with a large Spanish-speaking patient base — ADV Broad.',
+    language: 'bilingual',
+    headline: 'HIRE A SPANISH-SPEAKING MEDICAL ADMIN',
+    supportingLine: 'Dedicated full-time bilingual staff so no patient call goes unanswered.',
+    benefits: SERVICE_BULLET_BANK.bilingual,
+    colorFamilyId: 'vivid-green',
+    trustBadge: 'Se Habla Español cue (text only — no flag unless briefed).',
+    animationTemplate: 'VMASpanish15',
+    claimIds: ['dedicated-ft', 'spanish-available'],
+    group: 6,
+    groupLabel: 'Scale',
+    staticFormats: ['1:1', '4:5', '9:16', '1.91:1'],
+    performanceNotes: 'Scales the account winner. Spanish angle ran $9.74–$13.46 CPL (best) Jul 12–15. Push budget here first.',
+  }),
+  buildConcept({
+    number: 'VMA-26',
+    name: '¿Se Habla Español? — Patient Retention (Winner Scale)',
+    audience: 'Spanish-speaking decision-makers losing patients to language gaps.',
+    language: 'es',
+    headline: 'TUS PACIENTES MERECEN QUE LOS ENTIENDAN',
+    supportingLine: 'Personal virtual bilingüe de tiempo completo para llamadas, citas y seguros.',
+    benefits: SERVICE_BULLET_BANK.spanishRetention,
+    colorFamilyId: 'electric-lime',
+    animationTemplate: 'VMASpanish15',
+    claimIds: ['dedicated-ft', 'spanish-available'],
+    group: 6,
+    groupLabel: 'Scale',
+    staticFormats: ['1:1', '4:5', '9:16', '1.91:1'],
+    performanceNotes: 'New retention hook on the winning Spanish angle. Lime is a priority-1 family; keep green cue for continuity.',
+  }),
+  buildConcept({
+    number: 'VMA-27',
+    name: 'Bilingual Admin Joins Your Team (Winner Scale)',
+    audience: 'Bilingual practices — English-facing hire message, ADV Broad.',
+    language: 'bilingual',
+    headline: 'ADD A BILINGUAL VIRTUAL MEDICAL ADMIN',
+    supportingLine: 'A dedicated Spanish-speaking teammate — not a call center, not AI.',
+    benefits: SERVICE_BULLET_BANK.bilingual,
+    colorFamilyId: 'high-voltage-cyan',
+    animationTemplate: 'VMASpanish15',
+    claimIds: ['dedicated-ft', 'spanish-available', 'not-call-center'],
+    group: 6,
+    groupLabel: 'Scale',
+    staticFormats: ['1:1', '4:5', '9:16', '1.91:1'],
+    performanceNotes: 'Color-variant test of the Spanish winner (cyan on navy). Same copy family, new plate to fight fatigue.',
+  }),
+  buildConcept({
+    number: 'VMA-28',
+    name: 'No Dejes Pacientes Sin Atender (Winner Scale)',
+    audience: 'Spanish-speaking practices with after-hours / overflow call loss.',
+    language: 'es',
+    headline: 'NINGÚN PACIENTE SIN ATENDER',
+    supportingLine: 'Apoyo virtual dedicado en español para llamadas, agenda y seguimiento.',
+    benefits: SERVICE_BULLET_BANK.spanishRetention,
+    colorFamilyId: 'vivid-green',
+    animationTemplate: 'VMASpanish15',
+    claimIds: ['dedicated-ft', 'spanish-available'],
+    group: 6,
+    groupLabel: 'Scale',
+    staticFormats: ['1:1', '4:5', '9:16', '1.91:1'],
+    performanceNotes: 'Pain-angle variant of the Spanish winner for CBO diversity. Keep vivid green for winner continuity.',
+  }),
+  buildConcept({
+    number: 'VMA-29',
+    name: 'Trained & Confidential Admin — Trust-Safe (Winner Scale)',
+    audience: 'Compliance-conscious practices — trust angle without pending claims.',
+    headline: 'A VIRTUAL MEDICAL ADMIN YOU CAN TRUST',
+    supportingLine: 'Background-checked, healthcare-trained staff who handle patient info with care.',
+    benefits: SERVICE_BULLET_BANK.trust,
+    colorFamilyId: 'vivid-green',
+    trustBadge: 'Dedicated-staff / background-checked seal — no HIPAA wording until approved.',
+    animationTemplate: 'VMABenefits15',
+    claimIds: ['dedicated-ft', 'trained-admin'],
+    group: 6,
+    groupLabel: 'Scale',
+    staticFormats: ['1:1', '4:5', '9:16', '1.91:1'],
+    performanceNotes: 'Trust-safe rebuild of the HIPAA winner ($13.98–$20.56 CPL) that can run NOW — no pending claim required.',
+  }),
+  buildConcept({
+    number: 'VMA-30',
+    name: 'Background-Checked Medical Admin — Trust-Safe (Winner Scale)',
+    audience: 'Practices that prioritize vetted, confidential admin support.',
+    headline: 'BACKGROUND-CHECKED VIRTUAL MEDICAL ADMIN',
+    supportingLine: 'Healthcare-trained, vetted staff dedicated to your practice — not a shared pool.',
+    benefits: SERVICE_BULLET_BANK.trustAdmin,
+    colorFamilyId: 'electric-lime',
+    trustBadge: 'Background-checked seal — confirm wording with ops.',
+    animationTemplate: 'VMABenefits15',
+    claimIds: ['dedicated-ft', 'trained-admin', 'not-call-center'],
+    group: 6,
+    groupLabel: 'Scale',
+    staticFormats: ['1:1', '4:5', '9:16', '1.91:1'],
+    performanceNotes: 'Second trust-safe angle. Green family carries the winning look; badge is claim-safe.',
+  }),
+  buildConcept({
+    number: 'VMA-31',
+    name: 'Patient Data Handled With Care — Trust-Safe (Winner Scale)',
+    audience: 'Owners worried about privacy when adding remote staff.',
+    headline: 'PATIENT INFO HANDLED WITH CARE',
+    supportingLine: 'Dedicated, trained virtual staff who protect patient privacy every day.',
+    benefits: SERVICE_BULLET_BANK.trust,
+    colorFamilyId: 'cobalt-blue',
+    trustBadge: 'Confidential-handling seal — no HIPAA claim until approved.',
+    animationTemplate: 'VMABenefits15',
+    claimIds: ['dedicated-ft', 'trained-admin'],
+    group: 6,
+    groupLabel: 'Scale',
+    staticFormats: ['1:1', '4:5', '9:16', '1.91:1'],
+    performanceNotes: 'Privacy reassurance without the pending HIPAA badge. Cobalt variant for placement diversity.',
+  }),
+  buildConcept({
+    number: 'VMA-32',
+    name: 'HIPAA-Compliant Admin — Winner (Claim-Gated)',
+    audience: 'Compliance-forward practices — only when HIPAA claim is approved.',
+    headline: 'HIPAA-COMPLIANT VIRTUAL MEDICAL ADMIN',
+    supportingLine: 'Dedicated full-time virtual staff — HIPAA claim pending compliance sign-off.',
+    benefits: SERVICE_BULLET_BANK.trustAdmin,
+    colorFamilyId: 'vivid-green',
+    offer: 'HIPAA trust badge — DO NOT PUBLISH until hipaa claim is Approved for Launch.',
+    trustBadge: 'HIPAA shield — only if hipaa approved.',
+    animationTemplate: 'VMABenefits15',
+    claimIds: ['dedicated-ft', 'hipaa'],
+    productionStatus: 'On hold — claim pending',
+    group: 6,
+    groupLabel: 'Scale',
+    staticFormats: ['1:1', '4:5', '9:16', '1.91:1'],
+    performanceNotes: 'The literal HIPAA winner rebuilt for all ratios. Ship the instant compliance clears the claim; until then run VMA-29/30/31.',
+  }),
+
+  // ── Wave 2 — controlled testing (VMA-33..46) ──
+  ...WAVE2_STATIC_CONCEPTS,
 ];
 
 /** @deprecated alias — CONCEPTS is the canonical static concept set. */
@@ -926,6 +1101,11 @@ function buildVideoConcept({
   claimIds = ['dedicated-ft'],
   productionStatus = 'Ready for animation',
   mirrorsConcept,
+  endCard = '',
+  testingTag = '',
+  recommendedPriority = '',
+  remotionNotes = '',
+  capcutNotes = '',
 }) {
   const family = COLOR_BY_ID[colorFamilyId];
   return {
@@ -939,12 +1119,17 @@ function buildVideoConcept({
     remotionComposition,
     capcutTemplate,
     headline,
+    endCard,
     scenes,
     claimIds,
     productionStatus,
     mirrorsConcept: mirrorsConcept || null,
     reviewer: '',
     performanceNotes: '',
+    testingTag,
+    recommendedPriority,
+    remotionNotes,
+    capcutNotes,
   };
 }
 
@@ -1066,6 +1251,83 @@ export const VIDEO_CONCEPTS = [
     claimIds: ['dedicated-ft', 'not-call-center'],
     mirrorsConcept: 'VMA-02',
   }),
+
+  // Winner scale videos — animate the proven Spanish + trust angles (VMA-V16..V21)
+  buildVideoConcept({
+    number: 'VMA-V16',
+    name: 'Spanish-Speaking Admin — Winner (15s)',
+    colorFamilyId: 'vivid-green',
+    remotionComposition: 'VMASpanish15',
+    capcutTemplate: 'CAPCUT-BENEFITS-15',
+    headline: 'HIRE A SPANISH-SPEAKING MEDICAL ADMIN',
+    scenes: SCENES_15,
+    claimIds: ['dedicated-ft', 'spanish-available'],
+    mirrorsConcept: 'VMA-25',
+  }),
+  buildVideoConcept({
+    number: 'VMA-V17',
+    name: 'Tus Pacientes Merecen Ser Entendidos — Winner (15s)',
+    language: 'es',
+    colorFamilyId: 'electric-lime',
+    remotionComposition: 'VMASpanish15',
+    capcutTemplate: 'CAPCUT-PAIN-15',
+    headline: 'TUS PACIENTES MERECEN QUE LOS ENTIENDAN',
+    scenes: SCENES_15,
+    claimIds: ['dedicated-ft', 'spanish-available'],
+    mirrorsConcept: 'VMA-26',
+  }),
+  buildVideoConcept({
+    number: 'VMA-V18',
+    name: 'Spanish Winner — Static Motion Loop (6s)',
+    colorFamilyId: 'vivid-green',
+    duration: '6s',
+    remotionComposition: 'VMAStaticMotion6',
+    capcutTemplate: 'CAPCUT-OFFER-10',
+    headline: 'HIRE A SPANISH-SPEAKING MEDICAL ADMIN',
+    scenes: SCENES_6,
+    claimIds: ['dedicated-ft', 'spanish-available'],
+    mirrorsConcept: 'VMA-25',
+  }),
+  buildVideoConcept({
+    number: 'VMA-V19',
+    name: 'Trust-Safe Admin — Winner (15s)',
+    colorFamilyId: 'vivid-green',
+    remotionComposition: 'VMABenefits15',
+    capcutTemplate: 'CAPCUT-BENEFITS-15',
+    headline: 'A VIRTUAL MEDICAL ADMIN YOU CAN TRUST',
+    scenes: SCENES_15,
+    claimIds: ['dedicated-ft', 'trained-admin'],
+    mirrorsConcept: 'VMA-29',
+  }),
+  buildVideoConcept({
+    number: 'VMA-V20',
+    name: 'Background-Checked Admin — Winner (15s)',
+    colorFamilyId: 'electric-lime',
+    remotionComposition: 'VMABenefits15',
+    capcutTemplate: 'CAPCUT-BENEFITS-15',
+    headline: 'BACKGROUND-CHECKED VIRTUAL MEDICAL ADMIN',
+    scenes: SCENES_15,
+    claimIds: ['dedicated-ft', 'trained-admin', 'not-call-center'],
+    mirrorsConcept: 'VMA-30',
+  }),
+  buildVideoConcept({
+    number: 'VMA-V21',
+    name: 'Trust-Safe — Static Motion Loop (6s)',
+    colorFamilyId: 'vivid-green',
+    duration: '6s',
+    remotionComposition: 'VMAStaticMotion6',
+    capcutTemplate: 'CAPCUT-OFFER-10',
+    headline: 'A VIRTUAL MEDICAL ADMIN YOU CAN TRUST',
+    scenes: SCENES_6,
+    claimIds: ['dedicated-ft', 'trained-admin'],
+    mirrorsConcept: 'VMA-29',
+  }),
+
+  // Wave 2 animations (VMA-V22..V28)
+  ...WAVE2_VIDEO_CONCEPTS.map((v) => ({
+    ...v,
+    colorFamilyName: COLOR_BY_ID[v.colorFamilyId]?.name || v.colorFamilyId,
+  })),
 ];
 
 // ─── Remotion ────────────────────────────────────────────────────────────────
@@ -1094,6 +1356,11 @@ export const REMOTION_COMPOSITIONS = [
   { id: 'VMAMissedCalls15', name: 'VMAMissedCalls15', duration: '15s', frames: 450, fps: 30, uses: ['ColorPlate', 'KineticHeadline', 'BenefitList', 'AbstractPerson', 'CTAButton', 'LogoLockup', 'CaptionTrack'], purpose: 'Missed-calls pain spot.' },
   { id: 'VMAInsurance15', name: 'VMAInsurance15', duration: '15s', frames: 450, fps: 30, uses: ['ColorPlate', 'KineticHeadline', 'BenefitList', 'AbstractPerson', 'CTAButton', 'LogoLockup', 'CaptionTrack'], purpose: 'Insurance-verification role spot.' },
   { id: 'VMAStory20', name: 'VMAStory20', duration: '20s', frames: 600, fps: 30, uses: ['ColorPlate', 'KineticHeadline', 'AbstractPerson', 'BenefitList', 'TrustSeal', 'CTAButton', 'LogoLockup', 'CaptionTrack'], purpose: 'Longer narrative — meet-your-admin story.' },
+  { id: 'VMABilingualWorkflow15', name: 'VMABilingualWorkflow15', duration: '15s', frames: 450, fps: 30, uses: ['ColorPlate', 'KineticHeadline', 'BenefitList', 'CTAButton', 'LogoLockup', 'CaptionTrack'], purpose: 'Wave 2 — bilingual workload split; EN/ES lanes + calendar organize.' },
+  { id: 'VMAWorkflowTraining15', name: 'VMAWorkflowTraining15', duration: '15s', frames: 450, fps: 30, uses: ['ColorPlate', 'KineticHeadline', 'BenefitList', 'CTAButton', 'LogoLockup', 'CaptionTrack'], purpose: 'Wave 2 — practice modules connect to dedicated admin workspace.' },
+  { id: 'VMAFrontDeskCapacity15', name: 'VMAFrontDeskCapacity15', duration: '15s', frames: 450, fps: 30, uses: ['ColorPlate', 'KineticHeadline', 'BenefitList', 'CTAButton', 'LogoLockup', 'CaptionTrack'], purpose: 'Wave 2 — task pile → virtual layer → resolved tasks.' },
+  { id: 'VMAMissedCallsStatic6', name: 'VMAMissedCallsStatic6', duration: '6s', frames: 180, fps: 30, uses: ['ColorPlate', 'KineticHeadline', 'CTAButton', 'LogoLockup'], purpose: 'Wave 2 — phone ring → missed → calendar confirm loop (static rebuild).' },
+  { id: 'VMASchedulingLoop6', name: 'VMASchedulingLoop6', duration: '6s', frames: 180, fps: 30, uses: ['ColorPlate', 'KineticHeadline', 'CTAButton', 'LogoLockup'], purpose: 'Wave 2 — open slot → reminder → confirmed loop.' },
 ];
 
 export const REMOTION_PLAYBOOK = {
@@ -1179,30 +1446,67 @@ export const CHATGPT_WORKFLOW = [
 const CHATGPT_BASE_NEGATIVE =
   'NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.';
 
+// Per-ratio plate direction so designers get a clean AI base for EVERY Meta size,
+// not just the square. Overlay all copy in the design tool afterward.
+const RATIO_PLATE_DIRECTIONS = {
+  '1:1': '1:1 (1080×1080): talent on the right third, headline + benefits negative space on the left.',
+  '4:5': '4:5 (1080×1350) PRIMARY FEED: talent centered mid-frame, clear band across the top for headline and a lower band for benefits.',
+  '9:16': '9:16 (1080×1920) Stories/Reels: talent mid-frame, keep the top ~180px and bottom ~300px clear of key content for platform UI.',
+  '1.91:1': '1.91:1 (1200×628) wide/link: talent on the right, headline + benefits fill the left half — a true side-by-side build, never a centered square with empty sides.',
+};
+
+function ratioLines(formats) {
+  return (formats && formats.length ? formats : ['1:1', '4:5', '9:16', '1.91:1'])
+    .map((r) => RATIO_PLATE_DIRECTIONS[r])
+    .filter(Boolean)
+    .join(' ');
+}
+
 function buildChatgptPrompt(concept, i) {
   const family = COLOR_BY_ID[concept.colorFamilyId];
+  const ratios = concept.staticFormats && concept.staticFormats.length ? concept.staticFormats : ['1:1', '4:5', '9:16', '1.91:1'];
+  const ratioDetail = concept.ratioCompositions
+    ? ratios.map((r) => concept.ratioCompositions[r]).filter(Boolean).join(' ')
+    : ratioLines(ratios);
+  const subjectLine = concept.visualDirection
+    ? `Visual direction: ${concept.visualDirection} ${concept.talentDirection || ''}`
+    : `Subject: a credible, warm professional female virtual medical administrator, ${family.name} scrub top (${family.scrubColor}), clean studio lighting, high contrast against the plate.`;
+  const styleNote =
+    concept.visualStyle === 'operations' || concept.visualStyle === 'workflow-human'
+      ? 'Style: clean healthcare operations graphics — bold commercial ad, NOT cluttered SaaS dashboard, NOT software product UI. Generous negative space. Crisp mobile-first direct response.'
+      : 'Style: bold, high-contrast, mobile-first direct response.';
   return {
     id: `CGP-${String(i + 1).padStart(2, '0')}`,
     conceptNumber: concept.number,
     title: concept.name,
     colorFamily: family.name,
-    prompt: `Full-image Meta ad plate for a healthcare staffing ad. Style: bold, high-contrast, mobile-first direct response. Color story: ${family.name} — background ${family.background}, accent ${family.accent}. Subject: a credible, warm professional female virtual medical administrator, ${family.name} scrub top (${family.scrubColor}), framed on the right third, clean studio lighting, high contrast against the plate. Leave the left two-thirds as clean negative space for a designer to add a large headline and 4 benefit bullets later. Composition should feel like a scroll-stopping offer ad. ${CHATGPT_BASE_NEGATIVE}`,
+    ratios,
+    testingTag: concept.testingTag || '',
+    recommendedPriority: concept.recommendedPriority || '',
+    sourceHypothesis: concept.sourceHypothesis || '',
+    prompt: `Meta ad background plate for MedVirtual healthcare staffing. ${styleNote} Color story: ${family.name} — background ${family.background}, accent ${family.accent}. ${subjectLine} Generate a separate purpose-built plate for EACH required aspect ratio (never stretch or crop one into another): ${ratioDetail} Leave clean negative space for designer to overlay headline "${concept.headline}", benefits, and CTA in Be Vietnam later. Do not bake logos or tiny text into the image. ${CHATGPT_BASE_NEGATIVE}`,
     overlayLater: {
       headline: concept.headline,
+      supportingLine: concept.supportingLine,
       benefits: concept.benefits,
       cta: concept.cta,
-      logo: 'MedVirtual white logo, small, optional.',
+      logo: 'MedVirtual white logo — overlay in design tool only.',
     },
+    remotionNotes: concept.remotionNotes || '',
+    capcutNotes: concept.capcutNotes || '',
     risks: VMA_META.chatgptRisks,
   };
 }
 
-// 15 production prompts — 6 color tests + 9 role/pain/spanish/offer concepts.
+// Production image prompts — color tests + legacy concepts + scale winners + wave 2.
 const CHATGPT_SOURCE = [
   ...COLOR_TEST_SET,
-  ...['VMA-05', 'VMA-07', 'VMA-09', 'VMA-10', 'VMA-12', 'VMA-13', 'VMA-17', 'VMA-19', 'VMA-22'].map((n) =>
-    CONCEPTS.find((c) => c.number === n),
-  ),
+  ...[
+    'VMA-05', 'VMA-07', 'VMA-09', 'VMA-10', 'VMA-12', 'VMA-13', 'VMA-17', 'VMA-19', 'VMA-22',
+    'VMA-25', 'VMA-26', 'VMA-27', 'VMA-28', 'VMA-29', 'VMA-30', 'VMA-31', 'VMA-32',
+    'VMA-33', 'VMA-34', 'VMA-35', 'VMA-36', 'VMA-37', 'VMA-38', 'VMA-39', 'VMA-40',
+    'VMA-41', 'VMA-42', 'VMA-43', 'VMA-44', 'VMA-45', 'VMA-46',
+  ].map((n) => CONCEPTS.find((c) => c.number === n)),
 ];
 
 export const CHATGPT_PROMPTS = CHATGPT_SOURCE.map((c, i) => buildChatgptPrompt(c, i));
@@ -1211,6 +1515,9 @@ export const CHATGPT_PROMPTS = CHATGPT_SOURCE.map((c, i) => buildChatgptPrompt(c
 
 function buildVideoPrompt(vc, i) {
   const family = COLOR_BY_ID[vc.colorFamilyId];
+  const beatLine = vc.scenes.join(' → ');
+  const endNote = vc.endCard ? ` End card: "${vc.endCard}".` : '';
+  const prodNotes = [vc.remotionNotes, vc.capcutNotes].filter(Boolean).join(' ');
   return {
     id: `VP-${String(i + 1).padStart(2, '0')}`,
     videoNumber: vc.number,
@@ -1219,7 +1526,11 @@ function buildVideoPrompt(vc, i) {
     colorFamily: family.name,
     remotionComposition: vc.remotionComposition,
     capcutTemplate: vc.capcutTemplate,
-    prompt: `Animated ${vc.duration} vertical (9:16) Meta ad for MedVirtual virtual medical admin staffing. Color story: ${family.name} (background ${family.background}, accent ${family.accent}). Open on the headline "${vc.headline}" in bold mobile-first type. Beats: ${vc.scenes.join(' → ')}. Introduce an abstract (non-photo) admin figure and stagger in up to 4 benefit checks. End on a single CTA pill and the MedVirtual logo. Burned-in captions throughout. ${CHATGPT_BASE_NEGATIVE} No unapproved price/HIPAA badge on screen.`,
+    testingTag: vc.testingTag || '',
+    recommendedPriority: vc.recommendedPriority || '',
+    prompt: `Animated ${vc.duration} Meta ad for MedVirtual virtual medical admin staffing. Color story: ${family.name} (background ${family.background}, accent ${family.accent}). Headline: "${vc.headline}".${endNote} Sequence: ${beatLine}. Use clean healthcare operations motion graphics — not failed video aesthetic, not call-center b-roll, not SaaS UI. Burned-in captions throughout. Export all three placements — 9:16 (1080×1920), 4:5 (1080×1350), and 1:1 (1080×1080) — purpose-built per ratio with 9:16 safe zones. ${prodNotes} ${CHATGPT_BASE_NEGATIVE} No unapproved price/HIPAA/background-checked badge on screen unless claim approved.`,
+    remotionNotes: vc.remotionNotes || '',
+    capcutNotes: vc.capcutNotes || '',
     risks: VMA_META.chatgptRisks,
   };
 }
@@ -1511,6 +1822,35 @@ export const COPY_EN = [
     headlines: ['DEDICATED STAFF — NOT A CALL CENTER', 'HIRE DEDICATED FULL-TIME VIRTUAL STAFF', 'Add Front-Office Capacity Virtually', 'Grow Without Another Local Hire', 'Full-Time Virtual Staff on Your Team'],
     descriptions: ['Dedicated full-time — join your team.', 'Not a managed front-desk service.', 'Not AI, not software — real staff.', 'Hire into your practice workflow.', 'Tell us your staffing needs.'],
   },
+  {
+    id: 'bilingual-scale',
+    name: 'Bilingual / Spanish-Speaking (Winner Scale)',
+    matchingForm: 'Form A',
+    primaryTexts: [
+      'Hire a Spanish-speaking virtual medical admin so no patient call goes unanswered.',
+      'Your Spanish-speaking patients deserve to be understood. Add dedicated bilingual front-office staff.',
+      'Add a bilingual virtual medical admin for calls, scheduling, and insurance — dedicated to your practice.',
+      'Stop losing Spanish-speaking patients to voicemail. Get dedicated bilingual admin support.',
+      'MedVirtual helps practices hire dedicated bilingual staff who join the team full-time — not a call center.',
+    ],
+    headlines: ['HIRE A SPANISH-SPEAKING MEDICAL ADMIN', 'Add a Bilingual Virtual Medical Admin', 'Spanish-Speaking Admin Available', 'Bilingual Front-Office Support', 'Se Habla Español — Dedicated Admin'],
+    descriptions: ['Dedicated bilingual staff on your team.', 'Calls, scheduling, and insurance in Spanish.', 'Not a call center — hire into your practice.', 'Full-time bilingual support.', 'Tell us what your patients need.'],
+  },
+  {
+    id: 'trust-safe',
+    name: 'Trust / Trained (Claim-Safe Winner)',
+    matchingForm: 'Form A',
+    primaryTexts: [
+      'Hire a background-checked, healthcare-trained virtual medical admin dedicated to your practice.',
+      'Add a virtual medical admin you can trust — vetted, trained, and focused on your patients.',
+      'Patient info handled with care. Get dedicated, trained virtual staff who protect privacy every day.',
+      'Vetted virtual medical admin support — dedicated to your practice, not a shared agent pool.',
+      'MedVirtual provides background-checked, healthcare-trained staff who join your team full-time.',
+    ],
+    headlines: ['A VIRTUAL MEDICAL ADMIN YOU CAN TRUST', 'BACKGROUND-CHECKED VIRTUAL MEDICAL ADMIN', 'Trained Medical Admin Support', 'Patient Info Handled With Care', 'Vetted, Dedicated Virtual Staff'],
+    descriptions: ['Background-checked and healthcare-trained.', 'Dedicated full-time staff on your team.', 'Confidential patient support.', 'Not a shared call center pool.', 'Tell us what your practice needs.'],
+  },
+  ...WAVE2_COPY_EN,
 ];
 
 export const COPY_ES = [
@@ -1556,6 +1896,21 @@ export const COPY_ES = [
     headlines: ['SPANISH-SPEAKING MEDICAL ADMIN AVAILABLE', 'Apoyo Administrativo en Español', 'Personal Virtual Bilingüe', 'Asistente Médico Virtual en Español', 'Se Habla Español — Apoyo Administrativo'],
     descriptions: ['Personal bilingüe dedicado.', 'Recepción, seguros y facturación.', 'No es un call center.', 'Tiempo completo en tu equipo.', 'Cuéntanos qué necesitas.'],
   },
+  {
+    id: 'retention-es',
+    name: 'Retención de Pacientes (Ganador — Escalar)',
+    matchingForm: 'Form A',
+    primaryTexts: [
+      'Tus pacientes merecen que los entiendan. Contrata personal médico virtual que habla español.',
+      'Ningún paciente sin atender: agrega apoyo virtual bilingüe para llamadas, citas y seguros.',
+      'No pierdas pacientes por falta de personal bilingüe. Contrata un asistente médico virtual en español.',
+      'Personal virtual dedicado de tiempo completo que atiende a tus pacientes en su idioma.',
+      'MedVirtual conecta consultorios con personal virtual dedicado que habla español — no un call center.',
+    ],
+    headlines: ['TUS PACIENTES MERECEN QUE LOS ENTIENDAN', 'NINGÚN PACIENTE SIN ATENDER', 'Contrata Personal Médico en Español', 'Apoyo Bilingüe de Tiempo Completo', 'Atiende a Tus Pacientes en Español'],
+    descriptions: ['Personal bilingüe dedicado a tu consulta.', 'Llamadas, citas y seguros en español.', 'No es un call center.', 'Tiempo completo en tu equipo.', 'Cuéntanos qué necesitan tus pacientes.'],
+  },
+  ...WAVE2_COPY_ES,
 ];
 
 // ─── Competitor research seed ────────────────────────────────────────────────

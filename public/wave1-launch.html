@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wave 1 Launch — MedVirtual</title>
+  <style>
+    
+  
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Be Vietnam';
+  src: url('/assets/brand/medvirtual/fonts/BeVietnam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --mv-primary: #077999;
+  --mv-cyan: #00B2E2;
+  --mv-deep-teal: #0D546B;
+  --mv-accent: #00C0D4;
+  --mv-bright-accent: #27E6FA;
+  --mv-neutral-blue: #F0F5FF;
+  --mv-neutral-warm: #EFEDE1;
+  --mv-ink: #161511;
+  --mv-white: #FFFFFF;
+  --mv-gradient-primary: linear-gradient(90deg, #077999 0%, #00B2E2 100%);
+  --mv-gradient-light: linear-gradient(90deg, #F0F5FF 0%, #00B2E2 100%);
+  --mv-gradient-bright: linear-gradient(90deg, #27E6FA 0%, #F0F5FF 100%);
+  --mv-gradient-deep: linear-gradient(90deg, #0D546B 0%, #00C0D4 100%);
+  --mv-font: "Be Vietnam", Inter, Arial, sans-serif;
+}
+
+  .doc-header {
+    background: #0B1F3A;
+    color: #ffffff;
+    border-bottom: 2px solid #077999;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    font-family: var(--mv-font);
+  }
+  .doc-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .doc-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .doc-header__logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .doc-header__mark { display: none; }
+  .doc-header__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .doc-header__tagline {
+    margin: 0.1rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #a3a3a3;
+  }
+  .doc-header__page {
+    margin: 0.85rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .doc-header__page-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #e2e8f0;
+  }
+  .doc-header__page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #a3a3a3;
+    max-width: 820px;
+  }
+  .doc-nav-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+  }
+  .doc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .doc-nav a,
+  .doc-nav-dd > summary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #d4d4d4;
+    text-decoration: none;
+    border: 1px solid transparent;
+    list-style: none;
+    cursor: pointer;
+    background: transparent;
+  }
+  .doc-header details.doc-nav-dd {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .doc-header details.doc-nav-dd > summary {
+    background: transparent !important;
+    color: #d4d4d4 !important;
+    font-weight: 500 !important;
+    border: 1px solid transparent !important;
+    padding: 0.45rem 0.75rem !important;
+  }
+  .doc-nav-dd > summary::-webkit-details-marker { display: none; }
+  .doc-nav-dd > summary::after {
+    content: '▾';
+    margin-left: 0.35em;
+    font-size: 0.7em;
+    opacity: 0.75;
+  }
+  .doc-nav a:hover,
+  .doc-header details.doc-nav-dd > summary:hover {
+    color: #ffffff !important;
+    background: rgba(0, 178, 226, 0.18) !important;
+  }
+  .doc-nav a.active {
+    color: #ffffff;
+    background: #077999;
+    font-weight: 700;
+  }
+  .doc-header details.doc-nav-dd.active > summary,
+  .doc-header details.doc-nav-dd[open] > summary {
+    color: #ffffff !important;
+    background: #077999 !important;
+    font-weight: 700 !important;
+  }
+  .doc-nav-dd { position: relative; }
+  .doc-nav-dd__menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    min-width: 12rem;
+    background: #171717;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    padding: 0.35rem;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .doc-nav-dd__menu a {
+    display: block;
+    white-space: nowrap;
+    border-radius: 7px;
+  }
+  .doc-nav-dd__menu a.active {
+    background: rgba(0, 178, 226, 0.22);
+    color: #7dd3fc;
+  }
+  .doc-nav-sep {
+    width: 1px;
+    height: 1.35rem;
+    background: rgba(255,255,255,0.22);
+    flex-shrink: 0;
+  }
+  .doc-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+  .doc-subnav a {
+    color: #7dd3fc;
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+  }
+  .doc-subnav a:hover { border-color: #00B2E2; color: #fff; }
+  .doc-subnav a.active {
+    background: rgba(0, 178, 226, 0.22);
+    border-color: #00B2E2;
+    color: #fff;
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 1rem; }
+    .doc-header__logo { height: 30px; max-width: 130px; }
+    .doc-nav-sep { display: none; }
+  }
+
+    main { max-width: 960px; margin: 0 auto; padding: 1.5rem; font-family: var(--mv-font, "Be Vietnam", sans-serif); }
+    .hero { margin-bottom: 2rem; }
+    .hero h1 { font-size: 1.75rem; margin: 0 0 0.5rem; }
+    .banner { background: #0D546B; color: #fff; padding: 1rem 1.25rem; border-radius: 8px; margin-bottom: 1.5rem; }
+    .card { border: 1px solid #d0dde5; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+    .meta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: #4A6275; margin-bottom: 0.5rem; }
+    .card h2 { font-size: 1.15rem; margin: 0 0 0.75rem; }
+    pre { white-space: pre-wrap; font-size: 0.78rem; background: #f4f8fa; padding: 0.75rem; border-radius: 6px; max-height: 280px; overflow: auto; }
+    code { font-size: 0.85em; }
+    .await { color: #b45309; font-size: 0.9rem; }
+    .ready { color: #166534; font-size: 0.9rem; }
+    .preview { display: block; width: 260px; max-width: 60%; height: auto; border-radius: 10px; border: 1px solid #d0dde5; margin: 0.5rem 0 1rem; }
+    .links a { display: inline-block; margin: 0.25rem 0.5rem 0.25rem 0; }
+    ul { margin: 0.5rem 0; padding-left: 1.25rem; }
+  </style>
+</head>
+<body>
+  <header class="doc-header">
+  <div class="doc-header__row">
+    <a class="doc-header__brand" href="/studio.html">
+      <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
+      <div>
+        <h1 class="doc-header__title">MedVirtual Ad Production</h1>
+        <p class="doc-header__tagline">Approved VMA creative · 15–20 concepts · required Meta sizes</p>
+      </div>
+    </a>
+    <div class="doc-nav-wrap">
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Dashboard</a><a href="/vma-approved.html" class="">Approved Creative</a><a href="/ideas.html" class="">New Ad Ideas</a><a href="/vma-static.html" class="">Aspect Ratios</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-video.html" class="">Animated Video</a><a href="/vma-chatgpt.html" class="">Prompts &amp; Copy</a><a href="/vma-handoff.html" class="active">Production Handoff</a></nav>
+    </div>
+  </div>
+  <div class="doc-header__page">
+          <h2 class="doc-header__page-title">Wave 1 Launch</h2>
+          <p class="doc-header__page-sub">5 statics — production active</p>
+          
+        </div>
+</header>
+<script>
+(function () {
+  document.querySelectorAll('.doc-nav-dd').forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (!dd.open) return;
+      document.querySelectorAll('.doc-nav-dd').forEach((other) => {
+        if (other !== dd) other.open = false;
+      });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.doc-nav-dd')) return;
+    document.querySelectorAll('.doc-nav-dd[open]').forEach((dd) => { dd.open = false; });
+  });
+})();
+</script>
+  <main>
+    <div class="banner"><strong>WAVE 1 ACTIVE</strong> — VMA-33 · VMA-34 · VMA-37 · VMA-41 · VMA-43 · Videos queue after static QA</div>
+    <div class="hero">
+      <h1>Wave 1 First Launch</h1>
+      <p>5 static concepts · 4 ratios each · upload to Static VMA ADV Broad · <strong>4:5 first</strong></p>
+      <div class="links">
+        <a href="/exports/wave1-first-launch/README_UPLOAD_NOW.md">Upload README</a>
+        <a href="/exports/wave1-first-launch/ad-copy-paste-ready.txt">Paste copy</a>
+        <a href="/exports/wave1-first-launch/designer-briefs.md">Designer briefs</a>
+        <a href="/exports/wave1-first-launch/creative-map.csv">Creative map CSV</a>
+        <a href="/exports/wave1-first-launch/instant-form-spec.md">Instant Form spec</a>
+        <a href="/exports/wave1-first-launch/creatives/">Rendered creatives</a>
+        <a href="/vma-handoff.html#wave-2-handoff">Handoff</a>
+      </div>
+    </div>
+    <article class="card">
+  <div class="meta">VMA-33 · Scale · P1</div>
+  <h2>YOUR SPANISH-SPEAKING PATIENTS SHOULD NEVER FEEL LOST</h2>
+  <img class="preview" src="/exports/wave1-first-launch/creatives/MV_VMA_33_SpanishNeverLost_4x5.png" alt="VMA-33 4:5 creative" loading="lazy" />
+  <p>Dedicated bilingual virtual medical admin</p>
+  <p><strong>Ad name:</strong> <code>IMB_MV_ADV_05_SpanishNeverLost_BilingualPatients_v1.0_4x5</code></p>
+  <p><strong>Hypothesis:</strong> Patient-experience framing may outperform direct hire hooks on the proven Spanish CPL lane.</p>
+  <details><summary>Visual direction</summary><p>Clean front-office communication dashboard with English and Spanish conversation indicators, phone, appointment, and follow-up modules. No flags, stereotypes, or cartoon speech bubbles.</p></details>
+  <details><summary>Files needed (4 ratios)</summary><ul><li><code>MV_VMA_33_SpanishNeverLost_1x1.png</code> — 1080×1080</li><li><code>MV_VMA_33_SpanishNeverLost_4x5.png</code> — 1080×1350 ✅</li><li><code>MV_VMA_33_SpanishNeverLost_9x16.png</code> — 1080×1920</li><li><code>MV_VMA_33_SpanishNeverLost_1.91x1.png</code> — 1200×628</li></ul></details>
+  <details><summary>Image prompt</summary><pre>Meta ad background plate for MedVirtual healthcare staffing. Style: clean healthcare operations graphics — bold commercial ad, NOT cluttered SaaS dashboard, NOT software product UI. Generous negative space. Crisp mobile-first direct response. Color story: Vivid Green — background #22C55E, accent #22C55E. Visual direction: Clean front-office communication dashboard with English and Spanish conversation indicators, phone, appointment, and follow-up modules. No flags, stereotypes, or cartoon speech bubbles. Clean healthcare operations graphics — bilingual communication dashboard with EN/ES lanes, phone and calendar modules. No random stock doctors. Not software/SaaS UI. Generous negative space. Be Vietnam typography overlaid later. Generate a separate purpose-built plate for EACH required aspect ratio (never stretch or crop one into another): Balanced square: headline in upper-left third; central visual — bilingual communication dashboard with EN/ES lanes, phone and calendar modules; generous negative space; CTA/support band along lower edge. Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; bilingual communication dashboard with EN/ES lanes, phone and calendar modules; critical content above bottom UI overlap zone. Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — bilingual communication dashboard with EN/ES lanes, phone and calendar modules; large readable headline in safe middle band; never center-crop the square. Horizontal: headline left half, visual right half; bilingual communication dashboard with EN/ES lanes, phone and calendar modules; minimal text; readable at small link-ad sizes; fill the wide frame. Leave clean negative space for designer to overlay headline &quot;YOUR SPANISH-SPEAKING PATIENTS SHOULD NEVER FEEL LOST&quot;, benefits, and CTA in Be Vietnam later. Do not bake logos or tiny text into the image. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</pre></details>
+  <p class="ready">Creative status: <strong>4:5 RENDERED &amp; QA-PASSED</strong> — <code>creatives/MV_VMA_33_SpanishNeverLost_4x5.png</code> · ready for Meta upload</p>
+</article><article class="card">
+  <div class="meta">VMA-34 · Scale · P1</div>
+  <h2>ADD BILINGUAL SUPPORT WITHOUT OVERLOADING YOUR FRONT DESK</h2>
+  <img class="preview" src="/exports/wave1-first-launch/creatives/MV_VMA_34_BilingualFrontDesk_4x5.png" alt="VMA-34 4:5 creative" loading="lazy" />
+  <p>A dedicated virtual medical admin joins your team</p>
+  <p><strong>Ad name:</strong> <code>IMB_MV_ADV_06_BilingualFrontDesk_Capacity_v1.0_4x5</code></p>
+  <p><strong>Hypothesis:</strong> Workload-split visual may convert practices that feel bilingual demand but fear adding local headcount.</p>
+  <details><summary>Visual direction</summary><p>Split workload visual showing an overloaded front desk becoming an organized two-lane English/Spanish workflow.</p></details>
+  <details><summary>Files needed (4 ratios)</summary><ul><li><code>MV_VMA_34_BilingualFrontDesk_1x1.png</code> — 1080×1080</li><li><code>MV_VMA_34_BilingualFrontDesk_4x5.png</code> — 1080×1350 ✅</li><li><code>MV_VMA_34_BilingualFrontDesk_9x16.png</code> — 1080×1920</li><li><code>MV_VMA_34_BilingualFrontDesk_1.91x1.png</code> — 1200×628</li></ul></details>
+  <details><summary>Image prompt</summary><pre>Meta ad background plate for MedVirtual healthcare staffing. Style: clean healthcare operations graphics — bold commercial ad, NOT cluttered SaaS dashboard, NOT software product UI. Generous negative space. Crisp mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Visual direction: Split workload visual showing an overloaded front desk becoming an organized two-lane English/Spanish workflow. Clean healthcare operations graphics — before/after two-lane EN/ES workflow transformation. No random stock doctors. Not software/SaaS UI. Generous negative space. Be Vietnam typography overlaid later. Generate a separate purpose-built plate for EACH required aspect ratio (never stretch or crop one into another): Balanced square: headline in upper-left third; central visual — before/after two-lane EN/ES workflow transformation; generous negative space; CTA/support band along lower edge. Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; before/after two-lane EN/ES workflow transformation; critical content above bottom UI overlap zone. Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — before/after two-lane EN/ES workflow transformation; large readable headline in safe middle band; never center-crop the square. Horizontal: headline left half, visual right half; before/after two-lane EN/ES workflow transformation; minimal text; readable at small link-ad sizes; fill the wide frame. Leave clean negative space for designer to overlay headline &quot;ADD BILINGUAL SUPPORT WITHOUT OVERLOADING YOUR FRONT DESK&quot;, benefits, and CTA in Be Vietnam later. Do not bake logos or tiny text into the image. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</pre></details>
+  <p class="ready">Creative status: <strong>4:5 RENDERED &amp; QA-PASSED</strong> — <code>creatives/MV_VMA_34_BilingualFrontDesk_4x5.png</code> · ready for Meta upload</p>
+</article><article class="card">
+  <div class="meta">VMA-37 · Scale · P1</div>
+  <h2>TRAINED FOR THE WAY YOUR PRACTICE WORKS</h2>
+  <img class="preview" src="/exports/wave1-first-launch/creatives/MV_VMA_37_TrainedWorkflow_4x5.png" alt="VMA-37 4:5 creative" loading="lazy" />
+  <p>A dedicated virtual medical admin who learns your systems and workflow</p>
+  <p><strong>Ad name:</strong> <code>IMB_MV_ADV_07_TrainedWorkflow_PracticeSystems_v1.0_4x5</code></p>
+  <p><strong>Hypothesis:</strong> Practice-specific training angle may scale trust winner without HIPAA badge dependency.</p>
+  <details><summary>Visual direction</summary><p>Practice workflow modules connecting into a central virtual staff workspace: phone, calendar, inbox, insurance, intake.</p></details>
+  <details><summary>Files needed (4 ratios)</summary><ul><li><code>MV_VMA_37_TrainedWorkflow_1x1.png</code> — 1080×1080</li><li><code>MV_VMA_37_TrainedWorkflow_4x5.png</code> — 1080×1350 ✅</li><li><code>MV_VMA_37_TrainedWorkflow_9x16.png</code> — 1080×1920</li><li><code>MV_VMA_37_TrainedWorkflow_1.91x1.png</code> — 1200×628</li></ul></details>
+  <details><summary>Image prompt</summary><pre>Meta ad background plate for MedVirtual healthcare staffing. Style: clean healthcare operations graphics — bold commercial ad, NOT cluttered SaaS dashboard, NOT software product UI. Generous negative space. Crisp mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Visual direction: Practice workflow modules connecting into a central virtual staff workspace: phone, calendar, inbox, insurance, intake. Clean healthcare operations graphics — workflow modules converging on dedicated admin workspace hub. No random stock doctors. Not software/SaaS UI. Generous negative space. Be Vietnam typography overlaid later. Generate a separate purpose-built plate for EACH required aspect ratio (never stretch or crop one into another): Balanced square: headline in upper-left third; central visual — workflow modules converging on dedicated admin workspace hub; generous negative space; CTA/support band along lower edge. Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; workflow modules converging on dedicated admin workspace hub; critical content above bottom UI overlap zone. Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — workflow modules converging on dedicated admin workspace hub; large readable headline in safe middle band; never center-crop the square. Horizontal: headline left half, visual right half; workflow modules converging on dedicated admin workspace hub; minimal text; readable at small link-ad sizes; fill the wide frame. Leave clean negative space for designer to overlay headline &quot;TRAINED FOR THE WAY YOUR PRACTICE WORKS&quot;, benefits, and CTA in Be Vietnam later. Do not bake logos or tiny text into the image. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</pre></details>
+  <p class="ready">Creative status: <strong>4:5 RENDERED &amp; QA-PASSED</strong> — <code>creatives/MV_VMA_37_TrainedWorkflow_4x5.png</code> · ready for Meta upload</p>
+</article><article class="card">
+  <div class="meta">VMA-41 · Adjacent Test · P1</div>
+  <h2>YOUR FRONT DESK CAN’T DO EVERYTHING</h2>
+  <img class="preview" src="/exports/wave1-first-launch/creatives/MV_VMA_41_FrontDeskCapacity_4x5.png" alt="VMA-41 4:5 creative" loading="lazy" />
+  <p>Add dedicated administrative capacity without adding another desk</p>
+  <p><strong>Ad name:</strong> <code>IMB_MV_ADV_08_FrontDeskCapacity_Overload_v1.0_4x5</code></p>
+  <p><strong>Hypothesis:</strong> Capacity pain (not missed-calls video aesthetic) may find a new winner adjacent to Spanish/trust lanes.</p>
+  <details><summary>Visual direction</summary><p>Before-and-after workload transformation. Chaotic task cards reorganize into a clean healthcare administration dashboard.</p></details>
+  <details><summary>Files needed (4 ratios)</summary><ul><li><code>MV_VMA_41_FrontDeskCapacity_1x1.png</code> — 1080×1080</li><li><code>MV_VMA_41_FrontDeskCapacity_4x5.png</code> — 1080×1350 ✅</li><li><code>MV_VMA_41_FrontDeskCapacity_9x16.png</code> — 1080×1920</li><li><code>MV_VMA_41_FrontDeskCapacity_1.91x1.png</code> — 1200×628</li></ul></details>
+  <details><summary>Image prompt</summary><pre>Meta ad background plate for MedVirtual healthcare staffing. Style: clean healthcare operations graphics — bold commercial ad, NOT cluttered SaaS dashboard, NOT software product UI. Generous negative space. Crisp mobile-first direct response. Color story: Signal Yellow — background #FFE600, accent #FFE600. Visual direction: Before-and-after workload transformation. Chaotic task cards reorganize into a clean healthcare administration dashboard. Clean healthcare operations graphics — chaotic task pile reorganizing into clean admin dashboard. No random stock doctors. Not software/SaaS UI. Generous negative space. Be Vietnam typography overlaid later. Generate a separate purpose-built plate for EACH required aspect ratio (never stretch or crop one into another): Balanced square: headline in upper-left third; central visual — chaotic task pile reorganizing into clean admin dashboard; generous negative space; CTA/support band along lower edge. Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; chaotic task pile reorganizing into clean admin dashboard; critical content above bottom UI overlap zone. Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — chaotic task pile reorganizing into clean admin dashboard; large readable headline in safe middle band; never center-crop the square. Horizontal: headline left half, visual right half; chaotic task pile reorganizing into clean admin dashboard; minimal text; readable at small link-ad sizes; fill the wide frame. Leave clean negative space for designer to overlay headline &quot;YOUR FRONT DESK CAN’T DO EVERYTHING&quot;, benefits, and CTA in Be Vietnam later. Do not bake logos or tiny text into the image. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</pre></details>
+  <p class="ready">Creative status: <strong>4:5 RENDERED &amp; QA-PASSED</strong> — <code>creatives/MV_VMA_41_FrontDeskCapacity_4x5.png</code> · ready for Meta upload</p>
+</article><article class="card">
+  <div class="meta">VMA-43 · Adjacent Test · P1</div>
+  <h2>KEEP THE SCHEDULE MOVING</h2>
+  <img class="preview" src="/exports/wave1-first-launch/creatives/MV_VMA_43_ScheduleMoving_4x5.png" alt="VMA-43 4:5 creative" loading="lazy" />
+  <p>Dedicated virtual administrative support for confirmations, reminders, and rescheduling</p>
+  <p><strong>Ad name:</strong> <code>IMB_MV_ADV_09_ScheduleMoving_Confirmations_v1.0_4x5</code></p>
+  <p><strong>Hypothesis:</strong> Scheduling-specific hook tests role clarity without broad hire messaging.</p>
+  <details><summary>Visual direction</summary><p>Premium weekly calendar interface with confirmations, reminder icons, and resolved schedule gaps.</p></details>
+  <details><summary>Files needed (4 ratios)</summary><ul><li><code>MV_VMA_43_ScheduleMoving_1x1.png</code> — 1080×1080</li><li><code>MV_VMA_43_ScheduleMoving_4x5.png</code> — 1080×1350 ✅</li><li><code>MV_VMA_43_ScheduleMoving_9x16.png</code> — 1080×1920</li><li><code>MV_VMA_43_ScheduleMoving_1.91x1.png</code> — 1200×628</li></ul></details>
+  <details><summary>Image prompt</summary><pre>Meta ad background plate for MedVirtual healthcare staffing. Style: clean healthcare operations graphics — bold commercial ad, NOT cluttered SaaS dashboard, NOT software product UI. Generous negative space. Crisp mobile-first direct response. Color story: Cobalt Blue — background #1D4ED8, accent #1D4ED8. Visual direction: Premium weekly calendar interface with confirmations, reminder icons, and resolved schedule gaps. Clean healthcare operations graphics — weekly calendar with confirmations, reminders, and filled gaps. No random stock doctors. Not software/SaaS UI. Generous negative space. Be Vietnam typography overlaid later. Generate a separate purpose-built plate for EACH required aspect ratio (never stretch or crop one into another): Balanced square: headline in upper-left third; central visual — weekly calendar with confirmations, reminders, and filled gaps; generous negative space; CTA/support band along lower edge. Mobile-feed-first: extra vertical breathing room; headline top third separated from central visual; weekly calendar with confirmations, reminders, and filled gaps; critical content above bottom UI overlap zone. Stories/Reels safe zones: no critical text in top 14% or bottom 20%; vertical workflow progression — weekly calendar with confirmations, reminders, and filled gaps; large readable headline in safe middle band; never center-crop the square. Horizontal: headline left half, visual right half; weekly calendar with confirmations, reminders, and filled gaps; minimal text; readable at small link-ad sizes; fill the wide frame. Leave clean negative space for designer to overlay headline &quot;KEEP THE SCHEDULE MOVING&quot;, benefits, and CTA in Be Vietnam later. Do not bake logos or tiny text into the image. NO pink, magenta, hot pink, rose, or fuchsia anywhere. No baked-in headline text, no misspelled text, no watermarks, no fake logos, no fake award/HIPAA badges unless requested, no fake software UI, no call-center headset, no physician white coat or stethoscope, no patient data, no prison-orange scrubs, no low-contrast muddy plate.</pre></details>
+  <p class="ready">Creative status: <strong>4:5 RENDERED &amp; QA-PASSED</strong> — <code>creatives/MV_VMA_43_ScheduleMoving_4x5.png</code> · ready for Meta upload</p>
+</article>
+    <section>
+      <h2>Pause first</h2>
+      <ul>
+        <li>Both video campaigns</li>
+        <li>Zero-lead legacy statics still spending</li>
+      </ul>
+      <h2>Video queue (after static QA)</h2>
+      <p>VMA-V22 · VMA-V24 · VMA-V25</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <defs><filter id="grain6" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="4" result="n"/>
+    <feColorMatrix type="saturate" values="0" in="n" result="g"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.09"/></feComponentTransfer>
+  </filter></defs>
+      <rect width="1080" height="1350" fill="#087A43"/>
+      <rect width="1080" height="1350" fill="#075C37" opacity="0.35"/>
+      <g opacity="0.55" stroke="#FFF4D6" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M120 980 h180 M120 1020 h140"/>
+        <path d="M860 240 l-60 40 M820 280 l-80 0"/>
+      </g>
+      <g opacity="0.45" stroke="#F2D72E" stroke-width="4" fill="none">
+        <path d="M90 760 Q200 720 310 760"/>
+        <path d="M780 1080 h120"/>
+      </g>
+      <rect x="64" y="96" width="8" height="220" fill="#F2D72E" opacity="0.35" transform="rotate(-2 68 96)"/>
+      <rect width="1080" height="1350" filter="url(#grain6)" fill="#FFFFFF"/>
+  <g opacity="0.22">
+    <rect x="72" y="118" width="520" height="72" rx="6" fill="#FFF4D6"/>
+    <rect x="72" y="210" width="460" height="88" rx="6" fill="#F2D72E"/>
+    <rect x="72" y="318" width="560" height="72" rx="6" fill="#FFF4D6"/>
+  </g>
+</svg>

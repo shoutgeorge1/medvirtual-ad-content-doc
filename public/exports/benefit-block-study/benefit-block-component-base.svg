@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MedVirtual benefit block — PRIMARY Option 2 · editable real text
+     One-line: set single <text> · Two-line: duplicate text row at y+46 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="100" viewBox="0 0 640 100" data-component="benefit-block-primary">
+  <defs>
+    <style><![CDATA[
+      .benefit-text { font-family: Be Vietnam; font-weight: 800; font-size: 42px; fill: #FFF4D6; letter-spacing: 0.5px; }
+    ]]></style>
+  </defs>
+  <g id="benefit-block" transform="translate(0 12)">
+    <rect x="12" y="14" width="600" height="76" rx="12" fill="#052818"/>
+    <rect x="0" y="0" width="600" height="76" rx="12" fill="#073F2A" stroke="#FFF4D6" stroke-width="8"/>
+    <path d="M24 40 l12 14 l28 -30" fill="none" stroke="#F2D72E" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

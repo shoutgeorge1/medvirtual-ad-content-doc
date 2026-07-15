@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MedVirtual offer badge — SELECTED: stacked dimensional (STARTING AT + $10/HR). Editable real text. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="260" viewBox="0 0 480 260">
+  <g transform="translate(22.0 22.0)"><g transform="rotate(-2 218 108)">
+        <rect x="12" y="66" width="400" height="130" rx="16" fill="#F2D72E"/>
+        <rect x="0" y="56" width="400" height="130" rx="16" fill="#073F2A" stroke="#FFF4D6" stroke-width="10"/>
+        <rect x="20" y="0" width="360" height="56" rx="10" fill="#075C37" stroke="#FFF4D6" stroke-width="6"/>
+        <text x="200" y="38.080000000000005" font-family="Be Vietnam" font-weight="700" font-size="32" fill="#FFF4D6" text-anchor="middle" letter-spacing="3">STARTING AT</text>
+        <text x="146" y="149.6" font-family="Be Vietnam" font-weight="800" font-size="124" fill="#FFF4D6" text-anchor="middle">$10</text>
+        <text x="292" y="141.8" font-family="Be Vietnam" font-weight="800" font-size="50" fill="#F2D72E" text-anchor="middle">/HR</text>
+      </g></g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="-100 -100 200 200">
+  <g transform="rotate(-5)">
+        <path d="M-102 -96 h172 l8 12 h-156 l-8-12z" fill="#052818"/>
+        <path d="M-86 -82 h172 l8 12 h-156 l-8-12z" fill="#075C37" stroke="#B8D833" stroke-width="10" stroke-linejoin="round"/>
+        <g transform="scale(1.02)"><g fill="#FFF4D6" stroke="#FFF4D6" stroke-linecap="round">
+        <path d="M-28 -36 h56 l-8 44 c0 16-12 28-28 28 s-28-12-28-28 z" fill="#FFF4D6" stroke="none"/>
+        <rect x="-6" y="36" width="12" height="10" rx="3" fill="#FFF4D6" stroke="none"/>
+        <ellipse cx="0" cy="46" rx="22" ry="6" fill="#FFF4D6" stroke="none"/>
+        <text x="32" y="-8" font-family="Be Vietnam" font-weight="800" font-size="36" fill="#F2D72E" text-anchor="middle">+</text>
+        <path d="M-44 -44 q-6 8 0 16 M44 -44 q6 8 0 16" fill="none" stroke-width="5"/>
+      </g></g>
+      </g>
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="704" height="122" viewBox="0 0 704 122">
+  <rect width="704" height="122" fill="#D9D9D9"/>
+  <g transform="translate(77.9 13.0)"><g transform="rotate(-2 262.05999999999995 36)">
+          <rect x="10" y="12" width="524.1199999999999" height="72" rx="8" fill="#075C37"/>
+          <rect x="0" y="0" width="524.1199999999999" height="72" rx="8" fill="#F2D72E" stroke="#073F2A" stroke-width="7"/>
+          <circle cx="34" cy="36" r="22" fill="#073F2A"/>
+          <path d="M20.5 37.5 l9 10.5 l21 -22.5" fill="none" stroke="#FFF4D6" stroke-width="6.75" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="66" y="50.28" font-family="Be Vietnam" font-weight="800" font-size="42" fill="#073F2A" letter-spacing="0.5">BILINGUAL SUPPORT</text>
+        </g></g>
+</svg>

@@ -1,0 +1,119 @@
+{
+  "generatedAt": "2026-07-15T21:25:22.503Z",
+  "ratio": "4x5",
+  "apiCalls": 0,
+  "fontFamily": "Be Vietnam",
+  "note": "one unique formatting scenario per concept",
+  "concepts": [
+    {
+      "id": "VMA-33",
+      "plate": "candidate-2.png",
+      "file": "MV_VMA_33_SpanishNeverLost_4x5_V.png",
+      "dimensions": "1080x1350",
+      "bytes": 1581235,
+      "pinkPixels": 0,
+      "fontFamily": "Be Vietnam",
+      "fallback": false,
+      "style": "banner",
+      "focal": "underline",
+      "audience": "ATTENTION: CLINIC OWNERS",
+      "icon": "enes",
+      "headlineSize": 97,
+      "priceDollarSize": 118,
+      "ctaSize": 50,
+      "directive": "HIRE A BILINGUAL VIRTUAL MEDICAL ADMIN",
+      "cta": "REQUEST AN INTERVIEW",
+      "copy": {
+        "headline": "STOP LOSING SPANISH PATIENTS"
+      }
+    },
+    {
+      "id": "VMA-34",
+      "plate": "candidate-1.png",
+      "file": "MV_VMA_34_BilingualFrontDesk_4x5_V.png",
+      "dimensions": "1080x1350",
+      "bytes": 1574206,
+      "pinkPixels": 10,
+      "fontFamily": "Be Vietnam",
+      "fallback": false,
+      "style": "pill",
+      "focal": "highlighter",
+      "audience": "MEDICAL PRACTICE OWNERS",
+      "icon": "enes",
+      "headlineSize": 100,
+      "priceDollarSize": 118,
+      "ctaSize": 50,
+      "directive": "HIRE A BILINGUAL VIRTUAL MEDICAL ADMIN",
+      "cta": "MEET YOUR NEXT HIRE",
+      "copy": {
+        "headline": "SPEAK YOUR PATIENTS’ LANGUAGE"
+      }
+    },
+    {
+      "id": "VMA-37",
+      "plate": "candidate-2.png",
+      "file": "MV_VMA_37_TrainedWorkflow_4x5_V.png",
+      "dimensions": "1080x1350",
+      "bytes": 1431452,
+      "pinkPixels": 10,
+      "fontFamily": "Be Vietnam",
+      "fallback": false,
+      "style": "kicker",
+      "focal": "outlinebox",
+      "audience": "FOR BUSY MEDICAL PRACTICES",
+      "icon": "workflow",
+      "headlineSize": 98,
+      "priceDollarSize": 118,
+      "ctaSize": 50,
+      "directive": "HIRE A VIRTUAL MEDICAL ADMIN",
+      "cta": "FIND YOUR VIRTUAL STAFF",
+      "copy": {
+        "headline": "TRAINED FOR YOUR WORKFLOW"
+      }
+    },
+    {
+      "id": "VMA-41",
+      "plate": "candidate-3.png",
+      "file": "MV_VMA_41_FrontDeskCapacity_4x5_V.png",
+      "dimensions": "1080x1350",
+      "bytes": 1641140,
+      "pinkPixels": 0,
+      "fontFamily": "Be Vietnam",
+      "fallback": false,
+      "style": "ribbon",
+      "focal": "knockout",
+      "audience": "FOR BUSY FRONT DESKS",
+      "icon": "bell",
+      "headlineSize": 100,
+      "priceDollarSize": 118,
+      "ctaSize": 50,
+      "directive": "HIRE A VIRTUAL MEDICAL ADMIN",
+      "cta": "REQUEST AN INTERVIEW",
+      "copy": {
+        "headline": "YOUR FRONT DESK IS MAXED OUT"
+      }
+    },
+    {
+      "id": "VMA-43",
+      "plate": "candidate-2.png",
+      "file": "MV_VMA_43_ScheduleMoving_4x5_V.png",
+      "dimensions": "1080x1350",
+      "bytes": 1428771,
+      "pinkPixels": 50,
+      "fontFamily": "Be Vietnam",
+      "fallback": false,
+      "style": "directive",
+      "focal": "colorswap",
+      "audience": "PRACTICE OWNERS & OFFICE MANAGERS",
+      "icon": "calendar",
+      "headlineSize": 115,
+      "priceDollarSize": 118,
+      "ctaSize": 50,
+      "directive": "HIRE A VIRTUAL MEDICAL ADMIN",
+      "cta": "MEET YOUR NEXT HIRE",
+      "copy": {
+        "headline": "KEEP YOUR SCHEDULE MOVING"
+      }
+    }
+  ]
+}

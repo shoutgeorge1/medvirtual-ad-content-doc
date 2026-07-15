@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="176" viewBox="0 0 900 176">
+  <rect width="900" height="176" fill="#D9D9D9"/>
+  <g transform="translate(47.0 10.0)"><path d="M30 28 h742 l6 14 h-730 l-6-14z M24 130 h754 l-6 12 h-742 l6-12z" fill="#052818"/>
+          <path d="M18 12 h742 l6 14 h-730 l-6-14z M12 114 h754 l-6 12 h-742 l6-12z" fill="#F2D72E" stroke="#073F2A" stroke-width="11" stroke-linejoin="round"/>
+          <path d="M22 14 h734" fill="none" stroke="#073F2A" stroke-width="4" opacity="0.35"/>
+          <text x="58" y="85.04" font-family="Be Vietnam" font-weight="800" font-size="56" fill="#073F2A">REQUEST AN INTERVIEW</text>
+          <path d="M676 66 h34 M696 50 l16 16 l-16 16" fill="none" stroke="#073F2A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

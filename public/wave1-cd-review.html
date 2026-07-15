@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wave 1 · A/B/C/D Diagnostic Review (4:5)</title>
+<style>
+  :root{--teal:#077999;--cyan:#00B2E2;--deep:#0D546B}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,Segoe UI,Roboto,sans-serif;background:#eef4f6;color:#0b1f27}
+  header{background:linear-gradient(120deg,var(--deep),var(--teal));color:#fff;padding:26px 40px}
+  header h1{margin:0 0 6px;font-size:25px}
+  header p{margin:4px 0;opacity:.94;max-width:960px;font-size:14px}
+  .callout{background:#062f3c;border:1px solid #0b4f63;border-radius:10px;padding:12px 16px;margin-top:12px;font-size:13px}
+  main{padding:22px 30px 80px}
+  .row{background:#fff;border-radius:16px;padding:20px 22px;margin:0 0 26px;box-shadow:0 6px 20px rgba(13,84,107,.10)}
+  .row h2{margin:0 0 14px;font-size:18px;color:var(--deep)}
+  .row h2 span{font-weight:400;color:#5a6b72;font-size:14px;margin-left:8px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .cell{border:1px solid #dce6e9;border-radius:12px;overflow:hidden;background:#f7fafb;display:flex;flex-direction:column}
+  .cell .lab{font-size:12px;font-weight:700;padding:8px 10px;background:#eaf5f9;color:var(--deep);border-bottom:1px solid #dce6e9}
+  .cell>img{display:block;width:100%;height:auto}
+  .thumbrow{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0d2630}
+  .thumb{width:96px;height:120px;object-fit:cover;border-radius:4px;border:1px solid #123}
+  .tnote{color:#9fd8e8;font-size:11px}
+  table.diag{width:100%;border-collapse:collapse;font-size:12px;font-family:ui-monospace,Menlo,Consolas,monospace}
+  table.diag td{padding:4px 10px;border-top:1px solid #eef}
+  table.diag td:first-child{color:#7a8a90;width:74px}
+  .good{color:#0a7d3b;font-weight:700}
+  .bad{color:#b23a2f;font-weight:700}
+  .contact img{width:100%;border-radius:12px;border:1px solid #dce6e9}
+</style></head>
+<body>
+  <header>
+    <h1>Wave 1 · A/B/C/D Diagnostic Review — 4:5 (1080×1350)</h1>
+    <p><b>Font audit result:</b> the Be Vietnam TTFs register every weight under one family ("Be Vietnam"), so referencing "Be Vietnam ExtraBold" as a family silently fell back to <b>Regular (400)</b>. Treatments <b>A/B</b> were rendered before the fix (Regular). Treatments <b>C/D</b> use the corrected pipeline: <code>font-family="Be Vietnam"</code> + <code>font-weight="800"</code> = real ExtraBold. Verify in the thumbnails — C/D are visibly heavier.</p>
+    <p>No new image-generation calls. Approved portrait plates unchanged. Pick a winning treatment (C or D) per concept before expanding to other ratios/animations.</p>
+    <div class="callout">Reading order target: <b>Headline → Talent → $10/HR → CTA → Logo</b>. C = maximum direct response (no bullets). D = adds two large benefit blocks.</div>
+  </header>
+  <main>
+    <section class="row">
+    <h2>VMA-33 <span>STOP LOSING SPANISH PATIENTS</span></h2>
+    <div class="grid">
+      <div class="cell">
+    <div class="lab">A — Bold Offer (current)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_33_SpanishNeverLost_4x5_A.png" alt="A — Bold Offer (current)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_33_SpanishNeverLost_4x5_A.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>400 (Regular — FELL BACK)</td></tr>
+      <tr><td>headline</td><td>85px</td></tr>
+      <tr><td>$10/HR</td><td>116px</td></tr>
+      <tr><td>CTA</td><td>34px</td></tr>
+      <tr><td>support</td><td>30px</td></tr>
+      <tr><td>render</td><td><span class="bad">fallback: Arial/Regular</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">B — Talent First (current)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_33_SpanishNeverLost_4x5_B.png" alt="B — Talent First (current)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_33_SpanishNeverLost_4x5_B.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>400 (Regular — FELL BACK)</td></tr>
+      <tr><td>headline</td><td>88px</td></tr>
+      <tr><td>$10/HR</td><td>86px</td></tr>
+      <tr><td>CTA</td><td>34px</td></tr>
+      <tr><td>support</td><td>30px</td></tr>
+      <tr><td>render</td><td><span class="bad">fallback: Arial/Regular</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">C — Max Direct Response (new)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_33_SpanishNeverLost_4x5_C.png" alt="C — Max Direct Response (new)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_33_SpanishNeverLost_4x5_C.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>800 (ExtraBold)</td></tr>
+      <tr><td>headline</td><td>98px</td></tr>
+      <tr><td>$10/HR</td><td>128px</td></tr>
+      <tr><td>CTA</td><td>52px</td></tr>
+      <tr><td>support</td><td>46px</td></tr>
+      <tr><td>render</td><td><span class="good">real ExtraBold</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">D — DR + Two Benefits (new)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_33_SpanishNeverLost_4x5_D.png" alt="D — DR + Two Benefits (new)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_33_SpanishNeverLost_4x5_D.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>800 (ExtraBold)</td></tr>
+      <tr><td>headline</td><td>98px</td></tr>
+      <tr><td>$10/HR</td><td>105px</td></tr>
+      <tr><td>CTA</td><td>52px</td></tr>
+      <tr><td>support</td><td>42px</td></tr>
+      <tr><td>render</td><td><span class="good">real ExtraBold</span></td></tr>
+    </table>
+  </div>
+    </div>
+  </section>
+<section class="row">
+    <h2>VMA-34 <span>SPEAK YOUR PATIENTS’ LANGUAGE</span></h2>
+    <div class="grid">
+      <div class="cell">
+    <div class="lab">A — Bold Offer (current)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_34_BilingualFrontDesk_4x5_A.png" alt="A — Bold Offer (current)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_34_BilingualFrontDesk_4x5_A.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>400 (Regular — FELL BACK)</td></tr>
+      <tr><td>headline</td><td>95px</td></tr>
+      <tr><td>$10/HR</td><td>116px</td></tr>
+      <tr><td>CTA</td><td>34px</td></tr>
+      <tr><td>support</td><td>30px</td></tr>
+      <tr><td>render</td><td><span class="bad">fallback: Arial/Regular</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">B — Talent First (current)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_34_BilingualFrontDesk_4x5_B.png" alt="B — Talent First (current)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_34_BilingualFrontDesk_4x5_B.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>400 (Regular — FELL BACK)</td></tr>
+      <tr><td>headline</td><td>88px</td></tr>
+      <tr><td>$10/HR</td><td>86px</td></tr>
+      <tr><td>CTA</td><td>34px</td></tr>
+      <tr><td>support</td><td>30px</td></tr>
+      <tr><td>render</td><td><span class="bad">fallback: Arial/Regular</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">C — Max Direct Response (new)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_34_BilingualFrontDesk_4x5_C.png" alt="C — Max Direct Response (new)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_34_BilingualFrontDesk_4x5_C.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>800 (ExtraBold)</td></tr>
+      <tr><td>headline</td><td>101px</td></tr>
+      <tr><td>$10/HR</td><td>128px</td></tr>
+      <tr><td>CTA</td><td>52px</td></tr>
+      <tr><td>support</td><td>46px</td></tr>
+      <tr><td>render</td><td><span class="good">real ExtraBold</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">D — DR + Two Benefits (new)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_34_BilingualFrontDesk_4x5_D.png" alt="D — DR + Two Benefits (new)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_34_BilingualFrontDesk_4x5_D.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>800 (ExtraBold)</td></tr>
+      <tr><td>headline</td><td>101px</td></tr>
+      <tr><td>$10/HR</td><td>105px</td></tr>
+      <tr><td>CTA</td><td>52px</td></tr>
+      <tr><td>support</td><td>42px</td></tr>
+      <tr><td>render</td><td><span class="good">real ExtraBold</span></td></tr>
+    </table>
+  </div>
+    </div>
+  </section>
+<section class="row">
+    <h2>VMA-37 <span>TRAINED FOR YOUR WORKFLOW</span></h2>
+    <div class="grid">
+      <div class="cell">
+    <div class="lab">A — Bold Offer (current)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_37_TrainedWorkflow_4x5_A.png" alt="A — Bold Offer (current)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_37_TrainedWorkflow_4x5_A.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>400 (Regular — FELL BACK)</td></tr>
+      <tr><td>headline</td><td>85px</td></tr>
+      <tr><td>$10/HR</td><td>116px</td></tr>
+      <tr><td>CTA</td><td>34px</td></tr>
+      <tr><td>support</td><td>30px</td></tr>
+      <tr><td>render</td><td><span class="bad">fallback: Arial/Regular</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">B — Talent First (current)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_37_TrainedWorkflow_4x5_B.png" alt="B — Talent First (current)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_37_TrainedWorkflow_4x5_B.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>400 (Regular — FELL BACK)</td></tr>
+      <tr><td>headline</td><td>88px</td></tr>
+      <tr><td>$10/HR</td><td>86px</td></tr>
+      <tr><td>CTA</td><td>34px</td></tr>
+      <tr><td>support</td><td>30px</td></tr>
+      <tr><td>render</td><td><span class="bad">fallback: Arial/Regular</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">C — Max Direct Response (new)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_37_TrainedWorkflow_4x5_C.png" alt="C — Max Direct Response (new)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_37_TrainedWorkflow_4x5_C.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>800 (ExtraBold)</td></tr>
+      <tr><td>headline</td><td>99px</td></tr>
+      <tr><td>$10/HR</td><td>128px</td></tr>
+      <tr><td>CTA</td><td>52px</td></tr>
+      <tr><td>support</td><td>46px</td></tr>
+      <tr><td>render</td><td><span class="good">real ExtraBold</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">D — DR + Two Benefits (new)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_37_TrainedWorkflow_4x5_D.png" alt="D — DR + Two Benefits (new)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_37_TrainedWorkflow_4x5_D.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>800 (ExtraBold)</td></tr>
+      <tr><td>headline</td><td>99px</td></tr>
+      <tr><td>$10/HR</td><td>105px</td></tr>
+      <tr><td>CTA</td><td>52px</td></tr>
+      <tr><td>support</td><td>42px</td></tr>
+      <tr><td>render</td><td><span class="good">real ExtraBold</span></td></tr>
+    </table>
+  </div>
+    </div>
+  </section>
+<section class="row">
+    <h2>VMA-41 <span>YOUR FRONT DESK IS MAXED OUT</span></h2>
+    <div class="grid">
+      <div class="cell">
+    <div class="lab">A — Bold Offer (current)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_41_FrontDeskCapacity_4x5_A.png" alt="A — Bold Offer (current)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_41_FrontDeskCapacity_4x5_A.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>400 (Regular — FELL BACK)</td></tr>
+      <tr><td>headline</td><td>80px</td></tr>
+      <tr><td>$10/HR</td><td>116px</td></tr>
+      <tr><td>CTA</td><td>34px</td></tr>
+      <tr><td>support</td><td>30px</td></tr>
+      <tr><td>render</td><td><span class="bad">fallback: Arial/Regular</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">B — Talent First (current)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_41_FrontDeskCapacity_4x5_B.png" alt="B — Talent First (current)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_41_FrontDeskCapacity_4x5_B.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>400 (Regular — FELL BACK)</td></tr>
+      <tr><td>headline</td><td>84px</td></tr>
+      <tr><td>$10/HR</td><td>86px</td></tr>
+      <tr><td>CTA</td><td>34px</td></tr>
+      <tr><td>support</td><td>30px</td></tr>
+      <tr><td>render</td><td><span class="bad">fallback: Arial/Regular</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">C — Max Direct Response (new)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_41_FrontDeskCapacity_4x5_C.png" alt="C — Max Direct Response (new)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_41_FrontDeskCapacity_4x5_C.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>800 (ExtraBold)</td></tr>
+      <tr><td>headline</td><td>101px</td></tr>
+      <tr><td>$10/HR</td><td>128px</td></tr>
+      <tr><td>CTA</td><td>52px</td></tr>
+      <tr><td>support</td><td>46px</td></tr>
+      <tr><td>render</td><td><span class="good">real ExtraBold</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">D — DR + Two Benefits (new)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_41_FrontDeskCapacity_4x5_D.png" alt="D — DR + Two Benefits (new)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_41_FrontDeskCapacity_4x5_D.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>800 (ExtraBold)</td></tr>
+      <tr><td>headline</td><td>101px</td></tr>
+      <tr><td>$10/HR</td><td>105px</td></tr>
+      <tr><td>CTA</td><td>52px</td></tr>
+      <tr><td>support</td><td>42px</td></tr>
+      <tr><td>render</td><td><span class="good">real ExtraBold</span></td></tr>
+    </table>
+  </div>
+    </div>
+  </section>
+<section class="row">
+    <h2>VMA-43 <span>KEEP YOUR SCHEDULE MOVING</span></h2>
+    <div class="grid">
+      <div class="cell">
+    <div class="lab">A — Bold Offer (current)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_43_ScheduleMoving_4x5_A.png" alt="A — Bold Offer (current)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_43_ScheduleMoving_4x5_A.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>400 (Regular — FELL BACK)</td></tr>
+      <tr><td>headline</td><td>95px</td></tr>
+      <tr><td>$10/HR</td><td>116px</td></tr>
+      <tr><td>CTA</td><td>34px</td></tr>
+      <tr><td>support</td><td>30px</td></tr>
+      <tr><td>render</td><td><span class="bad">fallback: Arial/Regular</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">B — Talent First (current)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_43_ScheduleMoving_4x5_B.png" alt="B — Talent First (current)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_43_ScheduleMoving_4x5_B.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>400 (Regular — FELL BACK)</td></tr>
+      <tr><td>headline</td><td>88px</td></tr>
+      <tr><td>$10/HR</td><td>86px</td></tr>
+      <tr><td>CTA</td><td>34px</td></tr>
+      <tr><td>support</td><td>30px</td></tr>
+      <tr><td>render</td><td><span class="bad">fallback: Arial/Regular</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">C — Max Direct Response (new)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_43_ScheduleMoving_4x5_C.png" alt="C — Max Direct Response (new)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_43_ScheduleMoving_4x5_C.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>800 (ExtraBold)</td></tr>
+      <tr><td>headline</td><td>116px</td></tr>
+      <tr><td>$10/HR</td><td>128px</td></tr>
+      <tr><td>CTA</td><td>52px</td></tr>
+      <tr><td>support</td><td>46px</td></tr>
+      <tr><td>render</td><td><span class="good">real ExtraBold</span></td></tr>
+    </table>
+  </div>
+      <div class="cell">
+    <div class="lab">D — DR + Two Benefits (new)</div>
+    <img src="/exports/wave1-first-launch/treatments/MV_VMA_43_ScheduleMoving_4x5_D.png" alt="D — DR + Two Benefits (new)"/>
+    <div class="thumbrow"><img class="thumb" src="/exports/wave1-first-launch/treatments/MV_VMA_43_ScheduleMoving_4x5_D.png" alt="thumb"/><span class="tnote">feed-scale preview</span></div>
+    <table class="diag">
+      <tr><td>font</td><td>Be Vietnam</td></tr>
+      <tr><td>weight</td><td>800 (ExtraBold)</td></tr>
+      <tr><td>headline</td><td>116px</td></tr>
+      <tr><td>$10/HR</td><td>105px</td></tr>
+      <tr><td>CTA</td><td>52px</td></tr>
+      <tr><td>support</td><td>42px</td></tr>
+      <tr><td>render</td><td><span class="good">real ExtraBold</span></td></tr>
+    </table>
+  </div>
+    </div>
+  </section>
+    <section class="row contact">
+      <h2>Contact sheet — A / B / C / D × 5 concepts</h2>
+      <img src="/exports/wave1-first-launch/contact-sheet-4x5-cd.png" alt="contact sheet"/>
+    </section>
+  </main>
+</body></html>

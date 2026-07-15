@@ -1,0 +1,209 @@
+========================================
+AD 05 - IMB_MV_ADV_05_SpanishNeverLost_BilingualPatients_v1.0_4x5
+========================================
+
+AD NAME (4:5 feed — primary):
+IMB_MV_ADV_05_SpanishNeverLost_BilingualPatients_v1.0_4x5
+
+AD NAME (1:1 if used):
+IMB_MV_ADV_05_SpanishNeverLost_BilingualPatients_v1.0_1x1
+
+CONCEPT: VMA-33
+ON-IMAGE HEADLINE (must match creative):
+YOUR SPANISH-SPEAKING PATIENTS SHOULD NEVER FEEL LOST
+
+SUPPORTING LINE:
+Dedicated bilingual virtual medical admin
+
+PRIMARY TEXT:
+Your Spanish-speaking patients should never feel lost. Add a dedicated bilingual virtual medical admin to your team.
+
+Give every patient a clear voice on the phone. Hire dedicated bilingual administrative support for your practice.
+
+HEADLINE (Meta field):
+YOUR SPANISH-SPEAKING PATIENTS SHOULD NEVER FEEL LOST
+
+DESCRIPTION:
+Dedicated bilingual staff on your team.
+
+CTA:
+Learn More
+
+FORM:
+Current Instant Form — low friction
+
+CREATIVE FILES (build all 4 ratios):
+MV_VMA_33_SpanishNeverLost_1x1.png (1080×1080)
+MV_VMA_33_SpanishNeverLost_4x5.png (1080×1350)
+MV_VMA_33_SpanishNeverLost_9x16.png (1080×1920)
+MV_VMA_33_SpanishNeverLost_1.91x1.png (1200×628)
+
+TAG: Scale · P1
+
+========================================
+AD 06 - IMB_MV_ADV_06_BilingualFrontDesk_Capacity_v1.0_4x5
+========================================
+
+AD NAME (4:5 feed — primary):
+IMB_MV_ADV_06_BilingualFrontDesk_Capacity_v1.0_4x5
+
+AD NAME (1:1 if used):
+IMB_MV_ADV_06_BilingualFrontDesk_Capacity_v1.0_1x1
+
+CONCEPT: VMA-34
+ON-IMAGE HEADLINE (must match creative):
+ADD BILINGUAL SUPPORT WITHOUT OVERLOADING YOUR FRONT DESK
+
+SUPPORTING LINE:
+A dedicated virtual medical admin joins your team
+
+PRIMARY TEXT:
+English and Spanish patient communication handled by dedicated virtual staff — not a call center.
+
+Give every patient a clear voice on the phone. Hire dedicated bilingual administrative support for your practice.
+
+HEADLINE (Meta field):
+ADD BILINGUAL SUPPORT TO YOUR PRACTICE
+
+DESCRIPTION:
+Dedicated bilingual staff on your team.
+
+CTA:
+Learn More
+
+FORM:
+Current Instant Form — low friction
+
+CREATIVE FILES (build all 4 ratios):
+MV_VMA_34_BilingualFrontDesk_1x1.png (1080×1080)
+MV_VMA_34_BilingualFrontDesk_4x5.png (1080×1350)
+MV_VMA_34_BilingualFrontDesk_9x16.png (1080×1920)
+MV_VMA_34_BilingualFrontDesk_1.91x1.png (1200×628)
+
+TAG: Scale · P1
+
+========================================
+AD 07 - IMB_MV_ADV_07_TrainedWorkflow_PracticeSystems_v1.0_4x5
+========================================
+
+AD NAME (4:5 feed — primary):
+IMB_MV_ADV_07_TrainedWorkflow_PracticeSystems_v1.0_4x5
+
+AD NAME (1:1 if used):
+IMB_MV_ADV_07_TrainedWorkflow_PracticeSystems_v1.0_1x1
+
+CONCEPT: VMA-37
+ON-IMAGE HEADLINE (must match creative):
+TRAINED FOR THE WAY YOUR PRACTICE WORKS
+
+SUPPORTING LINE:
+A dedicated virtual medical admin who learns your systems and workflow
+
+PRIMARY TEXT:
+Hire a virtual medical admin trained for the way your practice works.
+
+Your workflow. Your protocols. Add dedicated virtual staff who learn your systems.
+
+HEADLINE (Meta field):
+TRAINED FOR THE WAY YOUR PRACTICE WORKS
+
+DESCRIPTION:
+Trained on your practice workflow.
+
+CTA:
+Learn More
+
+FORM:
+Current Instant Form — low friction
+
+CREATIVE FILES (build all 4 ratios):
+MV_VMA_37_TrainedWorkflow_1x1.png (1080×1080)
+MV_VMA_37_TrainedWorkflow_4x5.png (1080×1350)
+MV_VMA_37_TrainedWorkflow_9x16.png (1080×1920)
+MV_VMA_37_TrainedWorkflow_1.91x1.png (1200×628)
+
+TAG: Scale · P1
+
+========================================
+AD 08 - IMB_MV_ADV_08_FrontDeskCapacity_Overload_v1.0_4x5
+========================================
+
+AD NAME (4:5 feed — primary):
+IMB_MV_ADV_08_FrontDeskCapacity_Overload_v1.0_4x5
+
+AD NAME (1:1 if used):
+IMB_MV_ADV_08_FrontDeskCapacity_Overload_v1.0_1x1
+
+CONCEPT: VMA-41
+ON-IMAGE HEADLINE (must match creative):
+YOUR FRONT DESK CAN’T DO EVERYTHING
+
+SUPPORTING LINE:
+Add dedicated administrative capacity without adding another desk
+
+PRIMARY TEXT:
+Your front desk cannot do everything. Add dedicated virtual administrative capacity.
+
+When the front desk is maxed out, patient communication suffers. Hire dedicated virtual support.
+
+HEADLINE (Meta field):
+YOUR FRONT DESK CAN’T DO EVERYTHING
+
+DESCRIPTION:
+Capacity without another local hire.
+
+CTA:
+Learn More
+
+FORM:
+Current Instant Form — low friction
+
+CREATIVE FILES (build all 4 ratios):
+MV_VMA_41_FrontDeskCapacity_1x1.png (1080×1080)
+MV_VMA_41_FrontDeskCapacity_4x5.png (1080×1350)
+MV_VMA_41_FrontDeskCapacity_9x16.png (1080×1920)
+MV_VMA_41_FrontDeskCapacity_1.91x1.png (1200×628)
+
+TAG: Adjacent Test · P1
+
+========================================
+AD 09 - IMB_MV_ADV_09_ScheduleMoving_Confirmations_v1.0_4x5
+========================================
+
+AD NAME (4:5 feed — primary):
+IMB_MV_ADV_09_ScheduleMoving_Confirmations_v1.0_4x5
+
+AD NAME (1:1 if used):
+IMB_MV_ADV_09_ScheduleMoving_Confirmations_v1.0_1x1
+
+CONCEPT: VMA-43
+ON-IMAGE HEADLINE (must match creative):
+KEEP THE SCHEDULE MOVING
+
+SUPPORTING LINE:
+Dedicated virtual administrative support for confirmations, reminders, and rescheduling
+
+PRIMARY TEXT:
+Keep the schedule moving with dedicated virtual support for confirmations and reminders.
+
+Open slots, missed confirmations, and reschedules add up. Get administrative help focused on scheduling.
+
+HEADLINE (Meta field):
+KEEP THE SCHEDULE MOVING
+
+DESCRIPTION:
+Scheduling and follow-up help.
+
+CTA:
+Learn More
+
+FORM:
+Current Instant Form — low friction
+
+CREATIVE FILES (build all 4 ratios):
+MV_VMA_43_ScheduleMoving_1x1.png (1080×1080)
+MV_VMA_43_ScheduleMoving_4x5.png (1080×1350)
+MV_VMA_43_ScheduleMoving_9x16.png (1080×1920)
+MV_VMA_43_ScheduleMoving_1.91x1.png (1200×628)
+
+TAG: Adjacent Test · P1

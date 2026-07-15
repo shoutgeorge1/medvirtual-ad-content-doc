@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="270" viewBox="0 0 480 270">
+  <rect width="480" height="270" fill="#D9D9D9"/>
+  <g transform="translate(30.0 25.0)">
+        <path d="M30 34 h372 l-10 164 h-352 l-10-164z" fill="#052818"/>
+        <path d="M14 18 h372 l-10 164 h-352 l-10-164z" fill="#075C37" stroke="#052818" stroke-width="12" stroke-linejoin="round"/>
+        <text x="200" y="62" font-family="Be Vietnam" font-weight="700" font-size="32" fill="#F2D72E" text-anchor="middle" letter-spacing="2">STARTING AT</text>
+        <text x="148" y="158" font-family="Be Vietnam" font-weight="800" font-size="108" fill="#FFF4D6" text-anchor="middle">$10</text>
+        <text x="268" y="150" font-family="Be Vietnam" font-weight="800" font-size="44" fill="#FFF4D6" text-anchor="middle">/HR</text></g>
+</svg>

@@ -1,0 +1,59 @@
+{
+  "ratio": "4x5",
+  "generatedAt": "2026-07-15T16:42:00.295Z",
+  "pinkPixelReviewThreshold": 500,
+  "apiGenerationsCreated": 15,
+  "contactSheet": "public\\exports\\wave1-first-launch\\contact-sheet-4x5.png",
+  "items": [
+    {
+      "id": "VMA-33",
+      "selectedPlate": "candidate-2.png",
+      "finalAsset": "public\\exports\\wave1-first-launch\\creatives\\MV_VMA_33_SpanishNeverLost_4x5.png",
+      "dimensions": "1080x1350",
+      "bytes": 1666700,
+      "pinkPixels": 0,
+      "creativeMapStatus": "CREATIVE_4x5_READY",
+      "needsManualReview": false
+    },
+    {
+      "id": "VMA-34",
+      "selectedPlate": "candidate-3.png",
+      "finalAsset": "public\\exports\\wave1-first-launch\\creatives\\MV_VMA_34_BilingualFrontDesk_4x5.png",
+      "dimensions": "1080x1350",
+      "bytes": 1626074,
+      "pinkPixels": 75,
+      "creativeMapStatus": "CREATIVE_4x5_READY",
+      "needsManualReview": false
+    },
+    {
+      "id": "VMA-37",
+      "selectedPlate": "candidate-3.png",
+      "finalAsset": "public\\exports\\wave1-first-launch\\creatives\\MV_VMA_37_TrainedWorkflow_4x5.png",
+      "dimensions": "1080x1350",
+      "bytes": 1670111,
+      "pinkPixels": 73,
+      "creativeMapStatus": "CREATIVE_4x5_READY",
+      "needsManualReview": false
+    },
+    {
+      "id": "VMA-41",
+      "selectedPlate": "candidate-3.png",
+      "finalAsset": "public\\exports\\wave1-first-launch\\creatives\\MV_VMA_41_FrontDeskCapacity_4x5.png",
+      "dimensions": "1080x1350",
+      "bytes": 1759941,
+      "pinkPixels": 0,
+      "creativeMapStatus": "CREATIVE_4x5_READY",
+      "needsManualReview": false
+    },
+    {
+      "id": "VMA-43",
+      "selectedPlate": "candidate-3.png",
+      "finalAsset": "public\\exports\\wave1-first-launch\\creatives\\MV_VMA_43_ScheduleMoving_4x5.png",
+      "dimensions": "1080x1350",
+      "bytes": 1608638,
+      "pinkPixels": 60,
+      "creativeMapStatus": "CREATIVE_4x5_READY",
+      "needsManualReview": false
+    }
+  ]
+}

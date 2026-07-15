@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="176" viewBox="0 0 900 176">
+  <rect width="900" height="176" fill="#D9D9D9"/>
+  <g transform="translate(46.0 12.0)"><g transform="rotate(-2.5 389 62)"><rect x="13.200000000000001" y="25.6" width="778" height="124" rx="62" fill="#075C37"/><rect x="12.100000000000001" y="24.3" width="778" height="124" rx="62" fill="#075C37"/><rect x="11" y="23" width="778" height="124" rx="62" fill="#075C37"/><rect x="9.9" y="21.700000000000003" width="778" height="124" rx="62" fill="#075C37"/><rect x="8.8" y="20.4" width="778" height="124" rx="62" fill="#075C37"/><rect x="7.700000000000001" y="19.1" width="778" height="124" rx="62" fill="#075C37"/><rect x="6.6000000000000005" y="17.8" width="778" height="124" rx="62" fill="#075C37"/><rect x="5.5" y="16.5" width="778" height="124" rx="62" fill="#075C37"/><rect x="4.4" y="15.2" width="778" height="124" rx="62" fill="#075C37"/><rect x="3.3000000000000003" y="13.9" width="778" height="124" rx="62" fill="#075C37"/><rect x="2.2" y="12.6" width="778" height="124" rx="62" fill="#075C37"/><rect x="1.1" y="11.3" width="778" height="124" rx="62" fill="#075C37"/>
+          <rect x="0" y="0" width="778" height="124" rx="62" fill="#B8D833" stroke="#FFF4D6" stroke-width="8"/>
+          <text x="58" y="81.04" font-family="Be Vietnam" font-weight="800" font-size="56" fill="#073F2A">REQUEST AN INTERVIEW</text>
+          <path d="M676 62 h34 M696 46 l16 16 l-16 16" fill="none" stroke="#073F2A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+</svg>

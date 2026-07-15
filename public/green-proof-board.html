@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Green-Winner Proof — Comparison Board</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,Segoe UI,Roboto,sans-serif;background:#0c0f0e;color:#eef4f1}
+  header{padding:28px 40px;background:linear-gradient(120deg,#04120a,#0d2a17);border-bottom:2px solid #55C63A}
+  header h1{margin:0 0 8px;font-size:24px}
+  header p{margin:5px 0;max-width:1000px;color:#cfe6d8;font-size:14px}
+  header b{color:#8be86a}
+  main{padding:24px 30px 90px;max-width:1500px;margin:0 auto}
+  h2{font-size:16px;color:#8bе86a;color:#9be87c;border-bottom:1px solid #23342b;padding-bottom:8px;margin:34px 0 16px}
+  .row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start}
+  .cell{margin:0;background:#000;border:1px solid #23342b;border-radius:12px;overflow:hidden}
+  .cell.hero{border:2px solid #55C63A;box-shadow:0 0 0 3px rgba(85,198,58,.25)}
+  .cell figcaption{font-size:12px;padding:9px 12px;color:#cfe6d8;background:#101715;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .cell figcaption em{margin-left:auto;color:#7c948a;font-style:normal}
+  .cell img{display:block;width:100%;height:auto}
+  .tag{font-size:10px;font-weight:800;letter-spacing:.5px;padding:3px 7px;border-radius:5px}
+  .SOURCEWINNER{background:#55C63A;color:#04120a}
+  .CURRENTBEST{background:#3a4a43;color:#cfe6d8}
+  .NEWPROOF{background:#09BDE6;color:#04222b}
+  .thumbs{display:flex;gap:22px;align-items:flex-end;background:#000;border:1px solid #23342b;border-radius:12px;padding:20px}
+  .tcell{text-align:center}
+  .tcell img{width:150px;border-radius:6px;border:1px solid #23342b}
+  .tcell span{display:block;font-size:11px;color:#9fb3aa;margin-top:6px}
+  table{width:100%;border-collapse:collapse;font-size:13px;background:#0a100e;border-radius:10px;overflow:hidden}
+  th,td{padding:9px 14px;text-align:left;border-top:1px solid #1c2a23;vertical-align:top}
+  thead th{background:#101715;color:#9be87c}
+  th{color:#9fb3aa;font-weight:600;width:180px}
+  code{background:#04120a;padding:2px 7px;border-radius:4px;color:#8bе86a;color:#8be86a;border:1px solid #23342b}
+  .judge{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+  .judge li{font-size:14px;padding:8px 0;border-bottom:1px solid #1c2a23}
+  .judge b{color:#8be86a}
+</style></head><body>
+  <header>
+    <h1>Green-Winner Proof — moving from "teal SaaS + decorations" to the real running system</h1>
+    <p>The benchmark is the exact visual grammar of the two ads producing leads: <b>VMA-01 SpanishGreen</b> and <b>VMA-04 HIPAAGreen</b>. Colors and headline geometry below were <b>measured from the actual pixels</b>, not from memory.</p>
+    <p>The proof rebuilds one concept (VMA-33, green scrubs) on that system: near-black field, huge <b>Title-Case</b> headline with one green word, clean heavy letters, cyan <code>$10</code> price card, and a bold CTA. <b>No portrait regeneration. No new aesthetic. No extra devices.</b></p>
+  </header>
+  <main>
+    <h2>1 · Side by side (same display width)</h2>
+    <div class="row"><figure class="cell">
+  <figcaption><span class="tag SOURCEWINNER">SOURCE WINNER</span>VMA-01 SpanishGreen (running) <em>1:1</em></figcaption>
+  <img src="/exports/vma-masters/MV_VMA_01_SpanishGreen_1x1.png" alt="VMA-01 SpanishGreen (running)"/>
+</figure><figure class="cell">
+  <figcaption><span class="tag SOURCEWINNER">SOURCE WINNER</span>VMA-04 HIPAAGreen (running) <em>1:1</em></figcaption>
+  <img src="/exports/vma-masters/MV_VMA_04_HIPAAGreen_1x1.png" alt="VMA-04 HIPAAGreen (running)"/>
+</figure><figure class="cell">
+  <figcaption><span class="tag CURRENTBEST">CURRENT BEST</span>Treatment V (teal system) <em>4:5</em></figcaption>
+  <img src="/exports/wave1-first-launch/treatments/MV_VMA_33_SpanishNeverLost_4x5_V.png" alt="Treatment V (teal system)"/>
+</figure><figure class="cell hero">
+  <figcaption><span class="tag NEWPROOF">NEW PROOF</span>Green-winner proof (VMA-33) <em>4:5</em></figcaption>
+  <img src="/exports/wave1-first-launch/treatments/GREEN_PROOF_VMA_33_4x5.png" alt="Green-winner proof (VMA-33)"/>
+</figure></div>
+
+    <h2>2 · Feed-size thumbnails (the one-second test)</h2>
+    <div class="thumbs"><div class="tcell"><img src="/exports/vma-masters/MV_VMA_01_SpanishGreen_1x1.png" alt="VMA-01 SpanishGreen (running)"/><span>VMA-01 SpanishGreen </span></div><div class="tcell"><img src="/exports/vma-masters/MV_VMA_04_HIPAAGreen_1x1.png" alt="VMA-04 HIPAAGreen (running)"/><span>VMA-04 HIPAAGreen </span></div><div class="tcell"><img src="/exports/wave1-first-launch/treatments/MV_VMA_33_SpanishNeverLost_4x5_V.png" alt="Treatment V (teal system)"/><span>Treatment V </span></div><div class="tcell"><img src="/exports/wave1-first-launch/treatments/GREEN_PROOF_VMA_33_4x5.png" alt="Green-winner proof (VMA-33)"/><span>Green-winner proof </span></div></div>
+
+    <h2>3 · Measured style profile (from the running creatives)</h2>
+    <table>
+      <thead><tr><th>Attribute</th><th>VMA-01 SpanishGreen</th><th>VMA-04 HIPAAGreen</th></tr></thead>
+      <tbody>
+  <tr><th>Background</th><td>near-black <code>#030606</code> (59% canvas)</td><td>near-black <code>#0E1011</code> (38.5% canvas)</td></tr>
+  <tr><th>Accent green (sampled)</th><td><code>#61C837</code></td><td><code>#67B146</code></td></tr>
+  <tr><th>Cyan (price)</th><td><code>#08BDE6</code></td><td>none (green circle)</td></tr>
+  <tr><th>White</th><td><code>#FAFAFA</code></td><td><code>#FCFDFC</code></td></tr>
+  <tr><th>Headline zone</th><td>x 5.1% · y 4.3% · <b>52.7% w × 57.5% h</b></td><td>x 5.1% · y 4.3% · <b>52.7% w × 57.5% h</b></td></tr>
+  <tr><th>Headline text</th><td colspan="2">"Hire a Virtual Medical Admin" · <b>Title Case</b> · 4 lines · one word green · clean heavy letters (no outline / extrusion / sparkle) · tight leading ~0.9</td></tr>
+  <tr><th>Mean luminance</th><td>60.9</td><td>106.4</td></tr></tbody>
+    </table>
+
+    <h2>4 · Proof build spec</h2>
+    <table><tbody>
+      <tr><th>Headline</th><td>"Hire a / Virtual / Medical / Admin" · Title Case · <b>169px</b> · leading 0.92 · one word green · clean (no outline/extrusion)</td></tr>
+      <tr><th>Accent green</th><td><code>#55C63A</code> (sampled from winners)</td></tr>
+      <tr><th>Price</th><td>STARTING AT (cyan) · <code>$10</code> 132px white · /HR cyan parallelogram — SpanishGreen grammar</td></tr>
+      <tr><th>CTA</th><td>REQUEST AN INTERVIEW · 52px · lime button, black text</td></tr>
+      <tr><th>Secondary copy</th><td>STARTING AT $10/HR · Spanish Speaking Available (2 total — no micro-bullets, names, or disclaimers)</td></tr>
+      <tr><th>Dimensions</th><td>1080x1350 · plate VMA-33/candidate-2.png (unchanged)</td></tr>
+    </tbody></table>
+
+    <h2>5 · Judge the proof</h2>
+    <ul class="judge">
+      <li><b>Headline equally dominant?</b> proof ≈ 53% width / 55% height — matches winners</li>
+      <li><b>Font equally heavy?</b> Be Vietnam ExtraBold (800) — see note below</li>
+      <li><b>Green equally forceful?</b> sampled <code>#55C63A</code> on true black</li>
+      <li><b>Price equally obvious?</b> $10 at 132px on cyan card</li>
+      <li><b>CTA equally bold?</b> full-width lime button</li>
+      <li><b>Sold within 1 second?</b> check the thumbnail row above</li>
+    </ul>
+    <p style="margin-top:18px;color:#cfe6d8;font-size:13.5px;max-width:1000px">
+      <b style="color:#8be86a">One open decision (font):</b> the winners were AI-generated with a heavier, blacker geometric display face (~900). The brand font on hand is <b>Be Vietnam</b>, whose heaviest weight is ExtraBold (800). This proof uses ExtraBold in Title Case. If you want to match the winner's exact letter weight even more closely, I can add a geometric Black display font (e.g., Archivo Black / Poppins Black) for headlines only — say the word and I'll wire it in before we expand.
+    </p>
+  </main>
+</body></html>

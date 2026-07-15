@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MedVirtual CTA — ALTERNATE: Deep-green dimensional. Editable real text. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="180" viewBox="0 0 960 180">
+  <g transform="translate(94.5 16.0)"><rect x="16" y="18" width="749" height="124" rx="62" fill="#052818"/>
+          <rect x="0" y="0" width="749" height="124" rx="62" fill="#073F2A" stroke="#F2D72E" stroke-width="6"/>
+          <rect x="4" y="4" width="741" height="116" rx="58" fill="none" stroke="#F2D72E" stroke-width="4"/>
+          <text x="58" y="81.04" font-family="Be Vietnam" font-weight="800" font-size="56" fill="#FFF4D6">MEET YOUR NEXT HIRE</text>
+          <path d="M643 62 h42 M671 46 l16 16 l-16 16" fill="none" stroke="#FFF4D6" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

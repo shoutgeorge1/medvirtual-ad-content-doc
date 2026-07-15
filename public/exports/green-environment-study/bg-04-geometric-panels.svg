@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect width="1080" height="1350" fill="#073F2A"/>
+      <polygon points="0,0 1080,0 1080,567 0,783" fill="#075C37"/>
+      <polygon points="0,472.49999999999994 1080,297 1080,972 0,1147.5" fill="#087A43"/>
+      <polygon points="0,918.0000000000001 594,837 1080,1350 0,1350" fill="#0B8F4D" opacity="0.85"/>
+      <line x1="0" y1="783" x2="1080" y2="567" stroke="#041A12" stroke-width="6"/>
+      <line x1="0" y1="1147.5" x2="1080" y2="972" stroke="#041A12" stroke-width="5"/>
+  <g opacity="0.22">
+    <rect x="72" y="118" width="520" height="72" rx="6" fill="#FFF4D6"/>
+    <rect x="72" y="210" width="460" height="88" rx="6" fill="#F2D72E"/>
+    <rect x="72" y="318" width="560" height="72" rx="6" fill="#FFF4D6"/>
+  </g>
+</svg>

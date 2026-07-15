@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MedVirtual icon badge — Trained workflow · A · Cream on deep-green circle · editable SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" width="176" height="176" viewBox="-100 -100 200 200">
+  <g transform="rotate(-4)">
+        <circle cx="12" cy="14" r="88" fill="#052818"/>
+        <circle cx="0" cy="0" r="88" fill="#073F2A" stroke="#B8D833" stroke-width="10"/>
+        <g transform="scale(1.05)"><g fill="none" stroke="#FFF4D6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="-42" cy="8" r="16" fill="#FFF4D6" stroke="none"/>
+        <circle cx="0" cy="-28" r="16" fill="#FFF4D6" stroke="none"/>
+        <circle cx="42" cy="8" r="16" fill="#FFF4D6" stroke="none"/>
+        <line x1="-26" y1="2" x2="-8" y2="-18"/>
+        <line x1="8" y1="-18" x2="26" y2="2"/>
+        <path d="M48 8 h18 l-10 10" fill="none"/>
+        <path d="M-8 36 l12 14 l28-30" fill="none" stroke="#F2D72E" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      </g></g>
+      </g>
+</svg>

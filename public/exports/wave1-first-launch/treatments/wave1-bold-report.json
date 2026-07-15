@@ -1,0 +1,217 @@
+{
+  "generatedAt": "2026-07-15T19:03:38.326Z",
+  "ratio": "4x5",
+  "apiCalls": 0,
+  "concepts": [
+    {
+      "id": "VMA-33",
+      "plate": "candidate-2.png",
+      "fullHeadline": "YOUR SPANISH-SPEAKING PATIENTS SHOULD NEVER FEEL LOST",
+      "treatments": {
+        "A": {
+          "file": "MV_VMA_33_SpanishNeverLost_4x5_A.png",
+          "dimensions": "1080x1350",
+          "bytes": 1607854,
+          "pinkPixels": 0,
+          "headSize": 85,
+          "lines": [
+            "DON’T LOSE",
+            "SPANISH",
+            "PATIENTS"
+          ],
+          "offer": "STARTING AT $10/HR",
+          "offerDollarSize": 116,
+          "cta": "REQUEST AN INTERVIEW",
+          "ctaSize": 34,
+          "proofSize": 30
+        },
+        "B": {
+          "file": "MV_VMA_33_SpanishNeverLost_4x5_B.png",
+          "dimensions": "1080x1350",
+          "bytes": 1812045,
+          "pinkPixels": 0,
+          "headSize": 88,
+          "lines": [
+            "DON’T LOSE",
+            "SPANISH",
+            "PATIENTS"
+          ],
+          "offer": "STARTING AT $10/HR",
+          "offerDollarSize": 86,
+          "cta": "MEET YOUR NEXT HIRE",
+          "ctaSize": 34,
+          "proofSize": 30,
+          "roleLockup": "Your dedicated / Virtual Medical Admin"
+        }
+      }
+    },
+    {
+      "id": "VMA-34",
+      "plate": "candidate-3.png",
+      "fullHeadline": "ADD BILINGUAL SUPPORT WITHOUT OVERLOADING YOUR FRONT DESK",
+      "treatments": {
+        "A": {
+          "file": "MV_VMA_34_BilingualFrontDesk_4x5_A.png",
+          "dimensions": "1080x1350",
+          "bytes": 1527508,
+          "pinkPixels": 7,
+          "headSize": 95,
+          "lines": [
+            "ADD",
+            "BILINGUAL",
+            "SUPPORT"
+          ],
+          "offer": "STARTING AT $10/HR",
+          "offerDollarSize": 116,
+          "cta": "REQUEST AN INTERVIEW",
+          "ctaSize": 34,
+          "proofSize": 30
+        },
+        "B": {
+          "file": "MV_VMA_34_BilingualFrontDesk_4x5_B.png",
+          "dimensions": "1080x1350",
+          "bytes": 1730320,
+          "pinkPixels": 6,
+          "headSize": 88,
+          "lines": [
+            "ADD",
+            "BILINGUAL",
+            "SUPPORT"
+          ],
+          "offer": "STARTING AT $10/HR",
+          "offerDollarSize": 86,
+          "cta": "MEET YOUR NEXT HIRE",
+          "ctaSize": 34,
+          "proofSize": 30,
+          "roleLockup": "Your dedicated / Virtual Medical Admin"
+        }
+      }
+    },
+    {
+      "id": "VMA-37",
+      "plate": "candidate-3.png",
+      "fullHeadline": "TRAINED FOR THE WAY YOUR PRACTICE WORKS",
+      "treatments": {
+        "A": {
+          "file": "MV_VMA_37_TrainedWorkflow_4x5_A.png",
+          "dimensions": "1080x1350",
+          "bytes": 1528482,
+          "pinkPixels": 76,
+          "headSize": 85,
+          "lines": [
+            "TRAINED ON",
+            "YOUR",
+            "WORKFLOW"
+          ],
+          "offer": "STARTING AT $10/HR",
+          "offerDollarSize": 116,
+          "cta": "REQUEST AN INTERVIEW",
+          "ctaSize": 34,
+          "proofSize": 30
+        },
+        "B": {
+          "file": "MV_VMA_37_TrainedWorkflow_4x5_B.png",
+          "dimensions": "1080x1350",
+          "bytes": 1752751,
+          "pinkPixels": 115,
+          "headSize": 88,
+          "lines": [
+            "TRAINED ON",
+            "YOUR",
+            "WORKFLOW"
+          ],
+          "offer": "STARTING AT $10/HR",
+          "offerDollarSize": 86,
+          "cta": "MEET YOUR NEXT HIRE",
+          "ctaSize": 34,
+          "proofSize": 30,
+          "roleLockup": "Your dedicated / Virtual Medical Admin"
+        }
+      }
+    },
+    {
+      "id": "VMA-41",
+      "plate": "candidate-3.png",
+      "fullHeadline": "YOUR FRONT DESK CAN’T DO EVERYTHING",
+      "treatments": {
+        "A": {
+          "file": "MV_VMA_41_FrontDeskCapacity_4x5_A.png",
+          "dimensions": "1080x1350",
+          "bytes": 1662774,
+          "pinkPixels": 0,
+          "headSize": 80,
+          "lines": [
+            "YOUR FRONT",
+            "DESK IS",
+            "MAXED OUT"
+          ],
+          "offer": "STARTING AT $10/HR",
+          "offerDollarSize": 116,
+          "cta": "REQUEST AN INTERVIEW",
+          "ctaSize": 34,
+          "proofSize": 30
+        },
+        "B": {
+          "file": "MV_VMA_41_FrontDeskCapacity_4x5_B.png",
+          "dimensions": "1080x1350",
+          "bytes": 1909409,
+          "pinkPixels": 0,
+          "headSize": 84,
+          "lines": [
+            "YOUR FRONT",
+            "DESK IS",
+            "MAXED OUT"
+          ],
+          "offer": "STARTING AT $10/HR",
+          "offerDollarSize": 86,
+          "cta": "MEET YOUR NEXT HIRE",
+          "ctaSize": 34,
+          "proofSize": 30,
+          "roleLockup": "Your dedicated / Virtual Medical Admin"
+        }
+      }
+    },
+    {
+      "id": "VMA-43",
+      "plate": "candidate-3.png",
+      "fullHeadline": "KEEP THE SCHEDULE MOVING",
+      "treatments": {
+        "A": {
+          "file": "MV_VMA_43_ScheduleMoving_4x5_A.png",
+          "dimensions": "1080x1350",
+          "bytes": 1542016,
+          "pinkPixels": 8,
+          "headSize": 95,
+          "lines": [
+            "KEEP THE",
+            "SCHEDULE",
+            "MOVING"
+          ],
+          "offer": "STARTING AT $10/HR",
+          "offerDollarSize": 116,
+          "cta": "REQUEST AN INTERVIEW",
+          "ctaSize": 34,
+          "proofSize": 30
+        },
+        "B": {
+          "file": "MV_VMA_43_ScheduleMoving_4x5_B.png",
+          "dimensions": "1080x1350",
+          "bytes": 1730775,
+          "pinkPixels": 6,
+          "headSize": 88,
+          "lines": [
+            "KEEP THE",
+            "SCHEDULE",
+            "MOVING"
+          ],
+          "offer": "STARTING AT $10/HR",
+          "offerDollarSize": 86,
+          "cta": "MEET YOUR NEXT HIRE",
+          "ctaSize": 34,
+          "proofSize": 30,
+          "roleLockup": "Your dedicated / Virtual Medical Admin"
+        }
+      }
+    }
+  ]
+}
