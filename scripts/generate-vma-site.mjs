@@ -2804,12 +2804,12 @@ function renderHandoff() {
     <div class="hero">
       <h1>Production Handoff</h1>
       <p>Monday.com request · deliverables · QA — for the Philippines graphics and video team.</p>
-      <p class="lede"><b>VMA-01 green person only.</b> Kill Cobalt (02) and Signal Yellow (03). Rebuild from <a href="/graphics-kit.html">Component Library</a> — not in the browser.</p>
+      <p class="lede"><b>VMA-01 green person only.</b> Pause Cobalt (02) and Signal Yellow (03). Rebuild from the <a href="/graphics-kit.html">Component Library</a> in your production software.</p>
     </div>
 
     <section id="monday-request">
       <h2 class="section-head">${icon('target')} Monday.com graphics request</h2>
-      <p class="lede">Copy into the <a href="${esc(monday.formUrl)}" target="_blank" rel="noopener">Graphics Request Form</a>. <b>All answers are on the site — no email needed.</b></p>
+      <p class="lede">Copy into the <a href="${esc(monday.formUrl)}" target="_blank" rel="noopener">Graphics Request Form</a>. Everything needed is linked below.</p>
       <div class="queue-grid" style="margin-bottom:1rem">${teamLinks}</div>
       <div class="soft-card">
         <p><b>Brand:</b> ${esc(monday.fields.brand)}</p>
