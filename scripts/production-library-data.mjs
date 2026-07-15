@@ -198,47 +198,18 @@ export const MONDAY_REQUEST = {
   fields: {
     brand: 'MedVirtual',
     type: 'Ad Graphics',
-    title: 'VMA-01 Green Person — all aspect ratios + motion',
-    description: `PAUSE ALL OTHER MEDVIRTUAL GRAPHICS REQUESTS.
+    title: 'VMA-01 Green Person — 3–4 static variations + 1 animation',
+    description: `Pause all other MedVirtual requests (including earlier green ones) — this replaces them.
 
-Pause/cancel:
-• Any Cobalt (VMA-02) or Signal Yellow (VMA-03) work
-• Any earlier VMA-01 / Spanish Green / green-person tickets still in progress — this request replaces them
-• Unrelated MedVirtual ad experiments not linked below
+Stick to the winning green-person ad (VMA-01 Spanish Green). We need:
 
-Only work this ticket. Do not keep old green drafts going in parallel.
+• 3–4 more static variations, each in Meta aspect ratios (1:1, 4:5, 9:16, 1.91:1)
+• 1 short animated sequence (6s) that makes the static move
 
-CURRENT DIRECTION: VMA-01 Spanish Green (lime-scrub admin) — rebuild from the Component Library below.
-
-Everything you need is on the site — no email required. Open these links in order:
-
-1) Component Library (START HERE)
+All pieces + reference here (no email needed):
 ${teamLink('/graphics-kit.html#01-4x5')}
-→ Download person PNG, logos, copy text, hex colors. Layout mock = reference only — rebuild in Photoshop / Illustrator / Figma.
 
-2) Static Production (sizes + filenames)
-${teamLink('/vma-static.html')}
-→ 4:5 (1080×1350) first, then 9:16, 1.91:1. Do NOT stretch the square.
-
-3) Winners (approved reference)
-${teamLink('/vma-approved.html')}
-→ Match this look. Full-size 1:1 master.
-
-4) Motion brief (if doing video)
-${teamLink('/vma-video.html#green-motion')}
-→ 6-second MP4 test first. Make the static move — not a new commercial.
-
-5) QA before you finish
-${teamLink('/vma-handoff.html#qa')}
-→ Checklist: correct copy, dimensions, MedVirtual logo (never MedVirtual.ai), no pink.
-
-DELIVER:
-• Static PNGs per Meta size (rebuilt layouts, not cropped square)
-• Transparent person + separate background + text layers
-• Editable PSD / AI / Figma source
-• 6s MP4 (4:5) + 8s MP4 (9:16) if assigned
-
-Filename example: MV_VMA_01_SpanishGreen_4x5.png`,
+Rules: keep it close to the winning ad · MedVirtual logo only (never MedVirtual.ai) · no pink · don't stretch — rebuild each size.`,
     resolution: 'Custom — see Static Production page for exact px per ratio',
     dueDate: 'Per sprint assignment',
     references: `${teamLink('/graphics-kit.html#01-4x5')} — attach approved master screenshot if the form allows a file.`,
