@@ -164,6 +164,21 @@
     background: #077999;
     font-weight: 700;
   }
+  .doc-nav a.nav-team {
+    color: #0B1F3A;
+    background: #B8F000;
+    font-weight: 800;
+    border-color: rgba(184, 240, 0, 0.5);
+  }
+  .doc-nav a.nav-team:hover {
+    color: #0B1F3A !important;
+    background: #d4ff4d !important;
+  }
+  .doc-nav a.nav-team.active {
+    color: #0B1F3A;
+    background: #B8F000;
+    box-shadow: inset 0 0 0 2px #077999;
+  }
   .doc-header details.doc-nav-dd.active > summary,
   .doc-header details.doc-nav-dd[open] > summary {
     color: #ffffff !important;
@@ -689,6 +704,20 @@
     margin: 0 0 0.15rem;
   }
   .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
+  .primary-task__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.65rem;
+    padding: 0.55rem 1rem;
+    border-radius: 10px;
+    background: #B8F000;
+    color: #0B1F3A !important;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.92rem;
+  }
+  .primary-task__cta:hover { filter: brightness(1.05); }
   .badge-new {
     font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
     color: #fff; background: #077999; border-radius: 999px; padding: 0.15rem 0.5rem;
@@ -1095,7 +1124,7 @@
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Dashboard</a><a href="/vma-approved.html" class="">Approved Creative</a><a href="/ideas.html" class="">New Ad Ideas</a><a href="/vma-static.html" class="">Aspect Ratios</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-video.html" class="">Animated Video</a><a href="/vma-chatgpt.html" class="">Prompts &amp; Copy</a><a href="/vma-handoff.html" class="active">Production Handoff</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="">Dashboard</a><a href="/graphics-kit.html" class="nav-team">Component Kit</a><a href="/vma-approved.html" class="">Approved Creative</a><a href="/ideas.html" class="">New Ad Ideas</a><a href="/vma-static.html" class="">Aspect Ratios</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-video.html" class="">Animated Video</a><a href="/vma-chatgpt.html" class="">Prompts &amp; Copy</a><a href="/vma-handoff.html" class="active">Production Handoff</a></nav>
     </div>
   </div>
   <div class="doc-header__page">

@@ -27,6 +27,13 @@ export const PRIMARY_NAV = [
     description: 'Start here — priority, approved ads, quick links.',
   },
   {
+    href: '/graphics-kit.html',
+    label: 'Component Kit',
+    id: 'graphics-kit',
+    description: 'Philippines team — person, headline, colors, logo. Click to inspect each piece.',
+    teamPriority: true,
+  },
+  {
     href: '/vma-approved.html',
     label: 'Approved Creative',
     id: 'vma-approved',
@@ -198,6 +205,21 @@ export const HEADER_CSS = `
     background: #077999;
     font-weight: 700;
   }
+  .doc-nav a.nav-team {
+    color: #0B1F3A;
+    background: #B8F000;
+    font-weight: 800;
+    border-color: rgba(184, 240, 0, 0.5);
+  }
+  .doc-nav a.nav-team:hover {
+    color: #0B1F3A !important;
+    background: #d4ff4d !important;
+  }
+  .doc-nav a.nav-team.active {
+    color: #0B1F3A;
+    background: #B8F000;
+    box-shadow: inset 0 0 0 2px #077999;
+  }
   .doc-header details.doc-nav-dd.active > summary,
   .doc-header details.doc-nav-dd[open] > summary {
     color: #ffffff !important;
@@ -287,7 +309,9 @@ function renderNavItem(item, activeId) {
       <div class="doc-nav-dd__menu">${links}</div>
     </details>`;
   }
-  const cls = item.id === activeId ? 'active' : '';
+  const cls = [item.id === activeId ? 'active' : '', item.teamPriority ? 'nav-team' : '']
+    .filter(Boolean)
+    .join(' ');
   return `<a href="${esc(item.href)}" class="${cls}">${esc(item.label)}</a>`;
 }
 

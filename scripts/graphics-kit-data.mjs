@@ -68,6 +68,13 @@ export const PERSON_TRANSPARENT = {
   '04': '/assets/video-elements/people/admin-lime.png',
 };
 
+export const SHARED_ASSETS = [
+  { label: 'Person · cobalt scrubs (transparent PNG)', href: '/assets/video-elements/people/admin-cobalt.png' },
+  { label: 'Person · lime scrubs (transparent PNG)', href: '/assets/video-elements/people/admin-lime.png' },
+  { label: 'MedVirtual logo · white', href: '/assets/brand/medvirtual/logo-white.svg' },
+  { label: 'MedVirtual logo · color', href: '/assets/brand/medvirtual/logo-colored.svg' },
+];
+
 /** Target scrub hex per master — team recolors the transparent layer (hue/sat in PS/Figma) */
 export const SCRUB_COLORS = {
   '01': '#B8F000',
@@ -123,6 +130,7 @@ export function buildGraphicsKitPayload() {
     ratios: TARGET_RATIOS.map((r) => r.id),
     ratioMeta: RATIO_META,
     layouts: MOCK_LAYOUTS,
+    sharedAssets: SHARED_ASSETS,
     masters: ordered.map((m) => {
       const theme = MASTER_THEMES[m.number] || MASTER_THEMES['02'];
       const scrubColor = SCRUB_COLORS[m.number] || theme.accent;

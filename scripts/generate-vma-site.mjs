@@ -697,6 +697,20 @@ const PAGE_CSS = `
     margin: 0 0 0.15rem;
   }
   .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
+  .primary-task__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.65rem;
+    padding: 0.55rem 1rem;
+    border-radius: 10px;
+    background: #B8F000;
+    color: #0B1F3A !important;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.92rem;
+  }
+  .primary-task__cta:hover { filter: brightness(1.05); }
   .badge-new {
     font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
     color: #fff; background: #077999; border-radius: 999px; padding: 0.15rem 0.5rem;
@@ -1259,7 +1273,6 @@ function renderRedirect(to) {
 // ─── 1. Dashboard (studio.html) ──────────────────────────────────────────────
 
 function renderStudio() {
-  const primaryTask = 'Open the Graphics Component Kit — rebuild all 4 masters at 4:5 from separate pieces (do not stretch the square).';
   const buildOrder = WHAT_WE_NEED_NOW[1];
   const rules = WHAT_WE_NEED_NOW.slice(2);
   const ruleChips = rules
@@ -1285,8 +1298,9 @@ function renderStudio() {
       <div class="primary-task">
         ${icon('formats')}
         <div>
-          <p class="primary-task__label">Priority</p>
-          <p class="primary-task__text">${esc(primaryTask)}</p>
+          <p class="primary-task__label">Philippines team — start here</p>
+          <p class="primary-task__text"><a href="/graphics-kit.html"><b>Graphics Component Kit</b></a> — person, headline, benefits, price, colors, logo. Click each piece to inspect, then rebuild every Meta size. <b>Do not stretch the square.</b></p>
+          <a class="primary-task__cta" href="/graphics-kit.html#02-4x5">Open Component Kit → VMA-02 · 4:5</a>
           <p class="lede" style="margin-top:0.35rem">${esc(buildOrder)}</p>
         </div>
       </div>
@@ -1308,14 +1322,13 @@ function renderStudio() {
     <section id="quick-links">
       <h2 class="section-head">${icon('links')} Quick Links</h2>
       <div class="quick-links">
-        <a href="/graphics-kit.html">${icon('formats')} Component Kit</a>
+        <a href="/graphics-kit.html#02-4x5">${icon('formats')} Component Kit (start here)</a>
         <a href="/vma-handoff.html">${icon('target')} Production Handoff</a>
         <a href="/vma-approved.html">${icon('eye')} Approved Ads</a>
-        <a href="/ideas.html">${icon('idea')} New Concepts</a>
         <a href="/vma-static.html">${icon('ratio')} Aspect Ratios</a>
+        <a href="/ideas.html">${icon('idea')} New Concepts</a>
         <a href="/competitors.html">${icon('search')} Competitors</a>
         <a href="/vma-chatgpt.html">${icon('prompt')} Prompts &amp; Copy</a>
-        <a href="/vma-handoff.html">${icon('handoff')} Production Handoff</a>
       </div>
     </section>`;
 

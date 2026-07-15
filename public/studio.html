@@ -164,6 +164,21 @@
     background: #077999;
     font-weight: 700;
   }
+  .doc-nav a.nav-team {
+    color: #0B1F3A;
+    background: #B8F000;
+    font-weight: 800;
+    border-color: rgba(184, 240, 0, 0.5);
+  }
+  .doc-nav a.nav-team:hover {
+    color: #0B1F3A !important;
+    background: #d4ff4d !important;
+  }
+  .doc-nav a.nav-team.active {
+    color: #0B1F3A;
+    background: #B8F000;
+    box-shadow: inset 0 0 0 2px #077999;
+  }
   .doc-header details.doc-nav-dd.active > summary,
   .doc-header details.doc-nav-dd[open] > summary {
     color: #ffffff !important;
@@ -689,6 +704,20 @@
     margin: 0 0 0.15rem;
   }
   .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
+  .primary-task__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.65rem;
+    padding: 0.55rem 1rem;
+    border-radius: 10px;
+    background: #B8F000;
+    color: #0B1F3A !important;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.92rem;
+  }
+  .primary-task__cta:hover { filter: brightness(1.05); }
   .badge-new {
     font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
     color: #fff; background: #077999; border-radius: 999px; padding: 0.15rem 0.5rem;
@@ -1095,7 +1124,7 @@
       </div>
     </a>
     <div class="doc-nav-wrap">
-      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="active">Dashboard</a><a href="/vma-approved.html" class="">Approved Creative</a><a href="/ideas.html" class="">New Ad Ideas</a><a href="/vma-static.html" class="">Aspect Ratios</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-video.html" class="">Animated Video</a><a href="/vma-chatgpt.html" class="">Prompts &amp; Copy</a><a href="/vma-handoff.html" class="">Production Handoff</a></nav>
+      <nav class="doc-nav" aria-label="Primary"><a href="/studio.html" class="active">Dashboard</a><a href="/graphics-kit.html" class="nav-team">Component Kit</a><a href="/vma-approved.html" class="">Approved Creative</a><a href="/ideas.html" class="">New Ad Ideas</a><a href="/vma-static.html" class="">Aspect Ratios</a><a href="/competitors.html" class="">Competitor Wall</a><a href="/vma-video.html" class="">Animated Video</a><a href="/vma-chatgpt.html" class="">Prompts &amp; Copy</a><a href="/vma-handoff.html" class="">Production Handoff</a></nav>
     </div>
   </div>
   <div class="doc-header__page">
@@ -1133,8 +1162,9 @@
       <div class="primary-task">
         <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span>
         <div>
-          <p class="primary-task__label">Priority</p>
-          <p class="primary-task__text">Open the Graphics Component Kit — rebuild all 4 masters at 4:5 from separate pieces (do not stretch the square).</p>
+          <p class="primary-task__label">Philippines team — start here</p>
+          <p class="primary-task__text"><a href="/graphics-kit.html"><b>Graphics Component Kit</b></a> — person, headline, benefits, price, colors, logo. Click each piece to inspect, then rebuild every Meta size. <b>Do not stretch the square.</b></p>
+          <a class="primary-task__cta" href="/graphics-kit.html#02-4x5">Open Component Kit → VMA-02 · 4:5</a>
           <p class="lede" style="margin-top:0.35rem">Work in build order: VMA-02 → VMA-03 → VMA-01 → VMA-04</p>
         </div>
       </div>
@@ -1232,14 +1262,13 @@
     <section id="quick-links">
       <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span> Quick Links</h2>
       <div class="quick-links">
-        <a href="/graphics-kit.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span> Component Kit</a>
+        <a href="/graphics-kit.html#02-4x5"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span> Component Kit (start here)</a>
         <a href="/vma-handoff.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Production Handoff</a>
         <a href="/vma-approved.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span> Approved Ads</a>
-        <a href="/ideas.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span> New Concepts</a>
         <a href="/vma-static.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg></span> Aspect Ratios</a>
+        <a href="/ideas.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span> New Concepts</a>
         <a href="/competitors.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span> Competitors</a>
         <a href="/vma-chatgpt.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span> Prompts &amp; Copy</a>
-        <a href="/vma-handoff.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span> Production Handoff</a>
       </div>
     </section>
     <p class="foot">MedVirtual Ad Production · No pink · Reviewed July 14, 2026.</p>

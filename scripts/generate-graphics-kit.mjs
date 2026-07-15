@@ -31,6 +31,14 @@ export function renderGraphicsKit() {
       <h1>Graphics Component Kit</h1>
       <p><b>For the Philippines team.</b> The square (1:1) is approved and live on Meta. For every other size, <strong>do not stretch the square</strong> — rebuild from these pieces.</p>
       <p class="lede">Click each component to inspect it full-size. The mock on the right shows how the pieces fit together. <strong>Person layers are transparent PNGs</strong> — scrub color is separate so you can match each master without redoing the photo. The AI draft below is reference only — you finalize in Photoshop / Illustrator / Figma.</p>
+      <div class="kit-quickstart">
+        <strong>Jump to your job:</strong>
+        <div class="kit-quickstart__links" id="quickstartLinks"></div>
+      </div>
+      <details class="kit-assets" open>
+        <summary>Shared files — open or right-click save (no hunting)</summary>
+        <ul class="kit-assets__list" id="sharedAssetList"></ul>
+      </details>
       <div class="kit-order">Build order: ${GRAPHICS_BUILD_ORDER.map((n) => `<b>VMA-${esc(n)}</b>`).join(' → ')} · Start with <b>4:5</b>, then 9:16, then wide.</div>
     </div>
 
@@ -80,6 +88,16 @@ export function renderGraphicsKit() {
       });
       masterSelect.value = DATA.buildOrder[0] || '02';
       ratioSelect.value = '4x5';
+
+      const quickstart = document.getElementById('quickstartLinks');
+      quickstart.innerHTML = DATA.buildOrder.map((n) =>
+        '<a href="#' + n + '-4x5" class="kit-jump">VMA-' + n + ' · 4:5</a>'
+      ).join('');
+
+      const assetList = document.getElementById('sharedAssetList');
+      assetList.innerHTML = (DATA.sharedAssets || []).map((a) =>
+        '<li><a href="' + a.href + '" target="_blank" rel="noopener">' + a.label + '</a></li>'
+      ).join('');
 
       function master() { return DATA.masters.find((m) => m.number === masterSelect.value); }
       function ratio() { return ratioSelect.value; }
@@ -184,6 +202,18 @@ export function renderGraphicsKit() {
         workspace.querySelectorAll('.inspect-img').forEach((btn) => {
           btn.addEventListener('click', () => openImage(btn.getAttribute('data-src'), 'Full image'));
         });
+        workspace.querySelectorAll('.kit-jump').forEach((a) => {
+          a.addEventListener('click', (e) => {
+            const id = a.getAttribute('href').replace('#', '');
+            const parts = id.split('-');
+            masterSelect.value = parts[0];
+            ratioSelect.value = parts.slice(1).join('-');
+            render();
+            e.preventDefault();
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
       }
 
       function openImage(src, title) {
@@ -277,6 +307,21 @@ export function renderGraphicsKit() {
     main { max-width: 1180px; margin: 0 auto; padding: 1.25rem 1.25rem 4rem; font-family: "Be Vietnam Pro", system-ui, sans-serif; color: #0B1F3A; }
     .kit-hero { margin-bottom: 1rem; }
     .kit-hero h1 { margin: 0 0 0.5rem; font-size: 1.75rem; }
+    .kit-quickstart {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem;
+      margin: 0.85rem 0; padding: 0.75rem 1rem; background: #F0F5FF; border: 1px solid #D6E4EC; border-radius: 10px;
+    }
+    .kit-quickstart strong { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; color: #077999; }
+    .kit-quickstart__links { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .kit-jump {
+      display: inline-block; padding: 0.4rem 0.75rem; border-radius: 8px; background: #B8F000; color: #0B1F3A;
+      font-weight: 800; font-size: 0.82rem; text-decoration: none;
+    }
+    .kit-jump:hover { filter: brightness(1.05); }
+    .kit-assets { margin: 0.75rem 0; background: #fff; border: 1px solid #D6E4EC; border-radius: 10px; padding: 0.65rem 1rem; }
+    .kit-assets summary { cursor: pointer; font-weight: 800; color: #0B1F3A; }
+    .kit-assets__list { margin: 0.5rem 0 0; padding-left: 1.1rem; color: #4A6275; font-size: 0.9rem; }
+    .kit-assets__list a { color: #077999; font-weight: 700; }
     .kit-order { margin-top: 0.75rem; font-size: 0.92rem; color: #4A6275; }
     .kit-toolbar { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
     .kit-toolbar label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #4A6275; }
@@ -360,7 +405,7 @@ export function renderGraphicsKit() {
   </style>
 </head>
 <body>
-  ${renderDocHeader({ activeId: 'handoff', pageTitle: 'Graphics Component Kit', pageSubtitle: 'Click each piece · inspect · rebuild every Meta size — do not stretch the square.' })}
+  ${renderDocHeader({ activeId: 'graphics-kit', pageTitle: 'Graphics Component Kit', pageSubtitle: 'Philippines team — click each piece · inspect · rebuild every Meta size. Do not stretch the square.' })}
   <main>${body}</main>
 </body>
 </html>`;
