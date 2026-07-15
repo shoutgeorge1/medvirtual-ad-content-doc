@@ -149,43 +149,31 @@ export const GREEN_MOTION_BRIEF = {
 
 export const SITE_BASE = 'https://medvirtual-ad-content-doc.vercel.app';
 
-/** Direct links for Philippines team — everything on the site, no email needed. */
+/** Direct links for Philippines team — everything on the site. */
 export const TEAM_HANDOFF_LINKS = [
   {
     step: 1,
-    label: 'Component Library — START HERE',
+    label: 'Component Library — start here',
     path: '/graphics-kit.html#01-4x5',
-    note: 'Every piece: transparent person PNG, logos, headline copy, colors, layout mock per size. Click to inspect · right-click to save.',
+    note: 'Transparent person PNG, logos, headline copy, colors, and layout reference for each size.',
   },
   {
     step: 2,
-    label: 'Dashboard — what to build now',
-    path: '/studio.html',
-    note: 'Winning direction, deliverable list, what is paused.',
+    label: 'Approved winner',
+    path: '/vma-approved.html',
+    note: 'VMA-01 Spanish Green — match this look.',
   },
   {
     step: 3,
-    label: 'Static Production — all aspect ratios',
+    label: 'Static Production — Meta sizes',
     path: '/vma-static.html',
-    note: '4:5 · 9:16 · 1.91:1 · 1:1 — AI drafts, exact filenames, safe zones.',
+    note: '1:1 · 4:5 · 9:16 · 1.91:1 with exact pixel sizes and filenames.',
   },
   {
     step: 4,
-    label: 'Winners — approved reference',
-    path: '/vma-approved.html',
-    note: 'Full-size VMA-01 Spanish Green master to match.',
-  },
-  {
-    step: 5,
     label: 'Animated Video — motion brief',
     path: '/vma-video.html#green-motion',
-    note: 'Make the static move · 6s first · frame 0 = full composition.',
-  },
-  {
-    step: 6,
-    label: 'Handoff — QA checklist before submit',
-    path: '/vma-handoff.html#qa',
-    note: 'Tick off dimensions, copy, logo, no pink — then mark Monday done.',
+    note: '6-second sequence: make the winning static move.',
   },
 ];
 
@@ -199,23 +187,24 @@ export const MONDAY_REQUEST = {
     brand: 'MedVirtual',
     type: 'Ad Graphics',
     title: 'VMA-01 Green Person — 3–4 static variations + 1 animation',
-    description: `Pause all other MedVirtual requests (including earlier green ones) — this replaces them.
+    description: `Please pause all other open MedVirtual graphics requests (including any earlier VMA-01 / green-person tickets). This request replaces them.
 
-Stick to the winning green-person ad (VMA-01 Spanish Green). We need:
+Creative direction: VMA-01 Spanish Green (lime-scrub Virtual Medical Admin). Stay close to the winning static.
 
-• 3–4 more static variations, each in Meta aspect ratios (1:1, 4:5, 9:16, 1.91:1)
-• 1 short animated sequence (6s) that makes the static move
+Please deliver:
+• 3–4 static variations of the green-person concept, each in Meta aspect ratios: 1:1 (1080×1080), 4:5 (1080×1350), 9:16 (1080×1920), and 1.91:1 (1200×628)
+• 1 short animated sequence (about 6 seconds) based on the winning static — make the static move; do not invent a new video concept
 
-LINKS (open these — no email needed):
-• Component Library (person, logos, copy, colors): ${teamLink('/graphics-kit.html#01-4x5')}
-• Approved winner reference: ${teamLink('/vma-approved.html')}
-• All Meta sizes + filenames: ${teamLink('/vma-static.html')}
-• Motion brief (6s animation): ${teamLink('/vma-video.html#green-motion')}
+Production links:
+• Component Library (assets + copy): ${teamLink('/graphics-kit.html#01-4x5')}
+• Approved winner: ${teamLink('/vma-approved.html')}
+• Aspect ratios + filenames: ${teamLink('/vma-static.html')}
+• Motion brief: ${teamLink('/vma-video.html#green-motion')}
 
-Rules: keep it close to the winning ad · MedVirtual logo only (never MedVirtual.ai) · no pink · don't stretch — rebuild each size.`,
-    resolution: 'Custom — see Static Production page for exact px per ratio',
+Brand rules: MedVirtual logo only (never MedVirtual.ai) · no pink · rebuild each ratio (do not stretch the square) · deliver PNG + editable source (PSD / AI / Figma).`,
+    resolution: 'Custom — see Static Production for exact pixels per ratio',
     dueDate: 'Per sprint assignment',
-    references: `${teamLink('/graphics-kit.html#01-4x5')} — attach approved master screenshot if the form allows a file.`,
+    references: teamLink('/graphics-kit.html#01-4x5'),
   },
 };
 
