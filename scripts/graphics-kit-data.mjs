@@ -60,6 +60,26 @@ const SUBHEADS = {
 
 const HEADLINE_LINES = ['HIRE A', 'VIRTUAL', 'MEDICAL', 'ADMIN'];
 
+/** Transparent person PNGs — scrub color is separate, changeable in any editor */
+export const PERSON_TRANSPARENT = {
+  '01': '/assets/video-elements/people/admin-lime.png',
+  '02': '/assets/video-elements/people/admin-cobalt.png',
+  '03': '/assets/video-elements/people/admin-cobalt.png',
+  '04': '/assets/video-elements/people/admin-lime.png',
+};
+
+/** Target scrub hex per master — team recolors the transparent layer (hue/sat in PS/Figma) */
+export const SCRUB_COLORS = {
+  '01': '#B8F000',
+  '02': '#1D4ED8',
+  '03': '#FFE600',
+  '04': '#B8F000',
+};
+
+const SCRUB_RECOLOR_NOTE = {
+  '03': 'Start from cobalt transparent PNG → recolor scrubs to signal yellow (#FFE600) in your editor.',
+};
+
 /** Per-ratio layout presets (true Meta pixels) for live mock preview */
 export const MOCK_LAYOUTS = {
   '4x5': {
@@ -105,6 +125,8 @@ export function buildGraphicsKitPayload() {
     layouts: MOCK_LAYOUTS,
     masters: ordered.map((m) => {
       const theme = MASTER_THEMES[m.number] || MASTER_THEMES['02'];
+      const scrubColor = SCRUB_COLORS[m.number] || theme.accent;
+      theme.scrubColor = scrubColor;
       const formats = Object.fromEntries(
         m.formats.map((f) => [
           f.formatId,
@@ -119,11 +141,25 @@ export function buildGraphicsKitPayload() {
       const components = [
         {
           id: 'person',
-          label: 'Person (photo)',
-          type: 'image',
-          src: `/assets/graphics-kit/person-${m.number}.png`,
-          hint: 'Transparent-friendly crop from the approved square. Reposition per ratio — do not stretch.',
-          specs: ['Isolate from background in your editor if needed', 'Keep face and scrubs fully visible', 'Match scrub color to master'],
+          label: 'Person (transparent PNG)',
+          type: 'person',
+          src: PERSON_TRANSPARENT[m.number],
+          refSrc: `/assets/graphics-kit/person-${m.number}.png`,
+          scrubColor,
+          hint: 'Transparent cutout — change scrub color without redoing the photo. Match pose/lighting to the reference crop.',
+          specs: [
+            'PNG with transparent background — drag onto any layout',
+            'Scrub color: ' + scrubColor + ' — use hue/saturation or color overlay in Photoshop / Illustrator / Figma',
+            SCRUB_RECOLOR_NOTE[m.number] || 'Keep skin tones natural when recoloring scrubs only',
+            'Reposition and scale per ratio — never stretch',
+          ],
+        },
+        {
+          id: 'scrubs',
+          label: 'Scrub color',
+          type: 'scrub',
+          scrubColor,
+          hint: 'Apply this color to the transparent person layer — not baked into the PNG.',
         },
         {
           id: 'headline',
@@ -180,12 +216,13 @@ export function buildGraphicsKitPayload() {
           label: 'Color palette',
           type: 'colors',
           swatches: [
+            { name: 'Scrub color', hex: scrubColor },
             { name: 'Accent', hex: theme.accent },
             { name: 'Accent alt', hex: theme.accentAlt },
             { name: 'Background', hex: theme.bg },
             ...(theme.priceBg ? [{ name: 'Price badge', hex: theme.priceBg }] : []),
           ],
-          hint: 'No pink / magenta / fuchsia anywhere.',
+          hint: 'Transparent components + these hex values — swap colors without regenerating photos. No pink.',
         },
       ];
 

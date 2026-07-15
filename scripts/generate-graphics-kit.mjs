@@ -30,7 +30,7 @@ export function renderGraphicsKit() {
     <div class="hero kit-hero">
       <h1>Graphics Component Kit</h1>
       <p><b>For the Philippines team.</b> The square (1:1) is approved and live on Meta. For every other size, <strong>do not stretch the square</strong> — rebuild from these pieces.</p>
-      <p class="lede">Click each component to inspect it full-size. The mock on the right shows how the pieces fit together. The AI draft below is reference only — you finalize in Photoshop / Illustrator / Figma.</p>
+      <p class="lede">Click each component to inspect it full-size. The mock on the right shows how the pieces fit together. <strong>Person layers are transparent PNGs</strong> — scrub color is separate so you can match each master without redoing the photo. The AI draft below is reference only — you finalize in Photoshop / Illustrator / Figma.</p>
       <div class="kit-order">Build order: ${GRAPHICS_BUILD_ORDER.map((n) => `<b>VMA-${esc(n)}</b>`).join(' → ')} · Start with <b>4:5</b>, then 9:16, then wide.</div>
     </div>
 
@@ -106,9 +106,10 @@ export function renderGraphicsKit() {
         const person = m.components.find((c) => c.id === 'person');
         const p = L.person;
         const personBox = Object.entries(p).map(([k,v]) => k + ':' + (typeof v === 'number' ? v + 'px' : v)).join(';');
+        const personSrc = person ? person.src : '';
         return '<div class="mock-stage" style="width:' + rm.w + 'px;height:' + rm.h + 'px;background:' + t.bg + '">' +
           '<div class="mock-panel" style="background:' + t.panel + '"></div>' +
-          '<img class="mock-person" src="' + person.src + '" style="' + personBox + '" alt="Person layer" />' +
+          (person ? '<img class="mock-person mock-person--transparent" src="' + personSrc + '" style="' + personBox + '" alt="Person layer (transparent)" />' : '') +
           '<img class="mock-logo" src="/assets/brand/medvirtual/logo-white.svg" style="left:' + L.logo.left + 'px;top:' + L.logo.top + 'px;height:' + L.logo.h + 'px" alt="" />' +
           '<div class="mock-headline" style="left:' + L.headline.left + 'px;top:' + L.headline.top + 'px;width:' + L.headline.width + 'px;font-size:' + L.headline.size + 'px;line-height:' + L.headline.lh + '">' + hl + '</div>' +
           '<div class="mock-sub" style="left:' + L.subhead.left + 'px;top:' + L.subhead.top + 'px;width:' + L.subhead.width + 'px;font-size:' + L.subhead.size + 'px;color:' + t.ink + '99">' + m.subhead + '</div>' +
@@ -120,7 +121,11 @@ export function renderGraphicsKit() {
 
       function componentTile(c) {
         let thumb = '';
-        if (c.type === 'image') thumb = '<img src="' + c.src + '" alt="" loading="lazy" />';
+        if (c.type === 'person') {
+          thumb = '<div class="thumb-checker"><img src="' + c.src + '" alt="" loading="lazy" /></div>';
+        } else if (c.type === 'scrub') {
+          thumb = '<div class="thumb-scrub" style="background:' + c.scrubColor + '"><span>Scrub</span></div>';
+        } else if (c.type === 'image') thumb = '<img src="' + c.src + '" alt="" loading="lazy" />';
         else if (c.type === 'colors') thumb = '<div class="swatch-row">' + c.swatches.map((s) => '<span style="background:' + s.hex + '" title="' + s.name + '"></span>').join('') + '</div>';
         else if (c.type === 'list') thumb = '<ul class="mini-list">' + c.items.slice(0, 2).map((i) => '<li>' + i + '</li>').join('') + '<li>…</li></ul>';
         else thumb = '<div class="mini-text">' + (c.lines ? c.lines.join(' ') : c.text || '') + '</div>';
@@ -198,7 +203,18 @@ export function renderGraphicsKit() {
         const specs = document.getElementById('inspectSpecs');
         const actions = document.getElementById('inspectActions');
         specs.innerHTML = (c.specs || []).map((s) => '<li>' + s + '</li>').join('');
-        if (c.type === 'image') {
+        if (c.type === 'person') {
+          prev.innerHTML = '<div class="inspect-dual">' +
+            '<div><small>Transparent PNG (use this)</small><div class="thumb-checker inspect-checker"><img src="' + c.src + '" alt="" /></div></div>' +
+            '<div><small>Reference crop from live 1:1</small><img src="' + c.refSrc + '" alt="" /></div>' +
+            '</div>';
+          actions.innerHTML = '<a href="' + c.src + '" target="_blank" rel="noopener">Open transparent PNG</a> ' +
+            '<a href="' + c.refSrc + '" target="_blank" rel="noopener">Open reference crop</a>';
+        } else if (c.type === 'scrub') {
+          prev.innerHTML = '<div class="swatch-grid"><div><span style="background:' + c.scrubColor + '"></span><strong>Scrub color</strong><code>' + c.scrubColor + '</code></div></div>' +
+            '<p class="inspect-hint">Apply to the transparent person layer — hue/saturation or color overlay. Do not bake into a flat export unless final.</p>';
+          actions.innerHTML = '';
+        } else if (c.type === 'image') {
           prev.innerHTML = '<img src="' + c.src + '" alt="" />';
           actions.innerHTML = '<a href="' + c.src + '" target="_blank" rel="noopener">Open image in new tab</a>';
         } else if (c.type === 'colors') {
@@ -299,6 +315,14 @@ export function renderGraphicsKit() {
     .mock-stage { position: relative; overflow: hidden; font-family: "Be Vietnam Pro", sans-serif; transform-origin: top left; }
     .mock-panel { position: absolute; inset: 0; opacity: 0.9; }
     .mock-person { position: absolute; object-fit: contain; object-position: bottom center; }
+    .mock-person--transparent { background: repeating-conic-gradient(#D6E4EC 0% 25%, #fff 0% 50%) 50% / 12px 12px; }
+    .thumb-checker { background: repeating-conic-gradient(#D6E4EC 0% 25%, #fff 0% 50%) 50% / 10px 10px; border-radius: 8px; overflow: hidden; min-height: 72px; display: flex; align-items: flex-end; justify-content: center; }
+    .thumb-checker img { max-width: 100%; max-height: 88px; object-fit: contain; }
+    .thumb-scrub { border-radius: 8px; min-height: 72px; display: flex; align-items: center; justify-content: center; color: #0B1F3A; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .inspect-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left; }
+    .inspect-dual small { color: #6a7682; display: block; margin-bottom: 0.35rem; font-size: 0.78rem; }
+    .inspect-checker img { max-height: 42vh; }
+    .inspect-dual img { max-width: 100%; border-radius: 8px; }
     .mock-logo { position: absolute; }
     .mock-headline { position: absolute; font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; }
     .mock-sub { position: absolute; font-weight: 600; }
