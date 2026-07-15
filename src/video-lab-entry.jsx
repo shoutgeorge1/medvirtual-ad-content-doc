@@ -428,7 +428,7 @@ function TemplatePreview({ activeId, setActiveId }) {
           </button>
         ))}
         <button type="button" onClick={() => setReviewMode((r) => !r)}>
-          {reviewMode ? 'Exit Hailey review' : 'Hailey review mode'}
+          {reviewMode ? 'Exit review' : 'Review mode'}
         </button>
       </div>
 
@@ -463,7 +463,7 @@ function TemplatePreview({ activeId, setActiveId }) {
               <strong>Status:</strong> {draft.status || 'Draft'}
             </p>
             <div className="vpl-toolbar">
-              {DATA.haileyFeedback.map((f) => (
+              {DATA.reviewFeedback.map((f) => (
                 <button
                   key={f}
                   type="button"

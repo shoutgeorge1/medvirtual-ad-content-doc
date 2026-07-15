@@ -139,117 +139,7 @@
     "Find Support for Your Practice",
     "Meet This Candidate"
   ],
-  "talent": [
-    {
-      "id": "jessica",
-      "firstName": "Jessica",
-      "fullPublicName": "Jessica Valles",
-      "title": "Jr. Medical Admin",
-      "listedSkills": [
-        "BPO - Customer Service",
-        "BPO - Healthcare"
-      ],
-      "specializationShown": [
-        "Primary Care"
-      ],
-      "imagePath": "/assets/real-people/jessica/feed-1080x1350.jpg",
-      "profileSquare": "/assets/real-people/jessica/profile-1080x1080.jpg",
-      "verticalPath": "/assets/real-people/jessica/vertical-reference-1080x1920.jpg",
-      "cleanMaster": "/assets/real-people/jessica/clean-master.jpg"
-    },
-    {
-      "id": "angelica",
-      "firstName": "Angelica",
-      "fullPublicName": "Angelica Aljas",
-      "title": "Dermatology Front Desk Assistant",
-      "listedSkills": [
-        "VA - Medical General",
-        "BPO - Healthcare"
-      ],
-      "specializationShown": [
-        "Dermatology"
-      ],
-      "imagePath": "/assets/real-people/angelica/feed-1080x1350.jpg",
-      "profileSquare": "/assets/real-people/angelica/profile-1080x1080.jpg",
-      "verticalPath": "/assets/real-people/angelica/vertical-reference-1080x1920.jpg",
-      "cleanMaster": "/assets/real-people/angelica/clean-master.jpg"
-    },
-    {
-      "id": "chelsea",
-      "firstName": "Chelsea",
-      "fullPublicName": "Chelsea Rose Santos",
-      "title": "Dental Virtual Assistant",
-      "listedSkills": [
-        "Appointment Setting",
-        "Medical - Healthcare",
-        "BPO - Customer Service",
-        "VA - Medical General",
-        "BPO - Healthcare"
-      ],
-      "specializationShown": [
-        "Dentistry",
-        "Dental - Orthodontics",
-        "Dental - General Dentistry",
-        "DME / Durable Medical Equipment",
-        "General Medicine"
-      ],
-      "imagePath": "/assets/real-people/chelsea/feed-1080x1350.jpg",
-      "profileSquare": "/assets/real-people/chelsea/profile-1080x1080.jpg",
-      "verticalPath": "/assets/real-people/chelsea/vertical-reference-1080x1920.jpg",
-      "cleanMaster": "/assets/real-people/chelsea/clean-master.jpg"
-    },
-    {
-      "id": "mark",
-      "firstName": "Mark",
-      "fullPublicName": "Mark Robert Seno",
-      "title": "Insurance Verification Specialist",
-      "listedSkills": [
-        "VA - Medical Biller"
-      ],
-      "specializationShown": [
-        "Psychiatry"
-      ],
-      "imagePath": "/assets/real-people/mark/feed-1080x1350.jpg",
-      "profileSquare": "/assets/real-people/mark/profile-1080x1080.jpg",
-      "verticalPath": "/assets/real-people/mark/vertical-reference-1080x1920.jpg",
-      "cleanMaster": "/assets/real-people/mark/clean-master.jpg"
-    },
-    {
-      "id": "carmen",
-      "firstName": "Carmen",
-      "fullPublicName": "Carmen De Leon",
-      "title": "Medical Biller",
-      "listedSkills": [
-        "BPO - Customer Service",
-        "VA - Medical Biller",
-        "VA - Medical General"
-      ],
-      "specializationShown": [
-        "Neurology",
-        "Mental Health",
-        "Behavioral Health"
-      ],
-      "imagePath": "/assets/real-people/carmen/feed-1080x1350.jpg",
-      "profileSquare": "/assets/real-people/carmen/profile-1080x1080.jpg",
-      "verticalPath": "/assets/real-people/carmen/vertical-reference-1080x1920.jpg",
-      "cleanMaster": "/assets/real-people/carmen/clean-master.jpg"
-    },
-    {
-      "id": "jennifer",
-      "firstName": "Jennifer",
-      "fullPublicName": "Jennifer Villarubia",
-      "title": "Patient Intake Coordinator",
-      "listedSkills": [],
-      "specializationShown": [
-        "Wound Care",
-        "Assisted Living / Home Care Services"
-      ],
-      "imagePath": "/assets/real-people/jennifer/feed-1080x1350.jpg",
-      "profileSquare": "/assets/real-people/jennifer/profile-1080x1080.jpg",
-      "verticalPath": "/assets/real-people/jennifer/vertical-reference-1080x1920.jpg",
-      "cleanMaster": "/assets/real-people/jennifer/clean-master.jpg"
-    }
-  ],
+  "talent": [],
   "assets": [
     {
       "id": "placeholder-jessica-dtc",
@@ -324,9 +214,9 @@
       ],
       "script": "Hi, I’m Jessica. I support medical practices with customer service, healthcare support, and admin coordination.",
       "bullets": [
-        "Customer Service",
-        "Healthcare",
-        "Primary Care support"
+        "Calls and scheduling",
+        "Patient intake",
+        "Follow-up support"
       ],
       "cta": "Request an Interview",
       "example": "/assets/real-people/jessica/ad-treatment-e-9x16.png",
@@ -450,13 +340,13 @@
     "Footage Received",
     "Editing",
     "Internal Review",
-    "Send to Hailey",
+    "Send for Review",
     "Revision Requested",
     "Approved",
     "Published",
     "Archived"
   ],
-  "haileyFeedback": [
+  "reviewFeedback": [
     "Strong Hook",
     "Better Person",
     "Too Generic",
@@ -586,9 +476,9 @@
       "role": "Jr. Medical Admin",
       "spokenLine": "Hi, I’m Jessica. I support medical practices with customer service, healthcare support, and admin coordination.",
       "bullets": [
-        "Customer Service",
-        "Healthcare",
-        "Primary Care support"
+        "Calls and scheduling",
+        "Patient intake",
+        "Follow-up support"
       ],
       "cta": "Request an Interview",
       "posterSrc": "/assets/real-people/jessica/vertical-reference-1080x1920.jpg",

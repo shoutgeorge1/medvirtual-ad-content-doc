@@ -1,13 +1,13 @@
 /**
- * Shared MedVirtual Content Doc header.
- * Creative handoff + idea generation — Virtual Medical Admin Meta ads.
+ * Shared MedVirtual Ad Production header.
+ * Graphics handoff — Virtual Medical Admin Meta ads that book demos.
  */
 import { brandCssVariables, BRAND } from './medvirtual-brand-data.mjs';
 
 export const DOC_BRAND = {
   mark: 'MV',
   title: 'MedVirtual Ad Production',
-  tagline: 'Approved VMA creative · 15–20 concepts · required Meta sizes',
+  tagline: 'Scroll-stopping ads that book demos',
   homeHref: '/studio.html',
   logoWhite: BRAND.assets.logoWhiteSvg,
 };
@@ -24,60 +24,57 @@ export const PRIMARY_NAV = [
     href: '/studio.html',
     label: 'Dashboard',
     id: 'studio',
-    description: 'Approved ads, checklist, formats, quick links.',
+    description: 'Start here — priority, approved ads, quick links.',
   },
   {
     href: '/vma-approved.html',
     label: 'Approved Creative',
     id: 'vma-approved',
-    description: 'Four approved masters — image-first analysis.',
+    description: 'Four approved masters — match this level.',
   },
   {
     href: '/ideas.html',
     label: 'New Ad Ideas',
     id: 'ideas',
-    description: '15–20 concept batch builder.',
+    description: '15–20 concepts to test for demo sign-ups.',
   },
   {
     href: '/vma-static.html',
     label: 'Aspect Ratios',
     id: 'vma-static',
-    description: '1:1 · 4:5 · 9:16 · 1.91:1.',
+    description: 'Rebuild winners in 1:1 · 4:5 · 9:16 · 1.91:1.',
   },
   {
     href: '/competitors.html',
     label: 'Competitor Wall',
     id: 'competitors',
-    description: 'Image-first references — do not copy.',
+    description: 'Steal energy from what works — never copy.',
   },
   {
     href: '/vma-video.html',
     label: 'Animated Video',
     id: 'vma-video',
-    description: 'Motion from approved statics.',
+    description: 'Motion Lab — watch concepts, then produce.',
   },
   {
     href: '/vma-chatgpt.html',
     label: 'Prompts & Copy',
     id: 'vma-chatgpt',
-    description: 'ChatGPT, video prompts, EN/ES copy.',
+    description: 'See the result · copy the prompt.',
   },
   {
     href: '/vma-handoff.html',
     label: 'Production Handoff',
     id: 'vma-handoff',
-    description: 'Next wave, pace, and done line.',
+    description: 'What to build next · how we want it done.',
   },
 ];
 
 export const TEMPLATE_LANES = [];
 export const REFERENCE_NAV = [];
 export const IMAGE_SUBNAV = [];
-export const SECONDARY_PAGES = [
-  { href: '/raw-assets.html', label: 'Raw Assets', description: 'Downloadable components.' },
-  { href: '/asset-hub.html', label: 'Asset Hub', description: 'Brand packages.' },
-  { href: '/graphic-request-brief.html', label: 'Brief', description: 'Designer assignments.' },
-];
+/** @deprecated Old lab pages redirect to the active site — do not link here. */
+export const SECONDARY_PAGES = [];
 
 export const HEADER_CSS = `
   ${brandCssVariables()}

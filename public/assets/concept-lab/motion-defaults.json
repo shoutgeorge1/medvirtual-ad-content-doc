@@ -1,328 +1,157 @@
 {
   "motion": [
     {
-      "compositionId": "MV-HOOK-HUMAN-01",
-      "name": "Hook Roll + Human Reveal",
-      "durationInFrames": 330,
-      "fps": 30,
-      "width": 1080,
-      "height": 1920,
-      "conceptId": "MV-STATIC-PAIN-HUMAN-01",
-      "status": "Draft",
-      "animationIntensity": "standard",
-      "showSafeZones": false,
-      "muted": true,
-      "headline": "Too many calls.",
-      "headlineTwo": "Not enough day.",
-      "support": "Add a dedicated virtual medical admin to your team.",
-      "bullets": [
-        "Calls and scheduling",
-        "Patient intake",
-        "Follow-up support"
-      ],
-      "cta": "Request an Interview",
-      "cards": [
-        "Calls and scheduling",
-        "Patient intake",
-        "Follow-up support"
-      ],
-      "imageSrc": "/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png",
-      "role": "Jr. Medical Admin",
-      "audience": "Busy medical practices",
-      "theme": "light-grid",
-      "candidateName": "Jessica",
-      "lane": "pain-human",
-      "internalNotes": ""
-    },
-    {
-      "compositionId": "MV-CHECKLIST-01",
-      "name": "Checklist Reveal",
+      "compositionId": "MV-TYPE-ON-01",
+      "name": "Type-on Hook",
+      "template": "type-on",
       "durationInFrames": 300,
       "fps": 30,
       "width": 1080,
       "height": 1920,
-      "conceptId": "MV-STATIC-EDITORIAL-01",
+      "conceptId": "VMA-LAYERED-01",
       "status": "Draft",
       "animationIntensity": "standard",
       "showSafeZones": false,
       "muted": true,
-      "headline": "Admin work piling up?",
-      "headlineTwo": "",
-      "support": "Hire a dedicated virtual teammate who works as part of your practice.",
+      "headline": "Stop missing patient calls.",
+      "headlineTwo": "Hire a Virtual Medical Admin.",
+      "support": "Dedicated staff who join your team.",
       "bullets": [
-        "Customer Service",
-        "Healthcare",
-        "Primary Care support"
+        "Answer calls",
+        "Book patients",
+        "Handle intake"
       ],
-      "cta": "Meet Available Talent",
+      "icons": [
+        "phone",
+        "calendar",
+        "intake"
+      ],
+      "cta": "Book a Demo",
       "cards": [
-        "Customer Service",
-        "Healthcare",
-        "Primary Care support"
+        "Answer calls",
+        "Book patients",
+        "Handle intake"
       ],
-      "imageSrc": "/assets/real-people/jessica/feed-1080x1350.jpg",
-      "role": "Jr. Medical Admin",
-      "audience": "Practice owners hiring admin support",
-      "theme": "editorial-light",
-      "candidateName": "Jessica",
-      "lane": "editorial-talent",
-      "internalNotes": ""
-    },
-    {
-      "compositionId": "MV-PROBLEM-PERSON-01",
-      "name": "Problem to Person",
-      "durationInFrames": 390,
-      "fps": 30,
-      "width": 1080,
-      "height": 1920,
-      "conceptId": "MV-STATIC-VERTICAL-DENTAL-01",
-      "status": "Draft",
-      "animationIntensity": "standard",
-      "showSafeZones": false,
-      "muted": true,
-      "headline": "Add dedicated support to your practice team.",
-      "headlineTwo": "",
-      "support": "Add dedicated support to your practice team.",
-      "bullets": [
-        "Calls",
-        "Scheduling",
-        "Follow-ups"
-      ],
-      "cta": "Request an Interview",
-      "cards": [
-        "Calls",
-        "Scheduling",
-        "Follow-ups"
-      ],
-      "imageSrc": "/assets/real-people/chelsea/feed-1080x1350.jpg",
-      "role": "Dental Virtual Assistant",
-      "audience": "Dental practices",
-      "theme": "vertical-clean",
-      "candidateName": "Chelsea",
-      "lane": "vertical-workflow",
-      "internalNotes": ""
-    },
-    {
-      "compositionId": "MV-PREMIUM-OPS-01",
-      "name": "Premium Ops / Glass Cards",
-      "durationInFrames": 360,
-      "fps": 30,
-      "width": 1080,
-      "height": 1920,
-      "conceptId": "MV-STATIC-PREMIUM-OPS-01",
-      "status": "Draft",
-      "animationIntensity": "subtle",
-      "showSafeZones": false,
-      "muted": true,
-      "headline": "Built like serious operations.",
-      "headlineTwo": "Delivered as dedicated people.",
-      "support": "Hire full-time virtual staff who join your practice team.",
-      "bullets": [
-        "Scheduling",
-        "Billing support",
-        "Patient communication"
-      ],
-      "cta": "Meet Available Talent",
-      "cards": [
-        "Scheduling",
-        "Billing support",
-        "Patient communication"
-      ],
-      "imageSrc": "/assets/saas-prop-refs/saas-workflow-steps.png",
-      "role": "",
-      "audience": "Practice owners who value ops craft",
-      "theme": "premium-ops-dark",
-      "candidateName": "",
-      "lane": "premium-ops",
-      "internalNotes": ""
-    }
-  ],
-  "staticBatch": [
-    {
-      "id": "MV-STATIC-PAIN-HUMAN-01",
-      "name": "Pain + Human Answer",
-      "lane": "pain-human",
+      "humanSrc": "/assets/video-elements/people/admin-cobalt.png",
+      "background": "#0B1F3A",
+      "accent": "#00E5FF",
+      "role": "Virtual Medical Admin",
       "audience": "Busy medical practices",
-      "vertical": "medical",
-      "format": "4:5",
-      "status": "Draft",
-      "eyebrow": "FOR BUSY MEDICAL PRACTICES",
-      "headline": "Too many calls. Not enough day.",
-      "support": "Add a dedicated virtual medical admin to your team.",
-      "bullets": [
-        "Calls and scheduling",
-        "Patient intake",
-        "Follow-up support"
-      ],
-      "cta": "Request an Interview",
-      "candidateId": "jessica",
-      "candidateName": "Jessica",
-      "role": "Jr. Medical Admin",
-      "imageId": "ai-010-left",
-      "imageSrc": "/exports/image-tests/feed-4x5/IMG_AI_010_4X5_FACE_LEFT.png",
-      "imagePosition": {
-        "x": 32,
-        "y": 50
-      },
-      "imageZoom": 110,
-      "overlayIntensity": 28,
-      "theme": "light-grid",
-      "layout": "PainPortraitLayout",
-      "logoVariant": "colored",
-      "copySide": "right",
-      "showAudiencePill": true,
-      "showLogo": true,
-      "competitorSource": "Hello Rache",
-      "sourceAdId": null,
-      "borrowedPrinciple": "Clear role framing in one glance — title + a simple patient story.",
-      "rejectedPattern": "Generic stock smiles with no practice-owner POV.",
-      "medvirtualRemix": "The answer is a dedicated person the practice can interview — not software or a shared service.",
-      "sourceInspiration": "Competitor Wall · virtual staffing + Image Selection Board person-left crops",
-      "internalNotes": "",
-      "motionTemplate": "MV-HOOK-HUMAN-01",
+      "theme": "cobalt-cyan",
+      "lane": "type-on-hook",
+      "internalNotes": "Approved technique: type-on hook. Every visible item is a separate layer.",
+      "elements": [
+        {
+          "id": "type-human",
+          "type": "human",
+          "label": "Human PNG",
+          "value": "/assets/video-elements/people/admin-cobalt.png",
+          "status": "Ready"
+        },
+        {
+          "id": "type-headline",
+          "type": "headline",
+          "label": "Headline",
+          "value": "Stop missing patient calls.",
+          "status": "Ready"
+        },
+        {
+          "id": "type-benefits",
+          "type": "benefits",
+          "label": "Benefits + icons",
+          "value": "Answer calls · Book patients · Handle intake",
+          "status": "Ready"
+        },
+        {
+          "id": "type-cta",
+          "type": "cta",
+          "label": "CTA",
+          "value": "Book a Demo",
+          "status": "Ready"
+        }
+      ]
+    },
+    {
+      "compositionId": "MV-SLIDE-BUILD-01",
+      "name": "Slide Build",
+      "template": "slide-build",
       "durationInFrames": 330,
-      "imagePrompt": "Premium MedVirtual Meta ad background, 4:5 aspect ratio. Scene: professional healthcare workplace or portrait. Subject position: left. Generous empty copy space on the right. Color direction: teal #077999, cyan #00B2E2, deep teal #0D546B, cool neutrals. Aesthetic: calm, commercial healthcare SaaS / real workplace — expensive and composed. Strict: no visible text, no logos, no patient information, no medical claims, no fake interface text, no watermarks."
-    },
-    {
-      "id": "MV-STATIC-EDITORIAL-01",
-      "name": "Named Talent / Editorial",
-      "lane": "editorial-talent",
-      "audience": "Practice owners hiring admin support",
-      "vertical": "medical",
-      "format": "4:5",
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "conceptId": "VMA-LAYERED-02",
       "status": "Draft",
-      "eyebrow": "MEET AVAILABLE TALENT",
-      "headline": "Jessica",
-      "support": "Jr. Medical Admin",
+      "animationIntensity": "standard",
+      "showSafeZones": false,
+      "muted": true,
+      "headline": "Your front desk is drowning.",
+      "headlineTwo": "Hire a virtual medical admin.",
+      "support": "Dedicated full-time staff who answer every call, book patients, and verify insurance — as part of your team.",
       "bullets": [
-        "Customer Service",
-        "Healthcare",
-        "Primary Care support"
+        "Answer patient calls",
+        "Book appointments",
+        "Verify insurance"
       ],
-      "cta": "Meet This Candidate",
-      "candidateId": "jessica",
-      "candidateName": "Jessica",
-      "role": "Jr. Medical Admin",
-      "imageId": "jessica-feed",
-      "imageSrc": "/assets/real-people/jessica/feed-1080x1350.jpg",
-      "imagePosition": {
-        "x": 58,
-        "y": 42
-      },
-      "imageZoom": 105,
-      "overlayIntensity": 12,
-      "theme": "editorial-light",
-      "layout": "EditorialTalentLayout",
-      "logoVariant": "colored",
-      "copySide": "left",
-      "showAudiencePill": false,
-      "showLogo": true,
-      "editorialHook": "Front-desk admin work overflowing?",
-      "competitorSource": "Zocdoc",
-      "sourceAdId": null,
-      "borrowedPrinciple": "Ruthless simplicity — one idea per frame.",
-      "rejectedPattern": "Job-board card energy / crowded skill walls",
-      "medvirtualRemix": "Real interviewable talent with stronger practice-owner context.",
-      "sourceInspiration": "Real People · Treatment E + editorial profile craft",
-      "internalNotes": "Price off by default. Do not invent credentials.",
-      "motionTemplate": "MV-CHECKLIST-01",
-      "durationInFrames": 300,
-      "imagePrompt": "Premium MedVirtual Meta ad background, 4:5 aspect ratio. Scene: professional healthcare workplace or portrait. Subject position: right. Generous empty copy space on the left. Color direction: teal #077999, cyan #00B2E2, deep teal #0D546B, cool neutrals. Aesthetic: calm, commercial healthcare SaaS / real workplace — expensive and composed. Strict: no visible text, no logos, no patient information, no medical claims, no fake interface text, no watermarks."
-    },
-    {
-      "id": "MV-STATIC-PREMIUM-OPS-01",
-      "name": "Premium Operations / SaaS Prop",
-      "lane": "premium-ops",
-      "audience": "Practice owners who value ops craft",
-      "vertical": "medical",
-      "format": "4:5",
-      "status": "Draft",
-      "eyebrow": "PRACTICE OPERATIONS",
-      "headline": "Built like serious operations. Delivered as dedicated people.",
-      "support": "Hire full-time virtual staff who work as part of your practice team.",
-      "bullets": [
-        "Scheduling",
-        "Billing support",
-        "Patient communication"
+      "icons": [
+        "phone",
+        "calendar",
+        "shield"
       ],
-      "cta": "Meet Available Talent",
-      "candidateId": null,
-      "candidateName": "",
-      "role": "",
-      "imageId": "saas-workflow",
-      "imageSrc": "/assets/saas-prop-refs/saas-workflow-steps.png",
-      "imagePosition": {
-        "x": 70,
-        "y": 50
-      },
-      "imageZoom": 100,
-      "overlayIntensity": 0,
-      "theme": "premium-ops-dark",
-      "layout": "PremiumOpsLayout",
-      "logoVariant": "white",
-      "copySide": "left",
-      "showAudiencePill": false,
-      "showLogo": true,
-      "competitorSource": "NexHealth",
-      "sourceAdId": null,
-      "borrowedPrinciple": "Whitespace + hierarchy — don’t crowd the 4:5.",
-      "rejectedPattern": "Fake software screenshots / implying MedVirtual is an app",
-      "medvirtualRemix": "Software-grade visual polish with human staffing truth.",
-      "sourceInspiration": "SaaS Prop templates + Competitor Wall whitespace craft",
-      "internalNotes": "Never claim MedVirtual is EMR/PMS/software.",
-      "motionTemplate": "MV-PREMIUM-OPS-01",
-      "durationInFrames": 360,
-      "imagePrompt": "Premium MedVirtual Meta ad background, 4:5 aspect ratio. Scene: abstract glass medical operations props (calendar, phone, inbox) — no people. Subject position: right. Generous empty copy space on the left. Color direction: teal #077999, cyan #00B2E2, deep teal #0D546B, cool neutrals. Aesthetic: calm, commercial healthcare SaaS / real workplace — expensive and composed. Strict: no visible text, no logos, no patient information, no medical claims, no fake interface text, no watermarks."
-    },
-    {
-      "id": "MV-STATIC-VERTICAL-DENTAL-01",
-      "name": "Vertical Workflow · Dental",
-      "lane": "vertical-workflow",
-      "audience": "Dental practices",
-      "vertical": "dental",
-      "format": "4:5",
-      "status": "Draft",
-      "eyebrow": "FOR DENTAL PRACTICES",
-      "headline": "Scheduling taking over the front desk?",
-      "support": "Add a dedicated Dental Admin who works as part of your practice.",
-      "bullets": [
-        "Appointment scheduling",
-        "Patient follow-up",
-        "Insurance verification"
+      "cta": "Book a Demo",
+      "cards": [
+        "Answer patient calls",
+        "Book appointments",
+        "Verify insurance"
       ],
-      "cta": "Request an Interview",
-      "candidateId": "chelsea",
-      "candidateName": "Chelsea",
-      "role": "Dental Virtual Assistant",
-      "imageId": "chelsea-feed",
-      "imageSrc": "/assets/real-people/chelsea/feed-1080x1350.jpg",
-      "imagePosition": {
-        "x": 62,
-        "y": 45
-      },
-      "imageZoom": 108,
-      "overlayIntensity": 18,
-      "theme": "vertical-clean",
-      "layout": "VerticalWorkflowLayout",
-      "logoVariant": "colored",
-      "copySide": "left",
-      "showAudiencePill": true,
-      "showLogo": true,
-      "competitorSource": "Weave",
-      "sourceAdId": null,
-      "borrowedPrinciple": "Tight hooks about phones / schedules without fear-mongering.",
-      "rejectedPattern": "Exaggerated smile imagery / clinical claims / “we run your front desk”",
-      "medvirtualRemix": "A dedicated team member rather than another tool or outsourced queue.",
-      "sourceInspiration": "Competitor Wall · dental/medical practice platform hooks",
-      "internalNotes": "Operational, not cosmetic.",
-      "motionTemplate": "MV-PROBLEM-PERSON-01",
-      "durationInFrames": 390,
-      "imagePrompt": "Premium MedVirtual Meta ad background, 4:5 aspect ratio. Scene: professional healthcare workplace or portrait. Subject position: right. Generous empty copy space on the left. Color direction: teal #077999, cyan #00B2E2, deep teal #0D546B, cool neutrals. Aesthetic: calm, commercial healthcare SaaS / real workplace — expensive and composed. Strict: no visible text, no logos, no patient information, no medical claims, no fake interface text, no watermarks."
+      "humanSrc": "/assets/video-elements/people/admin-cobalt.png",
+      "background": "#0B1F3A",
+      "accent": "#00E5FF",
+      "role": "Virtual Medical Admin",
+      "audience": "Overloaded front desks",
+      "theme": "cobalt-cyan",
+      "lane": "slide-build",
+      "internalNotes": "Approved technique: human, headline and benefit cards slide independently. Problem → solution message.",
+      "elements": [
+        {
+          "id": "slide-human",
+          "type": "human",
+          "label": "Human PNG",
+          "value": "/assets/video-elements/people/admin-cobalt.png",
+          "status": "Ready"
+        },
+        {
+          "id": "slide-headline",
+          "type": "headline",
+          "label": "Headline",
+          "value": "Your front desk is drowning → hire a virtual medical admin.",
+          "status": "Ready"
+        },
+        {
+          "id": "slide-benefits",
+          "type": "benefits",
+          "label": "Benefits + icons",
+          "value": "Answer patient calls · Book appointments · Verify insurance",
+          "status": "Ready"
+        },
+        {
+          "id": "slide-cta",
+          "type": "cta",
+          "label": "CTA",
+          "value": "Book a Demo",
+          "status": "Ready"
+        }
+      ]
     }
   ],
   "storageKeys": {
-    "creativeBatch": "mv-creative-concept-lab-v1",
-    "motionBatch": "mv-motion-concept-lab-v1",
-    "promote": "mv-concept-promote-v1"
-  }
+    "motionBatch": "mv_vma_motion_batch_v2",
+    "promote": "mv_vma_motion_promote_v1",
+    "feedback": "mv_creative_feedback_v1"
+  },
+  "statuses": [
+    "Draft",
+    "In Review",
+    "Approved",
+    "Needs Revision"
+  ]
 }

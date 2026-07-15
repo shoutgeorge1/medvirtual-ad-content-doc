@@ -92,8 +92,6 @@ export const STATUSES = [
   'Generated',
   'Pending Review',
   'George Liked',
-  'Hailey Review',
-  'Hailey Liked',
   'Revision Requested',
   'Approved',
   'Saved to Project',
@@ -102,7 +100,7 @@ export const STATUSES = [
   'Deleted',
 ];
 
-export const REVIEWERS = ['George', 'Hailey', 'Graphics Team'];
+export const REVIEWERS = ['George', 'Graphics Team'];
 
 export const LIKE_TAGS = [
   'Believable',
@@ -142,7 +140,7 @@ export const MISS_TAGS = [
   'Unusable crop',
   'Text artifacts',
   'Privacy concern',
-  'Not Hailey standard',
+  'Below our standard',
 ];
 
 export const PREFERENCE_ATTRIBUTES = [

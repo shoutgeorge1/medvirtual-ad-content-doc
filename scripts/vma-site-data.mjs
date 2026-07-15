@@ -20,9 +20,9 @@
 // ─── Meta ────────────────────────────────────────────────────────────────────
 
 export const VMA_META = {
-  banner: 'BOLD VIRTUAL MEDICAL ADMIN DIRECT-RESPONSE ADS',
+  banner: 'MAKE ADS THAT BOOK DEMOS',
   bannerSub:
-    'Primary headline: HIRE A VIRTUAL MEDICAL ADMIN. Request 15–20 concepts per batch. Match the four approved masters for clarity, contrast, and mobile readability — then rebuild winners in every required Meta size.',
+    'For the graphics team — match the four approved masters, build scroll-stopping concepts, rebuild every Meta size. Mine competitors for energy, never copy their layouts.',
   coreHeadline: 'HIRE A VIRTUAL MEDICAL ADMIN',
   coreHeadlineEs: 'CONTRATA A UN ASISTENTE MÉDICO VIRTUAL',
   reviewDate: '2026-07-14',

@@ -3,7 +3,7 @@ import { Img, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remot
 import { COLORS, LOGO_COLORED, LOGO_WHITE, SAFE_ZONE } from './constants.js';
 
 export function EndCard({
-  cta = 'Request an Interview',
+  cta = 'Book a Demo',
   logoVariant = 'colored',
   dark = false,
   startFrame = 0,

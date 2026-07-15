@@ -294,6 +294,9 @@
   .s-awaiting-design {
     background: #FFF8E8; color: #A16207; border-color: #F0D78C;
   }
+  .s-ai-draft {
+    background: #E6F7F4; color: #0D546B; border-color: #7FCBD6;
+  }
   .s-image-needed, .s-pending {
     background: #EEF2F6; color: #475569; border-color: #CBD5E1;
   }
@@ -516,6 +519,42 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     margin-top: 0.85rem;
   }
+  .mock-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 0.85rem;
+  }
+  .mock-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .mock-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .mock-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mock-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .mock-card__tag {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+  }
+  .mock-card__body h3 { margin: 0; font-size: 1.2rem; }
+  .mock-card__body p { margin: 0; font-size: 0.98rem; color: #33475B; }
+  @media (max-width: 720px) {
+    .mock-grid { grid-template-columns: 1fr; }
+    .mock-card__body h3 { font-size: 1.4rem; }
+    .mock-card__body p { font-size: 1.08rem; }
+  }
   .spark-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -534,22 +573,65 @@
     object-fit: cover;
     display: block;
   }
-  .spark-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
-  .spark-card__body h3 { margin: 0; font-size: 1.02rem; }
-  .spark-card__body p { margin: 0; font-size: 0.82rem; color: #4A6275; }
+  .spark-card__body { padding: 1rem 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+  .spark-card__meta {
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+  }
+  .spark-card__headline { margin: 0; font-size: 1.3rem; line-height: 1.2; color: #0B1F3A; }
+  .spark-card__angle { margin: 0; font-size: 0.98rem; line-height: 1.45; color: #33475B; }
+  .spark-card .chip { font-size: 0.82rem; padding: 0.22rem 0.6rem; align-self: flex-start; }
   .spark-card__spark {
     margin-top: auto;
-    padding: 0.55rem 0.65rem;
+    padding: 0.7rem 0.8rem;
     border-radius: 8px;
     background: #EEF6FA;
     border: 1px solid #C5DCE8;
     color: #0D546B;
-    font-size: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
     font-weight: 650;
   }
+  .feedback-ui {
+    margin-top: 0.35rem;
+    padding: 0.7rem;
+    border: 1px solid #D6E4EC;
+    border-radius: 9px;
+    background: #F7FAFB;
+  }
+  .feedback-ui__vote { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+  .feedback-ui__vote strong { margin-right: 0.25rem; font-size: 0.78rem; color: #33475B; }
+  .feedback-ui button {
+    border: 1px solid #B9CAD4; border-radius: 7px; background: #fff; padding: 0.36rem 0.55rem;
+    font: inherit; font-size: 0.75rem; font-weight: 750; cursor: pointer;
+  }
+  .feedback-ui button.selected[data-vote="up"] { background: #DFF5E8; border-color: #45A66D; }
+  .feedback-ui button.selected[data-vote="down"] { background: #FFE4E4; border-color: #D65353; }
+  .feedback-ui label { display: grid; gap: 0.2rem; margin-top: 0.45rem; font-size: 0.7rem; font-weight: 750; color: #4A6275; }
+  .feedback-ui textarea {
+    width: 100%; box-sizing: border-box; resize: vertical; border: 1px solid #CBD5E1;
+    border-radius: 7px; padding: 0.45rem; font: inherit; font-size: 0.78rem;
+  }
+  .feedback-ui small { display: block; margin-top: 0.3rem; color: #6A7D89; font-size: 0.66rem; }
+  .feedback-rejected {
+    margin-top: 1rem; padding: 0.75rem; border: 1px solid #D3A3A3; border-radius: 10px;
+    background: #FFF7F7;
+  }
+  .feedback-rejected summary { cursor: pointer; font-weight: 800; }
+  .feedback-rejected__item { display: flex; justify-content: space-between; gap: 0.6rem; padding-top: 0.55rem; }
+  .feedback-rejected__item p { margin: 0.15rem 0 0; color: #6B3A3A; font-size: 0.78rem; }
   @media (max-width: 720px) {
     .example-hero, .ratio-guide { grid-template-columns: 1fr; }
     .ratio-guide__visual { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .spark-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .spark-card__meta { font-size: 0.9rem; }
+    .spark-card__headline { font-size: 1.5rem; }
+    .spark-card__angle { font-size: 1.08rem; }
+    .spark-card .chip { font-size: 0.92rem; padding: 0.28rem 0.7rem; }
+    .spark-card__spark { font-size: 1.02rem; }
   }
   .approved-detail {
     display: grid;
@@ -573,6 +655,54 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
+  .ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-head .ico { color: #077999; }
+  .primary-task {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    background: #ffffff;
+    border: 1px solid #D6E4EC;
+    border-left: 4px solid #077999;
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    margin: 0.75rem 0 1rem;
+  }
+  .primary-task .ico { color: #077999; margin-top: 0.1rem; }
+  .primary-task__label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #077999;
+    margin: 0 0 0.15rem;
+  }
+  .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
+  .rule-chips { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; margin: 0.35rem 0 0; }
+  .rule-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #0D546B;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.28rem 0.7rem;
+  }
+  .rule-chip .ico svg { width: 15px; height: 15px; }
   .quick-links {
     display: grid;
     gap: 0.75rem;
@@ -581,9 +711,10 @@
   .quick-links a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 3.6rem;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    text-align: left;
+    min-height: 3.4rem;
     padding: 0.75rem 1rem;
     border-radius: 10px;
     background: #077999;
@@ -598,6 +729,73 @@
     gap: 0.85rem;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
+  .pr-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    margin-top: 0.75rem;
+  }
+  .pr-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .pr-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .pr-card__media.square { aspect-ratio: 1 / 1; }
+  .pr-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pr-card__body { padding: 0.85rem 0.95rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+  .pr-card__tag {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+  }
+  .pr-card__body h3 { margin: 0; font-size: 1.1rem; }
+  .pr-card__body p { margin: 0; font-size: 0.92rem; color: #4A6275; }
+  .pr-card details { margin-top: 0.35rem; }
+  .pr-card summary {
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .pr-card summary::-webkit-details-marker { display: none; }
+  .pr-card .prompt-body {
+    margin-top: 0.5rem;
+    padding: 0.65rem 0.75rem;
+    background: #F5F8FA;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #33475B;
+    white-space: pre-wrap;
+    line-height: 1.45;
+    max-height: 12rem;
+    overflow: auto;
+  }
+  .pr-card .pr-actions { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
+  .copy-picks { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .copy-pick {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    padding: 0.85rem 0.95rem;
+  }
+  .copy-pick h3 { margin: 0 0 0.45rem; font-size: 0.95rem; }
+  .copy-pick .line {
+    display: flex; gap: 0.4rem; align-items: flex-start;
+    margin: 0.35rem 0; font-size: 0.88rem; color: #0B1F3A;
+  }
+  .copy-pick .line .copy-btn { flex-shrink: 0; margin-top: 0; }
   .soft-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -652,11 +850,22 @@
     object-fit: contain;
     display: block;
   }
-  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.84rem; }
-  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
-  .comp-card__body .why { font-weight: 700; color: #0B1F3A; margin: 0.2rem 0; }
-  .comp-card__body .mini { margin: 0.35rem 0 0; color: #4A6275; font-size: 0.8rem; }
+  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.9rem; }
+  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+  .comp-card__body .why { font-weight: 600; color: #33475B; margin: 0.2rem 0 0; font-size: 0.92rem; }
+  .comp-card__body .mini { margin: 0.4rem 0 0; color: #4A6275; font-size: 0.86rem; }
   .comp-card__body .mini b { color: #0B1F3A; }
+  .comp-more { margin-top: 0.6rem; }
+  .comp-more summary {
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .comp-more summary::-webkit-details-marker { display: none; }
+  .comp-more summary::before { content: "＋ "; font-weight: 700; }
+  .comp-more[open] summary::before { content: "－ "; }
   .pink-ref {
     display: inline-block;
     margin-bottom: 0.35rem;
@@ -866,7 +1075,7 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Ad Production</h1>
-        <p class="doc-header__tagline">Approved VMA creative · 15–20 concepts · required Meta sizes</p>
+        <p class="doc-header__tagline">Scroll-stopping ads that book demos</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
@@ -896,12 +1105,14 @@
 })();
 </script>
   <main>
-    <div class="banner"><strong>BOLD VIRTUAL MEDICAL ADMIN DIRECT-RESPONSE ADS</strong><span class="sub">Primary headline: HIRE A VIRTUAL MEDICAL ADMIN. Request 15–20 concepts per batch. Match the four approved masters for clarity, contrast, and mobile readability — then rebuild winners in every required Meta size.</span></div>
+    <div class="banner"><strong>MAKE ADS THAT BOOK DEMOS</strong><span class="sub">For the graphics team — match the four approved masters, build scroll-stopping concepts, rebuild every Meta size. Mine competitors for energy, never copy their layouts.</span></div>
     
     <div class="hero">
       <h1>Aspect Ratios</h1>
       <p>Same ad idea — four phone-friendly shapes. Start from an approved square, then rebuild the layout for tall feed, Stories/Reels, and wide placements.</p>
     </div>
+
+    <div class="banner"><strong>New: AI-drafted aspect ratios.</strong><span class="sub">Each approved master now has an AI-reframed 4:5, 9:16, and 1.91:1 draft below (exact Meta pixel sizes). These are <b>drafts for review</b> — check spelling, faces, hands, safe zones, and pink before use, then a designer finalizes the winners.</span></div>
 
     <section id="sizes-at-a-glance">
       <h2>The four sizes at a glance</h2>
@@ -947,7 +1158,7 @@
 
     <section id="how-each-size-works">
       <h2>How each size should feel</h2>
-      <p class="lede">Wireframes show where things usually go. Only the square has a real finished image today — other shapes stay <b>Awaiting Design</b>.</p>
+      <p class="lede">Wireframes show where things usually go. The square is the approved master; the other shapes now show an <b>AI draft</b> to react to.</p>
       <article class="ratio-guide" id="format-1x1">
   <div class="ratio-guide__visual">
     <div class="wire" data-ratio="1x1" aria-hidden="true"><div class="wire-zone" data-id="headline" style="left:6%;top:8%;width:48%;height:28%">Big headline</div><div class="wire-zone" data-id="talent" style="right:4%;top:10%;width:42%;height:62%">Person</div><div class="wire-zone" data-id="benefits" style="left:6%;bottom:10%;width:48%;height:32%">3–4 benefits</div><div class="wire-zone" data-id="badge" style="right:6%;bottom:8%;width:28%;height:16%">Offer</div></div>
@@ -969,9 +1180,10 @@
 </article><article class="ratio-guide" id="format-4x5">
   <div class="ratio-guide__visual">
     <div class="wire" data-ratio="4x5" aria-hidden="true"><div class="wire-zone" data-id="headline" style="left:7%;top:6%;width:86%;height:16%">Headline</div><div class="wire-zone" data-id="talent" style="left:18%;top:24%;width:64%;height:42%">Person (~half the height)</div><div class="wire-zone" data-id="benefits" style="left:7%;bottom:14%;width:86%;height:22%">Benefits</div><div class="wire-zone" data-id="badge" style="right:8%;bottom:6%;width:34%;height:10%">Offer</div></div>
-    <div class="format-placeholder" style="min-height:4.5rem;border:1px dashed #D6E4EC;border-radius:8px;width:100%;max-width:180px;display:flex;align-items:center;justify-content:center">
-          <div><strong>AWAITING DESIGN</strong>No fake preview — rebuild this shape</div>
+    <div class="ratio-guide__thumb">
+          <img src="/exports/vma-masters/MV_VMA_02_CobaltBlue_4x5.png" alt="Cobalt Blue 4:5 example" loading="lazy" />
         </div>
+        <p class="lede" style="font-size:0.78rem;text-align:center;margin:0">AI draft — review before use</p>
   </div>
   <div class="ratio-guide__copy">
     <p><span class="pill s-primary-feed-format">PRIMARY FEED FORMAT</span></p>
@@ -986,9 +1198,10 @@
 </article><article class="ratio-guide" id="format-9x16">
   <div class="ratio-guide__visual">
     <div class="wire" data-ratio="9x16" aria-hidden="true"><div class="wire-zone" data-id="safe-top" style="left:0;top:0;width:100%;height:9.4%;opacity:.55">Keep clear</div><div class="wire-zone" data-id="headline" style="left:8%;top:14%;width:84%;height:12%">Headline</div><div class="wire-zone" data-id="talent" style="left:14%;top:30%;width:72%;height:28%">Person</div><div class="wire-zone" data-id="benefits" style="left:8%;top:62%;width:84%;height:16%">Benefits</div><div class="wire-zone" data-id="badge" style="left:18%;bottom:18%;width:64%;height:8%">Offer + CTA</div><div class="wire-zone" data-id="safe-bottom" style="left:0;bottom:0;width:100%;height:15.6%;opacity:.55">Keep clear</div></div>
-    <div class="format-placeholder" style="min-height:4.5rem;border:1px dashed #D6E4EC;border-radius:8px;width:100%;max-width:180px;display:flex;align-items:center;justify-content:center">
-          <div><strong>AWAITING DESIGN</strong>No fake preview — rebuild this shape</div>
+    <div class="ratio-guide__thumb">
+          <img src="/exports/vma-masters/MV_VMA_02_CobaltBlue_9x16.png" alt="Cobalt Blue 9:16 example" loading="lazy" />
         </div>
+        <p class="lede" style="font-size:0.78rem;text-align:center;margin:0">AI draft — review before use</p>
   </div>
   <div class="ratio-guide__copy">
     
@@ -1003,9 +1216,10 @@
 </article><article class="ratio-guide" id="format-1.91x1">
   <div class="ratio-guide__visual">
     <div class="wire" data-ratio="1.91x1" aria-hidden="true"><div class="wire-zone" data-id="headline" style="left:4%;top:12%;width:48%;height:28%">Headline</div><div class="wire-zone" data-id="benefits" style="left:4%;bottom:14%;width:48%;height:36%">Benefits</div><div class="wire-zone" data-id="talent" style="right:4%;top:10%;width:40%;height:70%">Person</div><div class="wire-zone" data-id="badge" style="right:6%;bottom:8%;width:22%;height:18%">Offer</div></div>
-    <div class="format-placeholder" style="min-height:4.5rem;border:1px dashed #D6E4EC;border-radius:8px;width:100%;max-width:180px;display:flex;align-items:center;justify-content:center">
-          <div><strong>AWAITING DESIGN</strong>No fake preview — rebuild this shape</div>
+    <div class="ratio-guide__thumb">
+          <img src="/exports/vma-masters/MV_VMA_02_CobaltBlue_1.91x1.png" alt="Cobalt Blue 1.91:1 example" loading="lazy" />
         </div>
+        <p class="lede" style="font-size:0.78rem;text-align:center;margin:0">AI draft — review before use</p>
   </div>
   <div class="ratio-guide__copy">
     
@@ -1034,39 +1248,30 @@
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="4x5">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_02_CobaltBlue_4x5.png<br />1080×1350
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_02_CobaltBlue_4x5.png" alt="Cobalt Blue 4:5" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>4:5 · 1080×1350</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Keep the headline near the top. Give the person more vertical room. Put benefits lower. Keep the offer easy to see.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Primary Facebook and Instagram feed</div>
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="9x16">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_02_CobaltBlue_9x16.png<br />1080×1920
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_02_CobaltBlue_9x16.png" alt="Cobalt Blue 9:16" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>9:16 · 1080×1920</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Stack the ad: breathing room at top → headline → person in the middle → benefits → offer/CTA above the bottom controls.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Stories and Reels</div>
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="1.91x1">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_02_CobaltBlue_1.91x1.png<br />1200×628
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_02_CobaltBlue_1.91x1.png" alt="Cobalt Blue 1.91:1" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>1.91:1 · 1200×628</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Put headline + benefits on the left. Put the person on the right. Keep the offer near the person. Fill the whole wide frame.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Link ads, form covers, and wide placements</div>
   </div>
 </div></div>
     </section>
@@ -1076,26 +1281,30 @@
       <div class="await-board"><div class="soft-card">
   <img src="/exports/vma-masters/MV_VMA_01_SpanishGreen_SOURCE_1x1.png" alt="Spanish Green 1:1" loading="lazy" />
   <h3>VMA-01 · Spanish Green</h3>
-  <p><b>Ready:</b> 1:1</p>
-  <p><b>Still needed:</b> 4:5, 9:16, 1.91:1</p>
+  <p><b>Approved:</b> 1:1</p>
+  <p><b>AI drafts (review):</b> 4:5, 9:16, 1.91:1</p>
+  <p><b>Still needed:</b> None</p>
   <a class="dl" href="/exports/vma-masters/MV_VMA_01_SpanishGreen_SOURCE_1x1.png" target="_blank" rel="noopener">Open square master</a>
 </div><div class="soft-card">
   <img src="/exports/vma-masters/MV_VMA_02_CobaltBlue_SOURCE_1x1.png" alt="Cobalt Blue 1:1" loading="lazy" />
   <h3>VMA-02 · Cobalt Blue</h3>
-  <p><b>Ready:</b> 1:1</p>
-  <p><b>Still needed:</b> 4:5, 9:16, 1.91:1</p>
+  <p><b>Approved:</b> 1:1</p>
+  <p><b>AI drafts (review):</b> 4:5, 9:16, 1.91:1</p>
+  <p><b>Still needed:</b> None</p>
   <a class="dl" href="/exports/vma-masters/MV_VMA_02_CobaltBlue_SOURCE_1x1.png" target="_blank" rel="noopener">Open square master</a>
 </div><div class="soft-card">
   <img src="/exports/vma-masters/MV_VMA_03_SignalYellow_SOURCE_1x1.png" alt="Signal Yellow 1:1" loading="lazy" />
   <h3>VMA-03 · Signal Yellow</h3>
-  <p><b>Ready:</b> 1:1</p>
-  <p><b>Still needed:</b> 4:5, 9:16, 1.91:1</p>
+  <p><b>Approved:</b> 1:1</p>
+  <p><b>AI drafts (review):</b> 4:5, 9:16, 1.91:1</p>
+  <p><b>Still needed:</b> None</p>
   <a class="dl" href="/exports/vma-masters/MV_VMA_03_SignalYellow_SOURCE_1x1.png" target="_blank" rel="noopener">Open square master</a>
 </div><div class="soft-card">
   <img src="/exports/vma-masters/MV_VMA_04_HIPAAGreen_SOURCE_1x1.png" alt="HIPAA Green 1:1" loading="lazy" />
   <h3>VMA-04 · HIPAA Green</h3>
-  <p><b>Ready:</b> 1:1</p>
-  <p><b>Still needed:</b> 4:5, 9:16, 1.91:1</p>
+  <p><b>Approved:</b> 1:1</p>
+  <p><b>AI drafts (review):</b> 4:5, 9:16, 1.91:1</p>
+  <p><b>Still needed:</b> None</p>
   <a class="dl" href="/exports/vma-masters/MV_VMA_04_HIPAAGreen_SOURCE_1x1.png" target="_blank" rel="noopener">Open square master</a>
 </div></div>
       <details class="block" style="margin-top:1rem">
@@ -1111,39 +1320,30 @@
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="4x5">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_01_SpanishGreen_4x5.png<br />1080×1350
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_01_SpanishGreen_4x5.png" alt="Spanish Green 4:5" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>4:5 · 1080×1350</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Keep the headline near the top. Give the person more vertical room. Put benefits lower. Keep the offer easy to see.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Primary Facebook and Instagram feed</div>
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="9x16">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_01_SpanishGreen_9x16.png<br />1080×1920
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_01_SpanishGreen_9x16.png" alt="Spanish Green 9:16" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>9:16 · 1080×1920</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Stack the ad: breathing room at top → headline → person in the middle → benefits → offer/CTA above the bottom controls.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Stories and Reels</div>
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="1.91x1">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_01_SpanishGreen_1.91x1.png<br />1200×628
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_01_SpanishGreen_1.91x1.png" alt="Spanish Green 1.91:1" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>1.91:1 · 1200×628</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Put headline + benefits on the left. Put the person on the right. Keep the offer near the person. Fill the whole wide frame.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Link ads, form covers, and wide placements</div>
   </div>
 </div></div></div><div style="margin-top:1rem"><h3>VMA-02 · Cobalt Blue</h3><div class="format-row"><div class="format-card">
   <div class="format-card__preview" data-ratio="1x1">
@@ -1156,39 +1356,30 @@
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="4x5">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_02_CobaltBlue_4x5.png<br />1080×1350
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_02_CobaltBlue_4x5.png" alt="Cobalt Blue 4:5" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>4:5 · 1080×1350</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Keep the headline near the top. Give the person more vertical room. Put benefits lower. Keep the offer easy to see.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Primary Facebook and Instagram feed</div>
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="9x16">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_02_CobaltBlue_9x16.png<br />1080×1920
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_02_CobaltBlue_9x16.png" alt="Cobalt Blue 9:16" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>9:16 · 1080×1920</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Stack the ad: breathing room at top → headline → person in the middle → benefits → offer/CTA above the bottom controls.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Stories and Reels</div>
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="1.91x1">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_02_CobaltBlue_1.91x1.png<br />1200×628
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_02_CobaltBlue_1.91x1.png" alt="Cobalt Blue 1.91:1" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>1.91:1 · 1200×628</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Put headline + benefits on the left. Put the person on the right. Keep the offer near the person. Fill the whole wide frame.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Link ads, form covers, and wide placements</div>
   </div>
 </div></div></div><div style="margin-top:1rem"><h3>VMA-03 · Signal Yellow</h3><div class="format-row"><div class="format-card">
   <div class="format-card__preview" data-ratio="1x1">
@@ -1201,39 +1392,30 @@
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="4x5">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_03_SignalYellow_4x5.png<br />1080×1350
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_03_SignalYellow_4x5.png" alt="Signal Yellow 4:5" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>4:5 · 1080×1350</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Keep the headline near the top. Give the person more vertical room. Put benefits lower. Keep the offer easy to see.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Primary Facebook and Instagram feed</div>
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="9x16">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_03_SignalYellow_9x16.png<br />1080×1920
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_03_SignalYellow_9x16.png" alt="Signal Yellow 9:16" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>9:16 · 1080×1920</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Stack the ad: breathing room at top → headline → person in the middle → benefits → offer/CTA above the bottom controls.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Stories and Reels</div>
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="1.91x1">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_03_SignalYellow_1.91x1.png<br />1200×628
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_03_SignalYellow_1.91x1.png" alt="Signal Yellow 1.91:1" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>1.91:1 · 1200×628</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Put headline + benefits on the left. Put the person on the right. Keep the offer near the person. Fill the whole wide frame.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Link ads, form covers, and wide placements</div>
   </div>
 </div></div></div><div style="margin-top:1rem"><h3>VMA-04 · HIPAA Green</h3><div class="format-row"><div class="format-card">
   <div class="format-card__preview" data-ratio="1x1">
@@ -1246,39 +1428,30 @@
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="4x5">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_04_HIPAAGreen_4x5.png<br />1080×1350
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_04_HIPAAGreen_4x5.png" alt="HIPAA Green 4:5" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>4:5 · 1080×1350</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Keep the headline near the top. Give the person more vertical room. Put benefits lower. Keep the offer easy to see.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Primary Facebook and Instagram feed</div>
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="9x16">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_04_HIPAAGreen_9x16.png<br />1080×1920
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_04_HIPAAGreen_9x16.png" alt="HIPAA Green 9:16" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>9:16 · 1080×1920</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Stack the ad: breathing room at top → headline → person in the middle → benefits → offer/CTA above the bottom controls.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Stories and Reels</div>
   </div>
 </div><div class="format-card">
   <div class="format-card__preview" data-ratio="1.91x1">
-    <div class="format-placeholder">
-      <strong>AWAITING DESIGN</strong>
-      MV_VMA_04_HIPAAGreen_1.91x1.png<br />1200×628
-    </div>
+    <img src="/exports/vma-masters/MV_VMA_04_HIPAAGreen_1.91x1.png" alt="HIPAA Green 1.91:1" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>1.91:1 · 1200×628</b>
-    <div><span class="pill s-awaiting-design">Awaiting Design</span></div>
-    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Put headline + benefits on the left. Put the person on the right. Keep the offer near the person. Fill the whole wide frame.</div>
+    <div><span class="pill s-ai-draft">AI Draft</span></div>
+    <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">Link ads, form covers, and wide placements</div>
   </div>
 </div></div></div>
       </details>

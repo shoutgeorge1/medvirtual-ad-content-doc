@@ -1,59 +1,34 @@
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import './Layout.css';
 
-/** Keep in sync with scripts/shared-doc-header.mjs */
-const BRAND = {
-  mark: 'MV',
-  title: 'MedVirtual Creative Handoff',
-  tagline: 'Meta ads · brief · templates · assets',
-  homeHref: '/graphic-request-brief.html',
-};
-
-const PRIMARY_NAV = [
-  { href: '/graphic-request-brief.html', label: 'Brief' },
-  { href: '/template-test-board.html', label: 'Templates' },
-  { href: '/image-variation-review.html', label: 'Image Review' },
-  { href: '/asset-hub.html', label: 'Assets' },
-  { href: '/meta-launch-build-pack.html', label: 'Meta Launch' },
-];
-
+/**
+ * Legacy React shell — retired.
+ * Active site: MedVirtual Ad Production (/studio.html and the VMA HTML pages).
+ */
 export function Layout() {
-  const { pathname } = useLocation();
-  const pageTitle =
-    pathname.startsWith('/export')
-      ? 'Export PNGs'
-      : pathname.startsWith('/editor')
-        ? 'Concept Editor'
-        : 'Content Doc';
-  const pageSubtitle =
-    pathname.startsWith('/export')
-      ? 'Download composed ad PNGs for Meta. For raw video sources, use Raw Assets.'
-      : pathname.startsWith('/editor')
-        ? 'Edit copy and layout for one concept.'
-        : 'Parked React surface — use Creative Brief and Templates.';
-
   return (
     <div className="app-shell">
       <header className="doc-header">
         <div className="doc-header__row">
-          <a className="doc-header__brand" href={BRAND.homeHref}>
-            <span className="doc-header__mark">{BRAND.mark}</span>
+          <a className="doc-header__brand" href="/studio.html">
+            <span className="doc-header__mark">MV</span>
             <div>
-              <h1 className="doc-header__title">{BRAND.title}</h1>
-              <p className="doc-header__tagline">{BRAND.tagline}</p>
+              <h1 className="doc-header__title">MedVirtual Ad Production</h1>
+              <p className="doc-header__tagline">Scroll-stopping ads that book demos</p>
             </div>
           </a>
           <nav className="doc-nav" aria-label="Primary">
-            {PRIMARY_NAV.map((item) => (
-              <a key={item.href} href={item.href}>
-                {item.label}
-              </a>
-            ))}
+            <a href="/studio.html">Dashboard</a>
+            <a href="/vma-approved.html">Approved Creative</a>
+            <a href="/ideas.html">New Ad Ideas</a>
+            <a href="/vma-video.html">Animated Video</a>
           </nav>
         </div>
         <div className="doc-header__page">
-          <h2 className="doc-header__page-title">{pageTitle}</h2>
-          <p className="doc-header__page-sub">{pageSubtitle}</p>
+          <h2 className="doc-header__page-title">Retired React surface</h2>
+          <p className="doc-header__page-sub">
+            Use the Ad Production HTML site — start at Dashboard.
+          </p>
         </div>
       </header>
       <main className="app-main">

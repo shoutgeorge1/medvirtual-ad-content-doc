@@ -6,8 +6,6 @@ const WEIGHTS = {
   thumbs_down: -1.2,
   more_like_this: 2,
   approve: 2.5,
-  hailey_like: 3,
-  hailey_approve: 3.5,
   promoted: 2.2,
   reject: -2,
   privacy_delete: 0, // do not treat as aesthetic
@@ -22,7 +20,6 @@ export function emptyProfile() {
     version: 1,
     updatedAt: null,
     george: emptyReviewer(),
-    hailey: emptyReviewer(),
     graphics: emptyReviewer(),
     combined: emptyReviewer(),
     evidenceNotes: 'Application-level taste profile. Does not fine-tune or retrain OpenAI models. Preference-guided prompting only.',
@@ -42,7 +39,6 @@ export async function savePreferences(profile) {
 
 function reviewerKey(name) {
   const n = String(name || '').toLowerCase();
-  if (n.includes('hailey')) return 'hailey';
   if (n.includes('graphics')) return 'graphics';
   return 'george';
 }
@@ -82,9 +78,8 @@ export async function applyFeedback({ reviewer, action, attributes = [], tags = 
     bucket.scores[attr] = entry;
 
     const combined = profile.combined.scores[attr] || { score: 0, n: 0, lastAt: null };
-    const w = key === 'hailey' ? 1.4 : 1;
     combined.n += 1;
-    combined.score = Math.max(-5, Math.min(5, combined.score + weight * 0.35 * w));
+    combined.score = Math.max(-5, Math.min(5, combined.score + weight * 0.35));
     combined.lastAt = now;
     profile.combined.scores[attr] = combined;
   }
@@ -126,10 +121,9 @@ export function summarizeProfile(profile) {
     evidenceNotes: profile.evidenceNotes,
     updatedAt: profile.updatedAt,
     george: list(profile.george),
-    hailey: list(profile.hailey),
     graphics: list(profile.graphics),
     combined: list(profile.combined),
-    differences: diffReviewers(profile.george, profile.hailey),
+    differences: diffReviewers(profile.george, profile.graphics),
   };
 }
 
@@ -143,7 +137,7 @@ function diffReviewers(a, b) {
     if (na < 3 || nb < 3) continue;
     const delta = Math.round((sb - sa) * 100) / 100;
     if (Math.abs(delta) >= 0.8) {
-      out.push({ attribute: attr, george: sa, hailey: sb, delta });
+      out.push({ attribute: attr, george: sa, graphics: sb, delta });
     }
   }
   return out.sort((x, y) => Math.abs(y.delta) - Math.abs(x.delta)).slice(0, 10);
@@ -166,7 +160,7 @@ function inferAttrsFromTags(tags) {
     'No copy space': ['wide-copy-space'],
     'Too busy': ['minimal-composition'],
     'Call-center feel': ['workplace-scene'],
-    'Not Hailey standard': ['premium-commercial'],
+    'Below our standard': ['premium-commercial'],
   };
   const attrs = [];
   for (const t of tags || []) {

@@ -1,5 +1,7 @@
 /**
- * Motion Concept Lab shell — Vite MPA entry with shared doc header.
+ * Motion Concept Lab — Vite MPA entry with VMA site header.
+ * Four Remotion compositions you can watch, tweak, and export stills from.
+ *
  * Regenerate: npm run generate:motion-lab
  */
 import fs from 'fs';
@@ -11,8 +13,12 @@ import { BRAND } from './medvirtual-brand-data.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 
-// Ensure motion defaults exist
 await import('./generate-motion-concept-data.mjs');
+
+const VIDEO_SUBNAV = [
+  { href: '/motion-concept-lab.html', label: 'Motion Lab' },
+  { href: '/vma-video.html', label: 'Specs & handoff' },
+];
 
 const css = `
   ${HEADER_CSS}
@@ -23,7 +29,7 @@ const html = `<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Motion Mock References · MedVirtual</title>
+  <title>Motion Concept Lab · MedVirtual</title>
   <style>${css}
     body {
       margin: 0;
@@ -38,9 +44,11 @@ const html = `<!doctype html>
 </head>
 <body class="mcl-shell-body">
   ${renderDocHeader({
-    activeId: 'motion-lab',
-    pageTitle: 'Motion Mock References',
-    pageSubtitle: 'Producer motion prototypes — reference only. Video team may rebuild in CapCut / Premiere / AE.',
+    activeId: 'vma-video',
+    pageTitle: 'Motion Concept Lab',
+    pageSubtitle: 'Build elements first. Then watch Type-on Hook + Slide Build in-browser and approve what works.',
+    subnav: VIDEO_SUBNAV,
+    activeSubHref: '/motion-concept-lab.html',
   })}
   <div id="motion-lab-root"></div>
   <script type="module" src="/src/motion-lab-entry.jsx"></script>

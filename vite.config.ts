@@ -24,10 +24,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
+        // Ad Production site is static HTML under public/ + root motion lab.
+        // Root index.html redirects to /studio.html.
         motionLab: resolve(__dirname, 'motion-concept-lab.html'),
-        videoLab: resolve(__dirname, 'video-production.html'),
-        foundry: resolve(__dirname, 'ai-asset-foundry.html'),
       },
     },
   },

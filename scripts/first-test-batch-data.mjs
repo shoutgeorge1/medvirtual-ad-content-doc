@@ -409,9 +409,9 @@ export const PRODUCTION_CONCEPTS = [
     name: 'General Medical Practice Callout',
     audience: 'Medical practice owners and practice managers',
     headline: 'Add full-time virtual support without adding office space.',
-    support: 'Hire a Virtual Medical Admin — Hailey Role-Offer DNA.',
+    support: 'Hire a Virtual Medical Admin — Role-Offer DNA.',
     visual:
-      'Person left on light plate. Right: Hire a Virtual + Medical Admin pill, checklist, STARTING AT $10/hour box, Book a Demo. Match Hailey Role-Offer type.',
+      'Person left on light plate. Right: Hire a Virtual + Medical Admin pill, checklist, STARTING AT $10/hour box, Book a Demo. Match Role-Offer type.',
     cta: 'Book a Demo',
     warning: 'Do not imply MedVirtual operates or replaces the clinic front desk.',
     primaryText:
@@ -424,9 +424,9 @@ export const PRODUCTION_CONCEPTS = [
     name: 'Dental Practice Callout',
     audience: 'Dental practice owners and dental practice managers',
     headline: 'Fewer missed calls. Fewer empty chairs.',
-    support: 'Hire a Virtual Dental Admin — Hailey Role-Offer DNA.',
+    support: 'Hire a Virtual Dental Admin — Role-Offer DNA.',
     visual:
-      'Person hard-left (face clear of type). Right: DENTISTS! · Hire a Virtual + Dental Admin · checklist · $10 circle · Get Started. Hailey type + setup.',
+      'Person hard-left (face clear of type). Right: DENTISTS! · Hire a Virtual + Dental Admin · checklist · $10 circle · Get Started. Role-Offer type + setup.',
     cta: 'Book a Demo',
     warning: 'Keep the visual clearly dental-specific without using graphic clinical imagery.',
     primaryText:
@@ -439,11 +439,11 @@ export const PRODUCTION_CONCEPTS = [
     name: 'Role-Specific Offer',
     audience: 'Medical practice decision-makers',
     headline: 'Give your front office backup, not burnout.',
-    support: 'Hire a Virtual Medical Admin — checklist + price + CTA (Hailey / Role-Offer look).',
+    support: 'Hire a Virtual Medical Admin — checklist + price + CTA (Role-Offer look).',
     visual:
       'Light grid plate. Person right in scrubs (stock/AI). Left: Hire a Virtual + Medical Admin pill, checklist with check icons, Book a Consultation CTA, STARTING AT $10/hour overlay on photo. Match Role-Offer RO-ADMIN-BURNOUT — not the old all-caps HIRE A FULL-TIME stack.',
     cta: 'Book a Consultation',
-    warning: 'Do not make the person look like a generic call-center agent or a job-seeker ad. Follow Hailey Role-Offer DNA.',
+    warning: 'Do not make the person look like a generic call-center agent or a job-seeker ad. Follow Role-Offer DNA.',
     primaryText:
       'Give your front office backup, not burnout.\n\nHire a virtual Medical Admin through MedVirtual — part of your practice team.\n\nStarting at $10/hour · Book a consultation →',
     metaHeadline: 'Give Your Front Office Backup',
@@ -454,9 +454,9 @@ export const PRODUCTION_CONCEPTS = [
     name: 'Pain-First Offer',
     audience: 'Medical and dental practice decision-makers',
     headline: 'Too many calls. Not enough staff.',
-    support: 'Hire a Virtual Front Desk Support — Hailey Role-Offer DNA.',
+    support: 'Hire a Virtual Front Desk Support — Role-Offer DNA.',
     visual:
-      'Person left. Right: Hire a Virtual + Front Desk Support pill, checklist, $10 box, Book a Demo. Pain headline in Hailey Be Vietnam hierarchy — not old all-caps stack.',
+      'Person left. Right: Hire a Virtual + Front Desk Support pill, checklist, $10 box, Book a Demo. Pain headline in Role-Offer Be Vietnam hierarchy — not old all-caps stack.',
     cta: 'Book a Demo',
     warning: 'Keep the message simple. Do not add a long list of tasks.',
     primaryText:

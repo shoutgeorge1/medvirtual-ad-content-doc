@@ -294,6 +294,9 @@
   .s-awaiting-design {
     background: #FFF8E8; color: #A16207; border-color: #F0D78C;
   }
+  .s-ai-draft {
+    background: #E6F7F4; color: #0D546B; border-color: #7FCBD6;
+  }
   .s-image-needed, .s-pending {
     background: #EEF2F6; color: #475569; border-color: #CBD5E1;
   }
@@ -516,6 +519,42 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     margin-top: 0.85rem;
   }
+  .mock-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 0.85rem;
+  }
+  .mock-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .mock-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .mock-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mock-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .mock-card__tag {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+  }
+  .mock-card__body h3 { margin: 0; font-size: 1.2rem; }
+  .mock-card__body p { margin: 0; font-size: 0.98rem; color: #33475B; }
+  @media (max-width: 720px) {
+    .mock-grid { grid-template-columns: 1fr; }
+    .mock-card__body h3 { font-size: 1.4rem; }
+    .mock-card__body p { font-size: 1.08rem; }
+  }
   .spark-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -534,22 +573,65 @@
     object-fit: cover;
     display: block;
   }
-  .spark-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
-  .spark-card__body h3 { margin: 0; font-size: 1.02rem; }
-  .spark-card__body p { margin: 0; font-size: 0.82rem; color: #4A6275; }
+  .spark-card__body { padding: 1rem 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+  .spark-card__meta {
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+  }
+  .spark-card__headline { margin: 0; font-size: 1.3rem; line-height: 1.2; color: #0B1F3A; }
+  .spark-card__angle { margin: 0; font-size: 0.98rem; line-height: 1.45; color: #33475B; }
+  .spark-card .chip { font-size: 0.82rem; padding: 0.22rem 0.6rem; align-self: flex-start; }
   .spark-card__spark {
     margin-top: auto;
-    padding: 0.55rem 0.65rem;
+    padding: 0.7rem 0.8rem;
     border-radius: 8px;
     background: #EEF6FA;
     border: 1px solid #C5DCE8;
     color: #0D546B;
-    font-size: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
     font-weight: 650;
   }
+  .feedback-ui {
+    margin-top: 0.35rem;
+    padding: 0.7rem;
+    border: 1px solid #D6E4EC;
+    border-radius: 9px;
+    background: #F7FAFB;
+  }
+  .feedback-ui__vote { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+  .feedback-ui__vote strong { margin-right: 0.25rem; font-size: 0.78rem; color: #33475B; }
+  .feedback-ui button {
+    border: 1px solid #B9CAD4; border-radius: 7px; background: #fff; padding: 0.36rem 0.55rem;
+    font: inherit; font-size: 0.75rem; font-weight: 750; cursor: pointer;
+  }
+  .feedback-ui button.selected[data-vote="up"] { background: #DFF5E8; border-color: #45A66D; }
+  .feedback-ui button.selected[data-vote="down"] { background: #FFE4E4; border-color: #D65353; }
+  .feedback-ui label { display: grid; gap: 0.2rem; margin-top: 0.45rem; font-size: 0.7rem; font-weight: 750; color: #4A6275; }
+  .feedback-ui textarea {
+    width: 100%; box-sizing: border-box; resize: vertical; border: 1px solid #CBD5E1;
+    border-radius: 7px; padding: 0.45rem; font: inherit; font-size: 0.78rem;
+  }
+  .feedback-ui small { display: block; margin-top: 0.3rem; color: #6A7D89; font-size: 0.66rem; }
+  .feedback-rejected {
+    margin-top: 1rem; padding: 0.75rem; border: 1px solid #D3A3A3; border-radius: 10px;
+    background: #FFF7F7;
+  }
+  .feedback-rejected summary { cursor: pointer; font-weight: 800; }
+  .feedback-rejected__item { display: flex; justify-content: space-between; gap: 0.6rem; padding-top: 0.55rem; }
+  .feedback-rejected__item p { margin: 0.15rem 0 0; color: #6B3A3A; font-size: 0.78rem; }
   @media (max-width: 720px) {
     .example-hero, .ratio-guide { grid-template-columns: 1fr; }
     .ratio-guide__visual { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .spark-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .spark-card__meta { font-size: 0.9rem; }
+    .spark-card__headline { font-size: 1.5rem; }
+    .spark-card__angle { font-size: 1.08rem; }
+    .spark-card .chip { font-size: 0.92rem; padding: 0.28rem 0.7rem; }
+    .spark-card__spark { font-size: 1.02rem; }
   }
   .approved-detail {
     display: grid;
@@ -573,6 +655,54 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
+  .ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-head .ico { color: #077999; }
+  .primary-task {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    background: #ffffff;
+    border: 1px solid #D6E4EC;
+    border-left: 4px solid #077999;
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    margin: 0.75rem 0 1rem;
+  }
+  .primary-task .ico { color: #077999; margin-top: 0.1rem; }
+  .primary-task__label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #077999;
+    margin: 0 0 0.15rem;
+  }
+  .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
+  .rule-chips { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; margin: 0.35rem 0 0; }
+  .rule-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #0D546B;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.28rem 0.7rem;
+  }
+  .rule-chip .ico svg { width: 15px; height: 15px; }
   .quick-links {
     display: grid;
     gap: 0.75rem;
@@ -581,9 +711,10 @@
   .quick-links a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 3.6rem;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    text-align: left;
+    min-height: 3.4rem;
     padding: 0.75rem 1rem;
     border-radius: 10px;
     background: #077999;
@@ -598,6 +729,73 @@
     gap: 0.85rem;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
+  .pr-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    margin-top: 0.75rem;
+  }
+  .pr-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .pr-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .pr-card__media.square { aspect-ratio: 1 / 1; }
+  .pr-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pr-card__body { padding: 0.85rem 0.95rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+  .pr-card__tag {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+  }
+  .pr-card__body h3 { margin: 0; font-size: 1.1rem; }
+  .pr-card__body p { margin: 0; font-size: 0.92rem; color: #4A6275; }
+  .pr-card details { margin-top: 0.35rem; }
+  .pr-card summary {
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .pr-card summary::-webkit-details-marker { display: none; }
+  .pr-card .prompt-body {
+    margin-top: 0.5rem;
+    padding: 0.65rem 0.75rem;
+    background: #F5F8FA;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #33475B;
+    white-space: pre-wrap;
+    line-height: 1.45;
+    max-height: 12rem;
+    overflow: auto;
+  }
+  .pr-card .pr-actions { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
+  .copy-picks { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .copy-pick {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    padding: 0.85rem 0.95rem;
+  }
+  .copy-pick h3 { margin: 0 0 0.45rem; font-size: 0.95rem; }
+  .copy-pick .line {
+    display: flex; gap: 0.4rem; align-items: flex-start;
+    margin: 0.35rem 0; font-size: 0.88rem; color: #0B1F3A;
+  }
+  .copy-pick .line .copy-btn { flex-shrink: 0; margin-top: 0; }
   .soft-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -652,11 +850,22 @@
     object-fit: contain;
     display: block;
   }
-  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.84rem; }
-  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
-  .comp-card__body .why { font-weight: 700; color: #0B1F3A; margin: 0.2rem 0; }
-  .comp-card__body .mini { margin: 0.35rem 0 0; color: #4A6275; font-size: 0.8rem; }
+  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.9rem; }
+  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+  .comp-card__body .why { font-weight: 600; color: #33475B; margin: 0.2rem 0 0; font-size: 0.92rem; }
+  .comp-card__body .mini { margin: 0.4rem 0 0; color: #4A6275; font-size: 0.86rem; }
   .comp-card__body .mini b { color: #0B1F3A; }
+  .comp-more { margin-top: 0.6rem; }
+  .comp-more summary {
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .comp-more summary::-webkit-details-marker { display: none; }
+  .comp-more summary::before { content: "＋ "; font-weight: 700; }
+  .comp-more[open] summary::before { content: "－ "; }
   .pink-ref {
     display: inline-block;
     margin-bottom: 0.35rem;
@@ -866,7 +1075,7 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Ad Production</h1>
-        <p class="doc-header__tagline">Approved VMA creative · 15–20 concepts · required Meta sizes</p>
+        <p class="doc-header__tagline">Scroll-stopping ads that book demos</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
@@ -896,7 +1105,7 @@
 })();
 </script>
   <main>
-    <div class="banner"><strong>BOLD VIRTUAL MEDICAL ADMIN DIRECT-RESPONSE ADS</strong><span class="sub">Primary headline: HIRE A VIRTUAL MEDICAL ADMIN. Request 15–20 concepts per batch. Match the four approved masters for clarity, contrast, and mobile readability — then rebuild winners in every required Meta size.</span></div>
+    <div class="banner"><strong>MAKE ADS THAT BOOK DEMOS</strong><span class="sub">For the graphics team — match the four approved masters, build scroll-stopping concepts, rebuild every Meta size. Mine competitors for energy, never copy their layouts.</span></div>
     
     <div class="hero">
       <h1>Approved Creative Baseline</h1>
@@ -1102,7 +1311,7 @@
 
     <details class="block">
       <summary>History notes (optional reference)</summary>
-      <div class="queue-grid"><div class="soft-card"><div class="master-card__meta">2026-07-14</div><h3>Approved creative baselines locked</h3><p>Four Virtual Medical Admin masters (Spanish Green, Cobalt Blue, Signal Yellow, HIPAA Green) became the visual center of the content doc.</p></div><div class="soft-card"><div class="master-card__meta">2026-07-14</div><h3>Creative handoff simplified for graphics</h3><p>Primary nav reduced to Dashboard, Approved Creative, New Ad Ideas, Aspect Ratios, Competitor Wall, Animated Video, Prompts &amp; Copy, and Production Handoff.</p></div><div class="soft-card"><div class="master-card__meta">2026-07-14</div><h3>Previous primary directions removed from active site</h3><p>Real People / Talent Pool, Role-Offer, and teal SaaS / no-people were removed from the primary workflow and archived.</p></div></div>
+      <div class="queue-grid"><div class="soft-card"><div class="master-card__meta">2026-07-14</div><h3>Approved creative baselines locked</h3><p>Four Virtual Medical Admin masters (Spanish Green, Cobalt Blue, Signal Yellow, HIPAA Green) became the visual center of Ad Production.</p></div><div class="soft-card"><div class="master-card__meta">2026-07-14</div><h3>Ad Production site locked for graphics</h3><p>Primary nav: Dashboard, Approved Creative, New Ad Ideas, Aspect Ratios, Competitor Wall, Animated Video, Prompts &amp; Copy, and Production Handoff.</p></div><div class="soft-card"><div class="master-card__meta">2026-07-15</div><h3>Old Creative Handoff retired</h3><p>Root React app and teal-header lab generators retired. MedVirtual Ad Production is the only active site; old URLs redirect in.</p></div><div class="soft-card"><div class="master-card__meta">2026-07-14</div><h3>Previous primary directions removed from active site</h3><p>Real People / Talent Pool, Role-Offer, and teal SaaS / no-people were removed from the primary workflow and archived.</p></div></div>
     </details>
     <p class="foot">MedVirtual Ad Production · No pink · Reviewed July 14, 2026.</p>
   </main>

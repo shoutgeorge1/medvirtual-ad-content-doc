@@ -142,7 +142,7 @@
 
 .ccl-status-pill[data-status="Draft"] { background: #f8fafc; }
 .ccl-status-pill[data-status="Worth Exploring"] { background: #ecfeff; border-color: #a5f3fc; color: #155e75; }
-.ccl-status-pill[data-status="Send to Hailey"] { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+.ccl-status-pill[data-status="Send for Review"] { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
 .ccl-status-pill[data-status="Approved to Produce"] { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
 .ccl-status-pill[data-status="Needs Revision"] { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
 .ccl-status-pill[data-status="Rejected"] { background: #fef2f2; border-color: #fecaca; color: #991b1b; }

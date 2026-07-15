@@ -43,8 +43,7 @@ export async function voteAsset(id, { reviewer, direction, tags = [], note = '' 
   asset.updatedAt = new Date().toISOString();
 
   if (direction === 'up') {
-    if (String(reviewer).includes('Hailey')) asset.status = 'Hailey Liked';
-    else if (String(reviewer).includes('Graphics')) asset.status = 'Graphics Review';
+    if (String(reviewer).includes('Graphics')) asset.status = 'Graphics Review';
     else asset.status = 'George Liked';
   } else {
     asset.status = 'Rejected';
@@ -66,8 +65,7 @@ export async function reviewAsset(id, { reviewer, status, note, identityChecklis
   if (!asset) return { ok: false, status: 404, error: 'Asset not found.' };
   if (status && !STATUSES.includes(status)) return { ok: false, status: 400, error: 'Invalid status.' };
 
-  if (status === 'Hailey Review') asset.status = 'Hailey Review';
-  else if (status) asset.status = status;
+  if (status) asset.status = status;
 
   if (note) {
     asset.internalNotes = [
@@ -118,7 +116,7 @@ export async function approveAsset(id, { reviewer, identityConfirmed }) {
   await saveAssetRecord(asset);
   await applyFeedback({
     reviewer: asset.approvedBy,
-    action: String(asset.approvedBy).includes('Hailey') ? 'hailey_approve' : 'approve',
+    action: 'approve',
     attributes: asset.preferenceAttributes || [],
   });
   await writeAudit({ type: 'approve', assetId: id, reviewer: asset.approvedBy });

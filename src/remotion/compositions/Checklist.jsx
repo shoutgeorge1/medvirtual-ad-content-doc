@@ -16,8 +16,8 @@ const DEFAULTS = {
   headline: 'Admin work piling up?',
   support: 'Hire a dedicated virtual teammate who works as part of your practice.',
   bullets: ['Calls and scheduling', 'Patient intake', 'Follow-up support'],
-  cta: 'Meet Available Talent',
-  imageSrc: '/assets/real-people/jessica/vertical-reference-1080x1920.jpg',
+  cta: 'Book a Demo',
+  imageSrc: '/exports/vma-masters/MV_VMA_03_SignalYellow_SOURCE_1x1.png',
   animationIntensity: 'standard',
   showSafeZones: false,
 };

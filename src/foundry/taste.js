@@ -36,8 +36,6 @@ const WEIGHTS = {
   thumbs_down: -1.2,
   more_like_this: 2,
   approve: 2.5,
-  hailey_like: 3,
-  hailey_approve: 3.5,
   production: 2.2,
   reject: -2,
   privacy_delete: 0,
@@ -55,7 +53,6 @@ export function emptyProfile() {
     version: 1,
     updatedAt: null,
     george: emptyReviewer(),
-    hailey: emptyReviewer(),
     graphics: emptyReviewer(),
     combined: emptyReviewer(),
     evidenceNotes:
@@ -65,7 +62,6 @@ export function emptyProfile() {
 
 function reviewerKey(name) {
   const n = String(name || '').toLowerCase();
-  if (n.includes('hailey')) return 'hailey';
   if (n.includes('graphics')) return 'graphics';
   return 'george';
 }
@@ -88,9 +84,8 @@ export function applyFeedback(profile, { reviewer, action, attributes = [], tags
     next[key].scores[attr] = entry;
 
     const combined = next.combined.scores[attr] || { score: 0, n: 0, lastAt: null };
-    const w = key === 'hailey' ? 1.4 : 1;
     combined.n += 1;
-    combined.score = Math.max(-5, Math.min(5, combined.score + weight * 0.35 * w));
+    combined.score = Math.max(-5, Math.min(5, combined.score + weight * 0.35));
     combined.lastAt = now;
     next.combined.scores[attr] = combined;
   }
@@ -119,7 +114,6 @@ export function summarizeProfile(profile) {
     evidenceNotes: profile.evidenceNotes,
     updatedAt: profile.updatedAt,
     george: list(profile.george),
-    hailey: list(profile.hailey),
     graphics: list(profile.graphics),
     combined: list(profile.combined),
   };

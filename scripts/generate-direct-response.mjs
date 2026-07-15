@@ -1540,7 +1540,7 @@ write(
       <h2>Still available for reference</h2>
       <div class="grid">
         <a class="card" href="/saas-prop-templates.html"><h3>SaaS Prop templates</h3><p>No-people glass/3D — archived as primary Meta DR, kept under Producer Lab.</p></a>
-        <a class="card" href="/role-offer-templates.html"><h3>Role-Offer</h3><p>Hailey people lane remains a valid system for hire/meet layouts.</p></a>
+        <a class="card" href="/role-offer-templates.html"><h3>Role-Offer</h3><p>People lane remains a valid system for hire/meet layouts.</p></a>
         <a class="card" href="/real-people-creative.html"><h3>Real People</h3><p>Named Talent Pool boards remain valid for warmer funnel creative.</p></a>
         <a class="card" href="/medvirtual-brand-guide.html"><h3>Brand Guide</h3><p>Brand reference still matters for site/off-Meta; DR may deviate on ad plates.</p></a>
       </div>

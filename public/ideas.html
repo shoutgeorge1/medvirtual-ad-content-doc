@@ -294,6 +294,9 @@
   .s-awaiting-design {
     background: #FFF8E8; color: #A16207; border-color: #F0D78C;
   }
+  .s-ai-draft {
+    background: #E6F7F4; color: #0D546B; border-color: #7FCBD6;
+  }
   .s-image-needed, .s-pending {
     background: #EEF2F6; color: #475569; border-color: #CBD5E1;
   }
@@ -516,6 +519,42 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     margin-top: 0.85rem;
   }
+  .mock-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 0.85rem;
+  }
+  .mock-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .mock-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .mock-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mock-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .mock-card__tag {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+  }
+  .mock-card__body h3 { margin: 0; font-size: 1.2rem; }
+  .mock-card__body p { margin: 0; font-size: 0.98rem; color: #33475B; }
+  @media (max-width: 720px) {
+    .mock-grid { grid-template-columns: 1fr; }
+    .mock-card__body h3 { font-size: 1.4rem; }
+    .mock-card__body p { font-size: 1.08rem; }
+  }
   .spark-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -534,22 +573,65 @@
     object-fit: cover;
     display: block;
   }
-  .spark-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
-  .spark-card__body h3 { margin: 0; font-size: 1.02rem; }
-  .spark-card__body p { margin: 0; font-size: 0.82rem; color: #4A6275; }
+  .spark-card__body { padding: 1rem 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+  .spark-card__meta {
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+  }
+  .spark-card__headline { margin: 0; font-size: 1.3rem; line-height: 1.2; color: #0B1F3A; }
+  .spark-card__angle { margin: 0; font-size: 0.98rem; line-height: 1.45; color: #33475B; }
+  .spark-card .chip { font-size: 0.82rem; padding: 0.22rem 0.6rem; align-self: flex-start; }
   .spark-card__spark {
     margin-top: auto;
-    padding: 0.55rem 0.65rem;
+    padding: 0.7rem 0.8rem;
     border-radius: 8px;
     background: #EEF6FA;
     border: 1px solid #C5DCE8;
     color: #0D546B;
-    font-size: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
     font-weight: 650;
   }
+  .feedback-ui {
+    margin-top: 0.35rem;
+    padding: 0.7rem;
+    border: 1px solid #D6E4EC;
+    border-radius: 9px;
+    background: #F7FAFB;
+  }
+  .feedback-ui__vote { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+  .feedback-ui__vote strong { margin-right: 0.25rem; font-size: 0.78rem; color: #33475B; }
+  .feedback-ui button {
+    border: 1px solid #B9CAD4; border-radius: 7px; background: #fff; padding: 0.36rem 0.55rem;
+    font: inherit; font-size: 0.75rem; font-weight: 750; cursor: pointer;
+  }
+  .feedback-ui button.selected[data-vote="up"] { background: #DFF5E8; border-color: #45A66D; }
+  .feedback-ui button.selected[data-vote="down"] { background: #FFE4E4; border-color: #D65353; }
+  .feedback-ui label { display: grid; gap: 0.2rem; margin-top: 0.45rem; font-size: 0.7rem; font-weight: 750; color: #4A6275; }
+  .feedback-ui textarea {
+    width: 100%; box-sizing: border-box; resize: vertical; border: 1px solid #CBD5E1;
+    border-radius: 7px; padding: 0.45rem; font: inherit; font-size: 0.78rem;
+  }
+  .feedback-ui small { display: block; margin-top: 0.3rem; color: #6A7D89; font-size: 0.66rem; }
+  .feedback-rejected {
+    margin-top: 1rem; padding: 0.75rem; border: 1px solid #D3A3A3; border-radius: 10px;
+    background: #FFF7F7;
+  }
+  .feedback-rejected summary { cursor: pointer; font-weight: 800; }
+  .feedback-rejected__item { display: flex; justify-content: space-between; gap: 0.6rem; padding-top: 0.55rem; }
+  .feedback-rejected__item p { margin: 0.15rem 0 0; color: #6B3A3A; font-size: 0.78rem; }
   @media (max-width: 720px) {
     .example-hero, .ratio-guide { grid-template-columns: 1fr; }
     .ratio-guide__visual { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .spark-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .spark-card__meta { font-size: 0.9rem; }
+    .spark-card__headline { font-size: 1.5rem; }
+    .spark-card__angle { font-size: 1.08rem; }
+    .spark-card .chip { font-size: 0.92rem; padding: 0.28rem 0.7rem; }
+    .spark-card__spark { font-size: 1.02rem; }
   }
   .approved-detail {
     display: grid;
@@ -573,6 +655,54 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
+  .ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-head .ico { color: #077999; }
+  .primary-task {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    background: #ffffff;
+    border: 1px solid #D6E4EC;
+    border-left: 4px solid #077999;
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    margin: 0.75rem 0 1rem;
+  }
+  .primary-task .ico { color: #077999; margin-top: 0.1rem; }
+  .primary-task__label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #077999;
+    margin: 0 0 0.15rem;
+  }
+  .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
+  .rule-chips { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; margin: 0.35rem 0 0; }
+  .rule-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #0D546B;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.28rem 0.7rem;
+  }
+  .rule-chip .ico svg { width: 15px; height: 15px; }
   .quick-links {
     display: grid;
     gap: 0.75rem;
@@ -581,9 +711,10 @@
   .quick-links a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 3.6rem;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    text-align: left;
+    min-height: 3.4rem;
     padding: 0.75rem 1rem;
     border-radius: 10px;
     background: #077999;
@@ -598,6 +729,73 @@
     gap: 0.85rem;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
+  .pr-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    margin-top: 0.75rem;
+  }
+  .pr-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .pr-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .pr-card__media.square { aspect-ratio: 1 / 1; }
+  .pr-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pr-card__body { padding: 0.85rem 0.95rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+  .pr-card__tag {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+  }
+  .pr-card__body h3 { margin: 0; font-size: 1.1rem; }
+  .pr-card__body p { margin: 0; font-size: 0.92rem; color: #4A6275; }
+  .pr-card details { margin-top: 0.35rem; }
+  .pr-card summary {
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .pr-card summary::-webkit-details-marker { display: none; }
+  .pr-card .prompt-body {
+    margin-top: 0.5rem;
+    padding: 0.65rem 0.75rem;
+    background: #F5F8FA;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #33475B;
+    white-space: pre-wrap;
+    line-height: 1.45;
+    max-height: 12rem;
+    overflow: auto;
+  }
+  .pr-card .pr-actions { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
+  .copy-picks { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .copy-pick {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    padding: 0.85rem 0.95rem;
+  }
+  .copy-pick h3 { margin: 0 0 0.45rem; font-size: 0.95rem; }
+  .copy-pick .line {
+    display: flex; gap: 0.4rem; align-items: flex-start;
+    margin: 0.35rem 0; font-size: 0.88rem; color: #0B1F3A;
+  }
+  .copy-pick .line .copy-btn { flex-shrink: 0; margin-top: 0; }
   .soft-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -652,11 +850,22 @@
     object-fit: contain;
     display: block;
   }
-  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.84rem; }
-  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
-  .comp-card__body .why { font-weight: 700; color: #0B1F3A; margin: 0.2rem 0; }
-  .comp-card__body .mini { margin: 0.35rem 0 0; color: #4A6275; font-size: 0.8rem; }
+  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.9rem; }
+  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+  .comp-card__body .why { font-weight: 600; color: #33475B; margin: 0.2rem 0 0; font-size: 0.92rem; }
+  .comp-card__body .mini { margin: 0.4rem 0 0; color: #4A6275; font-size: 0.86rem; }
   .comp-card__body .mini b { color: #0B1F3A; }
+  .comp-more { margin-top: 0.6rem; }
+  .comp-more summary {
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .comp-more summary::-webkit-details-marker { display: none; }
+  .comp-more summary::before { content: "＋ "; font-weight: 700; }
+  .comp-more[open] summary::before { content: "－ "; }
   .pink-ref {
     display: inline-block;
     margin-bottom: 0.35rem;
@@ -866,7 +1075,7 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Ad Production</h1>
-        <p class="doc-header__tagline">Approved VMA creative · 15–20 concepts · required Meta sizes</p>
+        <p class="doc-header__tagline">Scroll-stopping ads that book demos</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
@@ -875,7 +1084,7 @@
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">New Ad Ideas</h2>
-          <p class="doc-header__page-sub">Visual sparks · 15–20 concept workflow.</p>
+          <p class="doc-header__page-sub">15–20 concepts to test for demo sign-ups.</p>
           
         </div>
 </header>
@@ -896,138 +1105,306 @@
 })();
 </script>
   <main>
-    <div class="banner"><strong>BOLD VIRTUAL MEDICAL ADMIN DIRECT-RESPONSE ADS</strong><span class="sub">Primary headline: HIRE A VIRTUAL MEDICAL ADMIN. Request 15–20 concepts per batch. Match the four approved masters for clarity, contrast, and mobile readability — then rebuild winners in every required Meta size.</span></div>
+    <div class="banner"><strong>MAKE ADS THAT BOOK DEMOS</strong><span class="sub">For the graphics team — match the four approved masters, build scroll-stopping concepts, rebuild every Meta size. Mine competitors for energy, never copy their layouts.</span></div>
     
     <div class="hero">
       <h1>New Ad Ideas</h1>
-      <p><b>Standard creative request: 15–20 concepts.</b> Scroll the spark gallery first — steal energy, invent original MedVirtual layouts. AI plates are for thinking and testing, not automatic launch.</p>
+      <p><b>Standard request: 15–20 concepts.</b> Build scroll-stopping originals that get people to book a demo — steal competitor energy, never copy layouts.</p>
     </div>
 
     <section id="spark-gallery">
-      <h2>Visual spark gallery</h2>
-      <p class="note">These are AI spark concepts to get the team thinking — not approved masters. Remix freely. Check spelling, claims, hands, Spanish, logos, and pink before anything goes live.</p>
-      <p class="note"><a class="dl" href="/ai-asset-foundry.html">Open AI Asset Foundry</a> — generate raw faces, people, icons, and callouts. Click to enlarge. Download saves the file and creates four more like it.</p>
-      <div class="spark-grid"><article class="spark-card" id="spark-01">
+      <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span> Visual spark gallery</h2>
+      <p class="note">AI spark concepts to get the team thinking — not approved masters. Real person, clear role, a few benefits, few words. Remix freely. Check spelling, claims, hands, Spanish, logos, and pink before anything goes live.</p>
+      <div class="spark-grid"><article class="spark-card" id="spark-01" data-feedback-item="idea:spark-01" data-feedback-name="Core Hire — Lime Punch">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-01-core-hire-lime.png" alt="Core Hire — Lime Punch spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark 01 · Core Offer</div>
-    <h3>Core Hire — Lime Punch</h3>
-    <p><b>Hire a Virtual Medical Admin</b></p>
-    <p>Role-first hire message with huge type and lime energy</p>
-    <p><span class="chip">Electric lime · black · cyan</span></p>
+    <div class="spark-card__meta">Spark 01 · Core Hire — Lime Punch</div>
+    <h3 class="spark-card__headline">Hire a Virtual Medical Admin</h3>
+    <p class="spark-card__angle">Role-first hire message with huge type and lime energy</p>
+    <span class="chip">Electric lime · black · cyan</span>
     <div class="spark-card__spark">Can we make the role even louder than the approved masters?</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
-</article><article class="spark-card" id="spark-02">
+</article><article class="spark-card" id="spark-02" data-feedback-item="idea:spark-02" data-feedback-name="Missed Calls Panic">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-02-missed-calls.png" alt="Missed Calls Panic spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark 02 · Pain Point</div>
-    <h3>Missed Calls Panic</h3>
-    <p><b>Stop Missing Patient Calls</b></p>
-    <p>Overloaded phones / front-office chaos as the hook</p>
-    <p><span class="chip">Commercial red · signal yellow · navy</span></p>
+    <div class="spark-card__meta">Spark 02 · Missed Calls Panic</div>
+    <h3 class="spark-card__headline">Stop Missing Patient Calls</h3>
+    <p class="spark-card__angle">Overloaded phones / front-office chaos as the hook</p>
+    <span class="chip">Commercial red · signal yellow · navy</span>
     <div class="spark-card__spark">Lead with pain — then snap to the Virtual Medical Admin solution.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
-</article><article class="spark-card" id="spark-03">
+</article><article class="spark-card" id="spark-03" data-feedback-item="idea:spark-03" data-feedback-name="Dental Admin Lane">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-03-dental-admin.png" alt="Dental Admin Lane spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark 03 · Role Specific</div>
-    <h3>Dental Admin Lane</h3>
-    <p><b>Hire a Virtual Dental Admin</b></p>
-    <p>Same hire model, dental practice language</p>
-    <p><span class="chip">Vivid green · white · yellow accent</span></p>
+    <div class="spark-card__meta">Spark 03 · Dental Admin Lane</div>
+    <h3 class="spark-card__headline">Hire a Virtual Dental Admin</h3>
+    <p class="spark-card__angle">Same hire model, dental practice language</p>
+    <span class="chip">Vivid green · white · yellow accent</span>
     <div class="spark-card__spark">Specialty lane without inventing a new brand system.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
-</article><article class="spark-card" id="spark-04">
+</article><article class="spark-card" id="spark-04" data-feedback-item="idea:spark-04" data-feedback-name="Spanish / Bilingual">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-04-spanish-admin.png" alt="Spanish / Bilingual spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark 04 · Language &amp; Audience</div>
-    <h3>Spanish / Bilingual</h3>
-    <p><b>Contrata a un Asistente Médico Virtual</b></p>
-    <p>Full Spanish cold-audience treatment</p>
-    <p><span class="chip">Lime · cyan · black</span></p>
+    <div class="spark-card__meta">Spark 04 · Spanish / Bilingual</div>
+    <h3 class="spark-card__headline">Contrata a un Asistente Médico Virtual</h3>
+    <p class="spark-card__angle">Full Spanish cold-audience treatment</p>
+    <span class="chip">Lime · cyan · black</span>
     <div class="spark-card__spark">Keep Spanish native-reviewed — steal energy, not Hello Rache purple.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
-</article><article class="spark-card" id="spark-05">
+</article><article class="spark-card" id="spark-05" data-feedback-item="idea:spark-05" data-feedback-name="Insurance Verification">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-05-insurance.png" alt="Insurance Verification spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark 05 · Role Specific</div>
-    <h3>Insurance Verification</h3>
-    <p><b>Support Insurance Verification</b></p>
-    <p>Eligibility / prior-auth backlog help</p>
-    <p><span class="chip">High-voltage cyan · deep navy</span></p>
+    <div class="spark-card__meta">Spark 05 · Insurance Verification</div>
+    <h3 class="spark-card__headline">Support Insurance Verification</h3>
+    <p class="spark-card__angle">Eligibility / prior-auth backlog help</p>
+    <span class="chip">High-voltage cyan · deep navy</span>
     <div class="spark-card__spark">Role-specific without looking like billing software.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
-</article><article class="spark-card" id="spark-06">
+</article><article class="spark-card" id="spark-06" data-feedback-item="idea:spark-06" data-feedback-name="Front Desk Needs Backup">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-06-front-desk.png" alt="Front Desk Needs Backup spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark 06 · Pain Point</div>
-    <h3>Front Desk Needs Backup</h3>
-    <p><b>Your Front Desk Needs Backup</b></p>
-    <p>Problem → calm Virtual Admin solution split</p>
-    <p><span class="chip">Signal yellow · deep navy</span></p>
+    <div class="spark-card__meta">Spark 06 · Front Desk Needs Backup</div>
+    <h3 class="spark-card__headline">Your Front Desk Needs Backup</h3>
+    <p class="spark-card__angle">Problem → calm Virtual Admin solution split</p>
+    <span class="chip">Signal yellow · deep navy</span>
     <div class="spark-card__spark">Before/after energy without copying competitor comparison layouts.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
-</article><article class="spark-card" id="spark-07">
+</article><article class="spark-card" id="spark-07" data-feedback-item="idea:spark-07" data-feedback-name="Medical Biller Support">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-07-billing.png" alt="Medical Biller Support spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark 07 · Role Specific</div>
-    <h3>Medical Biller Support</h3>
-    <p><b>Hire a Virtual Medical Biller</b></p>
-    <p>Billing-adjacent admin capacity</p>
-    <p><span class="chip">Cobalt blue · black · cyan</span></p>
+    <div class="spark-card__meta">Spark 07 · Medical Biller Support</div>
+    <h3 class="spark-card__headline">Hire a Virtual Medical Biller</h3>
+    <p class="spark-card__angle">Billing-adjacent admin capacity</p>
+    <span class="chip">Cobalt blue · black · cyan</span>
     <div class="spark-card__spark">Stay admin/staffing — never claim to replace a billing company.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
-</article><article class="spark-card" id="spark-08">
+</article><article class="spark-card" id="spark-08" data-feedback-item="idea:spark-08" data-feedback-name="Scheduling Support">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-08-scheduling.png" alt="Scheduling Support spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark 08 · Role Specific</div>
-    <h3>Scheduling Support</h3>
-    <p><b>Add Virtual Scheduling Support</b></p>
-    <p>Book / confirm / reschedule help</p>
-    <p><span class="chip">Bright white · cobalt · yellow CTA</span></p>
+    <div class="spark-card__meta">Spark 08 · Scheduling Support</div>
+    <h3 class="spark-card__headline">Add Virtual Scheduling Support</h3>
+    <p class="spark-card__angle">Book / confirm / reschedule help</p>
+    <span class="chip">Bright white · cobalt · yellow CTA</span>
     <div class="spark-card__spark">Cleaner whitespace test against our denser masters.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
-</article><article class="spark-card" id="spark-09">
+</article><article class="spark-card" id="spark-09" data-feedback-item="idea:spark-09" data-feedback-name="Dedicated — Not a Call Center">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-09-dedicated-not-callcenter.png" alt="Dedicated — Not a Call Center spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark 09 · Offer &amp; CTA</div>
-    <h3>Dedicated — Not a Call Center</h3>
-    <p><b>Dedicated Staff — Not a Call Center</b></p>
-    <p>Differentiator as the hero line</p>
-    <p><span class="chip">Deep navy · vivid green</span></p>
+    <div class="spark-card__meta">Spark 09 · Dedicated — Not a Call Center</div>
+    <h3 class="spark-card__headline">Dedicated Staff — Not a Call Center</h3>
+    <p class="spark-card__angle">Differentiator as the hero line</p>
+    <span class="chip">Deep navy · vivid green</span>
     <div class="spark-card__spark">Make the model crystal clear in one glance.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
-</article><article class="spark-card" id="spark-10">
+</article><article class="spark-card" id="spark-10" data-feedback-item="idea:spark-10" data-feedback-name="Patient Intake Remote">
   <div class="spark-card__media">
     <img src="/assets/idea-concepts/idea-10-patient-intake.png" alt="Patient Intake Remote spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark 10 · Role Specific</div>
-    <h3>Patient Intake Remote</h3>
-    <p><b>Handle Patient Intake Remotely</b></p>
-    <p>New-patient forms and chart-prep support</p>
-    <p><span class="chip">Electric lime · white · cobalt</span></p>
+    <div class="spark-card__meta">Spark 10 · Patient Intake Remote</div>
+    <h3 class="spark-card__headline">Handle Patient Intake Remotely</h3>
+    <p class="spark-card__angle">New-patient forms and chart-prep support</p>
+    <span class="chip">Electric lime · white · cobalt</span>
     <div class="spark-card__spark">Abstract UI only — never readable patient data.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
+  </div>
+</article><article class="spark-card" id="spark-11" data-feedback-item="idea:spark-11" data-feedback-name="Virtual Vet Admin">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-11-vet-admin.png" alt="Virtual Vet Admin spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="spark-card__meta">Spark 11 · Virtual Vet Admin</div>
+    <h3 class="spark-card__headline">Hire a Virtual Vet Admin</h3>
+    <p class="spark-card__angle">Same hire model for veterinary practices</p>
+    <span class="chip">Vivid green · navy · white</span>
+    <div class="spark-card__spark">Veterinary lane — fewer words, one clear role.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
+  </div>
+</article><article class="spark-card" id="spark-12" data-feedback-item="idea:spark-12" data-feedback-name="Never Miss a Call">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-12-never-miss-call.png" alt="Never Miss a Call spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="spark-card__meta">Spark 12 · Never Miss a Call</div>
+    <h3 class="spark-card__headline">Never Miss Another Call</h3>
+    <p class="spark-card__angle">After-hours / overflow phone coverage</p>
+    <span class="chip">Cobalt blue · cyan · black</span>
+    <div class="spark-card__spark">Pain hook, calm admin answer, almost no words.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
+  </div>
+</article><article class="spark-card" id="spark-13" data-feedback-item="idea:spark-13" data-feedback-name="Prior Auths Handled">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-13-prior-auth.png" alt="Prior Auths Handled spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="spark-card__meta">Spark 13 · Prior Auths Handled</div>
+    <h3 class="spark-card__headline">Prior Auths, Handled</h3>
+    <p class="spark-card__angle">Prior-authorization backlog support</p>
+    <span class="chip">Electric lime · black · cyan</span>
+    <div class="spark-card__spark">Staffing help, not billing software.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
+  </div>
+</article><article class="spark-card" id="spark-14" data-feedback-item="idea:spark-14" data-feedback-name="Keep Patients Coming Back">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-14-recall.png" alt="Keep Patients Coming Back spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="spark-card__meta">Spark 14 · Keep Patients Coming Back</div>
+    <h3 class="spark-card__headline">Keep Patients Coming Back</h3>
+    <p class="spark-card__angle">Recalls, reminders, and reactivation</p>
+    <span class="chip">Signal yellow · deep navy</span>
+    <div class="spark-card__spark">Outcome-led, warm, short.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
+  </div>
+</article><article class="spark-card" id="spark-15" data-feedback-item="idea:spark-15" data-feedback-name="Cut Your No-Shows">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-15-no-shows.png" alt="Cut Your No-Shows spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="spark-card__meta">Spark 15 · Cut Your No-Shows</div>
+    <h3 class="spark-card__headline">Cut Your No-Shows</h3>
+    <p class="spark-card__angle">Confirmations that actually get answered</p>
+    <span class="chip">Vivid green · white · navy</span>
+    <div class="spark-card__spark">One outcome, three verbs, done.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
+  </div>
+</article><article class="spark-card" id="spark-16" data-feedback-item="idea:spark-16" data-feedback-name="Front Desk Backup">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-16-front-desk-backup.png" alt="Front Desk Backup spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="spark-card__meta">Spark 16 · Front Desk Backup</div>
+    <h3 class="spark-card__headline">Give Your Front Desk Backup</h3>
+    <p class="spark-card__angle">Overloaded front office relief</p>
+    <span class="chip">High-voltage cyan · deep navy</span>
+    <div class="spark-card__spark">Relief message, calm admin, minimal text.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
+  </div>
+</article><article class="spark-card" id="spark-17" data-feedback-item="idea:spark-17" data-feedback-name="Virtual Medical Receptionist">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-17-receptionist.png" alt="Virtual Medical Receptionist spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="spark-card__meta">Spark 17 · Virtual Medical Receptionist</div>
+    <h3 class="spark-card__headline">Hire a Virtual Medical Receptionist</h3>
+    <p class="spark-card__angle">Front-of-house receptionist lane</p>
+    <span class="chip">Electric lime · black · white</span>
+    <div class="spark-card__spark">Clear role, warm greeter energy.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
+  </div>
+</article><article class="spark-card" id="spark-18" data-feedback-item="idea:spark-18" data-feedback-name="Stay On Top of Referrals">
+  <div class="spark-card__media">
+    <img src="/assets/idea-concepts/idea-18-referrals.png" alt="Stay On Top of Referrals spark concept" width="1080" height="1080" loading="lazy" />
+  </div>
+  <div class="spark-card__body">
+    <div class="spark-card__meta">Spark 18 · Stay On Top of Referrals</div>
+    <h3 class="spark-card__headline">Stay On Top of Referrals</h3>
+    <p class="spark-card__angle">Referral coordination support</p>
+    <span class="chip">Cobalt blue · cyan · white</span>
+    <div class="spark-card__spark">Specialty admin lane, tight copy.</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
 </article></div>
+      <div id="ideas-rejected"></div>
     </section>
 
     <section id="categories">
@@ -1203,6 +1580,60 @@
     setOut('designer', designer);
     setOut('ratios', ratios);
   });
+})();
+</script>
+<script>
+(function () {
+  var KEY = 'mv_creative_feedback_v1';
+  var cards = Array.from(document.querySelectorAll('[data-feedback-item^="idea:"]'));
+  var tray = document.getElementById('ideas-rejected');
+  function read() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (_) { return {}; }
+  }
+  function write(data) { localStorage.setItem(KEY, JSON.stringify(data)); }
+  function update(id, patch, rerender) {
+    var data = read();
+    data[id] = Object.assign({}, data[id] || {}, patch, { updatedAt: new Date().toISOString() });
+    write(data);
+    if (rerender !== false) render();
+  }
+  function render() {
+    var data = read();
+    var rejected = [];
+    cards.forEach(function (card) {
+      var id = card.dataset.feedbackItem;
+      var value = data[id] || {};
+      card.hidden = value.vote === 'down';
+      if (card.hidden) rejected.push({ id: id, name: card.dataset.feedbackName, note: value.note || '' });
+      card.querySelectorAll('[data-vote]').forEach(function (button) {
+        button.classList.toggle('selected', button.dataset.vote === value.vote);
+      });
+      var note = card.querySelector('textarea');
+      if (note && document.activeElement !== note) note.value = value.note || '';
+    });
+    if (!tray) return;
+    if (!rejected.length) { tray.innerHTML = ''; return; }
+    tray.innerHTML = '<details class="feedback-rejected"><summary>Rejected concepts (' + rejected.length + ')</summary>' +
+      rejected.map(function (item) {
+        return '<div class="feedback-rejected__item"><div><strong>' + item.name.replace(/</g, '&lt;') + '</strong>' +
+          (item.note ? '<p>' + item.note.replace(/</g, '&lt;') + '</p>' : '') +
+          '</div><button type="button" data-restore="' + item.id + '">Restore</button></div>';
+      }).join('') + '</details>';
+    tray.querySelectorAll('[data-restore]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var next = read(); delete next[button.dataset.restore]; write(next); render();
+      });
+    });
+  }
+  cards.forEach(function (card) {
+    var id = card.dataset.feedbackItem;
+    card.querySelectorAll('[data-vote]').forEach(function (button) {
+      button.addEventListener('click', function () { update(id, { vote: button.dataset.vote }); });
+    });
+    var note = card.querySelector('textarea');
+    if (note) note.addEventListener('input', function () { update(id, { note: note.value }, false); });
+  });
+  render();
 })();
 </script>
     <p class="foot">MedVirtual Ad Production · No pink · Reviewed July 14, 2026.</p>

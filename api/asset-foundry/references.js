@@ -6,7 +6,6 @@ import { listAssets, publicize } from '../_lib/asset-foundry/assets-api.js';
 const REF_PATH = 'asset-foundry/references/board.json';
 
 const CATEGORIES = [
-  'Hailey Approved',
   'George Approved',
   'Shared Approved',
   'Composition Reference',
@@ -34,7 +33,7 @@ export default async function handler(req, res) {
     const board = await loadBoard();
     // Also surface approved library items as candidate references
     const { assets } = await listAssets({
-      status: ['Approved', 'Promoted', 'Hailey Liked', 'George Liked'],
+      status: ['Approved', 'Promoted', 'George Liked'],
       limit: 40,
     });
     return json(res, 200, {

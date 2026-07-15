@@ -8,9 +8,9 @@ export const VIDEO_DEFAULTS = [
     "role": "Jr. Medical Admin",
     "spokenLine": "Hi, I’m Jessica. I support medical practices with customer service, healthcare support, and admin coordination.",
     "bullets": [
-      "Customer Service",
-      "Healthcare",
-      "Primary Care support"
+      "Calls and scheduling",
+      "Patient intake",
+      "Follow-up support"
     ],
     "cta": "Request an Interview",
     "posterSrc": "/assets/real-people/jessica/vertical-reference-1080x1920.jpg",

@@ -11,14 +11,14 @@ export const VIDEO_ASSIGNMENT_STATUSES = [
   'Footage Received',
   'Editing',
   'Internal Review',
-  'Send to Hailey',
+  'Send for Review',
   'Revision Requested',
   'Approved',
   'Published',
   'Archived',
 ];
 
-export const HAILEY_FEEDBACK = [
+export const REVIEW_FEEDBACK = [
   'Strong Hook',
   'Better Person',
   'Too Generic',
@@ -501,7 +501,7 @@ export function videoClientPayload() {
     assets: VIDEO_ASSETS,
     assignments: buildVideoAssignments(),
     statuses: VIDEO_ASSIGNMENT_STATUSES,
-    haileyFeedback: HAILEY_FEEDBACK,
+    reviewFeedback: REVIEW_FEEDBACK,
     consentChecks: CONSENT_CHECKS,
     captureStandard: CAPTURE_STANDARD,
     workflowGuide: WORKFLOW_GUIDE,

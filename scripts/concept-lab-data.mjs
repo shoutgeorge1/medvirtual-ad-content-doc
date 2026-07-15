@@ -10,7 +10,7 @@ import { SAAS_PROP_ART, SAAS_COPY_BANKS, SAAS_SUPPORT_BANK, SAAS_CTA_BANK } from
 export const CONCEPT_STATUSES = [
   'Draft',
   'Worth Exploring',
-  'Send to Hailey',
+  'Send for Review',
   'Approved to Produce',
   'Needs Revision',
   'Rejected',

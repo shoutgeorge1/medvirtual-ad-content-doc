@@ -11,13 +11,12 @@
 
 export const COMPETITOR_META = {
   title: 'Competitor Wall',
-  intro:
-    'Study medical VA and virtual staffing Meta creatives — hierarchy, offer clarity, and mobile readability. Do not copy layouts, color systems, badges, typography, or talent.',
+  intro: 'Real competitor ads. Steal the energy — never the layout, colors, or badges.',
   howToRefresh: [
-    'Wall shows every verified screenshot we have — more is better.',
-    'No image = not on the wall. Capture a new Ad Library still, then regenerate.',
-    'Refresh live scrapes from time to time so new VA creatives show up.',
-    'Spotted a useful medical VA ad? Email george.a@legalsoft.com.',
+    'One card per company — no duplicate brands.',
+    'Only add companies we do not already have.',
+    'No image = not on the wall. Capture a real still, then regenerate.',
+    'Spotted a useful medical VA ad from a new brand? Email george.a@legalsoft.com.',
   ],
   libraryBase:
     'https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&media_type=all&search_type=keyword_unordered&q=',
@@ -28,34 +27,91 @@ export const COMPETITOR_META = {
  * Skip off-category / wrong scrapes (pet meds, consumer derm, shoe ads).
  */
 export const WALL_LIVE_SOURCE_IDS = [
-  'hello-rache',
   'generic-va-commodity',
+  'hello-rache',
   'weave',
+  'commure-scribe',
 ];
 
-/** Extra static creatives with verified on-disk images (not wrong scrapes). */
+/**
+ * Extra static creatives with verified on-disk images (not wrong scrapes).
+ * One card per company. `featured: true` floats strongest/newest to the top.
+ */
 export const WALL_STATIC_CREATIVES = [
   {
-    id: 'quadrant-health-ai-receptionist',
-    name: 'Quadrant Health',
-    category: 'practice-saas',
-    whyWatch: 'AI receptionist / missed-inquiry claims — adjacent front-desk pain, not staffing.',
-    adLibraryQuery: 'Quadrant Health',
-    image: '/assets/competitors/commure-scribe.jpg',
+    id: 'portiva-hero',
+    name: 'Portiva',
+    category: 'virtual-staffing',
+    featured: true,
+    whyWatch: 'Office-supervised medical VA brand — long-running neighbor.',
+    adLibraryQuery: 'Portiva',
+    image: '/assets/competitors/portiva.jpg',
     fingerprint: {
-      hookStyle: '1 AI agent = 10 receptionists · hours saved stats',
-      visual: 'White + blue claim cards + EHR logos',
-      weakness: 'AI automation — opposite of dedicated human staff',
+      hookStyle: 'Trained medical VAs · supervised teams',
+      visual: 'People-forward medical VA marketing',
+      weakness: 'Can read like generic staffing stock',
     },
-    steal: 'Front-desk failure modes and stats read fast.',
-    reject: 'AI-agent replacement positioning for MedVirtual.',
-    remix: 'Same pain → dedicated Virtual Medical Admin human.',
+    steal: 'Role clarity + human face stops the scroll.',
+    reject: 'Copying their supervision / office framing as our trade dress.',
+    remix: 'Dedicated Virtual Medical Admin hire — MedVirtual colors, no pink.',
+  },
+  {
+    id: 'wishup-hero',
+    name: 'Wishup',
+    category: 'virtual-staffing',
+    featured: true,
+    whyWatch: 'Managed VA platform pushing hard into healthcare.',
+    adLibraryQuery: 'Wishup',
+    image: '/assets/competitors/wishup.jpg',
+    fingerprint: {
+      hookStyle: 'Testimonial + medical VA proof',
+      visual: 'Portrait + review social proof',
+      weakness: 'Platform / managed service, not a single dedicated hire story',
+    },
+    steal: 'Social proof next to a real face reads fast on mobile.',
+    reject: 'Managed-VA marketplace positioning for MedVirtual.',
+    remix: 'One dedicated Virtual Medical Admin — not a talent marketplace.',
+  },
+  {
+    id: 'medva-hero',
+    name: 'MedVA',
+    category: 'virtual-staffing',
+    featured: true,
+    whyWatch: 'Direct category competitor — medical VA staffing.',
+    adLibraryQuery: 'MedVA',
+    image: '/assets/competitors/medva.jpg',
+    fingerprint: {
+      hookStyle: 'Healthcare virtual assistant company',
+      visual: 'Clean brand plate + healthcare cues',
+      weakness: 'Easy to look like every other VA brand',
+    },
+    steal: 'Category-owning name + simple healthcare signal.',
+    reject: 'Blending into soft teal VA commodity look.',
+    remix: 'Bolder MedVirtual hierarchy — huge Hire a Virtual Medical Admin.',
+  },
+  {
+    id: 'almostfriday-hero',
+    name: 'Almost Friday',
+    category: 'virtual-staffing',
+    featured: true,
+    whyWatch: 'Newer VA staffing brand with strong lifestyle energy.',
+    adLibraryQuery: 'Almost Friday',
+    image: '/assets/competitors/almostfriday.jpg',
+    fingerprint: {
+      hookStyle: 'Lifestyle / culture-led VA hire',
+      visual: 'Bold brand mark · open-graph creative',
+      weakness: 'Not always medical-specific',
+    },
+    steal: 'Brand energy that feels different from cheap VA ads.',
+    reject: 'Copying their mark, colors, or lifestyle system.',
+    remix: 'Same energy, MedVirtual VMA hire message, no pink.',
   },
   {
     id: 'hello-rache-hero',
     name: 'Hello Rache',
     category: 'virtual-staffing',
-    whyWatch: 'Medical VA comparison creative — closest category neighbor.',
+    featured: true,
+    whyWatch: 'Closest neighbor — “not all medical VAs are equal.”',
     adLibraryQuery: 'Hello Rache',
     image: '/assets/competitors/hello-rache.jpg',
     fingerprint: {
@@ -66,6 +122,23 @@ export const WALL_STATIC_CREATIVES = [
     steal: 'Clear medical VA vs generic VA framing.',
     reject: 'Purple / pink palette or copy-cat comparison layout.',
     remix: 'MedVirtual bold VMA hire message — no pink.',
+  },
+  {
+    id: 'commure-scribe-hero',
+    name: 'Commure',
+    category: 'practice-saas',
+    featured: true,
+    whyWatch: 'AI-automation angle — the opposite of a real human hire.',
+    adLibraryQuery: 'Commure',
+    image: '/assets/competitors/commure-scribe.jpg',
+    fingerprint: {
+      hookStyle: 'AI does the busywork · hours saved',
+      visual: 'White + blue claim cards',
+      weakness: 'AI automation — not dedicated human staff',
+    },
+    steal: 'Front-desk failure modes read fast.',
+    reject: 'AI-agent replacement positioning.',
+    remix: 'Same pain → a dedicated human Virtual Medical Admin.',
   },
   {
     id: 'weave-schedule-hero',
@@ -161,6 +234,22 @@ export const COMPETITOR_ADS = [
     steal: 'Tight front-office hooks.',
     reject: 'Managed front-desk positioning.',
     remix: 'Human VMA hire answer.',
+  },
+  {
+    id: 'commure-scribe',
+    name: 'Commure — AI scribe',
+    category: 'practice-saas',
+    whyWatch: 'AI-automation angle — opposite of a real human hire.',
+    adLibraryQuery: 'Commure',
+    image: '/assets/competitors/commure-scribe.jpg',
+    fingerprint: {
+      hookStyle: 'AI does the busywork · hours saved',
+      visual: 'White + blue claim cards',
+      weakness: 'AI automation, not dedicated staff',
+    },
+    steal: 'Front-desk failure modes read fast.',
+    reject: 'AI-agent replacement positioning.',
+    remix: 'Same pain → dedicated human Virtual Medical Admin.',
   },
 ];
 

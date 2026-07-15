@@ -25,7 +25,7 @@ export function ContentDoc({ concepts }: ContentDocProps) {
   return (
     <div className="content-doc">
       <header className="content-doc__header">
-        <h1>MedVirtual — Facebook Ad Content Doc</h1>
+        <h1>MedVirtual Ad Production</h1>
         <p className="content-doc__subtitle">
           National Meta static ads · {concepts.length} concepts · production review for Chris
         </p>

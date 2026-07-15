@@ -1,19 +1,20 @@
 ---
-description: MedVirtual graphics handoff priorities for Meta creative docs
+description: MedVirtual Ad Production priorities for Meta creative docs
 globs:
   - public/**/*.html
   - scripts/**/*.mjs
 alwaysApply: true
 ---
 
-# MedVirtual Meta Creative Handoff
+# MedVirtual Ad Production
 
-Default priority: **Virtual Medical Admin direct-response ads + animated video** production clarity.
+Default priority: **Virtual Medical Admin direct-response ads + animated video** for demo sign-ups.
 
 ## Goal
 Keep bold VMA static + video ads in the hopper. Make “do this next” obvious for graphics in under two minutes.
 
 ## Brand
+- Site name: **MedVirtual Ad Production** (not “Creative Handoff” / “Content Doc”)
 - Ad-facing: **MedVirtual** only (never MedVirtual.ai)
 - Font: Be Vietnam
 - Active Meta colors: lime / yellow / cobalt / cyan / vivid green / commercial red / black / white / deep navy / MedVirtual teal
@@ -25,22 +26,23 @@ Not a call center / managed front desk / software / chatbot / AI service.
 
 ## Visual DNA
 **Current:** High-contrast human-led “Hire a Virtual Medical Admin” — huge headline · generic professional admin · 3–4 benefits · price/trust badges (pending approval) · mobile-first.
-Animated: Remotion + CapCut templates from the same concept data.
+Animated: Motion Concept Lab (Remotion Player) + CapCut for final MP4s.
 
-## Removed from active site (July 2026)
-Named Real People / Talent Pool profile ads · Role-Offer hire boards · SaaS glassmorphism / no-people primary.
-Archive only: `_archive/july-2026-removed/`. History notes collapsed on Approved Creative / Dashboard.
+## Removed from active site
+Named Real People / Talent Pool · Role-Offer · SaaS glassmorphism · old “Creative Handoff” React app · teal-header lab pages.
+Archive only: `_archive/july-2026-removed/`. Old URLs redirect into the 8 primary pages.
 
 ## Files
-- Public: web-safe handoff assets
+- Public: Ad Production HTML (`studio.html` and VMA pages)
+- `motion-concept-lab.html`: Vite + Remotion preview
 - `.local-masters/`: huge video / .ai
 - `_private/`: internal docs — never expose
 - `_archive/`: removed historical directions
 
 ## Site order
-Dashboard → Approved Creative → New Ad Ideas → Aspect Ratios → Competitor Wall → Animated Video → Prompts & Copy → Production Handoff
+Dashboard → Approved Creative → New Ad Ideas → Aspect Ratios → Competitor Wall → Animated Video (Motion Lab) → Prompts & Copy → Production Handoff
 
-Current focus for designers: **see the four approved masters · generate 15–20 concepts · rebuild winners in Meta sizes**. Video after statics. Do not invent fake format previews.
+Current focus: **see the four approved masters · generate scroll-stopping concepts · rebuild winners in Meta sizes**. Video after statics. Do not invent fake format previews.
 
 Same header via `scripts/shared-doc-header.mjs`. Never style bare `details`/`summary` globally — scope to `main`.
 

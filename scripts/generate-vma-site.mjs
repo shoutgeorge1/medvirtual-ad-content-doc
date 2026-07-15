@@ -1,9 +1,9 @@
 /**
- * MedVirtual Virtual Medical Admin creative-handoff site generator (simplified).
+ * MedVirtual Ad Production site generator.
  *
  * Writes 8 primary pages (Dashboard, Approved Creative, New Ad Ideas, Aspect
  * Ratios, Competitor Wall, Animated Video, Prompts & Copy, Production Handoff)
- * plus thin meta-refresh redirects for every retired page.
+ * plus thin meta-refresh redirects for every retired Creative Handoff page.
  *
  * Hard rules:
  *   - Never generates or edits image files. Text / HTML / CSS only.
@@ -12,7 +12,7 @@
  *     never a fake / stretched preview.
  *   - No pink anywhere in site chrome or copy.
  *
- * Run: node scripts/generate-vma-site.mjs
+ * Run: npm run generate:vma
  */
 
 import fs from 'fs';
@@ -67,6 +67,7 @@ import {
   adLibraryUrl,
 } from './competitor-ads-data.mjs';
 import { loadLiveSnapshots } from './scrape-ad-library-helpers.mjs';
+import { GRAPHICS_REQUEST_EMAIL } from './creative-hopper-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.join(__dirname, '..', 'public');
@@ -78,19 +79,60 @@ function imageExists(webPath) {
 }
 
 /**
- * Build the Competitor Wall from live snapshots + verified static creatives.
- * Only cards with real image files are included — more is better.
+ * One card per company. Prefer curated static/featured over live duplicates.
+ * Only cards with real image files are included.
  */
+function companyKey(name) {
+  const n = String(name || '')
+    .toLowerCase()
+    .replace(/[—–].*$/, '')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (n.startsWith('commure')) return 'commure';
+  if (n.startsWith('hello rache')) return 'hello rache';
+  if (n.startsWith('weave')) return 'weave';
+  if (n.startsWith('almost friday')) return 'almost friday';
+  if (n.startsWith('my mountain')) return 'my mountain mover';
+  if (n.startsWith('my medical')) return 'my medical va';
+  return n;
+}
+
 function collectCompetitorWallCards() {
   const live = loadLiveSnapshots();
   const byId = Object.fromEntries(COMPETITOR_ADS.map((a) => [a.id, a]));
   const seenImages = new Set();
+  const seenCompanies = new Set();
   const cards = [];
 
   function pushCard(card) {
     if (!card?.image || !imageExists(card.image) || seenImages.has(card.image)) return;
+    const key = companyKey(card.name);
+    if (!key || seenCompanies.has(key)) return;
     seenImages.add(card.image);
+    seenCompanies.add(key);
     cards.push(card);
+  }
+
+  // Curated static first (featured new companies + best of known), then live fills gaps only
+  for (const creative of WALL_STATIC_CREATIVES) {
+    const pink = PINK_REFERENCE_COMPETITOR_IDS.has(creative.id) || /hello\s*rache/i.test(creative.name);
+    pushCard({
+      id: creative.id,
+      name: creative.name,
+      category: creative.category,
+      featured: Boolean(creative.featured),
+      whyWatch: creative.whyWatch,
+      offer: creative.fingerprint?.hookStyle || '—',
+      visual: creative.fingerprint?.visual || '—',
+      steal: creative.steal,
+      reject: creative.reject,
+      adLibraryQuery: creative.adLibraryQuery,
+      libraryId: '',
+      image: creative.image,
+      pink,
+      source: 'static',
+    });
   }
 
   for (const sourceId of WALL_LIVE_SOURCE_IDS) {
@@ -105,6 +147,7 @@ function collectCompetitorWallCards() {
         id: `${sourceId}-${ad.libraryId || ad.index || ad.image}`,
         name,
         category: seed.category || 'virtual-staffing',
+        featured: false,
         whyWatch: ad.headline || ad.primaryText || seed.whyWatch || 'Live Meta Ad Library creative',
         offer: ad.headline || ad.description || seed.fingerprint?.hookStyle || '—',
         visual: seed.fingerprint?.visual || 'Live Meta creative',
@@ -119,34 +162,20 @@ function collectCompetitorWallCards() {
     }
   }
 
-  for (const creative of WALL_STATIC_CREATIVES) {
-    const pink = PINK_REFERENCE_COMPETITOR_IDS.has(creative.id) || /hello\s*rache/i.test(creative.name);
-    pushCard({
-      id: creative.id,
-      name: creative.name,
-      category: creative.category,
-      whyWatch: creative.whyWatch,
-      offer: creative.fingerprint?.hookStyle || '—',
-      visual: creative.fingerprint?.visual || '—',
-      steal: creative.steal,
-      reject: creative.reject,
-      adLibraryQuery: creative.adLibraryQuery,
-      libraryId: '',
-      image: creative.image,
-      pink,
-      source: 'static',
-    });
-  }
-
-  // Medical / VA staffing first, then adjacent software
+  // Featured first, then medical / VA staffing, then adjacent software
   const rank = (c) => {
     if (c.category === 'virtual-staffing') return 0;
-    if (/hello\s*rache|medical va|mountain mover|edge|snappy|portiva|cure|psyphy|tactical|assist/i.test(c.name))
+    if (/hello\s*rache|medical va|mountain mover|edge|snappy|portiva|cure|psyphy|tactical|assist|wishup|medva|almost friday/i.test(c.name))
       return 0;
     if (c.category === 'practice-saas') return 2;
     return 1;
   };
-  cards.sort((a, b) => rank(a) - rank(b) || a.name.localeCompare(b.name));
+  cards.sort(
+    (a, b) =>
+      Number(Boolean(b.featured)) - Number(Boolean(a.featured)) ||
+      rank(a) - rank(b) ||
+      a.name.localeCompare(b.name),
+  );
 
   return {
     cards,
@@ -167,6 +196,39 @@ function esc(s) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+// ─── Inline line icons (calm, single-stroke, currentColor) ───────────────────
+
+const ICON_PATHS = {
+  approved:
+    '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+  target:
+    '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  formats:
+    '<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>',
+  links:
+    '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+  eye:
+    '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>',
+  idea:
+    '<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/>',
+  ratio:
+    '<path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/>',
+  search:
+    '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+  prompt:
+    '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  handoff:
+    '<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>',
+  video:
+    '<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>',
+};
+
+function icon(name) {
+  const p = ICON_PATHS[name];
+  if (!p) return '';
+  return `<span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${p}</svg></span>`;
 }
 
 // ─── Design system (calm site chrome — white / navy / teal / light blue) ─────
@@ -238,6 +300,9 @@ const PAGE_CSS = `
   }
   .s-awaiting-design {
     background: #FFF8E8; color: #A16207; border-color: #F0D78C;
+  }
+  .s-ai-draft {
+    background: #E6F7F4; color: #0D546B; border-color: #7FCBD6;
   }
   .s-image-needed, .s-pending {
     background: #EEF2F6; color: #475569; border-color: #CBD5E1;
@@ -461,6 +526,42 @@ const PAGE_CSS = `
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     margin-top: 0.85rem;
   }
+  .mock-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 0.85rem;
+  }
+  .mock-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .mock-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .mock-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mock-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .mock-card__tag {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+  }
+  .mock-card__body h3 { margin: 0; font-size: 1.2rem; }
+  .mock-card__body p { margin: 0; font-size: 0.98rem; color: #33475B; }
+  @media (max-width: 720px) {
+    .mock-grid { grid-template-columns: 1fr; }
+    .mock-card__body h3 { font-size: 1.4rem; }
+    .mock-card__body p { font-size: 1.08rem; }
+  }
   .spark-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -479,22 +580,65 @@ const PAGE_CSS = `
     object-fit: cover;
     display: block;
   }
-  .spark-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
-  .spark-card__body h3 { margin: 0; font-size: 1.02rem; }
-  .spark-card__body p { margin: 0; font-size: 0.82rem; color: #4A6275; }
+  .spark-card__body { padding: 1rem 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+  .spark-card__meta {
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+  }
+  .spark-card__headline { margin: 0; font-size: 1.3rem; line-height: 1.2; color: #0B1F3A; }
+  .spark-card__angle { margin: 0; font-size: 0.98rem; line-height: 1.45; color: #33475B; }
+  .spark-card .chip { font-size: 0.82rem; padding: 0.22rem 0.6rem; align-self: flex-start; }
   .spark-card__spark {
     margin-top: auto;
-    padding: 0.55rem 0.65rem;
+    padding: 0.7rem 0.8rem;
     border-radius: 8px;
     background: #EEF6FA;
     border: 1px solid #C5DCE8;
     color: #0D546B;
-    font-size: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
     font-weight: 650;
   }
+  .feedback-ui {
+    margin-top: 0.35rem;
+    padding: 0.7rem;
+    border: 1px solid #D6E4EC;
+    border-radius: 9px;
+    background: #F7FAFB;
+  }
+  .feedback-ui__vote { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+  .feedback-ui__vote strong { margin-right: 0.25rem; font-size: 0.78rem; color: #33475B; }
+  .feedback-ui button {
+    border: 1px solid #B9CAD4; border-radius: 7px; background: #fff; padding: 0.36rem 0.55rem;
+    font: inherit; font-size: 0.75rem; font-weight: 750; cursor: pointer;
+  }
+  .feedback-ui button.selected[data-vote="up"] { background: #DFF5E8; border-color: #45A66D; }
+  .feedback-ui button.selected[data-vote="down"] { background: #FFE4E4; border-color: #D65353; }
+  .feedback-ui label { display: grid; gap: 0.2rem; margin-top: 0.45rem; font-size: 0.7rem; font-weight: 750; color: #4A6275; }
+  .feedback-ui textarea {
+    width: 100%; box-sizing: border-box; resize: vertical; border: 1px solid #CBD5E1;
+    border-radius: 7px; padding: 0.45rem; font: inherit; font-size: 0.78rem;
+  }
+  .feedback-ui small { display: block; margin-top: 0.3rem; color: #6A7D89; font-size: 0.66rem; }
+  .feedback-rejected {
+    margin-top: 1rem; padding: 0.75rem; border: 1px solid #D3A3A3; border-radius: 10px;
+    background: #FFF7F7;
+  }
+  .feedback-rejected summary { cursor: pointer; font-weight: 800; }
+  .feedback-rejected__item { display: flex; justify-content: space-between; gap: 0.6rem; padding-top: 0.55rem; }
+  .feedback-rejected__item p { margin: 0.15rem 0 0; color: #6B3A3A; font-size: 0.78rem; }
   @media (max-width: 720px) {
     .example-hero, .ratio-guide { grid-template-columns: 1fr; }
     .ratio-guide__visual { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .spark-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .spark-card__meta { font-size: 0.9rem; }
+    .spark-card__headline { font-size: 1.5rem; }
+    .spark-card__angle { font-size: 1.08rem; }
+    .spark-card .chip { font-size: 0.92rem; padding: 0.28rem 0.7rem; }
+    .spark-card__spark { font-size: 1.02rem; }
   }
   .approved-detail {
     display: grid;
@@ -518,6 +662,54 @@ const PAGE_CSS = `
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
+  .ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-head .ico { color: #077999; }
+  .primary-task {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    background: #ffffff;
+    border: 1px solid #D6E4EC;
+    border-left: 4px solid #077999;
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    margin: 0.75rem 0 1rem;
+  }
+  .primary-task .ico { color: #077999; margin-top: 0.1rem; }
+  .primary-task__label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #077999;
+    margin: 0 0 0.15rem;
+  }
+  .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
+  .rule-chips { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; margin: 0.35rem 0 0; }
+  .rule-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #0D546B;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.28rem 0.7rem;
+  }
+  .rule-chip .ico svg { width: 15px; height: 15px; }
   .quick-links {
     display: grid;
     gap: 0.75rem;
@@ -526,9 +718,10 @@ const PAGE_CSS = `
   .quick-links a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 3.6rem;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    text-align: left;
+    min-height: 3.4rem;
     padding: 0.75rem 1rem;
     border-radius: 10px;
     background: #077999;
@@ -543,6 +736,73 @@ const PAGE_CSS = `
     gap: 0.85rem;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
+  .pr-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    margin-top: 0.75rem;
+  }
+  .pr-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .pr-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .pr-card__media.square { aspect-ratio: 1 / 1; }
+  .pr-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pr-card__body { padding: 0.85rem 0.95rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+  .pr-card__tag {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+  }
+  .pr-card__body h3 { margin: 0; font-size: 1.1rem; }
+  .pr-card__body p { margin: 0; font-size: 0.92rem; color: #4A6275; }
+  .pr-card details { margin-top: 0.35rem; }
+  .pr-card summary {
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .pr-card summary::-webkit-details-marker { display: none; }
+  .pr-card .prompt-body {
+    margin-top: 0.5rem;
+    padding: 0.65rem 0.75rem;
+    background: #F5F8FA;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #33475B;
+    white-space: pre-wrap;
+    line-height: 1.45;
+    max-height: 12rem;
+    overflow: auto;
+  }
+  .pr-card .pr-actions { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
+  .copy-picks { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .copy-pick {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    padding: 0.85rem 0.95rem;
+  }
+  .copy-pick h3 { margin: 0 0 0.45rem; font-size: 0.95rem; }
+  .copy-pick .line {
+    display: flex; gap: 0.4rem; align-items: flex-start;
+    margin: 0.35rem 0; font-size: 0.88rem; color: #0B1F3A;
+  }
+  .copy-pick .line .copy-btn { flex-shrink: 0; margin-top: 0; }
   .soft-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -597,11 +857,22 @@ const PAGE_CSS = `
     object-fit: contain;
     display: block;
   }
-  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.84rem; }
-  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
-  .comp-card__body .why { font-weight: 700; color: #0B1F3A; margin: 0.2rem 0; }
-  .comp-card__body .mini { margin: 0.35rem 0 0; color: #4A6275; font-size: 0.8rem; }
+  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.9rem; }
+  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+  .comp-card__body .why { font-weight: 600; color: #33475B; margin: 0.2rem 0 0; font-size: 0.92rem; }
+  .comp-card__body .mini { margin: 0.4rem 0 0; color: #4A6275; font-size: 0.86rem; }
   .comp-card__body .mini b { color: #0B1F3A; }
+  .comp-more { margin-top: 0.6rem; }
+  .comp-more summary {
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .comp-more summary::-webkit-details-marker { display: none; }
+  .comp-more summary::before { content: "＋ "; font-weight: 700; }
+  .comp-more[open] summary::before { content: "－ "; }
   .pink-ref {
     display: inline-block;
     margin-bottom: 0.35rem;
@@ -902,14 +1173,14 @@ function mastersGrid(size = 'lg') {
 function formatRow(master) {
   const cards = master.formats
     .map((f) => {
-      if (f.path && f.status === 'Approved') {
+      if (f.path) {
         return `<div class="format-card">
   <div class="format-card__preview" data-ratio="${esc(f.formatId)}">
     <img src="${esc(f.path)}" alt="${esc(master.name)} ${esc(f.label)}" loading="lazy" />
   </div>
   <div class="format-card__body">
     <b>${esc(f.label)} · ${esc(f.dims)}</b>
-    <div>${statusBadge('Approved')}</div>
+    <div>${statusBadge(f.status)}</div>
     <div style="margin-top:0.25rem;color:#4A6275;font-size:0.72rem">${esc(f.placement)}</div>
   </div>
 </div>`;
@@ -932,7 +1203,7 @@ function formatRow(master) {
   return `<div class="format-row">${cards}</div>`;
 }
 
-function page({ activeId, title, pageTitle, pageSubtitle, body }) {
+function page({ activeId, title, pageTitle, pageSubtitle, subnav, activeSubHref, body }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -942,7 +1213,7 @@ function page({ activeId, title, pageTitle, pageSubtitle, body }) {
   <style>${HEADER_CSS}${PAGE_CSS}</style>
 </head>
 <body>
-  ${renderDocHeader({ activeId, pageTitle, pageSubtitle })}
+  ${renderDocHeader({ activeId, pageTitle, pageSubtitle, subnav, activeSubHref })}
   <main>
     <div class="banner"><strong>${esc(VMA_META.banner)}</strong><span class="sub">${esc(VMA_META.bannerSub)}</span></div>
     ${body}
@@ -971,9 +1242,12 @@ function renderRedirect(to) {
 // ─── 1. Dashboard (studio.html) ──────────────────────────────────────────────
 
 function renderStudio() {
-  const needChecklist = WHAT_WE_NEED_NOW.map(
-    (item, i) => `<li><input type="checkbox" data-persist="need-${i}" /> <span>${esc(item)}</span></li>`,
-  ).join('');
+  const primaryTask = WHAT_WE_NEED_NOW[0];
+  const buildOrder = WHAT_WE_NEED_NOW[1];
+  const rules = WHAT_WE_NEED_NOW.slice(2);
+  const ruleChips = rules
+    .map((r) => `<span class="rule-chip">${icon('approved')}${esc(r)}</span>`)
+    .join('');
 
   const formatCards = FORMAT_SPECS.map(
     (f) => `<div class="soft-card">
@@ -986,35 +1260,43 @@ function renderStudio() {
   const body = `
     <div class="hero">
       <h1>Dashboard</h1>
-      <p>The approved Virtual Medical Admin creative baseline, what the team needs to produce next, and quick links to every board.</p>
+      <p>Everything the graphics team needs to build scroll-stopping Meta ads that get people to <b>book a demo</b>.</p>
     </div>
 
+    <section id="what-we-need">
+      <h2 class="section-head">${icon('target')} Do This Next</h2>
+      <div class="primary-task">
+        ${icon('formats')}
+        <div>
+          <p class="primary-task__label">Priority</p>
+          <p class="primary-task__text">${esc(primaryTask)}</p>
+          <p class="lede" style="margin-top:0.35rem">${esc(buildOrder)}</p>
+        </div>
+      </div>
+      <div class="rule-chips">${ruleChips}</div>
+    </section>
+
     <section id="approved-baseline">
-      <h2>Approved Creative Baseline</h2>
-      <p class="lede">${esc(MASTER_NOTE)}</p>
+      <h2 class="section-head">${icon('approved')} Approved Ads</h2>
+      <p class="lede">Match this clarity and contrast. Don’t copy competitors.</p>
       ${mastersGrid()}
     </section>
 
-    <section id="what-we-need">
-      <h2>What the Team Needs to Produce</h2>
-      <ul class="checklist">${needChecklist}</ul>
-    </section>
-
     <section id="required-formats">
-      <h2>Required Formats</h2>
+      <h2 class="section-head">${icon('formats')} Required Formats</h2>
       <div class="queue-grid">${formatCards}</div>
-      <div class="callout-rule">DO NOT STRETCH OR SIMPLY CROP THE SQUARE DESIGN. Each format must be rebuilt for its canvas.</div>
+      <div class="callout-rule">Rebuild each format for its canvas — never stretch or crop the square.</div>
     </section>
 
     <section id="quick-links">
-      <h2>Quick Links</h2>
+      <h2 class="section-head">${icon('links')} Quick Links</h2>
       <div class="quick-links">
-        <a href="/vma-approved.html">View Approved Ads</a>
-        <a href="/ideas.html">Generate New Concepts</a>
-        <a href="/vma-static.html">Review Aspect Ratios</a>
-        <a href="/competitors.html">Review Competitors</a>
-        <a href="/vma-chatgpt.html">Copy ChatGPT Prompts</a>
-        <a href="/vma-handoff.html">Open Production Handoff</a>
+        <a href="/vma-approved.html">${icon('eye')} Approved Ads</a>
+        <a href="/ideas.html">${icon('idea')} New Concepts</a>
+        <a href="/vma-static.html">${icon('ratio')} Aspect Ratios</a>
+        <a href="/competitors.html">${icon('search')} Competitors</a>
+        <a href="/vma-chatgpt.html">${icon('prompt')} Prompts &amp; Copy</a>
+        <a href="/vma-handoff.html">${icon('handoff')} Production Handoff</a>
       </div>
     </section>`;
 
@@ -1022,7 +1304,7 @@ function renderStudio() {
     activeId: 'studio',
     title: 'Dashboard',
     pageTitle: 'Dashboard',
-    pageSubtitle: 'Approved ads, checklist, formats, quick links.',
+    pageSubtitle: 'Priority · approved ads · quick links for the graphics team.',
     body,
   });
 }
@@ -1202,20 +1484,80 @@ const CONCEPT_BUILDER_SCRIPT = `
 </script>`;
 
 function sparkCard(concept) {
-  return `<article class="spark-card" id="${esc(concept.id)}">
+  return `<article class="spark-card" id="${esc(concept.id)}" data-feedback-item="idea:${esc(concept.id)}" data-feedback-name="${esc(concept.title)}">
   <div class="spark-card__media">
     <img src="${esc(concept.image)}" alt="${esc(concept.title)} spark concept" width="1080" height="1080" loading="lazy" />
   </div>
   <div class="spark-card__body">
-    <div class="master-card__meta">Spark ${esc(concept.number)} · ${esc(concept.category)}</div>
-    <h3>${esc(concept.title)}</h3>
-    <p><b>${esc(concept.headline)}</b></p>
-    <p>${esc(concept.angle)}</p>
-    <p><span class="chip">${esc(concept.colorStory)}</span></p>
+    <div class="spark-card__meta">Spark ${esc(concept.number)} · ${esc(concept.title)}</div>
+    <h3 class="spark-card__headline">${esc(concept.headline)}</h3>
+    <p class="spark-card__angle">${esc(concept.angle)}</p>
+    <span class="chip">${esc(concept.colorStory)}</span>
     <div class="spark-card__spark">${esc(concept.spark)}</div>
+    <div class="feedback-ui">
+      <div class="feedback-ui__vote"><strong>Does this work?</strong><button type="button" data-vote="up">👍 Works</button><button type="button" data-vote="down">👎 Remove</button></div>
+      <label>Note<textarea rows="2" placeholder="What works? What should change?"></textarea></label>
+      <small>Thumbs down hides this concept. Feedback stays saved in this browser.</small>
+    </div>
   </div>
 </article>`;
 }
+
+const IDEAS_FEEDBACK_SCRIPT = `
+<script>
+(function () {
+  var KEY = 'mv_creative_feedback_v1';
+  var cards = Array.from(document.querySelectorAll('[data-feedback-item^="idea:"]'));
+  var tray = document.getElementById('ideas-rejected');
+  function read() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (_) { return {}; }
+  }
+  function write(data) { localStorage.setItem(KEY, JSON.stringify(data)); }
+  function update(id, patch, rerender) {
+    var data = read();
+    data[id] = Object.assign({}, data[id] || {}, patch, { updatedAt: new Date().toISOString() });
+    write(data);
+    if (rerender !== false) render();
+  }
+  function render() {
+    var data = read();
+    var rejected = [];
+    cards.forEach(function (card) {
+      var id = card.dataset.feedbackItem;
+      var value = data[id] || {};
+      card.hidden = value.vote === 'down';
+      if (card.hidden) rejected.push({ id: id, name: card.dataset.feedbackName, note: value.note || '' });
+      card.querySelectorAll('[data-vote]').forEach(function (button) {
+        button.classList.toggle('selected', button.dataset.vote === value.vote);
+      });
+      var note = card.querySelector('textarea');
+      if (note && document.activeElement !== note) note.value = value.note || '';
+    });
+    if (!tray) return;
+    if (!rejected.length) { tray.innerHTML = ''; return; }
+    tray.innerHTML = '<details class="feedback-rejected"><summary>Rejected concepts (' + rejected.length + ')</summary>' +
+      rejected.map(function (item) {
+        return '<div class="feedback-rejected__item"><div><strong>' + item.name.replace(/</g, '&lt;') + '</strong>' +
+          (item.note ? '<p>' + item.note.replace(/</g, '&lt;') + '</p>' : '') +
+          '</div><button type="button" data-restore="' + item.id + '">Restore</button></div>';
+      }).join('') + '</details>';
+    tray.querySelectorAll('[data-restore]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var next = read(); delete next[button.dataset.restore]; write(next); render();
+      });
+    });
+  }
+  cards.forEach(function (card) {
+    var id = card.dataset.feedbackItem;
+    card.querySelectorAll('[data-vote]').forEach(function (button) {
+      button.addEventListener('click', function () { update(id, { vote: button.dataset.vote }); });
+    });
+    var note = card.querySelector('textarea');
+    if (note) note.addEventListener('input', function () { update(id, { note: note.value }, false); });
+  });
+  render();
+})();
+</script>`;
 
 function renderIdeas() {
   const sparks = IDEA_SPARK_CONCEPTS.map((c) => sparkCard(c)).join('');
@@ -1228,14 +1570,14 @@ function renderIdeas() {
   const body = `
     <div class="hero">
       <h1>New Ad Ideas</h1>
-      <p><b>Standard creative request: 15–20 concepts.</b> Scroll the spark gallery first — steal energy, invent original MedVirtual layouts. AI plates are for thinking and testing, not automatic launch.</p>
+      <p><b>Standard request: 15–20 concepts.</b> Build scroll-stopping originals that get people to book a demo — steal competitor energy, never copy layouts.</p>
     </div>
 
     <section id="spark-gallery">
-      <h2>Visual spark gallery</h2>
+      <h2 class="section-head">${icon('idea')} Visual spark gallery</h2>
       <p class="note">${esc(IDEA_SPARK_NOTE)}</p>
-      <p class="note"><a class="dl" href="/ai-asset-foundry.html">Open AI Asset Foundry</a> — generate raw faces, people, icons, and callouts. Click to enlarge. Download saves the file and creates four more like it.</p>
       <div class="spark-grid">${sparks}</div>
+      <div id="ideas-rejected"></div>
     </section>
 
     <section id="categories">
@@ -1332,8 +1674,8 @@ function renderIdeas() {
     activeId: 'ideas',
     title: 'New Ad Ideas',
     pageTitle: 'New Ad Ideas',
-    pageSubtitle: 'Visual sparks · 15–20 concept workflow.',
-    body: body + CONCEPT_BUILDER_SCRIPT,
+    pageSubtitle: '15–20 concepts to test for demo sign-ups.',
+    body: body + CONCEPT_BUILDER_SCRIPT + IDEAS_FEEDBACK_SCRIPT,
   });
 }
 
@@ -1365,15 +1707,24 @@ function sizeStrip() {
 function formatGuideCard(spec, exampleMaster) {
   const uses = (spec.useCases || []).map((u) => `<li>${esc(u)}</li>`).join('');
   const safe = (spec.safeZones || []).map((s) => `<li>${esc(s)}</li>`).join('');
-  const example =
-    spec.id === '1x1' && exampleMaster
-      ? `<div class="ratio-guide__thumb">
+  const exampleCell = exampleMaster?.formats?.find((f) => f.formatId === spec.id);
+  let example;
+  if (spec.id === '1x1' && exampleMaster) {
+    example = `<div class="ratio-guide__thumb">
           <img src="${esc(exampleMaster.masterImage)}" alt="${esc(exampleMaster.name)} approved square example" loading="lazy" />
         </div>
-        <p class="lede" style="font-size:0.78rem;text-align:center;margin:0">Real approved example</p>`
-      : `<div class="format-placeholder" style="min-height:4.5rem;border:1px dashed #D6E4EC;border-radius:8px;width:100%;max-width:180px;display:flex;align-items:center;justify-content:center">
+        <p class="lede" style="font-size:0.78rem;text-align:center;margin:0">Real approved example</p>`;
+  } else if (exampleCell?.path) {
+    const label = exampleCell.status === 'AI Draft' ? 'AI draft — review before use' : 'Approved example';
+    example = `<div class="ratio-guide__thumb">
+          <img src="${esc(exampleCell.path)}" alt="${esc(exampleMaster.name)} ${esc(spec.label)} example" loading="lazy" />
+        </div>
+        <p class="lede" style="font-size:0.78rem;text-align:center;margin:0">${esc(label)}</p>`;
+  } else {
+    example = `<div class="format-placeholder" style="min-height:4.5rem;border:1px dashed #D6E4EC;border-radius:8px;width:100%;max-width:180px;display:flex;align-items:center;justify-content:center">
           <div><strong>AWAITING DESIGN</strong>No fake preview — rebuild this shape</div>
         </div>`;
+  }
 
   return `<article class="ratio-guide" id="format-${esc(spec.id)}">
   <div class="ratio-guide__visual">
@@ -1415,7 +1766,8 @@ function renderStatic() {
     return `<div class="soft-card">
   <img src="${esc(m.masterImage)}" alt="${esc(m.name)} 1:1" loading="lazy" />
   <h3>VMA-${esc(m.number)} · ${esc(m.name)}</h3>
-  <p><b>Ready:</b> ${esc(summary.approved)}</p>
+  <p><b>Approved:</b> ${esc(summary.approved)}</p>
+  <p><b>AI drafts (review):</b> ${esc(summary.drafts)}</p>
   <p><b>Still needed:</b> ${esc(summary.awaiting)}</p>
   <a class="dl" href="${esc(m.masterImage)}" target="_blank" rel="noopener">Open square master</a>
 </div>`;
@@ -1434,6 +1786,8 @@ function renderStatic() {
       <h1>Aspect Ratios</h1>
       <p>Same ad idea — four phone-friendly shapes. Start from an approved square, then rebuild the layout for tall feed, Stories/Reels, and wide placements.</p>
     </div>
+
+    <div class="banner"><strong>New: AI-drafted aspect ratios.</strong><span class="sub">Each approved master now has an AI-reframed 4:5, 9:16, and 1.91:1 draft below (exact Meta pixel sizes). These are <b>drafts for review</b> — check spelling, faces, hands, safe zones, and pink before use, then a designer finalizes the winners.</span></div>
 
     <section id="sizes-at-a-glance">
       <h2>The four sizes at a glance</h2>
@@ -1457,7 +1811,7 @@ function renderStatic() {
 
     <section id="how-each-size-works">
       <h2>How each size should feel</h2>
-      <p class="lede">Wireframes show where things usually go. Only the square has a real finished image today — other shapes stay <b>Awaiting Design</b>.</p>
+      <p class="lede">Wireframes show where things usually go. The square is the approved master; the other shapes now show an <b>AI draft</b> to react to.</p>
       ${guides}
     </section>
 
@@ -1516,15 +1870,17 @@ function competitorCard(ad) {
   return `<article class="comp-card">
   <div class="comp-card__media"><img src="${esc(ad.image)}" alt="${esc(ad.name)} ad reference" loading="lazy" /></div>
   <div class="comp-card__body">
-    ${pink ? `<span class="pink-ref">REFERENCE ONLY — DO NOT USE PINK</span>` : ''}
+    ${pink ? `<span class="pink-ref">REFERENCE ONLY — NO PINK</span>` : ''}
     <h3>${esc(ad.name)}</h3>
     <p class="why">${esc(ad.whyWatch || '—')}</p>
-    <p class="mini"><b>Offer / hook</b> ${esc(ad.offer || '—')}</p>
-    <p class="mini"><b>Category</b> ${esc(categoryLabel(ad.category))}</p>
-    <p class="mini"><b>Look</b> ${esc(ad.visual || '—')}</p>
-    <p class="mini"><a href="${esc(sourceHref)}" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> ${esc(ad.steal || '—')}</p>
-    <p class="mini"><b>Not to copy</b> ${esc(ad.reject || '—')}</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> ${esc(ad.offer || '—')}</p>
+      <p class="mini"><b>Look</b> ${esc(ad.visual || '—')}</p>
+      <p class="mini"><b>Steal</b> ${esc(ad.steal || '—')}</p>
+      <p class="mini"><b>Don’t copy</b> ${esc(ad.reject || '—')}</p>
+      <p class="mini"><a href="${esc(sourceHref)}" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article>`;
 }
@@ -1540,10 +1896,9 @@ function renderCompetitors() {
       <h1>Competitor Wall</h1>
       <p>${esc(COMPETITOR_META.intro)}</p>
     </div>
-    <p class="note"><b>${cards.length} creatives with real screenshots</b> · refreshed ${esc(updatedLabel)}. Only ads with images appear here — grab new Ad Library stills anytime and regenerate. Off-category scrapes (shoes, pet ads, consumer booking) stay blocked.</p>
+    <p class="note"><b>${cards.length} companies</b> · one card each · updated ${esc(updatedLabel)}. New brands first.</p>
 
     <section id="wall">
-      <h2>Image-first references</h2>
       <div class="comp-grid">${cards.map((a) => competitorCard(a)).join('')}</div>
     </section>`;
 
@@ -1551,12 +1906,320 @@ function renderCompetitors() {
     activeId: 'competitors',
     title: 'Competitor Wall',
     pageTitle: 'Competitor Wall',
-    pageSubtitle: `${cards.length} medical VA & adjacent creatives with images.`,
+    pageSubtitle: `${cards.length} companies · one card each.`,
     body,
   });
 }
 
 // ─── 6. Animated Video (vma-video.html) ──────────────────────────────────────
+
+const VIDEO_SUBNAV = [
+  { href: '/motion-concept-lab.html', label: 'Motion Lab' },
+  { href: '/vma-video.html', label: 'Specs & handoff' },
+];
+
+// In-browser Motion Lab — plays real CSS/JS motion so the team can WATCH the
+// techniques (typewriter, slide, fade, zoom, split) at every aspect ratio
+// without rendering or downloading a single file.
+const MOTION_LAB_CSS = `
+  .mlab { margin: 0 0 1.75rem; }
+  .mlab .lab-lede { color: #4A6275; max-width: 60rem; margin: 0 0 0.85rem; }
+  .mlab-bar {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;
+    background: #0B1F3A; border-radius: 12px; padding: 0.65rem 0.75rem; margin-bottom: 1.25rem;
+  }
+  .mlab-bar .grp { display: flex; gap: 0.3rem; align-items: center; }
+  .mlab-bar .glabel { color: #9DB6C6; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-right: 0.15rem; }
+  .mlab-bar .spacer { flex: 1; }
+  .rbtn {
+    font: inherit; font-size: 0.78rem; font-weight: 700; cursor: pointer;
+    border: 1px solid #2A4A62; background: #0F2A44; color: #DCEAF3;
+    border-radius: 999px; padding: 0.35rem 0.7rem; line-height: 1;
+  }
+  .rbtn:hover { border-color: #4B84A6; }
+  .rbtn.primary { background: #00B2E2; border-color: #00B2E2; color: #05263a; }
+  .rbtn.on { background: #C6F135; border-color: #C6F135; color: #10261a; }
+  .mlab-grid { display: grid; gap: 1.35rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .mlab-card { background: #fff; border: 1px solid #D6E4EC; border-radius: 16px; padding: 1rem 1rem 0.85rem; }
+  .mlab-card .tech {
+    display: inline-block; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+    color: #077999; background: #EEF6FA; border: 1px solid #C5DCE8; border-radius: 999px; padding: 0.2rem 0.55rem;
+  }
+  .mlab-card h3 { margin: 0.45rem 0 0.15rem; font-size: 1.1rem; }
+  .mlab-card .desc { margin: 0 0 0.75rem; font-size: 0.86rem; color: #4A6275; }
+  .stage-wrap { display: flex; justify-content: center; background: #0B1F3A; border-radius: 12px; padding: 14px; }
+  .mlab-stage {
+    position: relative; container-type: size; overflow: hidden; border-radius: 8px;
+    background: #0B1F3A; width: 100%; font-family: ${BRAND.fonts.family};
+  }
+  .mlab-stage[data-ratio="1x1"] { aspect-ratio: 1 / 1; max-width: 420px; }
+  .mlab-stage[data-ratio="4x5"] { aspect-ratio: 4 / 5; max-width: 360px; }
+  .mlab-stage[data-ratio="9x16"] { aspect-ratio: 9 / 16; max-width: 290px; }
+  .mlab-stage[data-ratio="1.91x1"] { aspect-ratio: 1.91 / 1; max-width: 540px; }
+  .mlab-stage .layer { position: absolute; inset: 0; }
+  .mlab-stage.paused * { animation-play-state: paused !important; }
+  .mlab-ctrls { display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: center; margin-top: 0.75rem; }
+  .mlab-ctrls .rsep { width: 1px; height: 18px; background: #D6E4EC; margin: 0 0.25rem; }
+  .mlab-ctrls .rbtn { border-color: #CBD9E2; background: #fff; color: #0D546B; }
+  .mlab-ctrls .rbtn.primary { background: #077999; border-color: #077999; color: #fff; }
+  .mlab-ctrls .rbtn.on { background: #0D546B; border-color: #0D546B; color: #fff; }
+
+  /* shared stage bits */
+  .stg-pad { position: absolute; inset: 9% 8%; display: flex; flex-direction: column; justify-content: center; gap: 3.5cqmin; }
+  .stg-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .stg-scrim-b { background: linear-gradient(to top, rgba(5,15,30,0.85), rgba(5,15,30,0) 55%); }
+  .kicker { font-size: 3.8cqmin; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; color: #7CE0FF; }
+  .headline { font-size: 10cqmin; font-weight: 800; line-height: 1.03; color: #fff; }
+  .type-caret { color: #C6F135; font-weight: 700; }
+  .chip { align-self: flex-start; font-size: 3.6cqmin; font-weight: 800; padding: 0.5em 0.8em; border-radius: 0.6em; }
+  .chip-lime { background: #C6F135; color: #10261a; }
+  .lower { position: absolute; left: 6%; right: 6%; bottom: 8%; }
+  .lower span { display: inline-block; background: #00B2E2; color: #05263a; font-weight: 800; font-size: 4.4cqmin; padding: 0.4em 0.7em; border-radius: 0.5em; }
+  .stg-words { position: absolute; inset: 0 8%; display: flex; flex-direction: column; justify-content: center; gap: 1.5cqmin; }
+  .word { font-size: 12cqmin; font-weight: 800; color: #fff; line-height: 1.02; }
+  .word-lime { color: #C6F135; }
+  .stg-left-scrim { background: linear-gradient(to right, rgba(6,16,32,0.92) 45%, rgba(6,16,32,0) 78%); }
+  .split-scene { position: absolute; inset: 0; }
+  .split-left, .split-right { position: absolute; top: 0; bottom: 0; width: 50%; display: grid; place-items: center; }
+  .split-left { left: 0; background: #E4002B; }
+  .split-right { right: 0; background: #0E7C66; }
+  .split-left span, .split-right span { font-size: 12cqmin; font-weight: 800; color: #fff; letter-spacing: 0.02em; }
+  .stamp {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0);
+    background: #F4C400; color: #0B1F3A; font-size: 10cqmin; font-weight: 800;
+    padding: 0.25em 0.5em; border-radius: 0.2em; border: 0.5cqmin solid #0B1F3A; z-index: 3;
+  }
+
+  /* animations only run while .playing */
+  .mlab-stage.playing .stg-grad { animation: mlZoomIn 6s ease-out both; }
+  .mlab-stage.playing .kicker { animation: mlFadeUp 0.6s ease 0.15s both; }
+  .mlab-stage.playing .chip { animation: mlFadeUp 0.6s ease 3.4s both; }
+  .mlab-stage.playing .type-caret { animation: mlBlink 0.7s step-end infinite; }
+  .mlab-stage.playing .stg-photo.kb { animation: mlKenBurns 6s ease-out both; }
+  .mlab-stage.playing .stg-photo.kbout { animation: mlKenBurnsOut 6s ease-out both; }
+  .mlab-stage.playing .stg-scrim-b { animation: mlFade 0.8s ease 0.6s both; }
+  .mlab-stage.playing .lower { animation: mlFadeUp 0.7s ease 1.3s both; }
+  .mlab-stage.playing .stg-photo.slide { animation: mlSlideInOut 6s ease both; }
+  .mlab-stage.playing .word.w1 { animation: mlSlideL 0.55s cubic-bezier(.2,.8,.2,1) 0.25s both; }
+  .mlab-stage.playing .word.w2 { animation: mlSlideL 0.55s cubic-bezier(.2,.8,.2,1) 0.7s both; }
+  .mlab-stage.playing .word.w3 { animation: mlSlideL 0.55s cubic-bezier(.2,.8,.2,1) 1.15s both; }
+  .mlab-stage.playing .split-left span { animation: mlPop 0.5s 0.25s both; }
+  .mlab-stage.playing .split-right { animation: mlWipe 0.6s cubic-bezier(.2,.8,.2,1) 1.7s both; }
+  .mlab-stage.playing .split-right span { animation: mlPop 0.5s 2s both; }
+  .mlab-stage.playing .split-scene { animation: mlPunch 0.6s ease 3.2s both; }
+  .mlab-stage.playing .stamp { animation: mlStamp 0.55s cubic-bezier(.2,1.5,.4,1) 3.7s both; }
+
+  @keyframes mlFadeUp { from { opacity: 0; transform: translateY(2.5cqmin); } to { opacity: 1; transform: none; } }
+  @keyframes mlFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes mlBlink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+  @keyframes mlZoomIn { from { transform: scale(1.02); } to { transform: scale(1.12); } }
+  @keyframes mlKenBurns { from { transform: scale(1) translate(0,0); } to { transform: scale(1.16) translate(-2%,-2%); } }
+  @keyframes mlKenBurnsOut { from { transform: scale(1.16); } to { transform: scale(1.0); } }
+  @keyframes mlSlideL { from { opacity: 0; transform: translateX(-34cqmin); } to { opacity: 1; transform: none; } }
+  @keyframes mlSlideInOut { 0% { transform: translateX(108%); } 22% { transform: translateX(0); } 78% { transform: translateX(0); } 100% { transform: translateX(-108%); } }
+  @keyframes mlWipe { from { transform: translateX(100%); } to { transform: translateX(0); } }
+  @keyframes mlPop { from { opacity: 0; transform: translateY(3cqmin) scale(0.92); } to { opacity: 1; transform: none; } }
+  @keyframes mlPunch { 0% { transform: scale(1); } 45% { transform: scale(1.13); } 100% { transform: scale(1.05); } }
+  @keyframes mlStamp { from { opacity: 0; transform: translate(-50%,-50%) scale(0) rotate(-14deg); } to { opacity: 1; transform: translate(-50%,-50%) scale(1) rotate(-7deg); } }
+  @media (prefers-reduced-motion: reduce) { .mlab-stage * { animation-duration: 0.001s !important; } }
+`;
+
+function motionCard({ tech, title, desc, ratio, total, vo, layers }) {
+  const ratios = [
+    ['1x1', '1:1'],
+    ['4x5', '4:5'],
+    ['9x16', '9:16'],
+    ['1.91x1', '1.91:1'],
+  ];
+  const ratioBtns = ratios
+    .map(([r, label]) => `<button class="rbtn ratio${r === ratio ? ' on' : ''}" data-ratio-set="${r}">${label}</button>`)
+    .join('');
+  return `<div class="mlab-card">
+    <span class="tech">${esc(tech)}</span>
+    <h3>${esc(title)}</h3>
+    <p class="desc">${esc(desc)}</p>
+    <div class="stage-wrap">
+      <div class="mlab-stage" data-ratio="${ratio}" data-total="${total}" data-vo="${esc(vo)}">${layers}</div>
+    </div>
+    <div class="mlab-ctrls">
+      <button class="rbtn primary" data-act="play">Play</button>
+      <button class="rbtn" data-act="replay">Replay</button>
+      <span class="rsep"></span>
+      ${ratioBtns}
+    </div>
+  </div>`;
+}
+
+function motionLab() {
+  const cardType = motionCard({
+    tech: 'Typewriter · gentle fade · slow zoom',
+    title: 'Type-on hook',
+    desc: 'Headline types out over a slow drifting background, then the CTA gently rises in.',
+    ratio: '4x5',
+    total: 6000,
+    vo: 'Front desk overloaded? Hire a virtual medical admin.',
+    layers: `<div class="layer stg-grad" style="background:linear-gradient(135deg,#0B1F3A,#0A3D91)"></div>
+      <div class="stg-pad">
+        <div class="kicker">Front desk overloaded?</div>
+        <div class="headline"><span data-typetext data-full="Stop missing patient calls." data-start="700" data-dur="2100"></span><span class="type-caret">|</span></div>
+        <div class="chip chip-lime">Hire a Virtual Medical Admin →</div>
+      </div>`,
+  });
+
+  const cardSlide = motionCard({
+    tech: 'Words slide in · human layer slides across',
+    title: 'Slide build',
+    desc: 'Headline, transparent human PNG, benefits, icons, and CTA move independently.',
+    ratio: '4x5',
+    total: 6000,
+    vo: 'Dedicated. Trained. Yours.',
+    layers: `<div class="layer" style="background:#0B1F3A"></div>
+      <div class="layer stg-photo slide"><img src="/assets/video-elements/people/admin-lime.png" alt="Isolated virtual medical admin layer" style="object-fit:contain;object-position:right bottom" /></div>
+      <div class="layer stg-left-scrim"></div>
+      <div class="stg-words">
+        <div class="word w1">Dedicated.</div>
+        <div class="word w2">Trained.</div>
+        <div class="word w3 word-lime">Yours.</div>
+      </div>`,
+  });
+
+  return `
+    <style>${MOTION_LAB_CSS}</style>
+    <section id="motion-lab" class="mlab">
+      <h2 class="section-head">${icon('video')} Motion Lab — watch in your browser</h2>
+      <p class="lab-lede">These play live in the page (code-driven, no render, no download) so we can react fast. Each shows a core Meta-ad motion technique. Switch any clip between all four aspect ratios. This is a capability check, not a finished spot — direction welcome.</p>
+      <div class="mlab-bar">
+        <span class="glabel">All clips</span>
+        <div class="grp"><button class="rbtn primary" id="mlab-play-all">▶ Play all</button><button class="rbtn" id="mlab-pause-all">❚❚ Pause</button></div>
+        <span class="glabel" style="margin-left:0.6rem">Ratio</span>
+        <div class="grp">
+          <button class="rbtn" data-ratio-all="1x1">1:1</button>
+          <button class="rbtn on" data-ratio-all="4x5">4:5</button>
+          <button class="rbtn" data-ratio-all="9x16">9:16</button>
+          <button class="rbtn" data-ratio-all="1.91x1">1.91:1</button>
+        </div>
+        <span class="spacer"></span>
+        <button class="rbtn" id="mlab-vo">Voiceover: Off</button>
+      </div>
+      <div class="mlab-grid">
+        ${cardType}
+        ${cardSlide}
+      </div>
+    </section>`;
+}
+
+const MOTION_LAB_JS = `
+<script>
+(function(){
+  var stages = [];
+  var voiceOn = false;
+  function speakFor(stage){
+    if (!voiceOn) return;
+    if (!('speechSynthesis' in window)) return;
+    var line = stage.el.getAttribute('data-vo');
+    if (!line) return;
+    try { window.speechSynthesis.cancel(); var u = new SpeechSynthesisUtterance(line); u.rate = 1; window.speechSynthesis.speak(u); } catch (e) {}
+  }
+  function Stage(el){
+    this.el = el;
+    this.total = parseInt(el.getAttribute('data-total'), 10) || 6000;
+    this.t = 0; this.playing = false; this.raf = null; this.last = 0;
+    this.typers = [];
+    var nodes = el.querySelectorAll('[data-typetext]');
+    for (var i = 0; i < nodes.length; i++){
+      var n = nodes[i];
+      this.typers.push({ node: n, full: n.getAttribute('data-full') || '', start: parseInt(n.getAttribute('data-start'), 10) || 0, dur: parseInt(n.getAttribute('data-dur'), 10) || 1200 });
+    }
+    this.tick = this.tick.bind(this);
+    this.resetTypers();
+  }
+  Stage.prototype.resetTypers = function(){ for (var i = 0; i < this.typers.length; i++){ this.typers[i].node.textContent = ''; } };
+  Stage.prototype.updateTypers = function(t){
+    for (var i = 0; i < this.typers.length; i++){
+      var ty = this.typers[i];
+      var p = (t - ty.start) / ty.dur; if (p < 0) p = 0; if (p > 1) p = 1;
+      var chars = Math.round(p * ty.full.length);
+      var cur = ty.full.slice(0, chars);
+      if (ty.node.textContent !== cur) ty.node.textContent = cur;
+    }
+  };
+  Stage.prototype.hardStart = function(){
+    this.el.classList.remove('playing'); this.el.classList.remove('paused');
+    void this.el.offsetWidth;
+    this.el.classList.add('playing');
+    this.t = 0; this.resetTypers();
+  };
+  Stage.prototype.play = function(){
+    if (this.playing) return;
+    if (!this.el.classList.contains('playing')) this.hardStart();
+    this.el.classList.remove('paused');
+    this.playing = true; this.last = performance.now();
+    this.raf = requestAnimationFrame(this.tick);
+  };
+  Stage.prototype.pause = function(){ this.playing = false; if (this.raf) cancelAnimationFrame(this.raf); this.el.classList.add('paused'); };
+  Stage.prototype.toggle = function(){ if (this.playing) this.pause(); else this.play(); };
+  Stage.prototype.replay = function(){ this.hardStart(); this.el.classList.remove('paused'); this.playing = true; this.last = performance.now(); this.raf = requestAnimationFrame(this.tick); speakFor(this); };
+  Stage.prototype.tick = function(now){
+    if (!this.playing) return;
+    var dt = now - this.last; this.last = now; this.t += dt;
+    if (this.t >= this.total){ this.hardStart(); speakFor(this); }
+    this.updateTypers(this.t);
+    this.raf = requestAnimationFrame(this.tick);
+  };
+  Stage.prototype.setRatio = function(r){
+    this.el.setAttribute('data-ratio', r);
+    var imgs = this.el.querySelectorAll('[data-src-base]');
+    for (var i = 0; i < imgs.length; i++){ imgs[i].src = imgs[i].getAttribute('data-src-base') + r + '.png'; }
+  };
+  function setAllPlayLabels(txt){ var b = document.querySelectorAll('[data-act="play"]'); for (var i = 0; i < b.length; i++) b[i].textContent = txt; }
+  document.addEventListener('DOMContentLoaded', function(){
+    var stageEls = document.querySelectorAll('.mlab-stage');
+    for (var i = 0; i < stageEls.length; i++){
+      (function(el){
+        var s = new Stage(el); stages.push(s);
+        var card = el.closest('.mlab-card');
+        var playBtn = card.querySelector('[data-act="play"]');
+        var replayBtn = card.querySelector('[data-act="replay"]');
+        if (playBtn) playBtn.addEventListener('click', function(){ s.toggle(); playBtn.textContent = s.playing ? 'Pause' : 'Play'; });
+        if (replayBtn) replayBtn.addEventListener('click', function(){ s.replay(); if (playBtn) playBtn.textContent = 'Pause'; });
+        var rbtns = card.querySelectorAll('[data-ratio-set]');
+        for (var j = 0; j < rbtns.length; j++){
+          (function(btn){
+            btn.addEventListener('click', function(){
+              for (var k = 0; k < rbtns.length; k++) rbtns[k].classList.remove('on');
+              btn.classList.add('on');
+              s.setRatio(btn.getAttribute('data-ratio-set')); s.replay();
+              if (playBtn) playBtn.textContent = 'Pause';
+            });
+          })(rbtns[j]);
+        }
+      })(stageEls[i]);
+    }
+    var playAll = document.getElementById('mlab-play-all');
+    var pauseAll = document.getElementById('mlab-pause-all');
+    var voToggle = document.getElementById('mlab-vo');
+    var ratioAll = document.querySelectorAll('[data-ratio-all]');
+    if (playAll) playAll.addEventListener('click', function(){ for (var i = 0; i < stages.length; i++) stages[i].replay(); setAllPlayLabels('Pause'); });
+    if (pauseAll) pauseAll.addEventListener('click', function(){ if ('speechSynthesis' in window) window.speechSynthesis.cancel(); for (var i = 0; i < stages.length; i++) stages[i].pause(); setAllPlayLabels('Play'); });
+    if (voToggle) voToggle.addEventListener('click', function(){ voiceOn = !voiceOn; voToggle.classList.toggle('on', voiceOn); voToggle.textContent = voiceOn ? 'Voiceover: On' : 'Voiceover: Off'; if (!voiceOn && 'speechSynthesis' in window) window.speechSynthesis.cancel(); });
+    for (var i = 0; i < ratioAll.length; i++){
+      (function(btn){
+        btn.addEventListener('click', function(){
+          for (var k = 0; k < ratioAll.length; k++) ratioAll[k].classList.remove('on');
+          btn.classList.add('on');
+          var r = btn.getAttribute('data-ratio-all');
+          for (var s = 0; s < stages.length; s++){ stages[s].setRatio(r); stages[s].replay(); }
+          var cardRb = document.querySelectorAll('[data-ratio-set]');
+          for (var m = 0; m < cardRb.length; m++) cardRb[m].classList.toggle('on', cardRb[m].getAttribute('data-ratio-set') === r);
+          setAllPlayLabels('Pause');
+        });
+      })(ratioAll[i]);
+    }
+    for (var i = 0; i < stages.length; i++) stages[i].play();
+    setAllPlayLabels('Pause');
+  });
+})();
+</script>`;
 
 function renderVideo() {
   const outputsPerMaster = APPROVED_MASTERS.map(
@@ -1610,11 +2273,65 @@ function renderVideo() {
 
   const body = `
     <div class="hero">
-      <h1>Turn Approved Static Ads Into Short Videos</h1>
-      <p>Animate the four approved masters — motion inherits the same hierarchy, colors, and claims as the static baseline.</p>
+      <h1>Animated Video</h1>
+      <p><b>Start in the Motion Lab.</b> Watch four Remotion concepts in your browser — tweak copy, preview motion, export stills. Use the specs below when you build the final MP4.</p>
     </div>
 
+    <section id="motion-lab-entry" class="primary-task">
+      <h2 class="section-head">${icon('video')} Motion Concept Lab</h2>
+      <p class="lede">Four short-form VMA videos you can play right now — hook roll, checklist reveal, problem→person, dedicated-staff cards. No download, no render queue.</p>
+      <div class="quick-links">
+        <a href="/motion-concept-lab.html" class="primary-link">${icon('video')} Open Motion Concept Lab</a>
+        <a href="/motion-concept-lab.html#MV-HOOK-HUMAN-01">${icon('idea')} Hook roll concept</a>
+        <a href="/ideas.html#spark-gallery">${icon('idea')} Spark stills to animate</a>
+      </div>
+    </section>
+
+    <section id="sound-specs">
+      <h2 class="section-head">${icon('video')} Sound, voice &amp; Meta specs</h2>
+      <p class="lede">The clips above are silent by design (Meta plays muted first — always caption-first). Toggle <b>Voiceover</b> to hear a rough browser text-to-speech read; that's a preview only. Real options below.</p>
+      <div class="queue-grid">
+        <div class="soft-card">
+          <h3>Human-quality voiceover</h3>
+          <ul class="clean">
+            <li><b>ElevenLabs</b> — most natural; English + Spanish, cloned or stock voices.</li>
+            <li><b>OpenAI TTS</b> (gpt-4o-mini-tts) — fast, cheap, good for scratch VO.</li>
+            <li><b>Azure / Google Neural</b> — enterprise, many Spanish locales.</li>
+            <li><b>Browser TTS</b> (used here) — free, instant, robotic — preview only.</li>
+          </ul>
+        </div>
+        <div class="soft-card">
+          <h3>Music &amp; SFX (licensed)</h3>
+          <ul class="clean">
+            <li><b>Meta Sound Collection</b> — free, cleared for Meta ads.</li>
+            <li><b>Artlist / Epidemic Sound</b> — subscription, broad library.</li>
+            <li>Keep beds subtle; design so the ad works with sound OFF.</li>
+            <li>Add whoosh/tick SFX on each transition to sell the motion.</li>
+          </ul>
+        </div>
+        <div class="soft-card">
+          <h3>Meta video specs (2026)</h3>
+          <ul class="clean">
+            <li><b>Feed</b> 4:5 · 1080×1350 · 15–30s sweet spot.</li>
+            <li><b>Reels / Stories</b> 9:16 · 1080×1920 · 6–15s.</li>
+            <li><b>Square</b> 1:1 · 1080×1080 (Marketplace / carousel).</li>
+            <li>Hook in the first 2s. H.264 MP4, ≤4GB, 30fps.</li>
+          </ul>
+        </div>
+        <div class="soft-card">
+          <h3>9:16 safe zone</h3>
+          <ul class="clean">
+            <li>Keep text/logos out of the top ~250px (handle/close).</li>
+            <li>And the bottom ~340–670px (caption + CTA button).</li>
+            <li>Design key content in the center band.</li>
+            <li>One 9:16 master covers both Reels and Stories.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section id="masters">
+      <h2 class="section-head">${icon('approved')} Source: approved masters</h2>
       ${mastersGrid('md')}
     </section>
 
@@ -1658,20 +2375,63 @@ function renderVideo() {
           <div class="prompt-grid">${prompts}</div>
         </div>
       </div>
-    </section>`;
+    </section>
+    `;
 
   return page({
     activeId: 'vma-video',
     title: 'Animated Video',
     pageTitle: 'Animated Video',
-    pageSubtitle: 'Motion from approved statics.',
+    pageSubtitle: 'Motion Lab · specs · CapCut / Remotion handoff.',
+    subnav: VIDEO_SUBNAV,
+    activeSubHref: '/vma-video.html',
     body,
   });
 }
 
 // ─── 7. Prompts & Copy (vma-chatgpt.html) ────────────────────────────────────
 
-function renderCopyPack(packs, langLabel) {
+function promptResultCard(item, { square = false } = {}) {
+  const prompt = item.prompt || '';
+  const tag = item.tag || item.category || item.colorStory || 'Prompt → result';
+  const hook = item.hook || item.angle || item.spark || '';
+  return `<article class="pr-card">
+  <div class="pr-card__media${square ? ' square' : ''}">
+    <img src="${esc(item.image)}" alt="${esc(item.title || item.headline)} result" loading="lazy" />
+  </div>
+  <div class="pr-card__body">
+    <span class="pr-card__tag">${esc(tag)}</span>
+    <h3>${esc(item.title || item.headline)}</h3>
+    ${hook ? `<p>${esc(hook)}</p>` : ''}
+    <div class="pr-actions">
+      <button type="button" class="copy-btn" data-copy="${esc(prompt)}">Copy prompt</button>
+    </div>
+    <details>
+      <summary>Show prompt</summary>
+      <div class="prompt-body">${esc(prompt)}</div>
+    </details>
+  </div>
+</article>`;
+}
+
+function copyPickCard(pack, langLabel) {
+  const headlines = (pack.headlines || []).slice(0, 3);
+  const primaries = (pack.primaryTexts || []).slice(0, 2);
+  const lines = [
+    ...headlines.map((h) => ({ label: 'H', text: h })),
+    ...primaries.map((p) => ({ label: 'P', text: p })),
+  ];
+  return `<div class="copy-pick">
+  <h3>${esc(pack.name)} · ${esc(langLabel)}</h3>
+  ${lines
+    .map(
+      (l) => `<div class="line"><button type="button" class="copy-btn" data-copy="${esc(l.text)}">Copy</button><span><b>${esc(l.label)}</b> ${esc(l.text)}</span></div>`,
+    )
+    .join('')}
+</div>`;
+}
+
+function renderCopyPackFull(packs, langLabel) {
   return packs
     .map((pack) => {
       const sections = [
@@ -1680,16 +2440,15 @@ function renderCopyPack(packs, langLabel) {
         ['Descriptions', pack.descriptions],
         ['CTAs', pack.ctas],
       ]
-        .filter(([, lines]) => Array.isArray(lines) && lines.length)
+        .filter(([, rows]) => Array.isArray(rows) && rows.length)
         .map(
-          ([title, lines]) => `<details class="block"><summary>${esc(title)} (${lines.length})</summary>
-  ${lines.map((line) => `<div style="margin:0.45rem 0">${copyBlock(line)}</div>`).join('')}
+          ([title, rows]) => `<details class="block"><summary>${esc(title)} (${rows.length})</summary>
+  ${rows.map((line) => `<div style="margin:0.45rem 0">${copyBlock(line)}</div>`).join('')}
 </details>`,
         )
         .join('');
       return `<div class="soft-card" style="grid-column:1/-1">
   <h3>${esc(pack.name)} · ${esc(langLabel)}</h3>
-  <p>Matching form: ${esc(pack.matchingForm || '—')}</p>
   ${sections}
 </div>`;
     })
@@ -1697,13 +2456,13 @@ function renderCopyPack(packs, langLabel) {
 }
 
 function renderChatgpt() {
-  const workflow = CHATGPT_WORKFLOW.map(
-    (s) => `<div class="soft-card"><div class="master-card__meta">Step ${esc(s.step)}</div><h3>${esc(s.title)}</h3><p>${esc(s.instruction)}</p></div>`,
-  ).join('');
+  // Visual proof first — people won't read a prompt wall. Show what it made.
+  const sparkResults = IDEA_SPARK_CONCEPTS.map((c) => promptResultCard(c, { square: true })).join('');
 
-  const qaChecks = VMA_META.chatgptQaChecks.map((c) => `<span class="chip">${esc(c)}</span>`).join('');
+  const copyEnPicks = COPY_EN.slice(0, 4).map((p) => copyPickCard(p, 'EN')).join('');
+  const copyEsPicks = (COPY_ES || []).slice(0, 3).map((p) => copyPickCard(p, 'ES')).join('');
 
-  const imagePrompts = CHATGPT_PROMPTS.map(
+  const fullImageBank = CHATGPT_PROMPTS.map(
     (p) => `<div class="soft-card">
   <h3>${esc(p.id)} · ${esc(p.title)}</h3>
   <p>${esc(p.conceptNumber)} · ${esc(p.colorFamily)}</p>
@@ -1711,7 +2470,7 @@ function renderChatgpt() {
 </div>`,
   ).join('');
 
-  const videoPrompts = VIDEO_PROMPTS.map(
+  const fullVideoBank = VIDEO_PROMPTS.map(
     (p) => `<div class="soft-card">
   <h3>${esc(p.id)} · ${esc(p.title)}</h3>
   <p>${esc(p.duration)}</p>
@@ -1719,58 +2478,70 @@ function renderChatgpt() {
 </div>`,
   ).join('');
 
+  const qaLine = (VMA_META.chatgptQaChecks || []).slice(0, 6).join(' · ');
+
   const body = `
     <div class="hero">
       <h1>Prompts &amp; Copy</h1>
-      <p>The ChatGPT concept workflow, image and video prompt banks, and English / Spanish copy — all in one place.</p>
+      <p><b>See the result first.</b> Copy the prompt that made it. Long banks stay collapsed below for when you need them.</p>
     </div>
 
-    <section id="workflow">
-      <h2>ChatGPT Workflow</h2>
-      <div class="queue-grid">${workflow}</div>
+    <p class="note">Before anything ships: spelling · no pink · claims · Spanish · logos · hands. ${esc(qaLine)}</p>
+
+    <section id="prompt-results">
+      <h2 class="section-head">${icon('idea')} Prompt → result</h2>
+      <p class="lede">These images were generated from the prompts underneath. Open / copy a prompt when you want a similar swing — not a launch-ready ad.</p>
+      <div class="pr-grid">${sparkResults}</div>
     </section>
 
-    <div class="callout-rule">CHATGPT MAY GENERATE COMPLETE ADS. The team may use AI-generated creative for testing.</div>
-    <section id="qa-checks">
-      <h2>Check Every Word Before Shipping</h2>
-      <div>${qaChecks}</div>
+    <section id="video-prompts">
+      <h2 class="section-head">${icon('video')} Video motion</h2>
+      <p class="lede">Don't guess from a wall of video prompts. Watch the Motion Lab, then steal the technique you like.</p>
+      <div class="quick-links">
+        <a href="/motion-concept-lab.html">${icon('video')} Open Motion Lab — watch in browser</a>
+        <a href="/ideas.html#spark-gallery">${icon('idea')} Spark stills that animate well</a>
+      </div>
+      <details class="block" style="margin-top:1rem">
+        <summary>Full video prompt bank (${VIDEO_PROMPTS.length}) — text only</summary>
+        <p class="note">No rendered preview for these yet. Use Motion Lab for the visual, these for CapCut / Remotion wording.</p>
+        <div class="prompt-grid">${fullVideoBank}</div>
+      </details>
     </section>
 
-    <section data-tabs id="banks">
-      <div class="tabs">
-        <button type="button" class="active" data-tab="images">Image prompts</button>
-        <button type="button" data-tab="video">Video prompts</button>
-        <button type="button" data-tab="english">English</button>
-        <button type="button" data-tab="spanish">Spanish</button>
-        <button type="button" data-tab="builder">Copy builder</button>
-      </div>
-      <div class="tab-panels">
-        <div class="tab-panel active" data-panel="images" id="images">
-          <div class="prompt-grid">${imagePrompts}</div>
-        </div>
-        <div class="tab-panel" data-panel="video" id="video">
-          <div class="prompt-grid">${videoPrompts}</div>
-        </div>
-        <div class="tab-panel" data-panel="english" id="english">
-          <div class="copy-grid">${renderCopyPack(COPY_EN, 'EN')}</div>
-        </div>
-        <div class="tab-panel" data-panel="spanish" id="spanish">
-          <div class="copy-grid">${renderCopyPack(COPY_ES, 'ES')}</div>
-        </div>
-        <div class="tab-panel" data-panel="builder" id="builder">
-          <div class="soft-card">
-            <h3>Copy Builder</h3>
-            <p>Pick one primary text, one headline, and one description from the English or Spanish tabs. Pair with an approved CTA. Keep only claims already on the approved masters — see <a href="/vma-handoff.html#claims">claims status</a>.</p>
-          </div>
-        </div>
-      </div>
+    <section id="quick-copy">
+      <h2 class="section-head">${icon('prompt')} Quick copy picks</h2>
+      <p class="lede">A few headlines and primary texts you can steal into Meta. Full packs collapsed under each language.</p>
+      <h3 style="margin:0.75rem 0 0.35rem;font-size:1rem">English</h3>
+      <div class="copy-picks">${copyEnPicks}</div>
+      <details class="block" style="margin-top:0.75rem">
+        <summary>Full English copy bank</summary>
+        <div class="copy-grid">${renderCopyPackFull(COPY_EN, 'EN')}</div>
+      </details>
+      <h3 style="margin:1.25rem 0 0.35rem;font-size:1rem">Spanish</h3>
+      <div class="copy-picks">${copyEsPicks}</div>
+      <details class="block" style="margin-top:0.75rem">
+        <summary>Full Spanish copy bank</summary>
+        <div class="copy-grid">${renderCopyPackFull(COPY_ES, 'ES')}</div>
+      </details>
+    </section>
+
+    <section id="full-image-bank">
+      <details class="block">
+        <summary>Full image prompt bank (${CHATGPT_PROMPTS.length}) — no preview images</summary>
+        <p class="note">Older production prompts without generated plates. Prefer Prompt → result above when you can.</p>
+        <div class="prompt-grid">${fullImageBank}</div>
+      </details>
+      <details class="block">
+        <summary>ChatGPT workflow (8 steps)</summary>
+        <ol class="clean">${CHATGPT_WORKFLOW.map((s) => `<li><b>${esc(s.title)}</b> — ${esc(s.instruction)}</li>`).join('')}</ol>
+      </details>
     </section>`;
 
   return page({
     activeId: 'vma-chatgpt',
     title: 'Prompts & Copy',
     pageTitle: 'Prompts & Copy',
-    pageSubtitle: 'ChatGPT, video prompts, EN/ES copy.',
+    pageSubtitle: 'See the result · copy the prompt.',
     body,
   });
 }
@@ -1812,14 +2583,14 @@ function renderHandoff() {
     ? ordered
         .map((m, i) => {
           const cell = m.formats.find((f) => f.formatId === waveSpec.id);
-          const status = cell?.status === 'Approved' ? 'Approved' : 'Awaiting Design';
+          const status = cell?.status || 'Awaiting Design';
           return `<div class="soft-card">
   <div class="master-card__meta">Build order ${i + 1} · VMA-${esc(m.number)}</div>
   <h3>${esc(m.name)}</h3>
   <p>Target: <b>${esc(waveSpec.label)}</b> · ${esc(waveSpec.dims)}</p>
   <p>Filename: <code>${esc(cell?.expectedFilename || `${m.stem}_${waveSpec.id}.png`)}</code></p>
   <p>${statusBadge(status)}</p>
-  <a class="dl" href="${esc(m.masterImage)}" target="_blank" rel="noopener">Open approved master PNG</a>
+  <a class="dl" href="${esc(m.masterImage)}" target="_blank" rel="noopener">Open master</a>
 </div>`;
         })
         .join('')
@@ -1866,109 +2637,134 @@ function renderHandoff() {
     ? `After this wave: ${followingSpec.label} (${followingSpec.dims}), then the next size — still one wave at a time.`
     : 'After this wave: idea factory or video — still one finish line at a time.';
 
+  const steps = waveSpec
+    ? `<ol class="job-steps">
+      <li>Open the approved 1:1 master — the <b>Open master</b> button on each card below, or the <a href="/vma-approved.html">Approved Creative</a> page.</li>
+      <li>Rebuild the layout for the <b>${esc(waveLabel)}</b> canvas. Move and resize the pieces to fit — never stretch or crop the square.</li>
+      <li>Keep the same headline, colors, services, and offer. Make the headline big and easy to read on a phone.</li>
+      <li><b>No pink</b> anywhere. The logo is <b>MedVirtual</b> only — never “MedVirtual.ai”.</li>
+      <li>Export a PNG at exactly <b>${esc(waveSpec.dims)}</b>, using the filename printed on each card.</li>
+      <li>Save an editable source too (PSD, AI, or Figma) so we can tweak later.</li>
+      <li>Run the quick check below, then send the finished set in for review.</li>
+    </ol>`
+    : `<p>All four sizes are approved for every master — nice work. Pick up “What’s next” below.</p>`;
+
   const body = `
     <div class="hero">
       <h1>Production Handoff</h1>
-      <p>What to ship next. Finish this wave before starting the next.</p>
-      <p class="lede">We want strong finished packs Hailey can move — not twenty half-started tabs.</p>
+      <p>Hi team — this is your go-to page for <b>what to build next</b> so our ads stop the scroll and book demos.</p>
+      <p class="lede">Read the priority, follow the steps, run the quick check, send it in for review. Everything else on this page is optional reference, tucked away below.</p>
     </div>
 
     <section id="priority-now">
-      <h2>Priority Now</h2>
+      <h2 class="section-head">${icon('target')} Do this first</h2>
       <div class="job-box">
-        <p><b>Wave:</b> Resize the 4 approved masters into <b>${esc(waveLabel)}</b>.</p>
-        <p>Build order: ${GRAPHICS_BUILD_ORDER.map((n) => `VMA-${esc(n)}`).join(' → ')}</p>
-        <p class="note">Layout notes live on <a href="/vma-static.html">Aspect Ratios</a> — rebuild each canvas; do not stretch or center-crop the square.</p>
+        <p style="font-size:1.05rem"><b>Resize the 4 approved masters into ${esc(waveLabel)}.</b></p>
+        <p>Work in this order: ${GRAPHICS_BUILD_ORDER.map((n) => `<b>VMA-${esc(n)}</b>`).join(' → ')}</p>
+        ${steps}
       </div>
+    </section>
+
+    <section id="jobs">
+      <h2 class="section-head">${icon('formats')} The 4 files to make</h2>
+      <p class="lede">One card per master. Open the approved design, rebuild it at ${esc(waveSpec ? waveSpec.dims : 'the target size')}, and save it with the filename shown.</p>
       <div class="queue-grid">${waveCards}</div>
-      <p class="note" id="ops">Ops / Meta — if uploading the existing 1:1 pack is faster today: <a href="/exports/meta-upload-ready-vma/README_UPLOAD_NOW.md">Meta upload-ready pack</a>. That is ops work, not the designer wave above.</p>
     </section>
 
-    <section id="done">
-      <h2>Done for this wave</h2>
-      <div class="soft-card">
-        <ul class="clean">
-          <li>4 PNGs at correct dimensions (${esc(waveSpec ? waveSpec.dims : 'n/a')}) with expected filenames</li>
-          <li>One editable source (or 4 linked sources)</li>
-          <li>Essential QA checked</li>
-          <li>Ready for Hailey review</li>
-        </ul>
-        <p class="note">Done is not “every cell in the matrix green.”</p>
-      </div>
-    </section>
-
-    <section id="pace">
-      <h2>Pace</h2>
-      <div class="soft-card">
-        <p>Prefer <b>one complete wave</b> (e.g. four ${esc(waveSpec ? waveSpec.label : '4:5')}s) over starting 15–20 new concepts.</p>
-        <p>Aim for about one wave per person before picking up new work — a soft guide, not a timesheet.</p>
-        <p>${esc(nextWaveHint)}</p>
-        <p class="note">Idea factory (15–20 concepts) stays in <b>Later</b> below — not the ask on this page.</p>
+    <section id="rules">
+      <h2 class="section-head">${icon('approved')} Keep it on-brand</h2>
+      <div class="callout-rule">Most important: <b>never use pink</b> · logo is <b>MedVirtual</b>, never MedVirtual.ai · rebuild each size, don’t stretch.</div>
+      <div class="two-cols">
+        <div class="soft-card"><h3>Please do</h3><ul class="clean do-list">${dos}</ul></div>
+        <div class="soft-card"><h3>Please don’t</h3><ul class="clean dont-list">${donts}</ul></div>
       </div>
     </section>
 
     <section id="qa">
-      <h2>Essential QA</h2>
+      <h2 class="section-head">${icon('eye')} Quick check before you send</h2>
+      <p class="lede">Tick these off — it saves a review round-trip.</p>
       <ul class="checklist">${qa}</ul>
     </section>
 
-    <details class="block" id="matrix">
-      <summary>Full size backlog (status matrix)</summary>
-      <p class="lede">Green = approved. Yellow = Awaiting Design.</p>
-      <table class="matrix">
-        <thead><tr><th>Concept</th>${matrixHead}</tr></thead>
-        <tbody>${matrixRows}</tbody>
-      </table>
-    </details>
-
-    <details class="block" id="request">
-      <summary>Later: idea batch + multi-size builds</summary>
-      <div class="job-box">
-        <p><b>Later request:</b> 15–20 new concepts (see <a href="/ideas.html">New Ad Ideas</a>).</p>
-        <p><b>After review:</b> build the strongest concepts in all 4 required sizes.</p>
-        <p>Required sizes:</p>
-        <div style="margin:0.5rem 0">${sizeChips}</div>
-        <p class="note">Every concept that moves to design ships in all 4 sizes, plus an editable source file (PSD / AI / Figma) per concept.</p>
-      </div>
-    </details>
-
-    <details class="block" id="claims">
-      <summary>Claims (ops — pending confirmation)</summary>
-      <div class="claim-grid">${dashClaims}</div>
-      <p class="note">Do not invent claims. Detailed tracking stays in the team spreadsheet.</p>
-    </details>
-
-    <details class="block" id="rules">
-      <summary>Rules (quick)</summary>
-      <div class="two-cols">
-        <div class="soft-card"><h3>Do</h3><ul class="clean do-list">${dos}</ul></div>
-        <div class="soft-card"><h3>Don't</h3><ul class="clean dont-list">${donts}</ul></div>
-      </div>
-    </details>
-
-    <details class="block" id="form">
-      <summary>Not for graphics — current Meta form (ops only)</summary>
+    <section id="done">
+      <h2 class="section-head">${icon('approved')} What “finished” looks like</h2>
       <div class="soft-card">
-        <h3>${esc(form.name)}</h3>
-        <p><b>Intro:</b> ${esc(form.introHeadline)} — ${esc(form.introDescription)}</p>
-        <p><b>Routing:</b> ${esc(form.routingQuestion)}</p>
-        <ul class="clean">${answers}</ul>
-        <p style="margin-top:0.5rem">${formFields}</p>
-        <p>${esc(form.privacyMessage)}</p>
-        <p><b>End:</b> ${esc(form.endHeadline)} — ${esc(form.endDescription)}</p>
-        <p><a href="${esc(form.demoLink)}" target="_blank" rel="noopener">${esc(form.demoCta)}</a></p>
+        <ul class="clean">
+          <li>4 PNGs at the right size (${esc(waveSpec ? waveSpec.dims : 'n/a')}) with the correct filenames</li>
+          <li>An editable source file (PSD / AI / Figma)</li>
+          <li>Quick check ticked off</li>
+          <li>Sent in for review</li>
+        </ul>
+        <p class="note">“Finished” is one complete size wave — not every cell in the big matrix turned green.</p>
       </div>
-    </details>
+    </section>
+
+    <section id="whats-next">
+      <h2 class="section-head">${icon('idea')} What’s next</h2>
+      <div class="soft-card">
+        <p>${esc(nextWaveHint)}</p>
+        <p class="note">Prefer finishing one clean wave over starting lots of new concepts. Roughly one wave per person before picking up new work — a guide, not a timesheet.</p>
+      </div>
+    </section>
+
+    <section id="more">
+      <h2 class="section-head">${icon('links')} More reference (optional)</h2>
+      <p class="lede">You don’t need these for the job above — open only if you want more detail.</p>
+
+      <details class="block" id="matrix">
+        <summary>Full size backlog (status matrix)</summary>
+        <p class="lede">Green = approved. Teal = AI draft (review). Yellow = still to design.</p>
+        <table class="matrix">
+          <thead><tr><th>Concept</th>${matrixHead}</tr></thead>
+          <tbody>${matrixRows}</tbody>
+        </table>
+      </details>
+
+      <details class="block" id="request">
+        <summary>Later: new idea batch + multi-size builds</summary>
+        <div class="job-box">
+          <p><b>Later request:</b> 15–20 new concepts (see <a href="/ideas.html">New Ad Ideas</a>).</p>
+          <p><b>After review:</b> build the strongest concepts in all 4 sizes:</p>
+          <div style="margin:0.5rem 0">${sizeChips}</div>
+          <p class="note">Each concept that moves forward ships in all 4 sizes plus an editable source file.</p>
+        </div>
+      </details>
+
+      <details class="block" id="claims">
+        <summary>Claims status (don’t invent claims)</summary>
+        <div class="claim-grid">${dashClaims}</div>
+        <p class="note">Only use claims marked approved. Detailed tracking lives in the team spreadsheet.</p>
+      </details>
+
+      <details class="block" id="ops-upload">
+        <summary>Ops only — Meta upload pack</summary>
+        <p class="note">Not the designer job. If uploading the existing 1:1 pack is faster today: <a href="/exports/meta-upload-ready-vma/README_UPLOAD_NOW.md">Meta upload-ready pack</a>.</p>
+      </details>
+
+      <details class="block" id="form">
+        <summary>Ops only — current Meta lead form</summary>
+        <div class="soft-card">
+          <h3>${esc(form.name)}</h3>
+          <p><b>Intro:</b> ${esc(form.introHeadline)} — ${esc(form.introDescription)}</p>
+          <p><b>Routing:</b> ${esc(form.routingQuestion)}</p>
+          <ul class="clean">${answers}</ul>
+          <p style="margin-top:0.5rem">${formFields}</p>
+          <p>${esc(form.privacyMessage)}</p>
+          <p><b>End:</b> ${esc(form.endHeadline)} — ${esc(form.endDescription)}</p>
+          <p><a href="${esc(form.demoLink)}" target="_blank" rel="noopener">${esc(form.demoCta)}</a></p>
+        </div>
+      </details>
+    </section>
 
     <section id="approval">
-      <p class="note">Approval and delivery status are tracked in the team spreadsheet — not on this page.</p>
+      <p class="note">Questions on any card? Email George at <a href="mailto:${esc(GRAPHICS_REQUEST_EMAIL)}?subject=${encodeURIComponent('Production Handoff question')}">${esc(GRAPHICS_REQUEST_EMAIL)}</a>. Approval and delivery status are tracked in the team spreadsheet.</p>
     </section>`;
 
   return page({
     activeId: 'vma-handoff',
     title: 'Production Handoff',
     pageTitle: 'Production Handoff',
-    pageSubtitle: 'Next wave, pace, and done line.',
+    pageSubtitle: 'What to build next · how we want it done.',
     body,
   });
 }
@@ -1978,7 +2774,33 @@ function renderHandoff() {
 const REDIRECTS = [
   { from: 'vma-history.html', to: '/studio.html' },
   { from: 'direct-response.html', to: '/vma-approved.html' },
+  // Old lab / reference pages (teal header era) → active VMA site
+  { from: 'producer-lab.html', to: '/studio.html' },
+  { from: 'raw-assets.html', to: '/vma-approved.html' },
+  { from: 'asset-hub.html', to: '/vma-approved.html' },
+  { from: 'graphic-request-brief.html', to: '/vma-handoff.html' },
+  { from: 'creative-concept-lab.html', to: '/ideas.html' },
+  { from: 'mockup-sandbox.html', to: '/ideas.html' },
+  { from: 'template-test-board.html', to: '/vma-approved.html' },
+  { from: 'medvirtual-brand-guide.html', to: '/vma-approved.html' },
+  { from: 'marketing-library.html', to: '/competitors.html' },
+  { from: 'image-variation-review.html', to: '/ideas.html' },
+  { from: 'real-people-creative.html', to: '/studio.html' },
+  { from: 'real-people-assets.html', to: '/studio.html' },
+  { from: 'saas-prop-templates.html', to: '/studio.html' },
+  { from: 'role-offer-templates.html', to: '/studio.html' },
+  { from: 'meta-launch-1.html', to: '/studio.html' },
+  { from: 'meta-launch-2.html', to: '/studio.html' },
+  { from: 'meta-launch-build-pack.html', to: '/studio.html' },
+  { from: 'facebook-ad-copy.html', to: '/vma-chatgpt.html' },
+  { from: 'dr-creative-board.html', to: '/ideas.html' },
+  { from: 'contact-sheet-landing-page-images.html', to: '/vma-approved.html' },
+  { from: 'contact-sheet-all-9x16.html', to: '/vma-static.html' },
+  { from: 'contact-sheet-all-4x5.html', to: '/vma-static.html' },
+  { from: 'contact-sheet-ai-images.html', to: '/ideas.html' },
+  { from: 'contact-sheet-best-candidates.html', to: '/ideas.html' },
   // Consolidated VMA ops pages → handoff / video / prompts
+  { from: 'video-production.html', to: '/motion-concept-lab.html' },
   { from: 'vma-remotion.html', to: '/vma-video.html#remotion' },
   { from: 'vma-capcut.html', to: '/vma-video.html#capcut' },
   { from: 'vma-copy-en.html', to: '/vma-chatgpt.html#english' },
@@ -2026,6 +2848,17 @@ const primary = [
 for (const [name, html] of primary) write(name, html);
 for (const r of REDIRECTS) write(r.from, renderRedirect(r.to));
 
+// Root entry — never serve the old Creative Handoff React app
+const ROOT = path.join(__dirname, '..');
+fs.writeFileSync(
+  path.join(ROOT, 'index.html'),
+  renderRedirect('/studio.html').replace(
+    '<title>Redirecting…</title>',
+    '<title>MedVirtual Ad Production</title>',
+  ),
+);
+filesWritten += 1;
+
 console.log(
-  `VMA handoff site generated · ${primary.length} primary pages + ${REDIRECTS.length} redirects · ${filesWritten} files total.`,
+  `Ad Production site generated · ${primary.length} primary pages + ${REDIRECTS.length} redirects · ${filesWritten} files total.`,
 );

@@ -1,18 +1,14 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Player } from '@remotion/player';
-import { HookHumanComposition } from './remotion/compositions/HookHuman.jsx';
-import { ChecklistComposition } from './remotion/compositions/Checklist.jsx';
-import { ProblemPersonComposition } from './remotion/compositions/ProblemPerson.jsx';
-import { PremiumOpsComposition } from './remotion/compositions/PremiumOps.jsx';
+import { FeedbackPanel, RejectedTray, useCreativeFeedback } from './components/CreativeFeedback.jsx';
+import { LayeredAdComposition } from './remotion/compositions/LayeredAd.jsx';
 import { MOTION_DEFAULTS, STORAGE_KEYS, STATUSES } from './remotion/data/motionDefaults.js';
 import './motion-lab.css';
 
 const COMPOSITIONS = {
-  'MV-HOOK-HUMAN-01': HookHumanComposition,
-  'MV-CHECKLIST-01': ChecklistComposition,
-  'MV-PROBLEM-PERSON-01': ProblemPersonComposition,
-  'MV-PREMIUM-OPS-01': PremiumOpsComposition,
+  'MV-TYPE-ON-01': LayeredAdComposition,
+  'MV-SLIDE-BUILD-01': LayeredAdComposition,
 };
 
 function loadMotionBatch() {
@@ -21,7 +17,7 @@ function loadMotionBatch() {
     if (!raw) return structuredClone(MOTION_DEFAULTS);
     const parsed = JSON.parse(raw);
     const list = Array.isArray(parsed) ? parsed : parsed?.concepts;
-    if (!Array.isArray(list) || list.length !== 4) return structuredClone(MOTION_DEFAULTS);
+    if (!Array.isArray(list) || list.length !== MOTION_DEFAULTS.length) return structuredClone(MOTION_DEFAULTS);
     return list.map((c, i) => sanitizeMotion(c, MOTION_DEFAULTS[i]));
   } catch {
     return structuredClone(MOTION_DEFAULTS);
@@ -41,65 +37,12 @@ function sanitizeMotion(c, fallback) {
   return base;
 }
 
-function applyPromote(batch) {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEYS.promote);
-    if (!raw) return batch;
-    const { concept, motionTemplate } = JSON.parse(raw);
-    if (!concept) return batch;
-    const template = motionTemplate || concept.motionTemplate;
-    const idx = batch.findIndex((m) => m.compositionId === template);
-    if (idx < 0) return batch;
-    const next = [...batch];
-    next[idx] = {
-      ...next[idx],
-      conceptId: concept.id,
-      headline: concept.layout === 'EditorialTalentLayout' ? `Meet ${concept.headline}` : concept.headline,
-      support: concept.support,
-      bullets: concept.bullets,
-      cta: concept.cta,
-      imageSrc: concept.imageSrc,
-      role: concept.role,
-      audience: concept.audience,
-      theme: concept.theme,
-      lane: concept.lane,
-      candidateName: concept.candidateName,
-      status: concept.status || next[idx].status,
-      internalNotes: `Promoted from ${concept.id}`,
-    };
-    // For hook composition, try to split pain headline
-    if (template === 'MV-HOOK-HUMAN-01' && concept.headline?.includes('.')) {
-      const parts = concept.headline.split('.').map((s) => s.trim()).filter(Boolean);
-      if (parts.length >= 2) {
-        next[idx].headline = `${parts[0]}.`;
-        next[idx].headlineTwo = `${parts[1]}.`;
-      }
-    }
-    localStorage.removeItem(STORAGE_KEYS.promote);
-    return next;
-  } catch {
-    return batch;
-  }
-}
-
-function MotionCard({ item, index, onChange }) {
+function MotionCard({ item, index, onChange, feedback, onFeedback }) {
   const playerRef = useRef(null);
   const Component = COMPOSITIONS[item.compositionId];
   const duration = item.durationInFrames || 300;
   const inputProps = useMemo(
-    () => ({
-      headline: item.headline,
-      headlineTwo: item.headlineTwo,
-      support: item.support,
-      bullets: item.bullets,
-      cards: item.cards || item.bullets,
-      cta: item.cta,
-      imageSrc: item.imageSrc,
-      candidateName: item.candidateName,
-      role: item.role,
-      animationIntensity: item.animationIntensity || 'standard',
-      showSafeZones: Boolean(item.showSafeZones),
-    }),
+    () => ({ ...item, showSafeZones: Boolean(item.showSafeZones) }),
     [item],
   );
 
@@ -139,7 +82,7 @@ function MotionCard({ item, index, onChange }) {
   if (!Component) return null;
 
   return (
-    <article className="mcl-card">
+    <article className="mcl-card" id={item.compositionId}>
       <header className="mcl-card__head">
         <div className="mcl-num">Motion {index + 1}</div>
         <h2>{item.name}</h2>
@@ -241,8 +184,8 @@ function MotionCard({ item, index, onChange }) {
           <input value={item.cta || ''} onChange={(e) => bind('cta', e.target.value)} />
         </label>
         <label>
-          Image URL
-          <input value={item.imageSrc || ''} onChange={(e) => bind('imageSrc', e.target.value)} />
+          Human PNG layer
+          <input value={item.humanSrc || ''} onChange={(e) => bind('humanSrc', e.target.value)} />
         </label>
         <label>
           Internal notes
@@ -269,26 +212,16 @@ function MotionCard({ item, index, onChange }) {
         >
           Restart
         </button>
-        <button type="button" onClick={() => exportStill('first')}>
-          Export first frame
-        </button>
-        <button type="button" onClick={() => exportStill('middle')}>
-          Export mid frame
-        </button>
-        <button type="button" onClick={() => exportStill('end')}>
-          Export end card
-        </button>
         <button
           type="button"
           onClick={async () => {
-            // Static cutdowns: capture player at first frame, then note resize targets
             await exportStill('first');
             alert(
-              'Exported first-frame still (9:16). For 4:5 and 1:1 adaptations: crop the still in graphics or re-export from Creative Concept Lab after Promote.',
+              'Exported first-frame still (9:16). For 4:5 and 1:1: crop in graphics or rebuild from approved masters.',
             );
           }}
         >
-          Create Static Cutdown
+          Export first frame
         </button>
         <button
           type="button"
@@ -298,18 +231,24 @@ function MotionCard({ item, index, onChange }) {
         >
           Copy composition JSON
         </button>
-        <a className="mcl-link" href="/creative-concept-lab.html">
-          Return to Static
+        <a className="mcl-link" href="/vma-approved.html">
+          Approved masters
         </a>
-        <a className="mcl-link" href="/video-production.html">
-          Real People Video
+        <a className="mcl-link" href="/vma-video.html">
+          Video specs
         </a>
       </div>
+
+      <FeedbackPanel
+        id={`motion:${item.compositionId}`}
+        value={feedback[`motion:${item.compositionId}`]}
+        onChange={onFeedback}
+      />
 
       <details className="mcl-render">
         <summary>Open in Remotion Studio / render commands</summary>
         <pre>{`npm run remotion:studio
-npm run remotion:render:${item.compositionId === 'MV-HOOK-HUMAN-01' ? 'hook-human' : item.compositionId === 'MV-CHECKLIST-01' ? 'checklist' : item.compositionId === 'MV-PROBLEM-PERSON-01' ? 'problem-person' : 'premium-ops'}
+remotion render src/remotion/index.js ${item.compositionId} .local-masters/renders/${item.compositionId.toLowerCase()}.mp4
 
 # Output lands in .local-masters/renders/ (gitignored)`}</pre>
       </details>
@@ -317,8 +256,69 @@ npm run remotion:render:${item.compositionId === 'MV-HOOK-HUMAN-01' ? 'hook-huma
   );
 }
 
+function ElementLibrary({ projects, feedback, onFeedback, onRestore }) {
+  const allElements = projects.flatMap((project) =>
+    (project.elements || []).map((element) => ({
+      ...element,
+      name: `${project.name} · ${element.label}`,
+      feedbackId: `element:${project.compositionId}:${element.id}`,
+    })),
+  );
+
+  return (
+    <section className="element-library">
+      <header>
+        <div>
+          <p className="mcl-eyebrow">Build components first</p>
+          <h2>Video Element Library</h2>
+          <p>Approve the human, headline, benefits/icons, and CTA separately. Templates only assemble approved layers.</p>
+        </div>
+      </header>
+
+      {projects.map((project) => (
+        <section className="element-project" key={project.compositionId}>
+          <div className="element-project__head">
+            <div>
+              <strong>{project.name}</strong>
+              <span>{project.compositionId}</span>
+            </div>
+            <span className="element-project__rule">No flattened static</span>
+          </div>
+          <div className="element-grid">
+            {(project.elements || [])
+              .filter((element) => feedback[`element:${project.compositionId}:${element.id}`]?.vote !== 'down')
+              .map((element) => {
+                const feedbackId = `element:${project.compositionId}:${element.id}`;
+                return (
+                  <article className="element-card" key={element.id}>
+                    <div className="element-card__type">{element.type}</div>
+                    {element.type === 'human' ? (
+                      <div className="element-card__human">
+                        <img src={element.value} alt={`${project.name} isolated admin element`} />
+                      </div>
+                    ) : (
+                      <div className={`element-card__sample type-${element.type}`}>{element.value}</div>
+                    )}
+                    <div className="element-card__meta">
+                      <strong>{element.label}</strong>
+                      <span data-status={element.status}>{element.status}</span>
+                    </div>
+                    <FeedbackPanel id={feedbackId} value={feedback[feedbackId]} onChange={onFeedback} compact />
+                  </article>
+                );
+              })}
+          </div>
+        </section>
+      ))}
+
+      <RejectedTray items={allElements} feedback={feedback} onRestore={onRestore} />
+    </section>
+  );
+}
+
 function MotionLabApp() {
-  const [batch, setBatch] = useState(() => applyPromote(loadMotionBatch()));
+  const [batch, setBatch] = useState(loadMotionBatch);
+  const { feedback, update: updateFeedback, restore: restoreFeedback } = useCreativeFeedback();
 
   useEffect(() => {
     localStorage.setItem(
@@ -339,7 +339,10 @@ function MotionLabApp() {
     <div className="mcl-app">
       <header className="mcl-hero">
         <h1>Motion Concept Lab</h1>
-        <p>Four short-form concepts. Simple motion, strong frames, production-ready structure.</p>
+        <p>
+          Two approved techniques: <b>Type-on Hook</b> and <b>Slide Build</b>. Every video is assembled from
+          separate human, headline, benefit/icon, and CTA layers.
+        </p>
       </header>
 
       <div className="mcl-toolbar">
@@ -347,35 +350,66 @@ function MotionLabApp() {
           type="button"
           className="primary"
           onClick={() => {
-            if (confirm('Reset all four motion concepts to defaults?')) {
+            if (confirm('Reset both layered motion projects to defaults?')) {
               setBatch(structuredClone(MOTION_DEFAULTS));
             }
           }}
         >
           Reset motion batch
         </button>
-        <a className="mcl-btn" href="/creative-concept-lab.html">
-          Static Concepts
+        <a className="mcl-btn" href="/vma-approved.html">
+          Approved masters
         </a>
         <a className="mcl-btn" href="/ideas.html">
-          Ideas Lab
+          New ad ideas
         </a>
-        <a className="mcl-btn" href="/competitors.html">
-          Competitors
+        <a className="mcl-btn" href="/vma-video.html">
+          Specs &amp; handoff
         </a>
       </div>
 
-      <div className="mcl-grid">
-        {batch.map((item, index) => (
-          <MotionCard key={item.compositionId} item={item} index={index} onChange={onChange} />
-        ))}
+      <ElementLibrary
+        projects={batch}
+        feedback={feedback}
+        onFeedback={updateFeedback}
+        onRestore={restoreFeedback}
+      />
+
+      <div className="mcl-section-head">
+        <p className="mcl-eyebrow">Assemble approved elements</p>
+        <h2>Video Template Previews</h2>
+        <p>Thumbs down removes a render from the active lab. Leave a note so the next version addresses the failure.</p>
       </div>
+
+      <div className="mcl-grid">
+        {batch
+          .filter((item) => feedback[`motion:${item.compositionId}`]?.vote !== 'down')
+          .map((item) => {
+            const index = batch.findIndex((candidate) => candidate.compositionId === item.compositionId);
+            return (
+              <MotionCard
+                key={item.compositionId}
+                item={item}
+                index={index}
+                onChange={onChange}
+                feedback={feedback}
+                onFeedback={updateFeedback}
+              />
+            );
+          })}
+      </div>
+
+      <RejectedTray
+        items={batch.map((item) => ({ ...item, feedbackId: `motion:${item.compositionId}` }))}
+        feedback={feedback}
+        onRestore={restoreFeedback}
+      />
 
       <section className="mcl-notes">
         <h2>Preview vs production render</h2>
         <p>
-          Browser preview uses <code>@remotion/player</code> (always starts muted). Local MP4 renders use Remotion CLI
-          into <code>.local-masters/renders/</code> — not Vercel.
+          Browser preview uses <code>@remotion/player</code> (starts muted — Meta plays silent first). Local MP4
+          renders use <code>npm run remotion:studio</code> into <code>.local-masters/renders/</code>.
         </p>
       </section>
     </div>

@@ -342,7 +342,7 @@ export const LAYOUT_SYSTEMS = [
     name: 'D — Role Card',
     description: 'Role pill + checklist card with talent inset. Good for role-specific boards.',
     formats: ['1:1', '4:5', '9:16'],
-    notes: 'Shares Hailey Role-Offer DNA but on vivid DR plates — not teal grid default.',
+    notes: 'Shares Role-Offer DNA but on vivid DR plates — not teal grid default.',
   },
   {
     id: 'layout-e',

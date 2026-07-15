@@ -65,7 +65,7 @@ const MISS_TAGS = [
   'Unusable crop',
   'Text artifacts',
   'Privacy concern',
-  'Not Hailey standard',
+  'Below our standard',
 ];
 
 const MORE_CHANGES = [
@@ -305,7 +305,7 @@ function FoundryApp() {
   const queue = useMemo(
     () =>
       assets.filter((a) =>
-        ['Generated', 'Pending Review', 'George Liked', 'Hailey Review', 'Hailey Liked', 'Revision Requested'].includes(
+        ['Generated', 'Pending Review', 'George Liked', 'Revision Requested'].includes(
           a.status,
         ),
       ),
@@ -502,7 +502,7 @@ function FoundryApp() {
     };
     let status = asset.status;
     if (direction === 'up') {
-      status = String(identity).includes('Hailey') ? 'Hailey Liked' : 'George Liked';
+      status = 'George Liked';
     } else {
       status = 'Rejected';
     }
@@ -539,7 +539,7 @@ function FoundryApp() {
     });
     const next = applyFeedback(prefs, {
       reviewer: identity,
-      action: String(identity).includes('Hailey') ? 'hailey_approve' : 'approve',
+      action: 'approve',
       attributes: asset.preferenceAttributes || [],
     });
     await persistPrefs(next);
@@ -763,8 +763,8 @@ function FoundryApp() {
           <form onSubmit={handleLogin}>
             <label>
               Reviewer identity
-              <select value={identity} onChange={(e) => setIdentity(e.target.value)}>
-                {['George', 'Hailey', 'Graphics Team'].map((r) => (
+                <select value={identity} onChange={(e) => setIdentity(e.target.value)}>
+                {['George', 'Graphics Team'].map((r) => (
                   <option key={r}>{r}</option>
                 ))}
               </select>
@@ -808,7 +808,7 @@ function FoundryApp() {
           <label className="af-inline">
             Reviewing as
             <select value={identity} onChange={(e) => setIdentity(e.target.value)} aria-label="Reviewer identity">
-              {['George', 'Hailey', 'Graphics Team'].map((r) => (
+              {['George', 'Graphics Team'].map((r) => (
                 <option key={r}>{r}</option>
               ))}
             </select>
@@ -1274,7 +1274,7 @@ function FoundryApp() {
             MedVirtual taste profile — preference-guided prompting. Votes do not fine-tune OpenAI models.
           </p>
           <div className="af-taste-grid">
-            {['combined', 'george', 'hailey'].map((key) => (
+            {['combined', 'george', 'graphics'].map((key) => (
               <div key={key} className="af-taste-col">
                 <h3>{key}</h3>
                 <h4>Favored</h4>

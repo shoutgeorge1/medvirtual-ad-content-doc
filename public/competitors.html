@@ -294,6 +294,9 @@
   .s-awaiting-design {
     background: #FFF8E8; color: #A16207; border-color: #F0D78C;
   }
+  .s-ai-draft {
+    background: #E6F7F4; color: #0D546B; border-color: #7FCBD6;
+  }
   .s-image-needed, .s-pending {
     background: #EEF2F6; color: #475569; border-color: #CBD5E1;
   }
@@ -516,6 +519,42 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     margin-top: 0.85rem;
   }
+  .mock-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 0.85rem;
+  }
+  .mock-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .mock-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .mock-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mock-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .mock-card__tag {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+  }
+  .mock-card__body h3 { margin: 0; font-size: 1.2rem; }
+  .mock-card__body p { margin: 0; font-size: 0.98rem; color: #33475B; }
+  @media (max-width: 720px) {
+    .mock-grid { grid-template-columns: 1fr; }
+    .mock-card__body h3 { font-size: 1.4rem; }
+    .mock-card__body p { font-size: 1.08rem; }
+  }
   .spark-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -534,22 +573,65 @@
     object-fit: cover;
     display: block;
   }
-  .spark-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
-  .spark-card__body h3 { margin: 0; font-size: 1.02rem; }
-  .spark-card__body p { margin: 0; font-size: 0.82rem; color: #4A6275; }
+  .spark-card__body { padding: 1rem 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+  .spark-card__meta {
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+  }
+  .spark-card__headline { margin: 0; font-size: 1.3rem; line-height: 1.2; color: #0B1F3A; }
+  .spark-card__angle { margin: 0; font-size: 0.98rem; line-height: 1.45; color: #33475B; }
+  .spark-card .chip { font-size: 0.82rem; padding: 0.22rem 0.6rem; align-self: flex-start; }
   .spark-card__spark {
     margin-top: auto;
-    padding: 0.55rem 0.65rem;
+    padding: 0.7rem 0.8rem;
     border-radius: 8px;
     background: #EEF6FA;
     border: 1px solid #C5DCE8;
     color: #0D546B;
-    font-size: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
     font-weight: 650;
   }
+  .feedback-ui {
+    margin-top: 0.35rem;
+    padding: 0.7rem;
+    border: 1px solid #D6E4EC;
+    border-radius: 9px;
+    background: #F7FAFB;
+  }
+  .feedback-ui__vote { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+  .feedback-ui__vote strong { margin-right: 0.25rem; font-size: 0.78rem; color: #33475B; }
+  .feedback-ui button {
+    border: 1px solid #B9CAD4; border-radius: 7px; background: #fff; padding: 0.36rem 0.55rem;
+    font: inherit; font-size: 0.75rem; font-weight: 750; cursor: pointer;
+  }
+  .feedback-ui button.selected[data-vote="up"] { background: #DFF5E8; border-color: #45A66D; }
+  .feedback-ui button.selected[data-vote="down"] { background: #FFE4E4; border-color: #D65353; }
+  .feedback-ui label { display: grid; gap: 0.2rem; margin-top: 0.45rem; font-size: 0.7rem; font-weight: 750; color: #4A6275; }
+  .feedback-ui textarea {
+    width: 100%; box-sizing: border-box; resize: vertical; border: 1px solid #CBD5E1;
+    border-radius: 7px; padding: 0.45rem; font: inherit; font-size: 0.78rem;
+  }
+  .feedback-ui small { display: block; margin-top: 0.3rem; color: #6A7D89; font-size: 0.66rem; }
+  .feedback-rejected {
+    margin-top: 1rem; padding: 0.75rem; border: 1px solid #D3A3A3; border-radius: 10px;
+    background: #FFF7F7;
+  }
+  .feedback-rejected summary { cursor: pointer; font-weight: 800; }
+  .feedback-rejected__item { display: flex; justify-content: space-between; gap: 0.6rem; padding-top: 0.55rem; }
+  .feedback-rejected__item p { margin: 0.15rem 0 0; color: #6B3A3A; font-size: 0.78rem; }
   @media (max-width: 720px) {
     .example-hero, .ratio-guide { grid-template-columns: 1fr; }
     .ratio-guide__visual { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .spark-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .spark-card__meta { font-size: 0.9rem; }
+    .spark-card__headline { font-size: 1.5rem; }
+    .spark-card__angle { font-size: 1.08rem; }
+    .spark-card .chip { font-size: 0.92rem; padding: 0.28rem 0.7rem; }
+    .spark-card__spark { font-size: 1.02rem; }
   }
   .approved-detail {
     display: grid;
@@ -573,6 +655,54 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
+  .ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-head .ico { color: #077999; }
+  .primary-task {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    background: #ffffff;
+    border: 1px solid #D6E4EC;
+    border-left: 4px solid #077999;
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    margin: 0.75rem 0 1rem;
+  }
+  .primary-task .ico { color: #077999; margin-top: 0.1rem; }
+  .primary-task__label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #077999;
+    margin: 0 0 0.15rem;
+  }
+  .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
+  .rule-chips { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; margin: 0.35rem 0 0; }
+  .rule-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #0D546B;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.28rem 0.7rem;
+  }
+  .rule-chip .ico svg { width: 15px; height: 15px; }
   .quick-links {
     display: grid;
     gap: 0.75rem;
@@ -581,9 +711,10 @@
   .quick-links a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 3.6rem;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    text-align: left;
+    min-height: 3.4rem;
     padding: 0.75rem 1rem;
     border-radius: 10px;
     background: #077999;
@@ -598,6 +729,73 @@
     gap: 0.85rem;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
+  .pr-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    margin-top: 0.75rem;
+  }
+  .pr-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .pr-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .pr-card__media.square { aspect-ratio: 1 / 1; }
+  .pr-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pr-card__body { padding: 0.85rem 0.95rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+  .pr-card__tag {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+  }
+  .pr-card__body h3 { margin: 0; font-size: 1.1rem; }
+  .pr-card__body p { margin: 0; font-size: 0.92rem; color: #4A6275; }
+  .pr-card details { margin-top: 0.35rem; }
+  .pr-card summary {
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .pr-card summary::-webkit-details-marker { display: none; }
+  .pr-card .prompt-body {
+    margin-top: 0.5rem;
+    padding: 0.65rem 0.75rem;
+    background: #F5F8FA;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #33475B;
+    white-space: pre-wrap;
+    line-height: 1.45;
+    max-height: 12rem;
+    overflow: auto;
+  }
+  .pr-card .pr-actions { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
+  .copy-picks { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .copy-pick {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    padding: 0.85rem 0.95rem;
+  }
+  .copy-pick h3 { margin: 0 0 0.45rem; font-size: 0.95rem; }
+  .copy-pick .line {
+    display: flex; gap: 0.4rem; align-items: flex-start;
+    margin: 0.35rem 0; font-size: 0.88rem; color: #0B1F3A;
+  }
+  .copy-pick .line .copy-btn { flex-shrink: 0; margin-top: 0; }
   .soft-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -652,11 +850,22 @@
     object-fit: contain;
     display: block;
   }
-  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.84rem; }
-  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
-  .comp-card__body .why { font-weight: 700; color: #0B1F3A; margin: 0.2rem 0; }
-  .comp-card__body .mini { margin: 0.35rem 0 0; color: #4A6275; font-size: 0.8rem; }
+  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.9rem; }
+  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+  .comp-card__body .why { font-weight: 600; color: #33475B; margin: 0.2rem 0 0; font-size: 0.92rem; }
+  .comp-card__body .mini { margin: 0.4rem 0 0; color: #4A6275; font-size: 0.86rem; }
   .comp-card__body .mini b { color: #0B1F3A; }
+  .comp-more { margin-top: 0.6rem; }
+  .comp-more summary {
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .comp-more summary::-webkit-details-marker { display: none; }
+  .comp-more summary::before { content: "＋ "; font-weight: 700; }
+  .comp-more[open] summary::before { content: "－ "; }
   .pink-ref {
     display: inline-block;
     margin-bottom: 0.35rem;
@@ -866,7 +1075,7 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Ad Production</h1>
-        <p class="doc-header__tagline">Approved VMA creative · 15–20 concepts · required Meta sizes</p>
+        <p class="doc-header__tagline">Scroll-stopping ads that book demos</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
@@ -875,7 +1084,7 @@
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Competitor Wall</h2>
-          <p class="doc-header__page-sub">23 medical VA &amp; adjacent creatives with images.</p>
+          <p class="doc-header__page-sub">16 companies · one card each.</p>
           
         </div>
 </header>
@@ -896,28 +1105,119 @@
 })();
 </script>
   <main>
-    <div class="banner"><strong>BOLD VIRTUAL MEDICAL ADMIN DIRECT-RESPONSE ADS</strong><span class="sub">Primary headline: HIRE A VIRTUAL MEDICAL ADMIN. Request 15–20 concepts per batch. Match the four approved masters for clarity, contrast, and mobile readability — then rebuild winners in every required Meta size.</span></div>
+    <div class="banner"><strong>MAKE ADS THAT BOOK DEMOS</strong><span class="sub">For the graphics team — match the four approved masters, build scroll-stopping concepts, rebuild every Meta size. Mine competitors for energy, never copy their layouts.</span></div>
     
     <div class="hero">
       <h1>Competitor Wall</h1>
-      <p>Study medical VA and virtual staffing Meta creatives — hierarchy, offer clarity, and mobile readability. Do not copy layouts, color systems, badges, typography, or talent.</p>
+      <p>Real competitor ads. Steal the energy — never the layout, colors, or badges.</p>
     </div>
-    <p class="note"><b>23 creatives with real screenshots</b> · refreshed Jul 13, 2026. Only ads with images appear here — grab new Ad Library stills anytime and regenerate. Off-category scrapes (shoes, pet ads, consumer booking) stay blocked.</p>
+    <p class="note"><b>16 companies</b> · one card each · updated Jul 13, 2026. New brands first.</p>
 
     <section id="wall">
-      <h2>Image-first references</h2>
       <div class="comp-grid"><article class="comp-card">
+  <div class="comp-card__media"><img src="/assets/competitors/almostfriday.jpg" alt="Almost Friday ad reference" loading="lazy" /></div>
+  <div class="comp-card__body">
+    
+    <h3>Almost Friday</h3>
+    <p class="why">Newer VA staffing brand with strong lifestyle energy.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Lifestyle / culture-led VA hire</p>
+      <p class="mini"><b>Look</b> Bold brand mark · open-graph creative</p>
+      <p class="mini"><b>Steal</b> Brand energy that feels different from cheap VA ads.</p>
+      <p class="mini"><b>Don’t copy</b> Copying their mark, colors, or lifestyle system.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Almost%20Friday" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
+  </div>
+</article><article class="comp-card">
+  <div class="comp-card__media"><img src="/assets/competitors/hello-rache.jpg" alt="Hello Rache ad reference" loading="lazy" /></div>
+  <div class="comp-card__body">
+    <span class="pink-ref">REFERENCE ONLY — NO PINK</span>
+    <h3>Hello Rache</h3>
+    <p class="why">Closest neighbor — “not all medical VAs are equal.”</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Not all medical VAs are equal</p>
+      <p class="mini"><b>Look</b> Purple comparison layout · clinical talent</p>
+      <p class="mini"><b>Steal</b> Clear medical VA vs generic VA framing.</p>
+      <p class="mini"><b>Don’t copy</b> Purple / pink palette or copy-cat comparison layout.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Hello%20Rache" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
+  </div>
+</article><article class="comp-card">
+  <div class="comp-card__media"><img src="/assets/competitors/medva.jpg" alt="MedVA ad reference" loading="lazy" /></div>
+  <div class="comp-card__body">
+    
+    <h3>MedVA</h3>
+    <p class="why">Direct category competitor — medical VA staffing.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Healthcare virtual assistant company</p>
+      <p class="mini"><b>Look</b> Clean brand plate + healthcare cues</p>
+      <p class="mini"><b>Steal</b> Category-owning name + simple healthcare signal.</p>
+      <p class="mini"><b>Don’t copy</b> Blending into soft teal VA commodity look.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=MedVA" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
+  </div>
+</article><article class="comp-card">
+  <div class="comp-card__media"><img src="/assets/competitors/portiva.jpg" alt="Portiva ad reference" loading="lazy" /></div>
+  <div class="comp-card__body">
+    
+    <h3>Portiva</h3>
+    <p class="why">Office-supervised medical VA brand — long-running neighbor.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Trained medical VAs · supervised teams</p>
+      <p class="mini"><b>Look</b> People-forward medical VA marketing</p>
+      <p class="mini"><b>Steal</b> Role clarity + human face stops the scroll.</p>
+      <p class="mini"><b>Don’t copy</b> Copying their supervision / office framing as our trade dress.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Portiva" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
+  </div>
+</article><article class="comp-card">
+  <div class="comp-card__media"><img src="/assets/competitors/wishup.jpg" alt="Wishup ad reference" loading="lazy" /></div>
+  <div class="comp-card__body">
+    
+    <h3>Wishup</h3>
+    <p class="why">Managed VA platform pushing hard into healthcare.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Testimonial + medical VA proof</p>
+      <p class="mini"><b>Look</b> Portrait + review social proof</p>
+      <p class="mini"><b>Steal</b> Social proof next to a real face reads fast on mobile.</p>
+      <p class="mini"><b>Don’t copy</b> Managed-VA marketplace positioning for MedVirtual.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Wishup" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
+  </div>
+</article><article class="comp-card">
+  <div class="comp-card__media"><img src="/assets/competitors/commure-scribe.jpg" alt="Commure ad reference" loading="lazy" /></div>
+  <div class="comp-card__body">
+    
+    <h3>Commure</h3>
+    <p class="why">AI-automation angle — the opposite of a real human hire.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> AI does the busywork · hours saved</p>
+      <p class="mini"><b>Look</b> White + blue claim cards</p>
+      <p class="mini"><b>Steal</b> Front-desk failure modes read fast.</p>
+      <p class="mini"><b>Don’t copy</b> AI-agent replacement positioning.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Commure" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
+  </div>
+</article><article class="comp-card">
   <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-10.jpg" alt="Cure Intent ad reference" loading="lazy" /></div>
   <div class="comp-card__body">
     
     <h3>Cure Intent</h3>
     <p class="why">Remote Medical VAs</p>
-    <p class="mini"><b>Offer / hook</b> Remote Medical VAs</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1268840981694317" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Remote Medical VAs</p>
+      <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
+      <p class="mini"><b>Steal</b> Simple role + price + human face can stop the scroll.</p>
+      <p class="mini"><b>Don’t copy</b> Blending into cheap-VA commodity look.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1268840981694317" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article><article class="comp-card">
   <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-2.jpg" alt="Edge Services ad reference" loading="lazy" /></div>
@@ -925,129 +1225,29 @@
     
     <h3>Edge Services</h3>
     <p class="why">Get a trained Virtual Medical Receptionist to streamline:</p>
-    <p class="mini"><b>Offer / hook</b> Get a trained Virtual Medical Receptionist to streamline:</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=2648105012304571" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-3.jpg" alt="Edge Services ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    
-    <h3>Edge Services</h3>
-    <p class="why">Give patients the personalized attention they deserve!</p>
-    <p class="mini"><b>Offer / hook</b> Give patients the personalized attention they deserve!</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1005513509043204" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-5.jpg" alt="Edge Services ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    
-    <h3>Edge Services</h3>
-    <p class="why">WWW.ONEDGE.CO</p>
-    <p class="mini"><b>Offer / hook</b> WWW.ONEDGE.CO</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1667508437864872" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/hello-rache-1.jpg" alt="Hello Rache ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    <span class="pink-ref">REFERENCE ONLY — DO NOT USE PINK</span>
-    <h3>Hello Rache</h3>
-    <p class="why">How do you leave the clinic when your last patient does?</p>
-    <p class="mini"><b>Offer / hook</b> See how easy it is to introduce a virtual assistant to your patient. The VA listens, documents the history, and records your exam findings live. By the time the patient leaves, the work is done. No more late nights. No more backlog. Just patient care. 0:00 / 1:22</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Purple brand · clinical talent</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=810571518485456" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Clear role framing in one glance.</p>
-    <p class="mini"><b>Not to copy</b> Purple / pink palette or exact badge shapes.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/hello-rache-2.jpg" alt="Hello Rache ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    <span class="pink-ref">REFERENCE ONLY — DO NOT USE PINK</span>
-    <h3>Hello Rache</h3>
-    <p class="why">Why pay $20+/hr for an untrained freelancer when you can get a Healthcare Professional for $9.50/hr?</p>
-    <p class="mini"><b>Offer / hook</b> Check the slides and compare for yourself. 👆 GO.HELLORACHE.COM Premium Medical VAs. $9.50/Hour.</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Purple brand · clinical talent</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1589021232591322" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Clear role framing in one glance.</p>
-    <p class="mini"><b>Not to copy</b> Purple / pink palette or exact badge shapes.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/hello-rache-3.jpg" alt="Hello Rache ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    <span class="pink-ref">REFERENCE ONLY — DO NOT USE PINK</span>
-    <h3>Hello Rache</h3>
-    <p class="why">It doesn’t matter how much revenue you generate or how many patients you see.</p>
-    <p class="mini"><b>Offer / hook</b> It doesn’t matter how much revenue you generate or how many patients you see.</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Purple brand · clinical talent</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=974824428840058" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Clear role framing in one glance.</p>
-    <p class="mini"><b>Not to copy</b> Purple / pink palette or exact badge shapes.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/hello-rache-4.jpg" alt="Hello Rache ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    <span class="pink-ref">REFERENCE ONLY — DO NOT USE PINK</span>
-    <h3>Hello Rache</h3>
-    <p class="why">Look at the difference between &quot;Administrative Overload&quot; and true &quot;Focus on Care.&quot; The only difference is dedicated support.</p>
-    <p class="mini"><b>Offer / hook</b> Look at the difference between &quot;Administrative Overload&quot; and true &quot;Focus on Care.&quot; The only difference is dedicated support.</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Purple brand · clinical talent</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1418938503249890" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Clear role framing in one glance.</p>
-    <p class="mini"><b>Not to copy</b> Purple / pink palette or exact badge shapes.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/hello-rache-5.jpg" alt="Hello Rache ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    <span class="pink-ref">REFERENCE ONLY — DO NOT USE PINK</span>
-    <h3>Hello Rache</h3>
-    <p class="why">Those missing hours are the difference between staying late to chart and leaving the clinic when your last patient does.</p>
-    <p class="mini"><b>Offer / hook</b> Those missing hours are the difference between staying late to chart and leaving the clinic when your last patient does.</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Purple brand · clinical talent</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1708916656798157" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Clear role framing in one glance.</p>
-    <p class="mini"><b>Not to copy</b> Purple / pink palette or exact badge shapes.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/hello-rache.jpg" alt="Hello Rache ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    <span class="pink-ref">REFERENCE ONLY — DO NOT USE PINK</span>
-    <h3>Hello Rache</h3>
-    <p class="why">Medical VA comparison creative — closest category neighbor.</p>
-    <p class="mini"><b>Offer / hook</b> Not all medical VAs are equal</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Purple comparison layout · clinical talent</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Hello%20Rache" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Clear medical VA vs generic VA framing.</p>
-    <p class="mini"><b>Not to copy</b> Purple / pink palette or copy-cat comparison layout.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Get a trained Virtual Medical Receptionist to streamline:</p>
+      <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
+      <p class="mini"><b>Steal</b> Simple role + price + human face can stop the scroll.</p>
+      <p class="mini"><b>Don’t copy</b> Blending into cheap-VA commodity look.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?id=2648105012304571" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article><article class="comp-card">
   <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-7.jpg" alt="My Medical VA ad reference" loading="lazy" /></div>
   <div class="comp-card__body">
-    <span class="pink-ref">REFERENCE ONLY — DO NOT USE PINK</span>
+    <span class="pink-ref">REFERENCE ONLY — NO PINK</span>
     <h3>My Medical VA</h3>
     <p class="why">Reduce Patient No-Shows by 18-32%</p>
-    <p class="mini"><b>Offer / hook</b> Reduce Patient No-Shows by 18-32%</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=4370418569885564" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Reduce Patient No-Shows by 18-32%</p>
+      <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
+      <p class="mini"><b>Steal</b> Simple role + price + human face can stop the scroll.</p>
+      <p class="mini"><b>Don’t copy</b> Blending into cheap-VA commodity look.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?id=4370418569885564" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article><article class="comp-card">
   <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-8.jpg" alt="My Mountain Mover ad reference" loading="lazy" /></div>
@@ -1055,12 +1255,14 @@
     
     <h3>My Mountain Mover</h3>
     <p class="why">MYMOUNTAINMOVER.COM</p>
-    <p class="mini"><b>Offer / hook</b> MYMOUNTAINMOVER.COM</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1006100685236333" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> MYMOUNTAINMOVER.COM</p>
+      <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
+      <p class="mini"><b>Steal</b> Simple role + price + human face can stop the scroll.</p>
+      <p class="mini"><b>Don’t copy</b> Blending into cheap-VA commodity look.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1006100685236333" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article><article class="comp-card">
   <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-11.jpg" alt="Psyphycare ad reference" loading="lazy" /></div>
@@ -1068,12 +1270,14 @@
     
     <h3>Psyphycare</h3>
     <p class="why">Medical Virtual Assistant</p>
-    <p class="mini"><b>Offer / hook</b> Medical Virtual Assistant</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1727806568372051" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Medical Virtual Assistant</p>
+      <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
+      <p class="mini"><b>Steal</b> Simple role + price + human face can stop the scroll.</p>
+      <p class="mini"><b>Don’t copy</b> Blending into cheap-VA commodity look.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1727806568372051" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article><article class="comp-card">
   <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-6.jpg" alt="Snappy CX ad reference" loading="lazy" /></div>
@@ -1081,12 +1285,14 @@
     
     <h3>Snappy CX</h3>
     <p class="why">Skilled Virtual Healthcare Talent from $6/hr.</p>
-    <p class="mini"><b>Offer / hook</b> Skilled Virtual Healthcare Talent from $6/hr.</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=885433090668106" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Skilled Virtual Healthcare Talent from $6/hr.</p>
+      <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
+      <p class="mini"><b>Steal</b> Simple role + price + human face can stop the scroll.</p>
+      <p class="mini"><b>Don’t copy</b> Blending into cheap-VA commodity look.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?id=885433090668106" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article><article class="comp-card">
   <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-1.jpg" alt="Tactical Back Office ad reference" loading="lazy" /></div>
@@ -1094,12 +1300,14 @@
     
     <h3>Tactical Back Office</h3>
     <p class="why">Part-Time or Full-Time Staffing</p>
-    <p class="mini"><b>Offer / hook</b> Part-Time or Full-Time Staffing</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1739290310384151" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Part-Time or Full-Time Staffing</p>
+      <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
+      <p class="mini"><b>Steal</b> Simple role + price + human face can stop the scroll.</p>
+      <p class="mini"><b>Don’t copy</b> Blending into cheap-VA commodity look.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1739290310384151" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article><article class="comp-card">
   <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-9.jpg" alt="VM Assistants ad reference" loading="lazy" /></div>
@@ -1107,12 +1315,14 @@
     
     <h3>VM Assistants</h3>
     <p class="why">Medical Scribes · Front Desk · HIPAA Compliant</p>
-    <p class="mini"><b>Offer / hook</b> Medical Scribes · Front Desk · HIPAA Compliant</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=2118091545587342" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Medical Scribes · Front Desk · HIPAA Compliant</p>
+      <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
+      <p class="mini"><b>Steal</b> Simple role + price + human face can stop the scroll.</p>
+      <p class="mini"><b>Don’t copy</b> Blending into cheap-VA commodity look.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?id=2118091545587342" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article><article class="comp-card">
   <div class="comp-card__media"><img src="/assets/competitors/live/generic-va-4.jpg" alt="Winning Clinics ad reference" loading="lazy" /></div>
@@ -1120,77 +1330,14 @@
     
     <h3>Winning Clinics</h3>
     <p class="why">It’s not patients causing burnout. It’s everything behind the scenes.</p>
-    <p class="mini"><b>Offer / hook</b> It’s not patients causing burnout. It’s everything behind the scenes.</p>
-    <p class="mini"><b>Category</b> Medical / healthcare VA staffing</p>
-    <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=979366721772311" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Simple role + price + human face can stop the scroll.</p>
-    <p class="mini"><b>Not to copy</b> Blending into cheap-VA commodity look.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/commure-scribe.jpg" alt="Quadrant Health ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    
-    <h3>Quadrant Health</h3>
-    <p class="why">AI receptionist / missed-inquiry claims — adjacent front-desk pain, not staffing.</p>
-    <p class="mini"><b>Offer / hook</b> 1 AI agent = 10 receptionists · hours saved stats</p>
-    <p class="mini"><b>Category</b> Practice ops software (adjacent pain only)</p>
-    <p class="mini"><b>Look</b> White + blue claim cards + EHR logos</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Quadrant%20Health" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Front-desk failure modes and stats read fast.</p>
-    <p class="mini"><b>Not to copy</b> AI-agent replacement positioning for MedVirtual.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/weave-1.jpg" alt="Weave ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    
-    <h3>Weave</h3>
-    <p class="why">Manage texts, calls, &amp; scheduling on the go</p>
-    <p class="mini"><b>Offer / hook</b> Manage texts, calls, &amp; scheduling on the go</p>
-    <p class="mini"><b>Category</b> Practice ops software (adjacent pain only)</p>
-    <p class="mini"><b>Look</b> Bright product moments</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1989351485117580" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Tight front-office hooks.</p>
-    <p class="mini"><b>Not to copy</b> Managed front-desk positioning.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/weave-2.jpg" alt="Weave ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    
-    <h3>Weave</h3>
-    <p class="why">Miss a call? Weave answers with a text</p>
-    <p class="mini"><b>Offer / hook</b> Miss a call? Weave answers with a text</p>
-    <p class="mini"><b>Category</b> Practice ops software (adjacent pain only)</p>
-    <p class="mini"><b>Look</b> Bright product moments</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1010815844872289" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Tight front-office hooks.</p>
-    <p class="mini"><b>Not to copy</b> Managed front-desk positioning.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/weave-3.jpg" alt="Weave ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    
-    <h3>Weave</h3>
-    <p class="why">Turn Missed Calls Into New Patients</p>
-    <p class="mini"><b>Offer / hook</b> Turn Missed Calls Into New Patients</p>
-    <p class="mini"><b>Category</b> Practice ops software (adjacent pain only)</p>
-    <p class="mini"><b>Look</b> Bright product moments</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1036229989362075" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Tight front-office hooks.</p>
-    <p class="mini"><b>Not to copy</b> Managed front-desk positioning.</p>
-  </div>
-</article><article class="comp-card">
-  <div class="comp-card__media"><img src="/assets/competitors/live/weave-4.jpg" alt="Weave ad reference" loading="lazy" /></div>
-  <div class="comp-card__body">
-    
-    <h3>Weave</h3>
-    <p class="why">Smarter Phones, Smoother Workflow with Weave</p>
-    <p class="mini"><b>Offer / hook</b> Smarter Phones, Smoother Workflow with Weave</p>
-    <p class="mini"><b>Category</b> Practice ops software (adjacent pain only)</p>
-    <p class="mini"><b>Look</b> Bright product moments</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?id=1552440253195381" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> Tight front-office hooks.</p>
-    <p class="mini"><b>Not to copy</b> Managed front-desk positioning.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> It’s not patients causing burnout. It’s everything behind the scenes.</p>
+      <p class="mini"><b>Look</b> Mixed commodity VA plates</p>
+      <p class="mini"><b>Steal</b> Simple role + price + human face can stop the scroll.</p>
+      <p class="mini"><b>Don’t copy</b> Blending into cheap-VA commodity look.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?id=979366721772311" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article><article class="comp-card">
   <div class="comp-card__media"><img src="/assets/competitors/weave.jpg" alt="Weave ad reference" loading="lazy" /></div>
@@ -1198,12 +1345,14 @@
     
     <h3>Weave</h3>
     <p class="why">Front-desk / scheduling pain — software, not a dedicated hire.</p>
-    <p class="mini"><b>Offer / hook</b> Schedule appointments 24/7</p>
-    <p class="mini"><b>Category</b> Practice ops software (adjacent pain only)</p>
-    <p class="mini"><b>Look</b> Phone UI + one clear benefit</p>
-    <p class="mini"><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Weave" target="_blank" rel="noopener">Ad Library source</a></p>
-    <p class="mini"><b>What works</b> One pain, one benefit, high mobile clarity.</p>
-    <p class="mini"><b>Not to copy</b> “We run your front desk” language for MedVirtual.</p>
+    <details class="comp-more">
+      <summary>Details</summary>
+      <p class="mini"><b>Hook</b> Schedule appointments 24/7</p>
+      <p class="mini"><b>Look</b> Phone UI + one clear benefit</p>
+      <p class="mini"><b>Steal</b> One pain, one benefit, high mobile clarity.</p>
+      <p class="mini"><b>Don’t copy</b> “We run your front desk” language for MedVirtual.</p>
+      <p class="mini"><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=US&amp;media_type=all&amp;search_type=keyword_unordered&amp;q=Weave" target="_blank" rel="noopener">Ad Library source ↗</a></p>
+    </details>
   </div>
 </article></div>
     </section>

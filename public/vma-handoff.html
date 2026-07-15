@@ -294,6 +294,9 @@
   .s-awaiting-design {
     background: #FFF8E8; color: #A16207; border-color: #F0D78C;
   }
+  .s-ai-draft {
+    background: #E6F7F4; color: #0D546B; border-color: #7FCBD6;
+  }
   .s-image-needed, .s-pending {
     background: #EEF2F6; color: #475569; border-color: #CBD5E1;
   }
@@ -516,6 +519,42 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     margin-top: 0.85rem;
   }
+  .mock-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 0.85rem;
+  }
+  .mock-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .mock-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .mock-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mock-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .mock-card__tag {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+  }
+  .mock-card__body h3 { margin: 0; font-size: 1.2rem; }
+  .mock-card__body p { margin: 0; font-size: 0.98rem; color: #33475B; }
+  @media (max-width: 720px) {
+    .mock-grid { grid-template-columns: 1fr; }
+    .mock-card__body h3 { font-size: 1.4rem; }
+    .mock-card__body p { font-size: 1.08rem; }
+  }
   .spark-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -534,22 +573,65 @@
     object-fit: cover;
     display: block;
   }
-  .spark-card__body { padding: 0.9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
-  .spark-card__body h3 { margin: 0; font-size: 1.02rem; }
-  .spark-card__body p { margin: 0; font-size: 0.82rem; color: #4A6275; }
+  .spark-card__body { padding: 1rem 1.1rem 1.15rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+  .spark-card__meta {
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+  }
+  .spark-card__headline { margin: 0; font-size: 1.3rem; line-height: 1.2; color: #0B1F3A; }
+  .spark-card__angle { margin: 0; font-size: 0.98rem; line-height: 1.45; color: #33475B; }
+  .spark-card .chip { font-size: 0.82rem; padding: 0.22rem 0.6rem; align-self: flex-start; }
   .spark-card__spark {
     margin-top: auto;
-    padding: 0.55rem 0.65rem;
+    padding: 0.7rem 0.8rem;
     border-radius: 8px;
     background: #EEF6FA;
     border: 1px solid #C5DCE8;
     color: #0D546B;
-    font-size: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
     font-weight: 650;
   }
+  .feedback-ui {
+    margin-top: 0.35rem;
+    padding: 0.7rem;
+    border: 1px solid #D6E4EC;
+    border-radius: 9px;
+    background: #F7FAFB;
+  }
+  .feedback-ui__vote { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+  .feedback-ui__vote strong { margin-right: 0.25rem; font-size: 0.78rem; color: #33475B; }
+  .feedback-ui button {
+    border: 1px solid #B9CAD4; border-radius: 7px; background: #fff; padding: 0.36rem 0.55rem;
+    font: inherit; font-size: 0.75rem; font-weight: 750; cursor: pointer;
+  }
+  .feedback-ui button.selected[data-vote="up"] { background: #DFF5E8; border-color: #45A66D; }
+  .feedback-ui button.selected[data-vote="down"] { background: #FFE4E4; border-color: #D65353; }
+  .feedback-ui label { display: grid; gap: 0.2rem; margin-top: 0.45rem; font-size: 0.7rem; font-weight: 750; color: #4A6275; }
+  .feedback-ui textarea {
+    width: 100%; box-sizing: border-box; resize: vertical; border: 1px solid #CBD5E1;
+    border-radius: 7px; padding: 0.45rem; font: inherit; font-size: 0.78rem;
+  }
+  .feedback-ui small { display: block; margin-top: 0.3rem; color: #6A7D89; font-size: 0.66rem; }
+  .feedback-rejected {
+    margin-top: 1rem; padding: 0.75rem; border: 1px solid #D3A3A3; border-radius: 10px;
+    background: #FFF7F7;
+  }
+  .feedback-rejected summary { cursor: pointer; font-weight: 800; }
+  .feedback-rejected__item { display: flex; justify-content: space-between; gap: 0.6rem; padding-top: 0.55rem; }
+  .feedback-rejected__item p { margin: 0.15rem 0 0; color: #6B3A3A; font-size: 0.78rem; }
   @media (max-width: 720px) {
     .example-hero, .ratio-guide { grid-template-columns: 1fr; }
     .ratio-guide__visual { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .spark-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .spark-card__meta { font-size: 0.9rem; }
+    .spark-card__headline { font-size: 1.5rem; }
+    .spark-card__angle { font-size: 1.08rem; }
+    .spark-card .chip { font-size: 0.92rem; padding: 0.28rem 0.7rem; }
+    .spark-card__spark { font-size: 1.02rem; }
   }
   .approved-detail {
     display: grid;
@@ -573,6 +655,54 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
+  .ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-head .ico { color: #077999; }
+  .primary-task {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    background: #ffffff;
+    border: 1px solid #D6E4EC;
+    border-left: 4px solid #077999;
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    margin: 0.75rem 0 1rem;
+  }
+  .primary-task .ico { color: #077999; margin-top: 0.1rem; }
+  .primary-task__label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #077999;
+    margin: 0 0 0.15rem;
+  }
+  .primary-task__text { margin: 0; font-size: 0.98rem; font-weight: 700; color: #0B1F3A; }
+  .rule-chips { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; margin: 0.35rem 0 0; }
+  .rule-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #0D546B;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.28rem 0.7rem;
+  }
+  .rule-chip .ico svg { width: 15px; height: 15px; }
   .quick-links {
     display: grid;
     gap: 0.75rem;
@@ -581,9 +711,10 @@
   .quick-links a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 3.6rem;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    text-align: left;
+    min-height: 3.4rem;
     padding: 0.75rem 1rem;
     border-radius: 10px;
     background: #077999;
@@ -598,6 +729,73 @@
     gap: 0.85rem;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
+  .pr-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    margin-top: 0.75rem;
+  }
+  .pr-card {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .pr-card__media { background: #0B1F3A; aspect-ratio: 4 / 5; }
+  .pr-card__media.square { aspect-ratio: 1 / 1; }
+  .pr-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pr-card__body { padding: 0.85rem 0.95rem 1rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+  .pr-card__tag {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #077999;
+    background: #EEF6FA;
+    border: 1px solid #C5DCE8;
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+  }
+  .pr-card__body h3 { margin: 0; font-size: 1.1rem; }
+  .pr-card__body p { margin: 0; font-size: 0.92rem; color: #4A6275; }
+  .pr-card details { margin-top: 0.35rem; }
+  .pr-card summary {
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .pr-card summary::-webkit-details-marker { display: none; }
+  .pr-card .prompt-body {
+    margin-top: 0.5rem;
+    padding: 0.65rem 0.75rem;
+    background: #F5F8FA;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #33475B;
+    white-space: pre-wrap;
+    line-height: 1.45;
+    max-height: 12rem;
+    overflow: auto;
+  }
+  .pr-card .pr-actions { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
+  .copy-picks { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .copy-pick {
+    background: #fff;
+    border: 1px solid #D6E4EC;
+    border-radius: 12px;
+    padding: 0.85rem 0.95rem;
+  }
+  .copy-pick h3 { margin: 0 0 0.45rem; font-size: 0.95rem; }
+  .copy-pick .line {
+    display: flex; gap: 0.4rem; align-items: flex-start;
+    margin: 0.35rem 0; font-size: 0.88rem; color: #0B1F3A;
+  }
+  .copy-pick .line .copy-btn { flex-shrink: 0; margin-top: 0; }
   .soft-card {
     background: #fff;
     border: 1px solid #D6E4EC;
@@ -652,11 +850,22 @@
     object-fit: contain;
     display: block;
   }
-  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.84rem; }
-  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 0.95rem; }
-  .comp-card__body .why { font-weight: 700; color: #0B1F3A; margin: 0.2rem 0; }
-  .comp-card__body .mini { margin: 0.35rem 0 0; color: #4A6275; font-size: 0.8rem; }
+  .comp-card__body { padding: 0.85rem 0.95rem 1rem; font-size: 0.9rem; }
+  .comp-card__body h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+  .comp-card__body .why { font-weight: 600; color: #33475B; margin: 0.2rem 0 0; font-size: 0.92rem; }
+  .comp-card__body .mini { margin: 0.4rem 0 0; color: #4A6275; font-size: 0.86rem; }
   .comp-card__body .mini b { color: #0B1F3A; }
+  .comp-more { margin-top: 0.6rem; }
+  .comp-more summary {
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #077999;
+    list-style: none;
+  }
+  .comp-more summary::-webkit-details-marker { display: none; }
+  .comp-more summary::before { content: "＋ "; font-weight: 700; }
+  .comp-more[open] summary::before { content: "－ "; }
   .pink-ref {
     display: inline-block;
     margin-bottom: 0.35rem;
@@ -866,7 +1075,7 @@
       <img class="doc-header__logo" src="/assets/brand/medvirtual/logo-white.svg" alt="MedVirtual" width="160" height="48" />
       <div>
         <h1 class="doc-header__title">MedVirtual Ad Production</h1>
-        <p class="doc-header__tagline">Approved VMA creative · 15–20 concepts · required Meta sizes</p>
+        <p class="doc-header__tagline">Scroll-stopping ads that book demos</p>
       </div>
     </a>
     <div class="doc-nav-wrap">
@@ -875,7 +1084,7 @@
   </div>
   <div class="doc-header__page">
           <h2 class="doc-header__page-title">Production Handoff</h2>
-          <p class="doc-header__page-sub">Next wave, pace, and done line.</p>
+          <p class="doc-header__page-sub">What to build next · how we want it done.</p>
           
         </div>
 </header>
@@ -896,104 +1105,127 @@
 })();
 </script>
   <main>
-    <div class="banner"><strong>BOLD VIRTUAL MEDICAL ADMIN DIRECT-RESPONSE ADS</strong><span class="sub">Primary headline: HIRE A VIRTUAL MEDICAL ADMIN. Request 15–20 concepts per batch. Match the four approved masters for clarity, contrast, and mobile readability — then rebuild winners in every required Meta size.</span></div>
+    <div class="banner"><strong>MAKE ADS THAT BOOK DEMOS</strong><span class="sub">For the graphics team — match the four approved masters, build scroll-stopping concepts, rebuild every Meta size. Mine competitors for energy, never copy their layouts.</span></div>
     
     <div class="hero">
       <h1>Production Handoff</h1>
-      <p>What to ship next. Finish this wave before starting the next.</p>
-      <p class="lede">We want strong finished packs Hailey can move — not twenty half-started tabs.</p>
+      <p>Hi team — this is your go-to page for <b>what to build next</b> so our ads stop the scroll and book demos.</p>
+      <p class="lede">Read the priority, follow the steps, run the quick check, send it in for review. Everything else on this page is optional reference, tucked away below.</p>
     </div>
 
     <section id="priority-now">
-      <h2>Priority Now</h2>
+      <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Do this first</h2>
       <div class="job-box">
-        <p><b>Wave:</b> Resize the 4 approved masters into <b>4:5 / 1080×1350</b>.</p>
-        <p>Build order: VMA-02 → VMA-03 → VMA-01 → VMA-04</p>
-        <p class="note">Layout notes live on <a href="/vma-static.html">Aspect Ratios</a> — rebuild each canvas; do not stretch or center-crop the square.</p>
+        <p style="font-size:1.05rem"><b>Resize the 4 approved masters into 4:5 / 1080×1350.</b></p>
+        <p>Work in this order: <b>VMA-02</b> → <b>VMA-03</b> → <b>VMA-01</b> → <b>VMA-04</b></p>
+        <ol class="job-steps">
+      <li>Open the approved 1:1 master — the <b>Open master</b> button on each card below, or the <a href="/vma-approved.html">Approved Creative</a> page.</li>
+      <li>Rebuild the layout for the <b>4:5 / 1080×1350</b> canvas. Move and resize the pieces to fit — never stretch or crop the square.</li>
+      <li>Keep the same headline, colors, services, and offer. Make the headline big and easy to read on a phone.</li>
+      <li><b>No pink</b> anywhere. The logo is <b>MedVirtual</b> only — never “MedVirtual.ai”.</li>
+      <li>Export a PNG at exactly <b>1080×1350</b>, using the filename printed on each card.</li>
+      <li>Save an editable source too (PSD, AI, or Figma) so we can tweak later.</li>
+      <li>Run the quick check below, then send the finished set in for review.</li>
+    </ol>
       </div>
+    </section>
+
+    <section id="jobs">
+      <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span> The 4 files to make</h2>
+      <p class="lede">One card per master. Open the approved design, rebuild it at 1080×1350, and save it with the filename shown.</p>
       <div class="queue-grid"><div class="soft-card">
   <div class="master-card__meta">Build order 1 · VMA-02</div>
   <h3>Cobalt Blue</h3>
   <p>Target: <b>4:5</b> · 1080×1350</p>
   <p>Filename: <code>MV_VMA_02_CobaltBlue_4x5.png</code></p>
-  <p><span class="pill s-awaiting-design">Awaiting Design</span></p>
-  <a class="dl" href="/exports/vma-masters/MV_VMA_02_CobaltBlue_SOURCE_1x1.png" target="_blank" rel="noopener">Open approved master PNG</a>
+  <p><span class="pill s-ai-draft">AI Draft</span></p>
+  <a class="dl" href="/exports/vma-masters/MV_VMA_02_CobaltBlue_SOURCE_1x1.png" target="_blank" rel="noopener">Open master</a>
 </div><div class="soft-card">
   <div class="master-card__meta">Build order 2 · VMA-03</div>
   <h3>Signal Yellow</h3>
   <p>Target: <b>4:5</b> · 1080×1350</p>
   <p>Filename: <code>MV_VMA_03_SignalYellow_4x5.png</code></p>
-  <p><span class="pill s-awaiting-design">Awaiting Design</span></p>
-  <a class="dl" href="/exports/vma-masters/MV_VMA_03_SignalYellow_SOURCE_1x1.png" target="_blank" rel="noopener">Open approved master PNG</a>
+  <p><span class="pill s-ai-draft">AI Draft</span></p>
+  <a class="dl" href="/exports/vma-masters/MV_VMA_03_SignalYellow_SOURCE_1x1.png" target="_blank" rel="noopener">Open master</a>
 </div><div class="soft-card">
   <div class="master-card__meta">Build order 3 · VMA-01</div>
   <h3>Spanish Green</h3>
   <p>Target: <b>4:5</b> · 1080×1350</p>
   <p>Filename: <code>MV_VMA_01_SpanishGreen_4x5.png</code></p>
-  <p><span class="pill s-awaiting-design">Awaiting Design</span></p>
-  <a class="dl" href="/exports/vma-masters/MV_VMA_01_SpanishGreen_SOURCE_1x1.png" target="_blank" rel="noopener">Open approved master PNG</a>
+  <p><span class="pill s-ai-draft">AI Draft</span></p>
+  <a class="dl" href="/exports/vma-masters/MV_VMA_01_SpanishGreen_SOURCE_1x1.png" target="_blank" rel="noopener">Open master</a>
 </div><div class="soft-card">
   <div class="master-card__meta">Build order 4 · VMA-04</div>
   <h3>HIPAA Green</h3>
   <p>Target: <b>4:5</b> · 1080×1350</p>
   <p>Filename: <code>MV_VMA_04_HIPAAGreen_4x5.png</code></p>
-  <p><span class="pill s-awaiting-design">Awaiting Design</span></p>
-  <a class="dl" href="/exports/vma-masters/MV_VMA_04_HIPAAGreen_SOURCE_1x1.png" target="_blank" rel="noopener">Open approved master PNG</a>
+  <p><span class="pill s-ai-draft">AI Draft</span></p>
+  <a class="dl" href="/exports/vma-masters/MV_VMA_04_HIPAAGreen_SOURCE_1x1.png" target="_blank" rel="noopener">Open master</a>
 </div></div>
-      <p class="note" id="ops">Ops / Meta — if uploading the existing 1:1 pack is faster today: <a href="/exports/meta-upload-ready-vma/README_UPLOAD_NOW.md">Meta upload-ready pack</a>. That is ops work, not the designer wave above.</p>
     </section>
 
-    <section id="done">
-      <h2>Done for this wave</h2>
-      <div class="soft-card">
-        <ul class="clean">
-          <li>4 PNGs at correct dimensions (1080×1350) with expected filenames</li>
-          <li>One editable source (or 4 linked sources)</li>
-          <li>Essential QA checked</li>
-          <li>Ready for Hailey review</li>
-        </ul>
-        <p class="note">Done is not “every cell in the matrix green.”</p>
-      </div>
-    </section>
-
-    <section id="pace">
-      <h2>Pace</h2>
-      <div class="soft-card">
-        <p>Prefer <b>one complete wave</b> (e.g. four 4:5s) over starting 15–20 new concepts.</p>
-        <p>Aim for about one wave per person before picking up new work — a soft guide, not a timesheet.</p>
-        <p>After this wave: 9:16 (1080×1920), then the next size — still one wave at a time.</p>
-        <p class="note">Idea factory (15–20 concepts) stays in <b>Later</b> below — not the ask on this page.</p>
+    <section id="rules">
+      <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Keep it on-brand</h2>
+      <div class="callout-rule">Most important: <b>never use pink</b> · logo is <b>MedVirtual</b>, never MedVirtual.ai · rebuild each size, don’t stretch.</div>
+      <div class="two-cols">
+        <div class="soft-card"><h3>Please do</h3><ul class="clean do-list"><li>Finish one resize wave at a time (e.g. all four masters at 4:5) before starting the next size or new concepts</li><li>Rebuild the layout for each canvas (do not only crop or stretch)</li><li>Use bold Virtual Medical Admin messaging</li><li>Keep text readable on mobile</li><li>Use original layouts — do not copy competitors</li><li>Create static first; animate winners later</li><li>Deliver final PNGs + editable source files (PSD / AI / Figma)</li><li>Use brand: MedVirtual only (never MedVirtual.ai)</li><li>Later: request 15–20 original concepts per creative batch, then build winners in all four sizes</li></ul></div>
+        <div class="soft-card"><h3>Please don’t</h3><ul class="clean dont-list"><li>Do not use pink, hot pink, magenta, rose, or fuchsia</li><li>Do not stretch or simply crop the square design into other ratios</li><li>Do not copy competitor layouts, typography, badge shapes, or composition</li><li>Spanish Speaking badge / flag — Concept 01 pattern only unless briefed</li><li>HIPAA Compliant badge — Concept 04 pattern only unless claim approved</li><li>Do not invent new claims beyond approved brief status</li><li>Do not start video before static QA on the strongest concepts</li></ul></div>
       </div>
     </section>
 
     <section id="qa">
-      <h2>Essential QA</h2>
+      <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span> Quick check before you send</h2>
+      <p class="lede">Tick these off — it saves a review round-trip.</p>
       <ul class="checklist"><li><input type="checkbox" data-persist="handoff-qa-0" /> <span>Correct headline</span></li><li><input type="checkbox" data-persist="handoff-qa-1" /> <span>Correct benefits</span></li><li><input type="checkbox" data-persist="handoff-qa-2" /> <span>Correct offer</span></li><li><input type="checkbox" data-persist="handoff-qa-3" /> <span>Correct badge</span></li><li><input type="checkbox" data-persist="handoff-qa-4" /> <span>Correct logo</span></li><li><input type="checkbox" data-persist="handoff-qa-5" /> <span>Correct dimensions</span></li><li><input type="checkbox" data-persist="handoff-qa-6" /> <span>Mobile readable</span></li><li><input type="checkbox" data-persist="handoff-qa-7" /> <span>Face not cropped</span></li><li><input type="checkbox" data-persist="handoff-qa-8" /> <span>No pink</span></li><li><input type="checkbox" data-persist="handoff-qa-9" /> <span>Source file included</span></li></ul>
     </section>
 
-    <details class="block" id="matrix">
-      <summary>Full size backlog (status matrix)</summary>
-      <p class="lede">Green = approved. Yellow = Awaiting Design.</p>
-      <table class="matrix">
-        <thead><tr><th>Concept</th><th>1:1<br /><span style="font-weight:500;text-transform:none;letter-spacing:0">1080×1080</span></th><th>4:5<br /><span style="font-weight:500;text-transform:none;letter-spacing:0">1080×1350</span></th><th>9:16<br /><span style="font-weight:500;text-transform:none;letter-spacing:0">1080×1920</span></th><th>1.91:1<br /><span style="font-weight:500;text-transform:none;letter-spacing:0">1200×628</span></th></tr></thead>
-        <tbody><tr><td class="rowhead">VMA-01<br />Spanish Green</td><td><span class="pill s-approved">Approved</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td></tr><tr><td class="rowhead">VMA-02<br />Cobalt Blue</td><td><span class="pill s-approved">Approved</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td></tr><tr><td class="rowhead">VMA-03<br />Signal Yellow</td><td><span class="pill s-approved">Approved</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td></tr><tr><td class="rowhead">VMA-04<br />HIPAA Green</td><td><span class="pill s-approved">Approved</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td><td><span class="pill s-awaiting-design">Awaiting Design</span></td></tr></tbody>
-      </table>
-    </details>
-
-    <details class="block" id="request">
-      <summary>Later: idea batch + multi-size builds</summary>
-      <div class="job-box">
-        <p><b>Later request:</b> 15–20 new concepts (see <a href="/ideas.html">New Ad Ideas</a>).</p>
-        <p><b>After review:</b> build the strongest concepts in all 4 required sizes.</p>
-        <p>Required sizes:</p>
-        <div style="margin:0.5rem 0"><span class="chip">1080×1080 (1:1)</span><span class="chip">1080×1350 (4:5)</span><span class="chip">1080×1920 (9:16)</span><span class="chip">1200×628 (1.91:1)</span></div>
-        <p class="note">Every concept that moves to design ships in all 4 sizes, plus an editable source file (PSD / AI / Figma) per concept.</p>
+    <section id="done">
+      <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> What “finished” looks like</h2>
+      <div class="soft-card">
+        <ul class="clean">
+          <li>4 PNGs at the right size (1080×1350) with the correct filenames</li>
+          <li>An editable source file (PSD / AI / Figma)</li>
+          <li>Quick check ticked off</li>
+          <li>Sent in for review</li>
+        </ul>
+        <p class="note">“Finished” is one complete size wave — not every cell in the big matrix turned green.</p>
       </div>
-    </details>
+    </section>
 
-    <details class="block" id="claims">
-      <summary>Claims (ops — pending confirmation)</summary>
-      <div class="claim-grid"><div class="soft-card">
+    <section id="whats-next">
+      <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span> What’s next</h2>
+      <div class="soft-card">
+        <p>After this wave: 9:16 (1080×1920), then the next size — still one wave at a time.</p>
+        <p class="note">Prefer finishing one clean wave over starting lots of new concepts. Roughly one wave per person before picking up new work — a guide, not a timesheet.</p>
+      </div>
+    </section>
+
+    <section id="more">
+      <h2 class="section-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span> More reference (optional)</h2>
+      <p class="lede">You don’t need these for the job above — open only if you want more detail.</p>
+
+      <details class="block" id="matrix">
+        <summary>Full size backlog (status matrix)</summary>
+        <p class="lede">Green = approved. Teal = AI draft (review). Yellow = still to design.</p>
+        <table class="matrix">
+          <thead><tr><th>Concept</th><th>1:1<br /><span style="font-weight:500;text-transform:none;letter-spacing:0">1080×1080</span></th><th>4:5<br /><span style="font-weight:500;text-transform:none;letter-spacing:0">1080×1350</span></th><th>9:16<br /><span style="font-weight:500;text-transform:none;letter-spacing:0">1080×1920</span></th><th>1.91:1<br /><span style="font-weight:500;text-transform:none;letter-spacing:0">1200×628</span></th></tr></thead>
+          <tbody><tr><td class="rowhead">VMA-01<br />Spanish Green</td><td><span class="pill s-approved">Approved</span></td><td><span class="pill s-ai-draft">AI Draft</span></td><td><span class="pill s-ai-draft">AI Draft</span></td><td><span class="pill s-ai-draft">AI Draft</span></td></tr><tr><td class="rowhead">VMA-02<br />Cobalt Blue</td><td><span class="pill s-approved">Approved</span></td><td><span class="pill s-ai-draft">AI Draft</span></td><td><span class="pill s-ai-draft">AI Draft</span></td><td><span class="pill s-ai-draft">AI Draft</span></td></tr><tr><td class="rowhead">VMA-03<br />Signal Yellow</td><td><span class="pill s-approved">Approved</span></td><td><span class="pill s-ai-draft">AI Draft</span></td><td><span class="pill s-ai-draft">AI Draft</span></td><td><span class="pill s-ai-draft">AI Draft</span></td></tr><tr><td class="rowhead">VMA-04<br />HIPAA Green</td><td><span class="pill s-approved">Approved</span></td><td><span class="pill s-ai-draft">AI Draft</span></td><td><span class="pill s-ai-draft">AI Draft</span></td><td><span class="pill s-ai-draft">AI Draft</span></td></tr></tbody>
+        </table>
+      </details>
+
+      <details class="block" id="request">
+        <summary>Later: new idea batch + multi-size builds</summary>
+        <div class="job-box">
+          <p><b>Later request:</b> 15–20 new concepts (see <a href="/ideas.html">New Ad Ideas</a>).</p>
+          <p><b>After review:</b> build the strongest concepts in all 4 sizes:</p>
+          <div style="margin:0.5rem 0"><span class="chip">1080×1080 (1:1)</span><span class="chip">1080×1350 (4:5)</span><span class="chip">1080×1920 (9:16)</span><span class="chip">1200×628 (1.91:1)</span></div>
+          <p class="note">Each concept that moves forward ships in all 4 sizes plus an editable source file.</p>
+        </div>
+      </details>
+
+      <details class="block" id="claims">
+        <summary>Claims status (don’t invent claims)</summary>
+        <div class="claim-grid"><div class="soft-card">
   <h3>Starting at $10/hour</h3>
   <p><span class="pill s-pending">Pending</span></p>
   <p style="font-size:0.78rem;color:#4A6275">Requires final leadership confirmation before it appears on any creative or form.</p>
@@ -1010,33 +1242,31 @@
   <p><span class="pill s-pending">Pending</span></p>
   <p style="font-size:0.78rem;color:#4A6275">Pending leadership approval — do not publish on form or completion screen.</p>
 </div></div>
-      <p class="note">Do not invent claims. Detailed tracking stays in the team spreadsheet.</p>
-    </details>
+        <p class="note">Only use claims marked approved. Detailed tracking lives in the team spreadsheet.</p>
+      </details>
 
-    <details class="block" id="rules">
-      <summary>Rules (quick)</summary>
-      <div class="two-cols">
-        <div class="soft-card"><h3>Do</h3><ul class="clean do-list"><li>Finish one resize wave at a time (e.g. all four masters at 4:5) before starting the next size or new concepts</li><li>Rebuild the layout for each canvas (do not only crop or stretch)</li><li>Use bold Virtual Medical Admin messaging</li><li>Keep text readable on mobile</li><li>Use original layouts — do not copy competitors</li><li>Create static first; animate winners later</li><li>Deliver final PNGs + editable source files (PSD / AI / Figma)</li><li>Use brand: MedVirtual only (never MedVirtual.ai)</li><li>Later: request 15–20 original concepts per creative batch, then build winners in all four sizes</li></ul></div>
-        <div class="soft-card"><h3>Don't</h3><ul class="clean dont-list"><li>Do not use pink, hot pink, magenta, rose, or fuchsia</li><li>Do not stretch or simply crop the square design into other ratios</li><li>Do not copy competitor layouts, typography, badge shapes, or composition</li><li>Spanish Speaking badge / flag — Concept 01 pattern only unless briefed</li><li>HIPAA Compliant badge — Concept 04 pattern only unless claim approved</li><li>Do not invent new claims beyond approved brief status</li><li>Do not start video before static QA on the strongest concepts</li></ul></div>
-      </div>
-    </details>
+      <details class="block" id="ops-upload">
+        <summary>Ops only — Meta upload pack</summary>
+        <p class="note">Not the designer job. If uploading the existing 1:1 pack is faster today: <a href="/exports/meta-upload-ready-vma/README_UPLOAD_NOW.md">Meta upload-ready pack</a>.</p>
+      </details>
 
-    <details class="block" id="form">
-      <summary>Not for graphics — current Meta form (ops only)</summary>
-      <div class="soft-card">
-        <h3>Current Meta Instant Form</h3>
-        <p><b>Intro:</b> Stop the Front-Office Chaos — Stop the overload. Add a Virtual Medical Admin for calls, scheduling, insurance, intake, and billing.</p>
-        <p><b>Routing:</b> What brings you to MedVirtual?</p>
-        <ul class="clean"><li>I’m looking to hire virtual staff</li><li>I’m looking for a job</li></ul>
-        <p style="margin-top:0.5rem"><span class="chip">First Name</span><span class="chip">Last Name</span><span class="chip">Email</span><span class="chip">Mobile Phone</span></p>
-        <p>We’ll use your info to discuss staffing and schedule your demo.</p>
-        <p><b>End:</b> Stop the Front-Office Chaos — Missed calls, scheduling, insurance, billing—get the help your practice needs. Book your demo today.</p>
-        <p><a href="https://meetings.hubspot.com/call-scheduling/mv-meta-imb" target="_blank" rel="noopener">Book Your Demo Now</a></p>
-      </div>
-    </details>
+      <details class="block" id="form">
+        <summary>Ops only — current Meta lead form</summary>
+        <div class="soft-card">
+          <h3>Current Meta Instant Form</h3>
+          <p><b>Intro:</b> Stop the Front-Office Chaos — Stop the overload. Add a Virtual Medical Admin for calls, scheduling, insurance, intake, and billing.</p>
+          <p><b>Routing:</b> What brings you to MedVirtual?</p>
+          <ul class="clean"><li>I’m looking to hire virtual staff</li><li>I’m looking for a job</li></ul>
+          <p style="margin-top:0.5rem"><span class="chip">First Name</span><span class="chip">Last Name</span><span class="chip">Email</span><span class="chip">Mobile Phone</span></p>
+          <p>We’ll use your info to discuss staffing and schedule your demo.</p>
+          <p><b>End:</b> Stop the Front-Office Chaos — Missed calls, scheduling, insurance, billing—get the help your practice needs. Book your demo today.</p>
+          <p><a href="https://meetings.hubspot.com/call-scheduling/mv-meta-imb" target="_blank" rel="noopener">Book Your Demo Now</a></p>
+        </div>
+      </details>
+    </section>
 
     <section id="approval">
-      <p class="note">Approval and delivery status are tracked in the team spreadsheet — not on this page.</p>
+      <p class="note">Questions on any card? Email George at <a href="mailto:george.a@legalsoft.com?subject=Production%20Handoff%20question">george.a@legalsoft.com</a>. Approval and delivery status are tracked in the team spreadsheet.</p>
     </section>
     <p class="foot">MedVirtual Ad Production · No pink · Reviewed July 14, 2026.</p>
   </main>

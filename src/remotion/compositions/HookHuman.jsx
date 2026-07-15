@@ -17,8 +17,8 @@ const DEFAULTS = {
   headlineTwo: 'Not enough day.',
   support: 'Add a dedicated virtual medical admin to your team.',
   bullets: ['Calls and scheduling', 'Patient intake', 'Follow-up support'],
-  cta: 'Request an Interview',
-  imageSrc: '/assets/real-people/jessica/vertical-reference-1080x1920.jpg',
+  cta: 'Book a Demo',
+  imageSrc: '/exports/vma-masters/MV_VMA_02_CobaltBlue_SOURCE_1x1.png',
   animationIntensity: 'standard',
   showSafeZones: false,
 };
