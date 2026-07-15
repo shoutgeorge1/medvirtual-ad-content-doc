@@ -206,8 +206,11 @@ Stick to the winning green-person ad (VMA-01 Spanish Green). We need:
 • 3–4 more static variations, each in Meta aspect ratios (1:1, 4:5, 9:16, 1.91:1)
 • 1 short animated sequence (6s) that makes the static move
 
-All pieces + reference here (no email needed):
-${teamLink('/graphics-kit.html#01-4x5')}
+LINKS (open these — no email needed):
+• Component Library (person, logos, copy, colors): ${teamLink('/graphics-kit.html#01-4x5')}
+• Approved winner reference: ${teamLink('/vma-approved.html')}
+• All Meta sizes + filenames: ${teamLink('/vma-static.html')}
+• Motion brief (6s animation): ${teamLink('/vma-video.html#green-motion')}
 
 Rules: keep it close to the winning ad · MedVirtual logo only (never MedVirtual.ai) · no pink · don't stretch — rebuild each size.`,
     resolution: 'Custom — see Static Production page for exact px per ratio',
