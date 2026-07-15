@@ -1,7 +1,22 @@
 /**
- * Component kit metadata for the four approved masters — Philippines resize wave.
+ * Component kit metadata — production library for Philippines team.
  */
-import { APPROVED_MASTERS, FORMAT_SPECS, GRAPHICS_BUILD_ORDER } from './vma-approved-masters.mjs';
+import { APPROVED_MASTERS, FORMAT_SPECS, GRAPHICS_BUILD_ORDER, GRAPHICS_VARIATION_ORDER, GRAPHICS_PAUSED } from './vma-approved-masters.mjs';
+import {
+  WINNING_NOTE,
+  PRODUCTION_STATUS,
+  TYPOGRAPHY,
+  LOGO_ASSETS,
+  PERSON_ASSETS,
+  BACKGROUND_SPEC,
+  ICON_ELEMENTS,
+  COPY_LOCKED,
+  DELIVERABLES_STATIC,
+  DELIVERABLES_MOTION,
+  GREEN_MOTION_BRIEF,
+  MONDAY_REQUEST,
+  CONCEPT_VARIATIONS,
+} from './production-library-data.mjs';
 
 export const TARGET_RATIOS = FORMAT_SPECS.filter((f) => f.id !== '1x1');
 
@@ -123,14 +138,32 @@ export const RATIO_META = Object.fromEntries(
 );
 
 export function buildGraphicsKitPayload() {
-  const ordered = GRAPHICS_BUILD_ORDER.map((n) => APPROVED_MASTERS.find((m) => m.number === n)).filter(Boolean);
+  const activeNumbers = [...GRAPHICS_BUILD_ORDER, ...GRAPHICS_VARIATION_ORDER];
+  const ordered = activeNumbers.map((n) => APPROVED_MASTERS.find((m) => m.number === n)).filter(Boolean);
+  const paused = GRAPHICS_PAUSED.map((n) => APPROVED_MASTERS.find((m) => m.number === n)).filter(Boolean);
 
   return {
+    winningNote: WINNING_NOTE,
+    productionStatus: PRODUCTION_STATUS,
+    typography: TYPOGRAPHY,
+    logoAssets: LOGO_ASSETS,
+    personAssets: PERSON_ASSETS,
+    backgroundSpec: BACKGROUND_SPEC,
+    iconElements: ICON_ELEMENTS,
+    copyLocked: COPY_LOCKED,
+    deliverablesStatic: DELIVERABLES_STATIC,
+    deliverablesMotion: DELIVERABLES_MOTION,
+    motionBrief: GREEN_MOTION_BRIEF,
+    mondayRequest: MONDAY_REQUEST,
+    conceptVariations: CONCEPT_VARIATIONS,
+    pausedMasters: paused.map((m) => ({ number: m.number, name: m.name })),
     buildOrder: GRAPHICS_BUILD_ORDER,
+    variationOrder: GRAPHICS_VARIATION_ORDER,
     ratios: TARGET_RATIOS.map((r) => r.id),
     ratioMeta: RATIO_META,
     layouts: MOCK_LAYOUTS,
     sharedAssets: SHARED_ASSETS,
+    logoAssets: LOGO_ASSETS,
     masters: ordered.map((m) => {
       const theme = MASTER_THEMES[m.number] || MASTER_THEMES['02'];
       const scrubColor = SCRUB_COLORS[m.number] || theme.accent;
@@ -244,6 +277,8 @@ export function buildGraphicsKitPayload() {
         subhead: SUBHEADS[m.number],
         theme,
         productionNote: m.productionNote,
+        productionStatus: PRODUCTION_STATUS[m.number]?.label || 'Active',
+        isWinner: m.number === '01',
         square: formats['1x1'],
         formats,
         components,

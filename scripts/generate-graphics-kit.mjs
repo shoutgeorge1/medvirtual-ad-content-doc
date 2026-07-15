@@ -28,9 +28,10 @@ export function renderGraphicsKit() {
 
   const body = `
     <div class="hero kit-hero">
-      <h1>Graphics Component Kit</h1>
-      <p><b>For the Philippines team.</b> The square (1:1) is approved and live on Meta. For every other size, <strong>do not stretch the square</strong> — rebuild from these pieces.</p>
-      <p class="lede">Click each component to inspect it full-size. The mock on the right shows how the pieces fit together. <strong>Person layers are transparent PNGs</strong> — scrub color is separate so you can match each master without redoing the photo. The AI draft below is reference only — you finalize in Photoshop / Illustrator / Figma.</p>
+      <h1>Component Library</h1>
+      <p><b>Production handoff — not an editor.</b> ${esc(data.winningNote || '')}</p>
+      <p class="lede">Inspect · open · download every piece. Copy text and hex colors. Layout mock = <strong>composition reference only</strong> — rebuild in Photoshop / Illustrator / Figma / CapCut / AE.</p>
+      <div class="kit-alert">⛔ Paused: VMA-02 Cobalt · VMA-03 Signal Yellow — do not start new work</div>
       <div class="kit-quickstart">
         <strong>Jump to your job:</strong>
         <div class="kit-quickstart__links" id="quickstartLinks"></div>
@@ -39,8 +40,13 @@ export function renderGraphicsKit() {
         <summary>Shared files — open or right-click save (no hunting)</summary>
         <ul class="kit-assets__list" id="sharedAssetList"></ul>
       </details>
-      <div class="kit-order">Build order: ${GRAPHICS_BUILD_ORDER.map((n) => `<b>VMA-${esc(n)}</b>`).join(' → ')} · Start with <b>4:5</b>, then 9:16, then wide.</div>
+      <div class="kit-order">Active: <b>VMA-01</b>${GRAPHICS_BUILD_ORDER.length > 1 ? ' → ' + GRAPHICS_BUILD_ORDER.slice(1).map((n) => 'VMA-' + n).join(' → ') : ''} · Variation when briefed: VMA-04 · Start <b>4:5</b></div>
     </div>
+
+    <section class="kit-prod" id="kit-deliverables">
+      <h2>Production deliverables</h2>
+      <div class="kit-prod__grid" id="deliverablesPanel"></div>
+    </section>
 
     <div class="kit-toolbar">
       <label>Master
@@ -86,7 +92,7 @@ export function renderGraphicsKit() {
         opt.textContent = DATA.ratioMeta[r].label + ' · ' + DATA.ratioMeta[r].dims;
         ratioSelect.appendChild(opt);
       });
-      masterSelect.value = DATA.buildOrder[0] || '02';
+      masterSelect.value = DATA.buildOrder[0] || '01';
       ratioSelect.value = '4x5';
 
       const quickstart = document.getElementById('quickstartLinks');
@@ -95,9 +101,21 @@ export function renderGraphicsKit() {
       ).join('');
 
       const assetList = document.getElementById('sharedAssetList');
-      assetList.innerHTML = (DATA.sharedAssets || []).map((a) =>
-        '<li><a href="' + a.href + '" target="_blank" rel="noopener">' + a.label + '</a></li>'
-      ).join('');
+      const logos = (DATA.logoAssets || []);
+      const shared = (DATA.sharedAssets || []);
+      assetList.innerHTML = [...logos, ...shared.filter((a) => !logos.find((l) => l.href === a.href))]
+        .map((a) => '<li><a href="' + a.href + '" target="_blank" rel="noopener">' + a.label + '</a></li>').join('');
+
+      const delPanel = document.getElementById('deliverablesPanel');
+      if (delPanel) {
+        const staticHtml = (DATA.deliverablesStatic || []).map((d) =>
+          '<div class="kit-del"><strong>' + d.ratio + '</strong><code>' + d.filename + '</code><span>' + d.dims + '</span></div>'
+        ).join('');
+        const motionHtml = (DATA.deliverablesMotion || []).map((d) =>
+          '<div class="kit-del"><strong>' + d.label + '</strong><code>' + d.filename + '</code><span>' + d.dims + ' · ' + d.duration + '</span></div>'
+        ).join('');
+        delPanel.innerHTML = '<div><h3>Static PNGs</h3>' + staticHtml + '</div><div><h3>Motion MP4s</h3>' + motionHtml + '</div>';
+      }
 
       function master() { return DATA.masters.find((m) => m.number === masterSelect.value); }
       function ratio() { return ratioSelect.value; }
@@ -163,7 +181,7 @@ export function renderGraphicsKit() {
 
         workspace.innerHTML =
           '<section class="kit-master" id="master-' + m.number + '">' +
-            '<div class="kit-master__head"><h2>VMA-' + m.number + ' · ' + m.name + '</h2>' +
+            '<div class="kit-master__head"><h2>VMA-' + m.number + ' · ' + m.name + (m.isWinner ? ' <span class="tag tag-live">WINNING DIRECTION</span>' : '') + '</h2>' +
             '<p class="note">' + m.productionNote + '</p></div>' +
 
             '<div class="kit-square-ref">' +
@@ -182,8 +200,8 @@ export function renderGraphicsKit() {
                 '<div class="kit-pieces"><h4>Pieces of the puzzle</h4><p class="note">Click any piece — inspect before you download.</p>' +
                   '<div class="comp-grid">' + m.components.map(componentTile).join('') + '</div></div>' +
 
-                '<div class="kit-target"><h4>Layout mock (code preview)</h4>' +
-                  '<p class="note">How components fit at true pixels — scaled to fit your screen.</p>' +
+                '<div class="kit-target"><h4>Layout mock (composition reference only)</h4>' +
+                  '<p class="note">Rebuild in your production software — not a final export from this page.</p>' +
                   '<div class="mock-scaler" style="transform:scale(' + scaler + ');width:' + (meta.w * scaler) + 'px;height:' + (meta.h * scaler) + 'px">' +
                     renderMock(m, r, meta) + '</div>' +
                   '<h4 style="margin-top:1.25rem">AI draft reference</h4>' +
@@ -307,7 +325,12 @@ export function renderGraphicsKit() {
     main { max-width: 1180px; margin: 0 auto; padding: 1.25rem 1.25rem 4rem; font-family: "Be Vietnam Pro", system-ui, sans-serif; color: #0B1F3A; }
     .kit-hero { margin-bottom: 1rem; }
     .kit-hero h1 { margin: 0 0 0.5rem; font-size: 1.75rem; }
-    .kit-quickstart {
+    .kit-alert { margin: 0.65rem 0; padding: 0.55rem 0.85rem; background: #FFF4E5; border: 1px solid #E8C99A; border-radius: 8px; font-weight: 700; font-size: 0.88rem; color: #6B4E16; }
+    .kit-prod { margin: 1rem 0; padding: 1rem; background: #fff; border: 1px solid #D6E4EC; border-radius: 12px; }
+    .kit-prod h2 { margin: 0 0 0.75rem; font-size: 1.1rem; }
+    .kit-prod__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .kit-del { display: grid; gap: 0.2rem; padding: 0.5rem 0; border-bottom: 1px solid #EEF3F7; font-size: 0.85rem; }
+    .kit-del code { font-size: 0.78rem; }
       display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem;
       margin: 0.85rem 0; padding: 0.75rem 1rem; background: #F0F5FF; border: 1px solid #D6E4EC; border-radius: 10px;
     }
@@ -405,7 +428,7 @@ export function renderGraphicsKit() {
   </style>
 </head>
 <body>
-  ${renderDocHeader({ activeId: 'graphics-kit', pageTitle: 'Graphics Component Kit', pageSubtitle: 'Philippines team — click each piece · inspect · rebuild every Meta size. Do not stretch the square.' })}
+  ${renderDocHeader({ activeId: 'graphics-kit', pageTitle: 'Component Library', pageSubtitle: 'VMA-01 green person · download components · composition reference — not an editor.' })}
   <main>${body}</main>
 </body>
 </html>`;

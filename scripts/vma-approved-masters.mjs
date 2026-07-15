@@ -339,8 +339,16 @@ export const APPROVED_MASTERS = [
   return { ...master, formats };
 });
 
-/** Preferred build order when resizing approved masters. */
-export const GRAPHICS_BUILD_ORDER = ['02', '03', '01', '04'];
+/** Active production — green person only. Variations of VMA-01. */
+export const GRAPHICS_BUILD_ORDER = ['01'];
+
+/** Optional HIPAA variation (same lime person) when explicitly briefed. */
+export const GRAPHICS_VARIATION_ORDER = ['04'];
+
+/** Paused — do not assign new work. */
+export const GRAPHICS_PAUSED = ['02', '03'];
+
+export const WINNING_MASTER_NUMBER = '01';
 
 export const GRAPHICS_DO = [
   'Finish one resize wave at a time (e.g. all four masters at 4:5) before starting the next size or new concepts',
@@ -365,29 +373,28 @@ export const GRAPHICS_DONT = [
 ];
 
 export const VIDEO_OUTPUTS_PER_MASTER = [
-  { id: '6s', label: '6-second motion version', purpose: 'Hook + offer flash + CTA' },
-  { id: '10s', label: '10-second benefit version', purpose: 'Headline → 3–4 benefits → price/CTA' },
-  { id: '15s', label: '15-second problem-to-solution version', purpose: 'Pain → Virtual Admin → benefits → offer' },
+  { id: '6s', label: '6-second motion (test first)', purpose: 'Winning static visible frame 0 · subtle move · benefits stagger · offer hold' },
+  { id: '8s', label: '8-second motion (optional)', purpose: 'Same composition · slightly longer benefit + CTA emphasis' },
+  { id: '10s', label: '10-second motion (only if briefed)', purpose: 'Extended hold — still direct-response, not cinematic' },
 ];
 
 export const VIDEO_STORYBOARD = [
-  { scene: 'Scene 1 — Hook', timing: '0–2s', note: 'Huge headline + face' },
-  { scene: 'Scene 2 — Front-office problem', timing: '2–5s', note: 'Missed calls / admin overload' },
-  { scene: 'Scene 3 — Virtual Medical Admin solution', timing: '5–8s', note: 'Talent + role clarity' },
-  { scene: 'Scene 4 — Three or four services', timing: '8–12s', note: 'Stagger benefit lines' },
-  { scene: 'Scene 5 — Offer and CTA', timing: '12–15s', note: 'Offer / trust badge + Learn More' },
+  { scene: 'Frame 0', timing: '0.0s', note: 'Full approved static already visible — headline + person + offer readable' },
+  { scene: 'Subtle motion', timing: '0.2–1.0s', note: 'Push-in, parallax, or person micro-movement' },
+  { scene: 'Headline resolve', timing: '0.3–1.2s', note: 'Headline locks immediately — no slow reveal' },
+  { scene: 'Benefits', timing: '1.0–3.0s', note: 'Cards enter one at a time' },
+  { scene: 'Offer hold', timing: '3.0–5.5s', note: 'Price / CTA stays readable' },
+  { scene: 'Loop out', timing: 'Final 1–2s', note: 'Subtle CTA emphasis · clean loop, no blank reset' },
 ];
 
 export const WHAT_WE_NEED_NOW = [
-  'Resize the four approved masters into the next missing priority size (currently 4:5 / 1080×1350)',
-  'Work in build order: VMA-02 → VMA-03 → VMA-01 → VMA-04',
-  'Rebuild each layout for the canvas — do not only crop or stretch',
-  'Use bold Virtual Medical Admin messaging',
-  'Keep text readable on mobile',
-  'Use original layouts',
-  'No pink',
-  'Create static first; animate winners later',
-  'Later: 15–20 new concepts, then multi-size builds for winners',
+  'VMA-01 Spanish Green only — the winning lime-scrub admin. Kill/pause Cobalt (02) and Signal Yellow (03).',
+  'Build all aspect ratios + 2–3 scroll-stopping static variations + short motion (6–10s) from Component Library pieces.',
+  'Open Component Library → inspect every piece → rebuild in Photoshop / Illustrator / Figma / CapCut / AE — not in the browser.',
+  'Work order: 4:5 first, then 9:16, then 1.91:1, then 1:1 variations if needed',
+  'Rebuild each layout for the canvas — do not only crop or stretch the square',
+  'Make the winning static move for video — poster with motion, not a new commercial',
+  'No pink · MedVirtual only (never MedVirtual.ai)',
 ];
 
 export const DIRECTION_BULLETS = [

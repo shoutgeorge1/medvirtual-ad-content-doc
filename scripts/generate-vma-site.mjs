@@ -51,6 +51,9 @@ import {
   presentFormatsSummary,
   formatMatrixCells,
   GRAPHICS_BUILD_ORDER,
+  GRAPHICS_VARIATION_ORDER,
+  GRAPHICS_PAUSED,
+  WINNING_MASTER_NUMBER,
   GRAPHICS_DO,
   GRAPHICS_DONT,
   WHAT_WE_NEED_NOW,
@@ -69,6 +72,14 @@ import {
 import { loadLiveSnapshots } from './scrape-ad-library-helpers.mjs';
 import { GRAPHICS_REQUEST_EMAIL } from './creative-hopper-data.mjs';
 import { writeGraphicsKit } from './generate-graphics-kit.mjs';
+import {
+  WINNING_NOTE,
+  MONDAY_REQUEST,
+  GREEN_MOTION_BRIEF,
+  DELIVERABLES_STATIC,
+  DELIVERABLES_MOTION,
+  CONCEPT_VARIATIONS,
+} from './production-library-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.join(__dirname, '..', 'public');
@@ -1273,11 +1284,12 @@ function renderRedirect(to) {
 // ─── 1. Dashboard (studio.html) ──────────────────────────────────────────────
 
 function renderStudio() {
-  const buildOrder = WHAT_WE_NEED_NOW[1];
-  const rules = WHAT_WE_NEED_NOW.slice(2);
+  const rules = WHAT_WE_NEED_NOW.slice(1);
   const ruleChips = rules
     .map((r) => `<span class="rule-chip">${icon('approved')}${esc(r)}</span>`)
     .join('');
+  const winner = APPROVED_MASTERS.find((m) => m.number === WINNING_MASTER_NUMBER);
+  const pausedList = GRAPHICS_PAUSED.map((n) => `VMA-${n}`).join(', ');
 
   const formatCards = FORMAT_SPECS.map(
     (f) => `<div class="soft-card">
@@ -1287,10 +1299,17 @@ function renderStudio() {
 </div>`,
   ).join('');
 
+  const deliverables = DELIVERABLES_STATIC.map(
+    (d) => `<li><code>${esc(d.filename)}</code> · ${esc(d.dims)}</li>`,
+  ).join('');
+  const motionDeliverables = DELIVERABLES_MOTION.map(
+    (d) => `<li><code>${esc(d.filename)}</code> · ${esc(d.duration)} · ${esc(d.dims)}</li>`,
+  ).join('');
+
   const body = `
     <div class="hero">
       <h1>Dashboard</h1>
-      <p>Everything the graphics team needs to build scroll-stopping Meta ads that get people to <b>book a demo</b>.</p>
+      <p>Production library for the Philippines team — <b>VMA-01 green person only</b>. Rebuild in your own software; this site is not an editor.</p>
     </div>
 
     <section id="what-we-need">
@@ -1298,37 +1317,53 @@ function renderStudio() {
       <div class="primary-task">
         ${icon('formats')}
         <div>
-          <p class="primary-task__label">Philippines team — start here</p>
-          <p class="primary-task__text"><a href="/graphics-kit.html"><b>Graphics Component Kit</b></a> — person, headline, benefits, price, colors, logo. Click each piece to inspect, then rebuild every Meta size. <b>Do not stretch the square.</b></p>
-          <a class="primary-task__cta" href="/graphics-kit.html#02-4x5">Open Component Kit → VMA-02 · 4:5</a>
-          <p class="lede" style="margin-top:0.35rem">${esc(buildOrder)}</p>
+          <p class="primary-task__label">Winning direction — kill everything else</p>
+          <p class="primary-task__text">${esc(WINNING_NOTE)}</p>
+          <a class="primary-task__cta" href="/graphics-kit.html#01-4x5">Open Component Library → VMA-01 · 4:5</a>
+          <p class="lede" style="margin-top:0.35rem"><b>Paused:</b> ${esc(pausedList)} — do not start new work on these.</p>
         </div>
       </div>
       <div class="rule-chips">${ruleChips}</div>
     </section>
 
-    <section id="approved-baseline">
-      <h2 class="section-head">${icon('approved')} Approved Ads</h2>
-      <p class="lede">Match this clarity and contrast. Don’t copy competitors.</p>
-      ${mastersGrid()}
+    <section id="winning-master">
+      <h2 class="section-head">${icon('approved')} Current Winner</h2>
+      <p class="lede">${statusBadge('Winning Direction')} · VMA-01 Spanish Green — lime-scrub admin producing leads more efficiently than custom video.</p>
+      ${winner ? masterCard(winner, { size: 'lg' }) : ''}
+      <p style="margin-top:0.75rem"><a class="dl" href="/graphics-kit.html#01-4x5">Open full component library →</a></p>
+    </section>
+
+    <section id="deliverables">
+      <h2 class="section-head">${icon('formats')} What to deliver</h2>
+      <div class="two-cols">
+        <div class="soft-card">
+          <h3>Static PNGs + source</h3>
+          <ul class="clean">${deliverables}</ul>
+          <p class="note">Plus editable PSD / AI / Figma for each.</p>
+        </div>
+        <div class="soft-card">
+          <h3>Motion MP4s (make the static move)</h3>
+          <ul class="clean">${motionDeliverables}</ul>
+          <p class="note"><a href="/vma-video.html#green-motion">Read motion brief →</a></p>
+        </div>
+      </div>
     </section>
 
     <section id="required-formats">
-      <h2 class="section-head">${icon('formats')} Required Formats</h2>
+      <h2 class="section-head">${icon('formats')} Meta sizes</h2>
       <div class="queue-grid">${formatCards}</div>
-      <div class="callout-rule">Rebuild each format for its canvas — never stretch or crop the square.</div>
+      <div class="callout-rule">Composition reference on the site — rebuild each canvas in Photoshop / Figma / AE / CapCut. Never stretch the square.</div>
     </section>
 
     <section id="quick-links">
       <h2 class="section-head">${icon('links')} Quick Links</h2>
       <div class="quick-links">
-        <a href="/graphics-kit.html#02-4x5">${icon('formats')} Component Kit (start here)</a>
-        <a href="/vma-handoff.html">${icon('target')} Production Handoff</a>
-        <a href="/vma-approved.html">${icon('eye')} Approved Ads</a>
-        <a href="/vma-static.html">${icon('ratio')} Aspect Ratios</a>
-        <a href="/ideas.html">${icon('idea')} New Concepts</a>
-        <a href="/competitors.html">${icon('search')} Competitors</a>
-        <a href="/vma-chatgpt.html">${icon('prompt')} Prompts &amp; Copy</a>
+        <a href="/graphics-kit.html#01-4x5">${icon('formats')} Component Library</a>
+        <a href="/vma-handoff.html#monday-request">${icon('target')} Monday request</a>
+        <a href="/vma-approved.html">${icon('eye')} Winners</a>
+        <a href="/vma-static.html">${icon('ratio')} Static Production</a>
+        <a href="/vma-video.html">${icon('video')} Animated Video</a>
+        <a href="/ideas.html">${icon('idea')} Concept Review</a>
       </div>
     </section>`;
 
@@ -1336,7 +1371,7 @@ function renderStudio() {
     activeId: 'studio',
     title: 'Dashboard',
     pageTitle: 'Dashboard',
-    pageSubtitle: 'Priority · approved ads · quick links for the graphics team.',
+    pageSubtitle: 'VMA-01 green person · component library · deliverables · what is paused.',
     body,
   });
 }
@@ -1382,57 +1417,56 @@ function approvedDetailBlock(master) {
 }
 
 function renderApproved() {
+  const winner = APPROVED_MASTERS.find((m) => m.number === WINNING_MASTER_NUMBER);
+  const variations = GRAPHICS_VARIATION_ORDER.map((n) => APPROVED_MASTERS.find((m) => m.number === n)).filter(Boolean);
+  const paused = GRAPHICS_PAUSED.map((n) => APPROVED_MASTERS.find((m) => m.number === n)).filter(Boolean);
   const grounding = COLOR_DIRECTION.grounding.map((g) => `<span class="swatch-chip">${esc(g)}</span>`).join('');
   const accents = COLOR_DIRECTION.accents.map((a) => `<span class="swatch-chip">${esc(a)}</span>`).join('');
   const forbidden = COLOR_DIRECTION.forbidden.map((f) => `<span class="swatch-chip">${esc(f)}</span>`).join('');
-  const historyNotes = HISTORY_NOTES.map(
-    (n) => `<div class="soft-card"><div class="master-card__meta">${esc(n.date)}</div><h3>${esc(n.title)}</h3><p>${esc(n.change)}</p></div>`,
-  ).join('');
-
-  const detailBlocks = APPROVED_MASTERS.map((m) => approvedDetailBlock(m)).join('');
 
   const body = `
     <div class="hero">
-      <h1>Approved Creative Baseline</h1>
-      <p>${esc(MASTER_NOTE)}</p>
+      <h1>Performance Winners</h1>
+      <p>${esc(WINNING_NOTE)}</p>
+      <p class="lede">${statusBadge('Winning Direction')} · Statics are outperforming longer custom video — stay close to this look.</p>
     </div>
 
-    <section id="masters">
-      ${mastersGrid()}
+    <section id="winner">
+      <h2 class="section-head">${icon('approved')} VMA-01 · Spanish Green</h2>
+      ${winner ? approvedDetailBlock(winner) : ''}
+      <p><a class="dl" href="/graphics-kit.html#01-4x5">Open Component Library for all pieces →</a></p>
     </section>
 
-    <section id="analysis">
-      <h2>Master-by-Master Analysis</h2>
-      ${detailBlocks}
+    ${variations.length ? `<section id="variations">
+      <h2 class="section-head">${icon('idea')} Approved variations (same lime person)</h2>
+      <p class="lede">Only when explicitly briefed — e.g. HIPAA badge instead of Spanish.</p>
+      ${variations.map((m) => approvedDetailBlock(m)).join('')}
+    </section>` : ''}
+
+    <section id="paused">
+      <h2 class="section-head">${icon('search')} Paused — do not assign</h2>
+      <p class="lede">Cobalt and Signal Yellow are on hold. Archive reference only.</p>
+      <div class="masters-grid">${paused.map((m) => masterCard(m, { size: 'sm' })).join('')}</div>
     </section>
 
     <details class="block">
-      <summary>Color direction (optional reference)</summary>
-      <p class="lede">${esc(COLOR_DIRECTION.summary)}</p>
-      <p style="margin:0.75rem 0 0.25rem;font-size:0.8rem;font-weight:700;color:#4A6275">OK grounding</p>
-      <div class="swatch-row">${grounding}</div>
-      <p style="margin:0.75rem 0 0.25rem;font-size:0.8rem;font-weight:700;color:#4A6275">OK accents</p>
-      <div class="swatch-row">${accents}</div>
-      <p style="margin:0.75rem 0 0.25rem;font-size:0.8rem;font-weight:700;color:#4A6275">Never</p>
-      <div class="swatch-row">${forbidden}</div>
-      <ul class="clean">${COLOR_DIRECTION.rules.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
-    </details>
-
-    <details class="block">
-      <summary>History notes (optional reference)</summary>
-      <div class="queue-grid">${historyNotes}</div>
+      <summary>Color direction (all concepts)</summary>
+      <p>${esc(COLOR_DIRECTION.summary)}</p>
+      <p><b>Grounding:</b> ${grounding}</p>
+      <p><b>Accents:</b> ${accents}</p>
+      <p><b>Forbidden:</b> ${forbidden}</p>
     </details>`;
 
   return page({
     activeId: 'vma-approved',
-    title: 'Approved Creative',
-    pageTitle: 'Approved Creative',
-    pageSubtitle: 'Four approved masters — image-first analysis.',
+    title: 'Performance Winners',
+    pageTitle: 'Performance Winners',
+    pageSubtitle: 'VMA-01 green person · variations · paused concepts.',
     body,
   });
 }
 
-// ─── 3. New Ad Ideas (ideas.html) ────────────────────────────────────────────
+// ─── 3. Concept Review (ideas.html) ────────────────────────────────────────────
 
 function ideaCategoryCard(cat) {
   const examples = cat.examples.map((e) => `<span class="chip">${esc(e)}</span>`).join('');
@@ -1599,42 +1633,54 @@ function renderIdeas() {
   ).join('');
   const totalConcepts = CONCEPT_BATCH_STRUCTURE.reduce((sum, b) => sum + b.count, 0);
 
+  const mockupCards = CONCEPT_VARIATIONS.filter((v) => v.thumb)
+    .map(
+      (v) => `<article class="spark-card" data-feedback-item="concept:${esc(v.id)}">
+  <button type="button" class="spark-card__img" data-lightbox="${esc(v.thumb)}">
+    <img src="${esc(v.thumb)}" alt="${esc(v.name)}" loading="lazy" />
+  </button>
+  <div class="spark-card__body">
+    <h3>${esc(v.name)}</h3>
+    <p>${statusBadge(v.status)}</p>
+    <p class="note">${esc(v.note)}</p>
+    <div class="feedback-ui" data-feedback-for="concept:${esc(v.id)}"></div>
+  </div>
+</article>`,
+    )
+    .join('');
+
   const body = `
     <div class="hero">
-      <h1>New Ad Ideas</h1>
-      <p><b>Standard request: 15–20 concepts.</b> Build scroll-stopping originals that get people to book a demo — steal competitor energy, never copy layouts.</p>
+      <h1>Concept Review</h1>
+      <p><b>Not production.</b> Thumbs up/down + notes on experiments only. Approved production assets live in the <a href="/graphics-kit.html">Component Library</a>.</p>
+      <p class="lede">Current winner: <b>VMA-01 green person</b> — new concepts should stay visually close unless explicitly testing a new direction.</p>
     </div>
 
-    <section id="ad-studio-cta">
-      <h2 class="section-head">${icon('idea')} Component Ad Studio <span class="badge-new">new</span></h2>
-      <div class="studio-cta">
-        <div class="studio-cta__text">
-          <p class="studio-cta__lede">Build an ad from <b>reusable components</b> — person, headline, sub-line, callout, price, icons — like assembling a webpage. One layered build recomposes for every Meta size (1:1 · 4:5 · 9:16 · Wide) and later becomes video variations.</p>
-          <p class="note">Starting neutral (white / navy) while we lock the component system — color comes once it's right. This is the direction: elements first, graphics assembled from them.</p>
-          <a class="studio-cta__btn" href="/ad-studio.html">Open the Ad Studio →</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="spark-gallery">
-      <h2 class="section-head">${icon('idea')} Visual spark gallery</h2>
-      <p class="note">${esc(IDEA_SPARK_NOTE)}</p>
-      <div class="spark-grid">${sparks}</div>
+    <section id="mockup-review">
+      <h2 class="section-head">${icon('idea')} Scroll-stopping variations (review)</h2>
+      <p class="note">AI-generated mockups for direction tests — 👍 develop · 👎 archive. Production team rebuilds winners from Component Library pieces.</p>
+      <div class="spark-grid">${mockupCards}</div>
       <div id="ideas-rejected"></div>
     </section>
 
-    <section id="categories">
-      <h2>Idea Categories — fill a 15–20 batch</h2>
-      <div class="cat-grid">${categories}</div>
+    <section id="spark-gallery">
+      <h2 class="section-head">${icon('idea')} Spark gallery</h2>
+      <p class="note">${esc(IDEA_SPARK_NOTE)}</p>
+      <div class="spark-grid">${sparks}</div>
     </section>
 
-    <section id="batch">
-      <h2>Build a 15–20 Concept Batch</h2>
-      <p class="lede">Recommended mix (totals ${esc(totalConcepts)} concepts):</p>
+    <details class="block" id="batch-archive">
+      <summary>Idea batch structure (paused — green person priority)</summary>
+      <p class="lede">Finish VMA-01 production wave before starting new 15–20 concept batches.</p>
       <div class="queue-grid">${batchStructure}</div>
-      <h3 style="margin-top:1.25rem">Copy-paste batch request</h3>
+      <h3 style="margin-top:1.25rem">Copy-paste batch request (when resumed)</h3>
       ${copyBlock(VMA_META.conceptBatchRequest)}
-    </section>
+    </details>
+
+    <details class="block" id="categories">
+      <summary>Idea categories (reference)</summary>
+      <div class="cat-grid">${categories}</div>
+    </details>
 
     <details class="block" id="concept-builder">
       <summary>Concept Builder — turn a spark into a brief + prompt</summary>
@@ -1715,9 +1761,9 @@ function renderIdeas() {
 
   return page({
     activeId: 'ideas',
-    title: 'New Ad Ideas',
-    pageTitle: 'New Ad Ideas',
-    pageSubtitle: '15–20 concepts to test for demo sign-ups.',
+    title: 'Concept Review',
+    pageTitle: 'Concept Review',
+    pageSubtitle: 'Thumbs up/down on experiments — production lives in Component Library.',
     body: body + CONCEPT_BUILDER_SCRIPT + IDEAS_FEEDBACK_SCRIPT,
   });
 }
@@ -1789,7 +1835,8 @@ function formatGuideCard(spec, exampleMaster) {
 
 function renderStatic() {
   const exampleMaster =
-    APPROVED_MASTERS.find((m) => m.number === '02') || APPROVED_MASTERS[0];
+    APPROVED_MASTERS.find((m) => m.number === WINNING_MASTER_NUMBER) || APPROVED_MASTERS[0];
+  const activeMasters = APPROVED_MASTERS.filter((m) => GRAPHICS_BUILD_ORDER.includes(m.number) || GRAPHICS_VARIATION_ORDER.includes(m.number));
 
   const guides = FORMAT_SPECS.map((f) => formatGuideCard(f, exampleMaster)).join('');
 
@@ -1804,18 +1851,6 @@ function renderStatic() {
     )
     .join('');
 
-  const masterStatusCards = APPROVED_MASTERS.map((m) => {
-    const summary = presentFormatsSummary(m);
-    return `<div class="soft-card">
-  <img src="${esc(m.masterImage)}" alt="${esc(m.name)} 1:1" loading="lazy" />
-  <h3>VMA-${esc(m.number)} · ${esc(m.name)}</h3>
-  <p><b>Approved:</b> ${esc(summary.approved)}</p>
-  <p><b>AI drafts (review):</b> ${esc(summary.drafts)}</p>
-  <p><b>Still needed:</b> ${esc(summary.awaiting)}</p>
-  <a class="dl" href="${esc(m.masterImage)}" target="_blank" rel="noopener">Open square master</a>
-</div>`;
-  }).join('');
-
   const walkthroughRow = formatRow(exampleMaster);
 
   const handoffChecklist = ASPECT_RATIO_HANDOFF_CHECKLIST.map(
@@ -1826,13 +1861,13 @@ function renderStatic() {
 
   const body = `
     <div class="hero">
-      <h1>Aspect Ratios</h1>
-      <p>Same ad idea — four phone-friendly shapes. Start from an approved square, then rebuild the layout for tall feed, Stories/Reels, and wide placements.</p>
+      <h1>Static Production</h1>
+      <p><b>VMA-01 green person</b> — all Meta sizes + scroll-stopping variations. Composition references on this site; final PNGs built in your production software.</p>
     </div>
 
-    <div class="banner"><strong>Philippines team:</strong><span class="sub"><a href="/graphics-kit.html"><b>Graphics Component Kit</b></a> — click each piece (person, headline, benefits, price) to inspect full-size next to the layout mock and AI draft. Rebuild every size — never stretch the square.</span></div>
+    <div class="banner"><strong>Component Library:</strong><span class="sub"><a href="/graphics-kit.html#01-4x5"><b>Open Component Library</b></a> — person PNG, copy, colors, logos, layout reference per ratio. <b>Do not stretch the square.</b> Cobalt (02) and Signal Yellow (03) are paused.</span></div>
 
-    <div class="banner"><strong>New: AI-drafted aspect ratios.</strong><span class="sub">Each approved master now has an AI-reframed 4:5, 9:16, and 1.91:1 draft below (exact Meta pixel sizes). These are <b>drafts for review</b> — check spelling, faces, hands, safe zones, and pink before use, then a designer finalizes the winners.</span></div>
+    <div class="banner"><strong>AI drafts below</strong><span class="sub">AI-reframed 4:5, 9:16, and 1.91:1 drafts are <b>reference only</b> — check spelling, faces, hands, safe zones. Designer rebuilds from components.</span></div>
 
     <section id="sizes-at-a-glance">
       <h2>The four sizes at a glance</h2>
@@ -1842,7 +1877,7 @@ function renderStatic() {
 
     <section id="example">
       <h2>Start from a real approved example</h2>
-      <p class="lede">This is Cobalt Blue — already approved as a square. Use it as the clarity bar for every other size.</p>
+      <p class="lede">VMA-01 Spanish Green — approved square producing leads. Use as clarity bar for every other size.</p>
       <div class="example-hero">
         <div class="example-hero__media">
           <img src="${esc(exampleMaster.masterImage)}" alt="${esc(exampleMaster.name)} approved 1:1 example" width="1080" height="1080" loading="lazy" />
@@ -1861,14 +1896,31 @@ function renderStatic() {
     </section>
 
     <section id="walkthrough">
-      <h2>Example progress — Cobalt Blue</h2>
+      <h2>Example progress — VMA-01 Spanish Green</h2>
       <p class="note">A crop is not a redesign. Reposition the pieces for each canvas.</p>
       ${walkthroughRow}
     </section>
 
     <section id="all-masters">
-      <h2>All four masters — what’s ready</h2>
-      <div class="await-board">${masterStatusCards}</div>
+      <h2>Active masters — what’s ready</h2>
+      <div class="await-board">${activeMasters.map((m) => {
+    const summary = presentFormatsSummary(m);
+    return `<div class="soft-card">
+  <img src="${esc(m.masterImage)}" alt="${esc(m.name)} 1:1" loading="lazy" />
+  <h3>VMA-${esc(m.number)} · ${esc(m.name)}</h3>
+  <p><b>Approved:</b> ${esc(summary.approved)}</p>
+  <p><b>AI drafts (review):</b> ${esc(summary.drafts)}</p>
+  <p><b>Still needed:</b> ${esc(summary.awaiting)}</p>
+  <a class="dl" href="/graphics-kit.html#${esc(m.number)}-4x5">Open component library</a>
+</div>`;
+  }).join('')}</div>
+      <details class="block"><summary>Paused masters (reference only)</summary>
+      <div class="await-board">${GRAPHICS_PAUSED.map((n) => {
+    const m = APPROVED_MASTERS.find((x) => x.number === n);
+    if (!m) return '';
+    const summary = presentFormatsSummary(m);
+    return `<div class="soft-card"><h3>VMA-${esc(m.number)} · ${esc(m.name)} — Paused</h3><p>${esc(summary.approved)} approved · do not assign</p></div>`;
+  }).join('')}</div></details>
       <details class="block" style="margin-top:1rem">
         <summary>Full size checklist for every master</summary>
         ${APPROVED_MASTERS.map(
@@ -1890,9 +1942,9 @@ function renderStatic() {
 
   return page({
     activeId: 'vma-static',
-    title: 'Aspect Ratios',
-    pageTitle: 'Aspect Ratios',
-    pageSubtitle: 'Friendly size guide with real examples.',
+    title: 'Static Production',
+    pageTitle: 'Static Production',
+    pageSubtitle: 'VMA-01 all ratios · AI drafts · filenames · component library links.',
     body,
   });
 }
@@ -2267,13 +2319,28 @@ const MOTION_LAB_JS = `
 </script>`;
 
 function renderVideo() {
-  const outputsPerMaster = APPROVED_MASTERS.map(
-    (m) => `<div class="soft-card">
-  <div class="thumb-row"><a href="${esc(m.masterImage)}"><img src="${esc(m.masterImage)}" alt="${esc(m.name)}" loading="lazy" /></a></div>
-  <h3>VMA-${esc(m.number)} · ${esc(m.name)}</h3>
-  <ul class="clean">${VIDEO_OUTPUTS_PER_MASTER.map((o) => `<li><b>${esc(o.label)}</b> — ${esc(o.purpose)}</li>`).join('')}</ul>
+  const winner = APPROVED_MASTERS.find((m) => m.number === WINNING_MASTER_NUMBER);
+  const motionSeq = GREEN_MOTION_BRIEF.sequence
+    .map((s) => `<li><b>${esc(s.time)}</b> — ${esc(s.action)}</li>`)
+    .join('');
+  const motionAllowed = GREEN_MOTION_BRIEF.motionAllowed.map((m) => `<li>${esc(m)}</li>`).join('');
+  const motionAvoid = GREEN_MOTION_BRIEF.motionAvoid.map((m) => `<li>${esc(m)}</li>`).join('');
+  const motionDeliverables = DELIVERABLES_MOTION.map(
+    (d) => `<div class="soft-card">
+  <h3>${esc(d.label)}</h3>
+  <p>${esc(d.dims)} · ${esc(d.duration)} · ${esc(d.format)}</p>
+  <p>Filename: <code>${esc(d.filename)}</code></p>
+  <p class="note">${esc(d.sound)} · ${esc(d.firstFrame)}</p>
 </div>`,
   ).join('');
+
+  const outputsPerMaster = winner
+    ? `<div class="soft-card">
+  <div class="thumb-row"><a href="${esc(winner.masterImage)}"><img src="${esc(winner.masterImage)}" alt="${esc(winner.name)}" loading="lazy" /></a></div>
+  <h3>VMA-01 · ${esc(winner.name)} — motion targets</h3>
+  <ul class="clean">${VIDEO_OUTPUTS_PER_MASTER.map((o) => `<li><b>${esc(o.label)}</b> — ${esc(o.purpose)}</li>`).join('')}</ul>
+</div>`
+    : '';
 
   const story = VIDEO_STORYBOARD.map(
     (s) => `<div class="beat"><b>${esc(s.scene)}</b><span>${esc(s.timing)}</span><div>${esc(s.note)}</div></div>`,
@@ -2319,16 +2386,41 @@ function renderVideo() {
   const body = `
     <div class="hero">
       <h1>Animated Video</h1>
-      <p><b>Start in the Motion Lab.</b> Watch four Remotion concepts in your browser — tweak copy, preview motion, export stills. Use the specs below when you build the final MP4.</p>
+      <p><b>Make the winning static move.</b> Motion brief + components — editors finish in CapCut, After Effects, or Premiere. Not a browser animation studio.</p>
     </div>
 
-    <section id="motion-lab-entry" class="primary-task">
-      <h2 class="section-head">${icon('video')} Motion Concept Lab</h2>
-      <p class="lede">Four short-form VMA videos you can play right now — hook roll, checklist reveal, problem→person, dedicated-staff cards. No download, no render queue.</p>
+    <section id="green-motion" class="primary-task">
+      <h2 class="section-head">${icon('video')} Green-person motion brief</h2>
+      <p class="lede">${esc(GREEN_MOTION_BRIEF.principle)} · ${esc(GREEN_MOTION_BRIEF.duration)}</p>
+      <div class="two-cols">
+        <div class="soft-card">
+          <h3>Sequence</h3>
+          <ol class="clean">${motionSeq}</ol>
+        </div>
+        <div class="soft-card">
+          <h3>Layers that may move independently</h3>
+          <p>${GREEN_MOTION_BRIEF.independentLayers.map((l) => `<span class="chip">${esc(l)}</span>`).join('')}</p>
+          <h3 style="margin-top:0.75rem">Do</h3>
+          <ul class="clean">${motionAllowed}</ul>
+          <h3>Avoid</h3>
+          <ul class="clean dont-list">${motionAvoid}</ul>
+        </div>
+      </div>
+      <p style="margin-top:0.75rem"><a class="dl" href="/graphics-kit.html">Download motion components →</a> · <a class="dl" href="/motion-concept-lab.html">Preview in Motion Lab (reference only)</a></p>
+    </section>
+
+    <section id="motion-deliverables">
+      <h2 class="section-head">${icon('formats')} Video deliverables</h2>
+      <div class="queue-grid">${motionDeliverables}</div>
+      ${outputsPerMaster}
+    </section>
+
+    <section id="motion-lab-entry">
+      <h2 class="section-head">${icon('video')} Motion Concept Lab (preview)</h2>
+      <p class="lede">Browser preview only — not final export. Use specs below for MP4 delivery.</p>
       <div class="quick-links">
         <a href="/motion-concept-lab.html" class="primary-link">${icon('video')} Open Motion Concept Lab</a>
-        <a href="/motion-concept-lab.html#MV-HOOK-HUMAN-01">${icon('idea')} Hook roll concept</a>
-        <a href="/ideas.html#spark-gallery">${icon('idea')} Spark stills to animate</a>
+        <a href="/graphics-kit.html#01-4x5">${icon('formats')} Component Library</a>
       </div>
     </section>
 
@@ -2427,7 +2519,7 @@ function renderVideo() {
     activeId: 'vma-video',
     title: 'Animated Video',
     pageTitle: 'Animated Video',
-    pageSubtitle: 'Motion Lab · specs · CapCut / Remotion handoff.',
+    pageSubtitle: 'Make the winning static move — motion brief · deliverables · preview lab.',
     subnav: VIDEO_SUBNAV,
     activeSubHref: '/vma-video.html',
     body,
@@ -2685,42 +2777,62 @@ function renderHandoff() {
 
   const steps = waveSpec
     ? `<ol class="job-steps">
-      <li>Open the approved 1:1 master — the <b>Open master</b> button on each card below, or the <a href="/vma-approved.html">Approved Creative</a> page.</li>
-      <li>Rebuild the layout for the <b>${esc(waveLabel)}</b> canvas. Move and resize the pieces to fit — never stretch or crop the square.</li>
-      <li>Keep the same headline, colors, services, and offer. Make the headline big and easy to read on a phone.</li>
-      <li><b>No pink</b> anywhere. The logo is <b>MedVirtual</b> only — never “MedVirtual.ai”.</li>
-      <li>Export a PNG at exactly <b>${esc(waveSpec.dims)}</b>, using the filename printed on each card.</li>
-      <li>Save an editable source too (PSD, AI, or Figma) so we can tweak later.</li>
-      <li>Run the quick check below, then send the finished set in for review.</li>
+      <li>Open <a href="/graphics-kit.html#01-${esc(waveSpec.id)}">Component Library</a> — download person PNG, logos, copy text, colors.</li>
+      <li>Rebuild VMA-01 for <b>${esc(waveLabel)}</b> in Photoshop / Illustrator / Figma — never stretch the square.</li>
+      <li>Keep locked copy: headline, benefits, Spanish badge, offer as approved.</li>
+      <li><b>No pink</b> · <b>MedVirtual</b> only — never MedVirtual.ai.</li>
+      <li>Export PNG at <b>${esc(waveSpec.dims)}</b> — filename on card below.</li>
+      <li>Save editable source (PSD / AI / Figma).</li>
+      <li>Optional: 6s motion MP4 — <a href="/vma-video.html#green-motion">see motion brief</a>.</li>
+      <li>Submit via <a href="#monday-request">Monday request</a> · run QA checklist below.</li>
     </ol>`
-    : `<p>All four sizes are approved for every master — nice work. Pick up “What’s next” below.</p>`;
+    : `<p>VMA-01 wave complete for this size — pick up motion or concept review.</p>`;
+
+  const monday = MONDAY_REQUEST;
+  const mondayDesc = monday.fields.description.replace('[site]', 'https://medvirtual-ad-content-doc.vercel.app');
 
   const body = `
     <div class="hero">
       <h1>Production Handoff</h1>
-      <p>Hi team — this is your go-to page for <b>what to build next</b> so our ads stop the scroll and book demos.</p>
-      <p class="lede">Read the priority, follow the steps, run the quick check, send it in for review. Everything else on this page is optional reference, tucked away below.</p>
+      <p>Monday.com request · deliverables · QA — for the Philippines graphics and video team.</p>
+      <p class="lede"><b>VMA-01 green person only.</b> Kill Cobalt (02) and Signal Yellow (03). Rebuild from <a href="/graphics-kit.html">Component Library</a> — not in the browser.</p>
     </div>
+
+    <section id="monday-request">
+      <h2 class="section-head">${icon('target')} Monday.com graphics request</h2>
+      <p class="lede">Copy these fields into the <a href="${esc(monday.formUrl)}" target="_blank" rel="noopener">Graphics Request Form</a>.</p>
+      <div class="soft-card">
+        <p><b>Brand:</b> ${esc(monday.fields.brand)}</p>
+        <p><b>Type of Request:</b> ${esc(monday.fields.type)}</p>
+        <p><b>Title of Request:</b> <code>${esc(monday.fields.title)}</code></p>
+        <p><b>Description:</b></p>
+        ${copyBlock(mondayDesc)}
+        <p><b>References:</b> ${esc(monday.fields.references)}</p>
+        <p style="margin-top:0.75rem"><a class="dl" href="${esc(monday.formUrl)}" target="_blank" rel="noopener">Open Monday form →</a></p>
+      </div>
+    </section>
 
     <section id="priority-now">
       <h2 class="section-head">${icon('target')} Do this first</h2>
       <div class="primary-task" style="margin-bottom:1rem">
         <span class="ico" aria-hidden="true">${icon('formats')}</span>
         <div>
-          <p class="primary-task__label">Component kit — start here</p>
-          <p class="primary-task__text"><a href="/graphics-kit.html"><b>Open the Graphics Component Kit</b></a> — every piece of the puzzle, laid next to each size. Click to inspect before you download. Do not stretch the square.</p>
+          <p class="primary-task__label">Component Library — start here</p>
+          <p class="primary-task__text"><a href="/graphics-kit.html"><b>Open Component Library</b></a> — inspect every piece · download originals · copy text/colors · see layout reference per ratio.</p>
+          <a class="primary-task__cta" href="/graphics-kit.html#01-4x5">VMA-01 · 4:5 →</a>
         </div>
       </div>
       <div class="job-box">
-        <p style="font-size:1.05rem"><b>Resize the 4 approved masters into ${esc(waveLabel)}.</b></p>
-        <p>Work in this order: ${GRAPHICS_BUILD_ORDER.map((n) => `<b>VMA-${esc(n)}</b>`).join(' → ')}</p>
+        <p style="font-size:1.05rem"><b>Build VMA-01 at ${esc(waveLabel)}.</b></p>
+        <p>Active: ${GRAPHICS_BUILD_ORDER.map((n) => `<b>VMA-${esc(n)}</b>`).join('')}${GRAPHICS_VARIATION_ORDER.length ? ` · Variation when briefed: ${GRAPHICS_VARIATION_ORDER.map((n) => `<b>VMA-${esc(n)}</b>`).join('')}` : ''}</p>
+        <p class="note"><b>Paused:</b> ${GRAPHICS_PAUSED.map((n) => `VMA-${n}`).join(', ')}</p>
         ${steps}
       </div>
     </section>
 
     <section id="jobs">
-      <h2 class="section-head">${icon('formats')} The 4 files to make</h2>
-      <p class="lede">One card per master. Open the approved design, rebuild it at ${esc(waveSpec ? waveSpec.dims : 'the target size')}, and save it with the filename shown.</p>
+      <h2 class="section-head">${icon('formats')} Files to make this wave</h2>
+      <p class="lede">Rebuild at ${esc(waveSpec ? waveSpec.dims : 'the target size')} — composition reference only on the site.</p>
       <div class="queue-grid">${waveCards}</div>
     </section>
 

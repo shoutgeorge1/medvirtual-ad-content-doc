@@ -16,64 +16,63 @@ export const DOC_BRAND = {
 export const LAUNCH_SUBNAV = [];
 
 /**
- * Primary nav — eight creative-handoff pages.
- * Ops tools (claims, QA, queue, forms, campaign) live as page sections / redirects.
+ * Primary nav — production library + concept review.
  */
 export const PRIMARY_NAV = [
   {
     href: '/studio.html',
     label: 'Dashboard',
     id: 'studio',
-    description: 'Start here — priority, approved ads, quick links.',
-  },
-  {
-    href: '/graphics-kit.html',
-    label: 'Component Kit',
-    id: 'graphics-kit',
-    description: 'Philippines team — person, headline, colors, logo. Click to inspect each piece.',
-    teamPriority: true,
+    description: 'What is winning · what to build now · what is paused.',
   },
   {
     href: '/vma-approved.html',
-    label: 'Approved Creative',
+    label: 'Winners',
     id: 'vma-approved',
-    description: 'Four approved masters — match this level.',
+    description: 'VMA-01 green person — current performance winner.',
   },
   {
     href: '/ideas.html',
-    label: 'New Ad Ideas',
+    label: 'Concept Review',
     id: 'ideas',
-    description: '15–20 concepts to test for demo sign-ups.',
+    description: 'Thumbs up/down on experiments — not production downloads.',
+  },
+  {
+    href: '/graphics-kit.html',
+    label: 'Component Library',
+    id: 'graphics-kit',
+    description: 'Download · inspect · copy — rebuild in your own software.',
+    teamPriority: true,
   },
   {
     href: '/vma-static.html',
-    label: 'Aspect Ratios',
+    label: 'Static Production',
     id: 'vma-static',
-    description: 'Rebuild winners in 1:1 · 4:5 · 9:16 · 1.91:1.',
-  },
-  {
-    href: '/competitors.html',
-    label: 'Competitor Wall',
-    id: 'competitors',
-    description: 'Steal energy from what works — never copy.',
+    description: 'All aspect ratios · AI drafts · deliverable filenames.',
   },
   {
     href: '/vma-video.html',
     label: 'Animated Video',
     id: 'vma-video',
-    description: 'Motion Lab — watch concepts, then produce.',
+    description: 'Make the winning static move — motion brief + exports.',
   },
   {
     href: '/vma-chatgpt.html',
-    label: 'Prompts & Copy',
+    label: 'Copy & Prompts',
     id: 'vma-chatgpt',
-    description: 'See the result · copy the prompt.',
+    description: 'Approved text · image prompts · locked vs flexible.',
+  },
+  {
+    href: '/competitors.html',
+    label: 'Competitors',
+    id: 'competitors',
+    description: 'Steal energy — never copy layouts.',
   },
   {
     href: '/vma-handoff.html',
-    label: 'Production Handoff',
+    label: 'Handoff',
     id: 'vma-handoff',
-    description: 'What to build next · how we want it done.',
+    description: 'Monday request · deliverables · QA checklist.',
   },
 ];
 
